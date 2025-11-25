@@ -1,68 +1,146 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "willow",
-  "name": "Mint Starter Kit",
+  "name": "BeatPass Documentation",
   "colors": {
-    "primary": "#111827",
-    "light": "#E5E7EB",
-    "dark": "#030712"
+    "primary": "#6366F1",
+    "light": "#818CF8",
+    "dark": "#4F46E5"
   },
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Overview",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Welcome",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
+              "index"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Platform",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "overview/about",
+              "overview/roles",
+              "overview/platform-map",
+              "overview/terminology"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "Getting Started",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Onboarding",
             "pages": [
-              "api-reference/introduction"
+              "getting-started/checklist"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "By Role",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "getting-started/artists",
+              "getting-started/producers",
+              "getting-started/curators",
+              "getting-started/listeners"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Product Guides",
+        "groups": [
+          {
+            "group": "Core Features",
+            "pages": [
+              "product-guides/uploads",
+              "product-guides/beat-requests",
+              "product-guides/releases"
+            ]
+          },
+          {
+            "group": "Business",
+            "pages": [
+              "product-guides/licensing",
+              "product-guides/payments"
+            ]
+          },
+          {
+            "group": "Collaboration",
+            "pages": [
+              "product-guides/collaboration",
+              "product-guides/messaging"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Contribution & Payouts",
+        "groups": [
+          {
+            "group": "Earnings",
+            "pages": [
+              "contribution/formula",
+              "contribution/xp-levels",
+              "contribution/eligibility",
+              "contribution/disputes"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Analytics",
+        "groups": [
+          {
+            "group": "Insights",
+            "pages": [
+              "analytics/metrics",
+              "analytics/dashboards",
+              "analytics/reporting-faq"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Changelog",
+        "groups": [
+          {
+            "group": "Updates",
+            "pages": [
+              "changelog/index",
+              "changelog/template"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API",
+        "groups": [
+          {
+            "group": "Reference",
+            "pages": [
+              "api/overview",
+              "api/auth",
+              "api/webhooks",
+              "api/rate-limits"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Support",
+        "groups": [
+          {
+            "group": "Help",
+            "pages": [
+              "support/faq",
+              "support/troubleshooting",
+              "support/contact",
+              "support/status",
+              "support/policies"
             ]
           }
         ]
@@ -71,14 +149,14 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "Platform",
+          "href": "https://open.beatpass.ca",
+          "icon": "music"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "Status",
+          "href": "https://status.beatpass.ca",
+          "icon": "signal"
         }
       ]
     }
@@ -91,32 +169,25 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:contact@beatpass.ca"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Open BeatPass",
+      "href": "https://open.beatpass.ca"
     }
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view"
+    ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/beatpasswav",
+      "instagram": "https://instagram.com/beatpass.wav"
     }
   }
 }
