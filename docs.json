@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "willow",
+  "theme": "mint",
   "name": "BeatPass Documentation",
   "colors": {
     "primary": "#6366F1",
