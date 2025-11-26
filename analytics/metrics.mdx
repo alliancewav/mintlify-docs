@@ -1,15 +1,17 @@
 ---
-title: "Metric Definitions"
-description: "Understanding the metrics and data points tracked by BeatPass analytics."
+title: "Metric Definitions | BeatPass"
+description: "Understanding the metrics and data points tracked by BeatPass analytics. Learn about plays, completions, contribution value, quality scores, and audience demographics."
+keywords: ["analytics metrics", "play count", "completion rate", "contribution value", "producer analytics", "beat performance"]
+"og:title": "Metric Definitions - BeatPass Analytics"
+"og:description": "Understanding the metrics and data points tracked by BeatPass analytics."
+"twitter:card": "summary_large_image"
 ---
 
-## Overview
-
-BeatPass tracks various metrics to help producers understand their performance and earnings. This guide defines each metric and explains how it's calculated.
-
 <Info>
-  **Audience:** Producers
+  **Audience**: Producers with backstage access. View your metrics in **Backstage → Insights**.
 </Info>
+
+BeatPass tracks various metrics to help you understand performance and optimize earnings. This guide defines each metric and explains how it's calculated.
 
 ---
 
@@ -19,11 +21,17 @@ BeatPass tracks various metrics to help producers understand their performance a
 
 **Definition:** The total number of times your tracks have been streamed.
 
-| Type | Definition |
-|------|------------|
-| Total Plays | All streaming events |
-| Unique Plays | Distinct users who played |
-| Repeat Plays | Same user playing again |
+<CardGroup cols={3}>
+  <Card title="Total Plays" icon="play">
+    All streaming events, regardless of user or duration.
+  </Card>
+  <Card title="Unique Plays" icon="user">
+    Distinct users who played your tracks. One per user per track per day.
+  </Card>
+  <Card title="Repeat Plays" icon="rotate">
+    Same user playing again. Indicates sticky, replayable content.
+  </Card>
+</CardGroup>
 
 ### Completions
 
@@ -41,12 +49,20 @@ BeatPass tracks various metrics to help producers understand their performance a
 Completion Rate = (Completions / Total Plays) × 100
 ```
 
-| Rating | Range |
-|--------|-------|
-| Excellent | 70%+ |
-| Good | 50-70% |
-| Average | 30-50% |
-| Low | Below 30% |
+<Steps>
+  <Step title="Excellent (70%+)">
+    Outstanding engagement. Your tracks hold attention exceptionally well.
+  </Step>
+  <Step title="Good (50-70%)">
+    Above average. Most tracks fall into this healthy range.
+  </Step>
+  <Step title="Average (30-50%)">
+    Room for improvement. Consider track length, intro hooks, or genre fit.
+  </Step>
+  <Step title="Low (Below 30%)">
+    Listeners are skipping early. Review audio quality, misleading tags, or overly long intros.
+  </Step>
+</Steps>
 
 ### Saves
 
@@ -92,12 +108,24 @@ Save Rate = (Saves / Unique Plays) × 100
 
 **Definition:** Composite score based on metadata completeness and audio quality.
 
-| Factor | Impact |
-|--------|--------|
-| Complete metadata | Positive |
-| High audio bitrate | Positive |
-| Cover art present | Positive |
-| Missing BPM/Key | Negative |
+<CardGroup cols={2}>
+  <Card title="Positive Factors" icon="circle-check">
+    - Complete metadata (title, BPM, key, genre)
+    - High audio bitrate (320kbps+ or lossless)
+    - Cover art uploaded
+    - Accurate tags and description
+  </Card>
+  <Card title="Negative Factors" icon="circle-xmark">
+    - Missing BPM or key information
+    - Low audio bitrate (under 256kbps)
+    - No cover art
+    - Sparse or missing tags
+  </Card>
+</CardGroup>
+
+<Tip>
+  A high Quality Score improves your tracks' visibility in search results and recommendations. Always fill out complete metadata.
+</Tip>
 
 ---
 
@@ -105,13 +133,19 @@ Save Rate = (Saves / Unique Plays) × 100
 
 ### Listener Demographics
 
-Where available, see breakdowns of your audience:
+Understand your audience composition:
 
-| Metric | Description |
-|--------|-------------|
-| Geographic | Top listening regions |
-| Platform | Web vs mobile |
-| Source | How listeners found your tracks |
+<AccordionGroup>
+  <Accordion title="Geographic" icon="globe">
+    See which countries and regions your listeners come from. Useful for targeting marketing efforts and understanding your fanbase.
+  </Accordion>
+  <Accordion title="Platform" icon="laptop-mobile">
+    Breakdown of web vs mobile listeners. Optimize your presence where your audience is.
+  </Accordion>
+  <Accordion title="Source" icon="magnifying-glass">
+    How listeners discovered your tracks: search, playlists, recommendations, direct links, or external sources.
+  </Accordion>
+</AccordionGroup>
 
 ### Follower Count
 
@@ -135,15 +169,20 @@ Growth Rate = (New Followers - Lost Followers) / Previous Total × 100
 
 ### Per-Track Analytics
 
-Each track shows:
+Each track in your catalog shows detailed performance data:
 
-| Metric | Description |
-|--------|-------------|
-| Total Plays | Lifetime stream count |
-| Completions | Full listens |
-| Saves | Library additions |
-| Peak Day | Highest single-day plays |
-| Trend | Rising, stable, or declining |
+<CardGroup cols={2}>
+  <Card title="Engagement Stats" icon="chart-simple">
+    - **Total Plays**: Lifetime stream count
+    - **Completions**: Full listens (80%+)
+    - **Saves**: Library additions
+  </Card>
+  <Card title="Performance Trends" icon="chart-line">
+    - **Peak Day**: Highest single-day plays
+    - **Trend**: Rising ↑, Stable →, or Declining ↓
+    - **Velocity**: Rate of change vs previous period
+  </Card>
+</CardGroup>
 
 ### Track Performance Score
 
@@ -161,23 +200,39 @@ Exact weights are not disclosed to prevent gaming.
 
 ### Time Periods
 
-Analytics can be viewed across:
+Select the timeframe that matches your analysis goal:
 
-| Period | Use Case |
-|--------|----------|
-| 24 Hours | Immediate performance |
-| 7 Days | Weekly trends |
-| 30 Days | Monthly performance |
-| 90 Days | Quarterly analysis |
-| Lifetime | Overall performance |
+<Steps>
+  <Step title="24 Hours">
+    **Immediate performance** — See real-time impact of new releases or promotions.
+  </Step>
+  <Step title="7 Days">
+    **Weekly trends** — Identify day-of-week patterns and short-term momentum.
+  </Step>
+  <Step title="30 Days">
+    **Monthly performance** — Standard view for tracking growth and contribution earnings.
+  </Step>
+  <Step title="90 Days">
+    **Quarterly analysis** — Spot longer-term trends and seasonal patterns.
+  </Step>
+  <Step title="Lifetime">
+    **Overall performance** — Total career stats since joining BeatPass.
+  </Step>
+</Steps>
 
 ### Trend Indicators
 
-| Indicator | Meaning |
-|-----------|---------|
-| Rising | Metric increasing vs previous period |
-| Stable | Metric relatively unchanged |
-| Declining | Metric decreasing vs previous period |
+<CardGroup cols={3}>
+  <Card title="Rising ↑" icon="arrow-trend-up">
+    Metric increasing vs previous period. Momentum is building.
+  </Card>
+  <Card title="Stable →" icon="minus">
+    Metric relatively unchanged. Consistent performance.
+  </Card>
+  <Card title="Declining ↓" icon="arrow-trend-down">
+    Metric decreasing. May need attention or is natural decay.
+  </Card>
+</CardGroup>
 
 ---
 
@@ -213,13 +268,32 @@ Analytics can be viewed across:
 
 ### Update Frequency
 
-| Metric | Update Frequency |
-|--------|------------------|
-| Plays/Completions | Near real-time |
-| Contribution Value | Hourly |
-| Audience Data | Daily |
-| Rankings | Every 4 hours |
-| Monthly Totals | End of month |
+Different metrics refresh at different intervals:
+
+<AccordionGroup>
+  <Accordion title="Real-time (seconds)" icon="bolt" defaultOpen>
+    - Play counts
+    - Completion events
+    - Save actions
+  </Accordion>
+  <Accordion title="Hourly" icon="clock">
+    - Contribution value calculation
+    - Estimated earnings
+  </Accordion>
+  <Accordion title="Every 4 hours" icon="ranking-star">
+    - Leaderboard rankings
+    - Tier progress
+  </Accordion>
+  <Accordion title="Daily" icon="calendar-day">
+    - Audience demographics
+    - Geographic data
+    - Source attribution
+  </Accordion>
+  <Accordion title="Monthly" icon="calendar">
+    - Final payout calculations
+    - Official contribution totals
+  </Accordion>
+</AccordionGroup>
 
 ---
 

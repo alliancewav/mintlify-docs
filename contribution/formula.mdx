@@ -39,62 +39,108 @@ C = Time Decay × Popularity Boost × Collaboration Split
 
 ### Formula Components
 
-| Component | Formula | Description |
-|-----------|---------|-------------|
-| **Time Decay** | `exp(-(ln(2)/6) × Δt)` | Decays over time with a 6-month half-life |
-| **Popularity Boost** | `1 + 2 × (log₁₀(1+P) / (log₁₀(1+P)+1))` | Scales from 1× to 3× based on plays |
-| **Collaboration Split** | `1 / Np` | Divides contribution among credited producers |
-
-### Variables Explained
-
-| Variable | Meaning |
-|----------|---------|
-| **Δt** | Months since the track was uploaded |
-| **P** | Total number of plays/streams |
-| **Np** | Number of producers credited on the track |
+<AccordionGroup>
+  <Accordion title="Time Decay" icon="clock" defaultOpen>
+    **Formula**: `exp(-(ln(2)/6) × Δt)`
+    
+    Tracks naturally decay over time with a **6-month half-life**. This ensures newer content stays competitive while older catalog still earns.
+    
+    - **Δt** = Months since upload
+    - After 6 months → 50% value
+    - After 12 months → 25% value
+  </Accordion>
+  
+  <Accordion title="Popularity Boost" icon="fire">
+    **Formula**: `1 + 2 × (log₁₀(1+P) / (log₁₀(1+P)+1))`
+    
+    A logarithmic curve that rewards popular tracks while preventing dominance. Scales from **1× to 3×** based on total plays.
+    
+    - **P** = Total plays/streams
+    - Uses logarithmic scaling (diminishing returns)
+    - Maximum boost caps at 3×
+  </Accordion>
+  
+  <Accordion title="Collaboration Split" icon="users">
+    **Formula**: `1 / Np`
+    
+    When multiple producers are credited, contribution divides equally among them.
+    
+    - **Np** = Number of credited producers
+    - Solo track = 100%
+    - 2 producers = 50% each
+  </Accordion>
+</AccordionGroup>
 
 ---
 
 ## How Each Factor Works
 
-### Time Decay (6-Month Half-Life)
+### Time Decay Curve
 
-Newer tracks contribute more than older ones. After 6 months, a track's time decay factor is 50%. After 12 months, it's 25%.
+Newer tracks contribute more than older ones—but your catalog never stops earning entirely.
 
-| Months Since Upload | Time Decay Factor |
-|--------------------|-------------------|
-| 0 (new) | 100% |
-| 3 | ~71% |
-| 6 | 50% |
-| 12 | 25% |
-| 24 | 6.25% |
+<Steps>
+  <Step title="Fresh (0-3 months)">
+    **100% → 71%** — Maximum contribution window. New releases have the strongest earning potential.
+  </Step>
+  <Step title="Established (3-6 months)">
+    **71% → 50%** — Still strong earners. This is when a track proves its staying power.
+  </Step>
+  <Step title="Catalog (6-12 months)">
+    **50% → 25%** — Reduced but steady. High-quality tracks continue earning passively.
+  </Step>
+  <Step title="Legacy (12+ months)">
+    **25% → lower** — Long-tail earnings. A large catalog accumulates meaningful value.
+  </Step>
+</Steps>
 
 <Tip>
-  Consistent uploads help maintain your contribution value as older tracks naturally decay.
+  **Strategy**: Consistent uploads help maintain your contribution value. Aim for 2-4 quality releases per month to keep your fresh track pipeline full.
 </Tip>
 
-### Popularity Boost (1× to 3×)
+### Popularity Boost Curve
 
-Tracks with more plays receive a logarithmic boost, rewarding popular content while preventing runaway dominance.
+Tracks with more plays receive a logarithmic boost—rewarding success without letting mega-hits dominate everything.
 
-| Plays | Boost Multiplier |
-|-------|-----------------|
-| 0 | 1.0× |
-| 10 | ~1.8× |
-| 100 | ~2.3× |
-| 1,000 | ~2.7× |
-| 10,000+ | ~3.0× (max) |
+<Steps>
+  <Step title="Starting Out (0-100 plays)">
+    **1.0× → 2.3×** — Quick initial boost rewards early traction.
+  </Step>
+  <Step title="Growing (100-1,000 plays)">
+    **2.3× → 2.7×** — Steady gains as your track proves its appeal.
+  </Step>
+  <Step title="Popular (1,000-10,000 plays)">
+    **2.7× → 3.0×** — Approaching maximum boost.
+  </Step>
+  <Step title="Viral (10,000+ plays)">
+    **3.0× (max)** — Cap ensures no single track dominates the pool.
+  </Step>
+</Steps>
 
-### Collaboration Split
+<Info>
+  The logarithmic curve means **your first 100 plays matter more than your next 1,000**. Focus on quality and discoverability over chasing viral numbers.
+</Info>
 
-When multiple producers are credited, the contribution is divided equally among them.
+### Collaboration Economics
 
-| Producers | Each Receives |
-|-----------|--------------|
-| 1 (solo) | 100% |
-| 2 | 50% each |
-| 3 | 33% each |
-| 4 | 25% each |
+When multiple producers collaborate, contribution splits equally—but strategic collaborations can actually boost total earnings:
+
+<CardGroup cols={2}>
+  <Card title="Solo Track" icon="user">
+    **100%** of contribution value
+    
+    Full earnings, but limited to your audience reach.
+  </Card>
+  <Card title="Collaboration" icon="users">
+    **50-33%** each (split by producers)
+    
+    Lower per-person share, but combined audiences may generate more total plays—and the popularity boost can offset the split.
+  </Card>
+</CardGroup>
+
+<Tip>
+  **When to collaborate**: If your collaborator brings a significantly larger audience, the popularity boost from their reach can make your 50% share worth more than 100% of a solo track.
+</Tip>
 
 ---
 
@@ -142,22 +188,30 @@ Producer A Payout = (250 / 5,000) × $10,000 = $500
 
 ### Direct Sales vs Contribution
 
-| Revenue Type | How It Works | Example |
-|--------------|--------------|---------|
-| **License sale** | You set price, keep the sale amount | $150 beat → You receive $150 |
-| **Contribution** | Share of subscription pool | 5% share of $10K → $500/month |
+BeatPass offers two distinct revenue streams. Smart producers leverage both:
 
-**When each is better:**
+<CardGroup cols={2}>
+  <Card title="License Sales" icon="money-bill">
+    **You set the price, you keep it all**
+    
+    - Immediate payout when sold
+    - Works best for premium/exclusive beats
+    - Great for established brands
+    - Example: $150 beat → $150 to you
+  </Card>
+  <Card title="Contribution Earnings" icon="chart-line">
+    **Passive income from streaming**
+    
+    - Monthly recurring revenue
+    - Works best for high-volume catalogs
+    - Rewards engagement quality
+    - Example: 5% of $10K pool → $500/month
+  </Card>
+</CardGroup>
 
-| License Sales Better | Contribution Better |
-|---------------------|---------------------|
-| High-priced exclusives | High-volume catalog |
-| Niche/premium market | Consistent streaming engagement |
-| One-time large payouts | Recurring passive income |
-
-<Note>
-  Most successful producers earn from **both** streams: direct license sales for immediate revenue and contribution earnings for ongoing passive income.
-</Note>
+<Tip>
+  **Best strategy**: Use contribution earnings as your baseline income, and license sales for bonus payouts. A producer with 50 active tracks earning $200/month in contribution **plus** 2-3 license sales at $100-300 each has diversified, stable income.
+</Tip>
 
 ---
 

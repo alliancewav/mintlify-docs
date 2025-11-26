@@ -1,11 +1,17 @@
 ---
-title: "Troubleshooting"
-description: "Solutions to common issues on BeatPass."
+title: "Troubleshooting | BeatPass"
+description: "Solutions to common issues on BeatPass including audio playback, uploads, account access, payments, and error codes. Quick fixes for technical problems."
+keywords: ["troubleshooting", "fix issues", "audio not playing", "upload failed", "payment declined", "error codes"]
+"og:title": "Troubleshooting - BeatPass Help Center"
+"og:description": "Solutions to common issues on BeatPass."
+"twitter:card": "summary_large_image"
 ---
 
-## Overview
+<Info>
+  **Quick tip**: Most issues are resolved by clearing your browser cache and refreshing. Try that first!
+</Info>
 
-This guide helps resolve common technical issues. If your problem isn't covered here, contact support.
+This guide helps resolve common technical issues. If your problem isn't covered here, [contact support](/support/contact).
 
 ---
 
@@ -37,11 +43,36 @@ This guide helps resolve common technical issues. If your problem isn't covered 
 
 ### Audio Quality Issues
 
-| Issue | Solution |
-|-------|----------|
-| Choppy playback | Check internet connection, lower quality if streaming |
-| Distortion | Report to support with track ID |
-| Wrong audio | Clear cache and refresh; report if persists |
+<AccordionGroup>
+  <Accordion title="Choppy or buffering playback" icon="wifi">
+    **Cause**: Slow or unstable internet connection.
+    
+    **Solutions**:
+    - Test your connection speed at [fast.com](https://fast.com)
+    - Move closer to your WiFi router
+    - Switch to a wired connection if possible
+    - Close other bandwidth-heavy applications
+  </Accordion>
+  
+  <Accordion title="Distorted or corrupted audio" icon="volume-xmark">
+    **Cause**: Usually a source file issue or processing error.
+    
+    **Solutions**:
+    - Refresh the page and try again
+    - Try a different browser
+    - If you're the producer: re-upload from the original source file
+    - [Report to support](/support/contact) with the track URL
+  </Accordion>
+  
+  <Accordion title="Wrong audio playing" icon="shuffle">
+    **Cause**: Browser cache serving outdated content.
+    
+    **Solutions**:
+    - Hard refresh: `Ctrl+Shift+R` (Windows) or `Cmd+Shift+R` (Mac)
+    - Clear browser cache completely
+    - Try incognito/private browsing mode
+  </Accordion>
+</AccordionGroup>
 
 ---
 
@@ -186,13 +217,62 @@ If your account is restricted:
 
 ## Error Codes
 
-| Code | Meaning | Solution |
-|------|---------|----------|
-| 400 | Bad request | Check your input data |
-| 401 | Not authorized | Log in or refresh session |
-| 403 | Forbidden | You don't have permission |
-| 404 | Not found | Content doesn't exist |
-| 500 | Server error | Wait and retry; report if persistent |
+<AccordionGroup>
+  <Accordion title="400 - Bad Request" icon="circle-xmark">
+    **Meaning**: The server couldn't understand your request.
+    
+    **Common causes**:
+    - Invalid characters in form fields
+    - Incomplete required data
+    - File format not supported
+    
+    **Fix**: Check your input and try again. Ensure all required fields are filled correctly.
+  </Accordion>
+  
+  <Accordion title="401 - Not Authorized" icon="lock">
+    **Meaning**: You need to be logged in.
+    
+    **Common causes**:
+    - Session expired
+    - Not logged in
+    - Token refresh needed
+    
+    **Fix**: Log out, clear cookies, and log back in.
+  </Accordion>
+  
+  <Accordion title="403 - Forbidden" icon="ban">
+    **Meaning**: You don't have permission to access this.
+    
+    **Common causes**:
+    - Trying to access another user's private content
+    - Feature requires subscription upgrade
+    - Account restrictions
+    
+    **Fix**: Check your account status and permissions. Contact support if you believe this is an error.
+  </Accordion>
+  
+  <Accordion title="404 - Not Found" icon="ghost">
+    **Meaning**: The page or content doesn't exist.
+    
+    **Common causes**:
+    - Content was deleted or removed
+    - Broken or outdated link
+    - Typo in URL
+    
+    **Fix**: Check the URL. If you followed a link, the content may have been removed.
+  </Accordion>
+  
+  <Accordion title="500 - Server Error" icon="server">
+    **Meaning**: Something went wrong on our end.
+    
+    **Common causes**:
+    - Temporary server issues
+    - Maintenance in progress
+    - Unexpected bug
+    
+    **Fix**: Wait a minute and try again. Check [status.beatpass.ca](https://status.beatpass.ca) for known issues. Report if persistent.
+  </Accordion>
+</AccordionGroup>
 
 ---
 

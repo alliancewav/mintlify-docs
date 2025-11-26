@@ -1,6 +1,10 @@
 ---
-title: "Beat Requests"
-description: "How to post and respond to beat requests on BeatPass."
+title: "Beat Requests | BeatPass"
+description: "How to post and respond to beat requests on BeatPass. Connect with producers for custom beats or find artists looking for your sound."
+keywords: ["beat requests", "custom beats", "find producers", "commission beats", "beat marketplace"]
+"og:title": "Beat Requests - BeatPass Help Center"
+"og:description": "How to post and respond to beat requests on BeatPass."
+"twitter:card": "summary_large_image"
 ---
 
 ## Overview
@@ -38,15 +42,13 @@ Beat Requests are ideal when:
   <Step title="Describe Your Needs">
     Be specific about what you're looking for:
     
-    | Field | Guidance |
-    |-------|----------|
-    | Title | Short, descriptive name |
-    | Genre | Primary style you need |
-    | BPM Range | Tempo requirements |
-    | Mood | Emotional tone |
-    | Description | Detailed explanation |
-    | Reference | Links to similar tracks |
-    | Budget | Optional but helpful |
+    - **Title**: Short, descriptive name (e.g., "Dark Melodic Trap Beat")
+    - **Genre**: Primary style (Trap, R&B, Drill, etc.)
+    - **BPM Range**: Tempo requirements (e.g., 140-150)
+    - **Mood**: Emotional tone (dark, uplifting, aggressive, etc.)
+    - **Description**: Detailed explanation of what you need
+    - **Reference**: Links to similar tracks for context
+    - **Budget**: Optional but helps filter serious producers
   </Step>
   
   <Step title="Set Visibility">
@@ -145,12 +147,20 @@ Browse requests that match your style:
   Personalize your message. Generic responses like "Check this out" are less effective than explaining why your beat matches their description.
 </Tip>
 
-| Do | Don't |
-|-----|-------|
-| Reference their specific requirements | Send unrelated beats |
-| Explain how your beat fits | Copy-paste the same message |
-| Be open to negotiation | Ignore their budget range |
-| Respond promptly | Wait days to reply |
+<CardGroup cols={2}>
+  <Card title="Do" icon="circle-check">
+    - Reference their specific requirements
+    - Explain how your beat fits their vision
+    - Be open to negotiation
+    - Respond promptly (within hours, not days)
+  </Card>
+  <Card title="Don't" icon="circle-xmark">
+    - Send unrelated beats
+    - Copy-paste the same generic message
+    - Ignore their budget range
+    - Wait days to reply
+  </Card>
+</CardGroup>
 
 ---
 
@@ -180,10 +190,22 @@ Browse requests that match your style:
 
 Beat requests have only two possible states:
 
-| State | Description | Artist Action | Producer Action |
-|-------|-------------|---------------|----------------|
-| **Active** | Accepting responses (first 24 hours) | Edit or wait | Submit response |
-| **Expired** | 24 hours passed | Create new request | Find other requests |
+<CardGroup cols={2}>
+  <Card title="Active" icon="clock">
+    **Accepting responses** (first 24 hours)
+    
+    - Artists can edit or wait for responses
+    - Producers can submit matching beats
+    - All verified producers received notification
+  </Card>
+  <Card title="Expired" icon="hourglass-end">
+    **24 hours passed**
+    
+    - Artists can create a new request
+    - Producers should find other active requests
+    - History remains viewable for reference
+  </Card>
+</CardGroup>
 
 <Note>
   There are no "Fulfilled" or "Closed" states. Requests are either active (accepting responses) or expired. The `fulfillRequest` method does not change the request status—it only records which response was accepted.
@@ -219,12 +241,20 @@ Beat requests have only two possible states:
 
 ### Auto-Expiry Behavior
 
-| Timeline | What Happens |
-|----------|-------------|
-| Hour 0 | Request goes live; all verified producers notified |
-| Hours 1-24 | Request is active; producers can browse and respond |
-| Hour 24 | Request auto-expires |
-| After expiry | Create new request with available tokens |
+<Steps>
+  <Step title="Hour 0: Request Goes Live">
+    All verified producers receive email notification. Request is immediately visible and accepting responses.
+  </Step>
+  <Step title="Hours 1-24: Active Period">
+    Producers browse and respond. Artists review submissions and can message interested producers.
+  </Step>
+  <Step title="Hour 24: Auto-Expiry">
+    Request automatically expires. No new responses accepted. Conversations continue via messaging.
+  </Step>
+  <Step title="After Expiry">
+    Create a new request if needed (uses available tokens). Old request remains in history for reference.
+  </Step>
+</Steps>
 
 <Note>
   **No reminder notifications are sent.** The 24-hour window is enforced by `BeatRequestService::EXPIRY_HOURS = 24`. Expired requests remain in your history for reference but cannot be reopened or extended.
@@ -274,12 +304,20 @@ Beat requests are subject to rate limiting to prevent spam and ensure fair acces
 
 Beat request tokens control how many requests you can submit per month:
 
-| Plan | Monthly Tokens |
-|------|---------------|
-| Explorer (Free) | 1 |
-| Classic | 1 |
-| Plus | 3 |
-| Pro | 5 |
+<CardGroup cols={4}>
+  <Card title="Explorer" icon="compass">
+    **1** token/month
+  </Card>
+  <Card title="Classic" icon="star">
+    **1** token/month
+  </Card>
+  <Card title="Plus" icon="bolt">
+    **3** tokens/month
+  </Card>
+  <Card title="Pro" icon="crown">
+    **5** tokens/month
+  </Card>
+</CardGroup>
 
 Tokens reset on the **first day of each calendar month (UTC)**. Unused tokens do not carry over.
 
