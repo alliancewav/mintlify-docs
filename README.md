@@ -98,6 +98,55 @@ When platform features change:
 3. **UI changes**: Update screenshots and step-by-step guides
 4. **Removed features**: Remove documentation and add deprecation notes
 
+## How to Contribute Safely
+
+### DO NOT Include
+
+The following must **never** appear in documentation:
+
+| Category | Examples |
+|----------|----------|
+| **Secrets** | API keys, webhook secrets, database credentials |
+| **Internal URLs** | Admin panel paths, staff-only endpoints |
+| **Admin tooling** | Moderation tools, fraud detection details |
+| **Debug endpoints** | Test routes, development-only APIs |
+| **Rate limit thresholds** | Exact abuse detection limits |
+| **User data** | Real user IDs, emails, or personal information |
+
+### Safe Documentation Practices
+
+<details>
+<summary>Checklist before committing</summary>
+
+- [ ] No hardcoded secrets or API keys
+- [ ] No internal/admin endpoint paths
+- [ ] No real user data in examples (use placeholders)
+- [ ] No fraud detection or security bypass details
+- [ ] Examples use generic IDs like `123`, `{id}`, `{uuid}`
+- [ ] Webhook secrets shown as `your-webhook-secret`
+- [ ] Changelog entry added for significant changes
+
+</details>
+
+### Changelog Requirements
+
+Every feature or documentation change should include a changelog entry:
+
+1. Use the [changelog template](/changelog/template)
+2. Include real dates and version numbers
+3. Note breaking changes prominently
+4. Document deprecations before removal
+5. Link to affected documentation pages
+
+### Review Process
+
+Before publishing:
+
+1. Self-review for sensitive information
+2. Test all code examples work with public APIs only
+3. Verify links resolve correctly
+4. Check that examples use placeholder data
+
 ## Deployment
 
 Documentation is automatically deployed when changes are pushed to the main branch via Mintlify's GitHub integration.

@@ -5,11 +5,19 @@ description: "Introduction to the BeatPass API for first-party application devel
 
 ## Overview
 
-The BeatPass API powers the platform's frontend and is available for authenticated users. This is a **first-party API** designed for the BeatPass web and mobile applications—not a public developer API.
+The BeatPass API powers the platform's frontend. This is a **first-party API** designed exclusively for BeatPass web and mobile applications.
 
 <Warning>
-  This API is for internal BeatPass applications only. There is no public developer program or third-party API access at this time.
+  **First-Party Only** — BeatPass does not offer a public developer API or third-party integrations. All endpoints documented here are for the official BeatPass application.
 </Warning>
+
+### Integration Requests
+
+If you're interested in integrating with BeatPass (partnerships, data licensing, embedded players), contact support to discuss options. Do not attempt to use undocumented endpoints or scrape platform data.
+
+<Card title="Partnership Inquiries" icon="handshake" href="/support/contact">
+  Contact support for integration discussions.
+</Card>
 
 ---
 
@@ -198,6 +206,31 @@ See [Rate Limits](/api/rate-limits) for complete details.
 BeatPass receives **inbound webhooks** from Stripe for payment processing. There is no outbound webhook system for external integrations.
 
 See [Webhooks](/api/webhooks) for Stripe webhook details.
+
+---
+
+## What's Not Covered
+
+This documentation covers **user-facing endpoints only**. The following are intentionally excluded:
+
+### Not Documented
+
+| Category | Reason |
+|----------|--------|
+| **Admin endpoints** | Staff-only routes for platform management |
+| **Internal analytics** | Backend reporting and metrics collection |
+| **Fraud detection** | Security-sensitive rate limits and patterns |
+| **Webhook secrets** | Stripe signing secrets and internal tokens |
+| **Debug endpoints** | Development and testing routes |
+| **Infrastructure** | Queue workers, cache management, health checks |
+
+### Security Notice
+
+<Warning>
+  Attempting to access undocumented admin or internal endpoints without authorization is a violation of terms of service and may result in account termination.
+</Warning>
+
+If you discover an undocumented endpoint that appears to be a security concern, please report it responsibly to security@beatpass.ca.
 
 ---
 

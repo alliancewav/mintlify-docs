@@ -79,6 +79,53 @@ All purchase endpoints require authentication.
   </Step>
 </Steps>
 
+### Purchase Examples
+
+#### Calculate Price Request
+
+```http
+POST /api/v1/tracks/123/purchase/calculate-price
+Content-Type: application/json
+
+{
+  "license_type": "non_exclusive"
+}
+```
+
+#### Calculate Price Response
+
+```json
+{
+  "base_price": 2999,
+  "platform_fee": 450,
+  "processing_fee": 117,
+  "total": 3566,
+  "currency": "usd",
+  "artist_receives": 2432
+}
+```
+
+#### Initiate Purchase Response
+
+```json
+{
+  "client_secret": "pi_1234_secret_5678",
+  "payment_intent_id": "pi_1234",
+  "amount": 3566,
+  "currency": "usd"
+}
+```
+
+### Purchase Error Cases
+
+| Error | HTTP Code | Cause |
+|-------|-----------|-------|
+| `track_not_for_sale` | 400 | Track doesn't have pricing configured |
+| `already_purchased` | 400 | User already owns this license |
+| `exclusive_sold` | 400 | Exclusive license already purchased by another user |
+| `artist_not_onboarded` | 400 | Artist hasn't completed Stripe Connect setup |
+| `payment_failed` | 402 | Stripe payment processing failed |
+
 ---
 
 ## License Certificates
@@ -91,6 +138,47 @@ All purchase endpoints require authentication.
 | GET | `/verify-license/{uuid}` | 🔓 | Public license verification |
 | POST | `/licenses/{uuid}/revoke` | 🔒 | Revoke a license |
 | GET | `/user/licenses` | 🔒 | List user's licenses |
+
+### License Examples
+
+#### Check License Response
+
+```json
+{
+  "has_license": true,
+  "license": {
+    "uuid": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "type": "non_exclusive",
+    "issued_at": "2025-10-15T14:30:00Z",
+    "status": "active"
+  }
+}
+```
+
+#### Public Verification Response
+
+```json
+{
+  "valid": true,
+  "license": {
+    "type": "Non-Exclusive License",
+    "track": "Midnight Chase",
+    "artist": "ProducerName",
+    "licensee": "BuyerName",
+    "issued_at": "2025-10-15",
+    "status": "active"
+  }
+}
+```
+
+### License Error Cases
+
+| Error | HTTP Code | Cause |
+|-------|-----------|-------|
+| `no_purchase` | 404 | User hasn't purchased this track |
+| `license_not_found` | 404 | License UUID doesn't exist |
+| `already_revoked` | 400 | License was already revoked |
+| `not_owner` | 403 | User doesn't own this license |
 
 ---
 

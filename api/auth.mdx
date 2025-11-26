@@ -5,115 +5,129 @@ description: "How authentication works on the BeatPass API using Laravel Sanctum
 
 ## Overview
 
-BeatPass uses **Laravel Sanctum** for API authentication. Sanctum provides a simple token-based authentication system for SPAs (single-page applications) and mobile applications.
-
-<Note>
-  BeatPass does not use OAuth or issue third-party API keys. Authentication is for first-party BeatPass applications only.
-</Note>
-
----
-
-## Authentication Methods
-
-### Session-Based (Web SPA)
-
-The BeatPass web application uses cookie-based session authentication:
-
-1. User logs in via `/login` endpoint
-2. Laravel creates an authenticated session
-3. Subsequent requests include session cookie
-4. CSRF protection applies to mutating requests
-
-### Token-Based (API)
-
-For direct API access, use Bearer token authentication:
-
-```http
-Authorization: Bearer YOUR_SANCTUM_TOKEN
-```
-
----
-
-## Obtaining Tokens
-
-### Web Login
-
-Users authenticate through the standard login flow:
-
-<Steps>
-  <Step title="Navigate to Login">
-    Go to `https://beta.beatpass.ca/login`
-  </Step>
-  
-  <Step title="Enter Credentials">
-    Provide email and password.
-  </Step>
-  
-  <Step title="Two-Factor (if enabled)">
-    Enter TOTP code from authenticator app.
-  </Step>
-  
-  <Step title="Session Created">
-    Authenticated session begins with cookie.
-  </Step>
-</Steps>
-
-### API Token Generation
-
-Sanctum tokens can be created for authenticated users:
-
-```http
-POST /api/sanctum/token
-Content-Type: application/json
-
-{
-  "email": "user@example.com",
-  "password": "your-password",
-  "device_name": "my-app"
-}
-```
-
-**Response:**
-
-```json
-{
-  "token": "1|abc123...",
-  "user": {
-    "id": 123,
-    "email": "user@example.com",
-    "display_name": "Username"
-  }
-}
-```
+BeatPass uses **Laravel Sanctum** for SPA (single-page application) authentication. This is a **cookie-based session authentication** system designed for first-party frontend applications.
 
 <Warning>
-  Store tokens securely. Never expose them in client-side code, URLs, or logs.
+  BeatPass does not issue API tokens or support third-party integrations. This API is for the BeatPass web application only.
 </Warning>
 
 ---
 
-## Using Tokens
+## Authentication Model
 
-### Bearer Token Header
+BeatPass uses **stateful SPA authentication**:
 
-Include the token in the Authorization header:
+| Aspect | Implementation |
+|--------|----------------|
+| Method | Cookie-based sessions |
+| CSRF | Required for state-changing requests |
+| Tokens | Not issued (no `/sanctum/token` endpoint) |
+| Third-party | Not supported |
 
-```bash
-curl -X GET "https://beta.beatpass.ca/api/v1/user-profile/123" \
-  -H "Accept: application/json" \
-  -H "Authorization: Bearer 1|abc123..."
-```
+---
 
-### Example Authenticated Request
+## SPA Authentication Flow
+
+The BeatPass frontend authenticates using Sanctum's SPA authentication:
+
+<Steps>
+  <Step title="Get CSRF Cookie">
+    Before login, request a CSRF cookie:
+    ```http
+    GET /sanctum/csrf-cookie
+    ```
+    This sets the `XSRF-TOKEN` cookie.
+  </Step>
+  
+  <Step title="Submit Login">
+    POST credentials with the CSRF token:
+    ```http
+    POST /login
+    Content-Type: application/json
+    X-XSRF-TOKEN: {token-from-cookie}
+    
+    {
+      "email": "user@example.com",
+      "password": "your-password"
+    }
+    ```
+  </Step>
+  
+  <Step title="Handle 2FA (if enabled)">
+    If 2FA is enabled, you'll receive a `two_factor: true` response.
+    Submit the TOTP code:
+    ```http
+    POST /two-factor-challenge
+    
+    { "code": "123456" }
+    ```
+  </Step>
+  
+  <Step title="Session Established">
+    On success, a session cookie is set. All subsequent requests include this cookie automatically.
+  </Step>
+</Steps>
+
+---
+
+## CSRF Protection
+
+<Warning>
+  All state-changing requests (POST, PUT, DELETE) require CSRF protection.
+</Warning>
+
+### How CSRF Works
+
+1. **Cookie:** Sanctum sets an `XSRF-TOKEN` cookie (URL-encoded)
+2. **Header:** Include the decoded token in `X-XSRF-TOKEN` header
+3. **Verification:** Laravel verifies the header matches the cookie
+
+### JavaScript Example
 
 ```javascript
-const response = await fetch('https://beta.beatpass.ca/api/v1/purchases', {
-  headers: {
-    'Accept': 'application/json',
-    'Authorization': `Bearer ${token}`
-  }
-});
+// Read CSRF token from cookie
+function getCsrfToken() {
+  const cookie = document.cookie
+    .split('; ')
+    .find(row => row.startsWith('XSRF-TOKEN='));
+  return cookie ? decodeURIComponent(cookie.split('=')[1]) : null;
+}
+
+// Make authenticated request
+async function apiPost(url, data) {
+  const response = await fetch(url, {
+    method: 'POST',
+    credentials: 'include', // Include cookies
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'X-XSRF-TOKEN': getCsrfToken()
+    },
+    body: JSON.stringify(data)
+  });
+  return response.json();
+}
 ```
+
+### Axios Configuration
+
+```javascript
+// Axios automatically handles XSRF-TOKEN cookies
+axios.defaults.withCredentials = true;
+axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+```
+
+---
+
+## Stateful Domains
+
+Sanctum only allows cookie authentication from configured domains:
+
+```
+localhost, localhost:3000, 127.0.0.1, beta.beatpass.ca
+```
+
+Requests from other domains will not receive authenticated sessions.
 
 ---
 

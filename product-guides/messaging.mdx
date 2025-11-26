@@ -154,6 +154,41 @@ If you receive inappropriate messages:
 
 ---
 
+## Rate Limits & Abuse Controls
+
+### Throttling
+
+Messaging endpoints are subject to platform-wide rate limiting:
+
+- Standard API rate limits apply to all messaging endpoints
+- No explicit per-message throttle beyond platform defaults
+- Excessive requests may trigger temporary rate limiting
+
+### Spam Prevention
+
+BeatPass implements several spam prevention measures:
+
+| Control                  | Description                                               |
+| ------------------------ | --------------------------------------------------------- |
+| **User blocking**        | Block users to prevent incoming messages                  |
+| **Report function**      | Report inappropriate messages to moderators               |
+| **Account verification** | Email verification required to send messages              |
+| **New account limits**   | Very new accounts may have reduced messaging capabilities |
+
+### Abuse Reporting
+
+If you receive spam or inappropriate messages:
+
+1. Use the **Report** function on the message
+2. Block the user if harassment continues
+3. Contact support for serious violations
+
+<Warning>
+  Violations of messaging guidelines may result in account restrictions or termination. This includes spam, harassment, solicitation of illegal activities, or attempting to circumvent platform purchase flows.
+</Warning>
+
+---
+
 ## Next Steps
 
 <CardGroup cols={2}>
