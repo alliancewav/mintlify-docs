@@ -1,0 +1,288 @@
+---
+title: "Sharing & Embedding"
+description: "How to share your beats and embed players on external websites."
+---
+
+## Overview
+
+BeatPass provides tools to share your beats and embed players on websites, blogs, and social media. Expand your reach beyond the platform.
+
+<Info>
+  **Audience:** Producers
+</Info>
+
+---
+
+## Sharing Options
+
+### Direct Links
+
+Every track has a shareable URL:
+
+```
+https://beta.beatpass.ca/track/{track-id}/{track-slug}
+```
+
+**How to Get It:**
+1. Open your track page
+2. Click the **Share** button
+3. Copy the link
+
+### Social Sharing
+
+Quick share to popular platforms:
+
+| Platform | Features |
+|----------|----------|
+| Twitter/X | Auto-generates preview with track info |
+| Facebook | Rich preview with artwork and player |
+| Instagram | Share link in bio or stories |
+| WhatsApp | Direct message sharing |
+
+---
+
+## Embedding Beats
+
+### Basic Embed
+
+Embed a player on any website:
+
+```html
+<iframe 
+  src="https://beta.beatpass.ca/embed/track/{track-id}"
+  width="100%"
+  height="152"
+  frameborder="0"
+  allow="autoplay"
+></iframe>
+```
+
+### Embed Sizes
+
+| Size | Dimensions | Best For |
+|------|------------|----------|
+| Compact | 100% × 80px | Minimal integration |
+| Standard | 100% × 152px | Most use cases |
+| Visual | 100% × 300px | Featured showcases |
+
+### Customization Options
+
+Add parameters to customize appearance:
+
+```
+?theme=dark       # Dark theme
+?theme=light      # Light theme
+?autoplay=false   # Disable autoplay
+?color=6366f1     # Custom accent color (hex)
+```
+
+**Example with Options:**
+
+```html
+<iframe 
+  src="https://beta.beatpass.ca/embed/track/123?theme=dark&color=6366f1"
+  width="100%"
+  height="152"
+  frameborder="0"
+></iframe>
+```
+
+---
+
+## Profile Embed
+
+### Embedding Your Profile
+
+Showcase your full producer profile:
+
+```html
+<iframe 
+  src="https://beta.beatpass.ca/embed/artist/{artist-id}"
+  width="100%"
+  height="400"
+  frameborder="0"
+></iframe>
+```
+
+### Playlist Embed
+
+Embed a collection of tracks:
+
+```html
+<iframe 
+  src="https://beta.beatpass.ca/embed/playlist/{playlist-id}"
+  width="100%"
+  height="400"
+  frameborder="0"
+></iframe>
+```
+
+---
+
+## Best Practices
+
+### Performance
+
+<AccordionGroup>
+  <Accordion title="Lazy Loading">
+    Use lazy loading for pages with multiple embeds:
+    ```html
+    <iframe loading="lazy" ...></iframe>
+    ```
+  </Accordion>
+  
+  <Accordion title="Responsive Design">
+    Wrap in a container for responsive sizing:
+    ```html
+    <div style="max-width: 600px;">
+      <iframe width="100%" ...></iframe>
+    </div>
+    ```
+  </Accordion>
+  
+  <Accordion title="Limit Embeds Per Page">
+    Too many embeds slow page load. Limit to 3-5 per page.
+  </Accordion>
+</AccordionGroup>
+
+### Accessibility
+
+- Include descriptive titles on iframes
+- Ensure sufficient color contrast
+- Test keyboard navigation
+
+---
+
+## Website Integration
+
+### WordPress
+
+Use the HTML block or custom HTML widget:
+
+1. Add an HTML block
+2. Paste embed code
+3. Preview and publish
+
+### Squarespace
+
+1. Add a Code block
+2. Paste embed code
+3. Apply changes
+
+### Wix
+
+1. Add HTML iframe element
+2. Paste embed URL
+3. Adjust sizing
+
+### Custom Websites
+
+Embed directly in HTML or use JavaScript:
+
+```javascript
+// Dynamic embed creation
+function embedBeatPassTrack(containerId, trackId) {
+  const iframe = document.createElement('iframe');
+  iframe.src = `https://beta.beatpass.ca/embed/track/${trackId}`;
+  iframe.width = '100%';
+  iframe.height = '152';
+  iframe.frameBorder = '0';
+  document.getElementById(containerId).appendChild(iframe);
+}
+```
+
+---
+
+## Link Shortening
+
+### BeatPass Short Links
+
+Use short links for social media:
+
+```
+https://btp.link/{code}
+```
+
+Generate short links from the Share menu on any track.
+
+### QR Codes
+
+Generate QR codes for physical promotion:
+
+1. Open track Share menu
+2. Click "QR Code"
+3. Download and use in print materials
+
+---
+
+## Analytics for Shares
+
+### Tracking Performance
+
+View share analytics in Backstage:
+
+| Metric | Description |
+|--------|-------------|
+| Share Clicks | How many times share was used |
+| Embed Views | Plays from embedded players |
+| Referral Sources | Where traffic comes from |
+
+### UTM Parameters
+
+Add tracking parameters for detailed analytics:
+
+```
+https://beta.beatpass.ca/track/123?utm_source=website&utm_campaign=promo
+```
+
+---
+
+## Terms of Use
+
+### Embedding Guidelines
+
+- Embeds must link back to BeatPass
+- Don't modify embed code to hide attribution
+- Commercial sites may embed with proper licensing
+- Don't use embeds for spam or misleading purposes
+
+### Attribution
+
+Embedded players include automatic BeatPass branding. This cannot be removed without explicit agreement.
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Embed not loading">
+    - Check for HTTPS on your site (required)
+    - Verify embed URL is correct
+    - Check for CSP restrictions
+  </Accordion>
+  
+  <Accordion title="Audio not playing">
+    - Autoplay may be blocked by browser
+    - User interaction required on some platforms
+    - Check browser audio permissions
+  </Accordion>
+  
+  <Accordion title="Sizing issues">
+    - Use percentage widths for responsiveness
+    - Set explicit heights
+    - Check container CSS
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Marketing Guide" icon="bullhorn" href="/producer-guides/marketing">
+    Promote your embedded content.
+  </Card>
+  <Card title="Analytics" icon="chart-line" href="/analytics/dashboards">
+    Track embed performance.
+  </Card>
+</CardGroup>

@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
+  "theme": "willow",
   "name": "BeatPass Documentation",
   "colors": {
     "primary": "#6366F1",
@@ -78,6 +78,19 @@
         ]
       },
       {
+        "tab": "Producer Guides",
+        "groups": [
+          {
+            "group": "Growing Your Business",
+            "pages": [
+              "producer-guides/pricing-strategy",
+              "producer-guides/marketing",
+              "producer-guides/metadata"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Contribution & Payouts",
         "groups": [
           {
@@ -105,13 +118,33 @@
         ]
       },
       {
-        "tab": "Changelog",
+        "tab": "Account",
         "groups": [
           {
-            "group": "Updates",
+            "group": "Settings",
             "pages": [
-              "changelog/index",
-              "changelog/template"
+              "account/settings",
+              "account/notifications"
+            ]
+          },
+          {
+            "group": "Security",
+            "pages": [
+              "security/account-security",
+              "security/privacy"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Legal",
+        "groups": [
+          {
+            "group": "Policies",
+            "pages": [
+              "legal/copyright",
+              "legal/content-guidelines",
+              "legal/license-terms"
             ]
           }
         ]
@@ -123,6 +156,7 @@
             "group": "Reference",
             "pages": [
               "api/overview",
+              "api/endpoints",
               "api/auth",
               "api/webhooks",
               "api/rate-limits"
@@ -144,13 +178,25 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Changelog",
+        "groups": [
+          {
+            "group": "Updates",
+            "pages": [
+              "changelog/index",
+              "changelog/template"
+            ]
+          }
+        ]
       }
     ],
     "global": {
       "anchors": [
         {
           "anchor": "Platform",
-          "href": "https://open.beatpass.ca",
+          "href": "https://beta.beatpass.ca",
           "icon": "music"
         },
         {
@@ -169,13 +215,13 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:contact@beatpass.ca"
+        "href": "mailto:support@beatpass.ca"
       }
     ],
     "primary": {
       "type": "button",
       "label": "Open BeatPass",
-      "href": "https://open.beatpass.ca"
+      "href": "https://beta.beatpass.ca"
     }
   },
   "contextual": {
@@ -186,8 +232,8 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/beatpasswav",
-      "instagram": "https://instagram.com/beatpass.wav"
+      "x": "https://x.com/beatpass",
+      "instagram": "https://instagram.com/beatpass"
     }
   }
 }
