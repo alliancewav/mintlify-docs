@@ -75,8 +75,12 @@ Always available:
 
 ### Real-Time Stream (Technical)
 
+<Warning>
+  The SSE notifications stream requires an authenticated session cookie and is restricted to first-party BeatPass applications only. Third-party clients cannot connect to this stream.
+</Warning>
+
 <Note>
-  BeatPass uses Server-Sent Events (SSE) to deliver real-time notifications to the web application. This is a first-party feature and not available for external integrations.
+  BeatPass uses Server-Sent Events (SSE) to deliver real-time notifications to the web application.
 </Note>
 
 For technical details, see [API Endpoints - Notifications](/api/endpoints#notifications-first-party-only).

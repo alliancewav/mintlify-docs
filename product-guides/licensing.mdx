@@ -59,6 +59,10 @@ Licensing determines how artists can use your beats and what rights are transfer
 - Artists wanting unique beats
 - Long-term ownership
 
+<Warning>
+  **Already Sold?** If an exclusive license has already been purchased by another user, the exclusive option will be unavailable. Non-exclusive may still be offered if the producer allows it. The API returns an `exclusive_sold` error if you attempt to purchase a sold exclusive.
+</Warning>
+
 ---
 
 ## License Terms
@@ -186,6 +190,26 @@ After purchase:
     Multiple price points capture different buyer segments.
   </Accordion>
 </AccordionGroup>
+
+### Exclusive License Presets
+
+Save time by creating reusable exclusive license configurations:
+
+<Steps>
+  <Step title="Create a Preset">
+    Go to **Backstage \> Settings \> License Presets** and create a new preset with your preferred exclusive pricing, terms, and restrictions.
+  </Step>
+  <Step title="Set as Default">
+    Mark a preset as your default to auto-apply to all new uploads.
+  </Step>
+  <Step title="Apply to Tracks">
+    When uploading, your default preset pre-fills exclusive pricing. Override per-track if needed.
+  </Step>
+</Steps>
+
+<Note>
+  Presets ensure consistent exclusive pricing across your catalog without re-entering details for each track. See [API Endpoints](/api/endpoints#exclusive-license-presets) for programmatic access.
+</Note>
 
 ---
 

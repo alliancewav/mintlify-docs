@@ -182,6 +182,39 @@ Content-Type: application/json
 
 ---
 
+## Exclusive License Presets
+
+Producers can create reusable exclusive license configurations that pre-fill pricing and terms for new tracks.
+
+| Method | Endpoint | Auth | Description |
+|--------|----------|------|-------------|
+| GET | `/exclusive-license-presets` | 🔒 | List user's presets |
+| GET | `/exclusive-license-presets/default-config` | 🔒 | Get platform default config |
+| GET | `/exclusive-license-presets/{preset}` | 🔒 | Get preset details |
+| POST | `/exclusive-license-presets` | 🔒 | Create new preset |
+| PUT | `/exclusive-license-presets/{preset}` | 🔒 | Update preset |
+| DELETE | `/exclusive-license-presets/{preset}` | 🔒 | Delete preset |
+| POST | `/exclusive-license-presets/{preset}/set-default` | 🔒 | Set as default for new tracks |
+
+### Artist Default Exclusive Config
+
+| Method | Endpoint | Auth | Description |
+|--------|----------|------|-------------|
+| GET | `/artist/exclusive-license-default` | 🔒 | Get current default config |
+| POST | `/artist/exclusive-license-default` | 🔒 | Set default exclusive config |
+
+### How Presets Work
+
+1. **Create a preset** with your preferred exclusive pricing, terms, and restrictions
+2. **Set as default** to auto-apply to all new track uploads
+3. **Override per-track** if needed when uploading or editing
+
+<Tip>
+  Use presets to ensure consistent exclusive pricing across your catalog without re-entering details for each track.
+</Tip>
+
+---
+
 ## Artists
 
 ### Core Artist Endpoints
@@ -420,6 +453,14 @@ All endpoints require authentication.
 | POST | `/users/{id}/unfollow` | 🔒 | Unfollow user |
 | GET | `/users/{id}/follow-status` | 🔓 | Check follow status |
 
+### Deprecated Endpoints
+
+<Warning>
+  **Deprecated:** `GET /users/{user}/producer-dashboard`
+  
+  This endpoint is deprecated and will be removed in a future version. Use `/producer-intelligence/dashboard` instead for producer analytics.
+</Warning>
+
 ---
 
 ## Audio Fingerprinting
@@ -496,8 +537,29 @@ event: notification
 data: {"type": "new_follower", "message": "...", "created_at": "..."}
 ```
 
+### Event Types
+
+| Event Type | Description |
+|------------|-------------|
+| `new_follower` | Someone followed your profile |
+| `track_like` | Someone liked your track |
+| `track_save` | Someone saved your track to library |
+| `message_received` | New direct message |
+| `purchase_completed` | Track license purchased |
+| `payout_processed` | Earnings payout sent |
+| `request_fulfilled` | Beat request you posted was fulfilled |
+| `achievement_unlocked` | New achievement earned |
+| `comment_received` | Comment on your track |
+
+### Reconnection Strategy
+
 <Note>
-  Keep the connection open to receive notifications. Reconnect with exponential backoff if disconnected.
+  Keep the connection open to receive notifications. If disconnected:
+  
+  1. Wait 1 second, then reconnect
+  2. If failed, wait 2 seconds (exponential backoff)
+  3. Max backoff: 30 seconds
+  4. Include `Last-Event-ID` header to resume from last received event
 </Note>
 
 ---
@@ -529,20 +591,58 @@ Collections are curated groups of tracks. All collection endpoints require authe
 ## Radio & Recommendations
 
 <Note>
-  Radio endpoints generate track recommendations based on seed content. These are internal recommendation algorithms.
+  Radio endpoints generate track recommendations based on seed content. These are internal recommendation algorithms used by the BeatPass player.
 </Note>
 
 | Method | Endpoint | Auth | Description |
 |--------|----------|------|-------------|
 | GET | `/radio/{type}/{id}` | 🔓 | Get recommendations based on seed |
 
-### Supported Types
+### Supported Seed Types
 
-| Type | Description |
-|------|-------------|
-| `track` | Recommendations similar to a track |
-| `artist` | Recommendations from/similar to an artist |
-| `genre` | Recommendations within a genre |
+| Type | ID Value | Description |
+|------|----------|-------------|
+| `track` | Track ID | Similar tracks based on audio features and metadata |
+| `artist` | Artist ID | Tracks from the artist and similar producers |
+| `genre` | Genre slug | Popular tracks within the genre |
+
+### Request Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `limit` | integer | 20 | Number of tracks to return (max: 50) |
+
+### Example Request
+
+```http
+GET /api/v1/radio/track/12345?limit=25
+```
+
+### Response
+
+Returns an array of track objects suitable for continuous playback.
+
+### Usage Notes
+
+- Radio is designed for discovery and continuous listening
+- Results are influenced by the seed's characteristics
+- Authenticated requests may return personalized results
+
+### Rate Limits & Behavior
+
+| Constraint | Value |
+|------------|-------|
+| Requests per minute | 30 |
+| Max seeds per request | 1 |
+| Max limit parameter | 50 |
+
+### How Seed Type Affects Results
+
+| Seed Type | Result Behavior |
+|-----------|----------------|
+| `track` | Narrowest results—tracks with similar BPM, key, genre, and audio characteristics |
+| `artist` | Mixed results—tracks by the artist plus similar producers in the same genre |
+| `genre` | Broadest results—popular and trending tracks across the entire genre |
 
 ---
 

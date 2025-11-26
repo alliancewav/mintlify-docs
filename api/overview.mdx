@@ -235,8 +235,13 @@ These routes require staff roles and are not available to regular users:
 | **Video generation** | `/video/mux-audio`, `/video/chunk`, `/video/complete`, `/video/history` |
 | **Audio proxy** | `/audio/proxy` for CORS workarounds |
 | **Import tooling** | `/import-media/*` for content ingestion |
-| **Cover art admin** | Template management and scanning |
-| **Carousel management** | Featured content curation |
+| **Cover art templates** | `/cover-art/templates/*` (admin creation/scanning) |
+| **Carousel management** | `/carousel/*` for featured content curation |
+| **Track posting status** | `/tracks/posting-status`, `/tracks/{id}/posting-status` |
+| **Analytics exports** | `/producer-intelligence/export/*`, `/producer-intelligence/report/*` |
+| **Advanced charts** | `/producer-intelligence/track/{id}/charts`, `/artist/{id}/charts`, `/album/{id}/charts` |
+| **Live analytics** | `/producer-intelligence/live-analytics`, `/producer-intelligence/track/{id}/real-time` |
+| **V2 Analytics** | `/v2/analytics/report` (internal reporting)
 
 ### Not Documented
 
