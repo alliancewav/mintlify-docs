@@ -38,19 +38,16 @@ Before uploading:
   <Step title="Upload Audio File">
     Drag and drop your file or click to browse:
 
-    <CardGroup cols={3}>
+    <CardGroup cols={2}>
       <Card title="WAV" icon="file-audio">
-        **Lossless** • Max 100 MB
-      </Card>
-      <Card title="MP3" icon="file-audio">
-        **320 kbps+** • Max 50 MB
+        **Lossless** • Recommended • Max 100 MB
       </Card>
       <Card title="FLAC" icon="file-audio">
-        **Lossless** • Max 100 MB
+        **Lossless Compressed** • Max 100 MB
       </Card>
     </CardGroup>
     <Warning>
-      Files under 128kbps will be rejected. Low-quality audio affects your Quality Score.
+      **Lossless formats only.** BeatPass requires WAV or FLAC files to ensure the highest audio quality. Compressed formats like MP3 are not accepted.
     </Warning>
   </Step>
   <Step title="Add Track Information">
@@ -70,12 +67,12 @@ Before uploading:
     - **Mood**: Emotional tone
     - **Secondary Genre**: Additional classification
   </Step>
-  <Step title="Upload Cover Art (Optional)">
-    Add visual appeal:
+  <Step title="Add Cover Art">
+    Cover art is **required** for new tracks:
 
     - Recommended size: 1400x1400 pixels
     - Formats: JPG, PNG
-    - Keep it simple and recognizable
+    - Use auto-generate for genre-based artwork
   </Step>
   <Step title="Set Licensing Options">
     Configure availability:
@@ -99,47 +96,15 @@ Before uploading:
 
 ---
 
-## Stems & Track Files
+## Audio File Requirements
 
-### Stem Uploads
+### Single Track File
 
-Include separate stems to increase licensing appeal:
+Each track on BeatPass consists of **one audio file** — your full mixdown.
 
-<CardGroup cols={2}>
-  <Card title="Full Mix" icon="music" color="#22c55e">
-    **Required** • WAV/MP3/FLAC • Main track file
-  </Card>
-  <Card title="Drum Stem" icon="drum">
-    **Recommended** • WAV • Isolated drums and percussion
-  </Card>
-  <Card title="Melody Stem" icon="piano-keyboard">
-    **Recommended** • WAV • Lead melodies and harmonies
-  </Card>
-  <Card title="Bass Stem" icon="wave-sine">
-    **Recommended** • WAV • Bass and 808s
-  </Card>
-  <Card title="FX/Ambient" icon="waveform-lines">
-    **Optional** • WAV • Effects and atmospheric elements
-  </Card>
-</CardGroup>
-
-<Tip>
-  Stems are only available to license purchasers. Including stems significantly increases perceived value and sale conversion.
-</Tip>
-
-### Supported Stem Formats
-
-<Tabs>
-  <Tab title="WAV (Preferred)">
-    **16/24-bit WAV** — Full support. Industry standard for stems. Preserves all audio quality.
-  </Tab>
-  <Tab title="FLAC">
-    **Lossless compression** — Full support. Good alternative when file size matters.
-  </Tab>
-  <Tab title="MP3">
-    **320kbps only** — Limited support. Not recommended for stems due to compression artifacts.
-  </Tab>
-</Tabs>
+<Info>
+  BeatPass does not support stem uploads. Each track is a single, complete audio file. If buyers need stems, arrange delivery separately after purchase.
+</Info>
 
 ### Watermarks
 
@@ -210,22 +175,20 @@ After upload, BeatPass processes your audio:
 ### Upload Limits
 
 <CardGroup cols={3}>
-  <Card title="File Size (WAV/FLAC)" icon="file">
+  <Card title="File Size" icon="file">
     Max **100 MB**
-  </Card>
-  <Card title="File Size (MP3)" icon="file">
-    Max **50 MB**
   </Card>
   <Card title="Duration" icon="clock">
     **30 sec** – **15 min**
   </Card>
-  <Card title="Min Bitrate" icon="signal">
-    **128 kbps** minimum
-  </Card>
-  <Card title="Recommended" icon="star" color="#22c55e">
-    **320 kbps** or Lossless
+  <Card title="Format" icon="file-audio" color="#22c55e">
+    **WAV or FLAC** only
   </Card>
 </CardGroup>
+
+<Note>
+  Only lossless audio formats (WAV, FLAC) are accepted. This ensures the highest quality for streaming and licensed downloads.
+</Note>
 
 ### Transcode Failures
 
@@ -341,7 +304,7 @@ The upload form contains several sections. Here's a complete reference of all av
 </ResponseField>
 
 <ResponseField name="BPM" type="number" required>
-  Tempo in beats per minute (50-200 range).
+  Tempo in beats per minute (60-200 range).
 </ResponseField>
 
 ### Classification
@@ -429,13 +392,17 @@ Configure how your track can be licensed:
 
 ### Cover Art
 
-<ResponseField name="Cover Art" type="image">
-  Upload custom artwork or use auto-generated cover art.
+<ResponseField name="Cover Art" type="image" required>
+  Cover art is **required** for new tracks. Upload custom artwork or use auto-generated cover art.
 
   - **Recommended size**: 1400×1400 pixels
   - **Formats**: JPG, PNG
-  - **Auto-generate**: System can create artwork using templates
+  - **Auto-generate**: System can create artwork using genre-based templates
 </ResponseField>
+
+<Note>
+  Cover art is required when creating a new track, but optional when editing an existing track.
+</Note>
 
 ### Audio Fingerprinting
 
@@ -444,12 +411,20 @@ BeatPassID™ automatically processes your track:
 <ResponseField name="Fingerprint Status" type="readonly">
   Shows the fingerprinting progress:
 
-  | Status        | Meaning                                |
-  | ------------- | -------------------------------------- |
-  | **Checking**  | Analyzing audio file                   |
-  | **Analyzing** | Generating unique fingerprint          |
-  | **Complete**  | Fingerprint registered successfully    |
-  | **Failed**    | Error during processing (retry upload) |
+  <Steps>
+    <Step title="Checking" icon="magnifying-glass">
+      Analyzing audio file for content identification
+    </Step>
+    <Step title="Analyzing" icon="fingerprint">
+      Generating unique audio fingerprint
+    </Step>
+    <Step title="Complete" icon="circle-check">
+      Fingerprint registered successfully in BeatPassID™
+    </Step>
+  </Steps>
+  <Warning>
+    If fingerprinting fails, your track may not be fully protected. Re-upload the audio file or contact support.
+  </Warning>
 </ResponseField>
 
 <Note>

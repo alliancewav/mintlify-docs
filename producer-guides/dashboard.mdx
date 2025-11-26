@@ -70,33 +70,38 @@ Track your growth as a producer with the XP and achievement system.
 
 ### XP & Levels
 
-Your producer level reflects your overall platform engagement and success:
+Your producer level (max level 100) reflects your overall platform engagement and success:
 
-<CardGroup cols={5}>
-  <Card title="Newcomer" icon="seedling">
-    **Levels 1-5**
-
-    0 - 500 XP
+<CardGroup cols={2}>
+  <Card title="Novice Producer" icon="seedling">
+    **Levels 1-2** — Starting your journey
   </Card>
-  <Card title="Rising" icon="arrow-trend-up">
-    **Levels 6-10**
-
-    500 - 2,500 XP
+  <Card title="Apprentice Producer" icon="graduation-cap">
+    **Levels 3-4** — Learning the ropes
   </Card>
-  <Card title="Established" icon="star">
-    **Levels 11-20**
-
-    2,500 - 10,000 XP
+  <Card title="Intermediate Producer" icon="arrow-trend-up">
+    **Levels 5-6** — Building momentum
   </Card>
-  <Card title="Veteran" icon="medal">
-    **Levels 21-35**
-
-    10,000 - 50,000 XP
+  <Card title="Skilled Producer" icon="star">
+    **Levels 7-9** — Developing expertise
   </Card>
-  <Card title="Elite" icon="crown">
-    **Levels 36-50**
-
-    50,000+ XP
+  <Card title="Experienced Producer" icon="medal">
+    **Levels 10-14** — Proven track record
+  </Card>
+  <Card title="Advanced Producer" icon="bolt">
+    **Levels 15-19** — Advanced skills
+  </Card>
+  <Card title="Professional Producer" icon="briefcase">
+    **Levels 20-29** — Professional status
+  </Card>
+  <Card title="Expert Producer" icon="gem">
+    **Levels 30-39** — Expert level
+  </Card>
+  <Card title="Master Producer" icon="trophy">
+    **Levels 40-49** — Mastery achieved
+  </Card>
+  <Card title="Legendary Producer" icon="crown">
+    **Level 50+** — Legendary status
   </Card>
 </CardGroup>
 
@@ -104,83 +109,68 @@ Your producer level reflects your overall platform engagement and success:
 
 <CardGroup cols={2}>
   <Card title="Upload Activities" icon="cloud-arrow-up">
-    - Upload a track: **\+25 XP**
-    - Complete metadata: **\+10 XP**
-    - Add cover art: **\+5 XP**
-    - Create album: **\+50 XP**
+    - Upload a track: **\+100 XP**
+    - Complete metadata (BPM, key, scale): **\+50 XP**
   </Card>
   <Card title="Engagement Activities" icon="users">
     - Receive a play: **\+1 XP**
-    - Gain a follower: **\+5 XP**
-    - Track saved: **\+3 XP**
-    - License sold: **\+100 XP**
+    - Collaboration credit: **\+25 XP**
+    - Unlock achievements: **Varies by achievement**
   </Card>
 </CardGroup>
 
+<Note>
+  XP is awarded to all credited artists on a track, including collaborators. This means both the primary artist and any featured artists earn XP from uploads and plays.
+</Note>
+
 ### Achievements
 
-Unlock achievements for reaching milestones:
+Unlock achievements by reaching performance milestones. BeatPass uses a **percentile-based system** — achievements are earned by ranking among top producers.
 
 <AccordionGroup>
   <Accordion title="Upload Achievements" icon="music">
-    <Steps>
-      <Step title="First Beat" icon="circle-1">
-        Upload 1 track → **\+50 XP**
-      </Step>
-      <Step title="Prolific" icon="circle-2">
-        Upload 10 tracks → **\+200 XP**
-      </Step>
-      <Step title="Catalog Builder" icon="circle-3">
-        Upload 50 tracks → **\+1,000 XP**
-      </Step>
-      <Step title="Hit Machine" icon="circle-4">
-        Upload 100 tracks → **\+5,000 XP**
-      </Step>
-    </Steps>
+    Earned based on your track count relative to other producers:
+
+    - **Track Producer** — Top 50% by track count (+500 XP)
+    - **Prolific Creator** — Top 25% by track count (+1,500 XP)
+    - **Production Master** — Top 10% by track count (+3,000 XP)
+    - **Studio Legend** — Top 5% by track count (+5,000 XP)
   </Accordion>
-  <Accordion title="Play Achievements" icon="play">
-    <Steps>
-      <Step title="First Spin" icon="circle-1">
-        100 total plays → **\+100 XP**
-      </Step>
-      <Step title="Getting Noticed" icon="circle-2">
-        1,000 total plays → **\+500 XP**
-      </Step>
-      <Step title="Popular" icon="circle-3">
-        10,000 total plays → **\+2,500 XP**
-      </Step>
-      <Step title="Viral" icon="circle-4">
-        100,000 total plays → **\+10,000 XP**
-      </Step>
-    </Steps>
+  <Accordion title="Trending Achievements" icon="fire">
+    Earned based on your tracks' play count performance:
+
+    - **Rising Star** — Track in top 25% by plays (+1,000 XP)
+    - **Chart Topper** — Track in top 10% by plays (+2,000 XP)
+    - **Viral Hit** — Track in top 5% by plays (+3,500 XP)
   </Accordion>
-  <Accordion title="Engagement Achievements" icon="heart">
-    <Steps>
-      <Step title="First Fan" icon="circle-1">
-        Gain 1 follower → **\+25 XP**
-      </Step>
-      <Step title="Growing Following" icon="circle-2">
-        Gain 100 followers → **\+500 XP**
-      </Step>
-      <Step title="Influencer" icon="circle-3">
-        Gain 1,000 followers → **\+2,500 XP**
-      </Step>
-    </Steps>
+  <Accordion title="Metadata Achievements" icon="tag">
+    Earned based on your metadata completion accuracy:
+
+    - **Metadata Whiz** — Over 70% accuracy (+800 XP)
+    - **Metadata Maven** — Over 80% accuracy (+1,500 XP)
+    - **Metadata Architect** — Over 90% accuracy (+2,500 XP)
   </Accordion>
-  <Accordion title="Sales Achievements" icon="dollar-sign">
-    <Steps>
-      <Step title="First Sale" icon="circle-1">
-        Sell 1 license → **\+200 XP**
-      </Step>
-      <Step title="Consistent" icon="circle-2">
-        Sell 10 licenses → **\+1,000 XP**
-      </Step>
-      <Step title="Top Seller" icon="circle-3">
-        Sell 100 licenses → **\+10,000 XP**
-      </Step>
-    </Steps>
+  <Accordion title="Collaboration Achievements" icon="handshake">
+    Earned by working with other artists:
+
+    - **Collaboration Enthusiast** — First collaboration (+500 XP)
+    - **Team Player** — 10 collaborations (+1,500 XP)
+    - **Bridge Builder** — 25 collaborations (+3,000 XP)
+    - **Network Spider** — 50 collaborations (+5,000 XP)
+  </Accordion>
+  <Accordion title="Milestone Achievements" icon="flag-checkered">
+    Special achievements for platform milestones:
+
+    - **Early Adopter** — Beta phase account (+1,000 XP)
+    - **Rising** — 3-month account age (+150 XP)
+    - **OG** — 1-year account age (+600 XP)
+    - **Veteran** — 2-year account age (+1,000 XP)
   </Accordion>
 </AccordionGroup>
+
+<Info>
+  Achievement criteria are relative to the platform community. As the platform grows, the thresholds for percentile-based achievements adjust automatically.
+</Info>
 
 ### Progress Display
 

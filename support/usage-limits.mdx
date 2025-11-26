@@ -15,22 +15,18 @@ BeatPass implements usage limits to ensure fair access, prevent abuse, and maint
 
 | Parameter | Limit |
 |-----------|-------|
-| Max file size (WAV/FLAC) | 100 MB |
-| Max file size (MP3) | 50 MB |
+| Accepted formats | WAV, FLAC (lossless only) |
+| Max file size | 100 MB |
 | Max duration | 15 minutes |
 | Min duration | 30 seconds |
-| Min bitrate (MP3) | 128 kbps |
+| Files per track | 1 (single mixdown) |
 | Uploads per day | No hard limit* |
 
 *Excessive uploads in a short period may trigger rate limiting. Upload at a reasonable pace.
 
-### Stem Files
-
-| Parameter | Limit |
-|-----------|-------|
-| Stems per track | 10 files max |
-| Stem file size | 100 MB each |
-| Total stems per track | 500 MB combined |
+<Note>
+  BeatPass only accepts lossless audio formats (WAV, FLAC). Compressed formats like MP3 are not accepted. Each track is a single audio file — stem uploads are not supported through the platform.
+</Note>
 
 ---
 
