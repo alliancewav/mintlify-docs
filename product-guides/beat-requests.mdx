@@ -56,17 +56,21 @@ Beat Requests are ideal when:
   </Step>
   
   <Step title="Submit">
-    Your request goes live for **24 hours**. Verified producers matching your criteria are notified.
+    Your request goes live for **24 hours**. All verified producers receive a notification (no genre/budget filtering).
   </Step>
 </Steps>
 
-<Warning>
-  **Who gets notified?** Only **verified producers** receive beat request notifications. Unverified producers do not see or receive notifications for beat requests. To become verified, producers must complete the Discord verification process.
-</Warning>
-
 <Note>
-  Beat requests are active for **24 hours** from submission. After expiry, producers can no longer respond. The requester (you) is excluded from notifications.
+  **Who gets notified?** When you submit a beat request, **all verified producers** receive an email notification (excluding you). Notifications are broadcast to the entire verified producer pool—there is no filtering by genre or budget.
 </Note>
+
+<Tip>
+  **Can unverified producers see my request?** Yes. Any authenticated producer can browse and respond to active beat requests. Verified status only affects who receives the notification blast—it doesn't restrict visibility.
+</Tip>
+
+<Warning>
+  Beat requests are active for **24 hours** from submission. After expiry, producers can no longer respond.
+</Warning>
 
 ### Writing Effective Descriptions
 
@@ -154,15 +158,19 @@ Browse requests that match your style:
 
 ### For Artists
 
-- **Edit**: Update requirements if your needs change
-- **Close**: Mark as fulfilled when you find a beat
-- **Expire**: Requests auto-expire after 30 days
+- **Edit**: Update requirements while request is active
+- **Expire**: Requests auto-expire after **24 hours** (not editable)
+- **Submit New**: Create a new request if the first expires without a match
+
+<Note>
+  There is no "close" or "mark as fulfilled" action. Requests simply expire after 24 hours. If you find a beat, proceed directly to licensing—the request status doesn't change.
+</Note>
 
 ### For Producers
 
+- **Browse Requests**: View all active requests (no notification required)
 - **Track Responses**: See which requests you've responded to
-- **Follow Up**: Message artists for feedback
-- **Withdraw**: Remove your submission if needed
+- **Follow Up**: Message artists directly for feedback
 
 ---
 
@@ -170,18 +178,22 @@ Browse requests that match your style:
 
 ### Request States
 
+Beat requests have only two possible states:
+
 | State | Description | Artist Action | Producer Action |
 |-------|-------------|---------------|----------------|
-| **Open** | Accepting responses (24 hours) | Edit, close, or wait | Submit response |
-| **Fulfilled** | Artist found a beat | Marked complete | No new responses |
+| **Active** | Accepting responses (first 24 hours) | Edit or wait | Submit response |
 | **Expired** | 24 hours passed | Create new request | Find other requests |
-| **Closed** | Manually closed by artist | Reopen or create new | Find other requests |
+
+<Note>
+  There are no "Fulfilled" or "Closed" states. Requests are either active (accepting responses) or expired. The `fulfillRequest` method does not change the request status—it only records which response was accepted.
+</Note>
 
 <Warning>
   **Beat requests expire after 24 hours.** This keeps the marketplace fresh and ensures producers respond to active requests. If you don't find a match, submit a new request.
 </Warning>
 
-### Fulfillment Flow
+### Response Flow
 
 <Steps>
   <Step title="Producer Submits Response">
@@ -192,42 +204,38 @@ Browse requests that match your style:
     Artist listens to submissions and evaluates matches.
   </Step>
   
-  <Step title="Artist Accepts or Declines">
-    **Accept**: Initiates licensing conversation  
-    **Decline**: Producer notified; can submit different track  
-    **No response**: Producer can follow up via message
+  <Step title="Artist Contacts Producer">
+    If interested, artist messages producer to discuss licensing.
   </Step>
   
   <Step title="Purchase Complete">
-    Artist purchases license through normal flow.
-  </Step>
-  
-  <Step title="Mark Fulfilled">
-    Artist marks request as fulfilled. Request closes to new responses.
+    Artist purchases license through normal licensing flow (separate from beat request system).
   </Step>
 </Steps>
+
+<Warning>
+  The beat request system facilitates discovery only. There is no "mark as fulfilled" action—accepting a response records the selection but does not close or change the request status. The request simply expires after 24 hours.
+</Warning>
 
 ### Auto-Expiry Behavior
 
 | Timeline | What Happens |
 |----------|-------------|
-| Hour 20 | Reminder notification sent |
+| Hour 0 | Request goes live; all verified producers notified |
+| Hours 1-24 | Request is active; producers can browse and respond |
 | Hour 24 | Request auto-expires |
-| After expiry | Token is consumed; create new request with available tokens |
-| Re-opening | Not supported; submit a new request |
+| After expiry | Create new request with available tokens |
 
 <Note>
-  Expired requests remain in your history for reference but cannot be reopened. Beat request tokens are consumed when you submit, not when a producer responds.
+  **No reminder notifications are sent.** The 24-hour window is enforced by `BeatRequestService::EXPIRY_HOURS = 24`. Expired requests remain in your history for reference but cannot be reopened or extended.
 </Note>
 
-### Visibility After State Changes
+### Visibility After Expiry
 
 | State | Visible in Browse | Visible to Artist | Visible to Responding Producers |
 |-------|-------------------|-------------------|--------------------------------|
-| Open | Yes | Yes | Yes |
-| Fulfilled | No | Yes (history) | Yes (their response history) |
+| Active | Yes | Yes | Yes |
 | Expired | No | Yes (history) | Yes (their response history) |
-| Closed | No | Yes (history) | Yes (their response history) |
 
 ---
 

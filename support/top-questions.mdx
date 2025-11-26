@@ -186,22 +186,26 @@ Quick answers to everyday questions. For detailed guides, see our full documenta
     
     **What is DELETED:**
     - Your uploads (tracks, albums)
-    - Your playlists and library saves
+    - Your playlists (owned playlists removed; playlist follows cleared)
     - Your follows and followers
-    - Your messages and comments
     - Your likes and reposts
+    - Your user profile
     
-    **What is RETAINED:**
-    - License certificates you issued (for legal/tax purposes)
-    - Purchase records (for your recipients' proof of license)
-    - Transaction history (required for tax compliance)
+    **What is ANONYMIZED (not deleted):**
+    - Your comments (`user_id` set to 0—comments remain but show as anonymous)
+    - Your track plays (play records remain but `user_id` set to 0)
+    
+    **What is NOT affected by account deletion:**
+    - Your messages (remain in database; separate 12-month cleanup job)
+    - License certificates (retained for legal proof)
+    - Purchase/transaction records
     
     **What happens to pending payouts:**
     - Complete any pending Stripe transfers before deletion
     - Unprocessed payouts may be lost
     
     <Warning>
-      Account deletion is **permanent and irreversible**. Download any files you need before deleting.
+      Account deletion is **permanent and irreversible**. Messages are not deleted immediately—they are cleaned up by a separate monthly job that removes messages older than 12 months.
     </Warning>
   </Accordion>
 </AccordionGroup>
@@ -221,16 +225,19 @@ Quick answers to everyday questions. For detailed guides, see our full documenta
   </Accordion>
   
   <Accordion title="What data is retained after account deletion?">
-    For legal and tax compliance, we retain:
+    The following is retained after account deletion:
     
-    | Data Type | Retention Period | Reason |
-    |-----------|-----------------|--------|
-    | License certificates | 7 years | Tax/legal proof |
-    | Transaction records | 7 years | Financial compliance |
-    | Payout history | 7 years | Tax reporting |
-    | Basic account info | 90 days | Fraud prevention |
+    | Data Type | What Happens | Notes |
+    |-----------|--------------|-------|
+    | License certificates | Retained indefinitely | Required for legal proof of licensing |
+    | Transaction records | Retained indefinitely | Required for financial records |
+    | Comments | Anonymized (`user_id = 0`) | Comments remain visible but without attribution |
+    | Track plays | Anonymized (`user_id = 0`) | Play counts preserved for analytics |
+    | Messages | Not deleted | Cleaned up by separate 12-month cleanup job |
     
-    Personal data (messages, follows, uploads) is deleted within 30 days.
+    <Note>
+      There is no automated 7-year retention timer or 30-day purge in the codebase. Data retention is indefinite unless manually removed or cleaned by scheduled jobs.
+    </Note>
   </Accordion>
   
   <Accordion title="How do I request data correction or deletion?">

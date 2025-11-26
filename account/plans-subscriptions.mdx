@@ -186,16 +186,20 @@ Producers receive their share of the pool based on the [Contribution Formula](/c
 
 Upgrading (e.g., Classic → Plus) works as follows:
 
-| Aspect | How It Works |
-|--------|-------------|
-| **Timing** | Takes effect immediately |
-| **Proration** | You're charged the prorated difference for remaining days |
-| **Beat Request Tokens** | Reset immediately to new plan's limit |
-| **Payment Required** | Must have valid payment method on file |
+| Aspect | Default Behavior |
+|--------|------------------|
+| **Timing** | Scheduled for next renewal date (default) |
+| **Immediate Option** | If you select "Apply Now" and have a payment method, charges immediately |
+| **Proration** | Only charged if applying immediately; prorated for remaining days |
+| **Payment Required** | Only required for immediate upgrades |
 
 <Note>
-  If your payment fails during an upgrade attempt, the upgrade is rejected and you remain on your current plan.
+  **Scheduled upgrades are the default.** The API defaults `applyImmediately` to `false`. To upgrade immediately with proration, you must explicitly choose the "Apply Now" option and have a valid payment method.
 </Note>
+
+<Warning>
+  If you request an immediate upgrade but payment fails, the upgrade is rejected and you remain on your current plan.
+</Warning>
 
 ### Downgrade Your Plan
 
@@ -203,13 +207,13 @@ Downgrading (e.g., Pro → Classic) works as follows:
 
 | Aspect | How It Works |
 |--------|-------------|
-| **Timing** | Scheduled for your next renewal date |
-| **Immediate Effect** | None—you keep current plan until renewal |
+| **Timing** | Always scheduled for next renewal date |
+| **Immediate Effect** | None—you keep current plan benefits until renewal |
 | **Proration** | No charge or refund; change applies at renewal |
 | **Cancel Pending Change** | You can cancel a scheduled downgrade before renewal |
 
 <Warning>
-  Downgrades are **never** applied immediately. They are always scheduled for the next billing cycle to avoid refund complications.
+  Downgrades are **always** scheduled for the next billing cycle. Even if you request immediate application, the code forces `applyImmediately = false` for downgrades to avoid refund complications.
 </Warning>
 
 ### Cancel Subscription
@@ -252,21 +256,21 @@ If your subscription payment fails:
 
 | Step | What Happens |
 |------|-------------|
-| **Immediate** | Email notification sent to you |
-| **Automatic Retry** | Stripe retries the charge after 1-3 days |
-| **Continued Access** | You retain access during retry attempts |
-| **Final Failure** | Subscription marked as unpaid; access may be suspended |
+| **Immediate** | `PaymentFailed` notification sent to you |
+| **Retry Behavior** | Handled by Stripe (not BeatPass)—typically one automatic retry |
+| **Access** | No local access gating implemented; depends on Stripe subscription status |
+| **Final Failure** | Stripe may cancel subscription; you'll need to resubscribe |
 
 **To restore access after payment failure:**
 
 1. Go to **Settings > Subscription**
 2. Click **Update Payment Method**
 3. Enter new card details
-4. Payment will be retried automatically
+4. Payment will be retried by Stripe
 
-<Warning>
-  If payment remains failed after multiple retries, your subscription will be cancelled by Stripe. You'll need to resubscribe to restore access.
-</Warning>
+<Note>
+  BeatPass does not implement custom retry logic or backoff schedules. Payment retries are handled entirely by Stripe's default behavior. The notification email states: "We will automatically attempt to charge your card again in 24 hours. If we are unable to do so, your subscription will be cancelled."
+</Note>
 
 ### Grace Period
 
