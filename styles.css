@@ -4,8 +4,8 @@
 :root[data-theme="dark"] {
   --background: #050505;
   --background-alt: #0F0F0F;
-  --accent: #94A3B8;
-  --accent-dark: #64748B;
+  --accent: #48B0E4;
+  --accent-dark: #1F8AC8;
 }
 
 /* Light Mode Backgrounds */
