@@ -22,6 +22,7 @@
           {
             "group": "Platform",
             "pages": [
+              "overview/how-beatpass-works",
               "overview/about",
               "overview/roles",
               "overview/platform-map",
@@ -36,7 +37,8 @@
           {
             "group": "Onboarding",
             "pages": [
-              "getting-started/checklist"
+              "getting-started/checklist",
+              "getting-started/first-payout-checklist"
             ]
           },
           {
@@ -63,12 +65,14 @@
               "product-guides/releases",
               "product-guides/search",
               "product-guides/audio-quality",
-              "product-guides/library"
+              "product-guides/library",
+              "product-guides/playlists-following"
             ]
           },
           {
-            "group": "Business",
+            "group": "Buy & License",
             "pages": [
+              "product-guides/buying-beats",
               "product-guides/licensing",
               "product-guides/licensing-uses",
               "product-guides/payments",
@@ -108,11 +112,16 @@
         "tab": "Contribution & Payouts",
         "groups": [
           {
-            "group": "Earnings",
+            "group": "Understanding Earnings",
             "pages": [
               "contribution/formula",
+              "contribution/xp-levels"
+            ]
+          },
+          {
+            "group": "Getting Paid",
+            "pages": [
               "contribution/payouts",
-              "contribution/xp-levels",
               "contribution/eligibility",
               "contribution/disputes"
             ]
@@ -166,6 +175,36 @@
         ]
       },
       {
+        "tab": "Support",
+        "groups": [
+          {
+            "group": "Quick Help",
+            "pages": [
+              "support/top-questions",
+              "support/faq",
+              "support/troubleshooting"
+            ]
+          },
+          {
+            "group": "Contact & Status",
+            "pages": [
+              "support/contact",
+              "support/status",
+              "support/reporting"
+            ]
+          },
+          {
+            "group": "Policies & Limits",
+            "pages": [
+              "support/usage-limits",
+              "support/account-actions",
+              "support/accessibility",
+              "support/policies"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "API",
         "groups": [
           {
@@ -178,25 +217,6 @@
               "api/webhooks",
               "api/rate-limits",
               "api/error-catalog"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Support",
-        "groups": [
-          {
-            "group": "Help",
-            "pages": [
-              "support/faq",
-              "support/troubleshooting",
-              "support/contact",
-              "support/status",
-              "support/reporting",
-              "support/usage-limits",
-              "support/account-actions",
-              "support/accessibility",
-              "support/policies"
             ]
           }
         ]

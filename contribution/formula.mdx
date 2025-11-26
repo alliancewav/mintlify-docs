@@ -5,7 +5,7 @@ description: "How BeatPass calculates your contribution value and distributes ea
 
 ## Overview
 
-The contribution formula determines how platform revenue is distributed among producers. Instead of a fixed per-play rate, your share is calculated based on multiple engagement signals that reflect genuine value.
+The contribution formula determines how platform subscription revenue is distributed among producers. Your share is calculated based on a transparent formula that rewards engagement while accounting for time and collaboration.
 
 <Info>
   **Audience:** Producers
@@ -25,141 +25,122 @@ Your Payout = (Your Contribution Value / Total Contribution Value) × Pool Amoun
 
 ---
 
-## Input Signals
+## The Formula
 
-Your contribution value is calculated from multiple engagement metrics:
+BeatPass uses the following formula to calculate each track's contribution value:
 
-### Primary Signals
+```
+C = Time Decay × Popularity Boost × Collaboration Split
+```
 
-| Signal | Description | Weight |
-|--------|-------------|--------|
-| Plays | Total streams of your tracks | High |
-| Completions | Plays reaching 80%+ duration | Higher |
-| Saves | Users adding to their library | Medium |
+### Formula Components
 
-### Quality Signals
+| Component | Formula | Description |
+|-----------|---------|-------------|
+| **Time Decay** | `exp(-(ln(2)/6) × Δt)` | Decays over time with a 6-month half-life |
+| **Popularity Boost** | `1 + 2 × (log₁₀(1+P) / (log₁₀(1+P)+1))` | Scales from 1× to 3× based on plays |
+| **Collaboration Split** | `1 / Np` | Divides contribution among credited producers |
 
-| Signal | Description | Impact |
-|--------|-------------|--------|
-| Completion Rate | % of plays that complete | Positive |
-| Skip Rate | % of plays skipped early | Negative |
-| Repeat Listens | Same user plays again | Positive |
+### Variables Explained
+
+| Variable | Meaning |
+|----------|---------|
+| **Δt** | Months since the track was uploaded |
+| **P** | Total number of plays/streams |
+| **Np** | Number of producers credited on the track |
+
+---
+
+## How Each Factor Works
+
+### Time Decay (6-Month Half-Life)
+
+Newer tracks contribute more than older ones. After 6 months, a track's time decay factor is 50%. After 12 months, it's 25%.
+
+| Months Since Upload | Time Decay Factor |
+|--------------------|-------------------|
+| 0 (new) | 100% |
+| 3 | ~71% |
+| 6 | 50% |
+| 12 | 25% |
+| 24 | 6.25% |
 
 <Tip>
-  Completions are weighted significantly higher than partial plays. A track with fewer plays but high completions may earn more than a track with many plays but frequent skips.
+  Consistent uploads help maintain your contribution value as older tracks naturally decay.
 </Tip>
 
----
+### Popularity Boost (1× to 3×)
 
-## Fairness Mechanisms
+Tracks with more plays receive a logarithmic boost, rewarding popular content while preventing runaway dominance.
 
-### Why Not Just Plays?
+| Plays | Boost Multiplier |
+|-------|-----------------|
+| 0 | 1.0× |
+| 10 | ~1.8× |
+| 100 | ~2.3× |
+| 1,000 | ~2.7× |
+| 10,000+ | ~3.0× (max) |
 
-A simple per-play model creates problems:
+### Collaboration Split
 
-- Encourages short, skippable tracks
-- Rewards artificial inflation
-- Doesn't reflect genuine engagement
+When multiple producers are credited, the contribution is divided equally among them.
 
-### Our Approach
-
-The formula is designed to:
-
-<AccordionGroup>
-  <Accordion title="Reward Quality">
-    Tracks that listeners enjoy and complete earn more than those frequently skipped.
-  </Accordion>
-  
-  <Accordion title="Prevent Gaming">
-    Signals are normalized and capped to limit artificial manipulation.
-  </Accordion>
-  
-  <Accordion title="Support Diverse Content">
-    Different track lengths and styles can succeed based on genuine engagement.
-  </Accordion>
-  
-  <Accordion title="Maintain Transparency">
-    Producers can see their metrics and understand their earnings.
-  </Accordion>
-</AccordionGroup>
+| Producers | Each Receives |
+|-----------|--------------|
+| 1 (solo) | 100% |
+| 2 | 50% each |
+| 3 | 33% each |
+| 4 | 25% each |
 
 ---
 
-## Example Scenarios
+## Example Calculations
 
-### Scenario 1: High Quality, Moderate Plays
+### Example 1: New Solo Track
 
-> **Track A**: 500 plays, 85% completion rate, 50 saves  
-> **Result**: Strong contribution value due to high engagement quality
+**Track Details**: Uploaded today, 500 plays, 1 producer
 
-### Scenario 2: High Plays, Low Quality
+| Factor | Calculation | Value |
+|--------|-------------|-------|
+| Time Decay | exp(0) | 1.0 |
+| Popularity | 1 + 2×(2.7/3.7) | ~2.46 |
+| Collaboration | 1/1 | 1.0 |
+| **Contribution** | 1.0 × 2.46 × 1.0 | **2.46** |
 
-> **Track B**: 2,000 plays, 30% completion rate, 10 saves  
-> **Result**: Lower contribution value despite higher play count due to poor engagement
+### Example 2: Older Collaborative Track
 
-### Scenario 3: Balanced Performance
+**Track Details**: 6 months old, 2,000 plays, 2 producers
 
-> **Track C**: 1,000 plays, 60% completion rate, 100 saves  
-> **Result**: Good contribution value from balanced engagement signals
+| Factor | Calculation | Value |
+|--------|-------------|-------|
+| Time Decay | exp(-0.693) | 0.50 |
+| Popularity | 1 + 2×(3.3/4.3) | ~2.54 |
+| Collaboration | 1/2 | 0.50 |
+| **Contribution** | 0.50 × 2.54 × 0.50 | **0.635** (per producer) |
+
+### Example 3: Payout Calculation
+
+**Scenario**: Monthly pool is $10,000. Total platform contribution is 5,000 points.
+
+| Producer | Total Contribution | Share % | Payout |
+|----------|-------------------|---------|--------|
+| Producer A | 250 points | 5.0% | $500 |
+| Producer B | 100 points | 2.0% | $200 |
+| Producer C | 50 points | 1.0% | $100 |
+
+```
+Producer A Payout = (250 / 5,000) × $10,000 = $500
+```
 
 <Note>
-  These are illustrative examples. Exact calculations depend on many factors including the overall pool and total platform engagement.
+  These are simplified examples. Actual payouts depend on the total pool size and all producers' combined contribution values.
 </Note>
 
----
-
-## Numeric Payout Examples
-
-The following examples illustrate how the contribution formula translates to actual payouts:
-
-### Example 1: Single Producer Share
-
-**Scenario**: Monthly subscription pool is $10,000. Total platform contribution value is 50,000 points.
-
-| Producer | Contribution Value | Share % | Payout |
-|----------|-------------------|---------|--------|
-| Producer A | 2,500 points | 5.0% | $500.00 |
-
-```
-Payout = (2,500 / 50,000) × $10,000 = $500.00
-```
-
-### Example 2: Multiple Producer Comparison
-
-**Scenario**: Same $10,000 pool and 50,000 total contribution.
-
-| Producer | Tracks | Contribution | Share % | Payout |
-|----------|--------|--------------|---------|--------|
-| Producer A | 50 tracks | 5,000 | 10.0% | $1,000 |
-| Producer B | 20 tracks | 2,000 | 4.0% | $400 |
-| Producer C | 100 tracks | 1,000 | 2.0% | $200 |
-
-<Tip>
-  Notice Producer C has more tracks but lower contribution—quality and engagement matter more than quantity.
-</Tip>
-
-### Example 3: Track-Level Breakdown
-
-**Scenario**: Producer A has contribution value of 2,500 distributed across tracks:
-
-| Track | Plays | Completion % | Contribution | Share of Producer's Total |
-|-------|-------|--------------|--------------|---------------------------|
-| Beat 1 | 1,000 | 75% | 1,200 | 48% |
-| Beat 2 | 500 | 80% | 800 | 32% |
-| Beat 3 | 300 | 50% | 300 | 12% |
-| Beat 4 | 200 | 40% | 200 | 8% |
-
-Producer A's $500 payout would distribute roughly:
-- Beat 1: ~$240
-- Beat 2: ~$160
-- Beat 3: ~$60
-- Beat 4: ~$40
-
-### Direct Sales vs Contribution Comparison
+### Direct Sales vs Contribution
 
 | Revenue Type | How It Works | Example |
 |--------------|--------------|---------|
-| **License sale** | You set price, receive 100% | $150 beat → You get $150 |
+| **License sale** | You set price, keep the sale amount | $150 beat → You receive $150 |
 | **Contribution** | Share of subscription pool | 5% share of $10K → $500/month |
 
 **When each is better:**
@@ -203,17 +184,17 @@ Check your current contribution value in **Backstage > Insights**:
 ### What You Control
 
 <CardGroup cols={2}>
-  <Card title="Quality Content" icon="gem">
-    Create beats that listeners want to hear completely.
+  <Card title="Consistent Uploads" icon="upload">
+    New tracks have full time decay value—regular releases maintain momentum.
   </Card>
   <Card title="Complete Metadata" icon="tags">
-    Help the right listeners find your beats.
-  </Card>
-  <Card title="Consistent Uploads" icon="upload">
-    Regular releases maintain engagement momentum.
+    Help listeners find your beats through search and discovery.
   </Card>
   <Card title="Audience Building" icon="users">
-    Engaged followers drive quality plays.
+    More plays increase your popularity boost factor.
+  </Card>
+  <Card title="Solo or Collaborate" icon="handshake">
+    Collaborations split contribution but may reach wider audiences.
   </Card>
 </CardGroup>
 
@@ -222,7 +203,7 @@ Check your current contribution value in **Backstage > Insights**:
 - Other producers' performance (affects relative share)
 - Total pool size (depends on platform revenue)
 - Listener behavior patterns
-- Algorithm adjustments
+- Time decay on older tracks (natural progression)
 
 ---
 
@@ -230,20 +211,21 @@ Check your current contribution value in **Backstage > Insights**:
 
 ### What We Share
 
-- Your contribution value and breakdown
-- Metric definitions and weights (in general terms)
+- Your contribution value and breakdown per track
+- The complete formula (documented above)
 - Monthly pool information
-- Calculation methodology
+- Factor breakdowns (time decay, popularity, splits)
 
-### What Remains Proprietary
+### Formula Stability
 
-- Exact weighting coefficients
-- Fraud detection thresholds
-- Internal scoring algorithms
-- Competitive benchmarks
+The contribution formula is designed for stability. Any changes are:
+
+- Announced in advance via the changelog
+- Applied uniformly across all producers
+- Documented with clear before/after comparisons
 
 <Note>
-  Exact formula weights may be adjusted periodically to maintain fairness. Changes are communicated in the changelog.
+  The formula factors (time decay rate, popularity curve, collaboration splits) are fixed as documented above. We do not make undisclosed adjustments.
 </Note>
 
 ---
