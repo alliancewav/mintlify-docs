@@ -235,7 +235,7 @@ When a buyer purchases your track:
 | Aspect | Details |
 |--------|---------|
 | **License Sales** | Transferred immediately after purchase (minus fees) |
-| **Contribution Pool** | Monthly calculation, processed first week of following month |
+| **Contribution Pool** | Calculated per subscription invoice and processed shortly after each successful billing (`invoice.paid`) |
 | **Bank Payout** | Per your Stripe settings (typically 2-5 business days) |
 
 ### Payout Dashboard
@@ -346,7 +346,7 @@ Standard Stripe processing fees apply to payouts. These are deducted automatical
   </Accordion>
   
   <Accordion title="Missing earnings">
-    Contribution calculations complete after the month ends. License sales process within 24-48 hours.
+    Contribution calculations run after each subscription invoice is paid (not just at month end). License sales are reflected once the payment succeeds and the webhook has been processed.
   </Accordion>
   
   <Accordion title="Wrong amount">

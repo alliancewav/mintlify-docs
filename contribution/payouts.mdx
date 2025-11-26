@@ -21,25 +21,25 @@ BeatPass uses Stripe Connect to process producer payouts. This guide walks throu
 
 ### How Revenue is Split
 
-**Producers receive 100% of all revenue.** The 15% platform fee is added on top—paid by subscribers and buyers, not deducted from producers.
+Producers earn from **subscription revenue splits** and **direct license sales**. BeatPass adds a platform fee (for example, 15%) on top of prices and does not deduct that fee from your listed license price. However, standard Stripe processing fees apply and are deducted before funds reach your Stripe Connect account.
 
 <CardGroup cols={2}>
   <Card title="Subscription Pool" icon="users">
-    You receive **100%** of base subscription revenue
+    A portion of each paid subscription invoice is allocated to a producer pool based on the [Contribution Formula](/contribution/formula).
     
-    *15% fee added on top (paid by subscriber)*
+    *BeatPass also charges a platform fee (for example, 15%) on top, paid by the subscriber and retained by BeatPass.*
     
     <Note>Only fully paid, active subscriptions contribute to the pool. We strictly validate all payments to ensure the pool is real revenue.</Note>
   </Card>
   <Card title="License Sales" icon="file-contract">
-    You receive **100%** of your listed price
+    You receive the price you set for a license **minus Stripe processing fees**.
     
-    *15% fee added on top (paid by buyer)*
+    *BeatPass charges a separate platform fee on top, paid by the buyer and kept by BeatPass*.
   </Card>
 </CardGroup>
 
 <Tip>
-  Both revenue streams use the same model: you get 100% of the base price, and BeatPass adds 15% on top for the customer.
+  In both revenue streams, BeatPass adds a platform fee on top for the customer and retains that fee. Stripe's standard processing and payout fees apply to payments and are deducted before funds become available in your Stripe or bank account.
 </Tip>
 
 Your share of the subscription pool is calculated by the [Contribution Formula](/contribution/formula) based on plays, time decay, and collaboration splits.
@@ -53,13 +53,13 @@ Your share of the subscription pool is calculated by the [Contribution Formula](
 <Steps>
   <Step title="Earn Revenue">
     Revenue accumulates from:
-    - **License sales** — Exclusive purchases (you receive 100% of your listed price)
-    - **Contribution earnings** — Your share of the subscription revenue pool (100% goes to producers)
+    - **License sales** — Earnings from exclusive purchases via Stripe Connect (you receive your listed price minus Stripe processing fees; BeatPass keeps a separate platform fee charged to the buyer)
+    - **Contribution earnings** — Your share of the subscription revenue pool based on the [Contribution Formula](/contribution/formula), funded from each paid subscription invoice
   </Step>
   
   <Step title="Funds Reach Your Stripe Account">
     - License sales: Funds transfer after payment succeeds
-    - Contribution splits: Processed monthly after billing cycle closes
+    - Contribution splits: Processed after each successful subscription invoice (`invoice.paid`)
   </Step>
   
   <Step title="Stripe Holds Funds">
@@ -200,14 +200,13 @@ Your share of the subscription pool is calculated by the [Contribution Formula](
 
 | Stage | Timeline |
 |-------|----------|
-| Billing period ends | Last day of month |
-| Splits calculated | 1st-5th of following month |
-| Transfer initiated | Within 1 week of calculation |
-| Funds available | 2-7 days after transfer |
-| Payout to bank | Daily (default) |
+| Subscription invoice paid | When subscriber is successfully charged (for most plans, once per billing cycle) |
+| Splits calculated & transfers queued | Shortly after each `invoice.paid` event via the subscription split job |
+| Funds available | 2-7 days after transfers, depending on Stripe's standard timelines |
+| Payout to bank | Per your Stripe payout schedule (daily, weekly, or monthly) |
 | Arrives in bank | 1-7 days (region dependent) |
 
-**Total: ~2-3 weeks from month end**
+**Total time depends on your subscription billing cycle and Stripe's payout schedule, not a separate month-end batch.**
 
 ### By Region
 
@@ -339,10 +338,10 @@ If your balance doesn't reach the minimum, it carries over to the next period.
   </Accordion>
   
   <Accordion title="I don't see my contribution earnings">
-    Contribution splits are processed monthly:
-    - Calculated in the first week of the following month
-    - Must have an active Stripe account to receive
-    - Must meet minimum threshold ($10)
+    Contribution splits are processed **per subscription invoice**:
+    - Calculated and queued shortly after each successful `invoice.paid` event
+    - You must have an active Stripe Connect account to receive transfers
+    - You must meet the minimum payout threshold ($10)
   </Accordion>
   
   <Accordion title="Bank rejected my payout">
