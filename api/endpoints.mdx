@@ -1,0 +1,388 @@
+---
+title: "API Endpoints"
+description: "Complete reference for all available BeatPass API endpoints."
+---
+
+## Overview
+
+This page documents all available API endpoints. All endpoints use the base URL `https://beta.beatpass.ca/api/v1`.
+
+<Info>
+  Endpoints marked with a lock icon require authentication.
+</Info>
+
+---
+
+## Tracks
+
+### List Tracks
+
+Retrieve a paginated list of public tracks.
+
+```http
+GET /tracks
+```
+
+**Query Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `page` | integer | Page number (default: 1) |
+| `per_page` | integer | Results per page (max: 50, default: 15) |
+| `genre` | string | Filter by genre slug |
+| `bpm_min` | integer | Minimum BPM |
+| `bpm_max` | integer | Maximum BPM |
+| `key` | string | Musical key (e.g., "C", "F#") |
+| `scale` | string | "major" or "minor" |
+| `sort` | string | Sort field: "newest", "popular", "trending" |
+
+**Response:**
+
+```json
+{
+  "status": "success",
+  "data": [
+    {
+      "id": 1234,
+      "name": "Midnight Chase",
+      "duration": 180,
+      "bpm": 145,
+      "key": "C",
+      "scale": "minor",
+      "genres": ["trap", "dark"],
+      "artist": {
+        "id": 56,
+        "name": "ProducerName",
+        "image_url": "https://..."
+      },
+      "image_url": "https://...",
+      "plays_count": 1250,
+      "created_at": "2024-01-15T10:30:00Z"
+    }
+  ],
+  "pagination": {
+    "current_page": 1,
+    "per_page": 15,
+    "total": 500,
+    "last_page": 34
+  }
+}
+```
+
+---
+
+### Get Track Details
+
+Retrieve details for a specific track.
+
+```http
+GET /tracks/{id}
+```
+
+**Path Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `id` | integer | Track ID |
+
+**Response:**
+
+```json
+{
+  "status": "success",
+  "data": {
+    "id": 1234,
+    "name": "Midnight Chase",
+    "description": "Dark melodic trap beat...",
+    "duration": 180,
+    "bpm": 145,
+    "key": "C",
+    "scale": "minor",
+    "genres": ["trap", "dark"],
+    "tags": ["melodic", "808", "atmospheric"],
+    "artists": [
+      {
+        "id": 56,
+        "name": "ProducerName",
+        "verified": true
+      }
+    ],
+    "album": {
+      "id": 12,
+      "name": "Album Name"
+    },
+    "image_url": "https://...",
+    "waveform_url": "https://...",
+    "plays_count": 1250,
+    "likes_count": 89,
+    "created_at": "2024-01-15T10:30:00Z",
+    "licensing": {
+      "available": true,
+      "types": ["non_exclusive", "exclusive"]
+    }
+  }
+}
+```
+
+---
+
+### Get Stream URL
+
+Get the streaming URL for a track.
+
+```http
+GET /tracks/{id}/stream
+```
+
+<Note>
+  Stream URLs are temporary and expire. Do not cache them long-term.
+</Note>
+
+**Response:**
+
+```json
+{
+  "status": "success",
+  "data": {
+    "url": "https://cdn.beatpass.ca/stream/...",
+    "expires_at": "2024-01-15T11:30:00Z"
+  }
+}
+```
+
+---
+
+## Artists
+
+### List Artists
+
+Retrieve a paginated list of artists/producers.
+
+```http
+GET /artists
+```
+
+**Query Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `page` | integer | Page number |
+| `per_page` | integer | Results per page (max: 50) |
+| `verified` | boolean | Filter verified artists only |
+| `sort` | string | "popular", "newest", "name" |
+
+**Response:**
+
+```json
+{
+  "status": "success",
+  "data": [
+    {
+      "id": 56,
+      "name": "ProducerName",
+      "bio": "Music producer from...",
+      "image_url": "https://...",
+      "verified": true,
+      "tracks_count": 45,
+      "followers_count": 1200
+    }
+  ],
+  "pagination": {...}
+}
+```
+
+---
+
+### Get Artist Details
+
+```http
+GET /artists/{id}
+```
+
+**Response:**
+
+```json
+{
+  "status": "success",
+  "data": {
+    "id": 56,
+    "name": "ProducerName",
+    "bio": "Music producer specializing in...",
+    "image_url": "https://...",
+    "header_image_url": "https://...",
+    "verified": true,
+    "tracks_count": 45,
+    "albums_count": 3,
+    "followers_count": 1200,
+    "genres": ["trap", "hip-hop", "r&b"],
+    "social_links": {
+      "instagram": "https://...",
+      "twitter": "https://..."
+    },
+    "created_at": "2023-06-01T00:00:00Z"
+  }
+}
+```
+
+---
+
+### Get Artist Tracks
+
+```http
+GET /artists/{id}/tracks
+```
+
+Returns paginated tracks belonging to the specified artist.
+
+---
+
+### Get Artist Albums
+
+```http
+GET /artists/{id}/albums
+```
+
+Returns albums by the specified artist.
+
+---
+
+## Search
+
+### Search Tracks and Artists
+
+```http
+GET /search
+```
+
+**Query Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `query` | string | Search term (required) |
+| `type` | string | "all", "tracks", "artists", "albums" |
+| `limit` | integer | Max results per type (default: 10) |
+
+**Response:**
+
+```json
+{
+  "status": "success",
+  "data": {
+    "tracks": [...],
+    "artists": [...],
+    "albums": [...]
+  }
+}
+```
+
+---
+
+## User (Authenticated)
+
+### Get Current User
+
+```http
+GET /user
+```
+
+<Warning>
+  Requires authentication.
+</Warning>
+
+**Response:**
+
+```json
+{
+  "status": "success",
+  "data": {
+    "id": 123,
+    "email": "user@example.com",
+    "display_name": "Username",
+    "avatar_url": "https://...",
+    "roles": ["user"],
+    "created_at": "2024-01-01T00:00:00Z"
+  }
+}
+```
+
+---
+
+### Get User Library
+
+```http
+GET /user/library
+```
+
+Returns tracks saved to the authenticated user's library.
+
+---
+
+### Get User Playlists
+
+```http
+GET /user/playlists
+```
+
+Returns playlists created by or followed by the authenticated user.
+
+---
+
+## Genres
+
+### List Genres
+
+```http
+GET /genres
+```
+
+Returns all available genres for filtering.
+
+**Response:**
+
+```json
+{
+  "status": "success",
+  "data": [
+    {
+      "id": 1,
+      "name": "Hip Hop",
+      "slug": "hip-hop",
+      "tracks_count": 2500
+    },
+    {
+      "id": 2,
+      "name": "Trap",
+      "slug": "trap",
+      "tracks_count": 1800
+    }
+  ]
+}
+```
+
+---
+
+## Error Codes
+
+All endpoints may return these errors:
+
+| Code | Status | Description |
+|------|--------|-------------|
+| 400 | Bad Request | Invalid parameters |
+| 401 | Unauthorized | Missing or invalid token |
+| 403 | Forbidden | Insufficient permissions |
+| 404 | Not Found | Resource doesn't exist |
+| 429 | Too Many Requests | Rate limit exceeded |
+| 500 | Server Error | Internal error |
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Authentication" icon="key" href="/api/auth">
+    Set up API authentication.
+  </Card>
+  <Card title="Rate Limits" icon="gauge" href="/api/rate-limits">
+    Understand usage limits.
+  </Card>
+</CardGroup>
