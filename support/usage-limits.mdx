@@ -13,19 +13,26 @@ BeatPass implements usage limits to ensure fair access, prevent abuse, and maint
 
 ### Track Uploads
 
-| Parameter | Limit |
-|-----------|-------|
-| Accepted formats | WAV, FLAC (lossless only) |
-| Max file size | 100 MB |
-| Max duration | 15 minutes |
-| Min duration | 30 seconds |
-| Files per track | 1 (single mixdown) |
-| Uploads per day | No hard limit* |
-
-*Excessive uploads in a short period may trigger rate limiting. Upload at a reasonable pace.
+<CardGroup cols={3}>
+  <Card title="Formats" icon="file-audio">
+    **WAV, FLAC** (lossless only)
+  </Card>
+  <Card title="Max Size" icon="weight-hanging">
+    **100 MB** per file
+  </Card>
+  <Card title="Duration" icon="clock">
+    **30 sec – 15 min**
+  </Card>
+  <Card title="Files" icon="file">
+    **1** per track (mixdown)
+  </Card>
+  <Card title="Daily Limit" icon="calendar">
+    **No hard limit**\*
+  </Card>
+</CardGroup>
 
 <Note>
-  BeatPass only accepts lossless audio formats (WAV, FLAC). Compressed formats like MP3 are not accepted. Each track is a single audio file — stem uploads are not supported through the platform.
+  \*Excessive uploads in a short period may trigger rate limiting. BeatPass only accepts lossless formats — no MP3 or compressed audio.
 </Note>
 
 ---
@@ -34,23 +41,35 @@ BeatPass implements usage limits to ensure fair access, prevent abuse, and maint
 
 ### Direct Messages
 
-| Parameter | Limit |
-|-----------|-------|
-| Messages per hour | Platform rate limit applies |
-| Message length | 5,000 characters |
-| Conversations | No hard limit |
+<CardGroup cols={3}>
+  <Card title="Rate Limit" icon="gauge">
+    Platform-managed throttling
+  </Card>
+  <Card title="Message Length" icon="text">
+    **5,000** characters max
+  </Card>
+  <Card title="Conversations" icon="comments">
+    **Unlimited**
+  </Card>
+</CardGroup>
 
 ### New Account Restrictions
 
-| Account Age | Limitation |
-|-------------|------------|
-| < 24 hours | Reduced messaging capabilities |
-| < 7 days | May have lower rate limits |
-| 7+ days | Full messaging access |
+<Steps>
+  <Step title="First 24 Hours" icon="hourglass-start">
+    Reduced messaging capabilities to prevent spam
+  </Step>
+  <Step title="Days 1-7" icon="hourglass-half">
+    May have lower rate limits while account establishes trust
+  </Step>
+  <Step title="7+ Days" icon="circle-check">
+    Full messaging access unlocked
+  </Step>
+</Steps>
 
-<Note>
+<Tip>
   Verified accounts and subscribers have higher messaging allowances.
-</Note>
+</Tip>
 
 ---
 
@@ -58,18 +77,28 @@ BeatPass implements usage limits to ensure fair access, prevent abuse, and maint
 
 ### Request Creation
 
-| User Type | Active Requests |
-|-----------|-----------------|
-| Free users | 3 active requests |
-| Subscribers | 10 active requests |
+<Tabs>
+  <Tab title="Free Users">
+    Up to **3 active requests** at a time
+  </Tab>
+  <Tab title="Subscribers">
+    Up to **10 active requests** at a time
+  </Tab>
+</Tabs>
 
 ### Request Lifecycle
 
-| Parameter | Value |
-|-----------|-------|
-| Auto-expiry | 30 days from creation |
-| Max responses per request | No limit |
-| Responses per producer per request | 1 |
+<CardGroup cols={3}>
+  <Card title="Auto-Expiry" icon="clock">
+    **24 hours** from creation
+  </Card>
+  <Card title="Responses" icon="comments">
+    **Unlimited** per request
+  </Card>
+  <Card title="Per Producer" icon="user">
+    **1 response** per request
+  </Card>
+</CardGroup>
 
 ---
 
@@ -77,10 +106,14 @@ BeatPass implements usage limits to ensure fair access, prevent abuse, and maint
 
 ### Repost Limits
 
-| Timeframe | Limit |
-|-----------|-------|
-| Per hour | 20 reposts |
-| Per day | 100 reposts |
+<CardGroup cols={2}>
+  <Card title="Per Hour" icon="clock">
+    **20** reposts max
+  </Card>
+  <Card title="Per Day" icon="calendar">
+    **100** reposts max
+  </Card>
+</CardGroup>
 
 <Tip>
   Reposts are for sharing content you genuinely appreciate. Excessive reposting may appear spammy to your followers.
@@ -92,20 +125,32 @@ BeatPass implements usage limits to ensure fair access, prevent abuse, and maint
 
 ### Saved Items
 
-| Collection Type | Limit |
-|-----------------|-------|
-| Saved tracks | 10,000 items |
-| Custom playlists | 100 playlists |
-| Tracks per playlist | 500 tracks |
+<CardGroup cols={3}>
+  <Card title="Saved Tracks" icon="bookmark">
+    **10,000** items max
+  </Card>
+  <Card title="Playlists" icon="list">
+    **100** playlists max
+  </Card>
+  <Card title="Tracks/Playlist" icon="music">
+    **500** tracks max
+  </Card>
+</CardGroup>
 
 ### Collaborative Playlists
 
-| Parameter | Limit |
-|-----------|-------|
-| Editors per playlist | 10 collaborators |
-| Invitation expiry | 7 days |
-| Pending invitations | 5 per playlist |
-| Re-invite after decline | Wait 24 hours |
+<CardGroup cols={2}>
+  <Card title="Editors" icon="users">
+    **10** collaborators per playlist
+  </Card>
+  <Card title="Invitations" icon="envelope">
+    **5** pending, expire in **7 days**
+  </Card>
+</CardGroup>
+
+<Note>
+  After a declined invitation, wait **24 hours** before re-inviting.
+</Note>
 
 ---
 
@@ -113,17 +158,23 @@ BeatPass implements usage limits to ensure fair access, prevent abuse, and maint
 
 ### Follow Limits
 
-| Timeframe | Limit |
-|-----------|-------|
-| Follows per hour | 50 |
-| Follows per day | 200 |
-| Total following | 5,000 accounts |
+<CardGroup cols={3}>
+  <Card title="Per Hour" icon="clock">
+    **50** follows max
+  </Card>
+  <Card title="Per Day" icon="calendar">
+    **200** follows max
+  </Card>
+  <Card title="Total" icon="users">
+    **5,000** accounts max
+  </Card>
+</CardGroup>
 
 ### Follower Limits
 
-| Parameter | Value |
-|-----------|-------|
-| Max followers | No limit |
+<Info>
+  There is **no limit** on how many followers you can have.
+</Info>
 
 ---
 
@@ -131,18 +182,28 @@ BeatPass implements usage limits to ensure fair access, prevent abuse, and maint
 
 ### Radio Listening
 
-| Parameter | Limit |
-|-----------|-------|
-| Skip limit | 6 skips per hour |
-| Station requests | 30 per minute |
-| Concurrent streams | 1 per account |
+<CardGroup cols={3}>
+  <Card title="Skips" icon="forward">
+    **6** per hour
+  </Card>
+  <Card title="Station Requests" icon="radio">
+    **30** per minute
+  </Card>
+  <Card title="Streams" icon="play">
+    **1** concurrent
+  </Card>
+</CardGroup>
 
 ### Discovery
 
-| Parameter | Limit |
-|-----------|-------|
-| Search queries | 60 per minute |
-| Filter combinations | No limit |
+<CardGroup cols={2}>
+  <Card title="Search Queries" icon="magnifying-glass">
+    **60** per minute
+  </Card>
+  <Card title="Filters" icon="filter">
+    **Unlimited** combinations
+  </Card>
+</CardGroup>
 
 ---
 
@@ -150,19 +211,31 @@ BeatPass implements usage limits to ensure fair access, prevent abuse, and maint
 
 ### Playback
 
-| Parameter | Limit |
-|-----------|-------|
-| Concurrent streams | 1 device at a time |
-| Monthly streaming | Unlimited |
-| Offline downloads | Purchased content only |
+<CardGroup cols={3}>
+  <Card title="Concurrent Streams" icon="display">
+    **1** device at a time
+  </Card>
+  <Card title="Monthly Streaming" icon="infinity">
+    **Unlimited**
+  </Card>
+  <Card title="Offline Downloads" icon="download">
+    Purchased content only
+  </Card>
+</CardGroup>
 
 ### Data Usage
 
-| Quality | Approx. Usage |
-|---------|---------------|
-| Standard | ~1 MB/minute |
-| High Quality | ~2 MB/minute |
-| Data Saver | ~0.5 MB/minute |
+<Tabs>
+  <Tab title="Standard">
+    ~**1 MB/minute** — Balanced quality and data usage
+  </Tab>
+  <Tab title="High Quality">
+    ~**2 MB/minute** — Best audio quality, higher data usage
+  </Tab>
+  <Tab title="Data Saver">
+    ~**0.5 MB/minute** — Lower quality, minimal data usage
+  </Tab>
+</Tabs>
 
 ---
 
@@ -170,13 +243,23 @@ BeatPass implements usage limits to ensure fair access, prevent abuse, and maint
 
 For developers and technical users:
 
-| Route Group | Requests/Minute |
-|-------------|-----------------|
-| General API | 60 |
-| Producer Intelligence (public) | 300 |
-| Producer Intelligence (auth) | 500 |
-| Social Analytics | 120 |
-| Search | 60 |
+<AccordionGroup>
+  <Accordion title="General API" icon="code">
+    **60** requests per minute
+  </Accordion>
+  <Accordion title="Producer Intelligence (public)" icon="chart-line">
+    **300** requests per minute
+  </Accordion>
+  <Accordion title="Producer Intelligence (auth)" icon="lock">
+    **500** requests per minute (authenticated)
+  </Accordion>
+  <Accordion title="Social Analytics" icon="users">
+    **120** requests per minute
+  </Accordion>
+  <Accordion title="Search" icon="magnifying-glass">
+    **60** requests per minute
+  </Accordion>
+</AccordionGroup>
 
 See [API Rate Limits](/api/rate-limits) for complete details.
 
@@ -186,19 +269,31 @@ See [API Rate Limits](/api/rate-limits) for complete details.
 
 ### Profile
 
-| Parameter | Limit |
-|-----------|-------|
-| Username changes | 1 per 30 days |
-| Bio length | 500 characters |
-| Profile links | 5 external links |
+<CardGroup cols={3}>
+  <Card title="Username Changes" icon="at">
+    **1** per 30 days
+  </Card>
+  <Card title="Bio Length" icon="align-left">
+    **500** characters max
+  </Card>
+  <Card title="Profile Links" icon="link">
+    **5** external links max
+  </Card>
+</CardGroup>
 
 ### Security
 
-| Parameter | Limit |
-|-----------|-------|
-| Login attempts | 5 per 15 minutes |
-| Password reset requests | 3 per hour |
-| Active sessions | 10 devices |
+<CardGroup cols={3}>
+  <Card title="Login Attempts" icon="lock">
+    **5** per 15 minutes
+  </Card>
+  <Card title="Password Resets" icon="key">
+    **3** per hour
+  </Card>
+  <Card title="Active Sessions" icon="desktop">
+    **10** devices max
+  </Card>
+</CardGroup>
 
 ---
 
@@ -206,30 +301,50 @@ See [API Rate Limits](/api/rate-limits) for complete details.
 
 ### Purchases
 
-| Parameter | Limit |
-|-----------|-------|
-| Purchases per day | No hard limit |
-| Concurrent checkouts | 1 |
-| Payment retries | 3 attempts |
+<CardGroup cols={3}>
+  <Card title="Daily Purchases" icon="cart-shopping">
+    **No hard limit**
+  </Card>
+  <Card title="Checkouts" icon="credit-card">
+    **1** concurrent
+  </Card>
+  <Card title="Payment Retries" icon="rotate">
+    **3** attempts
+  </Card>
+</CardGroup>
 
 ### Payouts
 
-| Parameter | Value |
-|-----------|-------|
-| Minimum payout | $10 |
-| Payout frequency | Monthly |
-| Payout method changes | 1 per payout cycle |
+<CardGroup cols={3}>
+  <Card title="Minimum" icon="dollar-sign">
+    **\$10** threshold
+  </Card>
+  <Card title="Frequency" icon="calendar-check">
+    **Monthly** payouts
+  </Card>
+  <Card title="Method Changes" icon="bank">
+    **1** per payout cycle
+  </Card>
+</CardGroup>
 
 ---
 
 ## What Happens at Limits
 
-| Scenario | Behavior |
-|----------|----------|
-| Rate limit hit | 429 error; retry after cooldown |
-| Storage limit hit | Cannot save more items; remove old items first |
-| Daily limit hit | Wait until next day (UTC) |
-| Account limit hit | Feature disabled until resolved |
+<AccordionGroup>
+  <Accordion title="Rate Limit Hit" icon="gauge-high">
+    You'll receive a **429 error**. Wait for the cooldown period, then retry your request.
+  </Accordion>
+  <Accordion title="Storage Limit Hit" icon="database">
+    Cannot save more items. Remove old items first to free up space.
+  </Accordion>
+  <Accordion title="Daily Limit Hit" icon="calendar-xmark">
+    Wait until the next day (UTC midnight) for limits to reset.
+  </Accordion>
+  <Accordion title="Account Limit Hit" icon="user-xmark">
+    Feature disabled until the issue is resolved. Contact support if needed.
+  </Accordion>
+</AccordionGroup>
 
 ### Rate Limit Headers
 
@@ -247,11 +362,34 @@ X-RateLimit-Reset: 1700000000
 
 ### Subscription Benefits
 
-| Feature | Free | Subscriber |
-|---------|------|------------|
-| Beat requests | 3 active | 10 active |
-| Priority support | Standard | Fast-track |
-| API rate limits | Standard | Elevated |
+<Tabs>
+  <Tab title="Free">
+    <CardGroup cols={3}>
+      <Card title="Beat Requests" icon="music">
+        **3** active
+      </Card>
+      <Card title="Support" icon="headset">
+        Standard priority
+      </Card>
+      <Card title="API Limits" icon="code">
+        Standard rates
+      </Card>
+    </CardGroup>
+  </Tab>
+  <Tab title="Subscriber">
+    <CardGroup cols={3}>
+      <Card title="Beat Requests" icon="music" color="#22c55e">
+        **10** active
+      </Card>
+      <Card title="Support" icon="headset" color="#22c55e">
+        Fast-track priority
+      </Card>
+      <Card title="API Limits" icon="code" color="#22c55e">
+        Elevated rates
+      </Card>
+    </CardGroup>
+  </Tab>
+</Tabs>
 
 ### Special Requests
 
@@ -271,12 +409,24 @@ For legitimate business needs exceeding standard limits:
 
 Attempting to circumvent rate limits may result in:
 
-| Violation | Consequence |
-|-----------|-------------|
-| Automated scraping | IP ban, account suspension |
-| Multi-account abuse | All accounts terminated |
-| API abuse | API access revoked |
-| Spam behavior | Account restrictions |
+<CardGroup cols={2}>
+  <Card title="Automated Scraping" icon="robot" color="#ef4444">
+    IP ban and account suspension
+  </Card>
+  <Card title="Multi-Account Abuse" icon="users" color="#ef4444">
+    All accounts terminated
+  </Card>
+  <Card title="API Abuse" icon="code" color="#ef4444">
+    API access permanently revoked
+  </Card>
+  <Card title="Spam Behavior" icon="triangle-exclamation" color="#ef4444">
+    Account restrictions applied
+  </Card>
+</CardGroup>
+
+<Warning>
+  BeatPass actively monitors for abuse. Violations are taken seriously and may result in permanent platform bans.
+</Warning>
 
 ---
 

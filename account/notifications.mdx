@@ -13,62 +13,118 @@ BeatPass sends notifications to keep you informed about activity, earnings, and 
 
 ### Activity Notifications
 
-| Notification | Description | Default (Email) | Default (Push) |
-|--------------|-------------|-----------------|----------------|
-| New Follower | Someone followed your profile | Off | On |
-| Track Like | Someone liked your track | Off | On |
-| Track Save | Someone saved your track to library | Off | Off |
-| Comment | Someone commented on your track | On | On |
-| Mention | Someone mentioned you | On | On |
-| Repost | Someone reposted your track | Off | On |
+<AccordionGroup>
+  <Accordion title="New Follower" icon="user-plus">
+    Someone followed your profile — **Email**: Off | **Push**: On
+  </Accordion>
+  <Accordion title="Track Like" icon="heart">
+    Someone liked your track — **Email**: Off | **Push**: On
+  </Accordion>
+  <Accordion title="Track Save" icon="bookmark">
+    Track saved to library — **Email**: Off | **Push**: Off
+  </Accordion>
+  <Accordion title="Comment" icon="comment">
+    Someone commented on your track — **Email**: On | **Push**: On
+  </Accordion>
+  <Accordion title="Mention" icon="at">
+    Someone mentioned you — **Email**: On | **Push**: On
+  </Accordion>
+  <Accordion title="Repost" icon="retweet">
+    Someone reposted your track — **Email**: Off | **Push**: On
+  </Accordion>
+</AccordionGroup>
 
 ### Message Notifications
 
-| Notification | Description | Default (Email) | Default (Push) |
-|--------------|-------------|-----------------|----------------|
-| New Message | Direct message received | On | On |
-| Beat Request Response | Producer responded to your request | On | On |
-| Collaboration Invite | Someone invited you to collaborate | On | On |
-| Message Read | Recipient read your message | Off | Off |
+<AccordionGroup>
+  <Accordion title="New Message" icon="envelope">
+    Direct message received — **Email**: On | **Push**: On
+  </Accordion>
+  <Accordion title="Beat Request Response" icon="reply">
+    Producer responded to your request — **Email**: On | **Push**: On
+  </Accordion>
+  <Accordion title="Collaboration Invite" icon="handshake">
+    Someone invited you to collaborate — **Email**: On | **Push**: On
+  </Accordion>
+  <Accordion title="Message Read" icon="check-double">
+    Recipient read your message — **Email**: Off | **Push**: Off
+  </Accordion>
+</AccordionGroup>
 
 ### Earnings Notifications (Producers)
 
-| Notification | Description | Default (Email) | Default (Push) |
-|--------------|-------------|-----------------|----------------|
-| License Purchased | Someone bought a license | On | On |
-| Payout Processed | Monthly payout sent | On | On |
-| Payout Failed | Payout could not be processed | On | On |
-| Earnings Milestone | Hit earnings threshold ($100, $500, etc.) | On | Off |
-| Contribution Update | Monthly contribution summary | On | Off |
-| Exclusive Sold | Exclusive license purchased | On | On |
+<AccordionGroup>
+  <Accordion title="License Purchased" icon="cart-shopping">
+    Someone bought a license — **Email**: On | **Push**: On
+  </Accordion>
+  <Accordion title="Payout Processed" icon="money-bill-wave">
+    Monthly payout sent — **Email**: On | **Push**: On
+  </Accordion>
+  <Accordion title="Payout Failed" icon="triangle-exclamation">
+    Payout could not be processed — **Email**: On | **Push**: On
+  </Accordion>
+  <Accordion title="Earnings Milestone" icon="trophy">
+    Hit earnings threshold ($100, $500, etc.) — **Email**: On | **Push**: Off
+  </Accordion>
+  <Accordion title="Contribution Update" icon="chart-pie">
+    Monthly contribution summary — **Email**: On | **Push**: Off
+  </Accordion>
+  <Accordion title="Exclusive Sold" icon="lock">
+    Exclusive license purchased — **Email**: On | **Push**: On
+  </Accordion>
+</AccordionGroup>
 
 ### Beat Request Notifications
 
-| Notification | Description | Default (Email) | Default (Push) |
-|--------------|-------------|-----------------|----------------|
-| New Response | Producer responded to your request | On | On |
-| Request Expiring | Request expires in 5 days | On | Off |
-| Request Fulfilled | Artist marked request fulfilled | On | On |
-| Request Match | New request matches your style (producers) | Off | Off |
+<AccordionGroup>
+  <Accordion title="New Response" icon="reply">
+    Producer responded to your request — **Email**: On | **Push**: On
+  </Accordion>
+  <Accordion title="Request Match" icon="bullseye">
+    New request matches your style (producers) — **Email**: Off | **Push**: Off
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  Beat requests expire automatically after 24 hours. No expiry reminder notifications are sent.
+</Note>
 
 ### Achievement Notifications
 
-| Notification | Description | Default (Email) | Default (Push) |
-|--------------|-------------|-----------------|----------------|
-| Achievement Unlocked | New achievement earned | On | On |
-| Level Up | XP level increased | On | On |
-| Leaderboard Change | Rank changed significantly | Off | Off |
+<AccordionGroup>
+  <Accordion title="Achievement Unlocked" icon="trophy">
+    New achievement earned — **Email**: On | **Push**: On
+  </Accordion>
+  <Accordion title="Level Up" icon="arrow-up">
+    XP level increased — **Email**: On | **Push**: On
+  </Accordion>
+  <Accordion title="Leaderboard Change" icon="ranking-star">
+    Rank changed significantly — **Email**: Off | **Push**: Off
+  </Accordion>
+</AccordionGroup>
 
 ### System Notifications
 
-| Notification | Description | Default (Email) | Default (Push) |
-|--------------|-------------|-----------------|----------------|
-| Security Alert | Unusual login activity | **Always On** | **Always On** |
-| Password Changed | Password was updated | **Always On** | Off |
-| Account Update | Profile or settings changed | Off | Off |
-| Platform Announcement | Important platform news | On | Off |
-| Feature Update | New features available | Off | Off |
-| Scheduled Maintenance | Upcoming downtime | On | Off |
+<AccordionGroup>
+  <Accordion title="Security Alert" icon="shield">
+    Unusual login activity — **Always On** (cannot be disabled)
+  </Accordion>
+  <Accordion title="Password Changed" icon="key">
+    Password was updated — **Email**: Always On | **Push**: Off
+  </Accordion>
+  <Accordion title="Account Update" icon="user-pen">
+    Profile or settings changed — **Email**: Off | **Push**: Off
+  </Accordion>
+  <Accordion title="Platform Announcement" icon="bullhorn">
+    Important platform news — **Email**: On | **Push**: Off
+  </Accordion>
+  <Accordion title="Feature Update" icon="sparkles">
+    New features available — **Email**: Off | **Push**: Off
+  </Accordion>
+  <Accordion title="Scheduled Maintenance" icon="wrench">
+    Upcoming downtime — **Email**: On | **Push**: Off
+  </Accordion>
+</AccordionGroup>
 
 <Note>
   Security notifications cannot be disabled. You will always receive alerts for suspicious login activity and password changes.
@@ -81,6 +137,7 @@ BeatPass sends notifications to keep you informed about activity, earnings, and 
 ### Email
 
 Best for:
+
 - Important updates you shouldn't miss
 - Earnings and payout information
 - Weekly/monthly summaries
@@ -89,6 +146,7 @@ Best for:
 ### Push Notifications
 
 Best for:
+
 - Real-time alerts (messages, activity)
 - Urgent security notifications
 - Achievement unlocks
@@ -96,6 +154,7 @@ Best for:
 ### In-App Notifications
 
 Always available:
+
 - Bell icon in navigation
 - Shows unread count
 - All notification types
@@ -120,17 +179,14 @@ For technical details, see [API Endpoints - Notifications](/api/endpoints#notifi
 
 <Steps>
   <Step title="Open Settings">
-    Click your avatar > Settings.
+    Click your avatar \> Settings.
   </Step>
-  
   <Step title="Select Notifications">
     Navigate to the Notifications section.
   </Step>
-  
   <Step title="Customize">
     Toggle each notification type on/off for each channel.
   </Step>
-  
   <Step title="Save">
     Changes save automatically.
   </Step>
@@ -138,13 +194,20 @@ For technical details, see [API Endpoints - Notifications](/api/endpoints#notifi
 
 ### Configuration Matrix
 
-| Notification | Email | Push | In-App |
-|--------------|-------|------|--------|
-| New Follower | Toggle | Toggle | Always |
-| Track Like | Toggle | Toggle | Always |
-| New Message | Toggle | Toggle | Always |
-| Payout | Default On | Toggle | Always |
-| Security | Always On | Always On | Always |
+<CardGroup cols={2}>
+  <Card title="Activity" icon="bell">
+    New followers, likes — **Toggleable** for Email/Push, always in-app
+  </Card>
+  <Card title="Messages" icon="envelope">
+    New messages — **Toggleable** for Email/Push, always in-app
+  </Card>
+  <Card title="Payouts" icon="dollar-sign">
+    Payout notifications — **Default On** for Email, toggleable Push, always in-app
+  </Card>
+  <Card title="Security" icon="shield" color="#ef4444">
+    Security alerts — **Always On** for all channels
+  </Card>
+</CardGroup>
 
 ---
 
@@ -154,18 +217,26 @@ For technical details, see [API Endpoints - Notifications](/api/endpoints#notifi
 
 Instead of individual emails, receive summaries:
 
-| Option | Description |
-|--------|-------------|
-| Immediate | Each event triggers an email |
-| Daily Digest | One email per day with all activity |
-| Weekly Digest | One email per week summarizing activity |
-| Off | No emails for this category |
+<Tabs>
+  <Tab title="Immediate">
+    Each event triggers an individual email instantly
+  </Tab>
+  <Tab title="Daily Digest">
+    One email per day with all activity summarized
+  </Tab>
+  <Tab title="Weekly Digest">
+    One email per week summarizing all activity
+  </Tab>
+  <Tab title="Off">
+    No emails for this category
+  </Tab>
+</Tabs>
 
 ### Quiet Hours
 
 Set times when push notifications are silenced:
 
-1. Go to Notifications > Quiet Hours
+1. Go to Notifications \> Quiet Hours
 2. Set start and end times
 3. Select days (weekdays, weekends, all)
 4. Save preferences
@@ -207,7 +278,7 @@ Every email includes an unsubscribe link:
 
 To stop all marketing communications:
 
-1. Go to Settings > Notifications
+1. Go to Settings \> Notifications
 2. Scroll to Marketing section
 3. Toggle all options off
 4. Save changes
@@ -223,24 +294,21 @@ To stop all marketing communications:
 <AccordionGroup>
   <Accordion title="Not receiving emails">
     - Check spam/junk folder
-    - Add notifications@beatpass.ca to contacts
+    - Add [notifications@beatpass.ca](mailto:notifications@beatpass.ca) to contacts
     - Verify email is correct in settings
     - Check notification preferences are on
   </Accordion>
-  
   <Accordion title="Push notifications not working">
     - Ensure browser notifications are allowed
     - Check device notification settings
     - Try re-enabling in settings
     - Clear browser cache
   </Accordion>
-  
   <Accordion title="Too many notifications">
     - Switch to digest mode for activity
     - Disable low-priority notifications
     - Set quiet hours
   </Accordion>
-  
   <Accordion title="Missing notifications">
     - Check in-app notification center
     - Verify category isn't disabled
@@ -255,6 +323,7 @@ To stop all marketing communications:
 ### For Producers
 
 Recommended settings:
+
 - **On**: License purchases, payouts, beat request matches
 - **Digest**: Likes, follows, comments
 - **Off**: Marketing (unless you want updates)
@@ -262,6 +331,7 @@ Recommended settings:
 ### For Artists
 
 Recommended settings:
+
 - **On**: Messages, beat request responses
 - **Digest**: New releases from followed producers
 - **Off**: Activity from others (unless curating)

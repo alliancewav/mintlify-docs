@@ -19,14 +19,27 @@ BeatPass uses an XP (Experience Points) system to track producer progress and un
 
 XP is awarded for various platform activities:
 
-| Activity                      | XP Earned  |
-| ----------------------------- | ---------- |
-| Upload a track                | 100 XP     |
-| Track played                  | 1 XP       |
-| Track saved by user           | 5 XP       |
-| Achievement unlocked          | 100-500 XP |
-| Complete profile              | 50 XP      |
-| Complete metadata (per track) | 10 XP      |
+<CardGroup cols={2}>
+  <Card title="Upload a Track" icon="upload">
+    **+100 XP** per track uploaded
+  </Card>
+  <Card title="Track Played" icon="play">
+    **+1 XP** per play received
+  </Card>
+  <Card title="Complete Metadata" icon="tag">
+    **+50 XP** for BPM, key, and scale
+  </Card>
+  <Card title="Collaboration" icon="handshake">
+    **+25 XP** per collaboration credit
+  </Card>
+  <Card title="Achievements" icon="trophy">
+    **Varies** based on achievement rarity (150-6,000 XP)
+  </Card>
+</CardGroup>
+
+<Note>
+  XP is awarded to **all credited artists** on a track, including collaborators.
+</Note>
 
 ### XP Caps
 
@@ -37,21 +50,48 @@ To maintain fairness, some XP sources have daily or weekly caps:
 
 ---
 
-## Producer Tiers
+## Producer Levels
 
-### Tier Progression
+BeatPass uses a **100-level system** where your level title reflects your experience and engagement.
 
-| Tier         | XP Required     | Benefits                                 |
-| ------------ | --------------- | ---------------------------------------- |
-| **Bronze**   | 0 - 999         | Base access, standard features           |
-| **Silver**   | 1,000 - 4,999   | Profile badge, priority support          |
-| **Gold**     | 5,000 - 14,999  | Enhanced analytics, featured eligibility |
-| **Platinum** | 15,000 - 29,999 | Advanced insights, curator promotion     |
-| **Diamond**  | 30,000+         | Premium placement, beta features         |
+### Level Progression
 
-### Tier Badges
+<CardGroup cols={2}>
+  <Card title="Novice Producer" icon="seedling">
+    **Levels 1-2** — Starting your journey
+  </Card>
+  <Card title="Apprentice Producer" icon="graduation-cap">
+    **Levels 3-4** — Learning the ropes
+  </Card>
+  <Card title="Intermediate Producer" icon="arrow-trend-up">
+    **Levels 5-6** — Building momentum
+  </Card>
+  <Card title="Skilled Producer" icon="star">
+    **Levels 7-9** — Developing expertise
+  </Card>
+  <Card title="Experienced Producer" icon="medal">
+    **Levels 10-14** — Proven track record
+  </Card>
+  <Card title="Advanced Producer" icon="bolt">
+    **Levels 15-19** — Advanced skills
+  </Card>
+  <Card title="Professional Producer" icon="briefcase">
+    **Levels 20-29** — Professional status
+  </Card>
+  <Card title="Expert Producer" icon="gem">
+    **Levels 30-39** — Expert level
+  </Card>
+  <Card title="Master Producer" icon="trophy">
+    **Levels 40-49** — Mastery achieved
+  </Card>
+  <Card title="Legendary Producer" icon="crown">
+    **Level 50+** — Legendary status
+  </Card>
+</CardGroup>
 
-Your tier is displayed on:
+### Level Display
+
+Your level and title are displayed on:
 
 - Your producer profile
 - Track listings
@@ -59,64 +99,85 @@ Your tier is displayed on:
 - Search results
 
 <Tip>
-  Tier badges build trust with potential licensees and collaborators.
+  Higher levels build trust with potential licensees and collaborators.
 </Tip>
 
 ---
 
 ## Achievements
 
+BeatPass uses a **percentile-based achievement system** — achievements are earned by ranking among top producers in various categories.
+
 ### Achievement Categories
 
-Unlock achievements across five categories:
+<AccordionGroup>
+  <Accordion title="Upload Achievements" icon="music">
+    Based on your track count relative to other producers:
+    
+    - **Track Producer** — Top 50% by track count (+500 XP)
+    - **Prolific Creator** — Top 25% by track count (+1,500 XP)
+    - **Production Master** — Top 10% by track count (+3,000 XP)
+    - **Studio Legend** — Top 5% by track count (+5,000 XP)
+  </Accordion>
+  
+  <Accordion title="Trending Achievements" icon="fire">
+    Based on your tracks' play count performance:
+    
+    - **Rising Star** — Track in top 25% by plays (+1,000 XP)
+    - **Chart Topper** — Track in top 10% by plays (+2,000 XP)
+    - **Viral Hit** — Track in top 5% by plays (+3,500 XP)
+  </Accordion>
+  
+  <Accordion title="Metadata Achievements" icon="tag">
+    Based on your metadata completion accuracy:
+    
+    - **Metadata Whiz** — Over 70% accuracy (+800 XP)
+    - **Metadata Maven** — Over 80% accuracy (+1,500 XP)
+    - **Metadata Architect** — Over 90% accuracy (+2,500 XP)
+  </Accordion>
+  
+  <Accordion title="Collaboration Achievements" icon="handshake">
+    Earned by working with other artists:
+    
+    - **Collaboration Enthusiast** — First collaboration (+500 XP)
+    - **Team Player** — 10 collaborations (+1,500 XP)
+    - **Bridge Builder** — 25 collaborations (+3,000 XP)
+    - **Network Spider** — 50 collaborations (+5,000 XP)
+  </Accordion>
+  
+  <Accordion title="Milestone Achievements" icon="flag-checkered">
+    Special achievements for platform milestones:
+    
+    - **Early Adopter** — Beta phase account (+1,000 XP)
+    - **Rising** — 3-month account age (+150 XP)
+    - **OG** — 1-year account age (+600 XP)
+    - **Veteran** — 2-year account age (+1,000 XP)
+  </Accordion>
+</AccordionGroup>
 
-<Tabs>
-  <Tab title="Upload">
-    Milestones for number of tracks uploaded:
-
-    - First Upload (1 track)
-    - Prolific Producer (25 tracks)
-    - Catalog King (100 tracks)
-  </Tab>
-  <Tab title="Engagement">
-    Milestones for audience interaction:
-
-    - First Play
-    - Crowd Favorite (1,000 plays)
-    - Viral Hit (10,000 plays)
-  </Tab>
-  <Tab title="Quality">
-    Recognition for complete, discoverable content:
-
-    - Metadata Master (fully tagged tracks)
-    - Catalog Curator (organized collections)
-    - Discovery Pro (high search visibility)
-  </Tab>
-  <Tab title="Earnings">
-    Financial milestones:
-
-    - First Dollar
-    - Rising Earner (\$100)
-    - Pro Producer (\$1,000)
-  </Tab>
-  <Tab title="Community">
-    Social and collaboration achievements:
-
-    - Collaborator (first collab)
-    - Networker (10 collaborators)
-    - Mentor (help new producers)
-  </Tab>
-</Tabs>
+<Info>
+  Achievement thresholds are relative to the platform community and adjust automatically as the platform grows.
+</Info>
 
 ### Achievement Rarity
 
-| Rarity    | Color  | Percentage of Producers |
-| --------- | ------ | ----------------------- |
-| Common    | Gray   | 50%+                    |
-| Uncommon  | Green  | 25-50%                  |
-| Rare      | Blue   | 10-25%                  |
-| Epic      | Purple | 1-10%                   |
-| Legendary | Gold   | \< 1%                   |
+<CardGroup cols={3}>
+  <Card title="Common" icon="circle" color="#6b7280">
+    Rarity 1 — Easier to unlock
+  </Card>
+  <Card title="Uncommon" icon="circle" color="#22c55e">
+    Rarity 2 — Moderate difficulty
+  </Card>
+  <Card title="Rare" icon="circle" color="#3b82f6">
+    Rarity 3 — Significant achievement
+  </Card>
+  <Card title="Epic" icon="circle" color="#a855f7">
+    Rarity 4 — Top performers only
+  </Card>
+  <Card title="Legendary" icon="crown" color="#fbbf24">
+    Rarity 5 — Elite status
+  </Card>
+</CardGroup>
 
 ---
 
@@ -124,7 +185,7 @@ Unlock achievements across five categories:
 
 ### XP Dashboard
 
-Access your XP information in **Backstage \> Insights**:
+Access your XP information in **Backstage > Insights**:
 
 - Current XP total
 - XP to next tier
@@ -149,14 +210,14 @@ See how you rank against other producers:
 
 The **Overall Leaderboard** uses a composite score combining your rank across six category leaderboards:
 
-| Category          | Weight | What It Measures                  |
-| ----------------- | ------ | --------------------------------- |
-| **XP/Points**     | 25%    | Total experience points earned    |
-| **Plays**         | 20%    | Total streams across all tracks   |
-| **Uploads**       | 15%    | Number of tracks uploaded         |
-| **Quality**       | 15%    | Metadata completeness percentage  |
-| **Collaboration** | 15%    | Collaborative tracks and partners |
-| **Earnings**      | 10%    | Contribution share percentage     |
+| Category | Weight | What It Measures |
+|----------|--------|------------------|
+| **XP/Points** | 25% | Total experience points earned |
+| **Plays** | 20% | Total streams across all tracks |
+| **Uploads** | 15% | Number of tracks uploaded |
+| **Quality** | 15% | Metadata completeness percentage |
+| **Collaboration** | 15% | Collaborative tracks and partners |
+| **Earnings** | 10% | Contribution share percentage |
 
 Your rank in each category is converted to a score (higher rank = higher score), then the weighted average determines your overall position.
 
@@ -166,9 +227,11 @@ Your rank in each category is converted to a score (higher rank = higher score),
   <Accordion title="Overall Leaderboard">
     All producers ranked by the weighted composite score above. Updated every 30 minutes.
   </Accordion>
+  
   <Accordion title="Category Leaderboards">
     Separate rankings for each factor (Points, Plays, Uploads, Quality, Collaboration, Earnings). Excel in specific areas to climb these boards.
   </Accordion>
+  
   <Accordion title="Seasonal Competitions">
     Time-limited challenges (Upload Challenge, Quality Masters, Collaboration Kings) with special rewards for top performers.
   </Accordion>
@@ -186,8 +249,8 @@ Each leaderboard entry displays:
 
 ### Accessing Leaderboards
 
-1. Go to **Discover \> Leaderboards** from the main navigation
-2. Or access via **Backstage \> Insights \> Your Ranking**
+1. Go to **Discover > Leaderboards** from the main navigation
+2. Or access via **Backstage > Insights > Your Ranking**
 
 <Note>
   Leaderboards update every 4 hours. Your position may not reflect very recent activity immediately.
@@ -197,35 +260,41 @@ Each leaderboard entry displays:
 
 ## Level Benefits
 
-### Bronze (Starter)
+As you progress through levels, you unlock recognition and visibility:
 
-- Full upload capabilities
-- Basic analytics dashboard
-- Standard support
+<AccordionGroup>
+  <Accordion title="Early Levels (1-9)" icon="seedling">
+    - Full upload capabilities
+    - Basic analytics dashboard
+    - Standard support access
+    - Profile displays level badge
+  </Accordion>
+  
+  <Accordion title="Mid Levels (10-29)" icon="arrow-trend-up">
+    - Enhanced profile visibility
+    - Extended analytics history
+    - Leaderboard eligibility
+    - Community recognition
+  </Accordion>
+  
+  <Accordion title="High Levels (30-49)" icon="trophy">
+    - Featured track eligibility
+    - Advanced insights access
+    - Priority in discovery
+    - Trusted producer status
+  </Accordion>
+  
+  <Accordion title="Legendary (50+)" icon="crown">
+    - Premium catalog placement
+    - Maximum visibility in search
+    - Exclusive opportunities
+    - Platform recognition
+  </Accordion>
+</AccordionGroup>
 
-### Silver
-
-- Profile verification badge
-- Priority support queue
-- Extended analytics (30 days)
-
-### Gold
-
-- Featured track eligibility
-- Genre leaderboard placement
-- Detailed audience insights
-
-### Platinum
-
-- Curator playlist consideration
-- Advanced export tools
-- Beta feature access
-
-### Diamond
-
-- Premium catalog placement
-- Direct platform communication
-- Exclusive opportunities
+<Note>
+  Level benefits are primarily about visibility and recognition. All producers have access to core platform features regardless of level.
+</Note>
 
 ---
 
@@ -235,12 +304,15 @@ Each leaderboard entry displays:
   <Accordion title="Upload Consistently">
     Regular uploads earn steady XP and keep engagement flowing.
   </Accordion>
+  
   <Accordion title="Complete Your Metadata">
     Every fully-tagged track earns bonus XP and improves discovery.
   </Accordion>
+  
   <Accordion title="Build Your Audience">
     More plays increase your contribution value and unlock engagement achievements.
   </Accordion>
+  
   <Accordion title="Engage with Community">
     Respond to requests and collaborate to unlock community achievements.
   </Accordion>

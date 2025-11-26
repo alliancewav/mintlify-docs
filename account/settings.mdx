@@ -23,27 +23,36 @@ Navigate to settings:
 
 ### Basic Information
 
-| Setting | Description |
-|---------|-------------|
-| Display Name | Your public username |
-| Bio | Description shown on your profile |
-| Profile Photo | Your avatar image |
-| Header Image | Banner image on your profile |
-| Location | Optional, shown publicly |
+<CardGroup cols={2}>
+  <Card title="Display Name" icon="user">
+    Your public username visible across the platform
+  </Card>
+  <Card title="Bio" icon="align-left">
+    Description shown on your profile page
+  </Card>
+  <Card title="Profile Photo" icon="image">
+    Your avatar image (400x400px minimum)
+  </Card>
+  <Card title="Header Image" icon="panorama">
+    Banner image on your profile (1500x500px)
+  </Card>
+  <Card title="Location" icon="location-dot">
+    Optional location shown publicly
+  </Card>
+</CardGroup>
 
 ### How to Update
 
 <Steps>
   <Step title="Go to Settings">
-    Navigate to Settings > Profile.
+    Navigate to Settings \> Profile.
   </Step>
-  
   <Step title="Edit Fields">
     Click on any field to edit. Changes auto-save or require a Save button.
   </Step>
-  
   <Step title="Upload Images">
     Click on photo areas to upload new images.
+
     - Profile: 400x400px minimum, square
     - Header: 1500x500px recommended
   </Step>
@@ -55,10 +64,14 @@ Navigate to settings:
 
 ### Email Settings
 
-| Setting | Description |
-|---------|-------------|
-| Email Address | Your login email (can be changed) |
-| Email Verification | Verify to unlock all features |
+<CardGroup cols={2}>
+  <Card title="Email Address" icon="envelope">
+    Your login email — can be changed anytime
+  </Card>
+  <Card title="Verification" icon="circle-check">
+    Verify to unlock all platform features
+  </Card>
+</CardGroup>
 
 <Note>
   Changing your email requires verification of the new address.
@@ -68,7 +81,7 @@ Navigate to settings:
 
 To change your password:
 
-1. Go to Settings > Security
+1. Go to Settings \> Security
 2. Click **Change Password**
 3. Enter current password
 4. Enter and confirm new password
@@ -78,13 +91,19 @@ To change your password:
 
 Link social accounts for easier login:
 
-| Provider | Features |
-|----------|----------|
-| Google | Quick login, profile import |
-| Facebook | Quick login |
-| Apple | Quick login |
+<CardGroup cols={3}>
+  <Card title="Google" icon="google">
+    Quick login + profile import
+  </Card>
+  <Card title="Facebook" icon="facebook">
+    Quick login
+  </Card>
+  <Card title="Apple" icon="apple">
+    Quick login
+  </Card>
+</CardGroup>
 
-Manage at Settings > Accounts > Connected Accounts.
+Manage at **Settings \> Accounts \> Connected Accounts**.
 
 ---
 
@@ -92,23 +111,32 @@ Manage at Settings > Accounts > Connected Accounts.
 
 ### Email Notifications
 
-| Category | Options |
-|----------|---------|
-| **Activity** | New followers, likes, comments |
-| **Messages** | New messages, beat request responses |
-| **Earnings** | Payout notifications, earnings updates |
-| **Marketing** | Newsletter, promotions, features |
+<AccordionGroup>
+  <Accordion title="Activity" icon="bell">
+    New followers, likes, and comments on your content
+  </Accordion>
+  <Accordion title="Messages" icon="envelope">
+    New messages and beat request responses
+  </Accordion>
+  <Accordion title="Earnings" icon="dollar-sign">
+    Payout notifications and earnings updates
+  </Accordion>
+  <Accordion title="Marketing" icon="bullhorn">
+    Newsletter, promotions, and new features
+  </Accordion>
+</AccordionGroup>
 
 ### Push Notifications
 
 Enable/disable browser notifications for:
+
 - Real-time messages
 - Important alerts
 - Achievement unlocks
 
 ### Configuring Notifications
 
-1. Go to Settings > Notifications
+1. Go to Settings \> Notifications
 2. Toggle categories on/off
 3. Set frequency preferences (immediate, daily digest, weekly)
 4. Save changes
@@ -119,15 +147,22 @@ Enable/disable browser notifications for:
 
 ### Profile Visibility
 
-| Option | Who Can See |
-|--------|-------------|
-| Public | Everyone |
-| Followers Only | Only your followers |
-| Private | Only you (limited for producers) |
+<Tabs>
+  <Tab title="Public">
+    **Everyone** can see your profile and activity
+  </Tab>
+  <Tab title="Followers Only">
+    Only **your followers** can see your profile
+  </Tab>
+  <Tab title="Private">
+    Only **you** can see (limited availability for producers)
+  </Tab>
+</Tabs>
 
 ### Activity Visibility
 
 Control who sees:
+
 - Listening history
 - Saved tracks
 - Following/followers list
@@ -146,19 +181,31 @@ See [Privacy Settings](/security/privacy) for details.
 
 ### Audio Quality
 
-| Setting | Description |
-|---------|-------------|
-| High Quality | Best audio, more data |
-| Normal | Balanced quality and data |
-| Data Saver | Compressed audio, less data |
+<Tabs>
+  <Tab title="High Quality">
+    Best audio fidelity — uses more data
+  </Tab>
+  <Tab title="Normal">
+    Balanced quality and data usage
+  </Tab>
+  <Tab title="Data Saver">
+    Compressed audio — minimal data
+  </Tab>
+</Tabs>
 
 ### Playback Behavior
 
-| Setting | Options |
-|---------|---------|
-| Autoplay | On/Off - automatically play next track |
-| Crossfade | 0-12 seconds between tracks |
-| Normalize Volume | Even volume across tracks |
+<CardGroup cols={3}>
+  <Card title="Autoplay" icon="circle-play">
+    On/Off — auto-play next track
+  </Card>
+  <Card title="Crossfade" icon="wave-sine">
+    0-12 seconds between tracks
+  </Card>
+  <Card title="Normalize Volume" icon="volume-high">
+    Even volume across all tracks
+  </Card>
+</CardGroup>
 
 ---
 
@@ -168,14 +215,18 @@ See [Privacy Settings](/security/privacy) for details.
 
 If you're a producer, additional settings appear:
 
-| Setting | Description |
-|---------|-------------|
-| Default License | Pre-select license type for uploads |
-| Watermark | Audio watermark for previews |
+<CardGroup cols={2}>
+  <Card title="Default License" icon="file-contract">
+    Pre-select license type for new uploads
+  </Card>
+  <Card title="Watermark" icon="shield">
+    Audio watermark settings for previews
+  </Card>
+</CardGroup>
 
 ### Payment Settings
 
-Configure at Settings > Payments (or Backstage > Finances):
+Configure at Settings \> Payments (or Backstage \> Finances):
 
 - Connect Stripe account
 - Set payout preferences
@@ -188,11 +239,17 @@ Configure at Settings > Payments (or Backstage > Finances):
 
 ### Theme
 
-| Option | Description |
-|--------|-------------|
-| Light | Light background, dark text |
-| Dark | Dark background, light text |
-| System | Match device settings |
+<Tabs>
+  <Tab title="Light">
+    Light background with dark text
+  </Tab>
+  <Tab title="Dark">
+    Dark background with light text
+  </Tab>
+  <Tab title="System">
+    Automatically match your device settings
+  </Tab>
+</Tabs>
 
 ### Language
 
@@ -206,7 +263,7 @@ Select your preferred interface language from available options.
 
 Enable 2FA for additional security using an authenticator app (TOTP):
 
-1. Go to Settings > Security
+1. Go to Settings \> Security
 2. Click **Enable 2FA**
 3. Scan QR code with your authenticator app
 4. Enter the 6-digit verification code
@@ -220,13 +277,14 @@ Enable 2FA for additional security using an authenticator app (TOTP):
 
 View and manage logged-in devices:
 
-1. Go to Settings > Security > Sessions
+1. Go to Settings \> Security \> Sessions
 2. Review all active sessions
 3. Click **Revoke** on any unrecognized sessions
 
 ### Login History
 
 View recent login activity:
+
 - Date and time
 - Device/browser
 - Location (approximate)
@@ -243,13 +301,14 @@ View recent login activity:
 
 To delete your account:
 
-1. Go to Settings > Account
+1. Go to Settings \> Account
 2. Scroll to **Danger Zone**
 3. Click **Delete Account**
 4. Confirm by entering your password
 5. Confirm final deletion
 
 This removes:
+
 - All profile information
 - Uploaded tracks (if producer)
 - Library and playlists
@@ -264,15 +323,12 @@ This removes:
   <Accordion title="Can't change email">
     Verify you have access to current email. Contact support if locked out.
   </Accordion>
-  
   <Accordion title="Settings not saving">
     Try refreshing the page, clearing cache, or using a different browser.
   </Accordion>
-  
   <Accordion title="Can't enable 2FA">
     Ensure your authenticator app is working. Try reinstalling if issues persist.
   </Accordion>
-  
   <Accordion title="Missing producer settings">
     Producer settings only appear after backstage access is approved.
   </Accordion>
