@@ -56,9 +56,13 @@ Beat Requests are ideal when:
   </Step>
   
   <Step title="Submit">
-    Your request goes live and producers are notified.
+    Your request goes live for **24 hours**. Verified producers matching your criteria are notified.
   </Step>
 </Steps>
+
+<Note>
+  **Who gets notified?** Beat requests are sent to verified producers whose profiles match your genre/style criteria. Not all producers receive every request—notifications are filtered for relevance.
+</Note>
 
 ### Writing Effective Descriptions
 
@@ -163,11 +167,15 @@ Browse requests that match your style:
 ### Request States
 
 | State | Description | Artist Action | Producer Action |
-|-------|-------------|---------------|-----------------|
-| **Open** | Accepting responses | Edit, close, or wait | Submit response |
+|-------|-------------|---------------|----------------|
+| **Open** | Accepting responses (24 hours) | Edit, close, or wait | Submit response |
 | **Fulfilled** | Artist found a beat | Marked complete | No new responses |
-| **Expired** | 30 days passed | Create new request | Find other requests |
+| **Expired** | 24 hours passed | Create new request | Find other requests |
 | **Closed** | Manually closed by artist | Reopen or create new | Find other requests |
+
+<Warning>
+  **Beat requests expire after 24 hours.** This keeps the marketplace fresh and ensures producers respond to active requests. If you don't find a match, submit a new request.
+</Warning>
 
 ### Fulfillment Flow
 
@@ -195,26 +203,17 @@ Browse requests that match your style:
   </Step>
 </Steps>
 
-### After Fulfillment
-
-| What Happens | Details |
-|--------------|---------|
-| Request visibility | Removed from browse; visible in history |
-| Other responses | Producers notified request was fulfilled |
-| Producer credit | Fulfillment contributes to producer metrics |
-| Track status | Track remains available unless sold exclusively |
-
 ### Auto-Expiry Behavior
 
 | Timeline | What Happens |
-|----------|--------------|
-| Day 25 | Artist receives reminder email |
-| Day 30 | Request auto-expires |
-| After expiry | Doesn't count toward active limit |
-| Re-opening | Not supported; create new request |
+|----------|-------------|
+| Hour 20 | Reminder notification sent |
+| Hour 24 | Request auto-expires |
+| After expiry | Token is consumed; create new request with available tokens |
+| Re-opening | Not supported; submit a new request |
 
 <Note>
-  Expired requests remain in your history for reference but cannot be reopened. If you still need the beat, create a new request.
+  Expired requests remain in your history for reference but cannot be reopened. Beat request tokens are consumed when you submit, not when a producer responds.
 </Note>
 
 ### Visibility After State Changes
@@ -259,12 +258,18 @@ If issues arise:
 
 Beat requests are subject to rate limiting to prevent spam and ensure fair access.
 
-### Request Creation Limits
+### Monthly Token Limits
 
-| User Type | Limit |
-|-----------|-------|
-| Free users | 3 active requests |
-| Subscribers | 10 active requests |
+Beat request tokens control how many requests you can submit per month:
+
+| Plan | Monthly Tokens |
+|------|---------------|
+| Explorer (Free) | 1 |
+| Classic | 1 |
+| Plus | 3 |
+| Pro | 5 |
+
+Tokens reset on the **first day of each calendar month (UTC)**. Unused tokens do not carry over.
 
 ### Check Your Status
 

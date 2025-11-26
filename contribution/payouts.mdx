@@ -13,6 +13,25 @@ BeatPass uses Stripe Connect to process producer payouts. This guide walks throu
 
 ---
 
+## Revenue Share Model
+
+### How Revenue is Split
+
+**Producers receive 100% of all revenue.** The 15% platform fee is added on top—paid by subscribers and buyers, not deducted from producers.
+
+| Revenue Source | Your Share | Platform Fee |
+|----------------|------------|-------------|
+| **Subscription pool** | 100% of base subscription | 15% added on top (paid by subscriber) |
+| **Exclusive license sales** | 100% of your listed price | 15% added on top (paid by buyer) |
+
+<Tip>
+  Both revenue streams use the same model: you get 100% of the base price, and BeatPass adds 15% on top for the customer.
+</Tip>
+
+Your share of the subscription pool is calculated by the [Contribution Formula](/contribution/formula) based on plays, time decay, and collaboration splits.
+
+---
+
 ## Payout Flow
 
 ### The Complete Journey
@@ -20,8 +39,8 @@ BeatPass uses Stripe Connect to process producer payouts. This guide walks throu
 <Steps>
   <Step title="Earn Revenue">
     Revenue accumulates from:
-    - **License sales** — Direct purchases of your beats
-    - **Contribution earnings** — Share of subscription revenue based on engagement
+    - **License sales** — Exclusive purchases (you receive 100% of your listed price)
+    - **Contribution earnings** — Your share of the subscription revenue pool (100% goes to producers)
   </Step>
   
   <Step title="Funds Reach Your Stripe Account">

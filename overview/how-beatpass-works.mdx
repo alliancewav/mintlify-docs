@@ -20,27 +20,45 @@ BeatPass is a music licensing marketplace where **producers** upload beats and *
 
 ## The Two Ways Producers Earn
 
-### 1. Direct License Sales
+### 1. Direct License Sales (Exclusive Purchases)
 
-Set your own prices for different license tiers (Basic, Premium, Exclusive). When an artist purchases, you receive the sale amount directly.
+Set your own prices for exclusive licenses. When an artist purchases exclusive rights, you receive 100% of your listed price.
 
-| License Type | You Keep | Example |
-|--------------|----------|---------|
-| Basic | Full sale price | $30 beat → $30 to you |
-| Premium | Full sale price | $100 beat → $100 to you |
-| Exclusive | Full sale price | $500 beat → $500 to you |
+| Component | Example |
+|-----------|--------|
+| Your listed price | $500.00 |
+| Platform fee (15%, added to buyer) | $75.00 |
+| **Buyer pays** | **$575.00** |
+| **You receive** | **$500.00** |
 
-### 2. Contribution Revenue Share
+<Tip>
+  The platform fee is added on top—not deducted from your earnings. You keep 100% of what you list.
+</Tip>
 
-Active subscribers' fees form a monthly pool. Producers share this pool based on their tracks' performance—plays, recency, and collaboration splits.
+### 2. Subscription Revenue Share (100% to Producers)
+
+Subscription fees form a monthly pool. **100% of the base subscription goes to producers.** The 15% platform fee is added on top (paid by subscribers).
+
+| Component | How It Works |
+|-----------|-------------|
+| Base subscription price | 100% goes to producer pool |
+| Platform fee (15%) | Added on top (paid by subscriber) |
+| Stripe fees | Absorbed by platform |
+
+Your share of the producer pool is calculated by the [Contribution Formula](/contribution/formula):
 
 ```
-Your Share = Your Contribution Value / Total Platform Contribution × Pool
+Your Share = (Your Contribution Value / Total Platform Contribution) × Producer Pool
 ```
 
-<Note>
-  Learn more about the exact calculation in [Contribution Formula](/contribution/formula).
-</Note>
+Contribution value is based on:
+- **Plays** — More plays = higher contribution
+- **Time decay** — Recent plays count more
+- **Collaboration splits** — Shared fairly among collaborators
+
+<Tip>
+  Both subscription revenue and license sales use the same model: producers receive 100% of the base price, and BeatPass adds 15% on top for the buyer.
+</Tip>
 
 ---
 
