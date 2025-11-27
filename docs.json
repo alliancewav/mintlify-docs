@@ -1,8 +1,8 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "BeatPass Help Center",
-  "description": "Official documentation and help center for BeatPass - the beat licensing and music collaboration platform for producers, artists, and curators.",
+  "name": "BeatPass Documentation",
+  "description": "Help Center and Developer Docs for BeatPass - the beat licensing and music collaboration platform for producers, artists, and curators.",
   "colors": {
     "primary": "#48B0E4",
     "light": "#48B0E4",
@@ -17,249 +17,177 @@
     "codeblocks": "system"
   },
   "search": {
-    "prompt": "Search help articles..."
+    "prompt": "Search documentation..."
   },
   "banner": {
-    "content": "🎵 Welcome to BeatPass! New here? Start with our [Getting Started Guide](/getting-started/checklist).",
+    "content": "🎵 Welcome to BeatPass! Explore our [Help Center](/help/home/index) for users or [Developer Docs](/developers/overview) for API integration.",
     "dismissible": true
   },
   "metadata": {
     "timestamp": true
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg",
+    "light": "/assets/logo/light.svg",
+    "dark": "/assets/logo/dark.svg",
     "href": "https://docs.beatpass.ca"
   },
   "navigation": {
     "tabs": [
       {
-        "tab": "Overview",
-        "icon": "house",
+        "tab": "Help Center",
+        "icon": "circle-question",
         "groups": [
           {
-            "group": "Welcome",
+            "group": "Home",
             "pages": [
-              "index"
+              "help/home/index",
+              "help/home/how-beatpass-works",
+              "help/home/about",
+              "help/home/roles",
+              "help/home/platform-map",
+              "help/home/terminology"
             ]
           },
           {
-            "group": "Platform",
+            "group": "Getting Started",
             "pages": [
-              "overview/how-beatpass-works",
-              "overview/about",
-              "overview/roles",
-              "overview/platform-map",
-              "overview/terminology"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Getting Started",
-        "icon": "rocket",
-        "groups": [
-          {
-            "group": "Onboarding",
-            "pages": [
-              "getting-started/checklist",
-              "getting-started/first-payout-checklist"
+              "help/getting-started/checklist",
+              "help/getting-started/first-payout-checklist",
+              "help/getting-started/artists",
+              "help/getting-started/producers",
+              "help/getting-started/curators",
+              "help/getting-started/listeners"
             ]
           },
           {
-            "group": "By Role",
+            "group": "Product Features",
             "pages": [
-              "getting-started/artists",
-              "getting-started/producers",
-              "getting-started/curators",
-              "getting-started/listeners"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Product Guides",
-        "icon": "book",
-        "groups": [
-          {
-            "group": "Core Features",
-            "pages": [
-              "product-guides/uploads",
-              "product-guides/lyrics",
-              "product-guides/beat-requests",
-              "product-guides/collections",
-              "product-guides/releases",
-              "product-guides/spotlight-track",
-              "product-guides/search",
-              "product-guides/audio-quality",
-              "product-guides/library",
-              "product-guides/playlists-following"
+              "help/product/uploads",
+              "help/product/tracks-upload-edit",
+              "help/product/lyrics",
+              "help/product/library",
+              "help/product/releases",
+              "help/product/collections",
+              "help/product/playlists-following",
+              "help/product/search",
+              "help/product/spotlight-track",
+              "help/product/audio-quality",
+              "help/product/collaboration",
+              "help/product/messaging",
+              "help/product/beat-requests",
+              "help/product/embedding",
+              "help/product/mobile",
+              "help/product/seo",
+              "help/product/sample-safe",
+              "help/product/producer-dashboard"
             ]
           },
           {
-            "group": "Buy & License",
+            "group": "Licensing & Commerce",
             "pages": [
-              "product-guides/buying-beats",
-              "product-guides/licensing",
-              "product-guides/sample-safe",
-              "product-guides/license-manager",
-              "product-guides/licensing-uses",
-              "product-guides/payments",
-              "product-guides/receipts"
+              "help/licensing-commerce/buying",
+              "help/licensing-commerce/overview",
+              "help/licensing-commerce/license-types",
+              "help/licensing-commerce/use-cases",
+              "help/licensing-commerce/license-manager",
+              "help/licensing-commerce/payments",
+              "help/licensing-commerce/receipts"
             ]
           },
           {
-            "group": "Collaboration",
+            "group": "Earnings",
             "pages": [
-              "product-guides/collaboration",
-              "product-guides/messaging"
-            ]
-          },
-          {
-            "group": "Tools",
-            "pages": [
-              "product-guides/embedding",
-              "product-guides/mobile"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Producer Guides",
-        "icon": "sliders",
-        "groups": [
-          {
-            "group": "Your Dashboard",
-            "pages": [
-              "producer-guides/dashboard"
-            ]
-          },
-          {
-            "group": "Growing Your Business",
-            "pages": [
-              "producer-guides/pricing-strategy",
-              "producer-guides/marketing",
-              "producer-guides/metadata"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Earnings & Analytics",
-        "icon": "coins",
-        "groups": [
-          {
-            "group": "Understanding Earnings",
-            "pages": [
-              "contribution/formula",
-              "contribution/xp-levels"
-            ]
-          },
-          {
-            "group": "Getting Paid",
-            "pages": [
-              "contribution/payouts",
-              "contribution/eligibility",
-              "contribution/disputes"
+              "help/earnings/formula",
+              "help/earnings/xp-levels",
+              "help/earnings/eligibility",
+              "help/earnings/payouts",
+              "help/earnings/disputes"
             ]
           },
           {
             "group": "Analytics",
             "pages": [
-              "analytics/metrics",
-              "analytics/dashboards",
-              "analytics/reporting-faq"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Account",
-        "icon": "user",
-        "groups": [
-          {
-            "group": "Settings",
-            "pages": [
-              "account/settings",
-              "account/plans-subscriptions",
-              "account/notifications"
+              "help/analytics/metrics",
+              "help/analytics/dashboards",
+              "help/analytics/reporting-faq"
             ]
           },
           {
-            "group": "Security",
+            "group": "Growth",
             "pages": [
-              "security/account-security",
-              "security/privacy"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Support & Legal",
-        "icon": "circle-question",
-        "groups": [
-          {
-            "group": "Quick Help",
-            "pages": [
-              "support/top-questions",
-              "support/faq",
-              "support/troubleshooting"
+              "help/growth/pricing-strategy",
+              "help/growth/marketing",
+              "help/growth/metadata"
             ]
           },
           {
-            "group": "Contact & Status",
+            "group": "Account & Security",
             "pages": [
-              "support/contact",
-              "support/status",
-              "support/reporting"
+              "help/account-security/settings",
+              "help/account-security/plans-subscriptions",
+              "help/account-security/notifications",
+              "help/account-security/account-security",
+              "help/account-security/privacy"
             ]
           },
           {
-            "group": "Policies & Limits",
+            "group": "Support",
             "pages": [
-              "support/usage-limits",
-              "support/account-actions",
-              "support/accessibility",
-              "support/policies"
+              "help/support/top-questions",
+              "help/support/faq",
+              "help/support/troubleshooting",
+              "help/support/contact",
+              "help/support/status",
+              "help/support/reporting",
+              "help/support/usage-limits",
+              "help/support/account-actions",
+              "help/support/accessibility",
+              "help/support/policies"
             ]
           },
           {
             "group": "Legal",
             "pages": [
-              "legal/copyright",
-              "legal/content-guidelines",
-              "legal/license-terms"
+              "help/legal/copyright",
+              "help/legal/content-guidelines",
+              "help/legal/license-terms"
+            ]
+          },
+          {
+            "group": "Release Notes",
+            "pages": [
+              "help/release-notes/index",
+              "help/release-notes/template"
             ]
           }
         ]
       },
       {
-        "tab": "API",
+        "tab": "Developers",
         "icon": "code",
         "groups": [
           {
-            "group": "Reference",
+            "group": "Getting Started",
             "pages": [
-              "api/overview",
-              "api/developer-onboarding",
-              "api/endpoints",
-              "api/auth",
-              "api/webhooks",
-              "api/rate-limits",
-              "api/error-catalog"
+              "developers/overview",
+              "developers/quickstart",
+              "developers/auth",
+              "developers/rate-limits",
+              "developers/error-catalog"
             ]
-          }
-        ]
-      },
-      {
-        "tab": "Changelog",
-        "icon": "clock-rotate-left",
-        "groups": [
+          },
           {
-            "group": "Updates",
+            "group": "Guides",
             "pages": [
-              "changelog/index",
-              "changelog/template"
+              "developers/guides/webhooks",
+              "developers/guides/dashboard-api",
+              "developers/guides/developer-notes"
+            ]
+          },
+          {
+            "group": "API Reference",
+            "pages": [
+              "developers/reference/endpoints"
             ]
           }
         ]
@@ -320,7 +248,7 @@
     "metatags": {
       "canonical": "https://docs.beatpass.ca",
       "description": "Official documentation and help center for BeatPass - the beat licensing and music collaboration platform for producers, artists, and curators.",
-      "keywords": "beatpass, beat licensing, music production, beat marketplace, producer platform, buy beats, sell beats, music collaboration, beat documentation, help center",
+      "keywords": "beatpass, beat licensing, music production, beat marketplace, producer platform, buy beats, sell beats, music collaboration, beat documentation, help center, beatpass api, developer docs",
       "author": "BeatPass",
       "robots": "index, follow",
       "googlebot": "index, follow",
@@ -331,16 +259,16 @@
       "coverage": "Worldwide",
       "revisit-after": "7 days",
       "rating": "general",
-      "og:title": "BeatPass Help Center - Documentation & Support",
+      "og:title": "BeatPass Documentation - Help Center & Developer Docs",
       "og:description": "Official documentation and help center for BeatPass - the beat licensing and music collaboration platform for producers, artists, and curators.",
       "og:type": "website",
       "og:url": "https://docs.beatpass.ca",
-      "og:site_name": "BeatPass Help Center",
+      "og:site_name": "BeatPass Documentation",
       "og:locale": "en_US",
       "twitter:card": "summary_large_image",
       "twitter:site": "@beatpasswav",
       "twitter:creator": "@beatpasswav",
-      "twitter:title": "BeatPass Help Center - Documentation & Support",
+      "twitter:title": "BeatPass Documentation - Help Center & Developer Docs",
       "twitter:description": "Official documentation and help center for BeatPass - the beat licensing and music collaboration platform."
     }
   },
@@ -356,27 +284,60 @@
       {
         "header": "Platform",
         "items": [
-          { "label": "BeatPass Home", "href": "https://beatpass.ca" },
-          { "label": "Open BeatPass", "href": "https://open.beatpass.ca" },
-          { "label": "Producer Program", "href": "https://open.beatpass.ca/producer-program" },
-          { "label": "Pricing", "href": "https://open.beatpass.ca/pricing" },
-          { "label": "Blog", "href": "https://blog.beatpass.ca" }
+          {
+            "label": "BeatPass Home",
+            "href": "https://beatpass.ca"
+          },
+          {
+            "label": "Open BeatPass",
+            "href": "https://open.beatpass.ca"
+          },
+          {
+            "label": "Producer Program",
+            "href": "https://open.beatpass.ca/producer-program"
+          },
+          {
+            "label": "Pricing",
+            "href": "https://open.beatpass.ca/pricing"
+          },
+          {
+            "label": "Blog",
+            "href": "https://blog.beatpass.ca"
+          }
         ]
       },
       {
         "header": "Company",
         "items": [
-          { "label": "About", "href": "https://blog.beatpass.ca/about/" },
-          { "label": "Contact", "href": "https://open.beatpass.ca/contact" },
-          { "label": "Status", "href": "https://status.beatpass.ca" }
+          {
+            "label": "About",
+            "href": "https://blog.beatpass.ca/about/"
+          },
+          {
+            "label": "Contact",
+            "href": "https://open.beatpass.ca/contact"
+          },
+          {
+            "label": "Status",
+            "href": "https://status.beatpass.ca"
+          }
         ]
       },
       {
         "header": "Legal",
         "items": [
-          { "label": "Terms of Service", "href": "https://open.beatpass.ca/pages/terms-of-service" },
-          { "label": "Privacy Policy", "href": "https://open.beatpass.ca/pages/privacy-policy" },
-          { "label": "DMCA", "href": "https://open.beatpass.ca/pages/dmca" }
+          {
+            "label": "Terms of Service",
+            "href": "https://open.beatpass.ca/pages/terms-of-service"
+          },
+          {
+            "label": "Privacy Policy",
+            "href": "https://open.beatpass.ca/pages/privacy-policy"
+          },
+          {
+            "label": "DMCA",
+            "href": "https://open.beatpass.ca/pages/dmca"
+          }
         ]
       }
     ]

@@ -1,0 +1,304 @@
+---
+audience: help
+title: "Contribution Formula | BeatPass"
+description: "How BeatPass calculates your contribution value and distributes producer earnings fairly. Understand the transparent formula for time decay, popularity boost, and collaboration splits."
+keywords: ["contribution formula", "producer earnings", "beat revenue", "music royalties", "producer payout", "earnings calculation", "beatpass contribution"]
+"og:title": "Contribution Formula - BeatPass Producer Earnings"
+"og:description": "How BeatPass calculates your contribution value and distributes earnings fairly."
+"twitter:card": "summary_large_image"
+---
+
+## Overview
+
+The contribution formula determines how platform subscription revenue is distributed among producers. Your share is calculated based on a transparent formula that rewards engagement while accounting for time and collaboration.
+
+<Info>
+  **Audience:** Producers
+</Info>
+
+---
+
+## How It Works
+
+### The Contribution Pool
+
+For each paid subscription invoice, BeatPass allocates a portion of the base subscription price to the **contribution pool**. In dashboards this is often shown as a monthly pool, but under the hood it is built invoice-by-invoice as Stripe fires `invoice.paid` events.
+
+The pool represents subscription revenue available to producers before any downstream Stripe payout fees. Your share is distributed based on your **contribution value** relative to all producers.
+
+```
+Your Payout = (Your Contribution Value / Total Contribution Value) × Pool Amount
+```
+
+---
+
+## The Formula
+
+BeatPass uses the following formula to calculate each track's contribution value:
+
+```
+C = Time Decay × Popularity Boost × Collaboration Split
+```
+
+### Formula Components
+
+<AccordionGroup>
+  <Accordion title="Time Decay" icon="clock" defaultOpen>
+    **Formula**: `exp(-(ln(2)/6) × Δt)`
+    
+    Tracks naturally decay over time with a **6-month half-life**. This ensures newer content stays competitive while older catalog still earns.
+    
+    - **Δt** = Months since upload
+    - After 6 months → 50% value
+    - After 12 months → 25% value
+  </Accordion>
+  
+  <Accordion title="Popularity Boost" icon="fire">
+    **Formula**: `1 + 2 × (log₁₀(1+P) / (log₁₀(1+P)+1))`
+    
+    A logarithmic curve that rewards popular tracks while preventing dominance. Scales from **1× to 3×** based on total plays.
+    
+    - **P** = Total plays/streams
+    - Uses logarithmic scaling (diminishing returns)
+    - Maximum boost caps at 3×
+  </Accordion>
+  
+  <Accordion title="Collaboration Split" icon="users">
+    **Formula**: `1 / Np`
+    
+    When multiple producers are credited, contribution divides equally among them.
+    
+    - **Np** = Number of credited producers
+    - Solo track = 100%
+    - 2 producers = 50% each
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## How Each Factor Works
+
+### Time Decay Curve
+
+Newer tracks contribute more than older ones—but your catalog never stops earning entirely.
+
+<Steps>
+  <Step title="Fresh (0-3 months)">
+    **100% → 71%** — Maximum contribution window. New releases have the strongest earning potential.
+  </Step>
+  <Step title="Established (3-6 months)">
+    **71% → 50%** — Still strong earners. This is when a track proves its staying power.
+  </Step>
+  <Step title="Catalog (6-12 months)">
+    **50% → 25%** — Reduced but steady. High-quality tracks continue earning passively.
+  </Step>
+  <Step title="Legacy (12+ months)">
+    **25% → lower** — Long-tail earnings. A large catalog accumulates meaningful value.
+  </Step>
+</Steps>
+
+<Tip>
+  **Strategy**: Consistent uploads help maintain your contribution value. Aim for 2-4 quality releases per month to keep your fresh track pipeline full.
+</Tip>
+
+### Popularity Boost Curve
+
+Tracks with more plays receive a logarithmic boost—rewarding success without letting mega-hits dominate everything.
+
+<Steps>
+  <Step title="Starting Out (0-100 plays)">
+    **1.0× → 2.3×** — Quick initial boost rewards early traction.
+  </Step>
+  <Step title="Growing (100-1,000 plays)">
+    **2.3× → 2.7×** — Steady gains as your track proves its appeal.
+  </Step>
+  <Step title="Popular (1,000-10,000 plays)">
+    **2.7× → 3.0×** — Approaching maximum boost.
+  </Step>
+  <Step title="Viral (10,000+ plays)">
+    **3.0× (max)** — Cap ensures no single track dominates the pool.
+  </Step>
+</Steps>
+
+<Info>
+  The logarithmic curve means **your first 100 plays matter more than your next 1,000**. Focus on quality and discoverability over chasing viral numbers.
+</Info>
+
+### Collaboration Economics
+
+When multiple producers collaborate, contribution splits equally—but strategic collaborations can actually boost total earnings:
+
+<CardGroup cols={2}>
+  <Card title="Solo Track" icon="user">
+    **100%** of contribution value
+    
+    Full earnings, but limited to your audience reach.
+  </Card>
+  <Card title="Collaboration" icon="users">
+    **50-33%** each (split by producers)
+    
+    Lower per-person share, but combined audiences may generate more total plays—and the popularity boost can offset the split.
+  </Card>
+</CardGroup>
+
+<Tip>
+  **When to collaborate**: If your collaborator brings a significantly larger audience, the popularity boost from their reach can make your 50% share worth more than 100% of a solo track.
+</Tip>
+
+---
+
+## Example Calculations
+
+### Example 1: New Solo Track
+
+**Track Details**: Uploaded today, 500 plays, 1 producer
+
+| Factor | Calculation | Value |
+|--------|-------------|-------|
+| Time Decay | exp(0) | 1.0 |
+| Popularity | 1 + 2×(2.7/3.7) | ~2.46 |
+| Collaboration | 1/1 | 1.0 |
+| **Contribution** | 1.0 × 2.46 × 1.0 | **2.46** |
+
+### Example 2: Older Collaborative Track
+
+**Track Details**: 6 months old, 2,000 plays, 2 producers
+
+| Factor | Calculation | Value |
+|--------|-------------|-------|
+| Time Decay | exp(-0.693) | 0.50 |
+| Popularity | 1 + 2×(3.3/4.3) | ~2.54 |
+| Collaboration | 1/2 | 0.50 |
+| **Contribution** | 0.50 × 2.54 × 0.50 | **0.635** (per producer) |
+
+### Example 3: Payout Calculation
+
+**Scenario**: The contribution pool for a given period (for example, the sum of eligible subscription invoices in a month, before any additional payout-related Stripe fees) is $10,000. Total platform contribution is 5,000 points.
+
+| Producer | Total Contribution | Share % | Payout |
+|----------|-------------------|---------|--------|
+| Producer A | 250 points | 5.0% | $500 |
+| Producer B | 100 points | 2.0% | $200 |
+| Producer C | 50 points | 1.0% | $100 |
+
+```
+Producer A Payout = (250 / 5,000) × $10,000 = $500
+```
+
+<Note>
+  These are simplified examples. Actual payouts depend on the total pool size, all producers' combined contribution values, and Stripe processing/payout fees.
+</Note>
+
+### Direct Sales vs Contribution
+
+BeatPass offers two distinct revenue streams. Smart producers leverage both:
+
+<CardGroup cols={2}>
+  <Card title="License Sales" icon="money-bill">
+    **You set the price; buyers pay your price plus a platform fee**
+    
+    - BeatPass adds a platform fee on top and keeps that fee
+    - Standard Stripe processing fees are deducted from your portion before funds reach your Stripe Connect account
+    - Works best for premium/exclusive beats
+    - Great for established brands
+    - Example: $150 beat → you receive slightly less than $150 after Stripe fees
+  </Card>
+  <Card title="Contribution Earnings" icon="chart-line">
+    **Passive income from streaming**
+    
+    - Recurring revenue as long as subscribers keep paying
+    - Works best for high-volume catalogs
+    - Rewards engagement quality
+    - Example: A 5% share of a $10K contribution pool for a given period → $500 allocated to you before any payout-related Stripe fees
+  </Card>
+</CardGroup>
+
+<Tip>
+  **Best strategy**: Use contribution earnings as your baseline income, and license sales for bonus payouts. A producer with 50 active tracks earning $200/month in contribution **plus** 2-3 license sales at $100-300 each has diversified, stable income.
+</Tip>
+
+---
+
+## Calculation Timing
+
+### When Values Update
+
+| Event | Timing |
+|-------|--------|
+| Play recorded | Near real-time |
+| Contribution calculated | Every 6 hours |
+| Pool totals | Updated continuously as subscription invoices are paid |
+| Subscription splits processed | Shortly after each `invoice.paid` event via the subscription split job; payouts to Stripe Connect and then your bank follow your Stripe payout schedule |
+
+### Viewing Your Contribution
+
+Check your current contribution value in **Backstage > Insights**:
+
+- Real-time contribution estimate
+- Breakdown by track
+- Historical trends
+- Comparison to previous periods
+
+---
+
+## Improving Your Contribution
+
+### What You Control
+
+<CardGroup cols={2}>
+  <Card title="Consistent Uploads" icon="upload">
+    New tracks have full time decay value—regular releases maintain momentum.
+  </Card>
+  <Card title="Complete Metadata" icon="tags">
+    Help listeners find your beats through search and discovery.
+  </Card>
+  <Card title="Audience Building" icon="users">
+    More plays increase your popularity boost factor.
+  </Card>
+  <Card title="Solo or Collaborate" icon="handshake">
+    Collaborations split contribution but may reach wider audiences.
+  </Card>
+</CardGroup>
+
+### What You Can't Control
+
+- Other producers' performance (affects relative share)
+- Total pool size (depends on platform revenue)
+- Listener behavior patterns
+- Time decay on older tracks (natural progression)
+
+---
+
+## Transparency Commitment
+
+### What We Share
+
+- Your contribution value and breakdown per track
+- The complete formula (documented above)
+- Monthly pool information
+- Factor breakdowns (time decay, popularity, splits)
+
+### Formula Stability
+
+The contribution formula is designed for stability. Any changes are:
+
+- Announced in advance via the changelog
+- Applied uniformly across all producers
+- Documented with clear before/after comparisons
+
+<Note>
+  The formula factors (time decay rate, popularity curve, collaboration splits) are fixed as documented above. We do not make undisclosed adjustments.
+</Note>
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="XP & Levels" icon="chart-line" href="/help/earnings/xp-levels">
+    Understand the gamification system.
+  </Card>
+  <Card title="Eligibility" icon="check" href="/help/earnings/eligibility">
+    Requirements for receiving payouts.
+  </Card>
+</CardGroup>

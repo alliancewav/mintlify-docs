@@ -1,0 +1,169 @@
+---
+audience: developer
+title: "Webhooks"
+description: "Understanding BeatPass webhook architecture for payment processing."
+---
+audience: developer
+
+## Overview
+
+BeatPass uses **inbound webhooks** to receive payment notifications from Stripe. There is currently no outbound webhook system for external integrations.
+
+<Note>
+  BeatPass does not send webhooks to external applications. This page documents how BeatPass receives payment notifications from Stripe.
+</Note>
+
+---
+audience: developer
+
+## Inbound Webhooks (Stripe)
+
+BeatPass receives webhooks from Stripe to process purchase-related payment events.
+
+### Webhook Endpoint
+
+```
+POST /api/stripe/webhook
+```
+
+This endpoint is registered in Stripe's dashboard (and wired via `mapWebhookRoutes` and `routes/webhooks.php`) to receive all payment-related events.
+
+Example `curl` request (replace the payload with an actual Stripe event JSON when testing):
+
+```bash
+curl -X POST https://beta.beatpass.ca/api/stripe/webhook \
+  -H "Content-Type: application/json" \
+  -H "Stripe-Signature: <generated-signature>" \
+  -d '{"type": "payment_intent.succeeded", "data": {}}'
+```
+
+---
+audience: developer
+
+## Stripe Events Handled
+
+The webhook controller currently processes three purchase-focused Stripe events:
+
+| Event | Purchase impact |
+|-------|-----------------|
+| `payment_intent.succeeded` | Marks a track purchase as succeeded, generates the exclusive license, and marks the track as sold. |
+| `payment_intent.payment_failed` | Marks the related purchase as failed with the payment error message. |
+| `charge.refunded` | Marks the purchase as refunded (partial or full) based on the refunded amount. |
+
+Other Stripe events (e.g., subscription invoices, Connect transfers or payouts) are **not implemented yet**.
+
+---
+audience: developer
+
+## How It Works
+
+<Steps>
+  <Step title="Payment Initiated">
+    User initiates a track purchase via Stripe.js.
+  </Step>
+  
+  <Step title="Stripe Processes">
+    Stripe processes the payment and updates the PaymentIntent status.
+  </Step>
+  
+  <Step title="Webhook Sent">
+    Stripe sends a webhook to BeatPass at `/api/stripe/webhook`.
+  </Step>
+  
+  <Step title="BeatPass Processes">
+    BeatPass verifies the signature and processes the event:
+    - Updates purchase records
+    - Triggers license generation
+  </Step>
+</Steps>
+
+---
+audience: developer
+
+## Webhook Security
+
+### Stripe Signature Verification
+
+All incoming Stripe webhooks are verified using the webhook signing secret:
+
+```php
+// BeatPass webhook handler (simplified)
+$payload = $request->getContent();
+$sigHeader = $request->header('Stripe-Signature');
+$webhookSecret = config('services.stripe.webhook_secret');
+
+$event = \Stripe\Webhook::constructEvent(
+    $payload,
+    $sigHeader,
+    $webhookSecret
+);
+```
+
+<Warning>
+  Webhooks without valid Stripe signatures are rejected with a 400 response.
+</Warning>
+
+---
+audience: developer
+
+## For Developers
+
+### Testing Webhooks Locally
+
+Use the Stripe CLI to forward webhooks during development:
+
+```bash
+# Install Stripe CLI
+brew install stripe/stripe-cli/stripe
+
+# Login
+stripe login
+
+# Forward webhooks to a local development server
+stripe listen --forward-to localhost:8000/api/stripe/webhook
+
+# Forward webhooks to a remote dev server (example)
+stripe listen --forward-to https://dev.example.com/api/stripe/webhook
+```
+
+### Webhook Events in Stripe Dashboard
+
+Monitor webhook delivery in the Stripe Dashboard:
+
+1. Go to **Developers > Webhooks**
+2. Select your endpoint
+3. View recent events and delivery status
+4. Retry failed webhooks if needed
+
+---
+audience: developer
+
+## No Outbound Webhooks
+
+<Info>
+  BeatPass does not currently offer outbound webhooks for external integrations.
+</Info>
+
+For real-time updates in your application:
+
+- **Track changes:** Poll the API or use the notifications SSE stream (authenticated)
+- **Purchase status:** Use the purchase status endpoint after initiating
+- **User events:** Handled client-side via the BeatPass frontend
+
+### Future Considerations
+
+Outbound webhooks for third-party integrations may be considered for future releases. If you have a specific use case, contact support to discuss.
+
+---
+audience: developer
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Track Purchases" icon="credit-card" href="/help/licensing-commerce/payments">
+    How purchases work.
+  </Card>
+  <Card title="Stripe Connect" icon="stripe" href="/developers/endpoints#stripe-connect-artists">
+    Artist payout setup.
+  </Card>
+</CardGroup>

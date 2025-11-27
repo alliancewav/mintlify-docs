@@ -1,0 +1,238 @@
+---
+audience: developer
+title: "Rate Limits"
+description: "Understanding API rate limits and route-specific throttling."
+---
+audience: developer
+
+## Overview
+
+BeatPass uses route-specific rate limiting via Laravel's throttle middleware. Different endpoint groups have different limits based on their resource intensity and expected usage patterns.
+
+---
+audience: developer
+
+## Route-Specific Limits
+
+### Producer Intelligence
+
+| Route Group | Limit | Notes |
+|-------------|-------|-------|
+| Public leaderboards, growth rates | 300/min | No auth required |
+| Authenticated dashboard, analytics | 500/min | Requires auth |
+| Social analytics | 120/min | Rate-limited for performance |
+
+### Legacy Endpoints
+
+| Route | Limit | Notes |
+|-------|-------|-------|
+| `/users/{user}/producer-dashboard` | 60/min | Deprecated, use producer-intelligence |
+
+### Authentication
+
+Authentication attempts are limited to prevent brute force attacks:
+
+| Action | Limit |
+|--------|-------|
+| Login attempts | 5/min per IP |
+| Password reset | 3/min per email |
+| 2FA verification | 5/min per session |
+
+---
+audience: developer
+
+## Throttle Format
+
+Rate limits in BeatPass use Laravel's `throttle:X,Y` format:
+
+- `X` = Maximum requests
+- `Y` = Time window in minutes
+
+Example: `throttle:60,1` means 60 requests per 1 minute.
+
+---
+audience: developer
+
+## Rate Limit Headers
+
+Responses include standard rate limit headers:
+
+```http
+X-RateLimit-Limit: 300
+X-RateLimit-Remaining: 298
+X-RateLimit-Reset: 1700000060
+```
+
+| Header | Description |
+|--------|-------------|
+| `X-RateLimit-Limit` | Maximum requests in window |
+| `X-RateLimit-Remaining` | Requests left in current window |
+| `X-RateLimit-Reset` | Unix timestamp when limit resets |
+
+---
+audience: developer
+
+## When Limits Are Exceeded
+
+### 429 Response
+
+```http
+HTTP/1.1 429 Too Many Requests
+Retry-After: 60
+```
+
+```json
+{
+  "message": "Too Many Attempts.",
+  "retry_after": 60
+}
+```
+
+### Handling Rate Limits
+
+<Steps>
+  <Step title="Stop Requests">
+    Immediately pause further requests to the limited endpoint.
+  </Step>
+  
+  <Step title="Check Retry-After">
+    Read the `Retry-After` header for wait duration.
+  </Step>
+  
+  <Step title="Implement Backoff">
+    Use exponential backoff for retries.
+  </Step>
+  
+  <Step title="Resume Carefully">
+    Resume with reduced frequency.
+  </Step>
+</Steps>
+
+---
+audience: developer
+
+## Best Practices
+
+### Optimize Request Patterns
+
+<AccordionGroup>
+  <Accordion title="Use Batch Endpoints">
+    The Producer Intelligence API provides batch endpoints:
+    ```http
+    POST /producer-intelligence/tracks/growth-batch
+    ```
+    Handles up to 100 tracks per request instead of individual calls.
+  </Accordion>
+  
+  <Accordion title="Cache Responses">
+    Analytics data doesn't change frequently. Cache responses for 5-15 minutes.
+  </Accordion>
+  
+  <Accordion title="Use Combined Endpoints">
+    Use `/producer-intelligence/progress-data` for combined dashboard data instead of multiple calls.
+  </Accordion>
+  
+  <Accordion title="Paginate Efficiently">
+    Request appropriate page sizes. Don't fetch more data than needed.
+  </Accordion>
+</AccordionGroup>
+
+### Exponential Backoff
+
+```javascript
+async function fetchWithBackoff(url, options = {}, attempt = 1) {
+  const maxAttempts = 5;
+  
+  const response = await fetch(url, options);
+  
+  if (response.status === 429 && attempt < maxAttempts) {
+    const retryAfter = parseInt(response.headers.get('Retry-After')) || Math.pow(2, attempt);
+    await new Promise(resolve => setTimeout(resolve, retryAfter * 1000));
+    return fetchWithBackoff(url, options, attempt + 1);
+  }
+  
+  return response;
+}
+```
+
+---
+audience: developer
+
+## Monitoring Usage
+
+### Track Rate Limit Status
+
+```javascript
+async function apiRequest(url, options) {
+  const response = await fetch(url, options);
+  
+  const remaining = response.headers.get('X-RateLimit-Remaining');
+  const limit = response.headers.get('X-RateLimit-Limit');
+  
+  if (remaining && parseInt(remaining) < 10) {
+    console.warn(`Rate limit warning: ${remaining}/${limit} remaining`);
+  }
+  
+  return response;
+}
+```
+
+### Common Patterns That Trigger Limits
+
+| Pattern | Problem | Solution |
+|---------|---------|----------|
+| Polling leaderboards | High frequency checks | Use longer intervals (30s+) |
+| Individual track growth | Too many single-track calls | Use batch endpoint |
+| Page load analytics | Multiple concurrent requests | Consolidate into single call |
+| Search-as-you-type | Request per keystroke | Debounce input (300ms+) |
+
+---
+audience: developer
+
+## Rate Limits by Feature
+
+### Low-Intensity Endpoints (No explicit throttle)
+
+These endpoints use global defaults:
+
+- Track/album/artist listing and details
+- Playlist operations
+- User profile data
+- Genre and tag lookups
+
+### High-Intensity Endpoints (Throttled)
+
+These have explicit rate limits:
+
+| Feature | Reason for Limit |
+|---------|------------------|
+| Producer Intelligence | Heavy computation |
+| Social Analytics | Complex queries |
+| Legacy Dashboard | Deprecated, encouraging migration |
+| Real-time Analytics | Database intensive |
+
+---
+audience: developer
+
+## Error Recovery
+
+When you hit a rate limit:
+
+1. **Don't retry immediately** - This wastes your remaining quota
+2. **Log the incident** - Track which endpoints are hitting limits
+3. **Review access patterns** - Identify optimization opportunities
+4. **Contact support** - If legitimate usage requires higher limits
+
+---
+audience: developer
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="API Endpoints" icon="code" href="/developers/endpoints">
+    See all available endpoints.
+  </Card>
+  <Card title="Authentication" icon="key" href="/developers/auth">
+    Set up API authentication.
+  </Card>
+</CardGroup>

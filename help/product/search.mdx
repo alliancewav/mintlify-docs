@@ -1,0 +1,449 @@
+---
+audience: help
+title: "Search & Discovery"
+description: "How to find beats on BeatPass using search, filters, and discovery features."
+---
+
+## Overview
+
+BeatPass provides powerful search and discovery tools to help artists find the perfect beat. This guide explains how search works, what fields are indexed, and how to use filters effectively.
+
+---
+
+## How Search Works
+
+### Indexed Fields
+
+When you search, BeatPass looks across these fields:
+
+<CardGroup cols={2}>
+  <Card title="High Priority" icon="star" color="#22c55e">
+    - **Track title**
+    - **Artist/producer name**
+    - **Tags**
+  </Card>
+  <Card title="Medium Priority" icon="minus">
+    - **Genre**
+    - **Description**
+    - **Album name**
+  </Card>
+  <Card title="Low Priority" icon="chevron-down">
+    - **Lyrics**
+  </Card>
+</CardGroup>
+
+<Note>
+  Search is case-insensitive. "Dark Trap" and "dark trap" return the same results.
+</Note>
+
+### Search Behavior
+
+<AccordionGroup>
+  <Accordion title="Multi-word queries" icon="text">
+    Matches tracks containing **all words** in your query
+  </Accordion>
+  <Accordion title="Partial matches" icon="asterisk">
+    Supported — "trap" will match "trapped"
+  </Accordion>
+  <Accordion title="Exact phrases" icon="quote-left">
+    Use quotes for exact matching: `"dark melodic"`
+  </Accordion>
+  <Accordion title="Typo tolerance" icon="spell-check">
+    Limited — spell correctly for best results
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Default Sort Order
+
+When no sort is specified, results are ordered by **relevance**:
+
+<CardGroup cols={2}>
+  <Card title="Query Match" icon="bullseye" color="#22c55e">
+    **High impact** — How well terms match
+  </Card>
+  <Card title="Field Weight" icon="layer-group" color="#22c55e">
+    **High impact** — Title matches rank higher than description
+  </Card>
+  <Card title="Popularity" icon="fire">
+    **Medium impact** — Plays and saves
+  </Card>
+  <Card title="Recency" icon="clock">
+    **Low impact** — When uploaded
+  </Card>
+</CardGroup>
+
+### Available Sort Options
+
+<Tabs>
+  <Tab title="Relevance">
+    Best match to your query **(default)**
+  </Tab>
+  <Tab title="Newest">
+    Most recently uploaded tracks
+  </Tab>
+  <Tab title="Popular">
+    Highest play counts
+  </Tab>
+  <Tab title="Trending">
+    Rising engagement velocity
+  </Tab>
+</Tabs>
+
+---
+
+## Search Filters
+
+### Genre Filter
+
+Filter by musical genre:
+
+<AccordionGroup>
+  <Accordion title="Hip Hop" icon="microphone">
+    Boom Bap, Trap, Drill, and more
+  </Accordion>
+  <Accordion title="R&B" icon="heart">
+    Contemporary R&B, Neo-Soul
+  </Accordion>
+  <Accordion title="Electronic" icon="bolt">
+    House, Techno, EDM
+  </Accordion>
+  <Accordion title="Pop" icon="star">
+    Pop, Synth Pop
+  </Accordion>
+  <Accordion title="Other" icon="ellipsis">
+    Lo-Fi, Experimental, and more
+  </Accordion>
+</AccordionGroup>
+
+### BPM Filter
+
+Filter by tempo range:
+
+<CardGroup cols={3}>
+  <Card title="60-80 BPM" icon="music">
+    Slow R&B, ballads
+  </Card>
+  <Card title="80-100 BPM" icon="music">
+    Hip hop, boom bap
+  </Card>
+  <Card title="100-130 BPM" icon="music">
+    Pop, uptempo R&B
+  </Card>
+  <Card title="130-150 BPM" icon="music">
+    Trap, drill
+  </Card>
+  <Card title="150+ BPM" icon="bolt">
+    Fast trap, drum & bass
+  </Card>
+</CardGroup>
+
+<Tip>
+  Use the BPM slider to set a specific range (e.g., 140-145 BPM) for precise matching.
+</Tip>
+
+### Key Filter
+
+Filter by musical key:
+
+<Tabs>
+  <Tab title="Major Keys">
+    C, D, E, F, G, A, B (and sharps/flats)
+  </Tab>
+  <Tab title="Minor Keys">
+    Am, Bm, Cm, Dm, Em, Fm, Gm (and sharps/flats)
+  </Tab>
+</Tabs>
+
+### Additional Filters
+
+<CardGroup cols={2}>
+  <Card title="Mood" icon="face-smile">
+    Dark, Uplifting, Chill, Aggressive, Emotional
+  </Card>
+  <Card title="Price Range" icon="dollar-sign">
+    Free, $1-50, $50-100, $100+, Exclusive only
+  </Card>
+  <Card title="License Type" icon="file-contract">
+    Non-exclusive, Exclusive available
+  </Card>
+  <Card title="Upload Date" icon="calendar">
+    Last 24h, Last week, Last month, Last year
+  </Card>
+</CardGroup>
+
+---
+
+## Using Filters Effectively
+
+### Combining Filters
+
+Filters are **additive** (AND logic):
+
+```
+Genre: Trap + BPM: 140-150 + Key: Minor
+→ Returns trap beats at 140-150 BPM in a minor key
+```
+
+### Filter Reset
+
+Click **Clear Filters** to reset all filters and start fresh.
+
+---
+
+## Search Suggestions
+
+### How Suggestions Work
+
+As you type, BeatPass suggests:
+
+<CardGroup cols={2}>
+  <Card title="Popular Searches" icon="fire">
+    Trending queries from other users
+  </Card>
+  <Card title="Your Recent Searches" icon="clock-rotate-left">
+    Your search history
+  </Card>
+  <Card title="Artists/Producers" icon="user">
+    Matching usernames
+  </Card>
+  <Card title="Track Titles" icon="music">
+    Matching track names
+  </Card>
+  <Card title="Tags" icon="tag">
+    Popular matching tags
+  </Card>
+</CardGroup>
+
+### Suggestion Ranking
+
+Suggestions prioritize:
+1. Exact prefix matches
+2. Your recent searches
+3. Popular searches
+4. Related terms
+
+<Note>
+  Suggestions are personalized when logged in, showing your history first.
+</Note>
+
+---
+
+## Discovery Features
+
+### Browse by Genre
+
+Explore curated genre sections:
+
+1. Click **Discover** in navigation
+2. Select a genre category
+3. Browse featured and trending tracks
+
+### Trending & Charts
+
+<CardGroup cols={2}>
+  <Card title="Trending" icon="arrow-trend-up">
+    Tracks with rising engagement
+  </Card>
+  <Card title="Top Charts" icon="chart-line">
+    Highest plays this week/month
+  </Card>
+  <Card title="New Releases" icon="sparkles">
+    Recently uploaded tracks
+  </Card>
+  <Card title="Staff Picks" icon="star">
+    Curated selections by BeatPass
+  </Card>
+</CardGroup>
+
+### For You (Personalized)
+
+When logged in, we use these signals:
+
+<AccordionGroup>
+  <Accordion title="Listening History" icon="headphones">
+    Recommend similar styles based on what you've played
+  </Accordion>
+  <Accordion title="Saved Tracks" icon="bookmark">
+    Suggest related beats based on your library
+  </Accordion>
+  <Accordion title="Followed Producers" icon="user-plus">
+    Surface new releases from producers you follow
+  </Accordion>
+  <Accordion title="Genre Preferences" icon="sliders">
+    Weight discovery results toward your preferred genres
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Search Tips
+
+### Finding Specific Styles
+
+<AccordionGroup>
+  <Accordion title="Drake-style beats" icon="microphone">
+    Search **"drake type"** or filter R&B/Trap + 80-100 BPM
+  </Accordion>
+  <Accordion title="Dark trap" icon="moon">
+    Search **"dark trap"** or use Mood: Dark + Genre: Trap
+  </Accordion>
+  <Accordion title="Lo-fi study beats" icon="book">
+    Search **"lo-fi chill"** or filter Lo-Fi + 70-90 BPM
+  </Accordion>
+  <Accordion title="Festival EDM" icon="bolt">
+    Search **"festival"** or filter Electronic + 128 BPM
+  </Accordion>
+</AccordionGroup>
+
+### Using Tags Effectively
+
+Tags are highly weighted in search. Try:
+
+- Mood tags: "dark", "chill", "aggressive"
+- Style tags: "melodic", "hard", "bouncy"
+- Influence tags: "metro boomin type", "pierre bourne style"
+- Use case: "freestyle", "hook", "commercial"
+
+### Exact Phrase Search
+
+For specific phrases, use quotes:
+
+```
+"summer vibes"     → Matches exact phrase
+summer vibes       → Matches tracks with both words anywhere
+```
+
+---
+
+## Search Tips & Best Practices
+
+### Getting Better Results
+
+<AccordionGroup>
+  <Accordion title="Start broad, then narrow">
+    Begin with general terms, then add filters to refine. Starting too specific may miss relevant results.
+  </Accordion>
+  
+  <Accordion title="Use BPM ranges">
+    Instead of exact BPM (140), use a range (138-142) to catch tracks with slight variations.
+  </Accordion>
+  
+  <Accordion title="Combine key + mood">
+    Searching "minor key" alone is broad. Add mood: "dark minor" or filter by minor keys + Dark mood.
+  </Accordion>
+  
+  <Accordion title="Try artist influence tags">
+    Many producers tag their beats with artist influences: "travis scott type", "juice wrld style", etc.
+  </Accordion>
+  
+  <Accordion title="Check spelling">
+    Search has limited typo tolerance. "melodick" won't find "melodic".
+  </Accordion>
+</AccordionGroup>
+
+### Power User Tips
+
+<CardGroup cols={2}>
+  <Card title="Exact Phrase" icon="quote-left">
+    Use `"dark trap"` (with quotes) for exact matching
+  </Card>
+  <Card title="Multi-term" icon="layer-group">
+    `melodic guitar emotional` — combine terms freely
+  </Card>
+  <Card title="BPM Matching" icon="gauge">
+    Filter to ±2 BPM of your vocal track
+  </Card>
+  <Card title="Producer Search" icon="user">
+    Enter producer name directly
+  </Card>
+</CardGroup>
+
+### What Doesn't Work
+
+<Warning>
+  These query types are **not supported**:
+</Warning>
+
+<CardGroup cols={2}>
+  <Card title="Boolean Operators" icon="circle-xmark" color="#ef4444">
+    AND, OR, NOT — Use multiple terms instead
+  </Card>
+  <Card title="Wildcards" icon="circle-xmark" color="#ef4444">
+    trap* — Use full terms instead
+  </Card>
+  <Card title="Exclusion" icon="circle-xmark" color="#ef4444">
+    -word — Use filters instead
+  </Card>
+  <Card title="Field-specific" icon="circle-xmark" color="#ef4444">
+    title:word — General search only
+  </Card>
+</CardGroup>
+
+---
+
+## Search Limitations
+
+<CardGroup cols={3}>
+  <Card title="Min Query" icon="text">
+    **2** characters minimum
+  </Card>
+  <Card title="Max Query" icon="text">
+    **100** characters max
+  </Card>
+  <Card title="Rate Limit" icon="gauge">
+    **60** searches/minute
+  </Card>
+  <Card title="Per Page" icon="list">
+    **20** results (paginated)
+  </Card>
+  <Card title="Max Results" icon="database">
+    **1,000** per query
+  </Card>
+</CardGroup>
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Search returns no results">
+    - Check spelling
+    - Try broader terms
+    - Remove some filters
+    - Use fewer/different keywords
+  </Accordion>
+  
+  <Accordion title="Can't find a specific track">
+    - Search by exact title in quotes
+    - Search by producer name
+    - Check if track was removed
+    - It may still be processing (wait 5-10 min for new uploads)
+  </Accordion>
+  
+  <Accordion title="Filters not working">
+    - Ensure filters aren't too restrictive
+    - Some combinations yield few results
+    - Try resetting filters and adding one at a time
+  </Accordion>
+  
+  <Accordion title="Results seem irrelevant">
+    - Use more specific search terms
+    - Add filters to narrow results
+    - Try the Relevance sort (default)
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Related Resources
+
+<CardGroup cols={2}>
+  <Card title="Uploading Beats" icon="upload" href="/help/product/uploads">
+    Optimize your metadata for discovery.
+  </Card>
+  <Card title="Producer Marketing" icon="bullhorn" href="/help/growth/marketing">
+    Get your beats discovered.
+  </Card>
+</CardGroup>

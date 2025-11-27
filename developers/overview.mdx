@@ -1,0 +1,287 @@
+---
+audience: developer
+title: "API Overview | BeatPass"
+description: "Introduction to the BeatPass API for first-party application development. Learn about authentication, endpoints, rate limits, and API structure."
+keywords: ["beatpass api", "music api", "beat marketplace api", "producer api", "beat licensing api"]
+"og:title": "API Overview - BeatPass Developer Documentation"
+"og:description": "Introduction to the BeatPass API for first-party application development."
+"twitter:card": "summary_large_image"
+---
+audience: developer
+
+## Overview
+
+The BeatPass API powers the platform's frontend. This is a **first-party API** designed exclusively for BeatPass web and mobile applications.
+
+<Warning>
+  **First-Party Only** — BeatPass does not offer a public developer API or third-party integrations. All endpoints documented here are for the official BeatPass application.
+</Warning>
+
+### Integration Requests
+
+If you're interested in integrating with BeatPass (partnerships, data licensing, embedded players), contact support to discuss options. Do not attempt to use undocumented endpoints or scrape platform data.
+
+<Card title="Partnership Inquiries" icon="handshake" href="/help/support/contact">
+  Contact support for integration discussions.
+</Card>
+
+---
+audience: developer
+
+## Base URL
+
+All API requests use the base URL:
+
+```
+https://open.beatpass.ca/api/v1
+```
+
+---
+audience: developer
+
+## API Surface
+
+The BeatPass API provides comprehensive functionality across the platform:
+
+### Content & Discovery
+
+| Category | Capabilities |
+|----------|-------------|
+| **Tracks** | List, view, upload, update, delete tracks |
+| **Albums** | Album management and metadata |
+| **Artists** | Artist profiles, followers, tracks |
+| **Playlists** | Create, manage, share playlists |
+| **Search** | Full-text search across content types |
+| **Genres** | Genre listing and filtering |
+
+### Commerce & Licensing
+
+| Category | Capabilities |
+|----------|-------------|
+| **Track Purchases** | Per-track purchase flow via Stripe Connect |
+| **License Certificates** | Generate, verify, revoke licenses |
+| **Exclusive Licenses** | Preset management for exclusive sales |
+| **Subscription Payouts** | Artist earnings from subscriptions |
+
+### Producer Tools
+
+| Category | Capabilities |
+|----------|-------------|
+| **Producer Intelligence** | XP, achievements, leaderboards |
+| **Analytics** | Track performance, engagement metrics |
+| **Contribution Pool** | Earnings estimates, track breakdowns |
+| **Payout Analytics** | History, projections, trends |
+| **Audio Fingerprinting** | Duplicate detection, content ID |
+
+### Social & Collaboration
+
+| Category | Capabilities |
+|----------|-------------|
+| **Messaging** | Direct messages with typing indicators |
+| **Beat Requests** | Custom beat request marketplace |
+| **Following** | User and artist follow system |
+| **Reposts** | Content sharing within platform |
+
+---
+audience: developer
+
+## Request Format
+
+### HTTP Methods
+
+| Method | Usage |
+|--------|-------|
+| GET | Retrieve data |
+| POST | Create resources or perform actions |
+| PUT | Update resources |
+| DELETE | Remove resources |
+
+### Required Headers
+
+```http
+Accept: application/json
+Content-Type: application/json
+```
+
+Authenticated requests use Sanctum's stateful session cookies. State-changing requests must include CSRF protection (`XSRF-TOKEN` cookie + `X-XSRF-TOKEN` header). See the [Authentication guide](/api/auth) for the SPA login flow and CSRF requirements.
+
+---
+audience: developer
+
+## Response Format
+
+### Success Response
+
+Responses vary by endpoint. Most return data directly:
+
+```json
+{
+  "id": 1234,
+  "name": "Track Name",
+  "artist": {...}
+}
+```
+
+### Error Response
+
+```json
+{
+  "message": "Error description",
+  "errors": {
+    "field": ["Validation error"]
+  }
+}
+```
+
+### Pagination
+
+Paginated endpoints use Laravel's standard pagination:
+
+```json
+{
+  "data": [...],
+  "current_page": 1,
+  "per_page": 15,
+  "total": 150,
+  "last_page": 10,
+  "links": {...}
+}
+```
+
+---
+audience: developer
+
+## Authentication Model
+
+BeatPass uses **Laravel Sanctum** for authentication. This is a **stateful SPA session** model with CSRF/XSRF cookies. The API:
+
+- Uses session cookies for authentication
+- Does **not** issue personal access tokens
+- Is only available to the first-party BeatPass web application (no third-party/OAuth)
+
+See [Authentication](/api/auth) for the SPA login flow and CSRF requirements.
+
+---
+audience: developer
+
+## Key Endpoint Groups
+
+### Public Endpoints (Optional Auth)
+
+These endpoints work without authentication but return enhanced data when authenticated:
+
+```http
+GET /tracks              # List public tracks
+GET /tracks/{id}         # Track details
+GET /artists             # List artists
+GET /artists/{id}        # Artist profile
+GET /search              # Search content
+GET /genres              # Available genres
+```
+
+### Authenticated Endpoints
+
+These require an authenticated Sanctum session:
+
+```http
+POST /tracks                           # Upload track
+POST /tracks/{track}/purchase/initiate # Start purchase
+GET  /purchases                        # User's purchases
+GET  /messaging/conversations          # User's messages
+GET  /producer-intelligence/dashboard  # Producer analytics
+POST /beat-requests                    # Create beat request
+```
+
+---
+audience: developer
+
+## Rate Limiting
+
+The API uses route-specific throttling. Key limits:
+
+| Route Group | Limit |
+|-------------|-------|
+| Producer Intelligence (public) | 300 requests/minute |
+| Producer Intelligence (auth) | 500 requests/minute |
+| Social Analytics | 120 requests/minute |
+| Legacy Producer Dashboard | 60 requests/minute |
+
+See [Rate Limits](/api/rate-limits) for complete details.
+
+---
+audience: developer
+
+## Webhooks
+
+BeatPass receives **inbound webhooks** from Stripe for payment processing. There is no outbound webhook system for external integrations.
+
+See [Webhooks](/api/webhooks) for Stripe webhook details.
+
+---
+audience: developer
+
+## What's Not Covered
+
+This documentation covers **user-facing endpoints only**. The following are intentionally excluded:
+
+### Admin & Staff Endpoints
+
+These routes require staff roles and are not available to regular users:
+
+| Route Prefix | Purpose |
+|--------------|---------|
+| `/admin/fingerprints/*` | Audio fingerprinting administration |
+| `/admin/licenses/*` | License management and bulk operations |
+| `/admin/subscription-splits/*` | Stripe Connect split monitoring |
+| `/admin/artist-onboarding/*` | Stripe Connect onboarding management |
+| `/admin/promotional-emails/*` | Marketing email campaigns |
+| `/admin/track-pricing/*` | Bulk track pricing management |
+| `/admin/track-purchases/*` | Purchase analytics and reporting |
+| `/admin/failed-jobs/*` | Queue job management |
+
+### Internal Tooling
+
+| Category | Description |
+|----------|-------------|
+| **Video generation** | `/video/mux-audio`, `/video/chunk`, `/video/complete`, `/video/history` |
+| **Audio proxy** | `/audio/proxy` for CORS workarounds |
+| **Import tooling** | `/import-media/*` for content ingestion |
+| **Cover art templates** | `/cover-art/templates/*` (admin creation/scanning) |
+| **Carousel management** | `/carousel/*` for featured content curation |
+| **Track posting status** | `/tracks/posting-status`, `/tracks/{id}/posting-status` |
+| **Analytics exports** | `/producer-intelligence/export/*`, `/producer-intelligence/report/*` |
+| **Advanced charts** | `/producer-intelligence/track/{id}/charts`, `/artist/{id}/charts`, `/album/{id}/charts` |
+| **Live analytics** | `/producer-intelligence/live-analytics`, `/producer-intelligence/track/{id}/real-time` |
+| **V2 Analytics** | `/v2/analytics/report` (internal reporting)
+
+### Not Documented
+
+| Category | Reason |
+|----------|--------|
+| **Internal analytics** | Backend reporting and metrics collection |
+| **Fraud detection** | Security-sensitive rate limits and patterns |
+| **Webhook secrets** | Stripe signing secrets and internal tokens |
+| **Debug endpoints** | Development and testing routes |
+| **Infrastructure** | Queue workers, cache management, health checks |
+
+### Security Notice
+
+<Warning>
+  Attempting to access undocumented admin or internal endpoints without authorization is a violation of terms of service and may result in account termination.
+</Warning>
+
+If you discover an undocumented endpoint that appears to be a security concern, please report it responsibly to security@beatpass.ca.
+
+---
+audience: developer
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Authentication" icon="key" href="/developers/auth">
+    Learn how Sanctum authentication works.
+  </Card>
+  <Card title="Endpoints" icon="code" href="/developers/endpoints">
+    Complete endpoint reference.
+  </Card>
+</CardGroup>
