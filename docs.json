@@ -190,7 +190,7 @@
               "developers/reference/endpoints",
               {
                 "group": "Endpoint Explorer",
-                "openapi": "/api-reference/openapi.yaml"
+                "openapi": "api-reference/openapi.json"
               }
             ]
           }
