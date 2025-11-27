@@ -1,11 +1,11 @@
 ---
-audience: "help"
-title: "Spotlight Track Pinning"
+audience: help
+title: "Spotlight Track Pinning | BeatPass"
 description: "Learn how to pin or unpin a spotlight track on your BeatPass profile, what visitors see on public vs. private profiles, and how pinned tracks affect layout and analytics."
-keywords: ["spotlight track","pin track","profile pin","artist spotlight","beatpass profile"]
-og:title: "Spotlight Track Pinning - BeatPass Help"
-og:description: "Pin a spotlight track to the top of your profile, control visibility, and monitor performance."
-twitter:card: "summary_large_image"
+keywords: ["spotlight track", "pin track", "profile pin", "artist spotlight", "beatpass profile"]
+"og:title": "Spotlight Track Pinning - BeatPass Help"
+"og:description": "Pin a spotlight track to the top of your profile, control visibility, and monitor performance."
+"twitter:card": "summary_large_image"
 ---
 
 ## Overview
@@ -13,7 +13,8 @@ twitter:card: "summary_large_image"
 Spotlight track pinning lets you feature a single track at the top of your profile. It is ideal for new releases, licensing campaigns, or highlighting your best-selling beat.
 
 <Info>
-  **Audience:** Artists & producers with published tracks **Time to complete:** 1-2 minutes
+  **Audience:** Artists & producers with published tracks
+  **Time to complete:** 1-2 minutes
 </Info>
 
 ---
@@ -23,15 +24,17 @@ Spotlight track pinning lets you feature a single track at the top of your profi
 <Steps>
   <Step title="Open Backstage Catalog">
     Go to **Backstage → Catalog** to see your published tracks. Hover or tap a track row to reveal the **Pin to profile** control.
-
+    
     ![Pin control inside Backstage catalog](/assets/images/spotlight-pin-catalog.svg)
   </Step>
+
   <Step title="Confirm the Spotlight">
     Select **Pin to profile**. The current spotlight (if any) is replaced immediately. Only one track can be pinned at a time.
   </Step>
+
   <Step title="Verify on Your Profile">
     Visit your public profile to confirm the spotlight renders above releases, playlists, and other modules.
-
+    
     ![Pinned track shown above the profile layout](/assets/images/spotlight-pin-profile.svg)
   </Step>
 </Steps>
@@ -86,4 +89,4 @@ Programmatically manage the spotlight for automations or A/B tests using the art
 - **Unpin**: `POST /artists/{artistId}/tracks/{trackId}/unpin`
 - **Check**: `GET /artists/{artistId}/pinned-track`
 
-See [API Endpoints – Track Pinning](/api/endpoints#track-pinning) for request/response schemas, auth requirements, and rate limits.
+See [API Endpoints – Track Pinning](/developers/reference/endpoints#track-pinning) for request/response schemas, auth requirements, and rate limits.

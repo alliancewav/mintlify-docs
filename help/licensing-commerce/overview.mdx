@@ -1,11 +1,11 @@
 ---
-audience: "help"
-title: "Beat Licensing Guide"
+audience: help
+title: "Beat Licensing Guide | BeatPass"
 description: "Understanding beat licensing options, terms, and best practices on BeatPass. Learn about exclusive vs non-exclusive licenses, pricing strategies, and license verification."
-keywords: ["beat licensing","exclusive license","non-exclusive license","buy beats","license beats","music licensing","beat license terms"]
-og:title: "Beat Licensing Guide - BeatPass Help Center"
-og:description: "Understanding beat licensing options, terms, and best practices on BeatPass."
-twitter:card: "summary_large_image"
+keywords: ["beat licensing", "exclusive license", "non-exclusive license", "buy beats", "license beats", "music licensing", "beat license terms"]
+"og:title": "Beat Licensing Guide - BeatPass Help Center"
+"og:description": "Understanding beat licensing options, terms, and best practices on BeatPass."
+"twitter:card": "summary_large_image"
 ---
 
 ## Overview
@@ -28,16 +28,15 @@ Licensing determines how artists can use your beats and what rights are transfer
 
 **Key Features:**
 
-| Aspect          | Details                                                                                                                       |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| Availability    | Beat stays in catalog after sale                                                                                              |
-| Price           | Lower than exclusive                                                                                                          |
-| Rights          | Non-exclusive, worldwide, perpetual usage rights per license terms                                                            |
-| Distribution    | Unlimited streaming and digital distribution (subject to contextual restrictions like large live events or certain sync uses) |
-| Multiple Buyers | Yes, unlimited                                                                                                                |
+| Aspect | Details |
+|--------|---------|
+| Availability | Beat stays in catalog after sale |
+| Price | Lower than exclusive |
+| Rights | Non-exclusive, worldwide, perpetual usage rights per license terms |
+| Distribution | Unlimited streaming and digital distribution (subject to contextual restrictions like large live events or certain sync uses) |
+| Multiple Buyers | Yes, unlimited |
 
 **Best For:**
-
 - Mixtapes and demos
 - Limited distribution projects
 - Budget-conscious artists
@@ -51,15 +50,14 @@ Licensing determines how artists can use your beats and what rights are transfer
 
 **Key Features:**
 
-| Aspect          | Details                         |
-| --------------- | ------------------------------- |
-| Availability    | Removed from catalog after sale |
-| Price           | Premium pricing                 |
-| Rights          | Full usage rights               |
-| Multiple Buyers | No, one buyer only              |
+| Aspect | Details |
+|--------|---------|
+| Availability | Removed from catalog after sale |
+| Price | Premium pricing |
+| Rights | Full usage rights |
+| Multiple Buyers | No, one buyer only |
 
 **Best For:**
-
 - Commercial releases
 - Major projects
 - Artists wanting unique beats
@@ -68,7 +66,6 @@ Licensing determines how artists can use your beats and what rights are transfer
 <Note>
   When an exclusive license is sold, the beat is removed from public sale and no new licenses are issued. However, any valid non-exclusive licenses issued before the exclusive sale remain in effect for their full terms.
 </Note>
-
 <Warning>
   **Already Sold?** If an exclusive license has already been purchased by another user, the exclusive option will be unavailable. Non-exclusive may still be offered if the producer allows it. The API returns an `exclusive_sold` error if you attempt to purchase a sold exclusive.
 </Warning>
@@ -85,12 +82,15 @@ All BeatPass licenses include:
   <Accordion title="Usage Rights">
     Permission to use the beat in audio recordings, including commercial release.
   </Accordion>
+  
   <Accordion title="Credit Requirements">
     Producer credit required in track metadata (e.g., "Prod. by [Producer Name]").
   </Accordion>
+  
   <Accordion title="No Resale">
     You cannot resell or sublicense the beat to others.
   </Accordion>
+  
   <Accordion title="No Claim of Ownership">
     The instrumental composition remains the producer's intellectual property.
   </Accordion>
@@ -115,12 +115,15 @@ After purchase:
   <Step title="Preview the Full Track">
     Listen to the complete beat, not just a snippet.
   </Step>
+  
   <Step title="Check License Options">
     Review available tiers and pricing on the track page.
   </Step>
+  
   <Step title="Understand the Terms">
     Read what's included in each license tier.
   </Step>
+  
   <Step title="Consider Your Project">
     Match the license to your distribution plans.
   </Step>
@@ -132,12 +135,15 @@ After purchase:
   <Step title="Select License Tier">
     Click **Buy License** on the track page and choose Non-Exclusive or Exclusive.
   </Step>
+  
   <Step title="Review Price">
     Confirm the license type and final price (including any platform fees).
   </Step>
+  
   <Step title="Complete Payment">
     Enter payment details via Stripe's secure checkout.
   </Step>
+  
   <Step title="Download Files">
     Access high-quality audio files and license certificate immediately.
   </Step>
@@ -167,19 +173,21 @@ After purchase:
 <Tabs>
   <Tab title="Streaming Only">
     Don't set a price. Earn from contribution-based revenue as users stream.
-
+    
     **Best For:** Building audience, volume-based earnings
   </Tab>
+  
   <Tab title="Non-Exclusive">
     Set a price for unlimited non-exclusive sales.
-
-    **Typical Range:** \$20-100\
+    
+    **Typical Range:** $20-100  
     **Best For:** Recurring revenue from popular beats
   </Tab>
+  
   <Tab title="Exclusive">
     Set a premium price for one-time exclusive sale.
-
-    **Typical Range:** \$200-1000+\
+    
+    **Typical Range:** $200-1000+  
     **Best For:** Maximum value per beat
   </Tab>
 </Tabs>
@@ -190,12 +198,15 @@ After purchase:
   <Accordion title="Research the Market">
     Check what similar producers charge for comparable beats.
   </Accordion>
+  
   <Accordion title="Consider Your Brand">
     Established producers can charge more than newcomers.
   </Accordion>
+  
   <Accordion title="Value Your Time">
     Factor in production time, not just market rates.
   </Accordion>
+  
   <Accordion title="Offer Tiers">
     Multiple price points capture different buyer segments.
   </Accordion>
@@ -207,18 +218,20 @@ Save time by creating reusable exclusive license configurations:
 
 <Steps>
   <Step title="Create a Preset">
-    Go to **Backstage \> Settings \> License Presets** and create a new preset with your preferred exclusive pricing, terms, and restrictions.
+    Go to **Backstage > Settings > License Presets** and create a new preset with your preferred exclusive pricing, terms, and restrictions.
   </Step>
+  
   <Step title="Set as Default">
     Mark a preset as your default to auto-apply to all new uploads.
   </Step>
+  
   <Step title="Apply to Tracks">
     When uploading, your default preset pre-fills exclusive pricing. Override per-track if needed.
   </Step>
 </Steps>
 
 <Note>
-  Presets ensure consistent exclusive pricing across your catalog without re-entering details for each track. See [API Endpoints](/api/endpoints#exclusive-license-presets) for programmatic access, and [Licensing Models & Exclusive Availability](/product-guides/licensing-models-exclusive) for how presets interact with Standard vs Exclusive models in Backstage.
+Presets ensure consistent exclusive pricing across your catalog without re-entering details for each track. See [API Endpoints](/developers/reference/endpoints#exclusive-license-presets) for programmatic access, and [Licensing Models & Exclusive Availability](/help/licensing-commerce/license-types) for how presets interact with Standard vs Exclusive models in Backstage.
 </Note>
 
 ---
@@ -245,7 +258,6 @@ https://open.beatpass.ca/verify-license/{uuid}
 ```
 
 The verification page shows:
-
 - License validity status (active/revoked)
 - License type and date issued
 - Track information
@@ -256,20 +268,20 @@ The verification page shows:
 
 BeatPass provides API endpoints for license management:
 
-| Action       | Endpoint                                   | Description                     |
-| ------------ | ------------------------------------------ | ------------------------------- |
-| Generate     | `POST /tracks/{track}/generate-license`    | Create license after purchase   |
-| Check        | `GET /tracks/{track}/check-license`        | Check if user has valid license |
-| Download PDF | `GET /tracks/{track}/download-license-pdf` | Get certificate PDF             |
-| Verify       | `GET /verify-license/{uuid}`               | Public verification (no auth)   |
-| Revoke       | `POST /licenses/{uuid}/revoke`             | Revoke a license (admin/owner)  |
-| List         | `GET /user/licenses`                       | Get all user's licenses         |
+| Action | Endpoint | Description |
+|--------|----------|-------------|
+| Generate | `POST /tracks/{track}/generate-license` | Create license after purchase |
+| Check | `GET /tracks/{track}/check-license` | Check if user has valid license |
+| Download PDF | `GET /tracks/{track}/download-license-pdf` | Get certificate PDF |
+| Verify | `GET /verify-license/{uuid}` | Public verification (no auth) |
+| Revoke | `POST /licenses/{uuid}/revoke` | Revoke a license (admin/owner) |
+| List | `GET /user/licenses` | Get all user's licenses |
 
 ### Certificate Regeneration
 
 If you need a new copy of your license certificate:
 
-1. Go to your **Library \> Licenses**
+1. Go to your **Library > Licenses**
 2. Find the track
 3. Click **Download Certificate**
 
@@ -283,14 +295,17 @@ The certificate PDF is regenerated with the same license UUID and details.
   <Accordion title="Can I upgrade from non-exclusive to exclusive?">
     If you've previously downloaded a beat non-exclusively with your subscription, you can contact the producer to discuss an exclusive purchase. There is no automatic upgrade flow—any upgrade must be negotiated directly with the producer.
   </Accordion>
+  
   <Accordion title="What if the producer deletes the beat?">
     Your license remains valid. Keep your certificate as proof of purchase.
   </Accordion>
+  
   <Accordion title="Can I use licensed beats for sync (TV/Film)?">
     Standard licenses may not cover sync. Contact the producer for sync-specific licensing.
   </Accordion>
+  
   <Accordion title="Are refunds available?">
-    Digital licenses are generally non-refundable. See [Policies](/support/policies) for details.
+Digital licenses are generally non-refundable. See [Policies](/help/support/policies) for details.
   </Accordion>
 </AccordionGroup>
 

@@ -1,57 +1,32 @@
 ---
-audience: help
+audience: "help"
 title: "Search & Discovery"
 description: "How to find beats on BeatPass using search, filters, and discovery features."
 ---
 
 ## Overview
 
-BeatPass provides powerful search and discovery tools to help artists find the perfect beat. This guide explains how search works, what fields are indexed, and how to use filters effectively.
+BeatPass provides powerful search and discovery tools to help artists find the perfect beat. This guide
 
----
+## Search Functionality
 
-## How Search Works
+The search bar is your gateway to discovering content on BeatPass. It uses a smart search algorithm to find the most relevant results across the platform.
 
 ### Indexed Fields
 
 When you search, BeatPass looks across these fields:
 
-<CardGroup cols={2}>
-  <Card title="High Priority" icon="star" color="#22c55e">
-    - **Track title**
-    - **Artist/producer name**
-    - **Tags**
-  </Card>
-  <Card title="Medium Priority" icon="minus">
-    - **Genre**
-    - **Description**
-    - **Album name**
-  </Card>
-  <Card title="Low Priority" icon="chevron-down">
-    - **Lyrics**
-  </Card>
-</CardGroup>
-
-<Note>
-  Search is case-insensitive. "Dark Trap" and "dark trap" return the same results.
-</Note>
+- **Track Name**: The title of the beat.
+- **Artist Name**: The name of the producer or artist.
+- **Album Name**: The name of the collection or album.
+- **Tags**: Custom tags added by producers (e.g., "Trap", "Chill", "Guitar").
+- **Spotify ID**: For internal matching and verification.
 
 ### Search Behavior
 
-<AccordionGroup>
-  <Accordion title="Multi-word queries" icon="text">
-    Matches tracks containing **all words** in your query
-  </Accordion>
-  <Accordion title="Partial matches" icon="asterisk">
-    Supported — "trap" will match "trapped"
-  </Accordion>
-  <Accordion title="Exact phrases" icon="quote-left">
-    Use quotes for exact matching: `"dark melodic"`
-  </Accordion>
-  <Accordion title="Typo tolerance" icon="spell-check">
-    Limited — spell correctly for best results
-  </Accordion>
-</AccordionGroup>
+- **Exact Matches**: Prioritized at the top of the results.
+- **Partial Matches**: Results that contain part of your search term.
+- **Fuzzy Matching**: Handles small typos or spelling variations.
 
 ---
 
@@ -163,7 +138,7 @@ Filter by musical key:
     Dark, Uplifting, Chill, Aggressive, Emotional
   </Card>
   <Card title="Price Range" icon="dollar-sign">
-    Free, $1-50, $50-100, $100+, Exclusive only
+    Free, $1-50, $50-100, \$100+, Exclusive only
   </Card>
   <Card title="License Type" icon="file-contract">
     Non-exclusive, Exclusive available
@@ -219,6 +194,7 @@ As you type, BeatPass suggests:
 ### Suggestion Ranking
 
 Suggestions prioritize:
+
 1. Exact prefix matches
 2. Your recent searches
 3. Popular searches
@@ -325,19 +301,15 @@ summer vibes       → Matches tracks with both words anywhere
   <Accordion title="Start broad, then narrow">
     Begin with general terms, then add filters to refine. Starting too specific may miss relevant results.
   </Accordion>
-  
   <Accordion title="Use BPM ranges">
     Instead of exact BPM (140), use a range (138-142) to catch tracks with slight variations.
   </Accordion>
-  
   <Accordion title="Combine key + mood">
     Searching "minor key" alone is broad. Add mood: "dark minor" or filter by minor keys + Dark mood.
   </Accordion>
-  
   <Accordion title="Try artist influence tags">
     Many producers tag their beats with artist influences: "travis scott type", "juice wrld style", etc.
   </Accordion>
-  
   <Accordion title="Check spelling">
     Search has limited typo tolerance. "melodick" won't find "melodic".
   </Accordion>
@@ -371,7 +343,7 @@ summer vibes       → Matches tracks with both words anywhere
     AND, OR, NOT — Use multiple terms instead
   </Card>
   <Card title="Wildcards" icon="circle-xmark" color="#ef4444">
-    trap* — Use full terms instead
+    trap\* — Use full terms instead
   </Card>
   <Card title="Exclusion" icon="circle-xmark" color="#ef4444">
     -word — Use filters instead
@@ -414,20 +386,17 @@ summer vibes       → Matches tracks with both words anywhere
     - Remove some filters
     - Use fewer/different keywords
   </Accordion>
-  
   <Accordion title="Can't find a specific track">
     - Search by exact title in quotes
     - Search by producer name
     - Check if track was removed
     - It may still be processing (wait 5-10 min for new uploads)
   </Accordion>
-  
   <Accordion title="Filters not working">
     - Ensure filters aren't too restrictive
     - Some combinations yield few results
     - Try resetting filters and adding one at a time
   </Accordion>
-  
   <Accordion title="Results seem irrelevant">
     - Use more specific search terms
     - Add filters to narrow results
