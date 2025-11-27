@@ -26,29 +26,6 @@
   "metadata": {
     "timestamp": true
   },
-  "api": {
-    "mdx": {
-      "auth": {
-        "method": "bearer",
-        "name": "Authorization"
-      },
-      "server": "https://open.beatpass.ca/api/v1"
-    },
-    "playground": {
-      "display": "interactive",
-      "proxy": true
-    },
-    "examples": {
-      "languages": [
-        "curl",
-        "javascript"
-      ],
-      "prefill": true
-    },
-    "params": {
-      "expanded": "closed"
-    }
-  },
   "logo": {
     "light": "/assets/logo/light.svg",
     "dark": "/assets/logo/dark.svg",
