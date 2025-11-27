@@ -4102,26 +4102,33 @@
         "description": "Resource not found. Could not find a resource with specified name or ID."
       },
       "Response422": {
-        "type": "object",
-        "properties": {
-          "status": {
-            "type": "string",
-            "example": "error"
-          },
-          "message": {
-            "type": "string",
-            "example": "Reason for the error"
-          },
-          "errors": {
-            "type": "object",
-            "properties": {
-              "some_data_1": {
-                "type": "string",
-                "example": "Error message for data 1"
-              },
-              "some_data_2": {
-                "type": "string",
-                "example": "Error message for data 2"
+        "description": "Unprocessable Entity. Invalid data specified.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "example": "error"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Reason for the error"
+                },
+                "errors": {
+                  "type": "object",
+                  "properties": {
+                    "some_data_1": {
+                      "type": "string",
+                      "example": "Error message for data 1"
+                    },
+                    "some_data_2": {
+                      "type": "string",
+                      "example": "Error message for data 2"
+                    }
+                  }
+                }
               }
             }
           }
