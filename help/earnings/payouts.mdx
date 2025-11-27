@@ -1,11 +1,11 @@
 ---
-audience: help
-title: "How Payouts Work | BeatPass"
+audience: "help"
+title: "How Payouts Work"
 description: "Complete guide to receiving earnings from BeatPass via Stripe Connect. Learn about payout timelines, Stripe onboarding, and troubleshooting failed transfers."
-keywords: ["beatpass payouts", "producer earnings", "stripe connect", "get paid", "music royalties", "beat sales"]
-"og:title": "How Payouts Work - BeatPass Producer Earnings"
-"og:description": "Complete guide to receiving earnings from BeatPass via Stripe Connect."
-"twitter:card": "summary_large_image"
+keywords: ["beatpass payouts","producer earnings","stripe connect","get paid","music royalties","beat sales"]
+og:title: "How Payouts Work - BeatPass Producer Earnings"
+og:description: "Complete guide to receiving earnings from BeatPass via Stripe Connect."
+twitter:card: "summary_large_image"
 ---
 
 ## Overview
@@ -27,15 +27,17 @@ Producers earn from **subscription revenue splits** and **direct license sales**
 <CardGroup cols={2}>
   <Card title="Subscription Pool" icon="users">
     A portion of each paid subscription invoice is allocated to a producer pool based on the [Contribution Formula](/contribution/formula).
-    
-    *BeatPass also charges a platform fee (for example, 15%) on top, paid by the subscriber and retained by BeatPass.*
-    
-    <Note>Only fully paid, active subscriptions contribute to the pool. We strictly validate all payments to ensure the pool is real revenue.</Note>
+
+    _BeatPass also charges a platform fee (for example, 15%) on top, paid by the subscriber and retained by BeatPass._
+
+    <Note>
+      Only fully paid, active subscriptions contribute to the pool. We strictly validate all payments to ensure the pool is real revenue.
+    </Note>
   </Card>
   <Card title="License Sales" icon="file-contract">
     You receive the price you set for a license **minus Stripe processing fees**.
-    
-    *BeatPass charges a separate platform fee on top, paid by the buyer and kept by BeatPass*.
+
+    _BeatPass charges a separate platform fee on top, paid by the buyer and kept by BeatPass_.
   </Card>
 </CardGroup>
 
@@ -54,29 +56,29 @@ Your share of the subscription pool is calculated by the [Contribution Formula](
 <Steps>
   <Step title="Earn Revenue">
     Revenue accumulates from:
+
     - **License sales** — Earnings from exclusive purchases via Stripe Connect (you receive your listed price minus Stripe processing fees; BeatPass keeps a separate platform fee charged to the buyer)
     - **Contribution earnings** — Your share of the subscription revenue pool based on the [Contribution Formula](/contribution/formula), funded from each paid subscription invoice
   </Step>
-  
   <Step title="Funds Reach Your Stripe Account">
     - License sales: Funds transfer after payment succeeds
     - Contribution splits: Processed after each successful subscription invoice (`invoice.paid`)
   </Step>
-  
   <Step title="Stripe Holds Funds">
     Stripe holds funds in your connected account balance:
+
     - **Available balance** — Ready for payout
     - **Pending balance** — Processing (typically 2-7 days)
   </Step>
-  
   <Step title="Payout Initiated">
     Stripe automatically initiates payouts to your bank:
+
     - Default: Daily automatic payouts (when balance available)
     - Can be configured to weekly or monthly in Stripe Dashboard
   </Step>
-  
   <Step title="Bank Receives Funds">
     Funds arrive in your linked bank account:
+
     - US: 1-2 business days
     - Canada: 2-3 business days
     - International: 3-7 business days
@@ -91,27 +93,25 @@ Your share of the subscription pool is calculated by the [Contribution Formula](
 
 <Steps>
   <Step title="Access Finances">
-    Go to **Backstage > Finances** in your producer dashboard.
+    Go to **Backstage \> Finances** in your producer dashboard.
   </Step>
-  
   <Step title="Connect Stripe">
     Click **Connect with Stripe** to start onboarding.
   </Step>
-  
   <Step title="Provide Information">
     Stripe will ask for:
+
     - Personal information (name, date of birth, address)
     - Identity verification (government ID)
     - Tax information (SSN/EIN for US, or equivalent)
     - Bank account details
   </Step>
-  
   <Step title="Complete Verification">
     Stripe reviews your information. This typically takes:
+
     - Instant for most users
     - 1-3 business days if additional review needed
   </Step>
-  
   <Step title="Start Receiving Payouts">
     Once verified, your account is active and ready to receive funds.
   </Step>
@@ -151,13 +151,13 @@ Your share of the subscription pool is calculated by the [Contribution Formula](
   <Accordion title="Transfer In Progress" icon="spinner">
     Currently being transferred to your Stripe account
   </Accordion>
-  <Accordion title="Paid" icon="circle-check" color="#22c55e">
+  <Accordion title="Paid" icon="circle-check">
     Successfully transferred to your Stripe account
   </Accordion>
-  <Accordion title="Transfer Failed" icon="circle-xmark" color="#ef4444">
+  <Accordion title="Transfer Failed" icon="circle-xmark">
     Transfer encountered an error (see troubleshooting below)
   </Accordion>
-  <Accordion title="Excluded" icon="ban" color="#6b7280">
+  <Accordion title="Excluded" icon="ban">
     Not eligible (no active Stripe account)
   </Accordion>
 </AccordionGroup>
@@ -174,10 +174,10 @@ Your share of the subscription pool is calculated by the [Contribution Formula](
   <Accordion title="In Transit" icon="truck">
     Payout initiated, traveling to your bank
   </Accordion>
-  <Accordion title="Paid" icon="circle-check" color="#22c55e">
+  <Accordion title="Paid" icon="circle-check">
     Deposited in your bank account
   </Accordion>
-  <Accordion title="Failed" icon="circle-xmark" color="#ef4444">
+  <Accordion title="Failed" icon="circle-xmark">
     Bank rejected the transfer
   </Accordion>
 </AccordionGroup>
@@ -188,37 +188,37 @@ Your share of the subscription pool is calculated by the [Contribution Formula](
 
 ### License Sales
 
-| Stage | Timeline |
-|-------|----------|
-| Sale completed | Immediate |
-| Funds available in Stripe | 2-7 days (Stripe standard) |
-| Payout to bank initiated | Daily (default) |
-| Arrives in bank | 1-7 days (region dependent) |
+| Stage                     | Timeline                    |
+| ------------------------- | --------------------------- |
+| Sale completed            | Immediate                   |
+| Funds available in Stripe | 2-7 days (Stripe standard)  |
+| Payout to bank initiated  | Daily (default)             |
+| Arrives in bank           | 1-7 days (region dependent) |
 
 **Total: 3-14 days from sale to bank**
 
 ### Contribution Earnings (Subscription Splits)
 
-| Stage | Timeline |
-|-------|----------|
-| Subscription invoice paid | When subscriber is successfully charged (for most plans, once per billing cycle) |
-| Splits calculated & transfers queued | Shortly after each `invoice.paid` event via the subscription split job |
-| Funds available | 2-7 days after transfers, depending on Stripe's standard timelines |
-| Payout to bank | Per your Stripe payout schedule (daily, weekly, or monthly) |
-| Arrives in bank | 1-7 days (region dependent) |
+| Stage                                | Timeline                                                                         |
+| ------------------------------------ | -------------------------------------------------------------------------------- |
+| Subscription invoice paid            | When subscriber is successfully charged (for most plans, once per billing cycle) |
+| Splits calculated & transfers queued | Shortly after each `invoice.paid` event via the subscription split job           |
+| Funds available                      | 2-7 days after transfers, depending on Stripe's standard timelines               |
+| Payout to bank                       | Per your Stripe payout schedule (daily, weekly, or monthly)                      |
+| Arrives in bank                      | 1-7 days (region dependent)                                                      |
 
 **Total time depends on your subscription billing cycle and Stripe's payout schedule, not a separate month-end batch.**
 
 ### By Region
 
-| Region | Bank Transfer Time |
-|--------|-------------------|
-| United States | 1-2 business days |
-| Canada | 2-3 business days |
-| United Kingdom | 2-3 business days |
-| Europe (SEPA) | 2-4 business days |
-| Australia | 2-4 business days |
-| Other | 3-7 business days |
+| Region         | Bank Transfer Time |
+| -------------- | ------------------ |
+| United States  | 1-2 business days  |
+| Canada         | 2-3 business days  |
+| United Kingdom | 2-3 business days  |
+| Europe (SEPA)  | 2-4 business days  |
+| Australia      | 2-4 business days  |
+| Other          | 3-7 business days  |
 
 ---
 
@@ -226,13 +226,13 @@ Your share of the subscription pool is calculated by the [Contribution Formula](
 
 ### Common Failure Reasons
 
-| Reason | Resolution |
-|--------|------------|
-| **Bank account closed** | Update bank details in Stripe Dashboard |
+| Reason                     | Resolution                                     |
+| -------------------------- | ---------------------------------------------- |
+| **Bank account closed**    | Update bank details in Stripe Dashboard        |
 | **Incorrect account info** | Verify and correct bank account number/routing |
-| **Account not verified** | Complete pending Stripe verification |
-| **Currency mismatch** | Ensure bank accepts the payout currency |
-| **Bank rejected transfer** | Contact your bank; may need different account |
+| **Account not verified**   | Complete pending Stripe verification           |
+| **Currency mismatch**      | Ensure bank accepts the payout currency        |
+| **Bank rejected transfer** | Contact your bank; may need different account  |
 
 ### What Happens on Failure
 
@@ -246,19 +246,17 @@ Your share of the subscription pool is calculated by the [Contribution Formula](
 
 <Steps>
   <Step title="Check Failure Reason">
-    View failure details in **Backstage > Finances** or Stripe Dashboard.
+    View failure details in **Backstage \> Finances** or Stripe Dashboard.
   </Step>
-  
   <Step title="Fix the Issue">
     Update bank details, complete verification, or contact your bank.
   </Step>
-  
   <Step title="Wait for Retry">
     System automatically retries after 24 hours.
   </Step>
-  
   <Step title="Contact Support">
     If retries continue to fail, contact support with:
+
     - Your Stripe account email
     - The failed payout date and amount
     - Error message if available
@@ -269,13 +267,13 @@ Your share of the subscription pool is calculated by the [Contribution Formula](
 
 ## Viewing Your Payouts
 
-### In BeatPass (Backstage > Finances)
+### In BeatPass (Backstage \> Finances)
 
-| View | Shows |
-|------|-------|
-| **Summary** | Total earned, pending, available |
-| **Transaction history** | All splits and license sales |
-| **Split details** | Per-track breakdown for contribution earnings |
+| View                    | Shows                                         |
+| ----------------------- | --------------------------------------------- |
+| **Summary**             | Total earned, pending, available              |
+| **Transaction history** | All splits and license sales                  |
+| **Split details**       | Per-track breakdown for contribution earnings |
 
 ### In Stripe Dashboard
 
@@ -290,10 +288,10 @@ Access your full Stripe dashboard for:
 
 ## Minimum Payout Threshold
 
-| Region | Minimum |
-|--------|---------|
-| US/Canada | $10.00 USD |
-| Other regions | Varies (typically $10 equivalent) |
+| Region        | Minimum                            |
+| ------------- | ---------------------------------- |
+| US/Canada     | \$10.00 USD                        |
+| Other regions | Varies (typically \$10 equivalent) |
 
 If your balance doesn't reach the minimum, it carries over to the next period.
 
@@ -324,33 +322,33 @@ If your balance doesn't reach the minimum, it carries over to the next period.
     - Check your Stripe Dashboard for pending balance
     - Ensure the purchase was completed (not cancelled/refunded)
   </Accordion>
-  
   <Accordion title="My payout says 'Excluded'">
     Your Stripe Connect account isn't active. Complete verification:
-    1. Go to **Backstage > Finances**
+
+    1. Go to **Backstage \> Finances**
     2. Click **Complete Setup** or check for pending requirements
     3. Follow Stripe's verification steps
   </Accordion>
-  
   <Accordion title="Payout stuck in 'Transfer In Progress'">
     Transfers typically complete within 24 hours. If stuck longer:
+
     - Check your Stripe Dashboard for status
     - Contact support if no update after 48 hours
   </Accordion>
-  
   <Accordion title="I don't see my contribution earnings">
     Contribution splits are processed **per subscription invoice**:
+
     - Calculated and queued shortly after each successful `invoice.paid` event
     - You must have an active Stripe Connect account to receive transfers
-    - You must meet the minimum payout threshold ($10)
+    - You must meet the minimum payout threshold (\$10)
   </Accordion>
-  
   <Accordion title="Bank rejected my payout">
     Common causes:
+
     - Incorrect account/routing number
     - Account doesn't accept the currency
     - Account is closed or restricted
-    
+
     Update your bank details in Stripe Dashboard and wait for retry.
   </Accordion>
 </AccordionGroup>

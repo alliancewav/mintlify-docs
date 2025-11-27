@@ -1,11 +1,11 @@
 ---
-audience: help
-title: "Sharing & Embedding | BeatPass"
+audience: "help"
+title: "Sharing & Embedding"
 description: "How to share your beats and embed players on external websites. Learn about track embeds, social sharing, and promotional tools."
-keywords: ["embed beats", "share beats", "beat player embed", "music embed", "producer promotion", "beat sharing"]
-"og:title": "Sharing & Embedding - BeatPass Help Center"
-"og:description": "How to share your beats and embed players on external websites."
-"twitter:card": "summary_large_image"
+keywords: ["embed beats","share beats","beat player embed","music embed","producer promotion","beat sharing"]
+og:title: "Sharing & Embedding - BeatPass Help Center"
+og:description: "How to share your beats and embed players on external websites."
+twitter:card: "summary_large_image"
 ---
 
 ## Overview
@@ -29,6 +29,7 @@ https://open.beatpass.ca/track/{track-id}/{track-slug}
 ```
 
 **How to Get It:**
+
 1. Open your track page
 2. Click the **Share** button
 3. Copy the link
@@ -37,12 +38,12 @@ https://open.beatpass.ca/track/{track-id}/{track-slug}
 
 Quick share to popular platforms:
 
-| Platform | Features |
-|----------|----------|
+| Platform  | Features                               |
+| --------- | -------------------------------------- |
 | Twitter/X | Auto-generates preview with track info |
-| Facebook | Rich preview with artwork and player |
-| Instagram | Share link in bio or stories |
-| WhatsApp | Direct message sharing |
+| Facebook  | Rich preview with artwork and player   |
+| Instagram | Share link in bio or stories           |
+| WhatsApp  | Direct message sharing                 |
 
 ---
 
@@ -76,11 +77,11 @@ Embed a player on any website:
 
 ### Embed Sizing
 
-| Size | Dimensions | Best For |
-|------|------------|----------|
-| Compact | 100% × 80px | Minimal integration |
-| Standard | 100% × 152px | Most use cases |
-| Visual | 100% × 300px | Featured showcases |
+| Size     | Dimensions   | Best For            |
+| -------- | ------------ | ------------------- |
+| Compact  | 100% × 80px  | Minimal integration |
+| Standard | 100% × 152px | Most use cases      |
+| Visual   | 100% × 300px | Featured showcases  |
 
 ---
 
@@ -90,11 +91,11 @@ Embed a player on any website:
   BeatPass currently only supports **track embeds**. Artist profile and playlist embeds are not available at this time.
 </Warning>
 
-| Embed Type | Status |
-|------------|--------|
-| Track | ✅ Supported |
+| Embed Type     | Status          |
+| -------------- | --------------- |
+| Track          | ✅ Supported     |
 | Artist Profile | ❌ Not available |
-| Playlist | ❌ Not available |
+| Playlist       | ❌ Not available |
 
 ---
 
@@ -105,20 +106,20 @@ Embed a player on any website:
 <AccordionGroup>
   <Accordion title="Lazy Loading">
     Use lazy loading for pages with multiple embeds:
+
     ```html
     <iframe loading="lazy" ...></iframe>
     ```
   </Accordion>
-  
   <Accordion title="Responsive Design">
     Wrap in a container for responsive sizing:
+
     ```html
     <div style="max-width: 600px;">
       <iframe width="100%" ...></iframe>
     </div>
     ```
   </Accordion>
-  
   <Accordion title="Limit Embeds Per Page">
     Too many embeds slow page load. Limit to 3-5 per page.
   </Accordion>
@@ -203,11 +204,11 @@ Generate QR codes for physical promotion:
 
 View share analytics in Backstage:
 
-| Metric | Description |
-|--------|-------------|
-| Share Clicks | How many times share was used |
-| Embed Views | Plays from embedded players |
-| Referral Sources | Where traffic comes from |
+| Metric           | Description                   |
+| ---------------- | ----------------------------- |
+| Share Clicks     | How many times share was used |
+| Embed Views      | Plays from embedded players   |
+| Referral Sources | Where traffic comes from      |
 
 ### UTM Parameters
 
@@ -268,13 +269,11 @@ This is a browser security feature, not a BeatPass limitation.
     - **CSP blocking:** Check for Content-Security-Policy headers blocking frames
     - **URL format:** Ensure URL follows `track/{id}/{slug}/embed` pattern
   </Accordion>
-  
   <Accordion title="Audio not playing">
     - **Autoplay blocked:** User must click to play (browser policy)
     - **Permissions:** Check browser audio permissions
     - **Mobile:** Some mobile browsers require explicit user gesture
   </Accordion>
-  
   <Accordion title="Sizing issues">
     - Use percentage widths for responsiveness
     - Set explicit pixel heights
