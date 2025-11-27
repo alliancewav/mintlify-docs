@@ -1,5 +1,5 @@
 ---
-audience: help
+audience: "help"
 title: "Notification Preferences"
 description: "Configure what notifications you receive and how you receive them."
 ---
@@ -107,10 +107,10 @@ BeatPass sends notifications to keep you informed about activity, earnings, and 
 ### System Notifications
 
 <AccordionGroup>
-  <Accordion title="Security Alert" icon="shield" color="#ef4444">
+  <Accordion title="Security Alert" icon="shield">
     Unusual login activity — **Always On** (cannot be disabled)
   </Accordion>
-  <Accordion title="Password Changed" icon="key" color="#ef4444">
+  <Accordion title="Password Changed" icon="key">
     Password was updated — **Email**: Always On | **Push**: Off
   </Accordion>
   <Accordion title="Account Update" icon="user-pen">
@@ -138,6 +138,7 @@ BeatPass sends notifications to keep you informed about activity, earnings, and 
 ### Email
 
 Best for:
+
 - Important updates you shouldn't miss
 - Earnings and payout information
 - Weekly/monthly summaries
@@ -146,6 +147,7 @@ Best for:
 ### Push Notifications
 
 Best for:
+
 - Real-time alerts (messages, activity)
 - Urgent security notifications
 - Achievement unlocks
@@ -153,6 +155,7 @@ Best for:
 ### In-App Notifications
 
 Always available:
+
 - Bell icon in navigation
 - Shows unread count
 - All notification types
@@ -177,17 +180,14 @@ For technical details, see [API Endpoints - Notifications](/developers/reference
 
 <Steps>
   <Step title="Open Settings">
-    Click your avatar > Settings.
+    Click your avatar \> Settings.
   </Step>
-  
   <Step title="Select Notifications">
     Navigate to the Notifications section.
   </Step>
-  
   <Step title="Customize">
     Toggle each notification type on/off for each channel.
   </Step>
-  
   <Step title="Save">
     Changes save automatically.
   </Step>
@@ -237,7 +237,7 @@ Instead of individual emails, receive summaries:
 
 Set times when push notifications are silenced:
 
-1. Go to Notifications > Quiet Hours
+1. Go to Notifications \> Quiet Hours
 2. Set start and end times
 3. Select days (weekdays, weekends, all)
 4. Save preferences
@@ -279,7 +279,7 @@ Every email includes an unsubscribe link:
 
 To stop all marketing communications:
 
-1. Go to Settings > Notifications
+1. Go to Settings \> Notifications
 2. Scroll to Marketing section
 3. Toggle all options off
 4. Save changes
@@ -295,24 +295,21 @@ To stop all marketing communications:
 <AccordionGroup>
   <Accordion title="Not receiving emails">
     - Check spam/junk folder
-    - Add notifications@beatpass.ca to contacts
+    - Add [notifications@beatpass.ca](mailto:notifications@beatpass.ca) to contacts
     - Verify email is correct in settings
     - Check notification preferences are on
   </Accordion>
-  
   <Accordion title="Push notifications not working">
     - Ensure browser notifications are allowed
     - Check device notification settings
     - Try re-enabling in settings
     - Clear browser cache
   </Accordion>
-  
   <Accordion title="Too many notifications">
     - Switch to digest mode for activity
     - Disable low-priority notifications
     - Set quiet hours
   </Accordion>
-  
   <Accordion title="Missing notifications">
     - Check in-app notification center
     - Verify category isn't disabled
@@ -327,6 +324,7 @@ To stop all marketing communications:
 ### For Producers
 
 Recommended settings:
+
 - **On**: License purchases, payouts, beat request matches
 - **Digest**: Likes, follows, comments
 - **Off**: Marketing (unless you want updates)
@@ -334,6 +332,7 @@ Recommended settings:
 ### For Artists
 
 Recommended settings:
+
 - **On**: Messages, beat request responses
 - **Digest**: New releases from followed producers
 - **Off**: Activity from others (unless curating)
