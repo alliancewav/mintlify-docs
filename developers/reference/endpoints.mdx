@@ -1,8 +1,9 @@
 ---
-audience: developer
+audience: "developer"
 title: "API Endpoints"
 description: "Complete reference for BeatPass API endpoints."
 ---
+
 audience: developer
 
 ## Overview
@@ -13,10 +14,286 @@ This page documents the primary API endpoints available at `https://open.beatpas
   🔒 = Requires authentication | 🔓 = Optional auth (enhanced response when authenticated)
 </Info>
 
+## API Explorer (Try it)
+
+<Tip>
+  Use the playground controls on the right to send live requests. Base URL: `https://open.beatpass.ca/api/v1`. Authenticated calls accept `Authorization: Bearer <token>` or your logged-in session cookies.
+</Tip>
+
+<CardGroup cols={3}>
+  <Card title="REST base" icon="globe">
+    `https://open.beatpass.ca/api/v1`
+  </Card>
+  <Card title="Auth header" icon="key">
+    `Authorization: Bearer &lt;token&gt;` (most endpoints also honor session cookies)
+  </Card>
+  <Card title="Playground tips" icon="wand-magic-sparkles">
+    Provide realistic IDs and optional query params, then hit <strong>Try it</strong>
+     to see real responses or errors.
+  </Card>
+</CardGroup>
+
+<AccordionGroup>
+  <Accordion title="List tracks (GET /tracks)" icon="list">
+    <Badge color="blue">GET</Badge>
+     <Badge color="gray">/tracks</Badge>
+     <Badge color="green">Optional auth</Badge>
+
+    <ParamField query="page" type="integer">
+      Page number (defaults to 1).
+    </ParamField>
+    <ParamField query="perPage" default={20} type="integer">
+      Page size (max 50).
+    </ParamField>
+    <ParamField query="q" type="string">
+      Search term to filter tracks by title, artist, or tags.
+    </ParamField>
+    <ParamField query="genre" type="string">
+      Optional genre slug filter.
+    </ParamField>
+    <RequestExample>
+
+    ```bash cURL
+    curl "https://open.beatpass.ca/api/v1/tracks?perPage=20&q=lofi" \
+      -H "Authorization: Bearer YOUR_TOKEN"
+    ```
+
+    
+    ```javascript fetch
+    const res = await fetch("https://open.beatpass.ca/api/v1/tracks?perPage=20", {
+      headers: { Authorization: "Bearer YOUR_TOKEN" },
+    });
+    const data = await res.json();
+    ```
+
+    </RequestExample>
+
+    <ResponseExample>
+
+    ```json 200 OK
+    {
+      "data": [
+        {"id": 123, "title": "Midnight Chase", "artist": "ProducerName"},
+        {"id": 456, "title": "Skyline", "artist": "Another Producer"}
+      ],
+      "meta": {"current_page": 1, "per_page": 20, "total": 200}
+    }
+    ```
+
+    </ResponseExample>
+  </Accordion>
+  <Accordion title="Track details (GET /tracks/{track})" icon="music">
+    <Badge color="blue">GET</Badge>
+     <Badge color="gray">/tracks/{track}</Badge>
+     <Badge color="green">Optional auth</Badge>
+
+    <ParamField path="track" type="integer" required>
+      The track ID to retrieve.
+    </ParamField>
+    <RequestExample>
+
+    ```bash cURL
+    curl "https://open.beatpass.ca/api/v1/tracks/123" \
+      -H "Authorization: Bearer YOUR_TOKEN"
+    ```
+
+    </RequestExample>
+
+    <ResponseExample>
+
+    ```json Track response
+    {
+      "id": 123,
+      "title": "Midnight Chase",
+      "duration": 208,
+      "artist": {"id": 9, "name": "ProducerName"},
+      "genres": ["lofi", "chill"],
+      "waveform_url": "https://..."
+    }
+    ```
+
+    </ResponseExample>
+  </Accordion>
+  <Accordion title="Calculate purchase price (POST /tracks/{track}/purchase/calculate-price)" icon="calculator">
+    <Badge color="blue">POST</Badge>
+     <Badge color="gray">/tracks/{track}/purchase/calculate-price</Badge>
+     <Badge color="red">Auth required</Badge>
+
+    <ParamField path="track" type="integer" required>
+      Track ID to price.
+    </ParamField>
+    <ParamField body="license_type" type="string" required placeholder="non_exclusive">
+      License type to quote: `non_exclusive` or `exclusive`.
+    </ParamField>
+    <ParamField body="coupon_code" type="string">
+      Optional coupon to apply before checkout.
+    </ParamField>
+    <RequestExample>
+
+    ```bash cURL
+    curl -X POST "https://open.beatpass.ca/api/v1/tracks/123/purchase/calculate-price" \
+      -H "Authorization: Bearer YOUR_TOKEN" \
+      -H "Content-Type: application/json" \
+      -d '{"license_type": "non_exclusive"}'
+    ```
+
+    </RequestExample>
+
+    <ResponseExample>
+
+    ```json Quote
+    {
+      "base_price": 2999,
+      "platform_fee": 450,
+      "processing_fee": 117,
+      "total": 3566,
+      "currency": "usd",
+      "artist_receives": 2432
+    }
+    ```
+
+    </ResponseExample>
+  </Accordion>
+  <Accordion title="Initiate purchase (POST /tracks/{track}/purchase/initiate)" icon="credit-card">
+    <Badge color="blue">POST</Badge>
+     <Badge color="gray">/tracks/{track}/purchase/initiate</Badge>
+     <Badge color="red">Auth required</Badge>
+
+    <ParamField path="track" type="integer" required>
+      Track ID to purchase.
+    </ParamField>
+    <ParamField body="license_type" type="string" required placeholder="non_exclusive">
+      `non_exclusive` or `exclusive`.
+    </ParamField>
+    <ParamField body="coupon_code" type="string">
+      Optional coupon code.
+    </ParamField>
+    <RequestExample>
+
+    ```bash cURL
+    curl -X POST "https://open.beatpass.ca/api/v1/tracks/123/purchase/initiate" \
+      -H "Authorization: Bearer YOUR_TOKEN" \
+      -H "Content-Type: application/json" \
+      -d '{"license_type": "non_exclusive"}'
+    ```
+
+    </RequestExample>
+
+    <ResponseExample>
+
+    ```json Checkout
+    {
+      "client_secret": "pi_1234_secret_5678",
+      "payment_intent_id": "pi_1234",
+      "amount": 3566,
+      "currency": "usd"
+    }
+    ```
+
+    </ResponseExample>
+  </Accordion>
+  <Accordion title="Check license status (GET /tracks/{track}/check-license)" icon="shield-check">
+    <Badge color="blue">GET</Badge>
+     <Badge color="gray">/tracks/{track}/check-license</Badge>
+     <Badge color="red">Auth required</Badge>
+
+    <ParamField path="track" type="integer" required>
+      Track ID to verify.
+    </ParamField>
+    <RequestExample>
+
+    ```bash cURL
+    curl "https://open.beatpass.ca/api/v1/tracks/123/check-license" \
+      -H "Authorization: Bearer YOUR_TOKEN"
+    ```
+
+    </RequestExample>
+
+    <ResponseExample>
+
+    ```json License check
+    {
+      "has_license": true,
+      "license": {
+        "uuid": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+        "type": "non_exclusive",
+        "issued_at": "2025-10-15T14:30:00Z",
+        "status": "active"
+      }
+    }
+    ```
+
+    </ResponseExample>
+  </Accordion>
+  <Accordion title="Insights snapshot (GET /insights-report)" icon="chart-line">
+    <Badge color="blue">GET</Badge>
+     <Badge color="gray">/insights-report</Badge>
+     <Badge color="green">Optional auth</Badge>
+
+    <ParamField query="startDate" type="string">
+      ISO 8601 start date (defaults to backend range).
+    </ParamField>
+    <ParamField query="endDate" type="string">
+      ISO 8601 end date.
+    </ParamField>
+    <ParamField query="metrics" type="string">
+      Comma-separated metrics (`plays,devices,browsers,platforms,locations,tracks,artists,albums,users`).
+    </ParamField>
+    <ParamField query="model" type="string">
+      Report target, e.g., `track:123` or `album:45`.
+    </ParamField>
+    <RequestExample>
+
+    ```bash cURL
+    curl "https://open.beatpass.ca/api/v1/insights-report?metrics=plays,devices&model=track:123" \
+      -H "Authorization: Bearer YOUR_TOKEN"
+    ```
+
+    </RequestExample>
+
+    <ResponseExample>
+
+    ```json Insights
+    {
+      "status": "success",
+      "report": {
+        "plays": {
+          "granularity": "day",
+          "total": 1250,
+          "datasets": [
+            {"label": "Plays", "data": [
+              {"date": "2025-01-01", "value": 120},
+              {"date": "2025-01-02", "value": 175}
+            ]}
+          ]
+        },
+        "devices": {
+          "datasets": [
+            {"label": "Plays", "data": [
+              {"label": "Mobile", "value": 830},
+              {"label": "Desktop", "value": 420}
+            ]}
+          ]
+        }
+      }
+    }
+    ```
+
+    </ResponseExample>
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  Looking for every endpoint? Jump to the full catalog below.
+</Note>
+
 ---
+
 audience: developer
 
-## Tracks
+## Full Endpoint Catalog
+
+### Tracks
 
 ### Core Track Endpoints
 
@@ -95,6 +372,7 @@ Generates a multi-metric analytics snapshot for the requested model without usin
 The `report` object only includes the metrics requested via the `metrics` parameter.
 
 ---
+
 audience: developer
 
 ## Track Purchases (Stripe Connect)
@@ -277,6 +555,7 @@ curl -X POST "https://open.beatpass.ca/api/v1/tracks/123/purchase/initiate" \
 | `payment_failed`       | 402       | Stripe payment processing failed                    |
 
 ---
+
 audience: developer
 
 ## License Certificates
@@ -417,6 +696,7 @@ curl "https://open.beatpass.ca/api/v1/verify-license/a1b2c3d4-e5f6-7890-abcd-ef1
 | `not_owner`         | 403       | User doesn't own this license    |
 
 ---
+
 audience: developer
 
 ### Backstage Artist Dashboard & Insights
@@ -439,6 +719,7 @@ All endpoints below require an authenticated Backstage session with the `artist.
 - **Co-produced content:** Use `/artist/{artist}/collaborative-tracks` (or `/artists/{artistId}/collaborative-tracks/{collaboratorId}` for a filtered view) to show collaborative tracks alongside solo uploads.
 
 ---
+
 audience: developer
 
 ## Exclusive License Presets
@@ -473,6 +754,7 @@ Producers can create reusable exclusive license configurations that pre-fill pri
 </Tip>
 
 ---
+
 audience: developer
 
 ## Artists
@@ -559,6 +841,7 @@ audience: developer
 | GET    | `/artists/{artistId}/pinned-track`           | 🔓   | Get pinned track     |
 
 ---
+
 audience: developer
 
 ## Albums
@@ -573,6 +856,7 @@ audience: developer
 | GET    | `/albums/{album}/producer-analytics` | 🔓   | Album analytics   |
 
 ---
+
 audience: developer
 
 ## Playlists
@@ -606,6 +890,7 @@ audience: developer
 | POST   | `/playlists/{playlist}/remove-editor`  | 🔒   | Remove editor  |
 
 ---
+
 audience: developer
 
 ## Search
@@ -618,6 +903,7 @@ audience: developer
 | GET    | `/search/suggestions/album`                        | 🔓   | Album suggestions  |
 
 ---
+
 audience: developer
 
 ## Messaging
@@ -646,6 +932,7 @@ All messaging endpoints require authentication.
 | GET    | `/messaging/conversations/{id}/typing` | Get typing status |
 
 ---
+
 audience: developer
 
 ## Beat Requests
@@ -664,6 +951,7 @@ All beat request endpoints require authentication.
 | GET    | `/beat-requests/statistics`             | Platform statistics |
 
 ---
+
 audience: developer
 
 ## Producer Intelligence
@@ -699,6 +987,7 @@ audience: developer
 | GET    | `/producer-intelligence/collaboration-opportunities` | Suggested collabs |
 
 ---
+
 audience: developer
 
 ## Contribution & Payouts
@@ -725,6 +1014,7 @@ audience: developer
 | GET    | `/producer/contribution-trends` | 🔓   | Contribution trends  |
 
 ---
+
 audience: developer
 
 ## Stripe Connect (Artists)
@@ -741,6 +1031,7 @@ All endpoints require authentication.
 | GET    | `/artist/unified-transactions`         | All transactions       |
 
 ---
+
 audience: developer
 
 ## User Profile & Library
@@ -775,6 +1066,7 @@ audience: developer
 </Warning>
 
 ---
+
 audience: developer
 
 ## Audio Fingerprinting
@@ -786,6 +1078,7 @@ audience: developer
 | POST   | `/tracks/check-duplicates`           | 🔒   | Check for duplicates |
 
 ---
+
 audience: developer
 
 ## Genres & Tags
@@ -798,6 +1091,7 @@ audience: developer
 | GET    | `/tags/{tagName}/albums` | 🔓   | Albums by tag |
 
 ---
+
 audience: developer
 
 ## Leaderboards
@@ -811,6 +1105,7 @@ audience: developer
 | GET    | `/leaderboards/achievements`  | 🔓   | Achievement leaders    |
 
 ---
+
 audience: developer
 
 ## Error Codes
@@ -840,6 +1135,7 @@ audience: developer
 </AccordionGroup>
 
 ---
+
 audience: developer
 
 ## Notifications (First-Party Only)
@@ -913,6 +1209,7 @@ data: {"type": "new_follower", "message": "...", "created_at": "..."}
 </Note>
 
 ---
+
 audience: developer
 
 ## Collections (Albums & Library)
@@ -934,6 +1231,7 @@ For featured collections on the homepage and discovery surfaces, the client cons
 Refer to the [Albums](#albums) table above for the primary album endpoints.
 
 ---
+
 audience: developer
 
 ## Radio & Recommendations
@@ -999,6 +1297,7 @@ Returns an array of track objects suitable for continuous playback.
 | `genre`   | Broadest results—popular and trending tracks across the entire genre             |
 
 ---
+
 audience: developer
 
 ## Lyrics
@@ -1016,6 +1315,7 @@ audience: developer
 </Note>
 
 ---
+
 audience: developer
 
 ## Coupons & Discounts
@@ -1056,6 +1356,7 @@ Content-Type: application/json
 ```
 
 ---
+
 audience: developer
 
 ## Reposts
@@ -1080,6 +1381,7 @@ Content-Type: application/json
 Reposts share content to your profile, making it visible to your followers.
 
 ---
+
 audience: developer
 
 ## Player (First-Party Only)
@@ -1096,6 +1398,7 @@ audience: developer
 | POST   | `/tracks/plays/{track}/update-duration` | 🔓   | Update play duration     |
 
 ---
+
 audience: developer
 
 ## User Upload/Usage Quota
@@ -1109,6 +1412,7 @@ audience: developer
 </Note>
 
 ---
+
 audience: developer
 
 ## Next Steps
