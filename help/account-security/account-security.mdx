@@ -16,7 +16,7 @@ Your BeatPass account contains valuable content, earnings data, and personal inf
 
 <Steps>
   <Step title="Length">
-    Use at least 12 characters. Longer is better.
+    Use a strong password (at least 8 characters recommended).
   </Step>
   
   <Step title="Complexity">
@@ -72,7 +72,7 @@ BeatPass uses **Time-based One-Time Password (TOTP)** for two-factor authenticat
 
 <Steps>
   <Step title="Go to Settings">
-    Navigate to **Settings > Security**.
+    Navigate to **Settings > Two Factor Authentication**.
   </Step>
   
   <Step title="Enable 2FA">
@@ -123,11 +123,21 @@ If you lose access to your authenticator app:
 
 View and manage your active login sessions:
 
-1. Go to **Settings > Security > Active Sessions**
-2. Review all devices and locations
-3. Revoke any sessions you don't recognize
+1. Go to **Settings > Active Sessions**
+2. Review all devices with active sessions (device type, browser, location, IP address)
+3. Click **Logout other sessions** to terminate all sessions except your current one
 
-### Automatic Logout
+### Session Information
+
+Each session displays:
+- Device type (desktop, mobile, tablet)
+- Browser and operating system
+- City and country (from IP geolocation)
+- IP address
+- Last active time
+- "This device" indicator for your current session
+
+### Best Practices
 
 For shared or public computers:
 
@@ -175,19 +185,19 @@ For shared or public computers:
 
 <Steps>
   <Step title="Change Password Immediately">
-    If you can still access your account, change your password right away.
+    If you can still access your account, change your password right away in **Settings > Password**.
   </Step>
   
   <Step title="Revoke All Sessions">
-    Go to Settings > Security and log out all other sessions.
+    Go to **Settings > Active Sessions** and log out all other sessions.
   </Step>
   
   <Step title="Enable 2FA">
-    If not already enabled, set up two-factor authentication.
+    If not already enabled, set up two-factor authentication in **Settings > Two Factor Authentication**.
   </Step>
   
-  <Step title="Check Connected Apps">
-    Review and revoke any unfamiliar connected applications.
+  <Step title="Review Connected Accounts">
+    Check **Settings > Social Login** to review your connected Google account. Disconnect if you didn't authorize it.
   </Step>
   
   <Step title="Verify Payment Info">
@@ -198,20 +208,6 @@ For shared or public computers:
     Report the incident so we can investigate and help secure your account.
   </Step>
 </Steps>
-
----
-
-## Privacy Settings
-
-### Controlling Your Visibility
-
-| Setting | Options |
-|---------|---------|
-| Profile Visibility | Public, followers only, or private |
-| Email Visibility | Hidden from public profile |
-| Analytics Sharing | Control what data is shared |
-
-Access these in **Settings > Privacy**.
 
 ---
 
@@ -229,8 +225,8 @@ Your email is the gateway to password resets. Secure it:
 ## Next Steps
 
 <CardGroup cols={2}>
-  <Card title="Privacy Settings" icon="shield" href="/help/account-security/privacy">
-    Control your data visibility.
+  <Card title="Notification Preferences" icon="bell" href="/help/account-security/notifications">
+    Configure your notification settings.
   </Card>
   <Card title="Contact Support" icon="headset" href="/help/support/contact">
     Get help with security concerns.

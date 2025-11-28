@@ -1,12 +1,141 @@
 ---
-audience: "help"
+audience: help
 title: "Notification Preferences"
 description: "Configure what notifications you receive and how you receive them."
 ---
 
 ## Overview
 
-BeatPass sends notifications to keep you informed about activity, earnings, and platform updates. Customize your preferences to get the notifications that matter to you.
+BeatPass sends notifications to keep you informed about activity, earnings, and platform updates. Customize your preferences to control which notifications you receive and through which channels.
+
+---
+
+## Delivery Channels
+
+BeatPass supports three notification channels:
+
+| Channel | Description |
+|---------|-------------|
+| **Email** | Notifications sent to your registered email address |
+| **Browser** | Real-time browser push notifications (requires permission) |
+| **In-App** | Notifications shown in the notification center (bell icon) |
+
+Each notification type can be independently enabled or disabled for each channel using toggle switches.
+
+---
+
+## Viewing Notifications
+
+### Accessing Your Notifications
+
+1. Click the **bell icon** in the top navigation bar
+2. See your recent notifications in the dropdown
+3. Unread notifications are highlighted
+4. Click a notification to view details or take action
+
+### Notification Badge
+
+The bell icon shows a badge with your unread notification count. This updates in real-time as new notifications arrive.
+
+### Marking as Read
+
+- **Individual**: Click a notification to mark it as read
+- **All**: Click **Mark all as read** at the top of the notifications list
+
+---
+
+## Configuring Preferences
+
+### Accessing Notification Settings
+
+<Steps>
+  <Step title="Open Notifications">
+    Click the **bell icon** in the top navigation bar to open the notifications popup.
+  </Step>
+  
+  <Step title="Open Settings">
+    Click the **Settings** (gear icon) button in the popup header. This opens the notification preferences page.
+  </Step>
+  
+  <Step title="Configure Channels">
+    For each notification type, use the toggle switches to enable or disable channels (Email, Browser, In-App). Each notification displays its available channels as toggle buttons with icons.
+  </Step>
+  
+  <Step title="Save">
+    Click **Save Preferences** to save your changes.
+  </Step>
+</Steps>
+
+<Tip>
+  You can also go directly to `/notifications/settings` in your browser.
+</Tip>
+
+### Quick Controls
+
+The notification settings page includes a **Quick Controls** section at the top for bulk actions:
+
+- **Enable All** — Enable all notification channels for all notification types
+- **Disable All** — Disable all notification channels for all notification types
+- **Per-channel toggles** — Three cards (Email, Browser, In-App) that let you toggle all notifications for that channel at once
+
+Each channel card shows the current status:
+- **All enabled** — Every notification has this channel turned on
+- **Some enabled** — Mixed state (some on, some off)
+- **All disabled** — Every notification has this channel turned off
+- **Blocked** — Browser notifications are blocked by your browser settings
+
+<Tip>
+  Use Quick Controls to quickly configure your preferences, then fine-tune individual notifications below.
+</Tip>
+
+### Default Settings
+
+All notifications are **enabled by default** for Email and In-App channels. Browser notifications default to off until you grant browser permission.
+
+### Notification Groups
+
+Preferences are organized by category. The notifications you see depend on your account type:
+
+**For All Members:**
+
+| Group | Notifications |
+|-------|---------------|
+| **Following** | New uploads from producers you follow |
+| **Social** | New followers |
+| **Messages** | Direct messages, playlist invites |
+| **Beat Requests** | Beat submissions to your requests |
+| **Promotions** | Special offers and discounts |
+
+**Additional for Producers:**
+
+| Group | Notifications |
+|-------|---------------|
+| **Beat Requests** | + Matching requests (when requests match your style) |
+| **Producer Activity** | Track likes, comments & replies, reposts |
+| **Earnings & Licensing** | License granted, track downloads, play milestones |
+| **Achievements** | Producer achievements and badges |
+
+**Additional for Verified Producers:**
+
+| Group | Notifications |
+|-------|---------------|
+| **Producer Dashboard** | New subscribers, analytics reports, payout updates |
+
+<Tip>
+  Notifications are organized in expandable cards by category. Each notification type shows all available channels with toggle switches for easy configuration.
+</Tip>
+
+### Role-Based Visibility
+
+Your notification settings page shows different options based on your account type:
+
+- **Members**: See Following, Social, Messages, Beat Requests, and Promotions
+- **Producers**: See all member notifications plus Producer Activity, Earnings & Licensing, and Achievements
+- **Verified Producers**: Full access to all notifications including Producer Dashboard
+
+<Note>
+  If you're a producer but not yet verified, you'll see the **Producer Dashboard** section as locked. These features become available once you complete verification.
+</Note>
 
 ---
 
@@ -14,308 +143,166 @@ BeatPass sends notifications to keep you informed about activity, earnings, and 
 
 ### Activity Notifications
 
-<AccordionGroup>
-  <Accordion title="New Follower" icon="user-plus">
-    Someone followed your profile — **Email**: Off | **Push**: On
-  </Accordion>
-  <Accordion title="Track Like" icon="heart">
-    Someone liked your track — **Email**: Off | **Push**: On
-  </Accordion>
-  <Accordion title="Track Save" icon="bookmark">
-    Track saved to library — **Email**: Off | **Push**: Off
-  </Accordion>
-  <Accordion title="Comment" icon="comment">
-    Someone commented on your track — **Email**: On | **Push**: On
-  </Accordion>
-  <Accordion title="Mention" icon="at">
-    Someone mentioned you — **Email**: On | **Push**: On
-  </Accordion>
-  <Accordion title="Repost" icon="retweet">
-    Someone reposted your track — **Email**: Off | **Push**: On
-  </Accordion>
-</AccordionGroup>
+Notifications about social activity on your content:
+
+- **New Follower** — Someone followed your profile
+- **Track Like** — Someone liked your beat
+- **Comments & Replies** — Someone commented on your track or replied to your comment
+- **Repost** — Someone reposted your track
+- **Artist Uploads** — An artist you follow uploaded new content
 
 ### Message Notifications
 
-<AccordionGroup>
-  <Accordion title="New Message" icon="envelope">
-    Direct message received — **Email**: On | **Push**: On
-  </Accordion>
-  <Accordion title="Beat Request Response" icon="reply">
-    Producer responded to your request — **Email**: On | **Push**: On
-  </Accordion>
-  <Accordion title="Collaboration Invite" icon="handshake">
-    Someone invited you to collaborate — **Email**: On | **Push**: On
-  </Accordion>
-  <Accordion title="Message Read" icon="check-double">
-    Recipient read your message — **Email**: Off | **Push**: Off
-  </Accordion>
-</AccordionGroup>
+Notifications about direct communication:
 
-### Earnings Notifications (Producers)
+- **New Message** — Direct message received
+- **Playlist Invite** — Someone invited you to collaborate on a playlist
 
-<AccordionGroup>
-  <Accordion title="License Purchased" icon="cart-shopping">
-    Someone bought a license — **Email**: On | **Push**: On
-  </Accordion>
-  <Accordion title="Payout Processed" icon="money-bill-wave">
-    Monthly payout sent — **Email**: On | **Push**: On
-  </Accordion>
-  <Accordion title="Payout Failed" icon="triangle-exclamation">
-    Payout could not be processed — **Email**: On | **Push**: On
-  </Accordion>
-  <Accordion title="Earnings Milestone" icon="trophy">
-    Hit earnings threshold ($100, $500, etc.) — **Email**: On | **Push**: Off
-  </Accordion>
-  <Accordion title="Contribution Update" icon="chart-pie">
-    Monthly contribution summary — **Email**: On | **Push**: Off
-  </Accordion>
-  <Accordion title="Exclusive Sold" icon="lock">
-    Exclusive license purchased — **Email**: On | **Push**: On
-  </Accordion>
-</AccordionGroup>
+### Earnings & Licensing Notifications
+
+Notifications for producers about their content and earnings:
+
+- **License Granted** — Someone purchased a license for your beat (both exclusive and non-exclusive)
+- **Track Downloaded** — A subscriber downloaded your beat
+- **Play Milestones** — Notifications when your tracks reach play counts (100, 1K, 10K, 100K, 1M)
 
 ### Beat Request Notifications
 
-<AccordionGroup>
-  <Accordion title="New Response" icon="reply">
-    Producer responded to your request — **Email**: On | **Push**: On
-  </Accordion>
-  <Accordion title="Request Match" icon="bullseye">
-    New request matches your style (producers) — **Email**: Off | **Push**: Off
-  </Accordion>
-</AccordionGroup>
+Notifications about custom beat requests:
+
+- **Beat Submission** — A producer submitted a beat to your request
+- **Request Match** — A new beat request matches your production style (for producers)
 
 <Note>
-  Beat requests expire automatically after 24 hours. No expiry reminder notifications are sent.
+  Beat requests expire automatically after 24 hours.
 </Note>
 
 ### Achievement Notifications
 
-<AccordionGroup>
-  <Accordion title="Achievement Unlocked" icon="trophy">
-    New achievement earned — **Email**: On | **Push**: On
-  </Accordion>
-  <Accordion title="Level Up" icon="arrow-up">
-    XP level increased — **Email**: On | **Push**: On
-  </Accordion>
-  <Accordion title="Leaderboard Change" icon="ranking-star">
-    Rank changed significantly — **Email**: Off | **Push**: Off
-  </Accordion>
-</AccordionGroup>
+- **Achievement Unlocked** — You earned a new achievement or milestone
+
+### Marketing Notifications
+
+Control promotional communications:
+
+- **Promotional Offers** — Special offers, discounts, and promotional content
+- **Newsletter** — Platform updates, tips, and feature announcements
+
+### Verified Artist Notifications
+
+Additional notifications for verified producers:
+
+- **New Subscriber** — When a new user subscribes to the platform
+- **Analytics Reports** — Weekly and monthly analytics summaries
+- **Payout Notifications** — When payouts are processed or require attention
 
 ### System Notifications
 
-<AccordionGroup>
-  <Accordion title="Security Alert" icon="shield">
-    Unusual login activity — **Always On** (cannot be disabled)
-  </Accordion>
-  <Accordion title="Password Changed" icon="key">
-    Password was updated — **Email**: Always On | **Push**: Off
-  </Accordion>
-  <Accordion title="Account Update" icon="user-pen">
-    Profile or settings changed — **Email**: Off | **Push**: Off
-  </Accordion>
-  <Accordion title="Platform Announcement" icon="bullhorn">
-    Important platform news — **Email**: On | **Push**: Off
-  </Accordion>
-  <Accordion title="Feature Update" icon="sparkles">
-    New features available — **Email**: Off | **Push**: Off
-  </Accordion>
-  <Accordion title="Scheduled Maintenance" icon="wrench">
-    Upcoming downtime — **Email**: On | **Push**: Off
-  </Accordion>
-</AccordionGroup>
+Critical account notifications (always enabled):
 
-<Note>
-  Security notifications cannot be disabled. You will always receive alerts for suspicious login activity and password changes.
-</Note>
-
----
-
-## Delivery Channels
-
-### Email
-
-Best for:
-
-- Important updates you shouldn't miss
-- Earnings and payout information
-- Weekly/monthly summaries
-- Marketing and newsletters
-
-### Push Notifications
-
-Best for:
-
-- Real-time alerts (messages, activity)
-- Urgent security notifications
-- Achievement unlocks
-
-### In-App Notifications
-
-Always available:
-
-- Bell icon in navigation
-- Shows unread count
-- All notification types
-
-### Real-Time Stream (Technical)
+- **Security Alert** — Unusual login activity detected
+- **Password Changed** — Your password was updated
+- **Subscription Changes** — Plan upgrades, downgrades, or cancellations
+- **Payment Updates** — Successful payments or payment failures
 
 <Warning>
-  The SSE notifications stream requires an authenticated session cookie and is restricted to first-party BeatPass applications only. Third-party clients cannot connect to this stream.
+  Security and account notifications cannot be disabled to protect your account.
 </Warning>
-
-<Note>
-  BeatPass uses Server-Sent Events (SSE) to deliver real-time notifications to the web application.
-</Note>
-
-For technical details, see [API Endpoints - Notifications](/developers/reference/endpoints#notifications-first-party-only).
 
 ---
 
-## Configuring Preferences
+## Real-Time Notifications
 
-### Accessing Settings
+BeatPass delivers notifications in real-time using WebSocket technology. When you're logged in and have the site open:
+
+- **Instant delivery** — Notifications appear immediately without refreshing
+- **Live badge updates** — The notification count updates automatically
+- **Toast notifications** — Important events show a brief popup in the corner of your screen
+- **Action buttons** — Click the toast to navigate directly to the relevant content
+
+### Enabling Browser Notifications
+
+For the best experience, enable browser push notifications:
 
 <Steps>
-  <Step title="Open Settings">
-    Click your avatar \> Settings.
+  <Step title="Allow Permissions">
+    When you first enable a browser notification toggle, your browser will ask for permission. Click **Allow** to receive real-time notifications.
   </Step>
-  <Step title="Select Notifications">
-    Navigate to the Notifications section.
-  </Step>
-  <Step title="Customize">
-    Toggle each notification type on/off for each channel.
-  </Step>
-  <Step title="Save">
-    Changes save automatically.
+  
+  <Step title="Toggle Browser Channel">
+    In your notification settings, ensure the **Browser** toggle is enabled for the notification types you want to receive instantly.
   </Step>
 </Steps>
 
-### Configuration Matrix
+### Browser Permission Status
 
-<CardGroup cols={2}>
-  <Card title="Activity" icon="bell">
-    New followers, likes — **Toggleable** for Email/Push, always in-app
-  </Card>
-  <Card title="Messages" icon="envelope">
-    New messages — **Toggleable** for Email/Push, always in-app
-  </Card>
-  <Card title="Payouts" icon="dollar-sign">
-    Payout notifications — **Default On** for Email, toggleable Push, always in-app
-  </Card>
-  <Card title="Security" icon="shield" color="#ef4444">
-    Security alerts — **Always On** for all channels
-  </Card>
-</CardGroup>
+The notification settings page automatically detects your browser's notification permission status:
 
----
+| Status | What You'll See |
+|--------|----------------|
+| **Granted** | Browser toggles work normally |
+| **Not Asked** | Clicking a browser toggle prompts for permission |
+| **Blocked** | Warning banner shown, browser toggles are disabled |
 
-## Frequency Options
+<Warning>
+  If you've blocked browser notifications, you'll see a warning message at the top of the settings page. To re-enable them, go to your browser's site settings and allow notifications for BeatPass.
+</Warning>
 
-### Email Digest Settings
-
-Instead of individual emails, receive summaries:
-
-<Tabs>
-  <Tab title="Immediate">
-    Each event triggers an individual email instantly
-  </Tab>
-  <Tab title="Daily Digest">
-    One email per day with all activity summarized
-  </Tab>
-  <Tab title="Weekly Digest">
-    One email per week summarizing all activity
-  </Tab>
-  <Tab title="Off">
-    No emails for this category
-  </Tab>
-</Tabs>
-
-### Quiet Hours
-
-Set times when push notifications are silenced:
-
-1. Go to Notifications \> Quiet Hours
-2. Set start and end times
-3. Select days (weekdays, weekends, all)
-4. Save preferences
+<Tip>
+  If you accidentally denied notification permissions, you can re-enable them in your browser settings under Site Permissions.
+</Tip>
 
 <Note>
-  Security and urgent notifications bypass quiet hours.
+  Browser notifications work even when the BeatPass tab is in the background, as long as your browser is open.
 </Note>
 
 ---
 
-## Managing Notifications
+## Email Notifications
 
-### Viewing Notifications
+### Email Categories
 
-1. Click the bell icon in navigation
-2. See all recent notifications
-3. Click to view details
-4. Mark as read/unread
+| Category | Examples |
+|----------|----------|
+| **Transactions** | License purchases, subscription payments, refunds |
+| **Security** | Password changes, login from new device |
+| **Account** | Email verification, subscription status changes |
+| **Activity** | Messages, beat request responses |
 
-### Clearing Notifications
+### Unsubscribing from Emails
 
-- **Clear One**: Swipe or click X on individual notification
-- **Clear All**: Click "Mark all as read" at top
-- **Auto-clear**: Read notifications clear after 30 days
+You can unsubscribe from email notifications in multiple ways:
 
----
+1. **In-app**: Go to `/notifications/settings` and disable email for specific types using the toggle switches
+2. **One-click email link**: Click **Unsubscribe from this type of email** at the bottom of any notification email to instantly disable that specific notification type
+3. **Unsubscribe all**: Click **Unsubscribe from all emails** in the email footer to disable all email notifications at once
+4. **Manage preferences**: Click **Manage preferences** in the email footer to open your notification settings page
 
-## Unsubscribing
+<Tip>
+  One-click unsubscribe links are secure and don't require you to log in. You can also undo your action by clicking the "Resubscribe" button on the confirmation page.
+</Tip>
 
-### Email Unsubscribe
+### Required Emails
 
-Every email includes an unsubscribe link:
+Some emails cannot be disabled:
 
-1. Click "Unsubscribe" at bottom of email
-2. Choose to unsubscribe from that category or all
-3. Confirm choice
-
-### Complete Opt-Out
-
-To stop all marketing communications:
-
-1. Go to Settings \> Notifications
-2. Scroll to Marketing section
-3. Toggle all options off
-4. Save changes
-
-<Note>
-  You'll still receive essential account and security emails regardless of preferences.
-</Note>
+- Password reset emails
+- Security alerts
+- Payment receipts and invoices
+- Account verification emails
 
 ---
 
-## Troubleshooting
+## Notification Actions
 
-<AccordionGroup>
-  <Accordion title="Not receiving emails">
-    - Check spam/junk folder
-    - Add [notifications@beatpass.ca](mailto:notifications@beatpass.ca) to contacts
-    - Verify email is correct in settings
-    - Check notification preferences are on
-  </Accordion>
-  <Accordion title="Push notifications not working">
-    - Ensure browser notifications are allowed
-    - Check device notification settings
-    - Try re-enabling in settings
-    - Clear browser cache
-  </Accordion>
-  <Accordion title="Too many notifications">
-    - Switch to digest mode for activity
-    - Disable low-priority notifications
-    - Set quiet hours
-  </Accordion>
-  <Accordion title="Missing notifications">
-    - Check in-app notification center
-    - Verify category isn't disabled
-    - Look in email spam folder
-  </Accordion>
-</AccordionGroup>
+Some notifications include action buttons for quick responses:
+
+| Notification Type | Available Actions |
+|-------------------|-------------------|
+| **Playlist Invite** | Accept, Decline |
+| **New Message** | View conversation |
+| **Beat Request Response** | View submission |
+| **License Purchased** | View transaction |
 
 ---
 
@@ -325,17 +312,68 @@ To stop all marketing communications:
 
 Recommended settings:
 
-- **On**: License purchases, payouts, beat request matches
-- **Digest**: Likes, follows, comments
-- **Off**: Marketing (unless you want updates)
+| Notification | Browser | Email |
+|--------------|---------|-------|
+| License Purchased | ✓ | ✓ |
+| Track Downloaded | ✓ | Off |
+| Beat Request Match | ✓ | ✓ |
+| New Follower | ✓ | Off |
+| Comments | ✓ | Off |
 
 ### For Artists
 
 Recommended settings:
 
-- **On**: Messages, beat request responses
-- **Digest**: New releases from followed producers
-- **Off**: Activity from others (unless curating)
+| Notification | Browser | Email |
+|--------------|---------|-------|
+| New Message | ✓ | ✓ |
+| Beat Request Response | ✓ | ✓ |
+| Playlist Invite | ✓ | ✓ |
+| New Follower | ✓ | Off |
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Not seeing notifications">
+    - Refresh the page to ensure you have the latest data
+    - Check that you're logged in
+    - Try clearing your browser cache
+  </Accordion>
+  
+  <Accordion title="Not receiving email notifications">
+    - Check your spam/junk folder
+    - Add `notifications@beatpass.ca` to your contacts
+    - Verify your email address is correct in **Settings > Account Details**
+    - Ensure email is enabled for that notification type in Settings
+  </Accordion>
+  
+  <Accordion title="Notifications not updating in real-time">
+    - Ensure you have a stable internet connection
+    - Try refreshing the page
+    - Check that your browser tab is active (not in background)
+  </Accordion>
+  
+  <Accordion title="Preferences not saving">
+    - Make sure you click **Save Preferences** after making changes
+    - Try refreshing the page and making the changes again
+  </Accordion>
+  
+  <Accordion title="Browser notifications blocked">
+    If you see a warning that browser notifications are blocked:
+    1. Click the lock/info icon in your browser's address bar
+    2. Find "Notifications" in the site settings
+    3. Change the setting from "Block" to "Allow"
+    4. Refresh the notification settings page
+  </Accordion>
+  
+  <Accordion title="Browser toggles are disabled">
+    - Browser notification toggles are disabled if you've blocked notifications in your browser
+    - Follow the steps above to unblock notifications
+    - The toggles will become active after you refresh the page
+  </Accordion>
+</AccordionGroup>
 
 ---
 
@@ -343,9 +381,9 @@ Recommended settings:
 
 <CardGroup cols={2}>
   <Card title="Account Settings" icon="gear" href="/help/account-security/settings">
-    Configure your account.
+    Configure your account preferences.
   </Card>
   <Card title="Privacy Settings" icon="eye-slash" href="/help/account-security/privacy">
-    Control your visibility.
+    Control your data and privacy.
   </Card>
 </CardGroup>

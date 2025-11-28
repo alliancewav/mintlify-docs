@@ -1,12 +1,12 @@
 ---
-audience: "help"
+audience: help
 title: "Account Settings"
 description: "Configure your BeatPass account preferences and profile."
 ---
 
 ## Overview
 
-Your account settings control how you interact with BeatPass. This guide covers all configuration options available in your account.
+Your account settings control your profile, security, and preferences on BeatPass. This guide covers all configuration options available in your account.
 
 ---
 
@@ -20,275 +20,227 @@ Navigate to settings:
 
 ---
 
-## Profile Settings
+## Settings Panels
 
-### Basic Information
+Your account settings are organized into the following sections:
 
-<CardGroup cols={2}>
-  <Card title="Display Name" icon="user">
-    Your public username visible across the platform
-  </Card>
-  <Card title="Bio" icon="align-left">
-    Description shown on your profile page
-  </Card>
-  <Card title="Profile Photo" icon="image">
-    Your avatar image (400x400px minimum)
-  </Card>
-  <Card title="Header Image" icon="panorama">
-    Banner image on your profile (1500x500px)
-  </Card>
-  <Card title="Location" icon="location-dot">
-    Optional location shown publicly
-  </Card>
-</CardGroup>
+| Panel | Description |
+|-------|-------------|
+| **Account Details** | Profile information, display name, bio, avatar |
+| **Social Login** | Connect/disconnect your Google account |
+| **Password** | Change your password |
+| **Two Factor Authentication** | Enable/disable 2FA |
+| **Active Sessions** | View and manage logged-in devices |
+| **Location and Language** | Set your locale and language preferences |
+| **API Access Tokens** | Manage personal access tokens |
+| **Danger Zone** | Account deletion |
 
-### How to Update
+<Note>
+  Email verification is required to access all platform features. If you haven't verified your email, you'll see a prompt to do so.
+</Note>
+
+---
+
+## Account Details
+
+### Profile Information
+
+| Field | Description |
+|-------|-------------|
+| **Display Name** | Your public name shown across the platform |
+| **First Name / Last Name** | Your real name (optional) |
+| **Avatar** | Profile photo (recommended: 400x400px square) |
+
+### Updating Your Profile
 
 <Steps>
   <Step title="Go to Settings">
-    Navigate to Settings \> Profile.
+    Navigate to **Settings > Account Details**.
   </Step>
+  
   <Step title="Edit Fields">
-    Click on any field to edit. Changes auto-save or require a Save button.
+    Update your display name, bio, or other information.
   </Step>
-  <Step title="Upload Images">
-    Click on photo areas to upload new images.
+  
+  <Step title="Upload Avatar">
+    Click on your avatar to upload a new image.
+  </Step>
 
-    - Profile: 400x400px minimum, square
-    - Header: 1500x500px recommended
+  <Step title="Save">
+    Click **Save** to apply changes.
   </Step>
 </Steps>
 
 ---
 
-## Account Information
+## Social Login
 
-### Email Settings
+Connect your Google account for faster login.
 
-<CardGroup cols={2}>
-  <Card title="Email Address" icon="envelope">
-    Your login email — can be changed anytime
-  </Card>
-  <Card title="Verification" icon="circle-check">
-    Verify to unlock all platform features
-  </Card>
-</CardGroup>
+### Connecting Google
+
+1. Go to **Settings > Social Login**
+2. Click **Enable** next to Google
+3. Sign in with your Google account in the popup
+4. Your accounts are now linked
+
+### Disconnecting Google
+
+1. Go to **Settings > Social Login**
+2. Click **Disable** next to Google
+3. The account is disconnected
+
+<Tip>
+  You can still log in with your email and password after disconnecting your Google account.
+</Tip>
+
+---
+
+## Password
+
+### Changing Your Password
+
+<Steps>
+  <Step title="Go to Password Settings">
+    Navigate to **Settings > Password**.
+  </Step>
+  
+  <Step title="Enter Current Password">
+    Enter your existing password to verify your identity.
+  </Step>
+  
+  <Step title="Enter New Password">
+    Enter and confirm your new password.
+  </Step>
+  
+  <Step title="Save">
+    Click **Update Password** to apply the change.
+  </Step>
+</Steps>
 
 <Note>
-  Changing your email requires verification of the new address.
+  If you signed up with a social account and never set a password, you can set one by using the "Forgot Password" flow.
 </Note>
 
-### Password
-
-To change your password:
-
-1. Go to Settings \> Security
-2. Click **Change Password**
-3. Enter current password
-4. Enter and confirm new password
-5. Save changes
-
-### Connected Accounts
-
-Link social accounts for easier login:
-
-<CardGroup cols={3}>
-  <Card title="Google" icon="google">
-    Quick login + profile import
-  </Card>
-  <Card title="Facebook" icon="facebook">
-    Quick login
-  </Card>
-  <Card title="Apple" icon="apple">
-    Quick login
-  </Card>
-</CardGroup>
-
-Manage at **Settings \> Accounts \> Connected Accounts**.
-
 ---
 
-## Notification Settings
+## Two-Factor Authentication
 
-### Email Notifications
+Add an extra layer of security to your account using TOTP-based two-factor authentication.
 
-<AccordionGroup>
-  <Accordion title="Activity" icon="bell">
-    New followers, likes, and comments on your content
-  </Accordion>
-  <Accordion title="Messages" icon="envelope">
-    New messages and beat request responses
-  </Accordion>
-  <Accordion title="Earnings" icon="dollar-sign">
-    Payout notifications and earnings updates
-  </Accordion>
-  <Accordion title="Marketing" icon="bullhorn">
-    Newsletter, promotions, and new features
-  </Accordion>
-</AccordionGroup>
+### Setting Up 2FA
 
-### Push Notifications
+<Steps>
+  <Step title="Go to 2FA Settings">
+    Navigate to **Settings > Two Factor Authentication**.
+  </Step>
+  
+  <Step title="Enable 2FA">
+    Click **Enable** to start the setup process.
+  </Step>
+  
+  <Step title="Confirm Password">
+    Enter your password to verify your identity.
+  </Step>
+  
+  <Step title="Scan QR Code">
+    Open your authenticator app (Google Authenticator, Authy, 1Password, etc.) and scan the QR code.
+  </Step>
+  
+  <Step title="Enter Verification Code">
+    Enter the 6-digit code from your authenticator app to confirm setup.
+  </Step>
+  
+  <Step title="Save Recovery Codes">
+    Download and securely store your recovery codes. These are your backup if you lose access to your authenticator.
+  </Step>
+</Steps>
 
-Enable/disable browser notifications for:
+<Warning>
+  **Save your recovery codes!** Without them, you may permanently lose access to your account if you lose your 2FA device.
+</Warning>
 
-- Real-time messages
-- Important alerts
-- Achievement unlocks
+### Disabling 2FA
 
-### Configuring Notifications
+1. Go to **Settings > Two Factor Authentication**
+2. Click **Disable**
+3. Confirm with your password
 
-1. Go to Settings \> Notifications
-2. Toggle categories on/off
-3. Set frequency preferences (immediate, daily digest, weekly)
-4. Save changes
+### Regenerating Recovery Codes
 
----
-
-## Privacy Settings
-
-### Profile Visibility
-
-<Tabs>
-  <Tab title="Public">
-    **Everyone** can see your profile and activity
-  </Tab>
-  <Tab title="Followers Only">
-    Only **your followers** can see your profile
-  </Tab>
-  <Tab title="Private">
-    Only **you** can see (limited availability for producers)
-  </Tab>
-</Tabs>
-
-### Activity Visibility
-
-Control who sees:
-
-- Listening history
-- Saved tracks
-- Following/followers list
-
-### Data Controls
-
-- Download your data
-- Delete specific content
-- Request account deletion
-
-See [Privacy Settings](/help/account-security/privacy) for details.
-
----
-
-## Playback Settings
-
-### Audio Quality
-
-<Tabs>
-  <Tab title="High Quality">
-    Best audio fidelity — uses more data
-  </Tab>
-  <Tab title="Normal">
-    Balanced quality and data usage
-  </Tab>
-  <Tab title="Data Saver">
-    Compressed audio — minimal data
-  </Tab>
-</Tabs>
-
-### Playback Behavior
-
-<CardGroup cols={3}>
-  <Card title="Autoplay" icon="circle-play">
-    On/Off — auto-play next track
-  </Card>
-  <Card title="Crossfade" icon="wave-sine">
-    0-12 seconds between tracks
-  </Card>
-  <Card title="Normalize Volume" icon="volume-high">
-    Even volume across all tracks
-  </Card>
-</CardGroup>
-
----
-
-## Producer Settings
-
-### Backstage Access
-
-If you're a producer, additional settings appear:
-
-<CardGroup cols={2}>
-  <Card title="Default License" icon="file-contract">
-    Pre-select license type for new uploads
-  </Card>
-  <Card title="Watermark" icon="shield">
-    Audio watermark settings for previews
-  </Card>
-</CardGroup>
-
-### Payment Settings
-
-Configure at Settings \> Payments (or Backstage \> Finances):
-
-- Connect Stripe account
-- Set payout preferences
-- View tax information
-- Download statements
-
----
-
-## Appearance Settings
-
-### Theme
-
-<Tabs>
-  <Tab title="Light">
-    Light background with dark text
-  </Tab>
-  <Tab title="Dark">
-    Dark background with light text
-  </Tab>
-  <Tab title="System">
-    Automatically match your device settings
-  </Tab>
-</Tabs>
-
-### Language
-
-Select your preferred interface language from available options.
-
----
-
-## Security Settings
-
-### Two-Factor Authentication
-
-Enable 2FA for additional security using an authenticator app (TOTP):
-
-1. Go to Settings \> Security
-2. Click **Enable 2FA**
-3. Scan QR code with your authenticator app
-4. Enter the 6-digit verification code
-5. Save your recovery codes securely
+1. Go to **Settings > Two Factor Authentication**
+2. Click **Regenerate recovery codes**
+3. Confirm with your password
+4. Save your new codes securely
 
 <Note>
   BeatPass uses TOTP-based 2FA only. SMS authentication is not available.
 </Note>
 
-### Active Sessions
+---
 
-View and manage logged-in devices:
+## Active Sessions
 
-1. Go to Settings \> Security \> Sessions
-2. Review all active sessions
-3. Click **Revoke** on any unrecognized sessions
+View and manage devices logged into your account.
 
-### Login History
+### Viewing Sessions
 
-View recent login activity:
+1. Go to **Settings > Active Sessions**
+2. See all devices with active sessions
+3. Each session shows:
+   - Device type (desktop, mobile, tablet)
+   - Browser and platform
+   - Location (city, country)
+   - IP address
+   - Last active time
 
-- Date and time
-- Device/browser
-- Location (approximate)
+### Logging Out Other Sessions
+
+If you see unrecognized sessions or want to secure your account:
+
+1. Go to **Settings > Active Sessions**
+2. Click **Logout other sessions**
+3. Enter your password to confirm
+4. All sessions except your current one will be terminated
+
+<Tip>
+  Sessions marked as "This device" are your current session and cannot be revoked.
+</Tip>
+
+---
+
+## Location and Language
+
+### Setting Your Locale
+
+1. Go to **Settings > Location and Language**
+2. Select your preferred language
+3. Select your timezone
+4. Select your preferred date format
+5. Click **Save**
+
+---
+
+## API Access Tokens
+
+If you need programmatic access to BeatPass, you can create personal access tokens.
+
+### Creating a Token
+
+1. Go to **Settings > API Access Tokens**
+2. Click **Create Token**
+3. Give your token a descriptive name
+4. Copy and save the token (it won't be shown again)
+
+### Revoking a Token
+
+1. Go to **Settings > API Access Tokens**
+2. Click **Revoke** next to the token
+3. The token is immediately invalidated
+
+<Warning>
+  Keep your API tokens secure. Anyone with your token can access your account programmatically.
+</Warning>
 
 ---
 
@@ -302,36 +254,43 @@ View recent login activity:
 
 To delete your account:
 
-1. Go to Settings \> Account
-2. Scroll to **Danger Zone**
+1. Go to **Settings**
+2. Scroll to the **Danger Zone** section
 3. Click **Delete Account**
-4. Confirm by entering your password
-5. Confirm final deletion
+4. Enter your password to confirm
+5. Confirm the final deletion
 
-This removes:
-
+This permanently removes:
 - All profile information
 - Uploaded tracks (if producer)
 - Library and playlists
 - Transaction history
 - Messages
+- All associated data
 
 ---
 
-## Common Issues
+## Troubleshooting
 
 <AccordionGroup>
   <Accordion title="Can't change email">
-    Verify you have access to current email. Contact support if locked out.
+    Verify you have access to your current email. If locked out, contact support for assistance.
   </Accordion>
+  
   <Accordion title="Settings not saving">
-    Try refreshing the page, clearing cache, or using a different browser.
+    Try refreshing the page, clearing your browser cache, or using a different browser.
   </Accordion>
+  
   <Accordion title="Can't enable 2FA">
-    Ensure your authenticator app is working. Try reinstalling if issues persist.
+    Ensure your authenticator app is synced with the correct time. Try reinstalling the app if issues persist.
   </Accordion>
+  
   <Accordion title="Missing producer settings">
-    Producer settings only appear after backstage access is approved.
+    Producer settings (Backstage) only appear after your producer application is approved.
+  </Accordion>
+  
+  <Accordion title="Social login not working">
+    Ensure popups are enabled in your browser. Try clearing cookies and attempting again.
   </Accordion>
 </AccordionGroup>
 
@@ -340,10 +299,10 @@ This removes:
 ## Next Steps
 
 <CardGroup cols={2}>
-  <Card title="Security Guide" icon="shield" href="/help/account-security/security">
-    Secure your account.
+  <Card title="Security Guide" icon="shield" href="/help/account-security/account-security">
+    Best practices for account security.
   </Card>
   <Card title="Privacy Settings" icon="eye-slash" href="/help/account-security/privacy">
-    Control your data.
+    Control your data and privacy.
   </Card>
 </CardGroup>
