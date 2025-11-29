@@ -1,0 +1,295 @@
+---
+audience: help
+title: "Analytics FAQ | BeatPass"
+sidebarTitle: "FAQ"
+description: "Frequently asked questions about BeatPass Producer Dashboard analytics, XP, leaderboards, and reporting."
+---
+
+## Overview
+
+Common questions and answers about BeatPass analytics, the XP system, leaderboards, and financial reporting.
+
+---
+
+## Data & Updates
+
+<AccordionGroup>
+  <Accordion title="How often is my data updated?">
+    | Data Type | Update Frequency |
+    |-----------|------------------|
+    | Play counts | Near real-time |
+    | Download events | Near real-time |
+    | XP & Level | Immediately on each action |
+    | Leaderboard rankings | Every 30 minutes (cached) |
+    | Progress data | Every 5 minutes (cached) |
+    | Financial balances | Synced with Stripe |
+  </Accordion>
+  
+  <Accordion title="Why do my play counts seem low?">
+    Possible reasons:
+    - Plays are tracked via analytics events and require the track to actually be played
+    - There may be a slight delay in data processing during high-traffic periods
+    - Check the time period filter selected in the Activity page
+  </Accordion>
+  
+  <Accordion title="Why don't I see any data in my dashboard?">
+    You need:
+    - An artist profile linked to your account
+    - At least one track uploaded
+    - Upload permissions enabled
+    
+    If you just created your profile or uploaded tracks, wait a few minutes for data to sync.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## XP & Leveling
+
+<AccordionGroup>
+  <Accordion title="How do I earn XP?">
+    XP is earned through various actions:
+    
+    | Action | XP Earned |
+    |--------|-----------|
+    | Upload a track | +100 XP |
+    | Track plays | +1 XP per play |
+    | Complete metadata | +50 XP per track |
+    | Collaborate on tracks | +25 XP per collaboration |
+    | Unlock achievements | Variable (based on achievement rarity) |
+  </Accordion>
+  
+  <Accordion title="Why isn't my XP increasing?">
+    Check that:
+    - You have an artist profile with a completed user profile
+    - Your tracks are actually being played (not just loaded)
+    - XP deduplication prevents double-awarding for the same action
+    
+    Each play, upload, or action is only awarded XP once.
+  </Accordion>
+  
+  <Accordion title="How is my level calculated?">
+    Your level is based on total XP using this formula:
+    
+    ```
+    XP Required = 100 × ((Level - 1) ^ 1.5)
+    ```
+    
+    The maximum level is 100 (Legendary Producer).
+  </Accordion>
+  
+  <Accordion title="Do collaborators earn XP from my tracks?">
+    Yes! When a track with collaborators gets plays:
+    - The track owner earns XP
+    - All credited collaborators with completed user profiles also earn XP
+    
+    Collaborators without completed profiles won't receive XP until they complete their profile setup.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Leaderboards
+
+<AccordionGroup>
+  <Accordion title="How is the Overall leaderboard calculated?">
+    The Overall leaderboard uses a weighted composite score:
+    
+    | Category | Weight |
+    |----------|--------|
+    | Points (XP) | 25% |
+    | Plays | 20% |
+    | Uploads | 15% |
+    | Quality | 15% |
+    | Collaboration | 15% |
+    | Earnings | 10% |
+  </Accordion>
+  
+  <Accordion title="Why did my ranking drop even though my plays increased?">
+    Rankings are relative to other producers. If other producers grew faster, your rank may drop even with personal growth. 
+    
+    Focus on improving your absolute metrics rather than just ranking position.
+  </Accordion>
+  
+  <Accordion title="How often do leaderboards update?">
+    Leaderboard data is cached for 30 minutes to ensure consistent performance. Your rank will update at most every 30 minutes.
+  </Accordion>
+  
+  <Accordion title="What does the Quality leaderboard measure?">
+    The Quality leaderboard ranks producers by metadata completion percentage:
+    - Complete title, BPM, key, scale, genre, description, and cover art
+    - Higher percentage = higher ranking
+    - Encourages well-organized catalogs
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Achievements
+
+<AccordionGroup>
+  <Accordion title="How do I unlock achievements?">
+    Achievements are unlocked by meeting specific criteria:
+    - **Upload achievements**: Upload a certain number of tracks
+    - **Trending achievements**: Get tracks in the top percentiles by play count
+    - **Metadata achievements**: Maintain high metadata completion
+    - **Collaboration achievements**: Complete collaborative tracks
+    - **Milestone achievements**: Reach account age milestones
+    - **Seasonal achievements**: Upload during specific holidays
+  </Accordion>
+  
+  <Accordion title="What XP do achievements give?">
+    Achievement XP varies by rarity:
+    
+    | Rarity | XP Range |
+    |--------|----------|
+    | Common | 150-500 XP |
+    | Uncommon | 800-1,500 XP |
+    | Rare | 2,000-3,500 XP |
+    | Epic | 4,000-5,000 XP |
+    | Legendary | 6,000+ XP |
+  </Accordion>
+  
+  <Accordion title="Can I lose achievements?">
+    No. Once earned, achievements are permanent and cannot be lost even if the underlying criteria changes.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Earnings & Finances
+
+<AccordionGroup>
+  <Accordion title="How do I access financial data?">
+    Navigate to `/producer-dashboard/finances` to:
+    1. Connect your Stripe account (if not already connected)
+    2. View account balances
+    3. See transaction history
+  </Accordion>
+  
+  <Accordion title="When are earnings finalized?">
+    - **Track purchases**: Finalized when payment succeeds
+    - **Subscription payouts**: Finalized when Stripe marks the invoice as paid and the subscription split job completes
+    
+    Payouts to your bank account depend on your Stripe payout schedule.
+  </Accordion>
+  
+  <Accordion title="Why can't I see my finances?">
+    You need to:
+    1. Have an artist profile
+    2. Complete Stripe Connect onboarding
+    3. Enable both charges and payouts in Stripe
+    
+    If Stripe onboarding is incomplete, you'll see the onboarding prompt instead of financial data.
+  </Accordion>
+  
+  <Accordion title="What does 'In Transit' mean?">
+    Funds marked "In Transit" have been sent to your bank but haven't arrived yet. Transfer times depend on your bank and Stripe payout schedule (typically 2-7 business days).
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Downloads Analytics
+
+<AccordionGroup>
+  <Accordion title="What do download analytics show?">
+    The Downloads section in Activity shows:
+    - **Total Downloads**: All-time download count
+    - **Unique Users**: Number of distinct downloaders
+    - **Recent Downloads**: Downloads in selected time period
+    - **Top Track**: Your most downloaded track
+    - **Download List**: Individual download events with user info
+  </Accordion>
+  
+  <Accordion title="Can I see who downloaded my tracks?">
+    Yes. The downloads list shows:
+    - User name and avatar
+    - Track that was downloaded
+    - Download timestamp
+    - License certificate (if applicable)
+  </Accordion>
+  
+  <Accordion title="What time periods are available?">
+    You can filter downloads by:
+    - 7 Days
+    - 30 Days (default)
+    - 90 Days
+    - All Time
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Technical Issues
+
+<AccordionGroup>
+  <Accordion title="My dashboard isn't loading">
+    Try:
+    1. Refresh the page
+    2. Clear browser cache
+    3. Check your internet connection
+    4. Try a different browser
+    5. Contact support if issue persists
+  </Accordion>
+  
+  <Accordion title="I see outdated data">
+    Some data is cached for performance:
+    - Leaderboards: 30-minute cache
+    - Progress data: 5-minute cache
+    
+    Use the "Refresh" button on the Progress page to force an update, or wait for the cache to expire.
+  </Accordion>
+  
+  <Accordion title="How do I report a bug?">
+    Contact support via the Help section or email support@beatpass.ca with:
+    - Description of the issue
+    - Steps to reproduce
+    - Screenshots
+    - Browser and device info
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Getting Help
+
+<AccordionGroup>
+  <Accordion title="I think my data is wrong">
+    If you believe there's an error:
+    1. Check the time period filters
+    2. Wait for caches to refresh (up to 30 minutes)
+    3. Try refreshing the page
+    4. Document the issue with screenshots
+    5. Contact support with specific details
+  </Accordion>
+  
+  <Accordion title="Where can I learn more about metrics?">
+    See the [Metric Definitions](/help/analytics/reference/metrics-glossary) page for detailed explanations of each metric tracked by BeatPass.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Metric Definitions" icon="book" href="/help/analytics/reference/metrics-glossary">
+    Detailed metric explanations.
+  </Card>
+  <Card title="Chart Types" icon="chart-pie" href="/help/analytics/reference/chart-types">
+    Visual guide to all charts.
+  </Card>
+  <Card title="Producer Dashboard" icon="chart-bar" href="/help/producer-dashboard">
+    Navigate your dashboard.
+  </Card>
+  <Card title="Backstage Insights" icon="magnifying-glass-chart" href="/help/analytics/backstage-insights">
+    View per-track/album/artist analytics.
+  </Card>
+  <Card title="XP & Levels" icon="chart-line" href="/help/gamification/xp-system">
+    Full XP system documentation.
+  </Card>
+  <Card title="Achievements" icon="trophy" href="/help/gamification/achievements">
+    View all achievements and unlock criteria.
+  </Card>
+</CardGroup>

@@ -1,0 +1,310 @@
+---
+audience: help
+title: "Metric Definitions | BeatPass"
+sidebarTitle: "Metrics"
+description: "Understanding the metrics and data points tracked by BeatPass analytics. Learn about plays, downloads, XP, contribution value, and leaderboard rankings."
+keywords: ["analytics metrics", "play count", "XP", "contribution value", "producer analytics", "leaderboards"]
+"og:title": "Metric Definitions - BeatPass Analytics"
+"og:description": "Understanding the metrics and data points tracked by BeatPass analytics."
+"twitter:card": "summary_large_image"
+---
+
+<Info>
+  **Audience**: Producers with an artist profile. View your metrics in the **Producer Dashboard**.
+</Info>
+
+BeatPass tracks various metrics to help you understand performance, earn XP, and compete on leaderboards. This guide defines each metric and explains how it's calculated.
+
+---
+
+## Engagement Metrics
+
+### Plays
+
+**Definition:** The total number of times your tracks have been played.
+
+| Metric | Description |
+|--------|-------------|
+| **Total Plays** | Lifetime play count across all your tracks |
+| **Plays This Period** | Plays within the selected time range |
+
+Plays are tracked via analytics events and update in near real-time. Each play event awards you +1 XP.
+
+### Downloads
+
+**Definition:** The number of times users have downloaded your tracks.
+
+| Metric | Description |
+|--------|-------------|
+| **Total Downloads** | All-time download count |
+| **Unique Downloaders** | Distinct users who downloaded |
+| **Recent Downloads** | Downloads in the selected period |
+| **Top Downloaded Track** | Your most popular download |
+
+Downloads indicate purchase intent or licensed usage. View download history with user details and license certificates in the Activity page.
+
+---
+
+## Performance Metrics
+
+### Total Tracks
+
+**Definition:** The number of tracks you've uploaded to BeatPass.
+
+- Counts all tracks in your catalog
+- Includes tracks this month indicator
+- Each track upload earns +100 XP
+
+### Platform Share
+
+**Definition:** Your percentage of total platform engagement.
+
+```
+Platform Share = (Your Contribution Value / Total Platform Contribution) × 100
+```
+
+This metric shows how your engagement compares to all producers on the platform.
+
+### Contribution Value
+
+**Definition:** Your calculated contribution score used for subscription revenue distribution.
+
+- Based on track plays and engagement
+- Stored per-track in the database
+- Used to calculate your share of the subscription pool
+
+<Card title="Earnings & Contribution" icon="calculator" href="/help/earnings/formula">
+  Learn how subscription earnings are calculated.
+</Card>
+
+---
+
+## XP & Leveling Metrics
+
+### Experience Points (XP)
+
+**Definition:** Points earned through platform activity that contribute to your producer level.
+
+#### XP Sources
+
+| Action | XP Earned |
+|--------|-----------|
+| Upload a track | +100 XP |
+| Track plays | +1 XP per play |
+| Complete metadata | +50 XP per track |
+| Collaborate on tracks | +25 XP per collaboration |
+| Unlock achievements | Variable (based on rarity) |
+
+XP is tracked per action and stored in the `xp_transactions` table. Your total XP determines your producer level.
+
+### Producer Level
+
+**Definition:** Your progression rank based on total XP earned.
+
+The XP required for each level follows this formula:
+
+```
+XP Required = 100 × ((Level - 1) ^ 1.5)
+```
+
+#### Level Titles
+
+| Level Range | Title |
+|-------------|-------|
+| 1-2 | Novice Producer |
+| 3-4 | Apprentice Producer |
+| 5-6 | Intermediate Producer |
+| 7-9 | Skilled Producer |
+| 10-14 | Experienced Producer |
+| 15-19 | Advanced Producer |
+| 20-29 | Professional Producer |
+| 30-39 | Expert Producer |
+| 40-49 | Master Producer |
+| 50-100 | Legendary Producer |
+
+Maximum level is 100.
+
+### Level Progress
+
+| Metric | Description |
+|--------|-------------|
+| **Current Level** | Your current producer level |
+| **Current XP** | Total XP earned to date |
+| **XP to Next Level** | Points needed to reach the next level |
+| **Progress Percentage** | Visual indicator of level progress |
+
+---
+
+## Leaderboard Metrics
+
+### Leaderboard Rankings
+
+BeatPass tracks rankings across six categories, each measuring different aspects of producer activity.
+
+#### Category Definitions
+
+| Category | What It Measures | How It's Calculated |
+|----------|------------------|---------------------|
+| **Overall** | Composite performance | Weighted average of all other categories |
+| **Points** | XP earned | Total XP from user_xp table |
+| **Plays** | Track engagement | Sum of plays from analytics_events |
+| **Uploads** | Catalog size | Total track count |
+| **Quality** | Metadata completeness | Percentage of tracks with complete metadata |
+| **Collaboration** | Partnership activity | Joint tracks + unique collaborator count |
+| **Earnings** | Contribution value | Sum of track contribution values |
+
+#### Overall Score Weights
+
+The Overall leaderboard calculates a composite score using these weights:
+
+| Category | Weight |
+|----------|--------|
+| Points (XP) | 25% |
+| Plays | 20% |
+| Uploads | 15% |
+| Quality | 15% |
+| Collaboration | 15% |
+| Earnings | 10% |
+
+### Ranking Tiers
+
+Based on your score, you're assigned a tier:
+
+| Tier | Criteria |
+|------|----------|
+| Diamond | Top performers |
+| Platinum | High performers |
+| Gold | Above average |
+| Silver | Growing |
+| Bronze | Getting started |
+
+---
+
+## Achievement Metrics
+
+### Achievements
+
+**Definition:** Milestone-based rewards for completing specific goals.
+
+#### Achievement Categories
+
+| Category | Examples |
+|----------|----------|
+| **Upload** | Track Producer, Prolific Creator, Studio Legend |
+| **Trending** | Rising Star, Chart Topper, Viral Hit |
+| **Metadata** | Metadata Whiz, Metadata Maven, Metadata Architect |
+| **Profile** | Model, Photogenic, Linked, Oracle |
+| **Genre** | Genre Specialist, Genre Virtuoso, Genre Master |
+| **Collaboration** | Collaboration Enthusiast, Team Player, Bridge Builder |
+| **Composite** | Rising Talent, Elite Producer, Legendary Producer |
+| **Excellence** | Track Excellence |
+| **Milestone** | Early Adopter, Rising, Seasoned, OG, Veteran, Legacy |
+| **Seasonal** | Shadow Regent, Santa's Helper, Opening Act, Lover Boy |
+
+#### Achievement Rarity
+
+| Rarity | Points Range |
+|--------|--------------|
+| Common | 150-500 XP |
+| Uncommon | 800-1,500 XP |
+| Rare | 2,000-3,500 XP |
+| Epic | 4,000-5,000 XP |
+| Legendary | 6,000+ XP |
+
+### Achievement Stats
+
+| Metric | Description |
+|--------|-------------|
+| **Unlocked** | Achievements you've earned |
+| **Locked** | Achievements not yet earned |
+| **Total Available** | All achievements in the system |
+| **Completion Percentage** | Your progress toward earning all achievements |
+
+---
+
+## Financial Metrics
+
+### Account Balances
+
+Available after connecting Stripe:
+
+| Metric | Description |
+|--------|-------------|
+| **Total Balance** | Current available balance |
+| **Future Payouts** | Pending scheduled payouts |
+| **In Transit** | Funds being transferred to your bank |
+| **Lifetime Volume** | Total earnings since joining |
+
+### Transaction Types
+
+| Type | Description |
+|------|-------------|
+| Track Purchase | Direct sale of exclusive tracks |
+| Subscription Payout | Your share of subscription revenue pool |
+| Refund | Returned payment |
+
+---
+
+## Metadata Quality Metrics
+
+### Metadata Completion
+
+**Definition:** Percentage of your tracks with complete metadata.
+
+A track is considered to have complete metadata when it includes:
+- Title
+- BPM (beats per minute)
+- Key and scale
+- Genre tags
+- Description
+- Cover art
+
+```
+Metadata Completion % = (Tracks with Complete Metadata / Total Tracks) × 100
+```
+
+High metadata completion improves:
+- Search discoverability
+- Recommendation matching
+- Quality leaderboard ranking
+- Potential for metadata-based achievements
+
+---
+
+## Data Freshness
+
+### Update Frequency
+
+| Data Type | Update Frequency |
+|-----------|------------------|
+| Play counts | Near real-time |
+| Download events | Near real-time |
+| XP & Level | Updated on each XP-earning action |
+| Leaderboard rankings | Every 30 minutes (cached) |
+| Progress data | Every 5 minutes (cached) |
+| Financial balances | Synced with Stripe |
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Producer Dashboard" icon="chart-bar" href="/help/producer-dashboard">
+    Navigate your analytics dashboard.
+  </Card>
+  <Card title="Backstage Insights" icon="magnifying-glass-chart" href="/help/analytics/backstage-insights">
+    View per-track/album/artist analytics.
+  </Card>
+  <Card title="XP & Levels" icon="chart-line" href="/help/gamification/xp-system">
+    Full XP system documentation.
+  </Card>
+  <Card title="Achievements" icon="trophy" href="/help/gamification/achievements">
+    View all achievements and how to unlock them.
+  </Card>
+  <Card title="Chart Types" icon="chart-pie" href="/help/analytics/reference/chart-types">
+    Visual guide to all chart types.
+  </Card>
+  <Card title="Analytics FAQ" icon="circle-question" href="/help/analytics/reference/faq">
+    Common analytics questions.
+  </Card>
+</CardGroup>

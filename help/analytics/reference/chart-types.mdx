@@ -1,0 +1,473 @@
+---
+audience: "help"
+title: "Chart Types Reference | BeatPass"
+sidebarTitle: "Chart Types"
+description: "Visual reference guide to all chart types used in BeatPass analytics including Plays Over Time, Top Devices, Top Platforms, Top Locations, and more."
+keywords: ["charts","visualizations","analytics charts","plays over time","top devices","top platforms","top locations"]
+og:title: "Chart Types Reference - BeatPass Analytics"
+og:description: "Visual guide to all chart types used in BeatPass analytics."
+twitter:card: "summary_large_image"
+---
+
+This reference documents all chart types used across BeatPass analytics pages. Each chart is designed to present specific data in an intuitive, accessible format.
+
+---
+
+## Plays Over Time
+
+An interactive bar chart displaying play counts over a selected date range. This is the primary chart for understanding content performance trends.
+
+### Where It Appears
+
+- Track Insights
+- Album Insights
+- Artist Insights
+
+### Chart Elements
+
+| Element        | Description                                        |
+| -------------- | -------------------------------------------------- |
+| **Header**     | Title, trend badge, total plays                    |
+| **Bars**       | Each bar represents plays for a time period        |
+| **X-Axis**     | Date labels (shown intelligently based on density) |
+| **Grid Lines** | Horizontal lines for value estimation              |
+| **Footer**     | Peak Day, Daily Avg, Data Points                   |
+
+### Trend Indicator
+
+The trend badge compares performance between date range halves:
+
+| Badge    | Color  | Meaning               |
+| -------- | ------ | --------------------- |
+| **\+X%** | Green  | Plays increased       |
+| **-X%**  | Red    | Plays decreased       |
+| **0%**   | Orange | No significant change |
+
+### Interactive Features
+
+<Tabs>
+  <Tab title="Desktop">
+    **Hover** over any bar to see:
+
+    - Exact play count
+    - Date or date range for that bar
+
+    Tooltips auto-position to stay visible at edges.
+  </Tab>
+  <Tab title="Mobile">
+    **Tap** any bar to show tooltip. Tap again or outside to dismiss.
+  </Tab>
+</Tabs>
+
+### Reading Patterns
+
+| Pattern              | Meaning                   | Action                       |
+| -------------------- | ------------------------- | ---------------------------- |
+| **Spike**            | Viral moment or placement | Identify cause and replicate |
+| **Steady**           | Consistent engagement     | Continue current strategy    |
+| **Gradual increase** | Growing audience          | Monitor and maintain         |
+| **Gradual decline**  | Waning interest           | Consider promotion           |
+| **Sharp drop**       | Lost traffic source       | Investigate cause            |
+
+---
+
+## Top Devices
+
+A breakdown of hardware types used to access your content.
+
+### Where It Appears
+
+- Track Insights
+- Album Insights
+- Artist Insights
+
+### Layout
+
+**Vertical card list** with high-contrast styling:
+
+| Position   | Content                              |
+| ---------- | ------------------------------------ |
+| **Left**   | Device icon and name with percentage |
+| **Right**  | Total play count                     |
+| **Bottom** | Color-coded progress bar             |
+
+### Device Types
+
+| Type         | Icon       | Description                    |
+| ------------ | ---------- | ------------------------------ |
+| **Desktop**  | Monitor    | Computers and laptops          |
+| **Mobile**   | Smartphone | iPhones and Android phones     |
+| **Tablet**   | Tablet     | iPads and Android tablets      |
+| **TV/Other** | TV         | Smart TVs, consoles, wearables |
+
+### Card Styling
+
+- **Background**: `bg-gray-50` / `dark:bg-white/5`
+- **Border**: `border-black/5` / `dark:border-white/5`
+- **Hover effect**: Brightness change
+
+---
+
+## Top Platforms
+
+A breakdown of operating systems and software environments.
+
+### Where It Appears
+
+- Track Insights
+- Album Insights
+- Artist Insights
+
+### Layout
+
+**2x2 Grid** showing top 4 platforms:
+
+| Position        | Content                      |
+| --------------- | ---------------------------- |
+| **Top row**     | Platform icon and play count |
+| **Bottom row**  | Platform name and percentage |
+| **Bottom edge** | Progress bar                 |
+
+### Platform Types
+
+| Platform                | Description                    |
+| ----------------------- | ------------------------------ |
+| **Web**                 | Desktop and mobile browsers    |
+| **iOS**                 | iPhones and iPads (native app) |
+| **Android**             | Android phones and tablets     |
+| **Windows/macOS/Linux** | Desktop operating systems      |
+
+### Card Styling
+
+Same high-contrast styling as Top Devices with:
+
+- Compact card layout for space efficiency
+- Maximum 4 items displayed
+
+---
+
+## Top Locations
+
+Geographic distribution of listeners with country flags.
+
+### Where It Appears
+
+- Track Insights
+- Album Insights
+- Artist Insights
+
+### Layout
+
+**Hero + Grid** design:
+
+| Section       | Description                                                                                |
+| ------------- | ------------------------------------------------------------------------------------------ |
+| **Hero Card** | #1 location with large flag, country name, play count, percentage, "#1 Top Location" badge |
+| **Grid**      | Remaining locations in 2-column responsive grid                                            |
+
+### Grid Card Contents
+
+| Element          | Description                   |
+| ---------------- | ----------------------------- |
+| **Rank number**  | #2, #3, etc.                  |
+| **Country flag** | Visual identifier             |
+| **Play count**   | Exact plays from that country |
+| **Progress bar** | Visual comparison             |
+
+### Design Rationale
+
+- When one country dominates (e.g., 90% from Canada), the hero card gives proper visual weight
+- Remaining countries are efficiently displayed without wasted space
+- Country flags provide instant recognition
+
+### Display Limit
+
+Up to 10 locations shown by default.
+
+---
+
+## Most Played Tracks
+
+A ranked list of top-performing tracks.
+
+### Where It Appears
+
+- Album Insights (tracks within album)
+- Artist Insights (tracks across catalog)
+
+<Note>
+  Not shown on Track Insights (you're already viewing a single track).
+</Note>
+
+### Layout
+
+**Scrollable card list** (up to 10 tracks):
+
+| Element             | Description                                  |
+| ------------------- | -------------------------------------------- |
+| **Rank Badge**      | Position (#1, #2, etc.) in monospace font    |
+| **Cover Art**       | Circular thumbnail matching track page style |
+| **Track Name**      | Clickable link to track insights             |
+| **Exclusive Icon**  | Diamond badge for exclusive-only tracks      |
+| **Artist Name(s)**  | Muted text below track name                  |
+| **Play Count Pill** | Compact pill with play icon and count        |
+
+### Card Styling
+
+- Scrollable container with max 5 visible
+- Scroll to see additional tracks
+- Hover effect for interactivity
+- Consistent with Top Listeners styling
+
+---
+
+## Top Listeners
+
+A ranked list of users who played your content most.
+
+### Where It Appears
+
+- Track Insights
+- Album Insights
+- Artist Insights
+
+### Layout
+
+**Scrollable card list** (up to 10 listeners):
+
+| Element             | Description                               |
+| ------------------- | ----------------------------------------- |
+| **Rank Badge**      | Position (#1, #2, etc.) in monospace font |
+| **Avatar**          | Circular user profile image               |
+| **Username**        | Clickable link to user profile            |
+| **Percentage**      | Share of total plays from this listener   |
+| **Play Count Pill** | Compact pill with play icon and count     |
+
+### Special Entries
+
+| Entry               | Description                                                   |
+| ------------------- | ------------------------------------------------------------- |
+| **Guest Listeners** | Aggregated plays from non-logged-in users (generic user icon) |
+| **Admin Excluded**  | Admin plays filtered and merged into Guest                    |
+
+### Privacy Notes
+
+- Only public profile information shown
+- Users can control visibility in privacy settings
+- No personal data beyond public profile exposed
+
+---
+
+## Engagement Overview (Track Only)
+
+A metrics grid showing listener interaction statistics.
+
+### Where It Appears
+
+- Track Insights only
+
+### Layout
+
+**4-card grid** (2 columns on mobile, 4 on desktop):
+
+| Metric                  | Icon        | Color  | Shows                  |
+| ----------------------- | ----------- | ------ | ---------------------- |
+| **Avg Listen Duration** | Clock       | Blue   | Average time spent     |
+| **Avg Completion Rate** | Checkmark   | Varies | % completed on average |
+| **Total Listen Time**   | Bar chart   | Purple | Cumulative time        |
+| **Completed Listens**   | Trending up | Green  | Plays reaching \>80%   |
+
+### Card Contents
+
+| Element              | Description            |
+| -------------------- | ---------------------- |
+| **Color-coded icon** | Visual identifier      |
+| **Metric label**     | What the stat measures |
+| **Large value**      | Primary number         |
+| **Context badge**    | Additional context     |
+| **Progress bar**     | Visual representation  |
+
+### Quality Badge
+
+Header displays overall engagement rating:
+
+- **High Engagement** (green)
+- **Good Engagement** (blue)
+- **Moderate Engagement** (yellow)
+- **Low Engagement** (red)
+
+---
+
+## Listen Duration Chart (Track Only)
+
+An interactive bar chart showing average listen duration over time.
+
+### Where It Appears
+
+- Track Insights only
+
+### Chart Elements
+
+| Element        | Description                                         |
+| -------------- | --------------------------------------------------- |
+| **Header**     | Clock icon, trend badge, average duration           |
+| **Bars**       | Each bar = average listen duration for that day     |
+| **Bar Height** | Taller = longer average listen time                 |
+| **Bar Colors** | Color-coded by completion rate                      |
+| **Footer**     | Track length, best day, avg completion, total plays |
+
+### Bar Colors
+
+| Color            | Completion Rate | Meaning             |
+| ---------------- | --------------- | ------------------- |
+| **Green**        | ≥70%            | Excellent retention |
+| **Amber/Yellow** | 40-70%          | Good engagement     |
+| **Red**          | \< 40%          | Needs attention     |
+
+### Interactive Tooltips
+
+Shows:
+
+- Average Duration
+- Completion Rate
+- Play Count
+- Date
+
+---
+
+## Completion Breakdown (Track Only)
+
+A grid showing distribution of how much listeners complete.
+
+### Where It Appears
+
+- Track Insights only
+
+### Layout
+
+**Category grid** (2 columns on mobile, 3 on desktop):
+
+| Category      | Icon | Range  | Color  |
+| ------------- | ---- | ------ | ------ |
+| **Completed** | ✓    | \>80%  | Green  |
+| **Mostly**    | ◉    | 60-80% | Blue   |
+| **Half**      | ○    | 40-60% | Amber  |
+| **Partial**   | ⊘    | 20-40% | Orange |
+| **Skipped**   | ⏩    | \< 20% | Red    |
+
+### Card Contents
+
+| Element           | Description                           |
+| ----------------- | ------------------------------------- |
+| **Category Icon** | Visual indicator                      |
+| **Play Count**    | Number of plays in category           |
+| **Category Name** | Completed/Mostly/Half/Partial/Skipped |
+| **Range Badge**   | Percentage range                      |
+| **Percentage**    | Portion of total plays                |
+| **Progress Bar**  | Visual comparison                     |
+
+### Quality Score
+
+Header shows weighted score (0-100) summarizing retention:
+
+- Formula: Weighted average of all completions
+- Higher score = better overall retention
+
+---
+
+## Contribution Graph (Activity Page)
+
+A GitHub-style heatmap showing upload activity.
+
+### Where It Appears
+
+- Producer Dashboard → Activity
+
+### Layout
+
+**Calendar grid**:
+
+- 7 rows (Sunday to Saturday)
+- 53 columns (weeks)
+- Each square = one day
+
+### Color Scale (Your Uploads)
+
+| Color             | Meaning     |
+| ----------------- | ----------- |
+| Empty/transparent | No uploads  |
+| Light purple      | 1-2 uploads |
+| Medium purple     | 3-4 uploads |
+| Dark purple       | 5-6 uploads |
+| Bright purple     | 7+ uploads  |
+
+### X-Ray Mode
+
+Toggle to compare with platform-wide activity:
+
+- **Purple** = Your uploads
+- **Teal** = Platform uploads (where you have none)
+
+### Interactive Features
+
+- **Hover**: Shows tooltip with upload count and date
+- **Click**: Opens detail panel with track list
+
+---
+
+## Growth Meter (Tracks Page)
+
+A semi-circular gauge showing catalog growth trajectory.
+
+### Where It Appears
+
+- Producer Dashboard → Tracks
+
+### Layout
+
+**Gauge visualization**:
+
+- Semi-circular arc with gradient
+- Animated needle indicator
+- Percentage value display
+- Status label
+
+### Color Zones
+
+| Zone             | Color       | Growth Rate | Label     |
+| ---------------- | ----------- | ----------- | --------- |
+| **Left**         | Red         | Below -5%   | Declining |
+| **Center-Left**  | Amber       | -5% to 0%   | Stable    |
+| **Center-Right** | Light Green | 0% to +5%   | Growing   |
+| **Right**        | Green       | Above +5%   | Strong    |
+
+---
+
+## Responsive Behavior
+
+All charts adapt to screen size:
+
+| Screen      | Adaptation                                      |
+| ----------- | ----------------------------------------------- |
+| **Desktop** | Full-width charts with all details              |
+| **Tablet**  | Condensed layouts, some info hidden             |
+| **Mobile**  | Horizontal scroll where needed, touch optimized |
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Metric Definitions" icon="book" href="/help/analytics/reference/metrics-glossary">
+    Understand what each metric means.
+  </Card>
+  <Card title="Track Insights" icon="music" href="/help/analytics/backstage-insights/track-insights">
+    See charts in action on track analytics.
+  </Card>
+  <Card title="Engagement Metrics" icon="activity" href="/help/analytics/backstage-insights/engagement-metrics">
+    Deep dive into engagement charts.
+  </Card>
+  <Card title="Analytics FAQ" icon="circle-question" href="/help/analytics/reference/faq">
+    Common questions about analytics.
+  </Card>
+</CardGroup>

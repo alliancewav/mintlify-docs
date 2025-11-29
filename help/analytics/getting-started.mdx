@@ -1,0 +1,229 @@
+---
+audience: "help"
+title: "Analytics Quick Start | BeatPass"
+sidebarTitle: "Getting Started"
+description: "Quick start guide to BeatPass analytics. Learn how to access dashboards, view insights, and understand your key metrics in minutes."
+keywords: ["analytics quickstart","getting started","producer dashboard","backstage insights","tutorial"]
+og:title: "Analytics Quick Start - BeatPass"
+og:description: "Get up and running with BeatPass analytics in minutes."
+twitter:card: "summary_large_image"
+---
+
+This guide gets you up and running with BeatPass analytics in under 5 minutes. You'll learn how to access your dashboards, view content insights, and understand your key metrics.
+
+---
+
+## Prerequisites
+
+Before you can access analytics, you need:
+
+<AccordionGroup>
+  <Accordion title="BeatPass Account" icon="user">
+    A registered BeatPass account. [Sign up](https://beatpass.ca/register) if you haven't already.
+  </Accordion>
+  <Accordion title="Artist Profile" icon="microphone">
+    An artist profile linked to your account. Create one in your account settings.
+  </Accordion>
+  <Accordion title="At Least One Track" icon="music">
+    Upload at least one track to start seeing analytics data.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Step 1: Access Your Producer Dashboard
+
+The Producer Dashboard is your command center for career-level analytics.
+
+<Steps>
+  <Step title="Navigate to Dashboard">
+    Go to `/producer-dashboard` or click **Producer Dashboard** in the main menu.
+  </Step>
+  <Step title="View Your Overview">
+    The home page shows your key stats at a glance:
+
+    - **Total Tracks** — Your catalog size
+    - **Total Plays** — Lifetime engagement
+    - **Followers** — Your audience size
+    - **Level** — Your producer rank
+  </Step>
+  <Step title="Explore the Sections">
+    Use the navigation grid or sidebar to access:
+
+    - **Progress** — XP and achievements
+    - **Tracks** — Catalog management
+    - **Albums** — Collections
+    - **Activity** — Upload history
+    - **Finances** — Earnings
+    - **Leaderboards** — Rankings
+  </Step>
+</Steps>
+
+---
+
+## Step 2: View Content Analytics
+
+Backstage Insights shows detailed analytics for individual tracks, albums, or artists.
+
+### Quick Access Methods
+
+| Method             | How                                               |
+| ------------------ | ------------------------------------------------- |
+| **Context Menu**   | Right-click any track/album/artist → **Insights** |
+| **Dashboard Link** | Producer Dashboard → Tracks → Click chart icon    |
+| **Direct URL**     | Navigate to `/backstage/tracks/{id}/insights`     |
+
+### What You'll See
+
+<Tabs>
+  <Tab title="Track Insights">
+    - **Plays Over Time** — Interactive trend chart
+    - **Engagement Metrics** — Listen duration, completion rates
+    - **Top Devices** — Where listeners play from
+    - **Top Locations** — Geographic distribution
+    - **Top Listeners** — Your biggest fans
+  </Tab>
+  <Tab title="Album Insights">
+    - **Aggregate Plays** — Combined across all tracks
+    - **Most Played Tracks** — Top performers in the album
+    - **Device/Location Breakdown** — Audience demographics
+  </Tab>
+  <Tab title="Artist Insights">
+    - **Catalog-wide Analytics** — All your content combined
+    - **Performance Trends** — Overall growth patterns
+    - **Audience Overview** — Who's listening
+  </Tab>
+</Tabs>
+
+---
+
+## Step 3: Understand Your Key Metrics
+
+### Performance Metrics
+
+| Metric              | What It Means                     | Good Sign             |
+| ------------------- | --------------------------------- | --------------------- |
+| **Plays**           | Times your tracks were played     | Growing over time     |
+| **Downloads**       | Licensed downloads of your tracks | Active buyer interest |
+| **Completion Rate** | % of track listeners complete     | 60%+ is strong        |
+| **Growth Rate**     | Change in performance over time   | Positive percentage   |
+
+### Engagement Metrics (Track-level)
+
+| Metric                  | What It Means            | Target                |
+| ----------------------- | ------------------------ | --------------------- |
+| **Avg Listen Duration** | How long listeners stay  | Close to track length |
+| **Completed Listens**   | Plays reaching 80%+      | Higher is better      |
+| **Quality Score**       | Weighted retention score | 70+ is excellent      |
+
+### Gamification Metrics
+
+| Metric                     | What It Means                    |
+| -------------------------- | -------------------------------- |
+| **XP (Experience Points)** | Earned through platform activity |
+| **Level**                  | Your rank based on total XP      |
+| **Achievements**           | Milestones you've unlocked       |
+| **Leaderboard Rank**       | Position vs other producers      |
+
+---
+
+## Step 4: Set Up Finances
+
+To receive earnings from your music, connect Stripe:
+
+<Steps>
+  <Step title="Go to Finances">
+    Navigate to `/producer-dashboard/finances`.
+  </Step>
+  <Step title="Click Connect">
+    Click **Connect with Stripe** to start onboarding.
+  </Step>
+  <Step title="Complete Verification">
+    Follow Stripe's prompts to verify identity and add bank info.
+  </Step>
+  <Step title="Start Earning">
+    Once connected, track sales and subscription payouts appear automatically.
+  </Step>
+</Steps>
+
+---
+
+## Quick Reference: Navigation Paths
+
+| Want To...               | Go To                              |
+| ------------------------ | ---------------------------------- |
+| See overall stats        | `/producer-dashboard`              |
+| Track your XP progress   | `/producer-dashboard/progress`     |
+| Manage your tracks       | `/producer-dashboard/tracks`       |
+| View track analytics     | `/backstage/tracks/{id}/insights`  |
+| Check earnings           | `/producer-dashboard/finances`     |
+| See leaderboard rankings | `/producer-dashboard/leaderboards` |
+| View activity history    | `/producer-dashboard/activity`     |
+
+---
+
+## Tips for New Users
+
+<Tip>
+  **Start with your Progress page** — It shows your XP, level, and which achievements you can easily unlock.
+</Tip>
+
+<Tip>
+  **Complete your profile** — Profile achievements (Photogenic, Oracle, Linked, Model) are easy wins for quick XP.
+</Tip>
+
+<Tip>
+  **Fill in all metadata** — Complete track metadata earns +50 XP per track and improves discoverability.
+</Tip>
+
+<Tip>
+  **Check back regularly** — Analytics update frequently, and consistent engagement improves your rankings.
+</Tip>
+
+---
+
+## Common First Questions
+
+<AccordionGroup>
+  <Accordion title="Why don't I see any plays?">
+    New tracks may take a few minutes to start showing analytics. If you uploaded recently, check back in 15-30 minutes.
+  </Accordion>
+  <Accordion title="How do I earn XP quickly?">
+    The fastest ways:
+
+    - Upload tracks (+100 XP each)
+    - Complete all metadata (+50 XP per track)
+    - Get plays (+1 XP per play)
+    - Unlock achievements (varies by rarity)
+  </Accordion>
+  <Accordion title="Why can't I see my finances?">
+    You need to complete Stripe Connect onboarding. Go to `/producer-dashboard/finances` and follow the setup flow.
+  </Accordion>
+  <Accordion title="How often does data update?">
+    - **Plays**: Near real-time
+    - **XP**: Immediate
+    - **Leaderboards**: Every 30 minutes
+    - **Financial data**: Synced with Stripe
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Next Steps
+
+Now that you're oriented, dive deeper into specific areas:
+
+<CardGroup cols={2}>
+  <Card title="Producer Dashboard Guide" icon="chart-bar" href="/help/producer-dashboard">
+    Complete guide to your career command center.
+  </Card>
+  <Card title="Backstage Insights Guide" icon="magnifying-glass-chart" href="/help/analytics/backstage-insights">
+    Master content-level analytics.
+  </Card>
+  <Card title="XP & Achievements" icon="trophy" href="/help/gamification">
+    Level up your producer journey.
+  </Card>
+  <Card title="Metric Definitions" icon="book" href="/help/analytics/reference/metrics-glossary">
+    Understand every number you see.
+  </Card>
+</CardGroup>

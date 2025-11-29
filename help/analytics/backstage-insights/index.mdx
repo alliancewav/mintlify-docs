@@ -1,0 +1,224 @@
+---
+audience: "help"
+title: "Backstage Insights | BeatPass"
+sidebarTitle: "Insights Overview"
+description: "View detailed analytics for individual tracks, albums, and artist profiles with Backstage Insights. Understand plays, listeners, devices, and engagement metrics."
+keywords: ["backstage insights","track analytics","album analytics","artist analytics","engagement metrics","plays over time"]
+og:title: "Backstage Insights - BeatPass Analytics"
+og:description: "View detailed analytics for individual tracks, albums, and artist profiles on BeatPass."
+twitter:card: "summary_large_image"
+---
+
+Backstage Insights provides detailed analytics for individual tracks, albums, and artist profiles. Unlike the [Producer Dashboard](/help/producer-dashboard) which shows aggregate data across your entire catalog, Backstage Insights lets you drill down into the performance of specific content.
+
+<Info>
+  **Audience:** Track owners and collaborators. You can only view insights for content you own or are credited on.
+</Info>
+
+---
+
+## Content-Specific Analytics
+
+<CardGroup cols={3}>
+  <Card title="Track Insights" icon="music" href="/help/analytics/backstage-insights/track-insights">
+    Per-track plays, engagement metrics, listen duration, and completion rates.
+  </Card>
+  <Card title="Album Insights" icon="disc" href="/help/analytics/backstage-insights/album-insights">
+    Aggregate analytics across all tracks in an album.
+  </Card>
+  <Card title="Artist Insights" icon="user" href="/help/analytics/backstage-insights/artist-insights">
+    Catalog-wide analytics for your entire artist profile.
+  </Card>
+</CardGroup>
+
+---
+
+## Accessing Backstage Insights
+
+There are several ways to access Backstage Insights for your content:
+
+### From Context Menu
+
+Right-click on any track, album, or artist you own/collaborate on and select **Insights**.
+
+### From Producer Dashboard
+
+1. Go to `/producer-dashboard/tracks` or `/producer-dashboard/albums`
+2. Click the **chart icon** (📊) next to any track or album
+
+### Direct URLs
+
+Navigate directly to insights pages:
+
+| Content Type | URL Pattern                              | Example                            |
+| ------------ | ---------------------------------------- | ---------------------------------- |
+| **Track**    | `/backstage/tracks/{trackId}/insights`   | `/backstage/tracks/3482/insights`  |
+| **Album**    | `/backstage/albums/{albumId}/insights`   | `/backstage/albums/1404/insights`  |
+| **Artist**   | `/backstage/artists/{artistId}/insights` | `/backstage/artists/2024/insights` |
+
+### From Backstage Layout
+
+In the Backstage area, click the **Insights** button in the navigation bar to view your primary artist's insights.
+
+---
+
+## Access Permissions
+
+Access to Backstage Insights is restricted to:
+
+| Role                     | Access                                                           |
+| ------------------------ | ---------------------------------------------------------------- |
+| **Track Owner**          | Full access to track insights                                    |
+| **Track Collaborator**   | Full access to track insights if your artist profile is credited |
+| **Album Owner**          | Full access to album insights                                    |
+| **Artist Profile Owner** | Full access to your own artist insights                          |
+
+<Warning>
+  If you don't own or collaborate on a piece of content, you'll see a 404 page when trying to access its insights.
+</Warning>
+
+---
+
+## Date Range Selection
+
+All Backstage Insights pages include a date range selector that defaults to **This Year**. You can filter data by:
+
+- Custom date ranges
+- Preset periods (Last 7 days, Last 30 days, This month, This year, etc.)
+
+The selected date range affects all charts and metrics on the page.
+
+---
+
+## Available Charts
+
+Each insights page shows a standard set of charts, with some variations:
+
+### Charts by Content Type
+
+| Chart                     | Track | Album | Artist |
+| ------------------------- | :---: | :---: | :----: |
+| **Plays Over Time**       | ✓     | ✓     | ✓      |
+| **Engagement Overview**   | ✓     | —     | —      |
+| **Listen Duration Chart** | ✓     | —     | —      |
+| **Completion Breakdown**  | ✓     | —     | —      |
+| **Top Devices**           | ✓     | ✓     | ✓      |
+| **Top Platforms**         | ✓     | ✓     | ✓      |
+| **Top Locations**         | ✓     | ✓     | ✓      |
+| **Most Played Tracks**    | —     | ✓     | ✓      |
+| **Top Listeners**         | ✓     | ✓     | ✓      |
+
+<Note>
+  **Engagement metrics** (Listen Duration, Completion Breakdown) are only available on individual track insights because they require per-play analysis.
+</Note>
+
+---
+
+## Backstage Insights vs Producer Dashboard
+
+| Feature          | Backstage Insights                | Producer Dashboard             |
+| ---------------- | --------------------------------- | ------------------------------ |
+| **Scope**        | Single track/album/artist         | All your content               |
+| **Access**       | `/backstage/{type}/{id}/insights` | `/producer-dashboard`          |
+| **Plays**        | Specific to item                  | Aggregated total               |
+| **Engagement**   | Per-track deep dive               | Not available                  |
+| **Management**   | View only                         | Full CRUD operations           |
+| **Gamification** | Not included                      | XP, achievements, leaderboards |
+| **Finances**     | Not included                      | Stripe integration             |
+
+### When to Use Which
+
+| Need                                       | Use                              |
+| ------------------------------------------ | -------------------------------- |
+| View plays for a specific track            | Backstage Insights               |
+| See total plays across all tracks          | Producer Dashboard               |
+| Analyze listener engagement                | Backstage Insights (tracks only) |
+| Manage your catalog                        | Producer Dashboard               |
+| Check XP and achievements                  | Producer Dashboard               |
+| View geographic distribution for one track | Backstage Insights               |
+
+---
+
+## Understanding the Charts
+
+### Common Charts
+
+Each chart type has consistent behavior across all insights pages:
+
+<Tabs>
+  <Tab title="Plays Over Time">
+    Interactive bar chart with:
+
+    - Trend indicator showing growth/decline
+    - Hover/tap tooltips with exact values
+    - Footer stats: Peak Day, Daily Avg, Data Points
+  </Tab>
+  <Tab title="Top Devices">
+    Vertical list of cards showing:
+
+    - Device type (Desktop, Mobile, Tablet, TV/Other)
+    - Play count and percentage
+    - Progress bar visualization
+  </Tab>
+  <Tab title="Top Platforms">
+    2x2 grid showing:
+
+    - Platform name (Web, iOS, Android, Windows, etc.)
+    - Play count and percentage
+    - Color-coded progress bars
+  </Tab>
+  <Tab title="Top Locations">
+    Hero card + grid layout:
+
+    - #1 location featured prominently with flag
+    - Remaining countries in 2-column grid
+    - Up to 10 locations shown
+  </Tab>
+  <Tab title="Top Listeners">
+    Scrollable card list with:
+
+    - Rank badge (#1, #2, etc.)
+    - User avatar and username
+    - Play count and percentage
+    - Guest listeners aggregated separately
+  </Tab>
+</Tabs>
+
+For detailed documentation on each chart type, see the [Charts Reference](/help/analytics/reference/chart-types).
+
+---
+
+## Engagement Metrics (Tracks Only)
+
+Track insights include exclusive engagement metrics:
+
+| Metric                  | Description                                       |
+| ----------------------- | ------------------------------------------------- |
+| **Avg Listen Duration** | Average time listeners spend on your track        |
+| **Avg Completion Rate** | Percentage of track listeners complete on average |
+| **Total Listen Time**   | Cumulative listening time across all plays        |
+| **Completed Listens**   | Plays that reached \>80% completion               |
+| **Quality Score**       | Weighted score (0-100) summarizing retention      |
+
+<Card title="Engagement Metrics Guide" icon="chart-line" href="/help/analytics/backstage-insights/engagement-metrics">
+  Full documentation on engagement tracking, quality scores, and retention analysis.
+</Card>
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Track Insights" icon="music" href="/help/analytics/backstage-insights/track-insights">
+    Deep dive into track-level analytics.
+  </Card>
+  <Card title="Album Insights" icon="disc" href="/help/analytics/backstage-insights/album-insights">
+    Aggregate album analytics.
+  </Card>
+  <Card title="Artist Insights" icon="user" href="/help/analytics/backstage-insights/artist-insights">
+    Catalog-wide analytics.
+  </Card>
+  <Card title="Engagement Metrics" icon="activity" href="/help/analytics/backstage-insights/engagement-metrics">
+    Understand listener engagement.
+  </Card>
+</CardGroup>

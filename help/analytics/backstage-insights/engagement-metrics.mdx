@@ -1,0 +1,318 @@
+---
+audience: "help"
+title: "Engagement Metrics | Backstage Insights"
+sidebarTitle: "Engagement Metrics"
+description: "Understanding track-level engagement metrics including listen duration, completion rates, quality scores, and retention analysis on BeatPass."
+keywords: ["engagement metrics","listen duration","completion rate","quality score","retention","track engagement"]
+og:title: "Engagement Metrics - Backstage Insights | BeatPass"
+og:description: "Deep dive into track-level engagement tracking and retention analysis."
+twitter:card: "summary_large_image"
+---
+
+## Overview
+
+Engagement metrics provide deep insights into how listeners interact with your tracks. Unlike play counts (which just tell you _how many_ plays), engagement metrics tell you _how_ listeners engage—how long they listen, whether they complete your track, and where they drop off.
+
+<Info>
+  **Availability:** Engagement metrics are only available on **individual track insights** (`/backstage/tracks/{id}/insights`). They require per-play analysis and are not aggregated at the album or artist level.
+</Info>
+
+---
+
+## Why Engagement Matters
+
+| Metric Type    | What It Tells You                            |
+| -------------- | -------------------------------------------- |
+| **Play Count** | How many times your track was started        |
+| **Engagement** | How listeners actually experience your track |
+
+High play counts with low engagement could indicate:
+
+- Misleading titles or covers (people click but don't stay)
+- Weak intros that don't hook listeners
+- Structural issues in the track
+
+High engagement means listeners find your content valuable and are more likely to:
+
+- Return for future releases
+- Share your music
+- Purchase or license your tracks
+
+---
+
+## Engagement Overview
+
+The Engagement Overview section appears at the top of track insights.
+
+### The Four Key Metrics
+
+<Tabs>
+  <Tab title="Avg Listen Duration">
+    **Icon:** Clock (blue)
+
+    **What it measures:** The average time listeners spend on your track.
+
+    **How to read it:**
+
+    - Compare to your track length (shown in the badge)
+    - If it's low relative to track length, listeners are leaving early
+    - Example: "0:49" out of "3:06" means listeners hear only 26% on average
+
+    **Progress bar:** Shows duration as % of track length
+  </Tab>
+  <Tab title="Avg Completion Rate">
+    **Icon:** Checkmark (color varies by level)
+
+    **What it measures:** Percentage of your track that listeners complete on average.
+
+    **How to read it:**
+
+    - 100% = listeners finish the entire track
+    - Lower percentages indicate where listeners stop
+    - Badge shows retention level (Excellent/Good/Fair/Poor)
+
+    **Progress bar:** Shows completion percentage
+  </Tab>
+  <Tab title="Total Listen Time">
+    **Icon:** Bar chart (purple)
+
+    **What it measures:** Cumulative listening time across all plays.
+
+    **How to read it:**
+
+    - Shows overall engagement volume
+    - Useful for understanding total impact
+    - Example: "4h 23m from 85 plays"
+
+    **No progress bar** — This is a volume metric, not a percentage
+  </Tab>
+  <Tab title="Completed Listens">
+    **Icon:** Trending up (green)
+
+    **What it measures:** Number of plays that reached \>80% completion.
+
+    **How to read it:**
+
+    - The gold standard for engagement
+    - Higher percentage = more engaged audience
+    - Example: "12 completed (14.1% of all plays)"
+
+    **Progress bar:** Shows completed listens as % of total plays
+  </Tab>
+</Tabs>
+
+---
+
+## Quality Badge
+
+The header displays an overall engagement rating that summarizes your track's performance:
+
+### Badge Levels
+
+| Badge                   | Color  | Criteria                                   |
+| ----------------------- | ------ | ------------------------------------------ |
+| **High Engagement**     | Green  | ≥80% completion AND ≥80% of track listened |
+| **Good Engagement**     | Blue   | ≥60% completion AND ≥60% of track listened |
+| **Moderate Engagement** | Yellow | ≥40% completion OR ≥40% of track listened  |
+| **Low Engagement**      | Red    | Below 40% on both metrics                  |
+
+<Tip>
+  The badge considers both completion rate AND average listen duration relative to track length. A 3-minute track with 1:30 average listen time and 50% completion shows "Moderate Engagement."
+</Tip>
+
+---
+
+## Retention Levels
+
+The Avg Completion Rate card shows a retention level badge:
+
+| Level         | Completion Rate | Badge Color | What It Means             |
+| ------------- | --------------- | ----------- | ------------------------- |
+| **Excellent** | ≥80%            | Green       | Listeners love your track |
+| **Good**      | 60-79%          | Blue        | Strong engagement         |
+| **Fair**      | 40-59%          | Yellow      | Room for improvement      |
+| **Poor**      | \< 40%          | Red         | Needs attention           |
+
+This provides a quick assessment without needing to analyze percentages.
+
+---
+
+## Listen Duration Chart
+
+An interactive bar chart showing how long listeners engage with your track over time.
+
+### Chart Elements
+
+| Element        | Description                                         |
+| -------------- | --------------------------------------------------- |
+| **Header**     | Clock icon, trend badge, average duration           |
+| **Bars**       | Each bar = average listen duration for that day     |
+| **Bar Height** | Taller bars = longer average listen time            |
+| **Bar Colors** | Color-coded by completion rate                      |
+| **Footer**     | Track length, best day, avg completion, total plays |
+
+### Bar Colors (Completion Rate)
+
+| Color            | Completion Rate | Meaning                                      |
+| ---------------- | --------------- | -------------------------------------------- |
+| **Green**        | ≥70%            | Excellent — listeners hear most of the track |
+| **Amber/Yellow** | 40-70%          | Good — engaged but drop off before end       |
+| **Red**          | \< 40%          | Needs attention — listeners skip early       |
+
+### Trend Calculation
+
+The trend percentage indicates whether engagement is improving:
+
+1. Your selected date range is split in half
+2. Average listen duration from the **first half** vs **second half**
+3. The percentage change is shown as the trend
+
+| Badge            | Example | Meaning                        |
+| ---------------- | ------- | ------------------------------ |
+| **Green (+15%)** | \+15%   | Engagement improved recently   |
+| **Red (-25%)**   | -25%    | Engagement declined recently   |
+| **Orange (0%)**  | 0%      | Stable — no significant change |
+
+<Note>
+  A negative trend doesn't necessarily mean your track is bad. It could indicate a shift in audience (e.g., new listeners discovering via short-form content).
+</Note>
+
+### Interactive Tooltips
+
+**Desktop:** Hover over any bar to see:
+
+- Average Duration (e.g., "1:23")
+- Completion Rate (e.g., "65%")
+- Play Count (e.g., "12 plays")
+- Date
+
+**Mobile:** Tap any bar to show tooltip. Tap again or outside to dismiss.
+
+---
+
+## Completion Breakdown Chart
+
+A grid showing how much of your track listeners complete, broken into five categories.
+
+### Categories
+
+| Category      | Icon       | Range  | Weight  | Description       |
+| ------------- | ---------- | ------ | ------- | ----------------- |
+| **Completed** | ✓ (green)  | \>80%  | 100 pts | Heard almost all  |
+| **Mostly**    | ◉ (blue)   | 60-80% | 70 pts  | Strong engagement |
+| **Half**      | ○ (amber)  | 40-60% | 50 pts  | About half        |
+| **Partial**   | ⊘ (orange) | 20-40% | 30 pts  | Lost interest     |
+| **Skipped**   | ⏩ (red)    | \< 20% | 10 pts  | Skipped early     |
+
+### Quality Score Formula
+
+The Quality Score is a weighted average (0-100) summarizing retention:
+
+```
+Quality Score = (Completed×100 + Mostly×70 + Half×50 + Partial×30 + Skipped×10) / Total Plays
+```
+
+**Example calculation:** 20 plays: 10 completed, 5 mostly, 3 half, 1 partial, 1 skipped
+
+```
+Score = (10×100 + 5×70 + 3×50 + 1×30 + 1×10) / 20
+      = (1000 + 350 + 150 + 30 + 10) / 20
+      = 1540 / 20
+      = 77 (Good)
+```
+
+### Quality Score Ratings
+
+| Score      | Rating     | Meaning                    |
+| ---------- | ---------- | -------------------------- |
+| **80-100** | Excellent  | Listeners love your track  |
+| **60-79**  | Good       | Solid with room to improve |
+| **40-59**  | Fair       | Many listeners drop off    |
+| **20-39**  | Needs Work | Most leave early           |
+| **0-19**   | Poor       | Almost everyone skips      |
+
+---
+
+## Insight Messages
+
+The footer displays context-aware insights based on your data:
+
+| Insight             | Condition                       | Message                                                      |
+| ------------------- | ------------------------------- | ------------------------------------------------------------ |
+| **Excellent**       | \>60% completed                 | "Excellent engagement! Keep doing what works."               |
+| **Many skip early** | \>40% skipped                   | "Many listeners skip early. Consider a more engaging intro." |
+| **Drop off late**   | More mostly/half than completed | "Listeners engage but drop off. Strengthen your outro."      |
+| **Mixed rates**     | No clear pattern                | "Mixed completion rates. Analyze drop-off points."           |
+
+---
+
+## Interpreting Engagement Data
+
+### Common Patterns
+
+| Pattern               | Likely Cause         | Action                         |
+| --------------------- | -------------------- | ------------------------------ |
+| **High skips**        | Weak intro           | Strengthen first 15-30 seconds |
+| **Drops at 50%**      | Energy dip in middle | Review track structure         |
+| **Drops near end**    | Weak outro           | Add stronger closing           |
+| **Consistently high** | Great content        | Keep your current approach     |
+| **Declining trend**   | Audience fatigue     | Consider new releases          |
+
+### What Affects Engagement
+
+| Factor                 | Impact                                |
+| ---------------------- | ------------------------------------- |
+| **Track intro**        | First 15-30 seconds are critical      |
+| **Energy flow**        | Consistent engagement keeps listeners |
+| **Track length**       | Longer tracks face more drop-off      |
+| **Genre expectations** | Match what listeners expect           |
+| **Audio quality**      | Poor quality drives listeners away    |
+
+---
+
+## Tips for Improving Engagement
+
+<Steps>
+  <Step title="Hook them early">
+    Start with your strongest element. Don't save the best for later—many won't hear it.
+  </Step>
+  <Step title="Maintain energy">
+    Avoid long quiet sections or energy dips that give listeners an exit point.
+  </Step>
+  <Step title="Optimize length">
+    Match your track length to genre expectations. Shorter is often better for engagement.
+  </Step>
+  <Step title="Strong outro">
+    Give listeners a reason to finish. A weak ending leads to early exits.
+  </Step>
+  <Step title="A/B test intros">
+    If engagement is low, try releasing alternate versions with different intros.
+  </Step>
+</Steps>
+
+---
+
+## Data Availability
+
+<Warning>
+  Engagement tracking is being rolled out progressively. Tracks with plays before the feature launch may show "Engagement tracking coming soon" with a note about the pre-tracking play count.
+</Warning>
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Track Insights" icon="music" href="/help/analytics/backstage-insights/track-insights">
+    View full track analytics.
+  </Card>
+  <Card title="Charts Reference" icon="chart-pie" href="/help/analytics/reference/chart-types">
+    Visual guide to all chart types.
+  </Card>
+  <Card title="Metric Definitions" icon="book" href="/help/analytics/reference/metrics-glossary">
+    All metric definitions.
+  </Card>
+  <Card title="Backstage Overview" icon="magnifying-glass-chart" href="/help/analytics/backstage-insights">
+    Return to insights overview.
+  </Card>
+</CardGroup>

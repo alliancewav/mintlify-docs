@@ -1,0 +1,235 @@
+---
+audience: help
+title: "Artist Insights | Backstage Insights"
+sidebarTitle: "Artist Insights"
+description: "View catalog-wide analytics for your artist profile including total plays, top tracks, device breakdown, and audience distribution."
+keywords: ["artist insights", "artist analytics", "catalog analytics", "audience data"]
+"og:title": "Artist Insights - Backstage Insights | BeatPass"
+"og:description": "View catalog-wide analytics for your artist profile on BeatPass."
+"twitter:card": "summary_large_image"
+---
+
+## Overview
+
+Artist insights (`/backstage/artists/{id}/insights`) show aggregate analytics across your entire catalog under that artist profile. This is the broadest view of your content performance, combining data from every track you've released.
+
+<Info>
+  **Access:** Click **Insights** in the Backstage navigation, or navigate directly to `/backstage/artists/{artistId}/insights`
+</Info>
+
+---
+
+## Available Charts
+
+Artist insights display the following analytics:
+
+| Chart | Description |
+|-------|-------------|
+| **Plays Over Time** | Combined plays across all your tracks |
+| **Top Devices** | Device breakdown for your audience |
+| **Top Platforms** | Platform breakdown for your audience |
+| **Top Locations** | Where your listeners are located worldwide |
+| **Most Played Tracks** | Top performers in your catalog |
+| **Top Listeners** | Your biggest fans across all content |
+
+<Note>
+  **Engagement metrics** (Listen Duration, Completion Breakdown) are **not available** at the artist level. For engagement data, view individual track insights.
+</Note>
+
+---
+
+## Plays Over Time
+
+An interactive bar chart showing total plays across your entire catalog.
+
+### What It Shows
+
+- **All-track aggregate** — Sum of plays from every track under this artist
+- **Trend indicator** — Growth/decline compared to previous period
+- **Career overview** — See your overall performance trajectory
+
+### Chart Elements
+
+| Element | Description |
+|---------|-------------|
+| **Bars** | Each bar represents total catalog plays for that period |
+| **Trend badge** | Green (+) for growth, red (-) for decline |
+| **Total plays** | Aggregate count for the selected date range |
+| **Footer stats** | Peak Day, Daily Avg, Data Points |
+
+### Why It Matters
+
+The artist-level plays chart helps you:
+- **Identify overall trends** — Is your career growing or declining?
+- **Measure campaign impact** — See how promotions affect total engagement
+- **Set benchmarks** — Use peak days as targets for future performance
+
+---
+
+## Most Played Tracks
+
+A scrollable card-style list showing your top-performing tracks across your entire catalog.
+
+### What It Shows
+
+- **Catalog-wide ranking** — Your best performers overall
+- **Up to 10 tracks** — In a scrollable container
+- **Play counts** — For the selected date range
+
+### Card Contents
+
+| Element | Description |
+|---------|-------------|
+| **Rank Badge** | Position (#1, #2, etc.) |
+| **Cover Art** | Circular thumbnail |
+| **Track Name** | Clickable link to track insights |
+| **Exclusive Icon** | Diamond badge for exclusive-only tracks |
+| **Artist Name(s)** | Includes collaborators if applicable |
+| **Play Count Pill** | Compact pill with play icon and count |
+
+### Reading Patterns
+
+| Pattern | What It Means | Action |
+|---------|---------------|--------|
+| **Single track dominates** | Hit-driven catalog | Diversify with more content |
+| **Even distribution** | Consistent quality | Continue current approach |
+| **Older tracks on top** | Legacy catalog | Push new releases harder |
+| **Recent tracks rising** | Fresh momentum | Capitalize on attention |
+
+<Tip>
+  Click any track to view its detailed insights page with engagement metrics, listen duration, and completion rates.
+</Tip>
+
+---
+
+## Top Devices
+
+Breakdown of device types used by your audience across all tracks.
+
+### Layout
+
+Vertical list of high-contrast cards:
+- **Left:** Device icon and name with percentage
+- **Right:** Total play count
+- **Bottom:** Color-coded progress bar
+
+### Why It Matters
+
+Understanding device preferences helps you:
+- **Optimize cover art** — High mobile usage means small thumbnails matter
+- **Context awareness** — Mobile = on-the-go, Desktop = focused listening
+- **Marketing decisions** — Target ads based on device preferences
+
+---
+
+## Top Platforms
+
+Breakdown of operating systems used by your audience.
+
+### Layout
+
+2x2 grid showing top 4 platforms:
+- **Header:** Platform icon and play count
+- **Body:** Platform name and percentage
+- **Footer:** Progress bar
+
+### Platform Types
+
+| Platform | Implication |
+|----------|-------------|
+| **Web** | Casual browsing, social media referrals |
+| **iOS** | Apple ecosystem users |
+| **Android** | Broader mobile market |
+| **Desktop OS** | Dedicated listening sessions |
+
+---
+
+## Top Locations
+
+Geographic distribution of your audience worldwide.
+
+### Layout
+
+- **Hero Section:** #1 location with large country flag
+- **Country name** and play count prominently displayed
+- **Grid:** Remaining top countries with flags and progress bars
+- Shows up to 10 locations
+
+### Strategic Uses
+
+| Use Case | How Location Data Helps |
+|----------|------------------------|
+| **Touring** | Know where your fans are concentrated |
+| **Release timing** | Drop content when your top regions are awake |
+| **Marketing** | Focus ad spend on engaged regions |
+| **Localization** | Consider content for specific markets |
+
+---
+
+## Top Listeners
+
+Your biggest fans across all your content.
+
+### Layout
+
+Scrollable card list showing:
+- **Rank badge** (#1, #2, etc.)
+- **Avatar** — Circular user avatar
+- **Username** — Links to user profile
+- **Percentage** — Share of your total plays
+- **Play count pill**
+
+### Building Fan Relationships
+
+Your top listeners represent your core fanbase:
+- **Recognize super fans** — Engage with users who love your work
+- **Find collaborators** — Discover potential partners
+- **Build community** — Nurture relationships with dedicated listeners
+- **Personalize outreach** — Tailor promotions to engaged users
+
+---
+
+## Artist vs Album vs Track Insights
+
+| Feature | Artist Insights | Album Insights | Track Insights |
+|---------|----------------|----------------|----------------|
+| **Scope** | Entire catalog | Single album | Single track |
+| **Engagement metrics** | ❌ | ❌ | ✓ |
+| **Most Played Tracks** | ✓ All tracks | ✓ Album tracks | ❌ |
+| **Device/Platform** | ✓ Aggregate | ✓ Aggregate | ✓ Per-track |
+| **Locations** | ✓ Aggregate | ✓ Aggregate | ✓ Per-track |
+| **Top Listeners** | ✓ All content | ✓ Album content | ✓ Per-track |
+
+---
+
+## Producer Tools Integration
+
+From the Artist Insights header, you can quickly navigate to:
+
+| Tool | Link |
+|------|------|
+| **Finances** | `/producer-dashboard/finances` |
+| **Activity** | `/producer-dashboard/activity` |
+| **Progress** | `/producer-dashboard/progress` |
+| **Dashboard** | `/producer-dashboard` |
+
+This provides seamless navigation between analytics and management tools.
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Track Insights" icon="music" href="/help/analytics/backstage-insights/track-insights">
+    View detailed per-track analytics with engagement.
+  </Card>
+  <Card title="Album Insights" icon="disc" href="/help/analytics/backstage-insights/album-insights">
+    View aggregate album analytics.
+  </Card>
+  <Card title="Producer Dashboard" icon="chart-bar" href="/help/producer-dashboard">
+    Access your career command center.
+  </Card>
+  <Card title="Charts Reference" icon="chart-pie" href="/help/analytics/reference/chart-types">
+    Visual guide to all chart types.
+  </Card>
+</CardGroup>

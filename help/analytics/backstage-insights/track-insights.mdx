@@ -1,0 +1,293 @@
+---
+audience: help
+title: "Track Insights | Backstage Insights"
+sidebarTitle: "Track Insights"
+description: "View detailed analytics for individual tracks including plays over time, engagement metrics, listen duration, completion rates, and audience data."
+keywords: ["track insights", "track analytics", "plays over time", "engagement metrics", "listen duration", "completion rate"]
+"og:title": "Track Insights - Backstage Insights | BeatPass"
+"og:description": "View detailed analytics for individual tracks on BeatPass."
+"twitter:card": "summary_large_image"
+---
+
+## Overview
+
+Track insights (`/backstage/tracks/{id}/insights`) provide the most detailed analytics available on BeatPass. They include engagement metrics unique to individual tracks, helping you understand exactly how listeners interact with your music.
+
+<Info>
+  **Access:** Right-click any track → Insights, or navigate directly to `/backstage/tracks/{trackId}/insights`
+</Info>
+
+---
+
+## Available Charts
+
+Track insights display the following analytics:
+
+| Chart | Description |
+|-------|-------------|
+| **Engagement Overview** | Quick summary of listener interaction metrics |
+| **Plays Over Time** | Interactive bar chart with trend indicator |
+| **Listen Duration Chart** | How long listeners engage over time |
+| **Completion Breakdown** | Distribution of how much listeners complete |
+| **Top Devices** | Device types (desktop, mobile, tablet) |
+| **Top Platforms** | Operating systems and platforms |
+| **Top Locations** | Geographic distribution with country flags |
+| **Top Listeners** | Your biggest fans for this track |
+
+---
+
+## Engagement Overview Section
+
+The first section you see on track insights, providing a quick summary of listener interaction.
+
+### Metrics Grid
+
+Four cards display key engagement statistics:
+
+| Metric | Icon | What It Shows | Progress Bar |
+|--------|------|---------------|--------------|
+| **Avg Listen Duration** | Clock (blue) | Average time listeners spend (e.g., "1:23") | % of track duration |
+| **Avg Completion Rate** | Checkmark (varies) | Percentage completed on average | Completion % |
+| **Total Listen Time** | Bar chart (purple) | Cumulative time across all plays (e.g., "4h 23m") | None |
+| **Completed Listens** | Trending up (green) | Plays reaching >80% completion | % of total plays |
+
+### Quality Badge
+
+The header displays an overall engagement rating:
+
+| Badge | Color | Condition |
+|-------|-------|-----------|
+| **High Engagement** | Green | ≥80% completion AND ≥80% of track listened |
+| **Good Engagement** | Blue | ≥60% completion AND ≥60% of track listened |
+| **Moderate Engagement** | Yellow | ≥40% completion OR ≥40% of track listened |
+| **Low Engagement** | Red | Below 40% on both metrics |
+
+### Retention Levels
+
+The **Avg Completion Rate** card shows a retention level badge:
+
+| Level | Completion Rate | Badge Color | Meaning |
+|-------|-----------------|-------------|---------|
+| **Excellent** | ≥80% | Green | Listeners love your track |
+| **Good** | 60-79% | Blue | Strong engagement |
+| **Fair** | 40-59% | Yellow | Room for improvement |
+| **Poor** | < 40% | Red | Needs attention |
+
+### Insight Messages
+
+The footer shows context-aware insights:
+
+| Insight | Icon | Condition | Message |
+|---------|------|-----------|---------|
+| **Excellent** | ✨ Sparkles (green) | ≥80% completion | "Most listeners complete your track. Strong content quality." |
+| **Good** | 💡 Lightbulb (blue) | 60-79% completion | "Listeners stay engaged. Analyze drop-offs to improve." |
+| **Fair** | 💡 Lightbulb (blue) | 40-59% completion | "Only X% complete. Review intro and middle sections." |
+| **Low (early drop)** | ⚠️ Warning (yellow) | < 40% AND early drop-off | "Listeners drop off early. Consider a more engaging intro." |
+| **Low (general)** | ⚠️ Warning (yellow) | < 40% general | "Low completion rates. Review track structure." |
+
+<Note>
+  Engagement tracking is being rolled out progressively. Tracks with plays before the feature launch may show "Engagement tracking coming soon."
+</Note>
+
+---
+
+## Plays Over Time
+
+An interactive bar chart displaying play counts over your selected date range.
+
+### Chart Elements
+
+- **Header:** Title, trend badge (growth/decline %), total plays
+- **Bars:** Each bar represents plays for a time period (day, week, or month)
+- **X-Axis:** Date labels shown intelligently based on data density
+- **Footer:** Peak Day, Daily Avg, Data Points
+
+### Trend Indicator
+
+| Badge Color | Meaning | Example |
+|-------------|---------|---------|
+| **Green (+)** | Plays increased | +36% more plays than before |
+| **Red (-)** | Plays decreased | -71% fewer plays than before |
+| **Orange (0%)** | No significant change | Stable performance |
+
+### Reading Patterns
+
+| Pattern | What It Means | Action |
+|---------|---------------|--------|
+| **Spike** | Viral moment or playlist placement | Identify cause and replicate |
+| **Steady bars** | Consistent organic engagement | Keep doing what works |
+| **Gradual increase** | Growing audience | Continue current strategy |
+| **Gradual decline** | Waning interest | Consider promotion |
+| **Sharp drop** | Sudden traffic loss | Investigate playlist removal |
+
+---
+
+## Listen Duration Chart
+
+An interactive bar chart showing how long listeners engage with your track over time.
+
+### Chart Elements
+
+- **Header:** Clock icon, trend badge, average duration
+- **Bars:** Each bar represents average listen duration for that day
+- **Bar Colors:** Color-coded by completion rate (green/amber/red)
+- **Footer:** Track length, best day, avg completion, total plays
+
+### Bar Colors
+
+| Color | Completion Rate | Meaning |
+|-------|----------------|---------|
+| **Green** | ≥70% completed | Excellent — listeners hear most of the track |
+| **Amber/Yellow** | 40-70% completed | Good — engaged but drop off before end |
+| **Red** | < 40% completed | Needs attention — listeners skip early |
+
+<Tip>
+  If you see mostly red bars, consider reviewing your track's intro. The first 15-30 seconds are critical for retention.
+</Tip>
+
+---
+
+## Completion Breakdown Chart
+
+A grid showing how much of your track listeners complete, broken into five categories.
+
+### Categories
+
+| Category | Icon | Range | What It Means |
+|----------|------|-------|---------------|
+| **Completed** | ✓ (green) | >80% | Heard almost all of your track |
+| **Mostly** | ◉ (blue) | 60-80% | Strong engagement, dropped near end |
+| **Half** | ○ (amber) | 40-60% | Heard about half the track |
+| **Partial** | ⊘ (orange) | 20-40% | Limited listen, lost interest |
+| **Skipped** | ⏩ (red) | < 20% | Skipped very early |
+
+### Quality Score
+
+A single number (0-100) summarizing overall listener retention:
+
+| Score | Rating | Meaning |
+|-------|--------|---------|
+| **80-100** | Excellent | Listeners love your track |
+| **60-79** | Good | Solid engagement with room to improve |
+| **40-59** | Fair | Many listeners drop off |
+| **20-39** | Needs Work | Most listeners leave early |
+| **0-19** | Poor | Almost everyone skips quickly |
+
+<Warning>
+  A high "Skipped" count often indicates issues with your intro. Consider starting with a stronger hook.
+</Warning>
+
+---
+
+## Top Devices
+
+Breakdown of device types used to access your track.
+
+### Layout
+
+Vertical list of high-contrast cards showing:
+- **Device icon and name** with percentage share
+- **Total play count** on the right
+- **Color-coded progress bar** at bottom
+
+### Device Types
+
+| Type | Description |
+|------|-------------|
+| **Desktop** | Computers and laptops |
+| **Mobile** | Smartphones |
+| **Tablet** | iPads and Android tablets |
+| **TV/Other** | Smart TVs, game consoles, wearables |
+
+---
+
+## Top Platforms
+
+Breakdown of operating systems and software environments.
+
+### Layout
+
+2x2 grid showing top 4 platforms:
+- **Header:** Platform icon and play count
+- **Body:** Platform name and percentage
+- **Footer:** Progress bar
+
+### Platform Types
+
+| Platform | Description |
+|----------|-------------|
+| **Web** | Desktop/mobile browsers |
+| **iOS** | iPhones and iPads |
+| **Android** | Android phones and tablets |
+| **Windows/macOS/Linux** | Desktop operating systems |
+
+---
+
+## Top Locations
+
+Geographic distribution of your listeners.
+
+### Layout
+
+- **Hero Section:** #1 location with large flag, play count, percentage
+- **Grid:** Remaining locations in 2-column format with flags and progress bars
+- Shows up to 10 locations
+
+### Why It Matters
+
+| Pattern | Action |
+|---------|--------|
+| **One dominant country** | Consider if this is your target market |
+| **Spread across countries** | International appeal—great for touring |
+| **Unexpected locations** | Research what's driving traffic there |
+
+---
+
+## Top Listeners
+
+Users who played this track most within the selected date range.
+
+### Layout
+
+Scrollable card list showing:
+- **Rank badge** (#1, #2, etc.)
+- **Avatar** — Circular user avatar
+- **Username** — Links to user profile
+- **Percentage** — Share of total plays
+- **Play count pill**
+
+### Special Entries
+
+- **Guest Listeners** — Aggregated plays from non-logged-in users
+- **Admin plays excluded** — Filtered out to show real engagement
+
+---
+
+## Data Freshness
+
+| Data Type | Update Frequency |
+|-----------|------------------|
+| Play counts | Near real-time |
+| Engagement metrics | Updated with each play |
+| Device/platform data | Near real-time |
+| Location data | Near real-time |
+| Top listeners | Near real-time |
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Engagement Metrics" icon="activity" href="/help/analytics/backstage-insights/engagement-metrics">
+    Deep dive into engagement tracking.
+  </Card>
+  <Card title="Album Insights" icon="disc" href="/help/analytics/backstage-insights/album-insights">
+    View aggregate album analytics.
+  </Card>
+  <Card title="Charts Reference" icon="chart-pie" href="/help/analytics/reference/chart-types">
+    Visual guide to all chart types.
+  </Card>
+  <Card title="Tracks Page" icon="disc" href="/help/producer-dashboard/tracks">
+    Manage your track catalog.
+  </Card>
+</CardGroup>
