@@ -68,11 +68,10 @@ All errors follow this structure:
 
 | Error | Code | Cause | Resolution |
 |-------|------|-------|------------|
-| `File too large` | 422 | Exceeds max file size | Reduce file size (WAV: 100MB, MP3: 50MB) |
-| `Invalid file format` | 422 | Unsupported audio format | Use WAV, MP3, or FLAC |
+| `File too large` | 422 | Exceeds max file size | Reduce file size (max ~250MB) |
+| `Invalid file format` | 422 | Unsupported audio format | Use WAV, FLAC, or AIFF (MP3 not accepted) |
 | `Duration too short` | 422 | Under 30 seconds | Upload longer track |
 | `Duration too long` | 422 | Over 15 minutes | Trim to under 15 minutes |
-| `Bitrate too low` | 422 | MP3 under 128kbps | Re-export at 320kbps |
 | `Title is required` | 422 | Missing track title | Provide title |
 | `BPM is required` | 422 | Missing BPM | Provide BPM value |
 | `Genre is required` | 422 | Missing genre | Select genre |
