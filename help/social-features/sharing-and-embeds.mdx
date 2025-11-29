@@ -1,0 +1,243 @@
+---
+title: "Sharing & Embeds"
+sidebarTitle: "Sharing & Embeds"
+description: "Share BeatPass content via links and embed players on your website. Learn how to share tracks, albums, producers, and playlists with anyone."
+keywords: ["share", "embed", "iframe", "link", "social media", "website"]
+"og:title": "Sharing & Embeds - BeatPass Help"
+"og:description": "Learn how to share BeatPass content and embed players on your website."
+---
+
+Share your favorite BeatPass content with anyone—whether through direct links, social media, or by embedding interactive players directly on your website or blog.
+
+---
+
+## Sharing Content
+
+### How to Share
+
+You can share tracks, albums, producers, and playlists from anywhere on BeatPass:
+
+<Steps>
+  <Step title="Find the Share option">
+    Click the **Share** button on a track or album page, or select **Share** from the **More** menu (three dots) on any content item.
+  </Step>
+  <Step title="Copy the link">
+    The share dialog opens showing the direct link. Click **Copy** to copy it to your clipboard.
+  </Step>
+  <Step title="Share via device">
+    On supported devices, you can use your device's native share menu to send directly to apps like Messages, WhatsApp, or social media.
+  </Step>
+</Steps>
+
+### What You Can Share
+
+| Content Type | Example URL |
+|--------------|-------------|
+| **Track** | beatpass.ca/track/123/fire-beat |
+| **Album** | beatpass.ca/album/456/producer-name/summer-pack |
+| **Producer** | beatpass.ca/artist/789/producer-name |
+| **Playlist** | beatpass.ca/playlist/101/my-favorites |
+
+### Share Dialog Features
+
+The share dialog includes:
+
+- **Content preview** — Shows the artwork and name of what you're sharing
+- **Copy button** — One-click copy to clipboard (button shows **Copied!** when successful)
+- **Close button** — Close the dialog when done
+
+<Tip>
+  On mobile devices and some desktop browsers, you may also see a native share option that lets you share directly to installed apps.
+</Tip>
+
+---
+
+## Embedding Players
+
+For tracks and albums, you can embed an interactive BeatPass player directly on your website.
+
+<Note>
+  Embed functionality is available for **tracks** and **albums** only. Producer profiles and playlists can be shared via links but cannot be embedded.
+</Note>
+
+### Getting the Embed Code
+
+<Steps>
+  <Step title="Open the Share dialog">
+    Click **Share** on any track or album page.
+  </Step>
+  <Step title="Switch to Embed tab">
+    Click the **Embed** tab in the share dialog.
+  </Step>
+  <Step title="Preview the embed">
+    On desktop, you'll see a live **Preview** of how the embedded player will look.
+  </Step>
+  <Step title="Copy the code">
+    The **Embed Code** section shows the iframe code. Click **Copy** to copy it to your clipboard.
+  </Step>
+</Steps>
+
+### Embed Code Format
+
+The embed code is a standard HTML iframe:
+
+```html
+<iframe 
+  width="100%" 
+  height="174" 
+  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+  src="https://beatpass.ca/track/123/track-name/embed">
+</iframe>
+```
+
+### Embed Dimensions
+
+| Content Type | Default Height | Width |
+|--------------|----------------|-------|
+| **Track** | 174px | 100% (responsive) |
+| **Album** | 384px | 100% (responsive) |
+
+<Tip>
+  Embeds are responsive by default. They'll adapt to fit their container width while maintaining the correct height.
+</Tip>
+
+### Embed Features
+
+Embedded players include:
+
+- **Playback controls** — Play, pause, and skip through the track
+- **Waveform display** — Visual representation of the audio
+- **Artwork** — Track or album cover art
+- **Producer link** — Links back to the producer's page on BeatPass
+- **Volume control** — Adjustable audio level
+
+---
+
+## Where to Use Embeds
+
+### Websites & Blogs
+
+Paste the embed code into your HTML where you want the player to appear:
+
+```html
+<article>
+  <h2>Check out this beat!</h2>
+  <iframe 
+    width="100%" 
+    height="174" 
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+    src="https://beatpass.ca/track/123/track-name/embed">
+  </iframe>
+  <p>This producer makes amazing beats!</p>
+</article>
+```
+
+### WordPress
+
+In WordPress, you can:
+
+1. Add a **Custom HTML** block in the block editor
+2. Paste the embed code
+3. Preview to see the player
+
+### Social Media
+
+Most social platforms don't support iframe embeds, but they will display a rich preview when you share a BeatPass link. The preview typically includes:
+
+- Track or album artwork
+- Title and producer name
+- Link to BeatPass
+
+---
+
+## Browser Compatibility
+
+Embedded players work in all modern browsers. A few notes:
+
+- **Autoplay** — Some browsers may require user interaction before playing audio. This is a browser security feature.
+- **Mobile** — Embeds are fully responsive and work on mobile devices
+- **HTTPS** — Your website should use HTTPS for best compatibility
+
+---
+
+## For Producers
+
+### Promoting Your Music
+
+Use sharing and embeds to promote your beats:
+
+<CardGroup cols={2}>
+  <Card title="Social Media" icon="share">
+    Share track links on Instagram, Twitter, TikTok, and other platforms to drive traffic.
+  </Card>
+  <Card title="Your Website" icon="globe">
+    Embed players on your personal website or portfolio for seamless playback.
+  </Card>
+  <Card title="Email Newsletters" icon="mail">
+    Include share links in your email marketing to showcase new releases.
+  </Card>
+  <Card title="YouTube Descriptions" icon="youtube">
+    Add BeatPass links in your YouTube video descriptions.
+  </Card>
+</CardGroup>
+
+### Best Practices
+
+- **Use descriptive text** around embeds to provide context
+- **Test embeds** on different devices to ensure they display correctly
+- **Use album embeds** to showcase multiple tracks at once
+- **Link to your producer page** in addition to individual tracks
+
+---
+
+## Sharing vs. Reposting
+
+| Feature | Share | Repost |
+|---------|-------|--------|
+| **Who sees it** | Anyone with the link | Your BeatPass followers |
+| **Where it appears** | External (social media, websites) | Your profile's **Reposts** tab |
+| **Requires account** | No | Yes |
+| **Use case** | Sharing outside BeatPass | Sharing within the community |
+
+Use **Share** to promote content externally. Use **[Repost](/help/social-features/reposts)** to share within the BeatPass community.
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Embed isn't displaying">
+    **Check these common issues:**
+    - Ensure the iframe code is correctly pasted in your HTML
+    - Verify your website allows iframes from external sources
+    - Check for Content Security Policy (CSP) restrictions on your site
+    - Try the embed in a simple HTML file to isolate the issue
+  </Accordion>
+  
+  <Accordion title="Audio isn't playing in embed">
+    **Possible causes:**
+    - Browser autoplay policies may require user interaction first (click play)
+    - The track may have been removed
+    - Check your browser's audio permissions
+  </Accordion>
+  
+  <Accordion title="Embed looks broken on mobile">
+    Embeds are responsive but some mobile layouts may need adjustment. Try:
+    - Ensuring the container has adequate width
+    - Removing any CSS that might constrain the iframe
+    - Testing on different devices
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Reposts" icon="repeat" href="/help/social-features/reposts">
+    Share content within the BeatPass community.
+  </Card>
+  <Card title="Producer Profiles" icon="user" href="/help/profiles/artist-profiles">
+    Customize your producer profile to make shared content more appealing.
+  </Card>
+</CardGroup>
