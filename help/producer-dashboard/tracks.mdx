@@ -1,0 +1,328 @@
+---
+audience: help
+title: "Tracks Page | Producer Dashboard"
+sidebarTitle: "Tracks"
+description: "Manage your track catalog, monitor growth metrics, explore collaboration insights, and discover recommended producers on the BeatPass Tracks page."
+keywords: ["tracks management", "track analytics", "growth meter", "collaboration insights", "producer recommendations", "catalog management"]
+"og:title": "Tracks Page - Producer Dashboard | BeatPass"
+"og:description": "Manage your track catalog and monitor growth metrics on BeatPass."
+"twitter:card": "summary_large_image"
+---
+
+## Overview
+
+The **Tracks Page** (`/producer-dashboard/tracks`) is your command center for managing your music catalog on BeatPass. It combines track management with powerful analytics, collaboration insights, and AI-powered producer recommendations.
+
+<Info>
+  **Access:** Navigate to `/producer-dashboard/tracks` or click **Tracks** in the Producer Dashboard sidebar.
+</Info>
+
+---
+
+## Page Layout
+
+The Tracks page is organized into five key sections:
+
+| Section | Purpose |
+|---------|---------|
+| **Page Header** | Artist identity, growth status, and the Growth Meter |
+| **Tracks Overview** | Key metrics cards (tracks, plays, growth, collaborators) |
+| **Tracks Table** | Sortable, filterable list of all your tracks |
+| **Collaboration Insights** | Your collaborative network and partnership analytics |
+| **Collaboration Recommendations** | AI-suggested producers for potential partnerships |
+
+---
+
+## Page Header
+
+The hero section provides instant visibility into your catalog status and growth trajectory.
+
+<Tabs>
+  <Tab title="Header Elements">
+    | Element | Description |
+    |---------|-------------|
+    | **Back Link** | "← Back to Dashboard" returns you to the main Producer Dashboard |
+    | **Artist Avatar** | Your circular profile image (desktop: large, mobile: inline with badge) |
+    | **My Tracks Badge** | Purple badge with disc icon identifying the page |
+    | **Artist Name** | Your producer/artist name prominently displayed |
+    | **Growth Status** | Dynamic message based on your current growth rate |
+    | **Info Button** | Opens the Growth Guide modal explaining metrics |
+    | **Growth Meter** | Visual gauge showing your current growth percentage |
+  </Tab>
+  
+  <Tab title="Growth Status Messages">
+    The status message adapts based on your growth rate:
+    
+    | Growth Rate | Title | Message |
+    |-------------|-------|---------|
+    | > +15% | Exceptional growth! | Your tracks are performing amazingly |
+    | +5% to +15% | Strong growth | Your tracks are gaining traction |
+    | 0% to +5% | Growing steadily | Positive momentum detected |
+    | -5% to 0% | Slight decline | Consider new releases or promotion |
+    | < -5% | Needs attention | Time to boost your catalog |
+  </Tab>
+  
+  <Tab title="Responsive Design">
+    **Desktop:**
+    - Full-size avatar on the left
+    - Complete growth meter with gauge on the right
+    
+    **Mobile:**
+    - Compact avatar inline with badge
+    - Smaller growth meter in bottom-right corner
+    - Abbreviated labels and condensed layout
+  </Tab>
+</Tabs>
+
+---
+
+## Growth Meter
+
+A unique visual gauge that shows your catalog's growth trajectory at a glance.
+
+### How It Works
+
+The Growth Meter is a semi-circular gauge with a needle indicator:
+
+| Zone | Color | Growth Rate | Label |
+|------|-------|-------------|-------|
+| **Left** | Red | Below -5% | Declining |
+| **Center-Left** | Amber/Yellow | -5% to 0% | Stable |
+| **Center-Right** | Light Green | 0% to +5% | Growing |
+| **Right** | Green | Above +5% | Strong |
+
+### Meter Components
+
+- **Arc Background** — Gray track showing the full range
+- **Gradient Arc** — Color gradient from red (left) to green (right)
+- **Needle** — Animated pointer showing your current position
+- **Percentage Value** — Large numeric display (e.g., "+7.5%")
+- **Status Label** — Word describing your growth zone
+
+<Tip>
+  The needle animates smoothly when your growth rate changes, providing satisfying visual feedback.
+</Tip>
+
+### Understanding Growth Rate
+
+Click the **ℹ️ Info button** in the header to open the Growth Guide modal, which explains:
+
+1. **What is Growth Rate?** — Your contribution value change over time
+2. **Reading the Meter** — Color zones and their meanings
+3. **Tips to Improve Growth** — Actionable strategies
+
+#### Growth Tips
+
+| Tip | Icon | Description |
+|-----|------|-------------|
+| **Upload regularly** | ⚡ Zap | Consistent uploads keep your audience engaged |
+| **Collaborate** | 👥 Users | Work with other artists to expand your reach |
+| **Optimize metadata** | 🏷️ Tag | Use relevant genres and tags for discoverability |
+| **Promote actively** | 📢 Megaphone | Share your tracks on social media |
+| **Engage fans** | 💬 Message | Respond to comments and build community |
+
+---
+
+## Tracks Overview
+
+A card grid displaying your key catalog metrics at a glance.
+
+### Metrics Displayed
+
+<Tabs>
+  <Tab title="Total Tracks">
+    **Icon:** Blue music note  
+    **Value:** Total number of tracks in your catalog  
+    **Sub-info:** Shows new tracks this month (e.g., "+5 this month") or "Your music library"
+  </Tab>
+  
+  <Tab title="Total Plays">
+    **Icon:** Green play button  
+    **Value:** Lifetime play count across all tracks  
+    **Sub-info:** Shows plays gained this period (e.g., "+1,234 this period")
+  </Tab>
+  
+  <Tab title="Growth Rate">
+    **Icon:** Purple trending up  
+    **Value:** Percentage change with sign (e.g., "+7.5%")  
+    **Sub-info:** "Positive trend", "Needs attention", or "Stable"
+  </Tab>
+  
+  <Tab title="Collaborators">
+    **Icon:** Amber users  
+    **Value:** Number of unique collaborators  
+    **Sub-info:** Shows collaborative tracks count (e.g., "12 collab tracks")
+  </Tab>
+</Tabs>
+
+---
+
+## Tracks Table
+
+The main data table for managing your entire track catalog.
+
+### Features
+
+| Feature | Description |
+|---------|-------------|
+| **Sortable Columns** | Click column headers to sort by name, plays, date, etc. |
+| **Filters** | Filter by genre, date range, collaboration status |
+| **Search** | Quick search by track name |
+| **Pagination** | Navigate through large catalogs |
+| **Bulk Actions** | Select multiple tracks for batch operations |
+
+### Track Row Information
+
+Each track row displays:
+- **Cover Art** — Thumbnail image
+- **Track Name** — Clickable title linking to the track page
+- **Artists** — All credited artists
+- **Plays** — Play count with trend indicator
+- **Date Added** — When the track was uploaded
+- **Actions** — Edit, view, delete buttons
+
+### Available Actions
+
+| Action | Description |
+|--------|-------------|
+| **Upload new track** | Opens the Backstage upload workflow |
+| **Edit track** | Modify metadata, cover art, and settings |
+| **Delete tracks** | Remove selected tracks (with confirmation) |
+| **View analytics** | Navigate to Backstage Insights for detailed per-track analytics |
+
+---
+
+## Collaboration Insights
+
+A dedicated section analyzing your collaborative network and partnerships.
+
+<Tabs>
+  <Tab title="Header">
+    **Title:** Collaboration Insights  
+    **Subtitle:** Network and partnerships  
+    **Icon:** Blue users icon  
+    **Action:** "View All" button opens full-screen modal with all collaborators
+  </Tab>
+  
+  <Tab title="Stats Cards">
+    Two metric cards in a 2-column grid:
+    
+    | Metric | Icon | Color | Description |
+    |--------|------|-------|-------------|
+    | **Collaborators** | Users | Blue | Unique artists you've worked with |
+    | **Collab Tracks** | Music | Purple | Total tracks featuring collaborations |
+  </Tab>
+  
+  <Tab title="Collaborators List">
+    A scrollable list of your collaborators showing:
+    
+    **For each collaborator:**
+    - **Avatar** — Circular profile image (links to their artist page)
+    - **Name** — Clickable to view collaborative tracks modal
+    - **Track Count** — Number of tracks together (e.g., "5 tracks")
+    - **Follow Button** — Follow/Unfollow toggle with loading state
+  </Tab>
+</Tabs>
+
+### Collaborative Tracks Modal
+
+Click on a collaborator name to open a modal showing all tracks you've created together:
+
+**Track Card Contents:**
+- **Play Button** — Start/pause track playback
+- **Cover Art** — Track image thumbnail
+- **Track Name** — Links to track page
+- **Album** — Album name with disc icon
+- **Duration** — Track length (MM:SS)
+- **Plays** — Play count with eye icon
+
+---
+
+## Collaboration Recommendations
+
+AI-powered suggestions for potential collaboration partners based on genre matching.
+
+### How Recommendations Work
+
+The system analyzes:
+1. **Your genre distribution** — Which genres you produce most
+2. **Musical style** — Track characteristics and metadata
+3. **Track performance** — Engagement patterns
+4. **Collaboration history** — Past partnership success
+
+### Artist Recommendation Cards
+
+Each recommended artist card displays:
+
+| Element | Description |
+|---------|-------------|
+| **Avatar** | Circular profile image with verified badge (if applicable) |
+| **Artist Name** | Clickable name linking to their profile |
+| **Track Count** | How many tracks they've uploaded |
+| **Match Score** | Percentage similarity to your style (e.g., "87% match") |
+| **Common Genres** | Shared genre tags in purple pills (up to 3) |
+| **View Profile** | Button opens their artist page in new tab |
+
+### Match Score
+
+| Score Range | Meaning |
+|-------------|---------|
+| **90%+ match** | Highly compatible styles |
+| **70-89% match** | Good potential fit |
+| **50-69% match** | Some overlap, worth exploring |
+
+---
+
+## Data Freshness
+
+| Data Type | Update Frequency |
+|-----------|------------------|
+| Track list | Real-time on upload/edit |
+| Play counts | Near real-time |
+| Growth rate | Calculated every 5 minutes |
+| Collaborators | Updated on track changes |
+| Recommendations | Refreshed daily |
+
+---
+
+## Troubleshooting
+
+<Accordion title="No Growth Rate Displayed">
+  If the Growth Meter shows "—" or "Calculating":
+  - You may not have enough historical data yet
+  - Wait 24-48 hours after uploading your first tracks
+  - Growth rate requires at least one week of data
+</Accordion>
+
+<Accordion title="Recommendations Empty">
+  If no collaboration recommendations appear:
+  - Upload more tracks with complete genre metadata
+  - Ensure your tracks have genres assigned
+  - System needs at least 3-5 tracks to analyze patterns
+</Accordion>
+
+<Accordion title="Collaborators Not Showing">
+  If your collaborations aren't appearing:
+  - Verify collaborator credits are saved on the track
+  - Check that collaborators have artist profiles on BeatPass
+  - Data may take a few minutes to update after track edits
+</Accordion>
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Albums Page" icon="disc" href="/help/producer-dashboard/albums">
+    Organize your tracks into albums.
+  </Card>
+  <Card title="Track Insights" icon="magnifying-glass-chart" href="/help/analytics/backstage-insights/track-insights">
+    View detailed analytics for individual tracks.
+  </Card>
+  <Card title="Activity Page" icon="activity" href="/help/producer-dashboard/activity">
+    View your upload history.
+  </Card>
+  <Card title="Finances" icon="wallet" href="/help/producer-dashboard/finances">
+    Manage earnings from your tracks.
+  </Card>
+</CardGroup>

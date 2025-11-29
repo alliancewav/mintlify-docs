@@ -1,0 +1,373 @@
+---
+audience: help
+title: "Finances Page | Producer Dashboard"
+sidebarTitle: "Finances"
+description: "Manage your earnings, view payment history, connect Stripe, and track your revenue streams on the BeatPass Finances page."
+keywords: ["producer earnings", "stripe connect", "payment history", "revenue tracking", "payouts", "finances dashboard"]
+"og:title": "Finances Page - Producer Dashboard | BeatPass"
+"og:description": "Manage your earnings and payment settings on BeatPass."
+"twitter:card": "summary_large_image"
+---
+
+## Overview
+
+The **Finances Page** (`/producer-dashboard/finances`) is your financial command center on BeatPass. Track earnings, manage payment settings, view transaction history, and monitor your revenue streams.
+
+<Info>
+  **Access:** Navigate to `/producer-dashboard/finances` or click **Finances** in the Producer Dashboard sidebar.
+</Info>
+
+---
+
+## Page Layout
+
+The Finances page is organized based on your Stripe connection status:
+
+### For Connected Accounts
+
+| Section | Purpose |
+|---------|---------|
+| **Page Header** | Artist identity, account status, lifetime earnings |
+| **Balance Overview** | Current balances across different states |
+| **Transaction History** | Recent payments and payouts |
+| **Payout Settings** | Bank account and payout schedule |
+
+### For New Users (Not Connected)
+
+| Section | Purpose |
+|---------|---------|
+| **Page Header** | Artist identity with "Setup Needed" status |
+| **Onboarding Card** | Stripe Connect setup flow |
+| **Benefits Overview** | Why you should connect Stripe |
+
+---
+
+## Page Header
+
+The hero section provides instant visibility into your financial status.
+
+<Tabs>
+  <Tab title="Header Elements">
+    | Element | Description |
+    |---------|-------------|
+    | **Back Link** | "← Back to Dashboard" returns you to the main Producer Dashboard |
+    | **Artist Avatar** | Your circular profile image with blur background effect |
+    | **Producer Finances Badge** | Green badge with wallet icon identifying the page |
+    | **Artist Name** | Your producer/artist name prominently displayed |
+    | **Status Indicator** | Account status badge (Active/Setup Needed) |
+    | **Lifetime Earnings** | Large card showing total earnings to date |
+  </Tab>
+  
+  <Tab title="Status Indicators">
+    **Active (Connected):**
+    - Green checkmark badge
+    - "Payments Active" label
+    - "Connected to Stripe" subtitle
+    
+    **Setup Needed:**
+    - Amber warning badge
+    - "Setup Needed" label
+    - "Complete Stripe onboarding" subtitle
+  </Tab>
+  
+  <Tab title="Lifetime Earnings Card">
+    **Desktop (right side of header):**
+    - Sparkles icon in circular badge
+    - "Lifetime Earnings" label
+    - Large currency value (formatted with commas)
+    - "All-time" period indicator
+    
+    **Mobile (compact top-right):**
+    - Smaller card with same information
+    - Condensed layout
+  </Tab>
+</Tabs>
+
+---
+
+## Stripe Connect Onboarding
+
+If you haven't connected your Stripe account, you'll see the onboarding flow.
+
+### Why Connect Stripe?
+
+<CardGroup cols={2}>
+  <Card title="Receive Payments" icon="credit-card">
+    Get paid for track sales and subscription revenue share directly to your bank account.
+  </Card>
+  <Card title="Track Earnings" icon="chart-line">
+    View detailed transaction history and balance breakdowns in real-time.
+  </Card>
+  <Card title="Automatic Payouts" icon="clock">
+    Set up automatic payouts on your preferred schedule (daily, weekly, monthly).
+  </Card>
+  <Card title="Tax Documents" icon="file-text">
+    Access tax forms and financial records for your music income.
+  </Card>
+</CardGroup>
+
+### Onboarding Steps
+
+<Steps>
+  <Step title="Click Connect">
+    Click the **"Connect with Stripe"** button on the Finances page.
+  </Step>
+  
+  <Step title="Create/Sign In">
+    You'll be redirected to Stripe:
+    - Create a new Stripe account, or
+    - Sign in to your existing Stripe account
+  </Step>
+  
+  <Step title="Verify Identity">
+    Complete Stripe's identity verification:
+    - Provide personal information
+    - Upload ID documents if required
+    - Verify your phone number
+  </Step>
+  
+  <Step title="Add Bank Account">
+    Connect your bank account for payouts:
+    - Enter routing and account numbers, or
+    - Use instant bank connection via Plaid
+  </Step>
+  
+  <Step title="Complete Setup">
+    Review and confirm your settings:
+    - Payout schedule preference
+    - Business type (individual/company)
+    - Tax information
+  </Step>
+</Steps>
+
+<Info>
+  The onboarding process typically takes 5-10 minutes. You may need to wait 1-2 business days for account verification to complete.
+</Info>
+
+---
+
+## Balance Overview
+
+Once connected, view your current financial status across different balance states.
+
+### Balance Cards
+
+<Tabs>
+  <Tab title="Available Balance">
+    **Icon:** Wallet (green)  
+    **Description:** Funds ready for immediate payout
+    
+    This is money that has cleared and can be transferred to your bank account at any time.
+  </Tab>
+  
+  <Tab title="Pending Balance">
+    **Icon:** Clock (amber)  
+    **Description:** Funds not yet available
+    
+    Recent payments that are still being processed. Typically becomes available in 2-7 days depending on payment method.
+  </Tab>
+  
+  <Tab title="In Transit">
+    **Icon:** Truck (blue)  
+    **Description:** Funds being transferred to your bank
+    
+    Money that has been initiated for payout but hasn't arrived in your bank yet. Usually 1-3 business days.
+  </Tab>
+  
+  <Tab title="Lifetime Volume">
+    **Icon:** TrendingUp (purple)  
+    **Description:** Total earnings since joining
+    
+    Cumulative amount you've earned on BeatPass, including all track sales and subscription payouts.
+  </Tab>
+</Tabs>
+
+---
+
+## Transaction History
+
+View your recent financial activity in a chronological list.
+
+### Transaction Types
+
+| Type | Icon | Color | Description |
+|------|------|-------|-------------|
+| **Track Sale** | Music | Blue | Direct purchase of your track |
+| **Subscription Payout** | Repeat | Purple | Your share of subscription revenue |
+| **Payout** | ArrowUpRight | Green | Transfer to your bank account |
+| **Refund** | RotateCcw | Red | Returned payment |
+
+### Transaction Details
+
+Each transaction shows:
+- **Type icon** — Visual indicator of transaction type
+- **Description** — What the transaction was for
+- **Date/Time** — When it occurred
+- **Amount** — Positive (income) or negative (payout/refund)
+- **Status** — Completed, Pending, or Failed
+
+### Filtering Transactions
+
+| Filter | Options |
+|--------|---------|
+| **Type** | All, Sales, Payouts, Refunds |
+| **Date Range** | Last 7 days, 30 days, 90 days, All time |
+| **Status** | All, Completed, Pending |
+
+---
+
+## Revenue Streams
+
+BeatPass offers two main ways to earn money from your music:
+
+### Track Sales
+
+Direct purchases of your tracks by users.
+
+| Aspect | Details |
+|--------|---------|
+| **Pricing** | You set the price per track |
+| **Commission** | Platform takes a percentage |
+| **Payout** | Added to your available balance after processing |
+| **Licensing** | Buyers receive a license certificate |
+
+### Subscription Revenue Share
+
+Your portion of the monthly subscription pool.
+
+| Aspect | Details |
+|--------|---------|
+| **Calculation** | Based on your contribution value |
+| **Frequency** | Distributed monthly |
+| **Factors** | Play count, engagement, catalog size |
+
+<Card title="Earnings Formula" icon="calculator" href="/help/earnings/formula">
+  Learn exactly how subscription revenue is calculated and distributed.
+</Card>
+
+---
+
+## Payout Settings
+
+Configure how and when you receive your earnings.
+
+### Payout Schedule Options
+
+| Schedule | Description |
+|----------|-------------|
+| **Daily** | Automatic payout every day (if balance > minimum) |
+| **Weekly** | Automatic payout every Monday |
+| **Monthly** | Automatic payout on the 1st of each month |
+| **Manual** | You initiate payouts when desired |
+
+### Minimum Payout
+
+- **Standard:** $10 USD (or equivalent)
+- Below minimum: Funds accumulate until threshold is met
+
+### Instant Payouts
+
+If enabled by your bank:
+- Funds arrive within minutes
+- Small fee applies (typically 1%)
+- Subject to daily limits
+
+---
+
+## Tax Information
+
+BeatPass provides tools to help with tax reporting.
+
+### Tax Documents Available
+
+| Document | When Generated | Description |
+|----------|----------------|-------------|
+| **1099-K** | January (US) | Annual income summary for US taxpayers |
+| **Transaction Export** | On-demand | CSV export of all transactions |
+| **Payout Report** | On-demand | Summary of payouts received |
+
+### Accessing Tax Documents
+
+1. Go to **Finances** page
+2. Click **Tax Documents** section
+3. Download available forms
+
+<Info>
+  Tax documents are generated by Stripe and available in their dashboard. BeatPass provides links to access them directly.
+</Info>
+
+---
+
+## Security
+
+Your financial data is protected by:
+
+| Feature | Description |
+|---------|-------------|
+| **Stripe Security** | PCI-DSS Level 1 compliant payment processing |
+| **Encryption** | All data encrypted in transit and at rest |
+| **2FA** | Two-factor authentication available on Stripe |
+| **Audit Logs** | Complete transaction history maintained |
+
+<Warning>
+  Never share your Stripe login credentials. BeatPass staff will never ask for your Stripe password.
+</Warning>
+
+---
+
+## Common Issues
+
+<Accordion title="My balance shows $0 but I have sales">
+  **Possible causes:**
+  - Payments are still pending (2-7 day processing)
+  - Account verification incomplete
+  - Check the Pending balance card
+  
+  **Solution:** Wait for payment processing or complete any pending verification steps in Stripe.
+</Accordion>
+
+<Accordion title="Payout failed">
+  **Possible causes:**
+  - Bank account details incorrect
+  - Account closed or restricted
+  - Verification expired
+  
+  **Solution:** Update your bank account information in Stripe settings.
+</Accordion>
+
+<Accordion title="Can't connect Stripe">
+  **Possible causes:**
+  - Country not supported
+  - Identity verification failed
+  - Duplicate account
+  
+  **Solution:** Contact support with your country and any error messages received.
+</Accordion>
+
+<Accordion title="Transaction missing">
+  **Possible causes:**
+  - Still processing (may take a few hours)
+  - Filtered out by current view settings
+  - Refunded or disputed
+  
+  **Solution:** Clear filters and check all transaction types. Allow 24 hours for processing.
+</Accordion>
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Dashboard Home" icon="chart-bar" href="/help/producer-dashboard">
+    Return to dashboard overview.
+  </Card>
+  <Card title="Earnings Formula" icon="calculator" href="/help/earnings/formula">
+    Understand how earnings are calculated.
+  </Card>
+  <Card title="Activity Page" icon="activity" href="/help/producer-dashboard/activity">
+    Track performance and downloads.
+  </Card>
+  <Card title="Pricing Your Tracks" icon="tag" href="/help/licensing-commerce/pricing">
+    Set competitive prices for your music.
+  </Card>
+</CardGroup>

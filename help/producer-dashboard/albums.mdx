@@ -1,0 +1,281 @@
+---
+audience: help
+title: "Albums Page | Producer Dashboard"
+sidebarTitle: "Albums"
+description: "Manage your album catalog, view album analytics, organize your music collections, and track album performance on the BeatPass Albums page."
+keywords: ["albums management", "album analytics", "collections", "catalog management", "album uploads", "producer albums"]
+"og:title": "Albums Page - Producer Dashboard | BeatPass"
+"og:description": "Manage your album catalog and track album performance on BeatPass."
+"twitter:card": "summary_large_image"
+---
+
+## Overview
+
+The **Albums Page** (`/producer-dashboard/albums`) is your hub for managing music collections on BeatPass. Create albums, organize tracks, and monitor album-level performance metrics.
+
+<Info>
+  **Access:** Navigate to `/producer-dashboard/albums` or click **Albums** in the Producer Dashboard sidebar.
+</Info>
+
+---
+
+## Page Layout
+
+| Section | Purpose |
+|---------|---------|
+| **Page Header** | Artist identity, album count, and quick stats |
+| **Albums Overview** | Key metrics cards (total albums, total tracks, total plays) |
+| **Albums Table** | Sortable, filterable list of all your albums |
+| **Quick Actions** | Create new album, upload tracks to album |
+
+---
+
+## Page Header
+
+The hero section provides instant visibility into your album catalog status.
+
+<Tabs>
+  <Tab title="Header Elements">
+    | Element | Description |
+    |---------|-------------|
+    | **Back Link** | "← Back to Dashboard" returns you to the main Producer Dashboard |
+    | **Artist Avatar** | Your circular profile image with blur background effect |
+    | **My Albums Badge** | Pink badge with disc icon identifying the page |
+    | **Artist Name** | Your producer/artist name prominently displayed |
+    | **Subtitle** | Description of albums functionality |
+    | **Album Stats** | Quick stat cards showing album metrics |
+  </Tab>
+  
+  <Tab title="Responsive Design">
+    **Desktop:**
+    - Full-size avatar on the left
+    - Complete stats panel on the right
+    
+    **Mobile:**
+    - Compact avatar inline with badge
+    - Stats in horizontal scroll or stacked layout
+    - Condensed typography
+  </Tab>
+</Tabs>
+
+---
+
+## Albums Overview
+
+A card grid displaying your key album metrics at a glance.
+
+### Metrics Displayed
+
+<Tabs>
+  <Tab title="Total Albums">
+    **Icon:** Pink disc  
+    **Value:** Total number of albums in your catalog  
+    **Sub-info:** Shows new albums this month or "Your music collections"
+  </Tab>
+  
+  <Tab title="Total Album Tracks">
+    **Icon:** Blue music note  
+    **Value:** Total tracks across all albums  
+    **Sub-info:** Average tracks per album
+  </Tab>
+  
+  <Tab title="Total Album Plays">
+    **Icon:** Green play button  
+    **Value:** Combined plays across all album tracks  
+    **Sub-info:** Growth percentage vs previous period
+  </Tab>
+  
+  <Tab title="Top Album">
+    **Icon:** Trophy  
+    **Value:** Name of your best-performing album  
+    **Sub-info:** Play count for that album
+  </Tab>
+</Tabs>
+
+---
+
+## Albums Table
+
+The main content area displays a data table of all your albums.
+
+### Table Columns
+
+| Column | Description | Sortable |
+|--------|-------------|----------|
+| **Cover** | Album artwork thumbnail | No |
+| **Album Name** | Title of the album (clickable to edit) | Yes |
+| **Track Count** | Number of tracks in the album | Yes |
+| **Total Plays** | Combined plays across album tracks | Yes |
+| **Release Date** | When the album was published | Yes |
+| **Created** | When you created the album on BeatPass | Yes |
+| **Actions** | Edit, view insights, delete buttons | No |
+
+### Table Features
+
+<Tabs>
+  <Tab title="Sorting">
+    Click any sortable column header to sort:
+    - First click: Ascending (A→Z, 0→9, oldest first)
+    - Second click: Descending (Z→A, 9→0, newest first)
+    - Third click: Reset to default
+  </Tab>
+  
+  <Tab title="Filtering">
+    Use the search bar to filter albums:
+    - Search by album name
+    - Results update instantly as you type
+    - Clear button resets the filter
+  </Tab>
+  
+  <Tab title="Pagination">
+    For large catalogs:
+    - Default: 25 albums per page
+    - Page navigation at bottom
+    - "Showing X of Y albums" counter
+  </Tab>
+  
+  <Tab title="Actions">
+    Each album row has action buttons:
+    
+    | Button | Icon | Action |
+    |--------|------|--------|
+    | **Edit** | Pencil | Open album editor modal |
+    | **Insights** | Bar chart | Go to album's Backstage Insights page |
+    | **Delete** | Trash | Remove album (with confirmation) |
+  </Tab>
+</Tabs>
+
+---
+
+## Creating Albums
+
+### Upload New Album Button
+
+Click **"Upload Album"** in the top-right to create a new album.
+
+### Album Creation Flow
+
+<Steps>
+  <Step title="Basic Info">
+    Enter album details:
+    - **Album Title** — Required, the name of your collection
+    - **Release Date** — When the album should be marked as released
+    - **Description** — Optional text describing the album
+  </Step>
+  
+  <Step title="Cover Art">
+    Upload album artwork:
+    - **Minimum size:** 500x500 pixels
+    - **Recommended:** 1500x1500 pixels for best quality
+    - **Formats:** JPG, PNG, WEBP
+    - Square aspect ratio enforced
+  </Step>
+  
+  <Step title="Add Tracks">
+    Add tracks to your album:
+    - Select from your existing tracks
+    - Or upload new tracks directly
+    - Drag to reorder track sequence
+    - Set track numbers
+  </Step>
+  
+  <Step title="Publish">
+    Review and publish:
+    - Preview album layout
+    - Confirm track order
+    - Set visibility (public/private)
+    - Click **Publish** to make it live
+  </Step>
+</Steps>
+
+---
+
+## Editing Albums
+
+Click the **Edit** button on any album row to modify it.
+
+### Editable Fields
+
+| Field | Description |
+|-------|-------------|
+| **Title** | Album name |
+| **Description** | Album description/bio |
+| **Cover Art** | Replace album artwork |
+| **Release Date** | Update release date |
+| **Track List** | Add, remove, or reorder tracks |
+| **Visibility** | Public or private |
+
+### Managing Tracks in Albums
+
+In the edit modal, you can:
+- **Add tracks** — Search and add from your catalog
+- **Remove tracks** — Click X on any track to remove
+- **Reorder tracks** — Drag and drop to change sequence
+- **Set track numbers** — Auto-number or custom numbering
+
+<Warning>
+  Removing a track from an album does **not** delete the track itself. The track remains in your catalog as a standalone single.
+</Warning>
+
+---
+
+## Deleting Albums
+
+To delete an album:
+
+1. Click the **Delete** (trash) button on the album row
+2. Confirm the deletion in the modal
+3. The album is permanently removed
+
+<Warning>
+  **Deleting an album is permanent** and cannot be undone. However, tracks in the album are **not** deleted—they remain as standalone tracks in your catalog.
+</Warning>
+
+---
+
+## Best Practices
+
+<Accordion title="Group related tracks">
+  Create albums for:
+  - EP releases (4-6 tracks)
+  - Full-length albums (8-15 tracks)
+  - Compilation packs (related beats)
+  - Seasonal collections
+</Accordion>
+
+<Accordion title="Use consistent artwork">
+  - Maintain visual brand identity
+  - Use readable text on covers
+  - Optimize for both large and thumbnail display
+</Accordion>
+
+<Accordion title="Optimize track order">
+  - Lead with your strongest track
+  - Create flow and energy progression
+  - End with a memorable closer
+</Accordion>
+
+<Accordion title="Write compelling descriptions">
+  - Describe the album's theme or mood
+  - Mention key instruments or genres
+  - Include relevant keywords for search
+</Accordion>
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Album Insights" icon="magnifying-glass-chart" href="/help/analytics/backstage-insights/album-insights">
+    View detailed analytics for individual albums.
+  </Card>
+  <Card title="Tracks Page" icon="disc" href="/help/producer-dashboard/tracks">
+    Manage individual tracks.
+  </Card>
+  <Card title="Backstage Insights" icon="magnifying-glass-chart" href="/help/analytics/backstage-insights">
+    Overview of content analytics.
+  </Card>
+  <Card title="Dashboard Home" icon="house" href="/help/producer-dashboard/home">
+    Return to dashboard overview.
+  </Card>
+</CardGroup>

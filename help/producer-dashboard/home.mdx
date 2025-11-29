@@ -1,0 +1,165 @@
+---
+audience: help
+title: "Dashboard Home | Producer Dashboard"
+sidebarTitle: "Home"
+description: "Navigate the Producer Dashboard home page with personalized welcome, quick stats, and POS-style navigation to all producer tools."
+keywords: ["dashboard home", "producer overview", "quick stats", "navigation"]
+"og:title": "Dashboard Home - Producer Dashboard | BeatPass"
+"og:description": "Your producer command center starting point."
+"twitter:card": "summary_large_image"
+---
+
+## Overview
+
+The Home page (`/producer-dashboard`) serves as your command center, providing a personalized welcome, quick stats overview, and POS-style navigation to all producer tools.
+
+<Info>
+  **Access:** Navigate to `/producer-dashboard` or click **Producer Dashboard** in the navigation menu.
+</Info>
+
+---
+
+## Page Layout
+
+The Home page is organized into three main sections:
+
+| Section | Purpose |
+|---------|---------|
+| **Welcome Header** | Personalized greeting with level and XP display |
+| **Quick Navigation Grid** | POS-style card grid for instant tool access |
+| **Quick Stats Overview** | Snapshot of key metrics at a glance |
+
+---
+
+## Welcome Header
+
+The header section provides a personalized greeting and your producer status.
+
+<Tabs>
+  <Tab title="Header Elements">
+    | Element | Description |
+    |---------|-------------|
+    | **Date Display** | Current day and date |
+    | **Time-Based Greeting** | "Good morning/afternoon/evening" based on time of day |
+    | **Artist/User Name** | Your producer name prominently displayed |
+    | **Welcome Message** | "Welcome to your creative command center" |
+    | **Level Badge** | Your current producer level with title |
+    | **XP Display** | Total experience points earned |
+  </Tab>
+  
+  <Tab title="Visual Design">
+    **Dynamic Background:**
+    - Your avatar image with blur effect
+    - Multi-layered gradient overlays for readability
+    - Responsive layout (compact on mobile, full on desktop)
+    
+    **Color Scheme:**
+    - Primary gradients matching your profile theme
+    - High contrast text for accessibility
+    - Subtle shadows for depth
+  </Tab>
+</Tabs>
+
+---
+
+## Quick Navigation Grid
+
+A POS-style card grid for instant access to producer tools.
+
+### Navigation Cards
+
+| Card | Icon Color | Links To | Description |
+|------|------------|----------|-------------|
+| **Progress** | Purple | `/producer-dashboard/progress` | Track XP and achievements |
+| **Tracks** | Blue | `/producer-dashboard/tracks` | Manage your catalog |
+| **Albums** | Pink | `/producer-dashboard/albums` | Organize collections |
+| **Activity** | Cyan | `/producer-dashboard/activity` | View contribution history |
+| **Leaderboards** | Amber | `/producer-dashboard/leaderboards` | See your rankings |
+| **Finances** | Emerald | `/producer-dashboard/finances` | Manage earnings |
+
+### Card Design
+
+Each card features:
+- **Color-coded icon** — Matching the page theme
+- **Page title** — Clear identification
+- **Brief description** — Desktop only, explains the page purpose
+- **Hover effects** — Directional arrow indicator
+- **Touch-optimized** — Mobile-friendly tap targets
+
+### Responsive Grid
+
+| Screen Size | Columns |
+|-------------|---------|
+| Mobile | 2 columns |
+| Tablet | 3 columns |
+| Desktop | 4 columns |
+
+---
+
+## Quick Stats Overview
+
+A snapshot of your key metrics at a glance.
+
+### Stats Displayed
+
+| Stat | Icon | Color | Description |
+|------|------|-------|-------------|
+| **Tracks** | Music | Blue | Total tracks in catalog |
+| **Total Plays** | Play | Cyan | Lifetime play count |
+| **Albums** | Disc | Pink | Album collections count |
+| **Downloads** | Download | Emerald | Total track downloads |
+| **Followers** | Users | Violet | Artist followers count |
+| **Level** | Sparkles | Amber | Current producer level + XP |
+| **Growth** | TrendingUp | Green | Growth rate percentage |
+| **View Profile** | Users | Muted | Link to your artist page |
+
+### Card Design
+
+Each stat card contains:
+- **High-contrast backgrounds** — `bg-gray-50` / `dark:bg-white/5`
+- **Color-coded icons** — Matching each metric
+- **Large value display** — Primary number prominently shown
+- **Optional sub-info** — Additional context where relevant
+
+### Responsive Layout
+
+| Screen Size | Layout |
+|-------------|--------|
+| Mobile | 2 columns |
+| Tablet | 3 columns |
+| Desktop | 4 columns |
+
+---
+
+## Usage Tips
+
+<Tip>
+  The Home page is your starting point—use it to quickly check your stats and navigate to specific tools without hunting through menus.
+</Tip>
+
+<Tip>
+  The time-based greeting updates throughout the day, giving you a fresh feel each time you visit.
+</Tip>
+
+<Tip>
+  On mobile, swipe horizontally on the stats section to see all metrics without scrolling vertically.
+</Tip>
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Activity Page" icon="activity" href="/help/producer-dashboard/activity">
+    Track your contribution history and downloads.
+  </Card>
+  <Card title="Tracks Page" icon="disc" href="/help/producer-dashboard/tracks">
+    Manage your track catalog.
+  </Card>
+  <Card title="Progress Page" icon="chart-line" href="/help/gamification/progress-page">
+    View XP and achievements.
+  </Card>
+  <Card title="Leaderboards" icon="trophy" href="/help/gamification/leaderboards">
+    See how you rank.
+  </Card>
+</CardGroup>
