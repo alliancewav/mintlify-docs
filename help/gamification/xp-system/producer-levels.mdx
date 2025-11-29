@@ -1,0 +1,137 @@
+---
+title: "Producer Levels"
+sidebarTitle: "Producer Levels"
+description: "Complete guide to BeatPass producer levels. See all level titles, XP thresholds, and the exponential progression formula."
+keywords: ["levels", "producer levels", "titles", "XP", "progression", "Legendary Producer"]
+---
+
+## Level System Overview
+
+As you earn XP, you progress through producer levels from 1 to 100. Each level comes with a title that reflects your experience on the platform.
+
+**Maximum Level:** 100 (Legendary Producer)
+
+---
+
+## Level Titles
+
+Your title changes as you level up:
+
+| Level Range | Title | Badge |
+|-------------|-------|-------|
+| 1-2 | Novice Producer | novice |
+| 3-4 | Apprentice Producer | apprentice |
+| 5-6 | Intermediate Producer | intermediate |
+| 7-9 | Skilled Producer | skilled |
+| 10-14 | Experienced Producer | experienced |
+| 15-19 | Advanced Producer | advanced |
+| 20-29 | Professional Producer | professional |
+| 30-39 | Expert Producer | expert |
+| 40-49 | Master Producer | master |
+| 50-100 | Legendary Producer | legendary |
+
+---
+
+## XP Requirements
+
+BeatPass uses an **exponential XP curve**, meaning each level requires progressively more XP:
+
+```
+XP Required = 100 × ((Level - 1) ^ 1.5)
+```
+
+### Level Thresholds Table
+
+| Level | Title | XP Required | XP to Next |
+|-------|-------|-------------|------------|
+| 1 | Novice Producer | 0 | 100 |
+| 2 | Novice Producer | 100 | 183 |
+| 3 | Apprentice Producer | 283 | 237 |
+| 4 | Apprentice Producer | 520 | 280 |
+| 5 | Intermediate Producer | 800 | 318 |
+| 6 | Intermediate Producer | 1,118 | 352 |
+| 7 | Skilled Producer | 1,470 | 382 |
+| 8 | Skilled Producer | 1,852 | 411 |
+| 9 | Skilled Producer | 2,263 | 437 |
+| 10 | Experienced Producer | 2,700 | 462 |
+| 15 | Advanced Producer | 5,423 | 583 |
+| 20 | Professional Producer | 8,718 | 686 |
+| 25 | Professional Producer | 12,500 | 778 |
+| 30 | Expert Producer | 16,732 | 862 |
+| 40 | Master Producer | 25,298 | 1,019 |
+| 50 | Legendary Producer | 34,643 | 1,158 |
+| 75 | Legendary Producer | 63,738 | 1,501 |
+| 100 | Legendary Producer | 98,500 | — |
+
+<Note>
+  At level 100, you've reached the maximum. XP continues to accumulate but you won't level up further.
+</Note>
+
+---
+
+## Viewing Your Level
+
+### Progress Page
+
+Navigate to `/producer-dashboard/progress` to see:
+
+- **Current Level** (1-100)
+- **Level Title** (Novice → Legendary)
+- **Total XP** earned
+- **Progress Ring** — Visual progress toward next level
+- **XP to Next Level** — Exact points needed
+
+### Profile Display
+
+Your level and title appear on:
+
+- Your artist profile page
+- Leaderboard entries
+- Comment threads
+- Track/album credits
+
+---
+
+## Level-Up Rewards
+
+When you level up:
+
+1. **Title updates** — Your producer title changes at threshold levels
+2. **Badge unlocks** — New badge tier at milestone levels
+3. **Notification** — Real-time notification celebrates your progress
+4. **Profile update** — Your public profile reflects the new level
+
+---
+
+## Tips for Leveling Up
+
+<Steps>
+  <Step title="Upload consistently">
+    Each track upload = +100 XP. Regular uploads add up quickly.
+  </Step>
+  <Step title="Complete all metadata">
+    +50 XP per track with full metadata (BPM, key, scale, tags, description).
+  </Step>
+  <Step title="Collaborate">
+    +25 XP per collaborative track. Work with other producers.
+  </Step>
+  <Step title="Chase achievements">
+    Achievements award 150-6,000+ XP each. Focus on unlocking them.
+  </Step>
+  <Step title="Promote your tracks">
+    More plays = more XP (+1 XP per play).
+  </Step>
+</Steps>
+
+---
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Earning XP" icon="star" href="/help/gamification/xp-system/earning-xp">
+    Learn all XP sources and amounts.
+  </Card>
+  <Card title="Achievements" icon="trophy" href="/help/gamification/achievements">
+    Unlock achievements for major XP boosts.
+  </Card>
+</CardGroup>

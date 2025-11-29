@@ -1,0 +1,135 @@
+---
+title: "Leaderboard Timeframes"
+sidebarTitle: "Timeframes"
+description: "Understanding BeatPass leaderboard time periods including all-time, weekly, monthly, and seasonal filters."
+keywords: ["leaderboard", "timeframes", "periods", "all-time", "weekly", "monthly", "seasonal"]
+---
+
+## Available Time Periods
+
+BeatPass leaderboards support multiple time filters to show rankings for different periods:
+
+| Period | Code | Description |
+|--------|------|-------------|
+| **All-Time** | `all-time` | Cumulative data since account creation |
+| **Last 7 Days** | `7d` | Rolling 7-day window |
+| **Last 30 Days** | `30d` | Rolling 30-day window |
+| **2024 H2** | `2024-H2` | July 1, 2024 – December 31, 2024 |
+| **2025 H1** | `2025-H1` | January 1, 2025 – June 30, 2025 |
+
+---
+
+## How Timeframes Work
+
+### All-Time Rankings
+
+- Includes all activity since your account was created
+- Best for measuring overall career performance
+- Shows your complete track record on the platform
+
+### Rolling Windows (7d, 30d)
+
+- Counts only activity within the specified window
+- Updates as time progresses
+- Great for measuring recent momentum and activity bursts
+
+### Seasonal Periods (H1, H2)
+
+- Fixed 6-month periods
+- H1 = January – June
+- H2 = July – December
+- Used for seasonal competitions and comparisons
+
+---
+
+## Period-Specific Data
+
+When you switch timeframes, the following data is filtered:
+
+| Category | What's Filtered |
+|----------|-----------------|
+| **Uploads** | Only tracks uploaded within the period |
+| **Plays** | Only plays occurring within the period |
+| **Earnings** | Contribution calculated for the period |
+| **Quality** | Based on tracks existing in the period |
+| **Collaboration** | Collaborative tracks from the period |
+| **Points (XP)** | All-time only (XP is cumulative) |
+
+<Note>
+  **Points/XP rankings** always show all-time totals since XP represents your cumulative platform experience.
+</Note>
+
+---
+
+## Seasonal Competitions
+
+BeatPass runs seasonal competitions using half-year periods:
+
+### Current Competitions
+
+| Competition | Period | Leaderboard |
+|-------------|--------|-------------|
+| **Upload Challenge** | Current season | Most tracks uploaded |
+| **Quality Masters** | Current season | Highest metadata quality |
+| **Collaboration Kings** | Current season | Most collaborations |
+
+### Rewards
+
+Top performers in seasonal competitions may receive:
+- Featured placement on discovery pages
+- Special profile badges
+- Platform promotion
+
+---
+
+## Selecting a Timeframe
+
+### In the UI
+
+1. Navigate to `/producer-dashboard/leaderboards`
+2. Find the **Period Selector** dropdown
+3. Choose your desired timeframe
+4. Rankings update automatically
+
+### Season Timer
+
+The leaderboard page shows time remaining in the current season (monthly):
+- Current season format: `YYYY-MM`
+- Countdown to month end
+
+---
+
+## Use Cases
+
+| Goal | Recommended Period |
+|------|-------------------|
+| See your career ranking | All-Time |
+| Track recent progress | 30 Days |
+| See this week's top performers | 7 Days |
+| Compare seasonal performance | H1/H2 periods |
+| Join seasonal competitions | Current H1 or H2 |
+
+---
+
+## Data Freshness
+
+Rankings update regardless of timeframe:
+
+| Cache Layer | Refresh Rate |
+|-------------|--------------|
+| Server cache | 5 minutes |
+| Client cache | 2 minutes |
+| Background refresh | 3 minutes |
+
+---
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Leaderboard Categories" icon="list" href="/help/gamification/leaderboards/categories">
+    Learn about all 7 ranking categories.
+  </Card>
+  <Card title="Leaderboard Overview" icon="ranking-star" href="/help/gamification/leaderboards">
+    Full leaderboard documentation.
+  </Card>
+</CardGroup>

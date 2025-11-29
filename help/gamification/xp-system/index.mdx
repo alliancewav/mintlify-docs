@@ -1,0 +1,185 @@
+---
+audience: help
+title: "XP & Producer Levels | BeatPass"
+sidebarTitle: "XP & Levels"
+description: "Understand the BeatPass XP system, how to earn experience points, and progress through producer levels from Novice to Legendary."
+keywords: ["XP", "experience points", "producer levels", "gamification", "progression"]
+"og:title": "XP & Producer Levels - BeatPass"
+"og:description": "Understand the BeatPass XP system and progress through producer levels."
+"twitter:card": "summary_large_image"
+---
+
+## Overview
+
+BeatPass features a gamification system that rewards producers with Experience Points (XP) for their activity on the platform. As you earn XP, you level up and unlock new producer titles.
+
+<Info>
+  **Audience:** Producers with an artist profile. View your XP and level in the **Producer Dashboard → Progress**.
+</Info>
+
+---
+
+## Earning XP
+
+### XP Sources
+
+You earn XP through various activities on BeatPass:
+
+| Action | XP Earned | Description |
+|--------|-----------|-------------|
+| **Upload a track** | +100 XP | Each new track you upload |
+| **Track plays** | +1 XP | Per play on any of your tracks |
+| **Complete metadata** | +50 XP | When a track has full metadata |
+| **Collaborate** | +25 XP | Per collaborative track |
+| **Unlock achievements** | Variable | Based on achievement rarity |
+
+### XP Attribution
+
+XP is awarded to your user account, not your artist profile. This means:
+
+- All your artist profiles contribute to the same XP total
+- Collaborators also earn XP when your shared tracks get plays
+- Only users with completed profiles are eligible for XP
+
+<Note>
+  **Collaborator XP**: When a track with multiple artists gets played, all credited collaborators with completed user profiles earn XP. Artists without completed profiles will not receive XP until they complete their profile setup.
+</Note>
+
+---
+
+## Producer Levels
+
+### Level Progression
+
+Your producer level is determined by your total XP. The XP required for each level follows this formula:
+
+```
+XP Required = 100 × ((Level - 1) ^ 1.5)
+```
+
+### Level Thresholds
+
+| Level | Title | XP Required |
+|-------|-------|-------------|
+| 1 | Novice Producer | 0 |
+| 2 | Novice Producer | 100 |
+| 3 | Apprentice Producer | 283 |
+| 4 | Apprentice Producer | 520 |
+| 5 | Intermediate Producer | 800 |
+| 6 | Intermediate Producer | 1,118 |
+| 7 | Skilled Producer | 1,470 |
+| 8 | Skilled Producer | 1,852 |
+| 9 | Skilled Producer | 2,263 |
+| 10 | Experienced Producer | 2,700 |
+| 15 | Advanced Producer | 5,423 |
+| 20 | Professional Producer | 8,718 |
+| 30 | Expert Producer | 16,432 |
+| 40 | Master Producer | 25,298 |
+| 50 | Legendary Producer | 34,643 |
+| 100 | Legendary Producer | 98,500 |
+
+### Level Titles
+
+As you progress, your producer title changes:
+
+| Level Range | Title | Badge |
+|-------------|-------|-------|
+| 1-2 | Novice Producer | novice |
+| 3-4 | Apprentice Producer | apprentice |
+| 5-6 | Intermediate Producer | intermediate |
+| 7-9 | Skilled Producer | skilled |
+| 10-14 | Experienced Producer | experienced |
+| 15-19 | Advanced Producer | advanced |
+| 20-29 | Professional Producer | professional |
+| 30-39 | Expert Producer | expert |
+| 40-49 | Master Producer | master |
+| 50-100 | Legendary Producer | legendary |
+
+---
+
+## Viewing Your Progress
+
+### Progress Page
+
+Navigate to `/producer-dashboard/progress` to see:
+
+- **Current Level** — Your producer level (1-100)
+- **Level Title** — Your current rank title
+- **Current XP** — Total experience points earned
+- **Progress Bar** — Visual progress toward next level
+- **XP to Next Level** — Points needed to level up
+
+### XP Sources Breakdown
+
+The Progress page also shows how you've earned your XP:
+
+- **Track Uploads** — XP from uploading tracks
+- **Track Plays** — XP from play events
+- **Metadata Completion** — XP from complete track metadata
+- **Achievements** — XP from unlocking achievements
+- **Collaborations** — XP from collaborative tracks
+
+---
+
+## Tips for Earning XP
+
+<Steps>
+  <Step title="Upload Regularly">
+    Each track upload is worth 100 XP. Maintain a consistent upload schedule to steadily grow your XP.
+  </Step>
+  
+  <Step title="Complete Your Metadata">
+    Fill out all metadata fields (BPM, key, scale, genre, description, cover art) to earn 50 XP per track.
+  </Step>
+  
+  <Step title="Promote Your Tracks">
+    More plays = more XP. Share your tracks and engage with listeners to boost play counts.
+  </Step>
+  
+  <Step title="Collaborate">
+    Work with other producers to earn collaboration XP and potentially reach new audiences.
+  </Step>
+  
+  <Step title="Unlock Achievements">
+    Achievements award significant XP bonuses, especially rare and epic achievements.
+  </Step>
+</Steps>
+
+---
+
+## XP Deduplication
+
+The XP system includes protection against duplicate awards:
+
+- Each action (upload, play, etc.) is only awarded XP once
+- Re-uploading the same track doesn't earn additional XP
+- Plays are tracked individually to prevent exploitation
+
+---
+
+## Maximum Level
+
+The maximum producer level is **100** (Legendary Producer). Once you reach level 100:
+
+- Your progress percentage shows 100%
+- XP to next level shows 0
+- You continue earning XP but won't level up further
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Progress Page" icon="chart-line" href="/help/gamification/progress-page">
+    Complete guide to the Progress page UI and features.
+  </Card>
+  <Card title="Achievements" icon="trophy" href="/help/gamification/achievements">
+    View all achievements and how to unlock them.
+  </Card>
+  <Card title="Producer Dashboard" icon="chart-bar" href="/help/producer-dashboard">
+    Navigate your analytics dashboard.
+  </Card>
+  <Card title="Leaderboards" icon="ranking-star" href="/help/gamification/leaderboards">
+    See how you rank against other producers.
+  </Card>
+</CardGroup>

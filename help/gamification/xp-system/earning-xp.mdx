@@ -1,0 +1,134 @@
+---
+title: "Earning XP"
+sidebarTitle: "Earning XP"
+description: "Complete guide to earning Experience Points (XP) on BeatPass. Learn all XP sources, amounts, and how collaborators earn XP."
+keywords: ["XP", "experience points", "earning", "track upload", "plays", "metadata", "collaboration"]
+---
+
+## XP Sources
+
+BeatPass awards XP for various producer activities. Here's exactly how much you earn:
+
+| Action | XP Amount | Trigger |
+|--------|-----------|---------|
+| **Upload a track** | +100 XP | Each new track you publish |
+| **Track play** | +1 XP | Per play on your tracks |
+| **Complete metadata** | +50 XP | Per track with full metadata |
+| **Collaboration** | +25 XP | Per collaborative track (2+ artists) |
+| **Achievement unlock** | Variable | Based on achievement points (150-6,000 XP) |
+
+---
+
+## How Each Source Works
+
+### Track Uploads (+100 XP)
+
+When you upload and publish a track:
+
+- XP is awarded immediately on successful upload
+- Only public tracks earn XP
+- Each track can only earn upload XP once (no duplicates)
+- **All credited artists** on the track receive upload XP
+
+<Info>
+  If you upload a track with collaborators, each artist with a completed profile receives +100 XP.
+</Info>
+
+### Track Plays (+1 XP)
+
+Every time one of your tracks is played:
+
+- +1 XP per play event
+- Plays must meet minimum listen duration
+- Bot/artificial plays are filtered
+- **All credited artists** on the track receive play XP
+
+### Metadata Completion (+50 XP)
+
+Complete metadata means having all these fields filled:
+
+| Field | Required |
+|-------|----------|
+| **BPM** | Track tempo |
+| **Key** | Musical key (C, D, E, etc.) |
+| **Scale** | Major or Minor |
+| **Tags** | At least one genre/mood tag |
+| **Description** | Track description text |
+
+When all fields are complete, +50 XP is awarded per track.
+
+### Collaborations (+25 XP)
+
+When a track has 2 or more credited artists:
+
+- Each collaborator with a completed profile earns +25 XP
+- XP is awarded when the collaborative track is published
+- Multiple collaborations = multiple XP awards
+
+### Achievement Unlocks (Variable)
+
+Achievements award XP based on their rarity:
+
+| Rarity | XP Range |
+|--------|----------|
+| Common | 100-1,000 XP |
+| Rare | 1,500-2,000 XP |
+| Epic | 2,500-3,500 XP |
+| Legendary | 4,000-6,000 XP |
+
+See the [Achievement Catalog](/help/gamification/achievements) for all achievements.
+
+---
+
+## XP Attribution for Collaborators
+
+When multiple artists are credited on a track:
+
+<Steps>
+  <Step title="Track is published">
+    Upload or admin publishes a track with multiple artists.
+  </Step>
+  <Step title="Artists are identified">
+    System identifies all artists in the `artist_track` relationship.
+  </Step>
+  <Step title="Profile check">
+    Only artists with completed user profiles are eligible for XP.
+  </Step>
+  <Step title="XP distributed">
+    Each eligible artist receives the full XP amount (not split).
+  </Step>
+</Steps>
+
+<Warning>
+  **Collaborators without completed profiles** will not receive XP. If you're credited on tracks but not earning XP, complete your artist profile setup.
+</Warning>
+
+---
+
+## XP Deduplication
+
+The XP system prevents duplicate awards:
+
+- Each track upload only earns XP once
+- Re-uploading the same track doesn't award additional XP
+- Database-level unique constraints prevent exploitation
+- System logs track which source earned XP
+
+---
+
+## Admin Users
+
+Admin accounts (user IDs 1 and 76) are excluded from XP attribution to prevent inflated stats.
+
+---
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Producer Levels" icon="arrow-up" href="/help/gamification/xp-system/producer-levels">
+    See how XP translates to levels.
+  </Card>
+  <Card title="Achievements" icon="trophy" href="/help/gamification/achievements">
+    Unlock achievements for bonus XP.
+  </Card>
+</CardGroup>

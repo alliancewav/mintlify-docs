@@ -1,0 +1,497 @@
+---
+audience: "help"
+title: "Progress Page | BeatPass"
+sidebarTitle: "Progress Page"
+description: "Navigate the Progress Page to track your XP, level, achievements, and producer journey on BeatPass. Learn about achievement types, rarity tiers, and how to unlock them."
+keywords: ["progress page","XP tracking","achievements","producer level","gamification","unlockables"]
+og:title: "Progress Page - Track Your Producer Journey"
+og:description: "Monitor your XP, level up, and unlock achievements on BeatPass."
+twitter:card: "summary_large_image"
+---
+
+## Overview
+
+The Progress Page is your personal producer journey tracker on BeatPass. It displays your XP progress, level status, and all achievements—both unlocked and locked—in one comprehensive view.
+
+<Info>
+  **Access:** Navigate to `/producer-dashboard/progress` from your Producer Dashboard.
+</Info>
+
+---
+
+## Page Sections
+
+The Progress Page is organized into several key sections:
+
+| Section                | Purpose                                                   |
+| ---------------------- | --------------------------------------------------------- |
+| **Progress Header**    | Your current level, title, XP, and circular progress ring |
+| **Cache Status Bar**   | Data freshness indicator with manual refresh option       |
+| **XP Actions Guide**   | Quick ways to earn XP                                     |
+| **Achievements Panel** | Stats, progress bar, and full achievement list            |
+
+---
+
+## Progress Header
+
+The hero section displays your producer journey at a glance.
+
+### Elements
+
+| Element            | Description                                                                       |
+| ------------------ | --------------------------------------------------------------------------------- |
+| **Level Badge**    | Your current level number with "Level X" label                                    |
+| **XP Badge**       | Total XP earned displayed in amber pill                                           |
+| **Producer Title** | Your rank title (e.g., "Skilled Producer", "Expert Producer")                     |
+| **Subtitle**       | "Track your progress, level up, and unlock achievements on your producer journey" |
+| **Progress Ring**  | Circular Apple Watch-style progress indicator                                     |
+| **Back Link**      | Quick navigation back to Producer Dashboard                                       |
+
+### Progress Ring
+
+The circular progress ring provides an at-a-glance view of your level progress:
+
+- **Outer ring** — Background track showing total progress needed
+- **Progress arc** — Fills based on your percentage to next level
+- **Center percentage** — Shows exact progress percentage
+- **XP to next** — Displays remaining XP needed to level up
+
+<Tip>
+  The progress ring animates smoothly when your XP changes, giving satisfying visual feedback as you earn XP.
+</Tip>
+
+---
+
+## Cache Status & Controls
+
+A utility bar showing data freshness and providing manual controls.
+
+| Element                    | Function                                             |
+| -------------------------- | ---------------------------------------------------- |
+| **Updated X seconds ago**  | Shows when progress data was last refreshed          |
+| **Auto-refresh countdown** | Shows time until next automatic refresh (within 60s) |
+| **How XP Works**           | Opens the XP Guide dialog explaining all XP sources  |
+| **Refresh Button**         | Manually refresh your progress data                  |
+
+<Note>
+  Progress data is cached for performance. It automatically refreshes every 60 seconds, but you can force a refresh anytime using the refresh button.
+</Note>
+
+---
+
+## XP Actions Guide
+
+A grid of cards showing the primary ways to earn XP:
+
+<Tabs>
+  <Tab title="XP Sources">
+    | Action            | XP Earned                  | Icon Color |
+    | ----------------- | -------------------------- | ---------- |
+    | **Upload Tracks** | \+100 XP per track         | Blue       |
+    | **Get Plays**     | \+1 XP per play            | Green      |
+    | **Add Metadata**  | \+50 XP per complete track | Purple     |
+    | **Collaborate**   | \+25 XP per collaboration  | Amber      |
+  </Tab>
+  <Tab title="Card Design">
+    Each XP action card displays:
+
+    - **Color-coded icon** — Visual identifier for the action type
+    - **Action title** — What earns you XP (e.g., "Upload Tracks")
+    - **XP amount badge** — The reward amount in a colored pill
+    - **Description** — Brief context (e.g., "per track")
+
+    Cards have hover effects for interactivity.
+  </Tab>
+  <Tab title="XP Guide Dialog">
+    Click **"How XP Works"** to open a detailed guide explaining:
+
+    - **All XP sources** with exact amounts
+    - **Profile completion requirements** for collaborator XP
+    - **Zero-XP achievements** explanation
+    - **Progress update frequency** information
+  </Tab>
+</Tabs>
+
+---
+
+## Achievements Section
+
+The main panel displaying your achievement progress and the complete achievement list.
+
+### Section Header
+
+| Element                  | Description                                           |
+| ------------------------ | ----------------------------------------------------- |
+| **Trophy Icon**          | Amber/gold icon representing achievements             |
+| **"Achievements" Title** | Section identifier                                    |
+| **Progress Summary**     | "X of Y unlocked" showing your completion status      |
+| **Percentage Badge**     | Sparkle icon with completion percentage (e.g., "74%") |
+
+### Progress Bar
+
+A full-width progress bar beneath the header showing visual completion progress with animated gradient fill.
+
+---
+
+### Achievement Stats Cards
+
+Three stat cards displaying key achievement metrics:
+
+<Tabs>
+  <Tab title="Stats Displayed">
+    | Stat                | Icon        | Color | Description                           |
+    | ------------------- | ----------- | ----- | ------------------------------------- |
+    | **Unlocked**        | Unlock icon | Green | Number of achievements earned         |
+    | **Locked**          | Lock icon   | Gray  | Number of achievements not yet earned |
+    | **Total XP Earned** | Zap icon    | Amber | Total XP from achievements            |
+  </Tab>
+  <Tab title="Mobile Layout">
+    On mobile devices (under 400px width):
+
+    - Cards stack vertically in a single column
+    - Each card displays horizontally (icon left, text right)
+    - Larger touch targets for better mobile interaction
+
+    On larger screens:
+
+    - Cards display in a 3-column grid
+    - Vertical layout with centered content
+  </Tab>
+  <Tab title="Interactivity">
+    Stat cards have hover effects:
+
+    - Background lightens on hover
+    - Border becomes more visible
+    - Smooth transition animation
+
+    This matches the styling of Most Played Tracks and Top Listeners charts.
+  </Tab>
+</Tabs>
+
+---
+
+### All Achievements List
+
+A scrollable list displaying every achievement in the system, both unlocked and locked.
+
+#### List Behavior
+
+| Feature              | Description                                     |
+| -------------------- | ----------------------------------------------- |
+| **Scroll Container** | Max height of 320-380px with smooth scrolling   |
+| **Thin Scrollbar**   | Minimal scrollbar styled with primary color     |
+| **No Pagination**    | All achievements visible in one scrollable list |
+| **Total Count**      | "X total" displayed in header                   |
+
+#### Achievement Item Layout
+
+Each achievement is displayed as a card with:
+
+<Tabs>
+  <Tab title="Unlocked Achievements">
+    **Visual Styling:**
+
+    - Background color based on rarity (see Rarity Colors below)
+    - Colored star icon matching rarity
+    - Full opacity and vibrant colors
+    - Hover effect: slight brightness decrease
+
+    **Information Displayed:**
+
+    - **Achievement name** — Bold title
+    - **Rarity label** — Uppercase badge (COMMON, RARE, EPIC, LEGENDARY)
+    - **Unlock date** — "Unlocked X days ago" or "Today"/"Yesterday"
+    - **XP earned** — Amber pill showing "+X XP" amount
+  </Tab>
+  <Tab title="Locked Achievements">
+    **Visual Styling:**
+
+    - Red-tinted background (`rgba(239, 68, 68, 0.08)`)
+    - Red border accent
+    - Red lock icon instead of star
+    - Muted text colors
+    - Hover effect: slightly intensified red
+
+    **Information Displayed:**
+
+    - **Achievement name** — Muted color
+    - **Rarity label** — Muted badge showing original rarity
+    - **LOCKED badge** — Bright red pill with lock icon
+    - **Description** — How to unlock the achievement
+    - **XP reward** — Red-tinted pill showing potential XP
+  </Tab>
+  <Tab title="Legendary Shimmer">
+    **Legendary achievements** (unlocked) feature a special shimmer effect:
+
+    - Subtle golden gradient sweep animation
+    - 2.5-second animation cycle
+    - Semi-transparent gold highlight
+    - Ring glow around the icon (2px amber ring)
+
+    This makes legendary achievements visually distinctive and prestigious.
+  </Tab>
+</Tabs>
+
+---
+
+## Achievement Rarity & Colors
+
+Achievements are color-coded by rarity for quick visual identification:
+
+### Rarity Tiers
+
+| Rarity        | XP Range       | Background Color                    | Text Color | Border                 |
+| ------------- | -------------- | ----------------------------------- | ---------- | ---------------------- |
+| **Common**    | 150-500 XP     | Gray (`rgba(107, 114, 128, 0.15)`)  | Gray       | Gray border            |
+| **Rare**      | 800-2,000 XP   | Blue (`rgba(59, 130, 246, 0.15)`)   | Blue       | Blue border            |
+| **Epic**      | 2,500-3,500 XP | Purple (`rgba(168, 85, 247, 0.15)`) | Purple     | Purple border          |
+| **Legendary** | 4,000-6,000 XP | Amber (`rgba(245, 158, 11, 0.15)`)  | Amber      | Amber border + shimmer |
+
+<Warning>
+  **Locked achievements** always display with a red color scheme regardless of their actual rarity. The rarity label still shows the true rarity (e.g., "EPIC") so you know what tier of achievement it is.
+</Warning>
+
+---
+
+## Achievement Categories
+
+Achievements are organized into 10 categories based on how they're earned:
+
+### Upload Achievements
+
+Earn by uploading tracks to build your catalog.
+
+| Achievement               | How to Unlock                             | XP    | Rarity    |
+| ------------------------- | ----------------------------------------- | ----- | --------- |
+| 🎶 **Track Producer**     | Be in top 50% of producers by track count | 500   | Common    |
+| 🎼 **Prolific Creator**   | Be in top 25% of producers by track count | 1,500 | Rare      |
+| 🎛️ **Production Master** | Be in top 10% of producers by track count | 3,000 | Epic      |
+| 🏆 **Studio Legend**      | Be in top 5% of producers by track count  | 5,000 | Legendary |
+
+**Why it matters:** Upload achievements reward consistent content creation and catalog building, which increases your visibility and earning potential on the platform.
+
+---
+
+### Trending Achievements
+
+Earn when your tracks perform well in play counts.
+
+| Achievement         | How to Unlock                         | XP    | Rarity |
+| ------------------- | ------------------------------------- | ----- | ------ |
+| ⭐ **Rising Star**   | Have a track in top 25% by play count | 1,000 | Common |
+| 📈 **Chart Topper** | Have a track in top 10% by play count | 2,000 | Rare   |
+| 🔥 **Viral Hit**    | Have a track in top 5% by play count  | 3,500 | Epic   |
+
+**Why it matters:** Trending achievements validate that your music resonates with listeners. High play counts lead to better leaderboard rankings and increased earnings from the subscription pool.
+
+---
+
+### Metadata Achievements
+
+Earn by maintaining high-quality metadata across your catalog.
+
+| Achievement                | How to Unlock                  | XP    | Rarity |
+| -------------------------- | ------------------------------ | ----- | ------ |
+| 📊 **Metadata Whiz**       | Achieve 70%+ metadata accuracy | 800   | Common |
+| 💎 **Metadata Maven**      | Achieve 80%+ metadata accuracy | 1,500 | Rare   |
+| 🏗️ **Metadata Architect** | Achieve 90%+ metadata accuracy | 2,500 | Epic   |
+
+**Why it matters:** Complete metadata improves discoverability through search and filters, helping potential buyers find your tracks. It also demonstrates professionalism and attention to detail.
+
+---
+
+### Profile Achievements
+
+Earn by completing your artist profile.
+
+| Achievement       | How to Unlock                            | XP  | Rarity |
+| ----------------- | ---------------------------------------- | --- | ------ |
+| 🎭 **Photogenic** | Upload first picture to artist profile   | 200 | Common |
+| 📝 **Oracle**     | Fill out your artist bio                 | 300 | Common |
+| 🔗 **Linked**     | Add 3+ social links to your profile      | 400 | Common |
+| 📸 **Model**      | Upload 5+ pictures to your about section | 500 | Common |
+
+**Why it matters:** A complete profile builds trust with potential buyers and fans. It establishes your brand identity and makes collaborators more likely to work with you.
+
+---
+
+### Genre Achievements
+
+Earn through genre performance and diversity.
+
+| Achievement             | How to Unlock                            | XP    | Rarity    |
+| ----------------------- | ---------------------------------------- | ----- | --------- |
+| 🎯 **Genre Specialist** | Have a track in top 10% within its genre | 1,500 | Rare      |
+| 🌈 **Genre Master**     | Top 20% genre diversity with 3+ genres   | 2,500 | Epic      |
+| 🎨 **Genre Virtuoso**   | Top 10% genre diversity with 5+ genres   | 4,000 | Legendary |
+
+**Why it matters:** Genre achievements recognize both specialization and versatility. Specialists build authority in their niche, while diverse producers reach broader audiences.
+
+---
+
+### Collaboration Achievements
+
+Earn by working with other producers.
+
+| Achievement                     | How to Unlock                     | XP    | Rarity    |
+| ------------------------------- | --------------------------------- | ----- | --------- |
+| 🤝 **Collaboration Enthusiast** | Complete your first collaboration | 500   | Common    |
+| 👥 **Team Player**              | Complete 10 collaborations        | 1,500 | Rare      |
+| 🌉 **Bridge Builder**           | Complete 25 collaborations        | 3,000 | Epic      |
+| 🕷️ **Network Spider**          | Complete 50 collaborations        | 5,000 | Legendary |
+
+**Why it matters:** Collaborations expand your network, introduce you to new audiences, and create tracks that benefit from combined styles and fan bases.
+
+---
+
+### Composite Achievements
+
+Earn through overall performance across multiple metrics.
+
+| Achievement               | How to Unlock                               | XP    | Rarity    |
+| ------------------------- | ------------------------------------------- | ----- | --------- |
+| 🌟 **Rising Talent**      | Top 25% overall performance with 5+ tracks  | 2,000 | Rare      |
+| 💫 **Elite Producer**     | Top 15% overall performance with 10+ tracks | 3,500 | Epic      |
+| 👑 **Legendary Producer** | Top 5% overall performance with 20+ tracks  | 6,000 | Legendary |
+
+**Why it matters:** Composite achievements recognize well-rounded producers who excel across uploads, plays, metadata, and engagement—the hallmarks of a successful producer career.
+
+---
+
+### Excellence Achievement
+
+| Achievement            | How to Unlock                              | XP    | Rarity |
+| ---------------------- | ------------------------------------------ | ----- | ------ |
+| ✨ **Track Excellence** | Have a track in top 10% by composite score | 1,800 | Rare   |
+
+**Why it matters:** Track Excellence recognizes individual tracks that perform exceptionally well across all quality metrics, not just plays.
+
+---
+
+### Milestone Achievements
+
+Earn through account longevity and platform firsts.
+
+| Achievement          | How to Unlock                                  | XP    | Rarity |
+| -------------------- | ---------------------------------------------- | ----- | ------ |
+| 🚀 **Early Adopter** | Be among first 30 artist profiles (beta phase) | 1,000 | Epic   |
+| 📅 **Rising**        | Maintain artist profile for 3 months           | 150   | Common |
+| 🕐 **Seasoned**      | Maintain artist profile for 6 months           | 300   | Rare   |
+| 🎖️ **OG**           | Maintain artist profile for 1 year             | 600   | Rare   |
+| 🏅 **Veteran**       | Maintain artist profile for 2 years            | 1,000 | Epic   |
+| 🏛️ **Legacy**       | Maintain artist profile for 3 years            | 1,500 | Epic   |
+| 💰 **Top Biller**    | Have the top earning track on platform         | 800   | Common |
+
+**Why it matters:** Milestone achievements reward loyalty and longevity. Early Adopter is particularly exclusive and cannot be earned by new users.
+
+---
+
+### Seasonal Achievements
+
+Earn by uploading during specific holidays.
+
+| Achievement           | How to Unlock                            | XP  | Rarity |
+| --------------------- | ---------------------------------------- | --- | ------ |
+| 🎃 **Shadow Regent**  | Upload Oct 30 - Nov 1 (Halloween)        | 200 | Common |
+| 🎅 **Santa's Helper** | Upload Dec 23 - Dec 26 (Christmas)       | 200 | Common |
+| 🎊 **Opening Act**    | Upload Dec 31 - Jan 2 (New Year)         | 200 | Common |
+| 💕 **Lover Boy**      | Upload Feb 13 - Feb 15 (Valentine's Day) | 200 | Common |
+
+**Why it matters:** Seasonal achievements encourage consistent platform engagement and reward producers who stay active year-round. They're easy to earn but require timing.
+
+---
+
+## Why Achievements Matter
+
+Achievements provide more than just XP—they're a core part of your producer identity on BeatPass:
+
+### Direct Benefits
+
+| Benefit                  | Description                                                      |
+| ------------------------ | ---------------------------------------------------------------- |
+| **XP Rewards**           | Each achievement adds to your total XP, helping you level up     |
+| **Profile Credibility**  | Achievements displayed on your profile show your accomplishments |
+| **Leaderboard Rankings** | Achievement count factors into leaderboard rankings              |
+| **Career Tracking**      | Visual record of your producer journey and milestones            |
+
+### Indirect Benefits
+
+| Benefit                  | Description                                                           |
+| ------------------------ | --------------------------------------------------------------------- |
+| **Discovery**            | Prolific producers with many achievements appear higher in searches   |
+| **Collaboration Appeal** | Other producers see your achievements when considering collaborations |
+| **Fan Engagement**       | Listeners see achievements as indicators of quality and commitment    |
+| **Motivation**           | Clear goals to work toward keep you engaged with the platform         |
+
+---
+
+## Tips for Maximizing Achievements
+
+<Steps>
+  <Step title="Start with Profile Achievements">
+    The four profile achievements (Photogenic, Oracle, Linked, Model) are easy to unlock immediately. Complete your profile to earn 1,400 XP right away.
+  </Step>
+  <Step title="Focus on Metadata Quality">
+    When uploading, always fill out all metadata fields. This earns you the +50 XP per track bonus AND progresses your metadata achievements.
+  </Step>
+  <Step title="Upload Consistently">
+    Regular uploads help you climb the upload percentiles. Even 1-2 tracks per week can significantly improve your ranking over time.
+  </Step>
+  <Step title="Mark Your Calendar for Holidays">
+    Set reminders for Halloween (Oct 30 - Nov 1), Christmas (Dec 23-26), New Year (Dec 31 - Jan 2), and Valentine's Day (Feb 13-15) to earn seasonal achievements.
+  </Step>
+  <Step title="Collaborate Strategically">
+    Reach out to other producers for collaborations. Each collaboration counts toward multiple achievements and exposes your music to new audiences.
+  </Step>
+  <Step title="Check Locked Achievements Regularly">
+    Review the locked achievements list to identify which ones you're closest to unlocking, then focus your efforts accordingly.
+  </Step>
+</Steps>
+
+---
+
+## Permanent Unlocks
+
+Once you earn an achievement, it's **permanent**:
+
+- Achievements cannot be lost or revoked
+- XP from achievements is added permanently to your total
+- Even if platform rankings change, earned achievements remain
+- Your achievement history shows the date you unlocked each one
+
+---
+
+## Data Refresh
+
+Achievement data is checked and updated at different intervals:
+
+| Check Type                  | Frequency                             |
+| --------------------------- | ------------------------------------- |
+| **Profile achievements**    | When you update your profile          |
+| **Upload achievements**     | When you upload a track               |
+| **Play-based achievements** | Periodically during analytics updates |
+| **Milestone achievements**  | Daily check based on account age      |
+| **Seasonal achievements**   | When uploading during holiday windows |
+
+<Tip>
+  If you believe you've met criteria for an achievement but don't see it, try using the **Refresh** button on the Progress page. Achievement checks may take up to 60 seconds to process.
+</Tip>
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="XP & Levels" icon="chart-line" href="/help/gamification/xp-system">
+    Understand the full XP system and level progression.
+  </Card>
+  <Card title="Achievements Reference" icon="trophy" href="/help/gamification/achievements">
+    Complete achievement catalog with all unlock criteria.
+  </Card>
+  <Card title="Producer Dashboard" icon="chart-bar" href="/help/producer-dashboard">
+    Navigate all Producer Dashboard features.
+  </Card>
+  <Card title="Leaderboards" icon="ranking-star" href="/help/gamification/leaderboards">
+    See how achievements affect your rankings.
+  </Card>
+</CardGroup>
