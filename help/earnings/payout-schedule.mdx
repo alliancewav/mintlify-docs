@@ -1,0 +1,102 @@
+---
+title: "Payout Schedule"
+description: "When and how your BeatPass earnings are transferred to your bank account."
+---
+
+BeatPass uses Stripe to handle all payment processing and payouts. Once your earnings reach your Stripe balance, Stripe automatically transfers them to your bank account on a regular schedule.
+
+## How Payouts Work
+
+There are two types of earnings, and each follows a slightly different path:
+
+<CardGroup cols={2}>
+  <Card title="Subscription Revenue" icon="repeat">
+    Monthly revenue sharing payments calculated at the end of each billing cycle based on your contribution value.
+  </Card>
+  <Card title="Direct Sales" icon="shopping-bag">
+    Exclusive beat purchases and track sales are transferred to your balance immediately after the transaction.
+  </Card>
+</CardGroup>
+
+## Stripe Automatic Payouts
+
+Once money reaches your Stripe balance, Stripe automatically transfers it to your bank account. The timing depends on your country:
+
+| Region | Typical Payout Speed |
+|--------|---------------------|
+| **United States** | 2 business days |
+| **Canada** | 2 business days |
+| **United Kingdom** | 2 business days |
+| **European Union** | 2-3 business days |
+| **Other countries** | 3-7 business days |
+
+<Info>
+  Payout speed can vary based on your bank and account history. New accounts may experience slightly longer processing times initially.
+</Info>
+
+## Subscription Revenue Schedule
+
+Subscription revenue splits are calculated monthly when each subscriber's billing cycle renews:
+
+1. **Subscriber pays** — When a subscription payment is processed
+2. **Revenue is split** — Your share is calculated based on contribution values
+3. **Transfer is initiated** — Funds are sent to your Stripe balance
+4. **Payout to bank** — Stripe sends money to your bank within 2-7 business days
+
+<Note>
+  Because subscribers have different billing dates, you may receive multiple smaller payouts throughout the month rather than one large monthly payment.
+</Note>
+
+## Direct Sales Schedule
+
+When someone purchases an exclusive beat or track:
+
+1. **Purchase completed** — The buyer pays for the track
+2. **Payment is processed** — Stripe processes the transaction
+3. **Funds reach your balance** — After a brief processing period
+4. **Automatic payout** — Stripe transfers to your bank on the next payout cycle
+
+## Viewing Your Payouts
+
+You can track all payouts in your **Finances** dashboard:
+
+- **Total Balance** — Current balance in your Stripe account
+- **Future Payouts** — Scheduled transfers not yet sent
+- **In Transit** — Money currently being transferred to your bank
+- **Lifetime Volume** — Total amount you've earned on the platform
+
+## Payout Statuses
+
+Your subscription revenue splits will show one of these statuses:
+
+| Status | Meaning |
+|--------|---------|
+| **Pending** | Split has been calculated, transfer is being processed |
+| **Paid** | Money has been transferred to your Stripe balance |
+| **Failed** | Transfer encountered an error (will retry automatically) |
+| **Excluded** | You weren't eligible at the time (no active Stripe account) |
+
+## Minimum Payout Threshold
+
+Stripe requires a minimum balance of **$10 USD** (or equivalent) before initiating a payout. If your balance is below this amount, it will accumulate until the threshold is reached.
+
+## Bank Holidays and Weekends
+
+- Payouts are only processed on business days
+- Transfers initiated on Friday may not arrive until Tuesday
+- Bank holidays may delay receipt by 1-2 additional days
+
+<Tip>
+  For the fastest payouts, connect a debit card instead of a bank account. Debit card payouts can arrive within minutes in some countries.
+</Tip>
+
+## Troubleshooting Delayed Payouts
+
+If your payout seems delayed:
+
+1. **Check your Stripe account status** — Make sure payouts are enabled
+2. **Verify your bank details** — Incorrect information can cause delays
+3. **Consider the timing** — Weekends and holidays affect processing
+4. **Review for holds** — Stripe may temporarily hold funds for new accounts
+
+If you continue to experience issues, contact us at **contact@beatpass.ca**.

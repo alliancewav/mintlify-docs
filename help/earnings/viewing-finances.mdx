@@ -1,0 +1,129 @@
+---
+title: "Viewing Finances"
+description: "Navigate your Finances dashboard to track earnings, view transactions, and monitor payouts."
+---
+
+The Finances dashboard gives you a complete view of your earnings on BeatPass. Here you can track your balance, view transaction history, and monitor subscription revenue splits.
+
+## Accessing Your Finances Dashboard
+
+<Steps>
+  <Step title="Go to Producer Dashboard">
+    Click your **profile avatar** in the top navigation bar, then select **Backstage** from the menu.
+  </Step>
+  <Step title="Open Finances">
+    In your Producer Dashboard, click **Finances** in the navigation menu.
+  </Step>
+</Steps>
+
+## Dashboard Overview
+
+When you open the Finances dashboard, you'll see several key sections:
+
+### Account Status Header
+
+At the top, you'll see your Stripe connection status:
+
+- **Connected** — Your account is linked to BeatPass
+- **Charges Enabled** — You can receive payments
+- **Payouts Enabled** — Money can be transferred to your bank
+- **Setup Required** — If any status shows a warning, click to complete setup
+
+### Balance Overview
+
+The balance section shows four key metrics:
+
+| Metric | What It Shows |
+|--------|---------------|
+| **Total Balance** | Current amount in your Stripe account |
+| **Future Payouts** | Money scheduled to transfer but not yet sent |
+| **In Transit** | Funds currently being transferred to your bank |
+| **Lifetime Volume** | Total amount you've earned since joining |
+
+<Info>
+  Balances are displayed in your primary currency. If you've received payments in multiple currencies, you'll see a breakdown by currency.
+</Info>
+
+### Transaction List
+
+Below your balance, you'll find a list of all your transactions including:
+
+- **Subscription revenue splits** — Monthly payouts from the contribution pool
+- **Exclusive sales** — Direct beat purchases
+- **Payouts** — Transfers to your bank account
+
+Each transaction shows:
+- Date
+- Amount
+- Status (Paid, Pending, Failed)
+- Details (click to view full breakdown)
+
+## Understanding Subscription Revenue Splits
+
+For each subscription payout, you can view detailed information:
+
+### Split Details
+
+- **Billing Period** — The month this payout covers
+- **Amount** — Your total payout
+- **Original Amount** — Your calculated share before any adjustments
+- **Redistribution Bonus** — Extra amount if ineligible producers' shares were redistributed
+- **Share Percentage** — Your percentage of the total pool
+- **Contribution Value** — Your tracks' combined contribution
+
+### Payout Statuses
+
+| Status | Meaning |
+|--------|---------|
+| **Paid** | Successfully transferred to your balance |
+| **Pending** | Being processed |
+| **Failed** | Error occurred (system will retry up to 5 times) |
+| **Excluded** | You weren't eligible (no active Stripe account) |
+
+<Note>
+  If a payout fails, the system automatically retries up to 5 times. Check your Stripe account configuration if failures persist.
+</Note>
+
+## Filtering Transactions
+
+Use the filter tabs to view specific transaction types:
+
+- **All** — Every transaction
+- **Paid** — Successfully completed transactions
+- **Pending** — Transactions being processed
+- **Failed** — Transactions that encountered errors
+- **Excluded** — Payouts you weren't eligible for
+
+## Multiple Producer Profiles
+
+If you manage multiple producer profiles, you can switch between them using the artist selector dropdown at the top of the Finances page.
+
+## Cache and Updates
+
+Financial data is cached for performance. You'll see:
+
+- **Last Updated** — When data was last refreshed from Stripe
+- **Cached indicator** — If you're viewing slightly older data
+
+The cache refreshes regularly, so your data stays current.
+
+## Common Questions
+
+<AccordionGroup>
+  <Accordion title="Why don't I see any transactions?">
+    Transactions appear after your first subscription revenue split or direct sale. Make sure your Stripe account is fully set up to receive payments.
+  </Accordion>
+  <Accordion title="What does 'redistribution bonus' mean?">
+    When a producer isn't eligible for a payout (no Stripe account), their share is redistributed among eligible producers. A bonus means you received a portion of that redistribution.
+  </Accordion>
+  <Accordion title="Why is my balance different from my bank deposit?">
+    Your Stripe balance shows your total available funds. Bank deposits occur automatically on Stripe's payout schedule (typically every 2-7 business days).
+  </Accordion>
+  <Accordion title="Can I view transactions by date range?">
+    Currently, transactions are shown in reverse chronological order. Use pagination to view older transactions.
+  </Accordion>
+</AccordionGroup>
+
+## Need Help?
+
+If you have questions about a specific transaction or your balance doesn't seem correct, contact us at **contact@beatpass.ca** with details about the issue.

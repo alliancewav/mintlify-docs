@@ -1,0 +1,75 @@
+---
+title: "Contribution System"
+description: "How BeatPass calculates your share of subscription revenue using contribution values."
+---
+
+The contribution system determines how subscription revenue is distributed fairly among all producers on BeatPass. Every track earns a "contribution value" based on its popularity and activity, and your share of the monthly revenue pool is proportional to your tracks' combined contribution.
+
+## What is Contribution Value?
+
+Contribution value is a number assigned to each track that represents its relative value to the platform. This value is calculated using three factors:
+
+<CardGroup cols={3}>
+  <Card title="Time Since Upload" icon="clock">
+    Newer tracks have higher contribution values. Value gradually decreases over time with a 6-month half-life.
+  </Card>
+  <Card title="Number of Plays" icon="play">
+    More popular tracks earn higher contribution values. Tracks with more plays get a boost up to 3x their base value.
+  </Card>
+  <Card title="Collaborations" icon="users">
+    When multiple producers are credited on a track, the contribution value is split equally among all collaborators.
+  </Card>
+</CardGroup>
+
+## How Revenue Distribution Works
+
+Each month, when a subscriber pays their membership fee:
+
+1. **Revenue pool is calculated** — The subscription base amount goes into the monthly producer pool
+2. **Total contributions are summed** — The platform adds up all track contribution values
+3. **Your share is determined** — Your percentage equals your tracks' contributions divided by the total
+4. **Payments are made** — Your share of the revenue is transferred to your Stripe account
+
+<Info>
+  You receive 100% of your calculated share. The 15% platform fee is added on top of subscription prices, not deducted from producer payouts.
+</Info>
+
+## Example
+
+Imagine the monthly subscription revenue pool is $10,000 and the total platform contribution value is 5,000.
+
+- **Your tracks' combined contribution**: 50 points
+- **Your share**: 50 ÷ 5,000 = 1%
+- **Your payout**: $10,000 × 1% = $100
+
+## Why This System?
+
+<AccordionGroup>
+  <Accordion title="Fair to all producers">
+    Every producer earns based on the actual value their music brings to the platform, not just who uploads the most tracks.
+  </Accordion>
+  <Accordion title="Rewards engagement">
+    Tracks that listeners actually play earn more than tracks that sit dormant. This encourages uploading quality over quantity.
+  </Accordion>
+  <Accordion title="Encourages fresh content">
+    The time decay factor ensures newer music gets a boost, keeping the platform fresh and rewarding consistent uploaders.
+  </Accordion>
+  <Accordion title="Transparent calculation">
+    You can see your contribution values and share percentage in your Finances dashboard at any time.
+  </Accordion>
+</AccordionGroup>
+
+## Contribution Updates
+
+Track contribution values are recalculated daily to ensure they reflect the latest play counts and time factors. You can view your current contribution data in your **Finances** dashboard.
+
+## Exclusions
+
+Some tracks are not eligible for subscription revenue sharing:
+
+- **Exclusive-only tracks** — Tracks set to exclusive licensing only do not contribute to the subscription pool since they can only be purchased directly
+- **Tracks without a connected payment account** — If your Stripe account isn't fully set up, your share is redistributed to other eligible producers
+
+<Card title="Learn About the Formula" href="/help/earnings/contribution-system/formula" icon="calculator">
+  Want to understand the exact mathematics behind contribution values? Read about the formula in detail.
+</Card>
