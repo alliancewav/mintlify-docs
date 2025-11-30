@@ -1,75 +1,182 @@
 ---
 title: "Lyrics"
-description: "View lyrics for tracks when available on BeatPass."
+description: "Write, sync, and save your own lyrics for any beat on BeatPass."
 ---
 
 # Lyrics
 
-Some tracks on BeatPass include lyrics that you can view while listening. This feature is especially useful for vocal samples, hooks, or reference tracks.
+BeatPass features a powerful lyrics notepad that lets you write, organize, and sync your own lyrics to any beat. Whether you're freestyling ideas, crafting verses, or developing full songs, the lyrics panel is designed to support your creative workflow.
 
-## Viewing Lyrics
+## Opening the Lyrics Panel
 
-To open the lyrics view:
+To access the lyrics panel while listening to a beat:
 
-1. Play a track that has lyrics available
+1. Play any track
 2. Click the **microphone icon** in the player bar
-3. The lyrics appear in a full-screen overlay
+3. The lyrics panel opens on the right side of the screen
 
-### What You'll See
+<Note>
+You must be logged in to use the lyrics feature. If you're not logged in, you'll see a prompt to sign in.
+</Note>
 
-The lyrics view displays:
+## Writing Lyrics
 
-- **Track artwork** — Large album art on the left (desktop)
-- **Track name** — Title of the current track
-- **Producer name** — Who created the beat
-- **Lyrics text** — The full lyrics in an easy-to-read format
+### Starting Fresh
 
-### Closing the Lyrics View
+When you open the lyrics panel for a track that doesn't have lyrics yet, you'll see an empty state with a **Start Writing** button. Click it to begin writing.
 
-Click the **X** button in the top corner or click outside the lyrics area to close and return to your previous view.
+### The Lyrics Editor
 
-## Lyrics Availability
+The editor provides tools designed for songwriting:
 
-Not all tracks have lyrics available. This depends on:
+- **Line-by-line editing** — Each line is separate for easy organization
+- **Section markers** — Add structure with Intro, Verse, Pre-Chorus, Chorus, Hook, Bridge, Outro, and Ad-libs sections
+- **Rhyme highlighting** — Rhyming words are automatically color-coded to help you see patterns
+- **Syllable counting** — Track syllable counts for rhythm and flow
+- **Bar counter** — If the beat has BPM information, see bar and beat positions in real-time
 
-- Whether the producer uploaded lyrics with the track
-- Whether the track contains vocals or is instrumental-only
+### Adding Song Sections
 
-### When Lyrics Aren't Available
+To organize your lyrics with sections:
 
-If you open the lyrics view for a track without lyrics, you'll see:
+1. Click the **Section** dropdown in the toolbar
+2. Select the section type (Verse, Chorus, etc.)
+3. The section marker is inserted at your cursor position
 
-> "We do not have lyrics for this song yet"
-> 
-> Please try again later
+Sections are color-coded for visual distinction — Verses appear green, Choruses purple, Hooks pink, and so on.
 
-This means the producer hasn't added lyrics for this particular track.
+### Keyboard Shortcuts
+
+- **Enter** — Create a new line
+- **Backspace** at start of line — Merge with previous line or delete empty line
+- **Ctrl/Cmd + T** — Insert timestamp at current playback position (synced mode)
+- **Ctrl/Cmd + Z** — Undo
+- **Ctrl/Cmd + Shift + Z** — Redo
+
+## Synced Lyrics
+
+For a karaoke-style experience, you can sync your lyrics to the beat's timing.
+
+### Enabling Sync Mode
+
+1. Click the **edit icon** to enter edit mode
+2. Toggle **Synced lyrics** on
+3. An **Auto** button appears for automatic timestamping
+
+### Adding Timestamps
+
+There are two ways to add timestamps:
+
+**Manual method:**
+- Position playback where you want the line to start
+- Click the timestamp button in the toolbar to insert `[MM:SS]` at the current line
+
+**Auto mode:**
+- Enable the **Auto** button
+- As you press Enter to create new lines, timestamps are automatically inserted at the current playback position
+
+### Timestamp Format
+
+Timestamps use the format `[MM:SS]` (minutes:seconds). For example:
+```
+[00:15] First line starts here
+[00:20] Second line follows
+[00:25] And so on...
+```
+
+### Playback Experience
+
+When viewing synced lyrics (not editing):
+
+- **Active line highlighting** — The current line is enlarged and prominent
+- **Auto-scroll** — The view automatically scrolls to keep the current line centered
+- **Click to seek** — Click any timestamped line to jump to that position in the track
+- **Past/upcoming styling** — Lines that have played appear faded, upcoming lines are dimmed
+
+## Saving Your Lyrics
+
+### Auto-Save
+
+Your lyrics are automatically saved when:
+- You close the lyrics panel
+- You switch to a different track
+- You exit edit mode
+
+### Manual Save
+
+Click the **Save** button to explicitly save your work. You'll see a confirmation when saved successfully.
+
+### Deleting Lyrics
+
+To delete lyrics for a track:
+1. Enter edit mode
+2. Clear all the text
+3. Click **Delete** (the Save button changes to Delete when empty)
+
+Or use the **More** menu (three dots) and select **Delete lyrics**.
+
+## Your Lyrics Library
+
+All lyrics you've written are saved to your personal library.
+
+### Accessing Your Library
+
+1. Click **Library** in the left sidebar
+2. Select **Lyrics** from the Library menu
+
+### Library Features
+
+The lyrics library page shows:
+
+- **All your saved lyrics** — Listed with track artwork, name, and artist
+- **Preview** — See the first few lines of each lyric
+- **Last updated date** — When you last edited each lyric
+- **Search** — Filter by track name, artist, or lyric content
+
+### Managing Library Lyrics
+
+From the library, you can:
+
+- **Open lyrics** — Click the microphone icon to view and edit
+- **Delete lyrics** — Click the trash icon and confirm deletion
 
 ## Desktop vs. Mobile
 
 ### Desktop
 
-On desktop, the lyrics view opens as a full-screen overlay with:
+On desktop (screens wider than 1024px), the lyrics panel appears as a floating sidebar on the right side of the screen. It:
 
-- Album artwork displayed prominently on the left
-- Lyrics scrollable on the right
-- Track info centered below the artwork
+- Stays open while you browse
+- Automatically adjusts position if the queue panel is open
+- Provides the full-featured editor with all toolbar options
 
-### Mobile
+### Mobile and Tablet
 
-On mobile, tap the microphone icon in the expanded player to view lyrics. The layout is optimized for smaller screens with scrollable text.
+On mobile and tablet devices, the lyrics panel opens as a full-screen overlay with:
 
-<Note>
-Most beats on BeatPass are instrumentals and may not include lyrics. The lyrics feature is primarily useful for tracks that contain vocal samples, hooks, or sung/rapped sections.
-</Note>
+- Compact toolbar optimized for touch
+- Larger tap targets for editing
+- Same sync and section features in a mobile-friendly layout
 
-## For Producers
+## Tips for Songwriters
 
-If you're a producer and want to add lyrics to your tracks:
+### Using Rhyme Highlighting
 
-1. Go to your track's edit page in the Backstage
-2. Find the lyrics field
-3. Enter your lyrics text
-4. Save your changes
+The editor automatically detects rhyming words and colors them. Lines that rhyme with each other share the same color dot, making it easy to see your rhyme scheme at a glance. Toggle rhyme highlighting with the **music note icon** in the toolbar.
 
-Lyrics will then be available for listeners who play your track.
+### Working with BPM
+
+If the beat has BPM information, you'll see a bar:beat counter (e.g., "8:3" means bar 8, beat 3). This helps you align your lyrics to specific musical moments.
+
+### Section Organization
+
+Use sections liberally to structure your song. A typical structure might be:
+- `[Intro]`
+- `[Verse 1]`
+- `[Chorus]`
+- `[Verse 2]`
+- `[Chorus]`
+- `[Bridge]`
+- `[Outro]`
+
+Sections are numbered automatically if you add multiples (Verse 1, Verse 2, etc.).
