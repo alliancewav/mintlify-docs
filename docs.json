@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "maple",
+  "theme": "almond",
   "name": "BeatPass",
   "description": "Help Center and Developer Docs for BeatPass - the beat licensing and music collaboration platform for producers, artists, and curators.",
   "colors": {
@@ -48,7 +48,7 @@
     "prompt": "Search guides, API docs, or ask a question..."
   },
   "banner": {
-    "content": "👋 Welcome to BeatPass Docs! Browse the **Help Center** for guides or **API Docs** for integration.",
+    "content": "Browse the **Help Center** for platform guides or **API & Developers** for integration docs.",
     "dismissible": true
   },
   "metadata": {
