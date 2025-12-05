@@ -1,12 +1,12 @@
 ---
-audience: help
+audience: "help"
 title: "Gamification System | BeatPass"
 sidebarTitle: "Gamification Overview"
 description: "Master the BeatPass gamification system including XP, producer levels, achievements, and leaderboard rankings."
-keywords: ["gamification", "XP", "levels", "achievements", "leaderboards", "progression"]
-"og:title": "Gamification System - BeatPass"
-"og:description": "Level up your producer career with XP, achievements, and leaderboard rankings."
-"twitter:card": "summary_large_image"
+keywords: ["gamification","XP","levels","achievements","leaderboards","progression"]
+og:title: "Gamification System - BeatPass"
+og:description: "Level up your producer career with XP, achievements, and leaderboard rankings."
+twitter:card: "summary_large_image"
 ---
 
 BeatPass features a comprehensive gamification system that rewards your activity with Experience Points (XP), levels, achievements, and competitive leaderboard rankings. This system makes your producer journey measurable and rewarding.
@@ -38,50 +38,91 @@ BeatPass features a comprehensive gamification system that rewards your activity
 
 ## Quick Reference
 
-### XP Sources
-
-| Action | XP Earned |
-|--------|-----------|
-| Upload a track | +100 XP |
-| Track plays | +1 XP per play |
-| Complete metadata | +50 XP per track |
-| Collaborate | +25 XP per collaboration |
-| Unlock achievements | Variable (150-6,000+ XP) |
-
-### Level Titles
-
-| Level Range | Title |
-|-------------|-------|
-| 1-2 | Novice Producer |
-| 3-4 | Apprentice Producer |
-| 5-6 | Intermediate Producer |
-| 7-9 | Skilled Producer |
-| 10-14 | Experienced Producer |
-| 15-19 | Advanced Producer |
-| 20-29 | Professional Producer |
-| 30-39 | Expert Producer |
-| 40-49 | Master Producer |
-| 50-100 | Legendary Producer |
-
-### Achievement Rarity
-
-| Rarity | XP Range | Difficulty |
-|--------|----------|------------|
-| Common | 100-1,000 XP | Entry-level |
-| Rare | 1,500-2,000 XP | Consistent effort |
-| Epic | 2,500-3,500 XP | Significant accomplishment |
-| Legendary | 4,000-6,000 XP | Elite milestone |
-
-### Leaderboard Categories
-
-| Category | Weight in Overall |
-|----------|-------------------|
-| Points (XP) | 25% |
-| Plays | 20% |
-| Uploads | 15% |
-| Quality | 15% |
-| Collaboration | 15% |
-| Earnings | 10% |
+<Tabs>
+  <Tab title="XP Sources">
+    <CardGroup cols={2}>
+      <Card title="Upload a Track" icon="cloud-arrow-up">
+        <Badge color="green" size="lg">+100 XP</Badge>
+      </Card>
+      <Card title="Track Plays" icon="play">
+        <Badge color="blue" size="lg">+1 XP per play</Badge>
+      </Card>
+      <Card title="Complete Metadata" icon="list-check">
+        <Badge color="purple" size="lg">+50 XP per track</Badge>
+      </Card>
+      <Card title="Collaborate" icon="users">
+        <Badge color="orange" size="lg">+25 XP</Badge>
+      </Card>
+      <Card title="Unlock Achievements" icon="trophy">
+        <Badge color="green" size="lg">150-6,000+ XP</Badge>
+      </Card>
+    </CardGroup>
+  </Tab>
+  <Tab title="Level Titles">
+    <AccordionGroup>
+      <Accordion title="Beginner Levels (1-6)" defaultOpen icon="seedling">
+        - **Level 1-2:** Novice Producer
+        - **Level 3-4:** Apprentice Producer
+        - **Level 5-6:** Intermediate Producer
+      </Accordion>
+      <Accordion title="Intermediate Levels (7-19)" icon="chart-simple">
+        - **Level 7-9:** Skilled Producer
+        - **Level 10-14:** Experienced Producer
+        - **Level 15-19:** Advanced Producer
+      </Accordion>
+      <Accordion title="Advanced Levels (20-49)" icon="fire">
+        - **Level 20-29:** Professional Producer
+        - **Level 30-39:** Expert Producer
+        - **Level 40-49:** Master Producer
+      </Accordion>
+      <Accordion title="Elite Levels (50+)" icon="crown">
+        - **Level 50-100:** Legendary Producer
+      </Accordion>
+    </AccordionGroup>
+  </Tab>
+  <Tab title="Achievement Rarity">
+    <CardGroup cols={2}>
+      <Card title="Common" icon="circle" color="#6b7280">
+        <Badge color="gray">100-1,000 XP</Badge>
+         Entry-level achievements
+      </Card>
+      <Card title="Rare" icon="star" color="#3b82f6">
+        <Badge color="blue">1,500-2,000 XP</Badge>
+         Consistent effort required
+      </Card>
+      <Card title="Epic" icon="gem" color="#8b5cf6">
+        <Badge color="purple">2,500-3,500 XP</Badge>
+         Significant accomplishment
+      </Card>
+      <Card title="Legendary" icon="crown" color="#f59e0b">
+        <Badge color="orange">4,000-6,000 XP</Badge>
+         Elite milestone
+      </Card>
+    </CardGroup>
+  </Tab>
+  <Tab title="Leaderboard Weights">
+    <CardGroup cols={3}>
+      <Card title="Points (XP)" icon="bolt" color="#22c55e">
+        <Badge color="green" size="lg">25%</Badge>
+      </Card>
+      <Card title="Plays" icon="play" color="#3b82f6">
+        <Badge color="blue" size="lg">20%</Badge>
+      </Card>
+      <Card title="Uploads" icon="cloud-arrow-up" color="#8b5cf6">
+        <Badge color="purple" size="lg">15%</Badge>
+      </Card>
+      <Card title="Quality" icon="star" color="#f59e0b">
+        <Badge color="orange" size="lg">15%</Badge>
+      </Card>
+      <Card title="Collaboration" icon="users" color="#ec4899">
+        <Badge color="purple" size="lg">15%</Badge>
+      </Card>
+      <Card title="Earnings" icon="coins" color="#6b7280">
+        <Badge color="gray" size="lg">10%</Badge>
+      </Card>
+    </CardGroup>
+  </Tab>
+</Tabs>
 
 ---
 
@@ -103,23 +144,40 @@ Activity → XP → Levels → Achievements → Leaderboard Rankings
 
 ## Benefits of Gamification
 
-### Direct Benefits
-
-| Benefit | Description |
-|---------|-------------|
-| **XP Rewards** | Every action contributes to your level |
-| **Profile Credibility** | Level and achievements show on your profile |
-| **Leaderboard Visibility** | Top performers get discovery benefits |
-| **Career Tracking** | Visual record of your producer journey |
-
-### Indirect Benefits
-
-| Benefit | Description |
-|---------|-------------|
-| **Discovery** | High-ranking producers appear in searches |
-| **Collaboration Appeal** | Other producers see your achievements |
-| **Fan Engagement** | Listeners see your commitment level |
-| **Motivation** | Clear goals keep you engaged |
+<Tabs>
+  <Tab title="Direct Benefits">
+    <CardGroup cols={2}>
+      <Card title="XP Rewards" icon="bolt" color="#22c55e">
+        Every action contributes to your level progression.
+      </Card>
+      <Card title="Profile Credibility" icon="id-badge" color="#3b82f6">
+        Level and achievements display on your public profile.
+      </Card>
+      <Card title="Leaderboard Visibility" icon="eye" color="#8b5cf6">
+        Top performers get discovery benefits and exposure.
+      </Card>
+      <Card title="Career Tracking" icon="chart-line" color="#f59e0b">
+        Visual record of your entire producer journey.
+      </Card>
+    </CardGroup>
+  </Tab>
+  <Tab title="Indirect Benefits">
+    <CardGroup cols={2}>
+      <Card title="Discovery" icon="magnifying-glass" color="#22c55e">
+        High-ranking producers appear prominently in searches.
+      </Card>
+      <Card title="Collaboration Appeal" icon="handshake" color="#3b82f6">
+        Other producers see your achievements and want to work with you.
+      </Card>
+      <Card title="Fan Engagement" icon="heart" color="#ec4899">
+        Listeners see your commitment and dedication level.
+      </Card>
+      <Card title="Motivation" icon="flag-checkered" color="#f59e0b">
+        Clear goals keep you engaged and progressing.
+      </Card>
+    </CardGroup>
+  </Tab>
+</Tabs>
 
 ---
 
@@ -129,19 +187,15 @@ Activity → XP → Levels → Achievements → Leaderboard Rankings
   <Step title="Check Your Progress">
     Go to `/producer-dashboard/progress` to see your current level, XP, and achievements.
   </Step>
-  
   <Step title="Complete Easy Achievements">
     Start with Profile achievements (Photogenic, Oracle, Linked, Model)—they're quick wins for immediate XP.
   </Step>
-  
   <Step title="Upload Consistently">
     Each track upload earns +100 XP. Regular uploads also help with upload percentile achievements.
   </Step>
-  
   <Step title="Fill Out Metadata">
     Complete all metadata fields on your tracks for +50 XP each and metadata achievements.
   </Step>
-  
   <Step title="Check Leaderboards">
     Visit `/producer-dashboard/leaderboards` to see your rank and identify improvement areas.
   </Step>
@@ -151,12 +205,24 @@ Activity → XP → Levels → Achievements → Leaderboard Rankings
 
 ## Data Freshness
 
-| Data Type | Update Frequency |
-|-----------|------------------|
-| XP & Level | Immediate on action |
-| Achievements | Checked on relevant actions |
-| Leaderboard rankings | Every 30 minutes (cached) |
-| Progress data | Every 5 minutes (cached) |
+<CardGroup cols={2}>
+  <Card title="XP & Level" icon="bolt" color="#22c55e">
+    <Badge color="green">Immediate</Badge>
+     Updates instantly on action
+  </Card>
+  <Card title="Achievements" icon="trophy" color="#3b82f6">
+    <Badge color="blue">On Action</Badge>
+     Checked when relevant actions occur
+  </Card>
+  <Card title="Leaderboard Rankings" icon="ranking-star" color="#8b5cf6">
+    <Badge color="purple">30 min cache</Badge>
+     Refreshed every half hour
+  </Card>
+  <Card title="Progress Data" icon="chart-simple" color="#f59e0b">
+    <Badge color="orange">5 min cache</Badge>
+     Near real-time updates
+  </Card>
+</CardGroup>
 
 ---
 

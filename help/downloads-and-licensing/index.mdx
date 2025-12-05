@@ -2,10 +2,10 @@
 title: "Downloads & Licensing | BeatPass"
 sidebarTitle: "Overview"
 description: "Complete guide to downloading beats and understanding license types on BeatPass. Learn about non-exclusive and exclusive licenses, audio fingerprinting, and license verification."
-keywords: ["downloads", "licensing", "beats", "non-exclusive", "exclusive", "license certificate", "BeatPassID"]
-"og:title": "Downloads & Licensing - BeatPass"
-"og:description": "Everything about downloading beats and obtaining licenses on BeatPass."
-"twitter:card": "summary_large_image"
+keywords: ["downloads","licensing","beats","non-exclusive","exclusive","license certificate","BeatPassID"]
+og:title: "Downloads & Licensing - BeatPass"
+og:description: "Everything about downloading beats and obtaining licenses on BeatPass."
+twitter:card: "summary_large_image"
 ---
 
 BeatPass provides a comprehensive licensing system that protects both creators and users. When you download a beat, you receive a license certificate that grants specific usage rights based on your license type.
@@ -23,7 +23,7 @@ BeatPass offers two types of licenses:
 <CardGroup cols={2}>
   <Card title="Non-Exclusive License" icon="users">
     **Included with subscription**
-    
+
     - Multiple artists can license the same beat
     - Perpetual usage rights
     - Monetize on streaming platforms
@@ -32,7 +32,7 @@ BeatPass offers two types of licenses:
   </Card>
   <Card title="Exclusive License" icon="crown">
     **One-time purchase**
-    
+
     - Only one artist owns the beat
     - Full ownership transfer
     - Unlimited distribution and streaming
@@ -67,24 +67,43 @@ BeatPass offers two types of licenses:
 
 ## What's Included
 
-### Non-Exclusive Downloads
-
-| Item | Included |
-|------|----------|
-| WAV file | Yes |
-| MP3 (320kbps) | Yes |
-| License certificate | Yes |
-| Stems | No |
-
-### Exclusive Purchases
-
-| Item | Included |
-|------|----------|
-| WAV file | Yes |
-| WAV tagged | Yes |
-| MP3 (320kbps) | Yes |
-| Stems | Yes |
-| License certificate | Yes |
+<Tabs>
+  <Tab title="Non-Exclusive Downloads">
+    <CardGroup cols={2}>
+      <Card title="WAV File" icon="file-audio">
+        <Badge color="green" icon="check">Included</Badge>
+      </Card>
+      <Card title="MP3 (320kbps)" icon="file-music">
+        <Badge color="green" icon="check">Included</Badge>
+      </Card>
+      <Card title="License Certificate" icon="file-certificate">
+        <Badge color="green" icon="check">Included</Badge>
+      </Card>
+      <Card title="Stems" icon="layer-group">
+        <Badge color="gray" icon="xmark">Not Included</Badge>
+      </Card>
+    </CardGroup>
+  </Tab>
+  <Tab title="Exclusive Purchases">
+    <CardGroup cols={2}>
+      <Card title="WAV File" icon="file-audio">
+        <Badge color="green" icon="check">Included</Badge>
+      </Card>
+      <Card title="WAV Tagged" icon="file-audio">
+        <Badge color="green" icon="check">Included</Badge>
+      </Card>
+      <Card title="MP3 (320kbps)" icon="file-music">
+        <Badge color="green" icon="check">Included</Badge>
+      </Card>
+      <Card title="Stems" icon="layer-group">
+        <Badge color="green" icon="check">Included</Badge>
+      </Card>
+      <Card title="License Certificate" icon="file-certificate">
+        <Badge color="green" icon="check">Included</Badge>
+      </Card>
+    </CardGroup>
+  </Tab>
+</Tabs>
 
 ---
 
@@ -93,6 +112,7 @@ BeatPass offers two types of licenses:
 ### BeatPassID (Audio Fingerprinting)
 
 Every track on BeatPass has a unique acoustic fingerprint that:
+
 - Uniquely identifies the audio content
 - Cannot be forged or duplicated
 - Links your license to the specific audio
@@ -105,6 +125,7 @@ Every track on BeatPass has a unique acoustic fingerprint that:
 ### License Verification
 
 Anyone can verify a license certificate's authenticity:
+
 - Visit the verification URL on your certificate
 - BeatPass confirms the license is real and active
 - Shows license status, track info, and verification count
@@ -134,25 +155,53 @@ Anyone can verify a license certificate's authenticity:
 
 ### Non-Exclusive License Permissions
 
-| Permission | Allowed |
-|------------|---------|
-| Create songs with the beat | Yes |
-| Monetize on Spotify, Apple Music, YouTube | Yes |
-| Live performances | Up to 50 attendees |
-| Social media & promotional use | Yes |
-| Film, TV, commercials | No (upgrade required) |
-| Resell or redistribute beat | No |
-| Claim ownership of beat | No |
+<AccordionGroup>
+  <Accordion title="What You CAN Do" defaultOpen icon="circle-check">
+    <CardGroup cols={2}>
+      <Card title="Create Songs" icon="music">
+        <Badge color="green" icon="check">Allowed</Badge>
+         Use the beat in your own songs
+      </Card>
+      <Card title="Monetize Streaming" icon="play">
+        <Badge color="green" icon="check">Allowed</Badge>
+         Spotify, Apple Music, YouTube
+      </Card>
+      <Card title="Live Performances" icon="microphone">
+        <Badge color="orange" icon="check">Up to 50 attendees</Badge>
+      </Card>
+      <Card title="Social Media" icon="share-nodes">
+        <Badge color="green" icon="check">Allowed</Badge>
+         Promotional use permitted
+      </Card>
+    </CardGroup>
+  </Accordion>
+  <Accordion title="What You CANNOT Do" icon="circle-xmark">
+    <CardGroup cols={2}>
+      <Card title="Film/TV/Commercials" icon="film">
+        <Badge color="red" icon="xmark">Not Allowed</Badge>
+         Requires exclusive license
+      </Card>
+      <Card title="Resell/Redistribute" icon="arrows-rotate">
+        <Badge color="red" icon="xmark">Not Allowed</Badge>
+         Cannot share or sell the beat
+      </Card>
+      <Card title="Claim Ownership" icon="crown">
+        <Badge color="red" icon="xmark">Not Allowed</Badge>
+         Producer retains ownership
+      </Card>
+    </CardGroup>
+  </Accordion>
+</AccordionGroup>
 
 ### Attribution Requirement
 
-Non-exclusive licenses require attribution:
+<Tip>
+  Non-exclusive licenses require attribution in this format:
 
-```
-Produced by [Producer Name]
-```
+  **Produced by [Producer Name]**
 
-Adding "(via BeatPass)" is optional but appreciated.
+  Adding "(via BeatPass)" is optional but appreciated!
+</Tip>
 
 ---
 

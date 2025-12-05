@@ -2,9 +2,9 @@
 title: "Account Settings"
 sidebarTitle: "Overview"
 description: "Manage your BeatPass account settings including profile details, security, connected accounts, and preferences."
-keywords: ["account settings", "profile", "security", "password", "2FA", "sessions"]
-"og:title": "Account Settings - BeatPass Help"
-"og:description": "Learn how to manage your BeatPass account settings."
+keywords: ["account settings","profile","security","password","2FA","sessions"]
+og:title: "Account Settings - BeatPass Help"
+og:description: "Learn how to manage your BeatPass account settings."
 ---
 
 Your account settings let you control your personal information, security options, and preferences on BeatPass. Access these settings to update your profile, change your password, manage security features, and more.
@@ -35,7 +35,7 @@ This takes you directly to the Account Settings page where all options are avail
   <Card title="Active Sessions" icon="monitor" href="/help/account-settings/active-sessions">
     View and manage devices where you're logged in.
   </Card>
-  <Card title="Social Login" icon="share-2" href="/help/account-settings/social-login">
+  <Card title="Social Login" icon="share-nodes" href="/help/account-settings/social-login">
     Connect or disconnect Google, Facebook, and Twitter.
   </Card>
   <Card title="Location and Language" icon="globe" href="/help/account-settings/localization">
@@ -53,16 +53,44 @@ This takes you directly to the Account Settings page where all options are avail
 
 ## Quick Reference
 
-| Setting | What You Can Do |
-|---------|-----------------|
-| **Account Details** | Change name, email, username, avatar |
-| **Password** | Update password, reset forgotten password |
-| **Two-Factor Auth** | Enable/disable 2FA, manage recovery codes |
-| **Active Sessions** | See logged-in devices, log out remotely |
-| **Social Login** | Link/unlink social accounts |
-| **Location and Language** | Set language and timezone |
-| **Developer API** | Create/delete API access tokens |
-| **Delete Account** | Permanently delete your account |
+<Tabs>
+  <Tab title="Profile">
+    <CardGroup cols={2}>
+      <Card title="Account Details" icon="id-card">
+        Change name, email, username, avatar
+      </Card>
+      <Card title="Location & Language" icon="globe">
+        Set language and timezone preferences
+      </Card>
+    </CardGroup>
+  </Tab>
+  <Tab title="Security">
+    <CardGroup cols={2}>
+      <Card title="Password" icon="lock">
+        Update password, reset forgotten password
+      </Card>
+      <Card title="Two-Factor Auth" icon="key">
+        Enable/disable 2FA, manage recovery codes
+      </Card>
+      <Card title="Active Sessions" icon="monitor">
+        See logged-in devices, log out remotely
+      </Card>
+      <Card title="Social Login" icon="share-nodes">
+        Link/unlink social accounts
+      </Card>
+    </CardGroup>
+  </Tab>
+  <Tab title="Advanced">
+    <CardGroup cols={2}>
+      <Card title="Developer API" icon="code">
+        Create/delete API access tokens
+      </Card>
+      <Card title="Delete Account" icon="trash" color="#ef4444">
+        Permanently delete your account
+      </Card>
+    </CardGroup>
+  </Tab>
+</Tabs>
 
 ---
 
@@ -102,11 +130,9 @@ Your BeatPass account includes:
   <Accordion title="I can't access my account">
     If you're locked out, use the [Forgot Password](/help/account-settings/password/forgot-password) feature to reset your password via email.
   </Accordion>
-  
   <Accordion title="I want to change my email address">
     Go to [Account Details](/help/account-settings/account-details) to update your email. You may need to verify the new address.
   </Accordion>
-  
   <Accordion title="Someone else is using my account">
     Go to [Active Sessions](/help/account-settings/active-sessions) and log out all other devices. Then change your password immediately.
   </Accordion>

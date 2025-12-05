@@ -37,11 +37,23 @@ BeatPass Analytics provides **Backstage Insights** — content-level deep dives 
 
 Deep analytics for individual content items. Access by clicking the **Insights** button on any track, album, or artist page.
 
-| Content Type | URL Pattern | What You'll See |
-|--------------|-------------|-----------------|
-| [**Track Insights**](/help/analytics/backstage-insights/track-insights) | `/backstage/tracks/{id}/insights` | Engagement metrics, completion rates, listen duration |
-| [**Album Insights**](/help/analytics/backstage-insights/album-insights) | `/backstage/albums/{id}/insights` | Aggregate plays, top tracks, listener locations |
-| [**Artist Insights**](/help/analytics/backstage-insights/artist-insights) | `/backstage/artists/{id}/insights` | Catalog-wide analytics, audience overview |
+<CardGroup cols={3}>
+  <Card title="Track Insights" icon="record-vinyl" href="/help/analytics/backstage-insights/track-insights">
+    <Badge color="blue">/backstage/tracks/{id}/insights</Badge>
+    
+    Engagement metrics, completion rates, listen duration
+  </Card>
+  <Card title="Album Insights" icon="album-collection" href="/help/analytics/backstage-insights/album-insights">
+    <Badge color="purple">/backstage/albums/{id}/insights</Badge>
+    
+    Aggregate plays, top tracks, listener locations
+  </Card>
+  <Card title="Artist Insights" icon="user-music" href="/help/analytics/backstage-insights/artist-insights">
+    <Badge color="green">/backstage/artists/{id}/insights</Badge>
+    
+    Catalog-wide analytics, audience overview
+  </Card>
+</CardGroup>
 
 ---
 
@@ -65,27 +77,65 @@ Technical reference for metrics, charts, and troubleshooting.
 
 ## When to Use Each System
 
-| Need | Use This | Why |
-|------|----------|-----|
-| See plays for a specific track | **Backstage Insights** | Drills into individual content |
-| View listener engagement | **Backstage Insights** | Engagement metrics are per-track |
-| See geographic distribution | **Backstage Insights** | Available on any content type |
-| See total plays across all tracks | **[Producer Dashboard](/help/producer-dashboard)** | Aggregates your entire catalog |
-| Manage track uploads | **[Producer Dashboard](/help/producer-dashboard/tracks)** | Catalog management |
-| Check earnings | **[Producer Dashboard](/help/producer-dashboard/finances)** | Financial data is career-level |
-| Check your XP and level | **[Gamification](/help/gamification)** | XP/levels are career-level |
-| Compare yourself to others | **[Gamification](/help/gamification/leaderboards)** | Rankings are platform-wide |
+<AccordionGroup>
+  <Accordion title="Content-Level Analytics (Backstage Insights)" icon="magnifying-glass-chart" defaultOpen>
+    <CardGroup cols={2}>
+      <Card title="Specific Track Plays" icon="play">
+        Drills into individual content performance
+      </Card>
+      <Card title="Listener Engagement" icon="heart">
+        Engagement metrics are per-track
+      </Card>
+      <Card title="Geographic Distribution" icon="globe">
+        Available on any content type
+      </Card>
+    </CardGroup>
+  </Accordion>
+  
+  <Accordion title="Career-Level Tools (Producer Dashboard)" icon="chart-bar">
+    <CardGroup cols={2}>
+      <Card title="Total Plays" icon="chart-line" href="/help/producer-dashboard">
+        Aggregates your entire catalog
+      </Card>
+      <Card title="Track Management" icon="list-music" href="/help/producer-dashboard/tracks">
+        Catalog management
+      </Card>
+      <Card title="Earnings" icon="wallet" href="/help/producer-dashboard/finances">
+        Financial data is career-level
+      </Card>
+    </CardGroup>
+  </Accordion>
+  
+  <Accordion title="Gamification System" icon="trophy">
+    <CardGroup cols={2}>
+      <Card title="XP & Level" icon="bolt" href="/help/gamification">
+        Career-level progression
+      </Card>
+      <Card title="Leaderboards" icon="ranking-star" href="/help/gamification/leaderboards">
+        Platform-wide rankings
+      </Card>
+    </CardGroup>
+  </Accordion>
+</AccordionGroup>
 
 ---
 
 ## Data Freshness
 
-| Data Type | Update Frequency |
-|-----------|------------------|
-| Play counts | Near real-time |
-| Engagement metrics | Near real-time |
-| Geographic data | Hourly aggregation |
-| Device/platform data | Hourly aggregation |
+<CardGroup cols={2}>
+  <Card title="Play Counts" icon="play" color="#22c55e">
+    <Badge color="green">Near real-time</Badge>
+  </Card>
+  <Card title="Engagement Metrics" icon="heart" color="#22c55e">
+    <Badge color="green">Near real-time</Badge>
+  </Card>
+  <Card title="Geographic Data" icon="globe" color="#3b82f6">
+    <Badge color="blue">Hourly aggregation</Badge>
+  </Card>
+  <Card title="Device/Platform Data" icon="laptop" color="#3b82f6">
+    <Badge color="blue">Hourly aggregation</Badge>
+  </Card>
+</CardGroup>
 
 ---
 

@@ -1,6 +1,9 @@
 ---
 title: "Playlists"
 description: "Create, organize, and share your favorite beats with playlists on BeatPass."
+keywords: ["playlists","organize beats","music collections","collaborative playlists"]
+og:title: "Playlists - BeatPass Help"
+og:description: "Learn how to create, organize, and share playlists on BeatPass."
 ---
 
 # Playlists
@@ -59,13 +62,49 @@ Your playlists appear in several places:
 
 ## Playlist vs. Queue
 
-| Feature | Playlist | Queue |
-|---------|----------|-------|
-| **Purpose** | Permanent collection | Temporary playback list |
-| **Saves automatically** | Yes | No (clears when you close the app) |
-| **Can share with others** | Yes (if public) | No |
-| **Multiple collaborators** | Yes | No |
+<Tabs>
+  <Tab title="Playlist">
+    <CardGroup cols={2}>
+      <Card title="Purpose" icon="bookmark">
+        <Badge color="green">Permanent</Badge>
+         Long-term collection of beats
+      </Card>
+      <Card title="Auto-Save" icon="cloud-check">
+        <Badge color="green">Yes</Badge>
+         Saves automatically
+      </Card>
+      <Card title="Sharing" icon="share-nodes">
+        <Badge color="green">Yes</Badge>
+         Share if public
+      </Card>
+      <Card title="Collaborators" icon="users">
+        <Badge color="green">Yes</Badge>
+         Invite others to edit
+      </Card>
+    </CardGroup>
+  </Tab>
+  <Tab title="Queue">
+    <CardGroup cols={2}>
+      <Card title="Purpose" icon="clock">
+        <Badge color="orange">Temporary</Badge>
+         Current listening session
+      </Card>
+      <Card title="Auto-Save" icon="cloud-xmark">
+        <Badge color="gray">No</Badge>
+         Clears when you close the app
+      </Card>
+      <Card title="Sharing" icon="lock">
+        <Badge color="gray">No</Badge>
+         Private only
+      </Card>
+      <Card title="Collaborators" icon="user">
+        <Badge color="gray">No</Badge>
+         Solo only
+      </Card>
+    </CardGroup>
+  </Tab>
+</Tabs>
 
 <Tip>
-Use playlists for beats you want to keep organized long-term. Use the queue for temporary listening sessions.
+  Use playlists for beats you want to keep organized long-term. Use the queue for temporary listening sessions.
 </Tip>

@@ -2,9 +2,9 @@
 title: "Rate Limits"
 sidebarTitle: "Rate Limits"
 description: "Understanding API rate limits and route-specific throttling on the BeatPass API."
-keywords: ["beatpass rate limits", "api throttling", "request limits", "rate limiting"]
-"og:title": "Rate Limits - BeatPass Developer Docs"
-"og:description": "Understand BeatPass API rate limits, throttling, and best practices for handling 429 errors."
+keywords: ["beatpass rate limits","api throttling","request limits","rate limiting"]
+og:title: "Rate Limits - BeatPass Developer Docs"
+og:description: "Understand BeatPass API rate limits, throttling, and best practices for handling 429 errors."
 ---
 
 ## Overview
@@ -17,33 +17,54 @@ BeatPass uses route-specific rate limiting via Laravel's throttle middleware. Di
 
 ### Producer Intelligence
 
-<Info>
-  **Updated December 2025:** Rate limits increased for cached endpoints.
-</Info>
+<Tip>
+  **Updated December 2025** — Rate limits increased for cached endpoints.
+</Tip>
 
-| Endpoint | Limit | Notes |
-|----------|-------|-------|
-| `/producer-intelligence/leaderboard` | 600/min | Cached responses (~25ms) |
-| `/producer-intelligence/tracks/growth-batch` | 120/min | Batch endpoint for up to 100 tracks |
-| `/producer-intelligence/track/{id}/growth` | 1200/min | Single track (prefer batch endpoint) |
-| Authenticated dashboard, analytics | 500/min | Requires auth |
-| Social analytics | 120/min | Rate-limited for performance |
+<AccordionGroup>
+  <Accordion title="Leaderboards" defaultOpen icon="trophy">
+    <Badge color="green" size="lg">600/min</Badge>
+    `/producer-intelligence/leaderboard` — Cached responses (~25ms response time).
+  </Accordion>
+  <Accordion title="Batch Growth Data" icon="layer-group">
+    <Badge color="blue" size="lg">120/min</Badge>
+    `/producer-intelligence/tracks/growth-batch` — Process up to 100 tracks per request.
+  </Accordion>
+  <Accordion title="Single Track Growth" icon="chart-line">
+    <Badge color="purple" size="lg">1200/min</Badge>
+    `/producer-intelligence/track/{id}/growth` — Prefer batch endpoint for multiple tracks.
+  </Accordion>
+  <Accordion title="Dashboard & Analytics" icon="chart-mixed">
+    <Badge color="orange" size="lg">500/min</Badge>
+    Authenticated dashboard and analytics endpoints.
+  </Accordion>
+  <Accordion title="Social Analytics" icon="users">
+    <Badge color="gray" size="lg">120/min</Badge>
+    Rate-limited for performance optimization.
+  </Accordion>
+</AccordionGroup>
 
 ### Legacy Endpoints
 
-| Route | Limit | Notes |
-|-------|-------|-------|
-| `/users/{user}/producer-dashboard` | 60/min | Deprecated, use producer-intelligence |
+<Warning>
+  **Deprecated:** `/users/{user}/producer-dashboard` is limited to **60/min** and will be removed. Migrate to producer-intelligence endpoints.
+</Warning>
 
 ### Authentication
 
 Authentication attempts are limited to prevent brute force attacks:
 
-| Action | Limit |
-|--------|-------|
-| Login attempts | 5/min per IP |
-| Password reset | 3/min per email |
-| 2FA verification | 5/min per session |
+<CardGroup cols={3}>
+  <Card title="Login Attempts" icon="right-to-bracket" color="#ef4444">
+    <Badge color="red">5/min per IP</Badge>
+  </Card>
+  <Card title="Password Reset" icon="key" color="#f59e0b">
+    <Badge color="orange">3/min per email</Badge>
+  </Card>
+  <Card title="2FA Verification" icon="shield-check" color="#22c55e">
+    <Badge color="green">5/min per session</Badge>
+  </Card>
+</CardGroup>
 
 ---
 
@@ -68,11 +89,17 @@ X-RateLimit-Remaining: 298
 X-RateLimit-Reset: 1700000060
 ```
 
-| Header | Description |
-|--------|-------------|
-| `X-RateLimit-Limit` | Maximum requests in window |
-| `X-RateLimit-Remaining` | Requests left in current window |
-| `X-RateLimit-Reset` | Unix timestamp when limit resets |
+<ResponseField name="X-RateLimit-Limit" type="integer">
+  Maximum requests allowed in the current window.
+</ResponseField>
+
+<ResponseField name="X-RateLimit-Remaining" type="integer">
+  Number of requests remaining in the current window.
+</ResponseField>
+
+<ResponseField name="X-RateLimit-Reset" type="unix timestamp">
+  Unix timestamp when the rate limit window resets.
+</ResponseField>
 
 ---
 
@@ -98,15 +125,12 @@ Retry-After: 60
   <Step title="Stop Requests">
     Immediately pause further requests to the limited endpoint.
   </Step>
-  
   <Step title="Check Retry-After">
     Read the `Retry-After` header for wait duration.
   </Step>
-  
   <Step title="Implement Backoff">
     Use exponential backoff for retries.
   </Step>
-  
   <Step title="Resume Carefully">
     Resume with reduced frequency.
   </Step>
@@ -121,20 +145,19 @@ Retry-After: 60
 <AccordionGroup>
   <Accordion title="Use Batch Endpoints">
     The Producer Intelligence API provides batch endpoints:
+
     ```http
     POST /producer-intelligence/tracks/growth-batch
     ```
+
     Handles up to 100 tracks per request instead of individual calls.
   </Accordion>
-  
   <Accordion title="Cache Responses">
     Analytics data doesn't change frequently. Cache responses for 5-15 minutes.
   </Accordion>
-  
   <Accordion title="Use Combined Endpoints">
     Use `/producer-intelligence/progress-data` for combined dashboard data instead of multiple calls.
   </Accordion>
-  
   <Accordion title="Paginate Efficiently">
     Request appropriate page sizes. Don't fetch more data than needed.
   </Accordion>
@@ -181,12 +204,28 @@ async function apiRequest(url, options) {
 
 ### Common Patterns That Trigger Limits
 
-| Pattern | Problem | Solution |
-|---------|---------|----------|
-| Polling leaderboards | High frequency checks | Use longer intervals (30s+) |
-| Individual track growth | Too many single-track calls | Use batch endpoint |
-| Page load analytics | Multiple concurrent requests | Consolidate into single call |
-| Search-as-you-type | Request per keystroke | Debounce input (300ms+) |
+<AccordionGroup>
+  <Accordion title="Polling leaderboards too frequently" icon="rotate">
+    **Problem:** High frequency polling drains your quota.
+
+    **Solution:** Use intervals of 30+ seconds. Leaderboard data is cached for 5 minutes.
+  </Accordion>
+  <Accordion title="Individual track growth calls" icon="chart-simple">
+    **Problem:** Calling `/track/{id}/growth` for each track individually.
+
+    **Solution:** Use the batch endpoint `/tracks/growth-batch` for up to 100 tracks per request.
+  </Accordion>
+  <Accordion title="Multiple concurrent requests on page load" icon="arrows-split-up-and-left">
+    **Problem:** Firing many analytics requests simultaneously.
+
+    **Solution:** Use `/producer-intelligence/progress-data` for consolidated dashboard data.
+  </Accordion>
+  <Accordion title="Search-as-you-type" icon="keyboard">
+    **Problem:** Sending a request on every keystroke.
+
+    **Solution:** Debounce input by 300ms+ before triggering search.
+  </Accordion>
+</AccordionGroup>
 
 ---
 
@@ -205,12 +244,20 @@ These endpoints use global defaults:
 
 These have explicit rate limits:
 
-| Feature | Reason for Limit |
-|---------|------------------|
-| Producer Intelligence | Heavy computation |
-| Social Analytics | Complex queries |
-| Legacy Dashboard | Deprecated, encouraging migration |
-| Real-time Analytics | Database intensive |
+<CardGroup cols={2}>
+  <Card title="Producer Intelligence" icon="brain" color="#8b5cf6">
+    Heavy computation for XP, achievements, and rankings.
+  </Card>
+  <Card title="Social Analytics" icon="chart-network" color="#3b82f6">
+    Complex queries across social graph.
+  </Card>
+  <Card title="Legacy Dashboard" icon="clock-rotate-left" color="#6b7280">
+    Deprecated — encouraging migration to new APIs.
+  </Card>
+  <Card title="Real-time Analytics" icon="bolt" color="#f59e0b">
+    Database-intensive live data queries.
+  </Card>
+</CardGroup>
 
 ---
 
@@ -231,14 +278,44 @@ BeatPass uses centralized cache TTL (Time-To-Live) configuration for consistent 
 
 ### Cache TTL Values
 
-| Category | Endpoint Type | TTL | Notes |
-|----------|--------------|-----|-------|
-| **Analytics** | Dashboard overview | 15 min | Producer dashboard stats |
-| **Analytics** | Real-time metrics | 1 min | Live engagement data |
-| **Leaderboards** | Global rankings | 5 min | All leaderboard types |
-| **Content** | Track/Album details | 30 min | Metadata and images |
-| **User** | Profile data | 1 hour | User settings, preferences |
-| **Contribution** | Track values | 24 hours | Contribution calculations |
+<Tabs>
+  <Tab title="Analytics">
+    <CardGroup cols={2}>
+      <Card title="Dashboard Overview" icon="gauge">
+        <Badge color="blue">15 min TTL</Badge>
+         Producer dashboard statistics
+      </Card>
+      <Card title="Real-time Metrics" icon="bolt">
+        <Badge color="green">1 min TTL</Badge>
+         Live engagement data
+      </Card>
+    </CardGroup>
+  </Tab>
+  <Tab title="Leaderboards">
+    <Card title="Global Rankings" icon="ranking-star">
+      <Badge color="purple">5 min TTL</Badge>
+       All leaderboard types (genre, overall, timeframe)
+    </Card>
+  </Tab>
+  <Tab title="Content">
+    <Card title="Track/Album Details" icon="compact-disc">
+      <Badge color="orange">30 min TTL</Badge>
+       Metadata, images, and track information
+    </Card>
+  </Tab>
+  <Tab title="User Data">
+    <CardGroup cols={2}>
+      <Card title="Profile Data" icon="id-card">
+        <Badge color="gray">1 hour TTL</Badge>
+         User settings and preferences
+      </Card>
+      <Card title="Contribution Values" icon="coins">
+        <Badge color="green">24 hour TTL</Badge>
+         Track contribution calculations
+      </Card>
+    </CardGroup>
+  </Tab>
+</Tabs>
 
 ### Development Note
 

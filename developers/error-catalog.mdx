@@ -2,9 +2,9 @@
 title: "Error Catalog"
 sidebarTitle: "Error Catalog"
 description: "Common API error codes, messages, and suggested resolutions across BeatPass features."
-keywords: ["beatpass errors", "api error codes", "http status codes", "error handling", "troubleshooting"]
-"og:title": "Error Catalog - BeatPass Developer Docs"
-"og:description": "Complete catalog of BeatPass API error codes with resolutions and troubleshooting guidance."
+keywords: ["beatpass errors","api error codes","http status codes","error handling","troubleshooting"]
+og:title: "Error Catalog - BeatPass Developer Docs"
+og:description: "Complete catalog of BeatPass API error codes with resolutions and troubleshooting guidance."
 ---
 
 ## Overview
@@ -30,70 +30,154 @@ All errors follow this structure:
 
 ## HTTP Status Codes
 
-| Code | Name | General Meaning |
-|------|------|-----------------|
-| 400 | Bad Request | Malformed request syntax |
-| 401 | Unauthorized | Authentication required or invalid |
-| 403 | Forbidden | Authenticated but not permitted |
-| 404 | Not Found | Resource doesn't exist |
-| 409 | Conflict | Resource state conflict |
-| 422 | Unprocessable Entity | Validation failed |
-| 429 | Too Many Requests | Rate limit exceeded |
-| 500 | Internal Server Error | Server-side error |
+<CardGroup cols={4}>
+  <Card title="400" icon="circle-exclamation" color="#f59e0b">
+    **Bad Request** Malformed syntax
+  </Card>
+  <Card title="401" icon="lock" color="#ef4444">
+    **Unauthorized** Auth required
+  </Card>
+  <Card title="403" icon="ban" color="#dc2626">
+    **Forbidden** Not permitted
+  </Card>
+  <Card title="404" icon="magnifying-glass" color="#6b7280">
+    **Not Found** Doesn't exist
+  </Card>
+  <Card title="409" icon="arrows-split-up-and-left" color="#8b5cf6">
+    **Conflict** State conflict
+  </Card>
+  <Card title="422" icon="file-circle-xmark" color="#f97316">
+    **Unprocessable** Validation failed
+  </Card>
+  <Card title="429" icon="gauge-high" color="#eab308">
+    **Too Many** Rate limited
+  </Card>
+  <Card title="500" icon="server" color="#991b1b">
+    **Server Error** Internal issue
+  </Card>
+</CardGroup>
 
 ---
 
 ## Authentication Errors
 
-### Login & Session
+<AccordionGroup>
+  <Accordion title="Invalid credentials" defaultOpen icon="key">
+    <Badge color="red">401</Badge>
+     Wrong email or password combination.
 
-| Error | Code | Cause | Resolution |
-|-------|------|-------|------------|
-| `Invalid credentials` | 401 | Wrong email/password | Verify credentials |
-| `Account disabled` | 403 | Account suspended | Contact support |
-| `Email not verified` | 403 | Email verification pending | Check inbox for verification link |
-| `Session expired` | 401 | Token/session timed out | Re-authenticate |
-| `CSRF token mismatch` | 419 | Missing/invalid CSRF token | Refresh page, get new token |
+    **Resolution:** Verify your credentials. Use "Forgot Password" if needed.
+  </Accordion>
+  <Accordion title="Account disabled" icon="user-slash">
+    <Badge color="red">403</Badge>
+     Account has been suspended.
 
-### Session Errors
+    **Resolution:** Contact [support@beatpass.ca](mailto:support@beatpass.ca) for assistance.
+  </Accordion>
+  <Accordion title="Email not verified" icon="envelope">
+    <Badge color="orange">403</Badge>
+     Email verification is pending.
 
-| Error | Code | Cause | Resolution |
-|-------|------|-------|------------|
-| `Unauthenticated` | 401 | Missing session cookie | Authenticate via login |
-| `Session expired` | 401 | Session no longer valid | Re-authenticate |
-| `Invalid session` | 401 | Malformed or revoked session | Re-authenticate |
+    **Resolution:** Check your inbox for the verification link. Request a new one if needed.
+  </Accordion>
+  <Accordion title="Session expired" icon="clock">
+    <Badge color="gray">401</Badge>
+     Your session has timed out.
+
+    **Resolution:** Re-authenticate by logging in again.
+  </Accordion>
+  <Accordion title="CSRF token mismatch" icon="shield-xmark">
+    <Badge color="orange">419</Badge>
+     Security token is missing or invalid.
+
+    **Resolution:** Refresh the page and try again. This resets the CSRF token.
+  </Accordion>
+  <Accordion title="Unauthenticated" icon="lock">
+    <Badge color="red">401</Badge>
+     No valid session cookie found.
+
+    **Resolution:** Log in to establish a session.
+  </Accordion>
+</AccordionGroup>
 
 ---
 
 ## Track & Upload Errors
 
-### Upload Validation
+<Tabs>
+  <Tab title="Upload Validation">
+    <AccordionGroup>
+      <Accordion title="File too large" icon="file-arrow-up">
+        <Badge color="orange">422</Badge>
+         File exceeds maximum size (~250MB).
 
-| Error | Code | Cause | Resolution |
-|-------|------|-------|------------|
-| `File too large` | 422 | Exceeds max file size | Reduce file size (max ~250MB) |
-| `Invalid file format` | 422 | Unsupported audio format | Use WAV, FLAC, or AIFF (MP3 not accepted) |
-| `Duration too short` | 422 | Under 30 seconds | Upload longer track |
-| `Duration too long` | 422 | Over 15 minutes | Trim to under 15 minutes |
-| `Title is required` | 422 | Missing track title | Provide title |
-| `BPM is required` | 422 | Missing BPM | Provide BPM value |
-| `Genre is required` | 422 | Missing genre | Select genre |
+        **Resolution:** Compress or reduce file size before uploading.
+      </Accordion>
+      <Accordion title="Invalid file format" icon="file-audio">
+        <Badge color="orange">422</Badge>
+         Unsupported audio format.
 
-### Processing Errors
+        **Resolution:** Use WAV, FLAC, or AIFF. MP3 files are not accepted.
+      </Accordion>
+      <Accordion title="Duration issues" icon="clock">
+        <Badge color="orange">422</Badge>
+         Track too short (\<30s) or too long (\>15min).
 
-| Error | Code | Cause | Resolution |
-|-------|------|-------|------------|
-| `Transcode failed` | 500 | Audio processing error | Re-export and re-upload |
-| `Fingerprint collision` | 409 | Duplicate detected | Track may already exist |
-| `Processing timeout` | 504 | File took too long | Try smaller file or retry later |
+        **Resolution:** Ensure track is between 30 seconds and 15 minutes.
+      </Accordion>
+      <Accordion title="Missing required fields" icon="input-text">
+        <Badge color="orange">422</Badge>
+         Title, BPM, or Genre not provided.
 
-### Track Access
+        **Resolution:** Fill in all required metadata fields.
+      </Accordion>
+    </AccordionGroup>
+  </Tab>
+  <Tab title="Processing">
+    <AccordionGroup>
+      <Accordion title="Transcode failed" icon="rotate-exclamation">
+        <Badge color="red">500</Badge>
+         Audio processing encountered an error.
 
-| Error | Code | Cause | Resolution |
-|-------|------|-------|------------|
-| `Track not found` | 404 | ID doesn't exist or deleted | Verify track ID |
-| `Track unavailable` | 410 | Removed by owner/moderation | Track no longer accessible |
-| `Private track` | 403 | Track not published | Only owner can access |
+        **Resolution:** Re-export from your DAW and upload again.
+      </Accordion>
+      <Accordion title="Fingerprint collision" icon="fingerprint">
+        <Badge color="purple">409</Badge>
+         Duplicate audio detected.
+
+        **Resolution:** This track may already exist on the platform.
+      </Accordion>
+      <Accordion title="Processing timeout" icon="hourglass-end">
+        <Badge color="gray">504</Badge>
+         File took too long to process.
+
+        **Resolution:** Try a smaller file or retry later.
+      </Accordion>
+    </AccordionGroup>
+  </Tab>
+  <Tab title="Access">
+    <AccordionGroup>
+      <Accordion title="Track not found" icon="magnifying-glass">
+        <Badge color="gray">404</Badge>
+         Track ID doesn't exist or was deleted.
+
+        **Resolution:** Verify the track ID is correct.
+      </Accordion>
+      <Accordion title="Track unavailable" icon="circle-xmark">
+        <Badge color="gray">410</Badge>
+         Removed by owner or moderation.
+
+        **Resolution:** This track is no longer accessible.
+      </Accordion>
+      <Accordion title="Private track" icon="lock">
+        <Badge color="orange">403</Badge>
+         Track is not published.
+
+        **Resolution:** Only the owner can access unpublished tracks.
+      </Accordion>
+    </AccordionGroup>
+  </Tab>
+</Tabs>
 
 ---
 
@@ -101,32 +185,32 @@ All errors follow this structure:
 
 ### Purchase Flow
 
-| Error | Code | Cause | Resolution |
-|-------|------|-------|------------|
-| `Track not for sale` | 400 | No license configured | Contact producer |
-| `Already purchased` | 409 | User already owns license | Check purchases |
-| `Exclusive already sold` | 410 | Exclusive no longer available | Track sold exclusively |
-| `Price changed` | 409 | Price updated since page load | Refresh and retry |
-| `Checkout session expired` | 400 | Took too long to complete | Start new checkout |
+| Error                      | Code | Cause                         | Resolution             |
+| -------------------------- | ---- | ----------------------------- | ---------------------- |
+| `Track not for sale`       | 400  | No license configured         | Contact producer       |
+| `Already purchased`        | 409  | User already owns license     | Check purchases        |
+| `Exclusive already sold`   | 410  | Exclusive no longer available | Track sold exclusively |
+| `Price changed`            | 409  | Price updated since page load | Refresh and retry      |
+| `Checkout session expired` | 400  | Took too long to complete     | Start new checkout     |
 
 ### Payment Errors
 
-| Error | Code | Cause | Resolution |
-|-------|------|-------|------------|
-| `Payment failed` | 402 | Card declined | Try different payment method |
-| `Card declined` | 402 | Issuer declined transaction | Contact card issuer |
-| `Insufficient funds` | 402 | Not enough balance | Use different card |
-| `Invalid card` | 422 | Card number invalid | Check card details |
-| `Expired card` | 422 | Card past expiration | Update card info |
-| `Processing error` | 500 | Stripe communication issue | Retry in a moment |
+| Error                | Code | Cause                       | Resolution                   |
+| -------------------- | ---- | --------------------------- | ---------------------------- |
+| `Payment failed`     | 402  | Card declined               | Try different payment method |
+| `Card declined`      | 402  | Issuer declined transaction | Contact card issuer          |
+| `Insufficient funds` | 402  | Not enough balance          | Use different card           |
+| `Invalid card`       | 422  | Card number invalid         | Check card details           |
+| `Expired card`       | 422  | Card past expiration        | Update card info             |
+| `Processing error`   | 500  | Stripe communication issue  | Retry in a moment            |
 
 ### License Errors
 
-| Error | Code | Cause | Resolution |
-|-------|------|-------|------------|
-| `License not found` | 404 | Invalid license ID | Verify license ID |
-| `License revoked` | 410 | License was revoked | Contact support |
-| `Download expired` | 403 | Download link timed out | Get new download link |
+| Error               | Code | Cause                   | Resolution            |
+| ------------------- | ---- | ----------------------- | --------------------- |
+| `License not found` | 404  | Invalid license ID      | Verify license ID     |
+| `License revoked`   | 410  | License was revoked     | Contact support       |
+| `Download expired`  | 403  | Download link timed out | Get new download link |
 
 ---
 
@@ -134,27 +218,27 @@ All errors follow this structure:
 
 ### Creation
 
-| Error | Code | Cause | Resolution |
-|-------|------|-------|------------|
-| `Request limit reached` | 429 | Max active requests | Close old requests first |
-| `Title is required` | 422 | Missing title | Provide title |
-| `Description too short` | 422 | Under minimum length | Add more detail |
+| Error                   | Code | Cause                | Resolution               |
+| ----------------------- | ---- | -------------------- | ------------------------ |
+| `Request limit reached` | 429  | Max active requests  | Close old requests first |
+| `Title is required`     | 422  | Missing title        | Provide title            |
+| `Description too short` | 422  | Under minimum length | Add more detail          |
 
 ### Response
 
-| Error | Code | Cause | Resolution |
-|-------|------|-------|------------|
-| `Request not found` | 404 | Invalid request ID | Verify ID |
-| `Request closed` | 410 | Request no longer accepting responses | Find open request |
-| `Already responded` | 409 | User already submitted response | Cannot submit twice |
-| `Request expired` | 410 | Past 30-day limit | Request auto-expired |
+| Error               | Code | Cause                                 | Resolution           |
+| ------------------- | ---- | ------------------------------------- | -------------------- |
+| `Request not found` | 404  | Invalid request ID                    | Verify ID            |
+| `Request closed`    | 410  | Request no longer accepting responses | Find open request    |
+| `Already responded` | 409  | User already submitted response       | Cannot submit twice  |
+| `Request expired`   | 410  | Past 30-day limit                     | Request auto-expired |
 
 ### Status Changes
 
-| Error | Code | Cause | Resolution |
-|-------|------|-------|------------|
-| `Cannot close` | 403 | Not request owner | Only owner can close |
-| `Already fulfilled` | 409 | Request already completed | No action needed |
+| Error               | Code | Cause                     | Resolution           |
+| ------------------- | ---- | ------------------------- | -------------------- |
+| `Cannot close`      | 403  | Not request owner         | Only owner can close |
+| `Already fulfilled` | 409  | Request already completed | No action needed     |
 
 ---
 
@@ -162,20 +246,20 @@ All errors follow this structure:
 
 ### Sending Messages
 
-| Error | Code | Cause | Resolution |
-|-------|------|-------|------------|
-| `Recipient not found` | 404 | Invalid user ID | Verify recipient |
-| `User blocked you` | 403 | Recipient blocked sender | Cannot message this user |
-| `You blocked user` | 403 | Sender blocked recipient | Unblock to message |
-| `Message too long` | 422 | Over 5,000 characters | Shorten message |
-| `Rate limited` | 429 | Too many messages | Wait before sending more |
+| Error                 | Code | Cause                    | Resolution               |
+| --------------------- | ---- | ------------------------ | ------------------------ |
+| `Recipient not found` | 404  | Invalid user ID          | Verify recipient         |
+| `User blocked you`    | 403  | Recipient blocked sender | Cannot message this user |
+| `You blocked user`    | 403  | Sender blocked recipient | Unblock to message       |
+| `Message too long`    | 422  | Over 5,000 characters    | Shorten message          |
+| `Rate limited`        | 429  | Too many messages        | Wait before sending more |
 
 ### Conversation
 
-| Error | Code | Cause | Resolution |
-|-------|------|-------|------------|
-| `Conversation not found` | 404 | Invalid conversation ID | Verify ID |
-| `Not a participant` | 403 | User not in conversation | Cannot access |
+| Error                    | Code | Cause                    | Resolution    |
+| ------------------------ | ---- | ------------------------ | ------------- |
+| `Conversation not found` | 404  | Invalid conversation ID  | Verify ID     |
+| `Not a participant`      | 403  | User not in conversation | Cannot access |
 
 ---
 
@@ -183,22 +267,22 @@ All errors follow this structure:
 
 ### Saves & Playlists
 
-| Error | Code | Cause | Resolution |
-|-------|------|-------|------------|
-| `Library full` | 429 | Max saved items (10,000) | Remove old items |
-| `Playlist full` | 429 | Max tracks per playlist (500) | Create new playlist |
-| `Playlist limit reached` | 429 | Max playlists (100) | Delete unused playlists |
-| `Track already saved` | 409 | Already in library | No action needed |
-| `Track already in playlist` | 409 | Duplicate in playlist | Track exists |
+| Error                       | Code | Cause                         | Resolution              |
+| --------------------------- | ---- | ----------------------------- | ----------------------- |
+| `Library full`              | 429  | Max saved items (10,000)      | Remove old items        |
+| `Playlist full`             | 429  | Max tracks per playlist (500) | Create new playlist     |
+| `Playlist limit reached`    | 429  | Max playlists (100)           | Delete unused playlists |
+| `Track already saved`       | 409  | Already in library            | No action needed        |
+| `Track already in playlist` | 409  | Duplicate in playlist         | Track exists            |
 
 ### Collaborative Playlists
 
-| Error | Code | Cause | Resolution |
-|-------|------|-------|------------|
-| `Max editors reached` | 429 | 10 collaborators max | Remove editor first |
-| `Invitation expired` | 410 | 7-day expiry passed | Send new invitation |
-| `Already invited` | 409 | Pending invitation exists | Wait for response |
-| `Cannot re-invite yet` | 429 | 24-hour cooldown | Wait to re-invite |
+| Error                  | Code | Cause                     | Resolution          |
+| ---------------------- | ---- | ------------------------- | ------------------- |
+| `Max editors reached`  | 429  | 10 collaborators max      | Remove editor first |
+| `Invitation expired`   | 410  | 7-day expiry passed       | Send new invitation |
+| `Already invited`      | 409  | Pending invitation exists | Wait for response   |
+| `Cannot re-invite yet` | 429  | 24-hour cooldown          | Wait to re-invite   |
 
 ---
 
@@ -206,30 +290,30 @@ All errors follow this structure:
 
 ### Following
 
-| Error | Code | Cause | Resolution |
-|-------|------|-------|------------|
-| `Already following` | 409 | Already followed | No action needed |
-| `Not following` | 404 | Cannot unfollow if not following | Check following status |
-| `Follow limit reached` | 429 | Max 5,000 following | Unfollow some accounts |
-| `Follow rate limited` | 429 | Too many follows | Wait before following more |
+| Error                  | Code | Cause                            | Resolution                 |
+| ---------------------- | ---- | -------------------------------- | -------------------------- |
+| `Already following`    | 409  | Already followed                 | No action needed           |
+| `Not following`        | 404  | Cannot unfollow if not following | Check following status     |
+| `Follow limit reached` | 429  | Max 5,000 following              | Unfollow some accounts     |
+| `Follow rate limited`  | 429  | Too many follows                 | Wait before following more |
 
 ### Reposts
 
-| Error | Code | Cause | Resolution |
-|-------|------|-------|------------|
-| `Already reposted` | 409 | Track already reposted | No action needed |
-| `Repost limit reached` | 429 | 100/day or 20/hour | Wait for limit reset |
-| `Cannot repost own track` | 400 | Self-repost not allowed | N/A |
+| Error                     | Code | Cause                   | Resolution           |
+| ------------------------- | ---- | ----------------------- | -------------------- |
+| `Already reposted`        | 409  | Track already reposted  | No action needed     |
+| `Repost limit reached`    | 429  | 100/day or 20/hour      | Wait for limit reset |
+| `Cannot repost own track` | 400  | Self-repost not allowed | N/A                  |
 
 ---
 
 ## Radio Errors
 
-| Error | Code | Cause | Resolution |
-|-------|------|-------|------------|
-| `Skip limit reached` | 429 | 6 skips/hour | Wait for reset |
-| `Station not found` | 404 | Invalid station | Choose valid station |
-| `Concurrent stream limit` | 429 | Already streaming elsewhere | Stop other stream |
+| Error                     | Code | Cause                       | Resolution           |
+| ------------------------- | ---- | --------------------------- | -------------------- |
+| `Skip limit reached`      | 429  | 6 skips/hour                | Wait for reset       |
+| `Station not found`       | 404  | Invalid station             | Choose valid station |
+| `Concurrent stream limit` | 429  | Already streaming elsewhere | Stop other stream    |
 
 ---
 
@@ -255,26 +339,49 @@ Retry-After: 60
 
 ### Handling Rate Limits
 
-| Strategy | Implementation |
-|----------|----------------|
-| Exponential backoff | Wait, double delay on retry |
-| Check headers | Monitor remaining requests |
-| Queue requests | Space out API calls |
-| Cache responses | Reduce redundant calls |
+<CardGroup cols={2}>
+  <Card title="Exponential Backoff" icon="clock-rotate-left" color="#3b82f6">
+    Wait, then double the delay on each retry attempt.
+  </Card>
+  <Card title="Check Headers" icon="code" color="#22c55e">
+    Monitor `X-RateLimit-Remaining` before making requests.
+  </Card>
+  <Card title="Queue Requests" icon="list-check" color="#f59e0b">
+    Space out API calls to stay under limits.
+  </Card>
+  <Card title="Cache Responses" icon="database" color="#8b5cf6">
+    Reduce redundant calls by caching data locally.
+  </Card>
+</CardGroup>
 
 ---
 
 ## Server Errors (5xx)
 
-| Error | Code | Cause | Resolution |
-|-------|------|-------|------------|
-| `Internal Server Error` | 500 | Unexpected server issue | Retry; report if persistent |
-| `Service Unavailable` | 503 | Platform maintenance | Check status page |
-| `Gateway Timeout` | 504 | Request took too long | Retry with smaller payload |
+<AccordionGroup>
+  <Accordion title="500 - Internal Server Error" defaultOpen icon="server">
+    <Badge color="red">500</Badge>
+     An unexpected server-side issue occurred.
 
-<Note>
-  500 errors are logged automatically. If you encounter persistent 500 errors, contact support with the approximate time and endpoint.
-</Note>
+    **Resolution:** Retry the request. If persistent, contact support with the timestamp and endpoint.
+  </Accordion>
+  <Accordion title="503 - Service Unavailable" icon="power-off">
+    <Badge color="orange">503</Badge>
+     Platform is undergoing maintenance.
+
+    **Resolution:** Check the [status page](https://status.beatpass.ca) for updates.
+  </Accordion>
+  <Accordion title="504 - Gateway Timeout" icon="hourglass-clock">
+    <Badge color="gray">504</Badge>
+     Request took too long to process.
+
+    **Resolution:** Retry with a smaller payload or try again later.
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  Server errors (5xx) are logged automatically. If you encounter persistent issues, contact support with the approximate time and endpoint details.
+</Tip>
 
 ---
 
@@ -284,23 +391,18 @@ Retry-After: 60
   <Step title="Check Error Message">
     Read the `message` field for human-readable explanation.
   </Step>
-  
   <Step title="Check Validation Errors">
     Review `errors` object for field-specific issues.
   </Step>
-  
   <Step title="Verify Authentication">
     Ensure session is valid and cookies are included.
   </Step>
-  
   <Step title="Check Rate Limits">
     Review `X-RateLimit-*` headers.
   </Step>
-  
   <Step title="Retry with Backoff">
     For transient errors, wait and retry.
   </Step>
-  
   <Step title="Contact Support">
     For persistent issues, provide error details and timestamps.
   </Step>

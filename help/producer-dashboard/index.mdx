@@ -21,17 +21,16 @@ The Producer Dashboard is your central hub for analytics, earnings, gamification
 
 BeatPass provides two complementary analytics systems:
 
-| System | Purpose | Access |
-|--------|---------|--------|
-| **Producer Dashboard** | Career-level analytics: XP, leaderboards, achievements, earnings, catalog management | `/producer-dashboard` |
-| **Backstage Insights** | Content-level analytics: per-track/album/artist plays, listeners, geography, engagement | `/backstage/{type}/{id}/insights` |
-
 <CardGroup cols={2}>
-  <Card title="Producer Dashboard" icon="chart-bar">
-    **Aggregate view** — See your total plays, XP progress, leaderboard rankings, and manage your catalog across all content.
+  <Card title="Producer Dashboard" icon="chart-bar" color="#3b82f6">
+    <Badge color="blue">/producer-dashboard</Badge>
+    
+    **Career-level analytics** — XP, leaderboards, achievements, earnings, and catalog management across all your content.
   </Card>
-  <Card title="Backstage Insights" icon="magnifying-glass-chart" href="/help/analytics/backstage-insights">
-    **Item-specific view** — Drill into individual tracks, albums, or artist profiles to see detailed plays over time, geographic distribution, device breakdown, and engagement metrics.
+  <Card title="Backstage Insights" icon="magnifying-glass-chart" href="/help/analytics/backstage-insights" color="#8b5cf6">
+    <Badge color="purple">/backstage/{type}/{id}/insights</Badge>
+    
+    **Content-level analytics** — Per-track/album/artist plays, listeners, geography, and engagement.
   </Card>
 </CardGroup>
 
@@ -86,15 +85,43 @@ The Producer Dashboard contains six main sections, each focused on a specific as
 
 ## Page Overview
 
-| Page | URL | Primary Features |
-|------|-----|------------------|
-| **Home** | `/producer-dashboard` | Welcome header, stats overview, quick navigation grid |
-| **Activity** | `/producer-dashboard/activity` | Contribution graph, download tracking, performance metrics |
-| **Tracks** | `/producer-dashboard/tracks` | Growth meter, track table, collaboration insights, AI recommendations |
-| **Albums** | `/producer-dashboard/albums` | Album management, creation workflow, performance stats |
-| **Finances** | `/producer-dashboard/finances` | Stripe onboarding, balance overview, transaction history |
-| **Leaderboards** | `/producer-dashboard/leaderboards` | 7 ranking categories, top performers, your position |
-| **Progress** | `/producer-dashboard/progress` | XP progress ring, achievements list, unlock status |
+<AccordionGroup>
+  <Accordion title="Home" icon="house" defaultOpen>
+    <Badge color="blue">/producer-dashboard</Badge>
+    
+    Welcome header, stats overview, and quick navigation grid to all dashboard sections.
+  </Accordion>
+  <Accordion title="Activity" icon="activity">
+    <Badge color="blue">/producer-dashboard/activity</Badge>
+    
+    Contribution graph, download tracking, and performance metrics over time.
+  </Accordion>
+  <Accordion title="Tracks" icon="record-vinyl">
+    <Badge color="blue">/producer-dashboard/tracks</Badge>
+    
+    Growth meter, track table, collaboration insights, and AI recommendations.
+  </Accordion>
+  <Accordion title="Albums" icon="album-collection">
+    <Badge color="blue">/producer-dashboard/albums</Badge>
+    
+    Album management, creation workflow, and performance stats.
+  </Accordion>
+  <Accordion title="Finances" icon="wallet">
+    <Badge color="blue">/producer-dashboard/finances</Badge>
+    
+    Stripe onboarding, balance overview, and transaction history.
+  </Accordion>
+  <Accordion title="Leaderboards" icon="ranking-star">
+    <Badge color="blue">/producer-dashboard/leaderboards</Badge>
+    
+    7 ranking categories, top performers, and your position.
+  </Accordion>
+  <Accordion title="Progress" icon="chart-line">
+    <Badge color="blue">/producer-dashboard/progress</Badge>
+    
+    XP progress ring, achievements list, and unlock status.
+  </Accordion>
+</AccordionGroup>
 
 ---
 
@@ -102,14 +129,26 @@ The Producer Dashboard contains six main sections, each focused on a specific as
 
 Different metrics refresh at different intervals:
 
-| Data Type | Update Frequency |
-|-----------|------------------|
-| Play counts | Near real-time |
-| Download events | Near real-time |
-| XP & Level | Updated on each XP award |
-| Leaderboard rankings | Every 30 minutes (cached) |
-| Progress data | Every 5 minutes (cached) |
-| Financial data | Varies by Stripe sync |
+<CardGroup cols={3}>
+  <Card title="Play Counts" icon="play" color="#22c55e">
+    <Badge color="green">Real-time</Badge>
+  </Card>
+  <Card title="Downloads" icon="download" color="#22c55e">
+    <Badge color="green">Real-time</Badge>
+  </Card>
+  <Card title="XP & Level" icon="bolt" color="#3b82f6">
+    <Badge color="blue">On award</Badge>
+  </Card>
+  <Card title="Leaderboards" icon="ranking-star" color="#8b5cf6">
+    <Badge color="purple">30 min cache</Badge>
+  </Card>
+  <Card title="Progress Data" icon="chart-simple" color="#f59e0b">
+    <Badge color="orange">5 min cache</Badge>
+  </Card>
+  <Card title="Finances" icon="wallet" color="#6b7280">
+    <Badge color="gray">Stripe sync</Badge>
+  </Card>
+</CardGroup>
 
 ---
 
@@ -129,11 +168,17 @@ The Producer Dashboard is fully responsive:
 
 When viewing any Backstage Insights page, you'll see **Producer Tools** links in the header:
 
-| Insights Page | Available Links |
-|---------------|-----------------|
-| **Track Insights** | "Manage Tracks" → `/producer-dashboard/tracks`, "Dashboard" |
-| **Album Insights** | "Manage Albums" → `/producer-dashboard/albums`, "Dashboard" |
-| **Artist Insights** | "Finances", "Activity", "Progress" → respective pages, "Dashboard" |
+<CardGroup cols={3}>
+  <Card title="Track Insights" icon="record-vinyl">
+    Links to **Manage Tracks** and **Dashboard**
+  </Card>
+  <Card title="Album Insights" icon="album-collection">
+    Links to **Manage Albums** and **Dashboard**
+  </Card>
+  <Card title="Artist Insights" icon="user-music">
+    Links to **Finances**, **Activity**, **Progress**, and **Dashboard**
+  </Card>
+</CardGroup>
 
 This integration ensures you can:
 - View detailed analytics for a specific item

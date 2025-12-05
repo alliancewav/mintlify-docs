@@ -2,9 +2,9 @@
 title: "API Overview"
 sidebarTitle: "Overview"
 description: "Introduction to the BeatPass API for first-party application development. Learn about authentication, endpoints, rate limits, and API structure."
-keywords: ["beatpass api", "music api", "beat marketplace api", "producer api", "beat licensing api"]
-"og:title": "API Overview - BeatPass Developer Documentation"
-"og:description": "Introduction to the BeatPass API for first-party application development."
+keywords: ["beatpass api","music api","beat marketplace api","producer api","beat licensing api"]
+og:title: "API Overview - BeatPass Developer Documentation"
+og:description: "Introduction to the BeatPass API for first-party application development."
 ---
 
 The BeatPass API powers the platform's frontend. This is a **first-party API** designed exclusively for BeatPass web and mobile applications.
@@ -33,7 +33,7 @@ The BeatPass API powers the platform's frontend. This is a **first-party API** d
 
 If you're interested in integrating with BeatPass (partnerships, data licensing, embedded players), contact support to discuss options.
 
-<Card title="Partnership Inquiries" icon="handshake" href="/help/contact-support" horizontal>
+<Card title="Partnership Inquiries" icon="handshake" horizontal href="/help/contact-support">
   Contact support for integration discussions.
 </Card>
 
@@ -53,44 +53,81 @@ https://open.beatpass.ca/api/v1
 
 The BeatPass API provides comprehensive functionality across the platform:
 
-### Content & Discovery
-
-| Category | Capabilities |
-|----------|-------------|
-| **Tracks** | List, view, upload, update, delete tracks |
-| **Albums** | Album management and metadata |
-| **Artists** | Artist profiles, followers, tracks |
-| **Playlists** | Create, manage, share playlists |
-| **Search** | Full-text search across content types |
-| **Genres** | Genre listing and filtering |
-
-### Commerce & Licensing
-
-| Category | Capabilities |
-|----------|-------------|
-| **Track Purchases** | Per-track purchase flow via Stripe Connect |
-| **License Certificates** | Generate, verify, revoke licenses |
-| **Exclusive Licenses** | Preset management for exclusive sales |
-| **Subscription Payouts** | Artist earnings from subscriptions |
-
-### Producer Tools
-
-| Category | Capabilities |
-|----------|-------------|
-| **Producer Intelligence** | XP, achievements, leaderboards |
-| **Analytics** | Track performance, engagement metrics |
-| **Contribution Pool** | Earnings estimates, track breakdowns |
-| **Payout Analytics** | History, projections, trends |
-| **Audio Fingerprinting** | Duplicate detection, content ID |
-
-### Social & Collaboration
-
-| Category | Capabilities |
-|----------|-------------|
-| **Messaging** | Direct messages with typing indicators |
-| **Beat Requests** | Custom beat request marketplace |
-| **Following** | User and artist follow system |
-| **Reposts** | Content sharing within platform |
+<Tabs>
+  <Tab title="Content & Discovery">
+    <CardGroup cols={2}>
+      <Card title="Tracks" icon="record-vinyl">
+        List, view, upload, update, delete tracks
+      </Card>
+      <Card title="Albums" icon="album-collection">
+        Album management and metadata
+      </Card>
+      <Card title="Artists" icon="user-music">
+        Artist profiles, followers, tracks
+      </Card>
+      <Card title="Playlists" icon="list-music">
+        Create, manage, share playlists
+      </Card>
+      <Card title="Search" icon="magnifying-glass">
+        Full-text search across content types
+      </Card>
+      <Card title="Genres" icon="tags">
+        Genre listing and filtering
+      </Card>
+    </CardGroup>
+  </Tab>
+  <Tab title="Commerce & Licensing">
+    <CardGroup cols={2}>
+      <Card title="Track Purchases" icon="cart-shopping">
+        Per-track purchase flow via Stripe Connect
+      </Card>
+      <Card title="License Certificates" icon="file-certificate">
+        Generate, verify, revoke licenses
+      </Card>
+      <Card title="Exclusive Licenses" icon="lock">
+        Preset management for exclusive sales
+      </Card>
+      <Card title="Subscription Payouts" icon="money-bill-transfer">
+        Artist earnings from subscriptions
+      </Card>
+    </CardGroup>
+  </Tab>
+  <Tab title="Producer Tools">
+    <CardGroup cols={2}>
+      <Card title="Producer Intelligence" icon="trophy">
+        XP, achievements, leaderboards
+      </Card>
+      <Card title="Analytics" icon="chart-line">
+        Track performance, engagement metrics
+      </Card>
+      <Card title="Contribution Pool" icon="coins">
+        Earnings estimates, track breakdowns
+      </Card>
+      <Card title="Payout Analytics" icon="money-check-dollar">
+        History, projections, trends
+      </Card>
+      <Card title="Audio Fingerprinting" icon="fingerprint">
+        Duplicate detection, content ID
+      </Card>
+    </CardGroup>
+  </Tab>
+  <Tab title="Social & Collaboration">
+    <CardGroup cols={2}>
+      <Card title="Messaging" icon="messages">
+        Direct messages with typing indicators
+      </Card>
+      <Card title="Beat Requests" icon="waveform">
+        Custom beat request marketplace
+      </Card>
+      <Card title="Following" icon="user-plus">
+        User and artist follow system
+      </Card>
+      <Card title="Reposts" icon="retweet">
+        Content sharing within platform
+      </Card>
+    </CardGroup>
+  </Tab>
+</Tabs>
 
 ---
 
@@ -98,12 +135,20 @@ The BeatPass API provides comprehensive functionality across the platform:
 
 ### HTTP Methods
 
-| Method | Usage |
-|--------|-------|
-| GET | Retrieve data |
-| POST | Create resources or perform actions |
-| PUT | Update resources |
-| DELETE | Remove resources |
+<CardGroup cols={4}>
+  <Card title="GET" icon="arrow-down-to-line" color="#22c55e">
+    Retrieve data
+  </Card>
+  <Card title="POST" icon="plus" color="#3b82f6">
+    Create resources
+  </Card>
+  <Card title="PUT" icon="pen" color="#f59e0b">
+    Update resources
+  </Card>
+  <Card title="DELETE" icon="trash" color="#ef4444">
+    Remove resources
+  </Card>
+</CardGroup>
 
 ### Required Headers
 
@@ -112,7 +157,9 @@ Accept: application/json
 Content-Type: application/json
 ```
 
-Authenticated requests use Sanctum's stateful session cookies. State-changing requests must include CSRF protection (`XSRF-TOKEN` cookie + `X-XSRF-TOKEN` header). See the [Authentication guide](/developers/auth) for the SPA login flow and CSRF requirements.
+<Info>
+  Authenticated requests use Sanctum's stateful session cookies. State-changing requests must include CSRF protection (`XSRF-TOKEN` cookie + `X-XSRF-TOKEN` header). See the [Authentication guide](/developers/auth) for details.
+</Info>
 
 ---
 
@@ -204,14 +251,28 @@ POST /beat-requests                    # Create beat request
 
 The API uses route-specific throttling. Key limits:
 
-| Route Group | Limit |
-|-------------|-------|
-| Producer Intelligence (public) | 300 requests/minute |
-| Producer Intelligence (auth) | 500 requests/minute |
-| Social Analytics | 120 requests/minute |
-| Legacy Producer Dashboard | 60 requests/minute |
+<AccordionGroup>
+  <Accordion title="Producer Intelligence (public)" defaultOpen icon="globe">
+    <Badge color="green" icon="bolt">300 requests/minute</Badge>
+    Public analytics endpoints for unauthenticated users.
+  </Accordion>
+  <Accordion title="Producer Intelligence (authenticated)" icon="user-check">
+    <Badge color="blue" icon="bolt">500 requests/minute</Badge>
+    Enhanced limits for authenticated producer sessions.
+  </Accordion>
+  <Accordion title="Social Analytics" icon="chart-simple">
+    <Badge color="orange" icon="bolt">120 requests/minute</Badge>
+    Social engagement and follower analytics.
+  </Accordion>
+  <Accordion title="Legacy Producer Dashboard" icon="clock-rotate-left">
+    <Badge color="gray" icon="bolt">60 requests/minute</Badge>
+    Legacy endpoints (being phased out).
+  </Accordion>
+</AccordionGroup>
 
-See [Rate Limits](/developers/rate-limits) for complete details.
+<Card title="Rate Limits Reference" icon="gauge-high" horizontal href="/developers/rate-limits">
+  View complete rate limiting documentation and best practices.
+</Card>
 
 ---
 
@@ -227,29 +288,25 @@ See [Webhooks](/developers/webhooks) for Stripe webhook details.
 
 This documentation covers **user-facing endpoints only**. The following are intentionally excluded:
 
-### Admin & Staff Endpoints
-
-Admin routes require elevated privileges and are protected by role-based access control. These endpoints are not accessible to regular users and are not documented here.
-
-### Internal Tooling
-
-Internal endpoints used for platform operations, content processing, and infrastructure management are not publicly documented.
-
-### Not Documented
-
-| Category | Reason |
-|----------|--------|
-| **Admin operations** | Requires staff roles |
-| **Internal processing** | Platform infrastructure |
-| **Security systems** | Protected by design |
-
-### Security Notice
+<CardGroup cols={3}>
+  <Card title="Admin Operations" icon="shield-halved" color="#ef4444">
+    Requires staff roles and elevated privileges
+  </Card>
+  <Card title="Internal Processing" icon="gears" color="#6b7280">
+    Platform infrastructure and content pipelines
+  </Card>
+  <Card title="Security Systems" icon="lock" color="#8b5cf6">
+    Protected by design for platform integrity
+  </Card>
+</CardGroup>
 
 <Warning>
   Attempting to access undocumented admin or internal endpoints without authorization is a violation of terms of service and may result in account termination.
 </Warning>
 
-If you discover an undocumented endpoint that appears to be a security concern, please report it responsibly to security@beatpass.ca.
+<Tip>
+  Found a security issue? Report it responsibly to [**security@beatpass.ca**](mailto:security@beatpass.ca) — we appreciate responsible disclosure.
+</Tip>
 
 ---
 

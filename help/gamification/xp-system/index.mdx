@@ -25,13 +25,28 @@ BeatPass features a gamification system that rewards producers with Experience P
 
 You earn XP through various activities on BeatPass:
 
-| Action | XP Earned | Description |
-|--------|-----------|-------------|
-| **Upload a track** | +100 XP | Each new track you upload |
-| **Track plays** | +1 XP | Per play on any of your tracks |
-| **Complete metadata** | +50 XP | When a track has full metadata |
-| **Collaborate** | +25 XP | Per collaborative track |
-| **Unlock achievements** | Variable | Based on achievement rarity |
+<CardGroup cols={2}>
+  <Card title="Upload a Track" icon="cloud-arrow-up" color="#22c55e">
+    <Badge color="green" size="lg">+100 XP</Badge>
+    Each new track you upload
+  </Card>
+  <Card title="Track Plays" icon="play" color="#3b82f6">
+    <Badge color="blue" size="lg">+1 XP per play</Badge>
+    Every play on any of your tracks
+  </Card>
+  <Card title="Complete Metadata" icon="list-check" color="#8b5cf6">
+    <Badge color="purple" size="lg">+50 XP</Badge>
+    When a track has full metadata
+  </Card>
+  <Card title="Collaborate" icon="users" color="#f59e0b">
+    <Badge color="orange" size="lg">+25 XP</Badge>
+    Per collaborative track
+  </Card>
+  <Card title="Unlock Achievements" icon="trophy" color="#ec4899">
+    <Badge color="green" size="lg">Variable</Badge>
+    Based on achievement rarity (150-6,000+ XP)
+  </Card>
+</CardGroup>
 
 ### XP Attribution
 
@@ -57,43 +72,68 @@ Your producer level is determined by your total XP. The XP required for each lev
 XP Required = 100 × ((Level - 1) ^ 1.5)
 ```
 
-### Level Thresholds
+### Level Titles & Thresholds
 
-| Level | Title | XP Required |
-|-------|-------|-------------|
-| 1 | Novice Producer | 0 |
-| 2 | Novice Producer | 100 |
-| 3 | Apprentice Producer | 283 |
-| 4 | Apprentice Producer | 520 |
-| 5 | Intermediate Producer | 800 |
-| 6 | Intermediate Producer | 1,118 |
-| 7 | Skilled Producer | 1,470 |
-| 8 | Skilled Producer | 1,852 |
-| 9 | Skilled Producer | 2,263 |
-| 10 | Experienced Producer | 2,700 |
-| 15 | Advanced Producer | 5,423 |
-| 20 | Professional Producer | 8,718 |
-| 30 | Expert Producer | 16,432 |
-| 40 | Master Producer | 25,298 |
-| 50 | Legendary Producer | 34,643 |
-| 100 | Legendary Producer | 98,500 |
-
-### Level Titles
-
-As you progress, your producer title changes:
-
-| Level Range | Title | Badge |
-|-------------|-------|-------|
-| 1-2 | Novice Producer | novice |
-| 3-4 | Apprentice Producer | apprentice |
-| 5-6 | Intermediate Producer | intermediate |
-| 7-9 | Skilled Producer | skilled |
-| 10-14 | Experienced Producer | experienced |
-| 15-19 | Advanced Producer | advanced |
-| 20-29 | Professional Producer | professional |
-| 30-39 | Expert Producer | expert |
-| 40-49 | Master Producer | master |
-| 50-100 | Legendary Producer | legendary |
+<AccordionGroup>
+  <Accordion title="Beginner Levels (1-6)" icon="seedling" defaultOpen>
+    <CardGroup cols={2}>
+      <Card title="Novice Producer" icon="circle" color="#6b7280">
+        <Badge color="gray">Level 1-2</Badge>
+        0 - 100 XP to start
+      </Card>
+      <Card title="Apprentice Producer" icon="star" color="#22c55e">
+        <Badge color="green">Level 3-4</Badge>
+        283 - 520 XP required
+      </Card>
+      <Card title="Intermediate Producer" icon="star" color="#3b82f6">
+        <Badge color="blue">Level 5-6</Badge>
+        800 - 1,118 XP required
+      </Card>
+    </CardGroup>
+  </Accordion>
+  
+  <Accordion title="Intermediate Levels (7-19)" icon="chart-simple">
+    <CardGroup cols={2}>
+      <Card title="Skilled Producer" icon="fire" color="#f59e0b">
+        <Badge color="orange">Level 7-9</Badge>
+        1,470 - 2,263 XP required
+      </Card>
+      <Card title="Experienced Producer" icon="medal" color="#8b5cf6">
+        <Badge color="purple">Level 10-14</Badge>
+        2,700+ XP required
+      </Card>
+      <Card title="Advanced Producer" icon="award" color="#ec4899">
+        <Badge color="purple">Level 15-19</Badge>
+        5,423+ XP required
+      </Card>
+    </CardGroup>
+  </Accordion>
+  
+  <Accordion title="Advanced Levels (20-49)" icon="fire">
+    <CardGroup cols={2}>
+      <Card title="Professional Producer" icon="trophy" color="#3b82f6">
+        <Badge color="blue">Level 20-29</Badge>
+        8,718+ XP required
+      </Card>
+      <Card title="Expert Producer" icon="gem" color="#8b5cf6">
+        <Badge color="purple">Level 30-39</Badge>
+        16,432+ XP required
+      </Card>
+      <Card title="Master Producer" icon="star" color="#f59e0b">
+        <Badge color="orange">Level 40-49</Badge>
+        25,298+ XP required
+      </Card>
+    </CardGroup>
+  </Accordion>
+  
+  <Accordion title="Elite Levels (50-100)" icon="crown">
+    <Card title="Legendary Producer" icon="crown" color="#f59e0b">
+      <Badge color="orange" size="lg">Level 50-100</Badge>
+      
+      34,643+ XP to reach. Maximum level is 100 at 98,500 XP.
+    </Card>
+  </Accordion>
+</AccordionGroup>
 
 ---
 

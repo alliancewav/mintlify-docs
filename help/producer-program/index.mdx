@@ -46,22 +46,22 @@ The BeatPass Producer Program lets you upload your beats, build your catalog, an
 
 ## Three Ways to Join
 
-Depending on your situation, you'll choose one of three application types:
-
-| Application Type | For Who | What It Does |
-|------------------|---------|--------------|
-| **Become a Producer** | New producers without a profile | Creates a new producer profile linked to your account |
-| **Claim Artist Profile** | Producers whose music is already on BeatPass | Connects an existing artist profile to your account |
-| **Get Verified** | Existing producers who want verification | Adds a verified badge to your profile |
+Depending on your situation, choose one of three application types:
 
 <CardGroup cols={3}>
-  <Card title="Become a Producer" icon="user-plus" href="/help/producer-program/application-types/become-artist">
-    Create a new producer profile from scratch.
+  <Card title="Become a Producer" icon="user-plus" href="/help/producer-program/application-types/become-artist" color="#22c55e">
+    <Badge color="green">New Producers</Badge>
+    
+    Create a new producer profile linked to your account.
   </Card>
-  <Card title="Claim Profile" icon="badge-check" href="/help/producer-program/application-types/claim-artist">
-    Take ownership of an existing artist profile.
+  <Card title="Claim Profile" icon="badge-check" href="/help/producer-program/application-types/claim-artist" color="#3b82f6">
+    <Badge color="blue">Existing Music</Badge>
+    
+    Connect an existing artist profile to your account.
   </Card>
-  <Card title="Get Verified" icon="verified" href="/help/producer-program/application-types/get-verified">
+  <Card title="Get Verified" icon="circle-check" href="/help/producer-program/application-types/get-verified" color="#8b5cf6">
+    <Badge color="purple">Verification</Badge>
+    
     Get a verified badge through our Discord community.
   </Card>
 </CardGroup>
@@ -83,15 +83,46 @@ See [Requirements](/help/producer-program/requirements) for full details.
 
 ## Quick Facts
 
-| Topic | Details |
-|-------|---------|
-| **Your earnings** | You keep 100% of your set price |
-| **Platform fee** | 15% added on top (paid by buyer) |
-| **Upload limits** | Unlimited |
-| **Upfront costs** | None |
-| **Commitment** | At least 2 beats per month |
-| **Rights** | You keep ownership, grant BeatPass non-exclusive license |
-| **Approval time** | Most applications are reviewed quickly |
+<AccordionGroup>
+  <Accordion title="Earnings & Fees" icon="wallet" defaultOpen>
+    <CardGroup cols={2}>
+      <Card title="Your Earnings" icon="coins" color="#22c55e">
+        <Badge color="green" size="lg">100%</Badge>
+        You keep your full set price
+      </Card>
+      <Card title="Platform Fee" icon="percent" color="#3b82f6">
+        <Badge color="blue" size="lg">15%</Badge>
+        Added on top (paid by buyer)
+      </Card>
+    </CardGroup>
+  </Accordion>
+  
+  <Accordion title="Uploads & Commitment" icon="cloud-arrow-up">
+    <CardGroup cols={2}>
+      <Card title="Upload Limits" icon="infinity" color="#8b5cf6">
+        <Badge color="purple">Unlimited</Badge>
+        Upload as many beats as you want
+      </Card>
+      <Card title="Commitment" icon="calendar-check" color="#f59e0b">
+        <Badge color="orange">2 beats/month</Badge>
+        Minimum to stay active
+      </Card>
+    </CardGroup>
+  </Accordion>
+  
+  <Accordion title="Rights & Costs" icon="shield-check">
+    <CardGroup cols={2}>
+      <Card title="Your Rights" icon="crown" color="#22c55e">
+        <Badge color="green">You Own It</Badge>
+        Keep ownership, grant non-exclusive license
+      </Card>
+      <Card title="Upfront Costs" icon="dollar-sign" color="#6b7280">
+        <Badge color="gray">$0</Badge>
+        Completely free to join
+      </Card>
+    </CardGroup>
+  </Accordion>
+</AccordionGroup>
 
 ---
 
