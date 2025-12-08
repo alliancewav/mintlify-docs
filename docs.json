@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "almond",
+  "theme": "maple",
   "name": "BeatPass",
   "description": "Help Center and Developer Docs for BeatPass - the beat licensing and music collaboration platform for producers, artists, and curators.",
   "colors": {
@@ -439,6 +439,7 @@
                   "help/profiles/artist-profiles/photo-gallery",
                   "help/profiles/artist-profiles/artist-bio",
                   "help/profiles/artist-profiles/pinned-track",
+                  "help/profiles/artist-profiles/professional-credits",
                   "help/profiles/artist-profiles/verified-badge",
                   "help/profiles/artist-profiles/discography-tabs"
                 ]
@@ -552,6 +553,7 @@
             "group": "2025",
             "icon": "calendar",
             "pages": [
+              "help/release-notes/2025-12-08-professional-credits",
               "help/release-notes/2025-11-24-beat-requests",
               "help/release-notes/2025-11-21-production-hardening",
               "help/release-notes/2025-11-21-producer-experience",
