@@ -1,17 +1,21 @@
 ---
-audience: help
+audience: "help"
 title: "Producer Leaderboards | BeatPass"
 sidebarTitle: "Leaderboards"
 description: "Complete guide to BeatPass producer leaderboards. Learn about ranking categories, scoring methodology, benefits of climbing ranks, and tips to improve your position."
-keywords: ["leaderboards", "rankings", "producer rankings", "competition", "top producers", "overall score", "plays", "uploads", "quality", "collaboration", "earnings"]
-"og:title": "Producer Leaderboards - BeatPass"
-"og:description": "Compete with other producers and climb the ranks across multiple categories on BeatPass."
-"twitter:card": "summary_large_image"
+keywords: ["leaderboards","rankings","producer rankings","competition","top producers","overall score","plays","uploads","quality","collaboration","earnings"]
+og:title: "Producer Leaderboards - BeatPass"
+og:description: "Compete with other producers and climb the ranks across multiple categories on BeatPass."
+twitter:card: "summary_large_image"
 ---
 
 ## Overview
 
 BeatPass Producer Leaderboards rank producers across multiple categories, providing transparent competition and recognition for your achievements. Rankings are calculated using real data and update in near real-time.
+
+<Frame>
+  ![Image](/images/image-15.png)
+</Frame>
 
 <Info>
   **Audience:** Producers with an artist profile. Access leaderboards at **Producer Dashboard → Leaderboards**.
@@ -24,6 +28,7 @@ BeatPass Producer Leaderboards rank producers across multiple categories, provid
 ### Requirements
 
 To view and participate in leaderboards, you need:
+
 - A BeatPass account with an artist profile
 - At least one published track (required to appear in rankings)
 
@@ -47,14 +52,14 @@ BeatPass features **7 distinct leaderboard categories**, each measuring differen
 
 The **Overall** leaderboard provides a composite score combining performance across all categories.
 
-| Component | Weight | Description |
-|-----------|--------|-------------|
-| **Points (XP)** | 25% | Your total experience points from achievements and activities |
-| **Plays** | 20% | Total play count across all your tracks |
-| **Uploads** | 15% | Number of published tracks |
-| **Quality** | 15% | Metadata completeness percentage |
-| **Collaboration** | 15% | Collaborative tracks and partnerships |
-| **Earnings** | 10% | Platform contribution share |
+| Component         | Weight | Description                                                   |
+| ----------------- | ------ | ------------------------------------------------------------- |
+| **Points (XP)**   | 25%    | Your total experience points from achievements and activities |
+| **Plays**         | 20%    | Total play count across all your tracks                       |
+| **Uploads**       | 15%    | Number of published tracks                                    |
+| **Quality**       | 15%    | Metadata completeness percentage                              |
+| **Collaboration** | 15%    | Collaborative tracks and partnerships                         |
+| **Earnings**      | 10%    | Platform contribution share                                   |
 
 <Note>
   The Overall leaderboard is the best indicator of a well-rounded, successful producer on BeatPass.
@@ -67,6 +72,7 @@ The **Overall** leaderboard provides a composite score combining performance acr
 Ranks producers by total **Experience Points** earned through platform engagement.
 
 **How to earn XP:**
+
 - Upload tracks: +100 XP per track
 - Complete achievements: +100 to +10,000 XP depending on rarity
 - Collaborate with others: +25 XP per collaboration
@@ -85,11 +91,13 @@ Ranks producers by total **Experience Points** earned through platform engagemen
 Ranks producers by **total play count** across all published tracks.
 
 **What counts:**
+
 - Authentic listening sessions from unique users
 - Minimum listen duration threshold must be met
 - Bot/artificial plays are filtered out
 
 **Metadata shown:**
+
 - Total plays across catalog
 - Average plays per track
 - Track count contributing to total
@@ -105,11 +113,13 @@ Ranks producers by **total play count** across all published tracks.
 Ranks producers by **number of published tracks** on the platform.
 
 **What counts:**
+
 - Only approved, public tracks are counted
 - Draft or private tracks do not contribute
 - Removed tracks are deducted from count
 
 **Benefits of consistent uploading:**
+
 - Higher visibility in discovery algorithms
 - More opportunities for plays and engagement
 - Demonstrates active producer presence
@@ -121,14 +131,16 @@ Ranks producers by **number of published tracks** on the platform.
 Ranks producers by **metadata completeness** across their catalog.
 
 **Quality score components (25% each):**
-| Field | Requirement |
-|-------|-------------|
-| **BPM** | Track tempo must be set |
-| **Key** | Musical key must be specified |
-| **Scale** | Major/Minor scale indicated |
-| **Tags** | At least one genre/mood tag added |
+
+| Field     | Requirement                       |
+| --------- | --------------------------------- |
+| **BPM**   | Track tempo must be set           |
+| **Key**   | Musical key must be specified     |
+| **Scale** | Major/Minor scale indicated       |
+| **Tags**  | At least one genre/mood tag added |
 
 **Additional factors:**
+
 - Track descriptions boost completion
 - Complete tracks (all fields filled) count toward ranking
 - Average is calculated across all tracks
@@ -144,11 +156,13 @@ Ranks producers by **metadata completeness** across their catalog.
 Ranks producers by their **platform contribution share** — a metric that reflects your tracks' performance relative to the platform total.
 
 **How contribution is calculated:**
+
 - Based on play counts and engagement
 - Weighted by track quality and listener retention
 - Updated periodically based on platform-wide metrics
 
 **Metadata shown:**
+
 - Contribution points
 - Contributing track count
 - Total plays generating contribution
@@ -160,6 +174,7 @@ Ranks producers by their **platform contribution share** — a metric that refle
 Ranks producers by their **collaborative activity** with other artists.
 
 **What contributes to collaboration score:**
+
 - Number of collaborative tracks (multiple artists)
 - Unique collaborator count
 - Combined plays on collaborative works
@@ -176,6 +191,7 @@ Ranks producers by their **collaborative activity** with other artists.
 ### Rank Display
 
 Each leaderboard shows:
+
 - **Rank number** — Your position (e.g., #1, #5, #42)
 - **Score** — The metric value for that category
 - **Metadata** — Category-specific additional information
@@ -184,8 +200,9 @@ Each leaderboard shows:
 ### Top Performers Section
 
 The **Top 3** producers in each category receive special recognition:
+
 - 🥇 **Gold** — 1st place with crown icon
-- 🥈 **Silver** — 2nd place with medal icon  
+- 🥈 **Silver** — 2nd place with medal icon
 - 🥉 **Bronze** — 3rd place with award icon
 
 These top performers are displayed prominently with enhanced cards at the top of the leaderboard.
@@ -198,12 +215,12 @@ These top performers are displayed prominently with enhanced cards at the top of
 
 BeatPass leaderboards use a multi-layer caching system for performance:
 
-| Layer | Refresh Rate | Purpose |
-|-------|--------------|---------|
-| **Server cache** | 5 minutes | Database query optimization |
-| **Client cache** | 2 minutes | Fast category switching |
-| **Background refresh** | 3 minutes | Automatic updates while viewing |
-| **Focus refresh** | On tab return | Fresh data when you return |
+| Layer                  | Refresh Rate  | Purpose                         |
+| ---------------------- | ------------- | ------------------------------- |
+| **Server cache**       | 5 minutes     | Database query optimization     |
+| **Client cache**       | 2 minutes     | Fast category switching         |
+| **Background refresh** | 3 minutes     | Automatic updates while viewing |
+| **Focus refresh**      | On tab return | Fresh data when you return      |
 
 <Note>
   Rankings typically reflect changes within 5-10 minutes of the underlying activity.
@@ -216,6 +233,7 @@ BeatPass leaderboards use a multi-layer caching system for performance:
 ### Visibility & Recognition
 
 High-ranking producers receive increased visibility across BeatPass:
+
 - Featured placements on discovery pages
 - Improved search ranking for your artist profile
 - Trust signal for playlist curators and listeners
@@ -223,6 +241,7 @@ High-ranking producers receive increased visibility across BeatPass:
 ### Rewards & Support
 
 Top performers may receive:
+
 - Limited-edition profile badges and flair
 - Spotlight features during promotional campaigns
 - Early access to new creator tools
@@ -230,6 +249,7 @@ Top performers may receive:
 ### Momentum & Opportunities
 
 Active, high-ranking producers benefit from:
+
 - Increased collaboration requests from other artists
 - Data-driven insights to maintain performance
 - Community recognition and credibility
@@ -295,39 +315,30 @@ Active, high-ranking producers benefit from:
   <Accordion title="Why don't I appear on any leaderboard?">
     You need at least one published, public track to appear in rankings. Draft, private, or removed tracks don't count. Upload and publish a track to become eligible.
   </Accordion>
-  
   <Accordion title="How often do rankings update?">
     Rankings update approximately every 5 minutes. When you switch categories, you'll see the latest cached data, with background refreshes every 3 minutes while viewing the page.
   </Accordion>
-  
   <Accordion title="What's the difference between Overall and individual category rankings?">
     Individual category rankings measure one specific metric (e.g., total plays). The Overall ranking combines all categories with weighted percentages to provide a holistic view of producer performance.
   </Accordion>
-  
   <Accordion title="Can I see my exact rank in each category?">
     Yes! The Overall leaderboard metadata shows your rank in each component category (e.g., "#3 Points • #7 Plays • #12 Uploads").
   </Accordion>
-  
   <Accordion title="Why did my rank drop even though I uploaded a new track?">
     Rankings are relative to other producers. If others uploaded more content or their tracks performed better, your relative position may decrease even with your own growth.
   </Accordion>
-  
   <Accordion title="Are plays from bots or artificial sources counted?">
     No. BeatPass uses fraud detection to filter artificial plays. Only authentic listening sessions meeting minimum duration requirements count toward rankings.
   </Accordion>
-  
   <Accordion title="How is the Quality score calculated?">
     Quality measures metadata completeness: BPM (25%) + Key (25%) + Scale (25%) + Tags (25%). A track with all fields filled scores 100%. Your ranking is based on the average across all tracks.
   </Accordion>
-  
   <Accordion title="What happens if I delete a track?">
     Deleting a track removes it from all calculations. Your Upload count decreases, total plays drop, and Quality average recalculates. Rankings update within 5-10 minutes.
   </Accordion>
-  
   <Accordion title="Can I hide my profile from leaderboards?">
     Currently, all producers with published tracks automatically appear in leaderboards. This ensures fair, transparent competition. Contact support if you have privacy concerns.
   </Accordion>
-  
   <Accordion title="Do private or unlisted tracks count toward rankings?">
     No. Only public, approved tracks contribute to leaderboard calculations. This ensures all ranked producers are discoverable by the community.
   </Accordion>
