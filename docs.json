@@ -32,7 +32,7 @@
     }
   },
   "background": {
-    "decoration": "windows",
+    "decoration": "gradient",
     "color": {
       "light": "#FCFEFF",
       "dark": "#050505"
@@ -800,5 +800,8 @@
   },
   "interaction": {
     "drilldown": true
+  },
+  "icons": {
+    "library": "fontawesome"
   }
 }
