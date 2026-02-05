@@ -32,7 +32,7 @@
     }
   },
   "background": {
-    "decoration": "windows",
+    "decoration": "gradient",
     "color": {
       "light": "#FCFEFF",
       "dark": "#050505"
@@ -42,7 +42,8 @@
     "appearance": "dark",
     "fonts": {
       "family": "Inter"
-    }
+    },
+    "background": "/assets/images/hero-banner.jpg"
   },
   "search": {
     "prompt": "Search guides, API docs, or ask a question..."
@@ -838,5 +839,8 @@
   },
   "interaction": {
     "drilldown": true
+  },
+  "icons": {
+    "library": "lucide"
   }
 }
