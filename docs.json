@@ -33,7 +33,7 @@
     }
   },
   "background": {
-    "decoration": "windows",
+    "decoration": "grid",
     "color": {
       "light": "#FCFEFF",
       "dark": "#050505"
