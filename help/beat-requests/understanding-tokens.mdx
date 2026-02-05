@@ -94,6 +94,17 @@ You can get a token refunded by **deleting your request**:
 | Request expires naturally | No |
 | You're at max token limit | No (already at cap) |
 
+<Note>
+  When a request is deleted by an admin on your behalf, the refunded token still goes back to **you**, not the admin. Tokens are only refunded to the original request owner and only if your current balance is below your plan's cap.
+</Note>
+
+### Staying Under the Cap
+
+- You can never hold more tokens than your plan's monthly allowance (e.g., a 3-token plan will never show 4 tokens)
+- Refunds stop once your balance reaches that limit, even if multiple requests are deleted
+- If you plan to delete multiple requests, delete and recreate one at a time so each refund has room to land
+- Upgrading your plan immediately sets your balance to the new limit; downgrading lowers the cap for future resets
+
 ---
 
 ## Token Reset Cycle

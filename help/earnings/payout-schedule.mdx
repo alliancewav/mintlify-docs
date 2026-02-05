@@ -71,10 +71,28 @@ Your subscription revenue splits will show one of these statuses:
 
 | Status | Meaning |
 |--------|---------|
-| **Pending** | Split has been calculated, transfer is being processed |
-| **Paid** | Money has been transferred to your Stripe balance |
-| **Failed** | Transfer encountered an error (will retry automatically) |
-| **Excluded** | You weren't eligible at the time (no active Stripe account) |
+| **Pending** | Split has been calculated and is queued for transfer to your Stripe balance |
+| **Paid** | Money has been transferred to your Stripe balance (look for it under **Future Payouts** in Finances) |
+| **Failed** | Stripe attempted to transfer funds but hit an error; BeatPass automatically retries and surfaces the failure reason |
+| **Excluded** | You did not have a fully enabled Stripe Connect account (Connected + Charges Enabled + Payouts Enabled) when the split ran, so your share was redistributed |
+
+<Info>
+  If a split fails, BeatPass will retry up to 5 times and record the retry count/failure reason (visible in Finances). Fix the underlying bank or Stripe account issue, then the next retry will succeed automatically.
+</Info>
+
+### Redistribution Bonuses
+
+- When another producer is **excluded**, their portion is redistributed among eligible producers.
+- Your Finances dashboard shows this as a **Redistribution bonus** field on each split.
+- Bonuses are calculated per split, so amounts can vary each month depending on how many producers were excluded.
+
+### Excluded Splits
+
+When your status is **Excluded**:
+
+1. The split entry remains in your history so you know what was missed.
+2. Funds are permanently redirected—there is no back pay for past excluded splits.
+3. Fix your Stripe Connect status (usually by completing verification) to ensure future splits succeed.
 
 ## Minimum Payout Threshold
 
