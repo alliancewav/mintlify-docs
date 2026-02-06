@@ -3,8 +3,8 @@ title: "Insights API"
 sidebarTitle: "Insights"
 description: "Analytics and insights endpoints for tracks, albums, and artists. Get performance data, charts, and export capabilities."
 keywords: ["beatpass insights api","analytics api","track insights","artist analytics","album analytics"]
-og:title: "Insights API - BeatPass Developer Docs"
-og:description: "Analytics and insights API for tracks, albums, and artists with charts and export capabilities."
+"og:title": "Insights API - BeatPass Developer Docs"
+"og:description": "Analytics and insights API for tracks, albums, and artists with charts and export capabilities."
 ---
 
 ## Overview
@@ -12,7 +12,7 @@ og:description: "Analytics and insights API for tracks, albums, and artists with
 The Insights API provides focused, domain-specific analytics endpoints for content creators. These endpoints offer comprehensive analytics data, charts, and export capabilities.
 
 <Info>
-  **Base URL:** `https://open.beatpass.ca/api/v1/insights`
+  **Base URL:** `https://open.beatpass.ca/api/v1/producer-intelligence/insights`
 </Info>
 
 <Note>
@@ -30,14 +30,14 @@ Retrieve comprehensive analytics for a track including plays, engagement, and pe
 <CodeGroup>
 
 ```bash cURL
-curl "https://open.beatpass.ca/api/v1/insights/tracks/123" \
+curl "https://open.beatpass.ca/api/v1/producer-intelligence/insights/tracks/123" \
   -H "Accept: application/json" \
   --cookie "session=..."
 ```
 
 
 ```javascript JavaScript
-const response = await fetch('/api/v1/insights/tracks/123', {
+const response = await fetch('/api/v1/producer-intelligence/insights/tracks/123', {
   credentials: 'include',
   headers: { 'Accept': 'application/json' }
 });
@@ -71,7 +71,7 @@ const response = await fetch('/api/v1/insights/tracks/123', {
 Retrieve chart data for visualizing track performance over time.
 
 ```bash
-GET /api/v1/insights/tracks/{trackId}/charts?timeframe=30d
+GET /api/v1/producer-intelligence/insights/tracks/{trackId}/charts?timeframe=30d
 ```
 
 **Parameters:**
@@ -86,7 +86,7 @@ GET /api/v1/insights/tracks/{trackId}/charts?timeframe=30d
 Get live metrics for a track (active listeners, recent plays).
 
 ```bash
-GET /api/v1/insights/tracks/{trackId}/realtime
+GET /api/v1/producer-intelligence/insights/tracks/{trackId}/realtime
 ```
 
 ---
@@ -98,7 +98,7 @@ GET /api/v1/insights/tracks/{trackId}/realtime
 Retrieve analytics for an album including aggregate track performance.
 
 ```bash
-GET /api/v1/insights/albums/{albumId}?period=30-days
+GET /api/v1/producer-intelligence/insights/albums/{albumId}?period=30-days
 ```
 
 **Parameters:**
@@ -111,7 +111,7 @@ GET /api/v1/insights/albums/{albumId}?period=30-days
 ### Get Album Charts
 
 ```bash
-GET /api/v1/insights/albums/{albumId}/charts?timeframe=30d
+GET /api/v1/producer-intelligence/insights/albums/{albumId}/charts?timeframe=30d
 ```
 
 ---
@@ -123,7 +123,7 @@ GET /api/v1/insights/albums/{albumId}/charts?timeframe=30d
 Retrieve comprehensive analytics for an artist's content.
 
 ```bash
-GET /api/v1/insights/artists/{artistId}?period=30-days
+GET /api/v1/producer-intelligence/insights/artists/{artistId}?period=30-days
 ```
 
 **Parameters:**
@@ -136,7 +136,7 @@ GET /api/v1/insights/artists/{artistId}?period=30-days
 ### Get Artist Charts
 
 ```bash
-GET /api/v1/insights/artists/{artistId}/charts?timeframe=30d
+GET /api/v1/producer-intelligence/insights/artists/{artistId}/charts?timeframe=30d
 ```
 
 ### Get Collaboration Stats
@@ -144,7 +144,7 @@ GET /api/v1/insights/artists/{artistId}/charts?timeframe=30d
 Retrieve collaboration statistics and network data.
 
 ```bash
-GET /api/v1/insights/artists/{artistId}/collaborations
+GET /api/v1/producer-intelligence/insights/artists/{artistId}/collaborations
 ```
 
 **Response:**
@@ -169,7 +169,7 @@ GET /api/v1/insights/artists/{artistId}/collaborations
 List available export formats.
 
 ```bash
-GET /api/v1/insights/export/formats
+GET /api/v1/producer-intelligence/insights/export/formats
 ```
 
 **Response:**
@@ -190,7 +190,7 @@ GET /api/v1/insights/export/formats
 Export analytics data as CSV.
 
 ```bash
-POST /api/v1/insights/export/csv
+POST /api/v1/producer-intelligence/insights/export/csv
 Content-Type: application/json
 
 {
@@ -204,7 +204,7 @@ Content-Type: application/json
 Export analytics data as structured JSON.
 
 ```bash
-POST /api/v1/insights/export/json
+POST /api/v1/producer-intelligence/insights/export/json
 Content-Type: application/json
 
 {
@@ -218,7 +218,7 @@ Content-Type: application/json
 Generate a comprehensive analytics report.
 
 ```bash
-POST /api/v1/insights/export/report
+POST /api/v1/producer-intelligence/insights/export/report
 Content-Type: application/json
 
 {
@@ -232,7 +232,7 @@ Content-Type: application/json
 Export the report as a PDF document.
 
 ```bash
-POST /api/v1/insights/export/pdf
+POST /api/v1/producer-intelligence/insights/export/pdf
 Content-Type: application/json
 
 {
@@ -263,23 +263,6 @@ All Insights endpoints use standardized error responses:
   "error": "not_found"
 }
 ```
-
----
-
-## Migration from Legacy Endpoints
-
-The Insights API replaces the legacy content analytics endpoints:
-
-| Legacy Endpoint                      | New Endpoint                 |
-| ------------------------------------ | ---------------------------- |
-| `GET /content-analytics/track/{id}`  | `GET /insights/tracks/{id}`  |
-| `GET /content-analytics/album/{id}`  | `GET /insights/albums/{id}`  |
-| `GET /content-analytics/artist/{id}` | `GET /insights/artists/{id}` |
-| `POST /content-analytics/export/csv` | `POST /insights/export/csv`  |
-
-<Warning>
-  Legacy endpoints are deprecated and will be removed in a future version.
-</Warning>
 
 ---
 

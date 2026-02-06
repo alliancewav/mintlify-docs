@@ -4,7 +4,7 @@
   "name": "BeatPass",
   "description": "Help Center and Developer Docs for BeatPass - the beat licensing and music collaboration platform for producers, artists, and curators.",
   "colors": {
-    "primary": "#48B0E4",
+    "primary": "#187AB4",
     "light": "#5BC0F0",
     "dark": "#1F8AC8"
   },
@@ -19,8 +19,7 @@
         "light": "github-light",
         "dark": "one-dark-pro"
       }
-    },
-    "latex": true
+    }
   },
   "fonts": {
     "heading": {
@@ -44,6 +43,9 @@
     "fonts": {
       "family": "Inter"
     }
+  },
+  "icons": {
+    "library": "fontawesome"
   },
   "search": {
     "prompt": "Search guides, API docs, or ask a question..."
@@ -70,7 +72,7 @@
         },
         {
           "anchor": "Community",
-          "icon": "message-square",
+          "icon": "comment",
           "href": "https://discord.com/invite/N257QBkSeg"
         }
       ]
@@ -91,6 +93,8 @@
               "help/getting-started/password-reset",
               "help/getting-started/navigating-beatpass",
               "help/getting-started/understanding-roles",
+              "help/getting-started/why-beatpass",
+              "help/getting-started/landing-page",
               {
                 "group": "Quick Start Guides",
                 "pages": [
@@ -99,7 +103,9 @@
                   "help/getting-started/quick-start-guides/subscriber-guide",
                   "help/getting-started/quick-start-guides/producer-guide"
                 ]
-              }
+              },
+              "help/faq",
+              "help/glossary"
             ]
           },
           {
@@ -120,7 +126,8 @@
                   "help/discovering-music/channels/understanding-channels",
                   "help/discovering-music/channels/channel-layouts",
                   "help/discovering-music/channels/channel-filters",
-                  "help/discovering-music/channels/genre-channels"
+                  "help/discovering-music/channels/genre-channels",
+                  "help/discovering-music/channels/personalized-recommendations"
                 ]
               },
               {
@@ -137,7 +144,7 @@
           },
           {
             "group": "Library & Playlists",
-            "icon": "music",
+            "icon": "bookmark",
             "pages": [
               "help/library/index",
               "help/library/liked-tracks",
@@ -145,6 +152,7 @@
               "help/library/followed-artists",
               "help/library/listening-history",
               "help/library/my-licenses",
+              "help/library/custom-requests",
               {
                 "group": "Playlists",
                 "pages": [
@@ -200,6 +208,8 @@
               "help/downloads-and-licensing/license-certificates",
               "help/downloads-and-licensing/beatpass-id",
               "help/downloads-and-licensing/verifying-licenses",
+              "help/downloads-and-licensing/releasing-music",
+              "help/downloads-and-licensing/content-id-claims",
               "help/downloads-and-licensing/faq",
               {
                 "group": "Exclusive Licenses",
@@ -229,6 +239,8 @@
                   "help/billing/subscription-overview",
                   "help/billing/invoices",
                   "help/billing/platform-fee",
+                  "help/billing/refund-policy",
+                  "help/billing/using-coupons",
                   "help/billing/faq",
                   {
                     "group": "Managing Subscription",
@@ -255,13 +267,14 @@
           },
           {
             "group": "Producer Program",
-            "icon": "mic-2",
+            "icon": "microphone",
             "pages": [
               "help/producer-program/index",
               "help/producer-program/benefits",
               "help/producer-program/requirements",
               "help/producer-program/application-process",
               "help/producer-program/after-approval",
+              "help/producer-program/growing-on-beatpass",
               {
                 "group": "Application Types",
                 "pages": [
@@ -275,13 +288,14 @@
           },
           {
             "group": "Uploading Content",
-            "icon": "cloud-upload",
+            "icon": "cloud-arrow-up",
             "pages": [
               "help/uploading/index",
               "help/uploading/upload-page",
               "help/uploading/audio-fingerprinting",
               "help/uploading/sample-safe",
               "help/uploading/creating-albums",
+              "help/uploading/collaborations",
               "help/uploading/editing-content",
               {
                 "group": "Track Metadata",
@@ -306,6 +320,7 @@
                 "pages": [
                   "help/licensing-for-producers/index",
                   "help/licensing-for-producers/non-exclusive-licenses",
+                  "help/licensing-for-producers/when-beat-sells",
                   "help/licensing-for-producers/license-certificates",
                   {
                     "group": "Exclusive Licenses",
@@ -328,6 +343,8 @@
               "help/earnings/payout-schedule",
               "help/earnings/payout-eligibility",
               "help/earnings/viewing-finances",
+              "help/earnings/tax-information",
+              "help/earnings/currencies-and-pricing",
               {
                 "group": "Contribution System",
                 "pages": [
@@ -341,14 +358,17 @@
                 "pages": [
                   "help/earnings/stripe-connect/index",
                   "help/earnings/stripe-connect/setup-guide",
-                  "help/earnings/stripe-connect/requirements"
+                  "help/earnings/stripe-connect/requirements",
+                  "help/earnings/stripe-connect/accessing-stripe-dashboard",
+                  "help/earnings/stripe-connect/regional-requirements",
+                  "help/earnings/stripe-connect/unsupported-countries"
                 ]
               }
             ]
           },
           {
             "group": "Producer Dashboard",
-            "icon": "bar-chart",
+            "icon": "chart-bar",
             "pages": [
               "help/producer-dashboard/index",
               "help/producer-dashboard/home",
@@ -370,7 +390,8 @@
                       "help/analytics/backstage-insights/track-insights",
                       "help/analytics/backstage-insights/album-insights",
                       "help/analytics/backstage-insights/artist-insights",
-                      "help/analytics/backstage-insights/engagement-metrics"
+                      "help/analytics/backstage-insights/engagement-metrics",
+                      "help/analytics/backstage-insights/exporting-data"
                     ]
                   },
                   {
@@ -498,12 +519,13 @@
           },
           {
             "group": "Legal",
-            "icon": "scale",
+            "icon": "scale-balanced",
             "pages": [
               "help/legal/index",
               "help/legal/terms-of-service",
               "help/legal/privacy-policy",
               "help/legal/content-guidelines",
+              "help/legal/copyright-and-dmca",
               {
                 "group": "License Terms",
                 "pages": [
@@ -671,7 +693,14 @@
             "pages": [
               "developers/api-reference/overview",
               "developers/api-reference/dashboard",
-              "developers/api-reference/insights"
+              "developers/api-reference/insights",
+              "developers/api-reference/commerce",
+              "developers/api-reference/messaging",
+              "developers/api-reference/beat-requests",
+              "developers/api-reference/social",
+              "developers/api-reference/content",
+              "developers/api-reference/search",
+              "developers/api-reference/producer-intelligence"
             ]
           }
         ]
@@ -839,8 +868,5 @@
   },
   "interaction": {
     "drilldown": true
-  },
-  "icons": {
-    "library": "fontawesome"
   }
 }

@@ -3,8 +3,8 @@ title: "Webhooks"
 sidebarTitle: "Webhooks"
 description: "Understanding BeatPass webhook architecture for Stripe payment and payout processing."
 keywords: ["beatpass webhooks","stripe webhooks","payment webhooks","payout notifications"]
-og:title: "Webhooks - BeatPass Developer Docs"
-og:description: "Learn how BeatPass processes Stripe webhooks for payments and payouts."
+"og:title": "Webhooks - BeatPass Developer Docs"
+"og:description": "Learn how BeatPass processes Stripe webhooks for payments and payouts."
 ---
 
 ## Overview
@@ -44,15 +44,15 @@ The webhook controller processes the following Stripe events:
     <AccordionGroup>
       <Accordion title="payment_intent.succeeded" defaultOpen icon="circle-check">
         <Badge color="green">Success</Badge>
-        Marks purchase as succeeded, generates exclusive license certificate, marks track as sold.
+        Completes the purchase and activates the license.
       </Accordion>
       <Accordion title="payment_intent.payment_failed" icon="circle-xmark">
         <Badge color="red">Failed</Badge>
-        Marks purchase as failed and stores the error message for display.
+        Records the payment failure. The buyer sees an error on their next visit.
       </Accordion>
       <Accordion title="charge.refunded" icon="rotate-left">
         <Badge color="orange">Refund</Badge>
-        Marks purchase as refunded (handles both partial and full refunds).
+        Processes the refund (supports both partial and full refunds).
       </Accordion>
     </AccordionGroup>
   </Tab>
@@ -60,22 +60,22 @@ The webhook controller processes the following Stripe events:
     <AccordionGroup>
       <Accordion title="payout.created" defaultOpen icon="clock">
         <Badge color="blue">Initiated</Badge>
-        Notifies producer that payout was initiated to their bank account.
+        Payout initiated to producer's bank account.
       </Accordion>
       <Accordion title="payout.paid" icon="circle-check">
         <Badge color="green">Deposited</Badge>
-        Notifies producer that payout was deposited successfully.
+        Payout deposited successfully.
       </Accordion>
       <Accordion title="payout.failed" icon="circle-xmark">
         <Badge color="red">Failed</Badge>
-        Notifies producer of payout failure with the error reason.
+        Payout failed. Producer is informed of the reason.
       </Accordion>
     </AccordionGroup>
   </Tab>
   <Tab title="Account Events">
     <Accordion title="account.updated" defaultOpen icon="rotate">
       <Badge color="purple">Sync</Badge>
-      Syncs Stripe Connect account status. Notifies producer if action is required (verification, document upload, etc.).
+      Updates Stripe Connect account status. Producer is informed if action is required (verification, document upload, etc.).
     </Accordion>
   </Tab>
 </Tabs>
@@ -173,7 +173,10 @@ Outbound webhooks for third-party integrations may be considered for future rele
 
 ## Related Resources
 
-<CardGroup cols={2}>
+<CardGroup cols={3}>
+  <Card title="Commerce & Licensing API" icon="cart-shopping" href="/developers/api-reference/commerce">
+    Purchase flow, license certificates, and Stripe Connect endpoints.
+  </Card>
   <Card title="Exclusive Licenses" icon="file-certificate" href="/help/downloads-and-licensing/exclusive-licenses">
     How exclusive purchases and licensing work.
   </Card>

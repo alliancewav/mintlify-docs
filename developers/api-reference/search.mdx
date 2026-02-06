@@ -1,0 +1,277 @@
+---
+title: "Search & Discovery API"
+sidebarTitle: "Search & Discovery"
+description: "Full-text search, genre and tag filtering, radio recommendations, and leaderboard endpoints."
+keywords: ["beatpass search api","music search","genres","tags","radio","leaderboards","discovery"]
+"og:title": "Search & Discovery API - BeatPass Developer Docs"
+"og:description": "Search across content, browse genres and tags, get radio recommendations, and explore leaderboards."
+---
+
+## Overview
+
+The Search & Discovery API provides content discovery features — full-text search across all content types, genre and tag browsing, personalized radio recommendations, and platform-wide leaderboards.
+
+<Info>
+  **Base URL:** `https://open.beatpass.ca/api/v1`
+
+  **Authentication:** All discovery endpoints use optional auth. Authenticated users get personalized results and enhanced data.
+</Info>
+
+---
+
+## Search
+
+### Full-Text Search
+
+Search across albums, artists, playlists, tracks, and users.
+
+```http
+GET /api/v1/search
+```
+
+<ParamField query="query" type="string" required>
+  Search keywords.
+</ParamField>
+<ParamField query="types" type="string">
+  Comma-separated content types to search: `album`, `artist`, `playlist`, `track`, `user`. Searches all types if omitted.
+</ParamField>
+<ParamField query="limit" type="integer">
+  Maximum results per type. Default: `3`.
+</ParamField>
+
+**Example:**
+
+```bash
+curl "https://open.beatpass.ca/api/v1/search?query=lofi&types=track,artist&limit=5" \
+  -H "Accept: application/json"
+```
+
+---
+
+### Artist Search Suggestions
+
+Get autocomplete suggestions for artists.
+
+```http
+GET /api/v1/search/suggestions/artist
+```
+
+### Artist Suggestion Detail
+
+```http
+GET /api/v1/search/suggestions/artist/{id}
+```
+
+### Album Search Suggestions
+
+```http
+GET /api/v1/search/suggestions/album
+```
+
+### Album Suggestion Detail
+
+```http
+GET /api/v1/search/suggestions/album/{id}
+```
+
+### Audio Search
+
+Search for tracks by audio similarity.
+
+```http
+GET /api/v1/search/audio/{trackId}/{artistName}/{trackName}
+```
+
+---
+
+## Genres
+
+### List Genres
+
+Get all available music genres.
+
+```http
+GET /api/v1/genres
+```
+
+### Get Genre
+
+Get a specific genre by name, including associated content.
+
+```http
+GET /api/v1/genres/{name}
+```
+
+---
+
+## Tags
+
+### Tracks by Tag
+
+Get tracks associated with a specific tag.
+
+```http
+GET /api/v1/tags/{tagName}/tracks
+```
+
+### Albums by Tag
+
+Get albums associated with a specific tag.
+
+```http
+GET /api/v1/tags/{tagName}/albums
+```
+
+---
+
+## Radio
+
+### Get Recommendations
+
+Get personalized music recommendations based on a seed entity (artist, track, genre, or tag).
+
+```http
+GET /api/v1/radio/{type}/{id}
+```
+
+<ParamField path="type" type="string" required>
+  Seed type: `artist`, `track`, `genre`, or `tag`.
+</ParamField>
+<ParamField path="id" type="string" required>
+  Seed entity ID or name.
+</ParamField>
+
+---
+
+## Leaderboards
+
+### Global Leaderboard
+
+Get the platform-wide producer leaderboard.
+
+```http
+GET /api/v1/leaderboards/global
+```
+
+### Genre Leaderboard
+
+Get the leaderboard for a specific genre.
+
+```http
+GET /api/v1/leaderboards/genre/{genre}
+```
+
+### Rising Stars
+
+Get the rising stars leaderboard — producers with the fastest growth.
+
+```http
+GET /api/v1/leaderboards/rising-stars
+```
+
+### Achievement Leaderboard
+
+Get the leaderboard ranked by achievement count and rarity.
+
+```http
+GET /api/v1/leaderboards/achievements
+```
+
+### Leaderboard Stats
+
+Get aggregate statistics for the leaderboard system.
+
+```http
+GET /api/v1/leaderboard/stats
+```
+
+<Note>
+  Leaderboard data is cached with a 5-minute TTL. Polling more frequently than every 30 seconds is unnecessary and wastes your rate limit quota.
+</Note>
+
+---
+
+## Channels
+
+Channels are curated content feeds on the platform.
+
+### List Channels
+
+```http
+GET /api/v1/channel
+```
+
+### Get Channel
+
+```http
+GET /api/v1/channel/{channel}
+```
+
+---
+
+## Carousel
+
+Featured content for homepage carousels.
+
+### Featured Albums
+
+```http
+GET /api/v1/carousel/albums
+```
+
+### Featured Tracks
+
+```http
+GET /api/v1/carousel/tracks
+```
+
+### Featured Producers
+
+```http
+GET /api/v1/carousel/producers
+```
+
+---
+
+## Producer Highlights
+
+Get highlighted producers on the platform.
+
+```http
+GET /api/v1/producer-highlights
+```
+
+---
+
+## Landing Page
+
+### Featured Artists
+
+Get featured artists for the landing page.
+
+```http
+GET /api/v1/landing/artists
+```
+
+---
+
+## Achievement Details
+
+Get details for a specific achievement.
+
+```http
+GET /api/v1/achievements/{achievementId}/details
+```
+
+---
+
+## Related Resources
+
+<CardGroup cols={2}>
+  <Card title="Content API" icon="record-vinyl" href="/developers/api-reference/content">
+    Track, album, and artist management.
+  </Card>
+  <Card title="Producer Intelligence" icon="trophy" href="/developers/api-reference/producer-intelligence">
+    XP, achievements, and analytics.
+  </Card>
+</CardGroup>

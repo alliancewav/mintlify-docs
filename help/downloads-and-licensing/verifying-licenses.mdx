@@ -1,4 +1,5 @@
 ---
+audience: help
 title: "Verifying Licenses | BeatPass"
 sidebarTitle: "Verifying Licenses"
 description: "How to verify the authenticity of a BeatPass license certificate using the verification system."
@@ -23,12 +24,12 @@ BeatPass provides a public verification system that allows anyone to confirm the
 Every license certificate has a unique verification URL:
 
 ```
-https://beatpass.com/verify-license/{license-uuid}
+https://open.beatpass.ca/verify-license/{uuid}
 ```
 
 Example:
 ```
-https://beatpass.com/verify-license/a1b2c3d4-e5f6-7890-abcd-ef1234567890
+https://open.beatpass.ca/verify-license/a1b2c3d4-e5f6-7890-abcd-ef1234567890
 ```
 
 ---
@@ -153,45 +154,18 @@ On every license certificate, there's a verification section:
 ```
 VERIFICATION
 This license can be verified at:
-https://beatpass.com/verify-license/{uuid}
+https://open.beatpass.ca/verify-license/{uuid}
 
 The verification link above checks the license validity 
-in our database. If the license is not found or has been 
+in the BeatPass database. If the license is not found or has been 
 revoked, it will be marked as invalid.
 ```
 
 ---
 
-## API Verification
-
-For programmatic verification, use the API endpoint:
-
-```
-GET /api/v1/verify-license/{uuid}
-```
-
-Response for valid license:
-```json
-{
-  "valid": true,
-  "status": "active",
-  "license_uuid": "a1b2c3d4-...",
-  "track_name": "Beat Title",
-  "track_artists": ["Producer Name"],
-  "user_email_masked": "j****n@email.com",
-  "license_type": "non_exclusive",
-  "issued_at": "2025-01-15T10:30:00Z",
-  "verification_count": 5
-}
-```
-
-Response for invalid license:
-```json
-{
-  "valid": false,
-  "message": "License certificate not found or invalid"
-}
-```
+<Tip>
+  For programmatic license verification, see the [API Reference](/developers/api-reference) for technical details.
+</Tip>
 
 ---
 

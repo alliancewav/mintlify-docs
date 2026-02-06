@@ -1,0 +1,533 @@
+---
+title: "Content Management API"
+sidebarTitle: "Content"
+description: "Manage tracks, albums, artists, lyrics, playlists, audio fingerprinting, and cover art on BeatPass."
+keywords: ["beatpass content api","tracks api","albums api","artists api","lyrics","audio fingerprinting","playlists"]
+"og:title": "Content Management API - BeatPass Developer Docs"
+"og:description": "CRUD operations for tracks, albums, artists, playlists, lyrics, fingerprinting, and cover art."
+---
+
+## Overview
+
+The Content Management API provides full CRUD operations for all content types on BeatPass — tracks, albums, artists, playlists, lyrics, and supporting features like audio fingerprinting and cover art generation.
+
+<Info>
+  **Base URL:** `https://open.beatpass.ca/api/v1`
+
+  **Authentication:** Read operations use optional auth (enhanced data when logged in). Write operations require authentication.
+</Info>
+
+---
+
+## Tracks
+
+### List Tracks
+
+```http
+GET /api/v1/tracks
+```
+
+<Note>
+  Public endpoint. Returns enhanced data (purchase status, like status) when authenticated.
+</Note>
+
+### Get Track
+
+```http
+GET /api/v1/tracks/{track}
+```
+
+### Create Track
+
+Upload a new track. Requires authentication.
+
+```http
+POST /api/v1/tracks
+```
+
+### Update Track
+
+```http
+PUT /api/v1/tracks/{track}
+```
+
+### Delete Track(s)
+
+```http
+DELETE /api/v1/tracks/{ids}
+```
+
+<ParamField path="ids" type="string" required>
+  Comma-separated track IDs to delete.
+</ParamField>
+
+### Download Track
+
+```http
+GET /api/v1/tracks/{track}/download
+```
+
+### Get Waveform Data
+
+```http
+GET /api/v1/tracks/{track}/wave
+```
+
+### Batch Waveform Data
+
+```http
+POST /api/v1/tracks/wave-batch
+```
+
+### Extract Metadata
+
+Extract metadata from an uploaded audio file entry.
+
+```http
+POST /api/v1/tracks/{fileEntry}/extract-metadata
+```
+
+### Log Track Play
+
+Record a play event for a track.
+
+```http
+POST /api/v1/tracks/{track}/plays
+```
+
+### Update Play Duration
+
+Update the duration of an active play session.
+
+```http
+POST /api/v1/tracks/plays/{track}/update-duration
+```
+
+### Get Engagement Metrics
+
+```http
+GET /api/v1/tracks/{track}/engagement-metrics
+```
+
+### Get Producer Analytics
+
+```http
+GET /api/v1/tracks/{track}/producer-analytics
+```
+
+---
+
+## Track Upload Flow
+
+<Steps>
+  <Step title="Upload Audio File">
+    Upload the audio file via the file upload system to get a `fileEntry` ID.
+  </Step>
+  <Step title="Extract Metadata">
+    Call `POST /tracks/{fileEntry}/extract-metadata` to parse BPM, key, duration, etc.
+  </Step>
+  <Step title="Create Track">
+    Call `POST /tracks` with metadata (title, genre, tags, BPM, etc.) and the file entry reference.
+  </Step>
+  <Step title="Audio Fingerprinting">
+    The system automatically generates an audio fingerprint for duplicate detection.
+  </Step>
+  <Step title="Published">
+    Track is published and available on the platform.
+  </Step>
+</Steps>
+
+---
+
+## Albums
+
+### List Albums
+
+```http
+GET /api/v1/albums
+```
+
+### Get Album
+
+```http
+GET /api/v1/albums/{album}
+```
+
+### Create Album
+
+```http
+POST /api/v1/albums
+```
+
+### Update Album
+
+```http
+PUT /api/v1/albums/{album}
+```
+
+### Delete Album(s)
+
+```http
+DELETE /api/v1/albums/{ids}
+```
+
+### Album Producer Analytics
+
+```http
+GET /api/v1/albums/{album}/producer-analytics
+```
+
+---
+
+## Artists
+
+### List Artists
+
+```http
+GET /api/v1/artists
+```
+
+### Get Artist
+
+```http
+GET /api/v1/artists/{artist}
+```
+
+### Get Artist's Tracks
+
+```http
+GET /api/v1/artists/{artist}/tracks
+```
+
+### Get Artist's Albums
+
+```http
+GET /api/v1/artists/{artist}/albums
+```
+
+### Producer Analytics
+
+```http
+GET /api/v1/artists/{artist}/producer-analytics
+```
+
+### Downloads Analytics
+
+```http
+GET /api/v1/artists/{artist}/downloads-analytics
+```
+
+### Producer Achievements
+
+```http
+GET /api/v1/artists/{artist}/producer-achievements
+```
+
+### Check Ownership
+
+Check if the authenticated user owns this artist profile.
+
+```http
+GET /api/v1/artists/{artist}/check-ownership
+```
+
+---
+
+## Artist Credits
+
+Professional portfolio credits (similar to Spotify credits). Allows artists to showcase their work on external releases.
+
+### List Credits
+
+```http
+GET /api/v1/artists/{artist}/credits
+```
+
+### Add Credit
+
+```http
+POST /api/v1/artists/{artist}/credits
+```
+
+### Add Album Credit
+
+```http
+POST /api/v1/artists/{artist}/credits/album
+```
+
+### Update Credit
+
+```http
+PUT /api/v1/artists/{artist}/credits/{credit}
+```
+
+### Delete Credit
+
+```http
+DELETE /api/v1/artists/{artist}/credits/{credit}
+```
+
+### Reorder Credits
+
+```http
+POST /api/v1/artists/{artist}/credits/reorder
+```
+
+### Spotify Search (for Credits)
+
+Search Spotify catalog to link credits to releases.
+
+```http
+GET /api/v1/credits/spotify-search
+```
+
+### Get Spotify Album
+
+```http
+GET /api/v1/credits/spotify-album
+```
+
+### Credit Roles (Public)
+
+Get the list of available credit roles (e.g., Producer, Engineer, Songwriter).
+
+```http
+GET /api/v1/credits/roles
+```
+
+---
+
+## Track Pinning
+
+Pin a featured track to the top of an artist's profile.
+
+### Pin Track
+
+```http
+POST /api/v1/artists/{artistId}/tracks/{trackId}/pin
+```
+
+### Unpin Track
+
+```http
+POST /api/v1/artists/{artistId}/tracks/{trackId}/unpin
+```
+
+### Get Pinned Track
+
+```http
+GET /api/v1/artists/{artistId}/pinned-track
+```
+
+---
+
+## Playlists
+
+### List Playlists
+
+```http
+GET /api/v1/playlists
+```
+
+### Get Playlist
+
+```http
+GET /api/v1/playlists/{id}
+```
+
+### Create Playlist
+
+```http
+POST /api/v1/playlists
+```
+
+### Update Playlist
+
+```http
+PUT /api/v1/playlists/{playlist}
+```
+
+### Delete Playlist(s)
+
+```http
+DELETE /api/v1/playlists/{ids}
+```
+
+### Follow Playlist
+
+```http
+POST /api/v1/playlists/{id}/follow
+```
+
+### Unfollow Playlist
+
+```http
+POST /api/v1/playlists/{id}/unfollow
+```
+
+### Get Playlist Tracks
+
+```http
+GET /api/v1/playlists/{id}/tracks
+```
+
+### Add Tracks
+
+```http
+POST /api/v1/playlists/{playlist}/tracks/add
+```
+
+### Remove Tracks
+
+```http
+POST /api/v1/playlists/{playlist}/tracks/remove
+```
+
+### Reorder Tracks
+
+```http
+POST /api/v1/playlists/{playlist}/tracks/order
+```
+
+---
+
+## Playlist Collaboration
+
+### Invite Collaborator
+
+```http
+POST /api/v1/playlists/{playlist}/invite
+```
+
+### Accept Invitation
+
+```http
+POST /api/v1/playlists/{playlist}/accept-invite
+```
+
+### Decline Invitation
+
+```http
+POST /api/v1/playlists/{playlist}/decline-invite
+```
+
+### Remove Editor
+
+```http
+POST /api/v1/playlists/{playlist}/remove-editor
+```
+
+<Note>
+  Collaborative playlists support up to 10 editors. Invitations expire after 7 days. A 24-hour cooldown applies between re-invites.
+</Note>
+
+---
+
+## Lyrics
+
+### List Lyrics
+
+```http
+GET /api/v1/lyrics
+```
+
+### Get Track Lyrics
+
+```http
+GET /api/v1/tracks/{id}/lyrics
+```
+
+### Create Lyrics
+
+```http
+POST /api/v1/lyrics
+```
+
+### Update Lyrics
+
+```http
+PUT /api/v1/lyrics/{id}
+```
+
+### Delete Lyrics
+
+```http
+DELETE /api/v1/lyrics/{ids}
+```
+
+---
+
+## Audio Fingerprinting
+
+Detect duplicate audio content using acoustic fingerprints.
+
+### Generate Fingerprint
+
+```http
+POST /api/v1/tracks/{track}/fingerprint
+```
+
+### Check Fingerprint Status
+
+```http
+GET /api/v1/tracks/{track}/fingerprint/status
+```
+
+### Check Duplicates
+
+Check uploaded audio against existing fingerprints.
+
+```http
+POST /api/v1/tracks/check-duplicates
+```
+
+### Retry Failed Fingerprint
+
+```http
+POST /api/v1/fingerprints/{fingerprint}/retry
+```
+
+---
+
+## Cover Art
+
+### List Templates
+
+```http
+GET /api/v1/cover-art/templates
+```
+
+### Get Template
+
+```http
+GET /api/v1/cover-art/templates/{template}
+```
+
+### Preview Cover Art
+
+Generate a preview with a template and custom parameters.
+
+```http
+POST /api/v1/cover-art/preview
+```
+
+### Get Matching Templates
+
+Get templates that match specific criteria (genre, mood, etc.).
+
+```http
+GET /api/v1/cover-art/matching-templates
+```
+
+---
+
+## Related Resources
+
+<CardGroup cols={2}>
+  <Card title="Commerce & Licensing" icon="cart-shopping" href="/developers/api-reference/commerce">
+    Purchase flow and license certificates for tracks.
+  </Card>
+  <Card title="Search & Discovery" icon="magnifying-glass" href="/developers/api-reference/search">
+    Search, genres, tags, and radio recommendations.
+  </Card>
+</CardGroup>

@@ -1,4 +1,5 @@
 ---
+audience: help
 title: "Managing Requests"
 sidebarTitle: "Managing Requests"
 description: "Learn how to view, track, and delete your beat requests. Manage active and expired requests from your account."
@@ -17,7 +18,7 @@ Once you've created beat requests, you can track their status, view submissions,
 
 Access your beat requests through the Beat Requests section. You'll see:
 - **Your active requests** — Currently accepting submissions
-- **Your expired requests** — Past the 24-hour window
+- **Your expired requests** — Past their expiration window
 - **All platform requests** — Browse what others are requesting
 
 ### Request Status
@@ -26,7 +27,7 @@ Each of your requests shows its current status:
 
 | Status | Meaning |
 |--------|---------|
-| **Active** | Still accepting submissions (within 24 hours) |
+| **Active** | Still accepting submissions (within the chosen duration) |
 | **Expired** | No longer accepting submissions |
 
 ### Request Details
@@ -56,7 +57,7 @@ Watch your submission count grow as producers respond:
 - Click to view all submissions
 
 <Tip>
-  Check your requests periodically during the 24-hour window. Early engagement with producers who submit can lead to better connections.
+  Check your requests periodically during the active window. Early engagement with producers who submit can lead to better connections.
 </Tip>
 
 ---
@@ -124,7 +125,7 @@ Even after expiration, you can still:
 If a request expires, you have a **30-day renewal window**:
 
 - Look for the **Renew** option on expired requests marked as eligible
-- Renewing consumes **1 token** and reactivates the request for another 24 hours
+- Renewing consumes **1 token** and reactivates the request for another active window (default: 24 hours)
 - You can only renew your own requests
 - Requests that expired more than 30 days ago can't be renewed—you'll need to create a new one
 
@@ -139,7 +140,7 @@ If a request expires, you have a **30-day renewal window**:
 ```
 Token consumed → Request created (Active)
                       ↓
-              24 hours pass OR deleted
+              Duration expires OR deleted
                       ↓
              Expired OR Removed
                       ↓
@@ -149,7 +150,7 @@ Token consumed → Request created (Active)
 ### Key Dates
 
 - **Created** — When you submitted the request
-- **Expires** — 24 hours after creation
+- **Expires** — After the chosen duration (24, 48, or 72 hours)
 - **Deleted** — If you removed it manually
 
 ---
@@ -222,7 +223,7 @@ For each request, you can see:
 
 ## Best Practices
 
-### During the 24-Hour Window
+### During the Active Window
 
 - **Check submissions regularly** — Don't wait until expiration
 - **Respond to promising producers** — Start conversations early

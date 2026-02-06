@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "description": "BeatPass uses cookie-based session authentication via Laravel Sanctum. Authenticate by logging in at `/login` after obtaining a CSRF token from `/sanctum/csrf-cookie`. Session cookies are automatically included in subsequent requests by the browser.",
+    "description": "BeatPass uses cookie-based session authentication via Laravel Sanctum. Authenticate by logging in at `/auth/login` after obtaining a CSRF token from `/sanctum/csrf-cookie`. Session cookies are automatically included in subsequent requests by the browser.",
     "version": "1.0.0",
     "title": "BeatPass API"
   },
@@ -13,7 +13,7 @@
   ],
   "security": [
     {
-      "accessToken": []
+      "sessionAuth": []
     }
   ],
   "tags": [
@@ -100,6 +100,26 @@
     {
       "name": "Auth",
       "description": "Authenticate requests to the API"
+    },
+    {
+      "name": "Messaging",
+      "description": "Direct messages, group conversations, and real-time features"
+    },
+    {
+      "name": "Collections",
+      "description": "Curated content collections"
+    },
+    {
+      "name": "Stripe Connect",
+      "description": "Producer payout onboarding and financial overview"
+    },
+    {
+      "name": "Exclusive Licenses",
+      "description": "Manage exclusive license pricing presets"
+    },
+    {
+      "name": "Coupons",
+      "description": "Validate discount codes during checkout"
     }
   ],
   "paths": {
@@ -4312,6 +4332,405 @@
           "404": { "$ref": "#/components/responses/Response404" }
         }
       }
+    },
+    "/messaging/conversations": {
+      "get": {
+        "tags": ["Messaging"],
+        "summary": "Get user's conversations",
+        "operationId": "getConversations",
+        "parameters": [
+          { "name": "limit", "in": "query", "schema": { "type": "integer", "default": 20 }, "description": "Number of conversations to return" }
+        ],
+        "responses": {
+          "200": { "description": "List of conversations with last message and unread count" },
+          "401": { "$ref": "#/components/responses/Response401" }
+        }
+      }
+    },
+    "/messaging/conversations/start": {
+      "post": {
+        "tags": ["Messaging"],
+        "summary": "Start a new conversation (direct or group)",
+        "operationId": "startConversation",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["message_text"],
+                "properties": {
+                  "user_id": { "type": "integer", "description": "Recipient user ID for direct message" },
+                  "user_ids": { "type": "array", "items": { "type": "integer" }, "description": "User IDs for group conversation (min 2)" },
+                  "message_text": { "type": "string", "maxLength": 2000, "description": "Initial message text" },
+                  "title": { "type": "string", "maxLength": 255, "description": "Optional group conversation title" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Conversation created with initial message" },
+          "400": { "description": "Invalid parameters" },
+          "401": { "$ref": "#/components/responses/Response401" }
+        }
+      }
+    },
+    "/messaging/conversations/{conversationId}/messages": {
+      "get": {
+        "tags": ["Messaging"],
+        "summary": "Get messages for a conversation",
+        "operationId": "getMessages",
+        "parameters": [
+          { "name": "conversationId", "in": "path", "required": true, "schema": { "type": "integer" } },
+          { "name": "limit", "in": "query", "schema": { "type": "integer", "default": 50 } },
+          { "name": "offset", "in": "query", "schema": { "type": "integer", "default": 0 } }
+        ],
+        "responses": {
+          "200": { "description": "Messages in the conversation" },
+          "401": { "$ref": "#/components/responses/Response401" },
+          "403": { "$ref": "#/components/responses/Response403" }
+        }
+      }
+    },
+    "/messaging/messages": {
+      "post": {
+        "tags": ["Messaging"],
+        "summary": "Send a message to a conversation",
+        "operationId": "sendMessage",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["conversation_id", "message_text"],
+                "properties": {
+                  "conversation_id": { "type": "integer" },
+                  "message_text": { "type": "string", "maxLength": 2000 }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Message sent" },
+          "401": { "$ref": "#/components/responses/Response401" },
+          "403": { "$ref": "#/components/responses/Response403" },
+          "422": { "$ref": "#/components/responses/Response422" }
+        }
+      }
+    },
+    "/messaging/unread-count": {
+      "get": {
+        "tags": ["Messaging"],
+        "summary": "Get total unread message count",
+        "operationId": "getUnreadCount",
+        "responses": {
+          "200": { "description": "Unread count across all conversations" },
+          "401": { "$ref": "#/components/responses/Response401" }
+        }
+      }
+    },
+    "/messaging/conversations/{conversationId}/read": {
+      "post": {
+        "tags": ["Messaging"],
+        "summary": "Mark conversation as read",
+        "operationId": "markConversationRead",
+        "parameters": [
+          { "name": "conversationId", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": {
+          "200": { "description": "Conversation marked as read" },
+          "401": { "$ref": "#/components/responses/Response401" }
+        }
+      }
+    },
+    "/messaging/conversations/{conversationId}": {
+      "delete": {
+        "tags": ["Messaging"],
+        "summary": "Delete conversation for the authenticated user",
+        "operationId": "deleteConversation",
+        "parameters": [
+          { "name": "conversationId", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": {
+          "200": { "description": "Conversation deleted" },
+          "401": { "$ref": "#/components/responses/Response401" },
+          "403": { "$ref": "#/components/responses/Response403" }
+        }
+      }
+    },
+    "/collections": {
+      "get": {
+        "tags": ["Collections"],
+        "summary": "List collections",
+        "operationId": "listCollections",
+        "responses": {
+          "200": { "description": "List of collections" },
+          "401": { "$ref": "#/components/responses/Response401" }
+        }
+      },
+      "post": {
+        "tags": ["Collections"],
+        "summary": "Create a new collection",
+        "operationId": "createCollection",
+        "responses": {
+          "201": { "description": "Collection created" },
+          "401": { "$ref": "#/components/responses/Response401" },
+          "422": { "$ref": "#/components/responses/Response422" }
+        }
+      }
+    },
+    "/collections/featured": {
+      "get": {
+        "tags": ["Collections"],
+        "summary": "Get featured collections",
+        "operationId": "featuredCollections",
+        "responses": {
+          "200": { "description": "Featured collections" },
+          "401": { "$ref": "#/components/responses/Response401" }
+        }
+      }
+    },
+    "/collections/{id}": {
+      "get": {
+        "tags": ["Collections"],
+        "summary": "Get a collection by ID",
+        "operationId": "getCollection",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": {
+          "200": { "description": "Collection details" },
+          "401": { "$ref": "#/components/responses/Response401" },
+          "404": { "$ref": "#/components/responses/Response404" }
+        }
+      },
+      "put": {
+        "tags": ["Collections"],
+        "summary": "Update a collection",
+        "operationId": "updateCollection",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": {
+          "200": { "description": "Collection updated" },
+          "401": { "$ref": "#/components/responses/Response401" },
+          "404": { "$ref": "#/components/responses/Response404" }
+        }
+      },
+      "delete": {
+        "tags": ["Collections"],
+        "summary": "Delete a collection",
+        "operationId": "deleteCollection",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": {
+          "200": { "description": "Collection deleted" },
+          "401": { "$ref": "#/components/responses/Response401" },
+          "404": { "$ref": "#/components/responses/Response404" }
+        }
+      }
+    },
+    "/artist/stripe-connect/status": {
+      "get": {
+        "tags": ["Stripe Connect"],
+        "summary": "Check Stripe Connect onboarding status",
+        "operationId": "stripeConnectStatus",
+        "responses": {
+          "200": { "description": "Stripe Connect account status" },
+          "401": { "$ref": "#/components/responses/Response401" }
+        }
+      }
+    },
+    "/artist/stripe-connect/onboard": {
+      "post": {
+        "tags": ["Stripe Connect"],
+        "summary": "Create Stripe Connect onboarding link",
+        "operationId": "stripeConnectOnboard",
+        "responses": {
+          "200": { "description": "Onboarding link generated" },
+          "401": { "$ref": "#/components/responses/Response401" }
+        }
+      }
+    },
+    "/artist/stripe-connect/finances": {
+      "get": {
+        "tags": ["Stripe Connect"],
+        "summary": "Get artist Stripe Connect financial overview",
+        "operationId": "stripeConnectFinances",
+        "responses": {
+          "200": { "description": "Financial overview with balance and transactions" },
+          "401": { "$ref": "#/components/responses/Response401" }
+        }
+      }
+    },
+    "/exclusive-license-presets": {
+      "get": {
+        "tags": ["Exclusive Licenses"],
+        "summary": "List exclusive license presets",
+        "operationId": "listPresets",
+        "responses": {
+          "200": { "description": "List of exclusive license presets" },
+          "401": { "$ref": "#/components/responses/Response401" }
+        }
+      },
+      "post": {
+        "tags": ["Exclusive Licenses"],
+        "summary": "Create an exclusive license preset",
+        "operationId": "createPreset",
+        "responses": {
+          "201": { "description": "Preset created" },
+          "401": { "$ref": "#/components/responses/Response401" },
+          "422": { "$ref": "#/components/responses/Response422" }
+        }
+      }
+    },
+    "/tracks/{track}/license-certificate": {
+      "get": {
+        "tags": ["License Certificates"],
+        "summary": "View license certificate for a purchased track",
+        "operationId": "viewLicenseCertificate",
+        "parameters": [
+          { "name": "track", "in": "path", "required": true, "schema": { "type": "integer" }, "description": "Track ID" }
+        ],
+        "responses": {
+          "200": { "description": "License certificate data" },
+          "401": { "$ref": "#/components/responses/Response401" },
+          "404": { "$ref": "#/components/responses/Response404" }
+        }
+      }
+    },
+    "/coupons/validate": {
+      "post": {
+        "tags": ["Coupons"],
+        "summary": "Validate a coupon code and calculate discount",
+        "operationId": "validateCoupon",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["code"],
+                "properties": {
+                  "code": { "type": "string", "description": "Coupon code to validate" },
+                  "product_id": { "type": "integer", "description": "Product/plan ID" },
+                  "price_id": { "type": "integer", "description": "Price ID" },
+                  "amount": { "type": "number", "description": "Original amount for discount calculation" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Coupon validation result with discount details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string" },
+                    "coupon": { "type": "object" },
+                    "discount_amount": { "type": "number" },
+                    "final_amount": { "type": "number" },
+                    "savings": { "type": "number" },
+                    "valid": { "type": "boolean" }
+                  }
+                }
+              }
+            }
+          },
+          "422": { "$ref": "#/components/responses/Response422" }
+        }
+      }
+    },
+    "/beat-requests/{id}/track-view": {
+      "post": {
+        "tags": ["Beat Requests"],
+        "summary": "Log a producer view on a beat request",
+        "operationId": "logBeatRequestView",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" }, "description": "Beat request ID" }
+        ],
+        "responses": {
+          "200": { "description": "View logged successfully" },
+          "401": { "$ref": "#/components/responses/Response401" },
+          "404": { "$ref": "#/components/responses/Response404" }
+        }
+      }
+    },
+    "/users/{user}/minutes-left": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "Get remaining upload minutes for a user's plan",
+        "operationId": "getUserMinutesLeft",
+        "parameters": [
+          { "name": "user", "in": "path", "required": true, "schema": { "type": "integer" }, "description": "User ID" }
+        ],
+        "responses": {
+          "200": {
+            "description": "Minutes remaining on plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string" },
+                    "minutesLeft": { "type": "integer", "nullable": true, "description": "Minutes remaining, null if no limit" }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Response401" },
+          "403": { "$ref": "#/components/responses/Response403" }
+        }
+      }
+    },
+    "/exclusive-license-presets/{preset}": {
+      "get": {
+        "tags": ["Exclusive Licenses"],
+        "summary": "Get a specific preset",
+        "operationId": "getPreset",
+        "parameters": [
+          { "name": "preset", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": {
+          "200": { "description": "Preset details" },
+          "401": { "$ref": "#/components/responses/Response401" },
+          "404": { "$ref": "#/components/responses/Response404" }
+        }
+      },
+      "put": {
+        "tags": ["Exclusive Licenses"],
+        "summary": "Update a preset",
+        "operationId": "updatePreset",
+        "parameters": [
+          { "name": "preset", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": {
+          "200": { "description": "Preset updated" },
+          "401": { "$ref": "#/components/responses/Response401" },
+          "404": { "$ref": "#/components/responses/Response404" }
+        }
+      },
+      "delete": {
+        "tags": ["Exclusive Licenses"],
+        "summary": "Delete a preset",
+        "operationId": "deletePreset",
+        "parameters": [
+          { "name": "preset", "in": "path", "required": true, "schema": { "type": "integer" } }
+        ],
+        "responses": {
+          "200": { "description": "Preset deleted" },
+          "401": { "$ref": "#/components/responses/Response401" },
+          "404": { "$ref": "#/components/responses/Response404" }
+        }
+      }
     }
   },
   "components": {
@@ -4627,14 +5046,16 @@
       }
     },
     "securitySchemes": {
-      "accessToken": {
-        "type": "http",
-        "scheme": "bearer"
+      "sessionAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "laravel_session",
+        "description": "Cookie-based session authentication via Laravel Sanctum. Authenticate by calling GET /sanctum/csrf-cookie then POST /auth/login."
       }
     },
     "responses": {
       "Response401": {
-        "description": "Unauthenticated. Either access token is not provided or is invalid."
+        "description": "Unauthenticated. Session cookie is missing, invalid, or expired. Re-authenticate via the login flow."
       },
       "Response403": {
         "description": "Unauthorized access. You don't have permissions required to perform this operation."

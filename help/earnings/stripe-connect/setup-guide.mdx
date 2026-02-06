@@ -1,4 +1,5 @@
 ---
+audience: help
 title: "Setup Guide"
 description: "Step-by-step instructions for connecting your Stripe account to receive BeatPass earnings."
 ---
@@ -27,11 +28,20 @@ Make sure you have the following ready:
   <Step title="Start the connection process">
     If you haven't connected Stripe yet, you'll see an onboarding screen with the **Connect Stripe Account Now** button. Click it to begin.
   </Step>
+
+  <Step title="Confirm your country">
+    A dialog will ask you to select the country where you reside and have a bank account. This is critical — **your country cannot be changed after setup**.
+    
+    - If your country is in the supported list, select it and continue
+    - If your country is **not listed**, see the dialog's alternative options (Wise, Payoneer, Stripe Atlas) or visit [Unsupported Countries & Alternatives](/help/earnings/stripe-connect/unsupported-countries)
+  </Step>
   
-  <Step title="Create or sign in to Stripe">
-    You'll be redirected to Stripe's secure website. Either:
-    - **Create a new Stripe account** — If you don't have one
-    - **Sign in** — If you already have a Stripe account
+  <Step title="Create your Stripe Express account">
+    You'll be redirected to Stripe's secure website to create a **Stripe Express** account. This is different from a regular Stripe account — it's a streamlined account specifically for receiving payouts from BeatPass.
+    
+    <Info>
+      If you already have a regular Stripe account at stripe.com, your BeatPass Express account is **separate**. You don't need to sign into your existing Stripe account.
+    </Info>
   </Step>
   
   <Step title="Enter your personal information">
@@ -40,12 +50,18 @@ Make sure you have the following ready:
     - Date of birth
     - Home address
     - Phone number
+
+    **For UAE producers:** You'll also need your Trade License, Emirates ID, and potentially a Memorandum of Association. See [Regional Requirements](/help/earnings/stripe-connect/regional-requirements#united-arab-emirates-uae) for full details.
   </Step>
   
   <Step title="Add your banking information">
     Choose how you want to receive payouts:
-    - **Bank account** — Enter your account and routing number
-    - **Debit card** — Add a Visa or Mastercard debit card
+    - **Bank account** — Enter your account and routing number (US), IBAN (EU), sort code (UK), or local equivalent
+    - **Debit card** — Add a Visa or Mastercard debit card (faster payouts in some countries)
+
+    <Tip>
+      If you're using **Wise** or **Payoneer** bank details, enter the bank account information provided by those services here.
+    </Tip>
   </Step>
   
   <Step title="Verify your identity">
@@ -53,10 +69,12 @@ Make sure you have the following ready:
     - All text is readable
     - All four corners are visible
     - There's no glare or blur
+
+    Some countries require additional documents. For example, UAE requires a Trade License and Emirates ID. Stripe will prompt you for everything needed based on your country.
   </Step>
   
   <Step title="Review and submit">
-    Review your information for accuracy, then submit. Stripe typically verifies accounts within 1-2 business days.
+    Review your information for accuracy, then submit. Stripe typically verifies accounts within 1-2 business days, though some countries (especially UAE and first-time accounts) may take 5-7 business days.
   </Step>
   
   <Step title="Return to BeatPass">
@@ -119,15 +137,44 @@ Sometimes Stripe needs additional verification. If you see pending requirements:
   
   <Accordion title="The process is taking longer than expected">
     In rare cases, Stripe may take up to 5-7 business days for verification, especially for:
-    - Accounts in certain countries
+    - Accounts in certain countries (UAE, Japan, Singapore)
     - Cases requiring manual review
     - First-time Stripe users
+    - Accounts requiring additional business documentation
     
     You'll receive an email from Stripe when your account is ready.
   </Accordion>
   
-  <Accordion title="I already have a Stripe account—can I use it?">
-    Yes! When redirected to Stripe, sign in with your existing account instead of creating a new one. BeatPass will connect to your existing Stripe account.
+  <Accordion title="I already have a Stripe account — do I use it?">
+    **No.** BeatPass creates a **Stripe Express** account for you, which is separate from any regular Stripe account you may have at stripe.com. During onboarding, Stripe creates a new Express account linked to BeatPass. Your existing Stripe account remains unchanged and separate.
+    
+    See [Accessing Your Stripe Dashboard](/help/earnings/stripe-connect/accessing-stripe-dashboard) for details on the difference.
+  </Accordion>
+
+  <Accordion title="I'm trying to log into dashboard.stripe.com but don't see my BeatPass earnings">
+    You're using the wrong login. BeatPass uses **Stripe Express** accounts, not regular Stripe accounts. To access your BeatPass payout dashboard:
+    
+    - Go to [connect.stripe.com/express_login](https://connect.stripe.com/express_login)
+    - Enter the email you used during BeatPass onboarding
+    - Verify with a code sent to your phone or email
+    
+    See [Accessing Your Stripe Dashboard](/help/earnings/stripe-connect/accessing-stripe-dashboard) for full instructions.
+  </Accordion>
+
+  <Accordion title="My country isn't in the list during onboarding">
+    If your country isn't listed in the country selection dialog, you can still receive payouts using alternative methods:
+    
+    - **Wise** — Get US, EU, or UK bank details from [wise.com](https://wise.com)
+    - **Payoneer** — Get receiving account details from [payoneer.com](https://www.payoneer.com)
+    - **Stripe Atlas** — Incorporate a US company through [stripe.com/atlas](https://stripe.com/atlas)
+    
+    See [Unsupported Countries & Alternatives](/help/earnings/stripe-connect/unsupported-countries) for step-by-step instructions.
+  </Accordion>
+
+  <Accordion title="I'm in the UAE and the onboarding asks for business documents I don't have">
+    The UAE requires a business-type account with a Trade License. If you don't have one, the most affordable option is a **freelancer permit** from a free zone like Sharjah Media City (Shams) — starting around AED 5,750/year (~$1,565 USD).
+    
+    See [Regional Requirements — UAE](/help/earnings/stripe-connect/regional-requirements#united-arab-emirates-uae) for full details on obtaining a trade license or freelancer permit.
   </Accordion>
 </AccordionGroup>
 
@@ -138,7 +185,7 @@ Sometimes Stripe needs additional verification. If you see pending requirements:
     BeatPass never sees your full banking information. All sensitive data is handled directly by Stripe.
   </Card>
   <Card title="You're in control" icon="shield-check">
-    You can disconnect your Stripe account at any time through your Stripe dashboard.
+    You can update your bank details at any time through your Stripe Express dashboard.
   </Card>
 </CardGroup>
 
@@ -148,15 +195,22 @@ Once your account is fully verified:
 
 1. **Upload tracks** — Your music will start earning contribution value immediately
 2. **Check your balance** — View your earnings in the Finances dashboard
-3. **Wait for payouts** — Stripe automatically transfers funds to your bank
+3. **Access your Stripe dashboard** — Log into [connect.stripe.com/express_login](https://connect.stripe.com/express_login) to see detailed payout information
+4. **Wait for payouts** — Stripe automatically transfers funds to your bank on a regular schedule
 
-<Card title="View Payout Schedule" href="/help/earnings/payout-schedule" icon="calendar">
-  Learn when and how your earnings are transferred to your bank account.
-</Card>
+<CardGroup cols={2}>
+  <Card title="Payout Schedule" href="/help/earnings/payout-schedule" icon="calendar">
+    Learn when and how your earnings are transferred to your bank account.
+  </Card>
+  <Card title="Accessing Dashboard" href="/help/earnings/stripe-connect/accessing-stripe-dashboard" icon="table-columns">
+    How to log into your Stripe Express dashboard.
+  </Card>
+</CardGroup>
 
 ## Need Help?
 
 If you encounter issues with Stripe setup that you can't resolve:
 
-- **Stripe-related issues** — Contact Stripe support directly through your Stripe dashboard
+- **Stripe-related issues** — Contact Stripe support through your Express dashboard at [connect.stripe.com/express_login](https://connect.stripe.com/express_login)
 - **BeatPass-related issues** — Contact us at **contact@beatpass.ca**
+- **Regional onboarding issues** — See [Regional Requirements](/help/earnings/stripe-connect/regional-requirements) for country-specific guidance

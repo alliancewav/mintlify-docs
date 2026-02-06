@@ -1,4 +1,5 @@
 ---
+audience: help
 title: "Adding Payment Method"
 sidebarTitle: "Adding Payment Method"
 description: "How to add a credit card or payment method to your BeatPass account."
@@ -72,11 +73,11 @@ If using PayPal:
 When you enter payment details:
 
 - **Encrypted connection** — Data is transmitted securely
-- **Stripe handles processing** — Card details go directly to Stripe, not our servers
-- **We only store minimal info** — Just card brand, last 4 digits, and expiration
+- **Stripe handles processing** — Card details go directly to Stripe, not BeatPass servers
+- **Minimal info stored** — Just card brand, last 4 digits, and expiration
 
 <Note>
-  Your full card number is never stored on BeatPass. It's securely handled by Stripe, our payment processor.
+  Your full card number is never stored on BeatPass. It's securely handled by Stripe, the payment processor.
 </Note>
 
 ---
@@ -118,7 +119,7 @@ Common reasons a card might be declined when adding:
   </Accordion>
   
   <Accordion title="Is my card information safe?">
-    Yes. Card details are processed by Stripe, a PCI-compliant payment processor. Your full card number is never stored on our servers.
+    Yes. Card details are processed by Stripe, a PCI-compliant payment processor. Your full card number is never stored on BeatPass servers.
   </Accordion>
 </AccordionGroup>
 
@@ -127,7 +128,7 @@ Common reasons a card might be declined when adding:
 ## Related Topics
 
 <CardGroup cols={2}>
-  <Card title="Updating Payment Method" icon="refresh-cw" href="/help/billing/payment-methods/updating-payment-method">
+  <Card title="Updating Payment Method" icon="arrows-rotate" href="/help/billing/payment-methods/updating-payment-method">
     Change your existing payment method.
   </Card>
   <Card title="Supported Methods" icon="credit-card" href="/help/billing/payment-methods/supported-methods">

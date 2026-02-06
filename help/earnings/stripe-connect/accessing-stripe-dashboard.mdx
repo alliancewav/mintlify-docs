@@ -1,0 +1,157 @@
+---
+audience: help
+title: "Accessing Your Stripe Dashboard"
+sidebarTitle: "Accessing Dashboard"
+description: "Understand the difference between Stripe Express and regular Stripe, and learn how to access your BeatPass payout dashboard."
+keywords: ["stripe express", "stripe login", "stripe dashboard", "express dashboard", "payout dashboard", "stripe connect login"]
+"og:title": "Accessing Your Stripe Dashboard - BeatPass Help"
+"og:description": "Learn how to log into your Stripe Express dashboard to manage your BeatPass payouts."
+---
+
+BeatPass uses **Stripe Express** accounts for producer payouts. This is different from a regular Stripe account. Many producers get confused between the two — this guide clears everything up.
+
+---
+
+## Stripe Express vs. Regular Stripe
+
+This is the most common point of confusion. BeatPass creates a **Stripe Express** account for you — it is **not** the same as a standard Stripe account you might create at stripe.com.
+
+| | **Stripe Express (Your BeatPass Account)** | **Regular Stripe (stripe.com)** |
+|---|---|---|
+| **Purpose** | Receive payouts from platforms like BeatPass | Run your own business, charge customers directly |
+| **Login URL** | [connect.stripe.com/express_login](https://connect.stripe.com/express_login) | [dashboard.stripe.com](https://dashboard.stripe.com) |
+| **Authentication** | Email + SMS/email code (no password) | Email + password |
+| **Who creates it** | BeatPass creates it for you during onboarding | You create it yourself at stripe.com |
+| **What you see** | Simplified dashboard: balance, payouts, transactions | Full Stripe dashboard with all business tools |
+
+<Warning>
+  **Do not try to log into dashboard.stripe.com to view your BeatPass payouts.** Your BeatPass payout account is a Stripe Express account with a separate login. Even if you have a personal Stripe account, your BeatPass earnings are managed through the Express account.
+</Warning>
+
+---
+
+## How to Access Your Stripe Express Dashboard
+
+There are two ways to access your Stripe Express dashboard:
+
+### Option 1: Through BeatPass (Recommended)
+
+<Steps>
+  <Step title="Go to your Producer Dashboard">
+    Click your **profile avatar** in the top navigation, then select **Backstage**.
+  </Step>
+  <Step title="Open the Finances section">
+    Click **Finances** in your Producer Dashboard navigation.
+  </Step>
+  <Step title="Click 'View Stripe Dashboard'">
+    If your account is connected, you'll see a link to access your Stripe Express dashboard. This generates a secure one-time login link.
+  </Step>
+</Steps>
+
+### Option 2: Direct Login at Stripe Express
+
+<Steps>
+  <Step title="Go to the Express login page">
+    Visit [connect.stripe.com/express_login](https://connect.stripe.com/express_login) in your browser.
+  </Step>
+  <Step title="Enter your email address">
+    Use the **same email** you used when setting up Stripe Connect through BeatPass.
+  </Step>
+  <Step title="Verify with a code">
+    Stripe sends a verification code to your phone (SMS) or email. Enter the code to log in. **There is no password** — Express accounts use one-time codes for security.
+  </Step>
+  <Step title="Access your dashboard">
+    Once verified, you'll see your Express Dashboard with your balance, payouts, and transaction history.
+  </Step>
+</Steps>
+
+<Info>
+  Only **live mode** accounts can log into Stripe Express directly. If your account was just created and hasn't processed any transactions yet, use the BeatPass link method (Option 1) instead.
+</Info>
+
+---
+
+## What You Can Do in the Express Dashboard
+
+Once logged in, you can:
+
+- **View your balance** — See your total balance, money on the way to your bank, and money available soon
+- **Check payout history** — See when and how much was transferred to your bank
+- **View transactions** — See all payments received from BeatPass
+- **Update bank details** — Change your payout bank account or debit card
+- **Manage payout schedule** — Switch between automatic and manual payouts
+- **Handle disputes** — Respond to any payment disputes
+- **View tax forms** — Access 1099 or other tax documents (US producers)
+
+---
+
+## "I Already Have a Stripe Account"
+
+If you already have a regular Stripe account (e.g., for your own online store):
+
+- **Your BeatPass Express account is separate.** It does not merge with or appear inside your regular Stripe dashboard.
+- **You use different login URLs.** Regular Stripe: `dashboard.stripe.com`. BeatPass Express: `connect.stripe.com/express_login`.
+- **They can share the same email.** Having both accounts on the same email is fine — they are treated as independent accounts by Stripe.
+- **Earnings stay separate.** Your BeatPass payouts go to whichever bank account you configured during the Express onboarding, not your regular Stripe account's bank.
+
+<Tip>
+  If you use the same email for both accounts, bookmark the Express login page to avoid accidentally going to the wrong dashboard.
+</Tip>
+
+---
+
+## Troubleshooting Login Issues
+
+<AccordionGroup>
+  <Accordion title="I'm logging into dashboard.stripe.com but don't see my BeatPass earnings">
+    You're logging into the wrong dashboard. Your BeatPass account is a **Stripe Express** account. Go to [connect.stripe.com/express_login](https://connect.stripe.com/express_login) instead, or access it through your BeatPass Finances page.
+  </Accordion>
+
+  <Accordion title="I'm not receiving the verification code">
+    - Check your **spam/junk** folder if the code is sent by email
+    - Ensure your phone number is correct and can receive SMS
+    - Wait 60 seconds before requesting a new code
+    - If you changed your phone number, contact **contact@beatpass.ca** for assistance
+  </Accordion>
+
+  <Accordion title="It says 'No account found' when I try to log in">
+    - Make sure you're using the **exact same email** you used during the BeatPass Stripe onboarding
+    - Check for typos in your email address
+    - If you haven't completed the Stripe Connect setup on BeatPass, your Express account may not exist yet — go to **Finances** in your Producer Dashboard to start the setup
+  </Accordion>
+
+  <Accordion title="I created a regular Stripe account instead of using the BeatPass onboarding">
+    Creating a regular Stripe account at stripe.com does **not** connect you to BeatPass. You must use the **Connect Stripe Account** button in your BeatPass Finances dashboard. This creates the proper Express account linked to BeatPass.
+    
+    Your independently created Stripe account will remain separate and won't receive BeatPass payouts.
+  </Accordion>
+
+  <Accordion title="Can I convert my Express account to a full Stripe account?">
+    No. Stripe Express accounts are managed by the platform (BeatPass) and cannot be converted to standard Stripe accounts. If you need a full Stripe account for other business purposes, create one separately at stripe.com.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Quick Reference
+
+| Task | Where to Go |
+|------|-------------|
+| **View BeatPass earnings summary** | BeatPass → Backstage → Finances |
+| **View detailed payout history** | [connect.stripe.com/express_login](https://connect.stripe.com/express_login) |
+| **Change payout bank account** | Stripe Express Dashboard → Settings |
+| **View tax documents** | Stripe Express Dashboard → Tax Forms |
+| **Complete pending verification** | BeatPass → Finances → Complete Setup |
+
+---
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Setup Guide" href="/help/earnings/stripe-connect/setup-guide" icon="book-open">
+    Step-by-step instructions for connecting your Stripe account.
+  </Card>
+  <Card title="Payout Schedule" href="/help/earnings/payout-schedule" icon="calendar">
+    Learn when your earnings are transferred to your bank.
+  </Card>
+</CardGroup>

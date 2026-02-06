@@ -1,4 +1,5 @@
 ---
+audience: help
 title: "Stripe Connect Issues"
 sidebarTitle: "Stripe Connect"
 description: "Having trouble with Stripe Connect, payouts, or receiving payments as a producer on BeatPass? Find solutions here."
@@ -55,6 +56,38 @@ Once connected, you can receive earnings from:
 
 ---
 
+## Stripe Express vs. Regular Stripe — Common Confusion
+
+<Warning>
+  BeatPass uses **Stripe Express** accounts, which are different from regular Stripe accounts. This is the #1 source of confusion among producers.
+</Warning>
+
+| | **Stripe Express (BeatPass)** | **Regular Stripe (stripe.com)** |
+|---|---|---|
+| **Login URL** | [connect.stripe.com/express_login](https://connect.stripe.com/express_login) | [dashboard.stripe.com](https://dashboard.stripe.com) |
+| **Authentication** | Email + SMS/email code (no password) | Email + password |
+| **Created by** | BeatPass during onboarding | You, at stripe.com |
+
+<AccordionGroup>
+  <Accordion title="I logged into dashboard.stripe.com but don't see my BeatPass earnings">
+    You're in the wrong dashboard. Your BeatPass payouts go to a **Stripe Express** account, not a regular Stripe account. Go to [connect.stripe.com/express_login](https://connect.stripe.com/express_login) and log in with the email you used during BeatPass onboarding.
+  </Accordion>
+
+  <Accordion title="I created a Stripe account at stripe.com — will it work with BeatPass?">
+    **No.** A regular Stripe account created at stripe.com is not connected to BeatPass. You must use the **Connect Stripe Account** button inside your BeatPass Finances dashboard. This creates a Stripe Express account specifically linked to BeatPass.
+  </Accordion>
+
+  <Accordion title="I have both a regular Stripe account and a BeatPass Express account on the same email">
+    That's fine — they are completely separate accounts. Use `dashboard.stripe.com` for your regular Stripe account and `connect.stripe.com/express_login` for your BeatPass payouts. Bookmark both to avoid confusion.
+  </Accordion>
+</AccordionGroup>
+
+<Card title="Full Guide: Accessing Your Stripe Dashboard" href="/help/earnings/stripe-connect/accessing-stripe-dashboard" icon="table-columns">
+  Detailed instructions on how to log into your Stripe Express dashboard.
+</Card>
+
+---
+
 ## Stripe Onboarding Issues
 
 <AccordionGroup>
@@ -72,13 +105,48 @@ Once connected, you can receive earnings from:
     - **Address mismatch** — Your address must match your bank account records
     - **Document type not accepted** — Use a government-issued ID (passport, driver's license)
     
-    If you're stuck, contact Stripe Support directly from their dashboard.
+    If you're stuck, contact Stripe Support directly from your Express dashboard.
   </Accordion>
   
   <Accordion title="I'm from a country that isn't supported">
-    Stripe is available in many countries but not all. Check [Stripe's supported countries](https://stripe.com/global) to see if your country is eligible.
+    If your country isn't in the dropdown during onboarding, you can still receive payouts using alternatives:
     
-    If your country isn't supported, you may not be able to receive payouts at this time.
+    - **Wise** — Open a multi-currency account at [wise.com](https://wise.com) to get US/EU/UK bank details
+    - **Payoneer** — Get receiving account details at [payoneer.com](https://www.payoneer.com)
+    - **Stripe Atlas** — Incorporate a US company at [stripe.com/atlas](https://stripe.com/atlas) ($500 one-time)
+    
+    See [Unsupported Countries & Alternatives](/help/earnings/stripe-connect/unsupported-countries) for step-by-step instructions.
+  </Accordion>
+
+  <Accordion title="I'm in the UAE and onboarding is asking for a Trade License">
+    The UAE requires a **business-type account** with Stripe — individual accounts are not supported. You need a Trade License (or freelancer permit) from a recognized UAE authority.
+    
+    **Affordable options for producers:**
+    - **Sharjah Media City (Shams)** — Freelancer permits from ~AED 5,750/year (~$1,565 USD)
+    - **Dubai Creative Clusters** — Permits for media and creative professionals
+    - **RAKEZ / Ajman Free Zone** — Budget-friendly options
+    
+    You'll also need: Emirates ID (for nationals/residents), passport, residence visa (for foreign nationals), and bank account ownership proof.
+    
+    See [Regional Requirements — UAE](/help/earnings/stripe-connect/regional-requirements#united-arab-emirates-uae) for the complete guide.
+  </Accordion>
+
+  <Accordion title="I'm in the UAE and need a Memorandum of Association">
+    The Memorandum of Association (MOA) is required for LLCs and Free Zone LLCs in the UAE. If you're a sole proprietor or single-owner free zone establishment, the MOA is typically **not required** — your Trade License is sufficient.
+    
+    If Stripe requests an MOA, contact your free zone authority to obtain a certified copy.
+  </Accordion>
+
+  <Accordion title="Stripe asks for documents I don't understand">
+    Requirements vary by country. Common region-specific requests:
+    
+    - **Emirates ID** (UAE) — National ID card for UAE residents
+    - **Trade License** (UAE) — Business license from a UAE authority
+    - **My Number** (Japan) — Individual tax number
+    - **NRIC / FIN** (Singapore) — National registration ID
+    - **RFC** (Mexico) — Tax registration number
+    
+    See [Regional Requirements](/help/earnings/stripe-connect/regional-requirements) for what each country needs.
   </Accordion>
 </AccordionGroup>
 
@@ -196,18 +264,29 @@ For track purchases (exclusive sales):
 ## Common Stripe Dashboard Questions
 
 <AccordionGroup>
-  <Accordion title="How do I access my Stripe dashboard?">
-    1. Go to [dashboard.stripe.com](https://dashboard.stripe.com)
-    2. Log in with the same email you used during BeatPass onboarding
-    3. You can view your balance, payouts, and transactions
+  <Accordion title="How do I access my Stripe Express dashboard?">
+    BeatPass uses **Stripe Express** accounts. To access your dashboard:
+
+    **Option A — Through BeatPass:**
+    1. Go to **Backstage** → **Finances**
+    2. Click the link to view your Stripe dashboard
+
+    **Option B — Direct login:**
+    1. Go to [connect.stripe.com/express_login](https://connect.stripe.com/express_login)
+    2. Enter the email you used during BeatPass onboarding
+    3. Verify with the code sent to your phone or email
+
+    **Do NOT go to dashboard.stripe.com** — that is for regular Stripe accounts, not Express accounts.
   </Accordion>
   
   <Accordion title="Can I change my payout bank account?">
     Yes:
-    1. Log into your Stripe dashboard
-    2. Go to Settings → Bank accounts and scheduling
+    1. Log into your Stripe Express dashboard at [connect.stripe.com/express_login](https://connect.stripe.com/express_login)
+    2. Go to Settings → Bank accounts
     3. Add your new bank account
     4. Remove the old one if needed
+
+    You can also switch from a bank account to a debit card (or vice versa) if your country supports it.
   </Accordion>
   
   <Accordion title="What information does Stripe share with BeatPass?">
@@ -220,6 +299,20 @@ For track purchases (exclusive sales):
     - Your personal ID documents
     - Your full balance
   </Accordion>
+
+  <Accordion title="Can I change my country after onboarding?">
+    **No.** The country you select during Stripe Connect onboarding is permanent and cannot be changed. If you need to switch countries, you would need to disconnect your current account and create a new one. Contact **contact@beatpass.ca** for assistance.
+  </Accordion>
+
+  <Accordion title="My Stripe documents expired and payouts stopped">
+    Some countries (especially the UAE) require you to keep identity documents and business licenses up to date. Stripe monitors expiration dates and gives you **28 days** after expiry to upload renewed documents. If you don't update in time, payouts may be paused.
+
+    To fix this:
+    1. Log into your Express dashboard at [connect.stripe.com/express_login](https://connect.stripe.com/express_login)
+    2. Check for any notification banners about expired documents
+    3. Upload the renewed document
+    4. Wait 1-2 business days for Stripe to re-verify
+  </Accordion>
 </AccordionGroup>
 
 ---
@@ -229,8 +322,10 @@ For track purchases (exclusive sales):
 If you're still having trouble with Stripe Connect:
 
 1. **Check Stripe's help center** at [support.stripe.com](https://support.stripe.com)
-2. **Contact our support** at **contact@beatpass.ca** with:
+2. **Review regional requirements** at [Regional Requirements](/help/earnings/stripe-connect/regional-requirements) for country-specific guidance
+3. **Contact the support team** at **contact@beatpass.ca** with:
    - Your BeatPass account email
+   - Your country
    - Description of the issue
    - Any error messages you're seeing
 
@@ -239,10 +334,16 @@ If you're still having trouble with Stripe Connect:
 ## Related
 
 <CardGroup cols={2}>
+  <Card title="Accessing Stripe Dashboard" icon="table-columns" href="/help/earnings/stripe-connect/accessing-stripe-dashboard">
+    Express vs regular Stripe login guide.
+  </Card>
+  <Card title="Regional Requirements" icon="globe" href="/help/earnings/stripe-connect/regional-requirements">
+    Country-specific onboarding requirements.
+  </Card>
+  <Card title="Unsupported Countries" icon="map" href="/help/earnings/stripe-connect/unsupported-countries">
+    Alternative payout methods (Wise, Payoneer, Atlas).
+  </Card>
   <Card title="Payment Issues" icon="credit-card" href="/help/troubleshooting/payment-issues">
     Subscriber billing problems?
-  </Card>
-  <Card title="Upload Issues" icon="upload" href="/help/troubleshooting/upload-issues">
-    Problems uploading tracks?
   </Card>
 </CardGroup>

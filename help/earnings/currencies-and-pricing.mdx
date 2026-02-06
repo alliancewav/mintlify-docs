@@ -1,0 +1,186 @@
+---
+audience: help
+title: "Currencies & International Pricing"
+sidebarTitle: "Currencies & Pricing"
+description: "How currencies work on BeatPass for beat pricing, subscriptions, and payouts. Understand multi-currency support and international pricing considerations."
+keywords: ["currency", "international pricing", "USD", "EUR", "GBP", "CAD", "exchange rate", "multi-currency", "payout currency"]
+"og:title": "Currencies & International Pricing - BeatPass Help"
+"og:description": "Understand how currencies and international pricing work on BeatPass."
+---
+
+BeatPass supports multiple currencies for beat purchases, subscriptions, and Producer payouts. This page explains how currency works across the platform and what international users need to know.
+
+---
+
+## Supported Currencies
+
+BeatPass supports the following currencies for transactions:
+
+| Currency | Code | Used For |
+|----------|------|----------|
+| **US Dollar** | USD | Default for most transactions |
+| **Euro** | EUR | European buyers and producers |
+| **British Pound** | GBP | UK buyers and producers |
+| **Canadian Dollar** | CAD | Canadian buyers and producers |
+
+<Info>
+  USD is the default currency on BeatPass. Producers can set their exclusive beat prices in any supported currency.
+</Info>
+
+---
+
+## For Producers: Setting Your Price
+
+### Exclusive Beat Pricing
+
+When setting an exclusive price for your beat:
+
+- Choose the **currency** that makes sense for your market
+- The price you set is the price you receive (100% goes to you — Stripe processing fees are covered by the platform fee charged to the buyer)
+- The buyer pays your price **plus** the platform fee (12% + $3 in USD equivalent)
+- If the buyer's currency differs from your listing currency, Stripe handles the conversion
+
+### Pricing Recommendations
+
+| Your Location | Recommended Currency | Why |
+|--------------|---------------------|-----|
+| **United States** | USD | Most buyers expect USD pricing |
+| **Canada** | USD or CAD | USD has wider reach; CAD for local market |
+| **United Kingdom** | GBP or USD | GBP for UK market; USD for global |
+| **Europe** | EUR or USD | EUR for European market; USD for global |
+| **Other countries** | USD | Widest international recognition |
+
+<Tip>
+  If you're unsure, **USD is the safest choice** — it's the most widely recognized currency in the beat-selling market and avoids confusion for international buyers.
+</Tip>
+
+---
+
+## For Buyers: How You're Charged
+
+### Subscription Payments
+
+- Subscriptions are charged in the currency displayed at checkout
+- Your bank may apply a **foreign transaction fee** if the charge currency differs from your card's currency
+- Check with your bank about international transaction fees
+
+### Exclusive Beat Purchases
+
+- You pay the producer's listed price **plus** the platform fee
+- If the listing is in a different currency than your card, your bank converts the amount at the current exchange rate
+- The **$3 flat fee** portion of the platform fee is converted to the equivalent in the transaction currency
+
+---
+
+## For Producers: How Payouts Work
+
+### Payout Currency
+
+Your payout currency is determined during **Stripe Connect onboarding**:
+
+| Setup | Payout Currency |
+|-------|----------------|
+| **Bank account in your country** | Your country's default currency |
+| **Wise multi-currency account** | Currency of the Wise account you used |
+| **Payoneer receiving account** | Currency of the Payoneer account |
+
+### Currency Conversion on Payouts
+
+If a buyer pays in a different currency than your payout currency:
+
+1. **Stripe handles the conversion** automatically
+2. The exchange rate is determined at the time of **payout processing** (not at the time of sale)
+3. A small **currency conversion fee** may be applied by Stripe (typically ~2% above the mid-market rate)
+
+<Note>
+  Exchange rate fluctuations between the time of sale and payout can result in slightly different amounts than expected. This is normal for cross-currency transactions.
+</Note>
+
+### Reducing Currency Conversion Costs
+
+If you receive many payments in a specific currency:
+
+- **Open a bank account** in that currency (or use a multi-currency account like Wise)
+- **Set your prices** in the same currency as your payout account
+- **Wise accounts** offer mid-market exchange rates which are typically better than Stripe's conversion rates
+
+---
+
+## Platform Fee Across Currencies
+
+The platform fee (12% + $3) applies consistently:
+
+| Listed Price | Currency | Platform Fee | Buyer Pays |
+|-------------|----------|-------------|------------|
+| $100 | USD | $15.00 | $115.00 |
+| €100 | EUR | €15.00 | €115.00 |
+| £100 | GBP | £15.00 | £115.00 |
+| $100 | CAD | $15.00 CAD | $115.00 CAD |
+
+<Info>
+  The 12% is always calculated on the listed price. The $3 flat fee is converted to the equivalent in the transaction currency at the current exchange rate.
+</Info>
+
+---
+
+## International Considerations
+
+### For Producers Using Wise or Payoneer
+
+If you're in an [unsupported country](/help/earnings/stripe-connect/unsupported-countries) and using a Wise or Payoneer account:
+
+- Your **Stripe payout** goes to your Wise/Payoneer account in the selected currency
+- You then **withdraw to your local bank** through Wise/Payoneer
+- This adds a second conversion step, but Wise typically offers competitive exchange rates
+- **Tax jurisdiction** follows your country of residence, not the currency or country of your multi-currency account
+
+### Exchange Rate Tips
+
+- **Check rates before withdrawing** — Exchange rates fluctuate daily
+- **Batch withdrawals** — Withdrawing less frequently in larger amounts can reduce per-transaction fees
+- **Hold in the original currency** — If your multi-currency account allows it, hold funds in the payout currency until the exchange rate is favorable
+
+---
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion title="Can I change my payout currency after setup?">
+    Your payout currency is tied to your connected bank account. To change it, you would need to update your bank account details in Stripe. Contact support if you need help with this.
+  </Accordion>
+  
+  <Accordion title="Why is the amount I received slightly different from the sale price?">
+    For exclusive sales, you receive 100% of your listed price — Stripe processing fees are covered by the platform fee charged to the buyer. However, if currency conversion is involved, Stripe may apply a conversion fee (~2%), and exchange rate fluctuations between sale time and payout time can result in slightly different amounts.
+  </Accordion>
+  
+  <Accordion title="Does the platform fee change based on currency?">
+    The percentage (12%) stays the same regardless of currency. The flat fee ($3) is converted to the local currency equivalent at the current exchange rate.
+  </Accordion>
+  
+  <Accordion title="Can I price beats in multiple currencies?">
+    Each beat has one listed price in one currency. Choose the currency that best serves your target market.
+  </Accordion>
+  
+  <Accordion title="Are there extra fees for international transactions?">
+    BeatPass does not charge extra for international transactions. However, Stripe may apply a currency conversion fee (~2%), and your bank may charge foreign transaction fees on their end.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Related Topics
+
+<CardGroup cols={2}>
+  <Card title="Platform Fee" icon="percent" href="/help/billing/platform-fee">
+    Detailed breakdown of the platform fee.
+  </Card>
+  <Card title="Payout Schedule" icon="calendar" href="/help/earnings/payout-schedule">
+    When and how payouts are processed.
+  </Card>
+  <Card title="Unsupported Countries" icon="globe" href="/help/earnings/stripe-connect/unsupported-countries">
+    Alternative payout methods for international producers.
+  </Card>
+  <Card title="Viewing Finances" icon="chart-bar" href="/help/earnings/viewing-finances">
+    Track your earnings across currencies.
+  </Card>
+</CardGroup>

@@ -1,0 +1,312 @@
+---
+title: "Beat Requests API"
+sidebarTitle: "Beat Requests"
+description: "Create, manage, and fulfill custom beat requests on the BeatPass marketplace."
+keywords: ["beatpass beat requests","custom beats","beat marketplace","beat request tokens","producer submissions"]
+"og:title": "Beat Requests API - BeatPass Developer Docs"
+"og:description": "Beat request marketplace API — create requests, submit tracks, manage tokens, and handle fulfillment."
+---
+
+## Overview
+
+The Beat Requests API powers the custom beat request marketplace. Users spend tokens to create time-limited requests specifying their needs (genre, BPM, mood, budget). Producers browse active requests and submit tracks to fulfill them.
+
+<Info>
+  **Base URL:** `https://open.beatpass.ca/api/v1/beat-requests`
+
+  **Authentication:** All beat request endpoints require an authenticated session.
+</Info>
+
+---
+
+## Request Lifecycle
+
+<Steps>
+  <Step title="Create Request">
+    User spends tokens to create a beat request with specifications (genre, BPM, mood, budget, reference track). Requests are active for 24, 48, or 72 hours.
+  </Step>
+  <Step title="Producers Browse">
+    Producers view active requests and submit tracks that match the specifications.
+  </Step>
+  <Step title="Fulfill or Expire">
+    The requester can mark a request as fulfilled when a suitable submission is received. Unfulfilled requests expire automatically after the chosen duration.
+  </Step>
+  <Step title="Renew (Optional)">
+    Expired requests can be renewed for an additional period by spending more tokens.
+  </Step>
+</Steps>
+
+---
+
+## Token System
+
+Beat requests use a token-based system tied to the user's subscription plan:
+
+<CardGroup cols={3}>
+  <Card title="Token Cost" icon="coins">
+    24h = 1 token, 48h = 2 tokens, 72h = 3 tokens
+  </Card>
+  <Card title="Monthly Allocation" icon="calendar">
+    Tokens refresh monthly based on subscription plan
+  </Card>
+  <Card title="Refunds" icon="rotate-left">
+    Tokens are refunded if request creation fails
+  </Card>
+</CardGroup>
+
+---
+
+## Endpoints
+
+### List Active Requests
+
+Get all active beat requests on the marketplace.
+
+```http
+GET /api/v1/beat-requests
+```
+
+**Response:**
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": "req_abc123",
+      "user_id": 1,
+      "user_name": "BeatBuyer",
+      "content": "Looking for dark trap beat, 140 BPM...",
+      "genre": "Trap",
+      "bpm_range": "135-145",
+      "mood": "Dark",
+      "budget": "$50-100",
+      "expires_at": "2025-01-16T14:30:00Z",
+      "time_remaining": "23 hours from now",
+      "hours_remaining": 23
+    }
+  ],
+  "count": 5
+}
+```
+
+---
+
+### Create Request
+
+Create a new beat request by spending tokens.
+
+```http
+POST /api/v1/beat-requests
+```
+
+<ParamField body="content" type="string" required>
+  Description of the beat you're looking for.
+</ParamField>
+<ParamField body="reference_track" type="string" required>
+  Reference track URL or description for producers to understand the style.
+</ParamField>
+<ParamField body="genre" type="string">
+  Preferred genre.
+</ParamField>
+<ParamField body="bpm_range" type="string">
+  Preferred BPM range (e.g., "135-145").
+</ParamField>
+<ParamField body="key" type="string">
+  Preferred musical key.
+</ParamField>
+<ParamField body="mood" type="string">
+  Desired mood or vibe.
+</ParamField>
+<ParamField body="budget" type="string">
+  Budget range.
+</ParamField>
+<ParamField body="duration_hours" type="integer">
+  How long the request stays active: `24`, `48`, or `72`. Default: `24`.
+</ParamField>
+
+**Response (201):**
+
+```json
+{
+  "success": true,
+  "message": "Beat request created successfully! Active for 24 hours.",
+  "data": {
+    "id": "req_abc123",
+    "content": "Looking for dark trap beat...",
+    "expires_at": "2025-01-16T14:30:00Z",
+    "time_remaining": "24 hours from now",
+    "hours_remaining": 24
+  },
+  "token_info": {
+    "tokens_remaining": 2,
+    "tokens_spent": 1,
+    "monthly_limit": 5,
+    "used_this_month": 3,
+    "plan_type": "pro",
+    "plan_name": "Pro Plan",
+    "reset_date": "2025-02-01",
+    "days_until_reset": 16
+  }
+}
+```
+
+**Token Errors (429):**
+
+```json
+{
+  "success": false,
+  "message": "You need 2 tokens for a 48-hour request, but you only have 1 token.",
+  "token_info": {
+    "current_tokens": 1,
+    "tokens_needed": 2,
+    "monthly_limit": 5,
+    "used_this_month": 4,
+    "reset_date": "2025-02-01"
+  }
+}
+```
+
+---
+
+### Get Request
+
+Get details for a specific beat request.
+
+```http
+GET /api/v1/beat-requests/{id}
+```
+
+---
+
+### Delete Request
+
+Delete a beat request. Only the request owner can delete.
+
+```http
+DELETE /api/v1/beat-requests/{id}
+```
+
+<Note>
+  When a request is deleted, the spent tokens are refunded to the owner.
+</Note>
+
+---
+
+### Fulfill Request
+
+Mark a beat request as fulfilled after accepting a submission.
+
+```http
+POST /api/v1/beat-requests/{id}/fulfill
+```
+
+---
+
+### Renew Request
+
+Renew an expired beat request for an additional period.
+
+```http
+POST /api/v1/beat-requests/{id}/renew
+```
+
+---
+
+### Log Request View
+
+Record that a producer has viewed a beat request. Used for analytics and engagement tracking.
+
+```http
+POST /api/v1/beat-requests/{id}/track-view
+```
+
+<ParamField path="id" type="string" required>
+  Beat request ID.
+</ParamField>
+
+---
+
+## User-Specific Endpoints
+
+### My Requests
+
+Get the authenticated user's own beat requests.
+
+```http
+GET /api/v1/beat-requests/user/my-requests
+```
+
+### My Submitted Tracks
+
+Get tracks the authenticated user has submitted to beat requests.
+
+```http
+GET /api/v1/beat-requests/user/my-tracks
+```
+
+### Token Status
+
+Check the user's current token balance and rate limit status.
+
+```http
+GET /api/v1/beat-requests/user/rate-limit-status
+```
+
+---
+
+## Reference Data
+
+### Statistics
+
+Get platform-wide beat request statistics.
+
+```http
+GET /api/v1/beat-requests/statistics
+```
+
+### Duration Tiers
+
+Get available duration tiers and their token costs.
+
+```http
+GET /api/v1/beat-requests/duration-tiers
+```
+
+**Response:**
+
+```json
+{
+  "success": true,
+  "data": [
+    { "hours": 24, "tokens": 1, "label": "24 Hours" },
+    { "hours": 48, "tokens": 2, "label": "48 Hours" },
+    { "hours": 72, "tokens": 3, "label": "72 Hours" }
+  ]
+}
+```
+
+---
+
+## Error Reference
+
+| Error | Code | Cause |
+|-------|------|-------|
+| Invalid duration | 400 | Duration must be 24, 48, or 72 |
+| Insufficient tokens | 429 | Not enough tokens for chosen duration |
+| Request not found | 404 | Invalid request ID |
+| Unauthorized to delete | 403 | Only owner can delete |
+| Request expired | 410 | Past expiry, needs renewal |
+
+---
+
+## Related Resources
+
+<CardGroup cols={2}>
+  <Card title="Rate Limits" icon="gauge" href="/developers/rate-limits">
+    API rate limiting and throttling.
+  </Card>
+  <Card title="Error Catalog" icon="triangle-exclamation" href="/developers/error-catalog">
+    Beat request error codes.
+  </Card>
+</CardGroup>

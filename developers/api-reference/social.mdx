@@ -1,0 +1,313 @@
+---
+title: "Social & Following API"
+sidebarTitle: "Social"
+description: "User following, artist following, reposts, and library management endpoints."
+keywords: ["beatpass social api","following","reposts","user library","liked tracks","followers"]
+"og:title": "Social & Following API - BeatPass Developer Docs"
+"og:description": "Follow users and artists, manage reposts, and curate your personal library of liked content."
+---
+
+## Overview
+
+The Social API covers the platform's social graph — following users and artists, reposting content, and managing the user's personal library of liked tracks, albums, and artists.
+
+<Info>
+  **Base URL:** `https://open.beatpass.ca/api/v1`
+
+  **Authentication:** Write operations require an authenticated session. Read operations on public profiles use optional auth.
+</Info>
+
+---
+
+## User Following
+
+### Follow User
+
+```http
+POST /api/v1/users/{user}/follow
+```
+
+### Unfollow User
+
+```http
+POST /api/v1/users/{user}/unfollow
+```
+
+### Check Follow Status
+
+```http
+GET /api/v1/users/{user}/follow-status
+```
+
+### Get User's Followers
+
+```http
+GET /api/v1/users/{user}/followers
+```
+
+### Get User's Followed Users
+
+```http
+GET /api/v1/users/{user}/followed-users
+```
+
+---
+
+## Artist Following
+
+### Follow Artist
+
+```http
+POST /api/v1/artists/{artistId}/follow
+```
+
+### Unfollow Artist
+
+```http
+POST /api/v1/artists/{artistId}/unfollow
+```
+
+### Check Artist Follow Status
+
+```http
+GET /api/v1/artists/{artistId}/follow-status
+```
+
+### Get Artist's Followers
+
+```http
+GET /api/v1/artists/{artistId}/followers
+```
+
+---
+
+## Follow Limits
+
+<CardGroup cols={3}>
+  <Card title="Max Following" icon="user-plus" color="#3b82f6">
+    <Badge color="blue">5,000 users</Badge>
+    Maximum accounts a user can follow
+  </Card>
+  <Card title="Follow Rate" icon="gauge" color="#f59e0b">
+    <Badge color="orange">Rate limited</Badge>
+    Too many follows in quick succession triggers 429
+  </Card>
+  <Card title="Self-Follow" icon="ban" color="#ef4444">
+    <Badge color="red">Not allowed</Badge>
+    Cannot follow your own account
+  </Card>
+</CardGroup>
+
+---
+
+## Reposts
+
+### Toggle Repost
+
+Toggle repost status for a track. If already reposted, it removes the repost.
+
+```http
+POST /api/v1/reposts/toggle
+```
+
+<ParamField body="track_id" type="integer" required>
+  Track ID to repost or un-repost.
+</ParamField>
+
+### Get User's Reposts
+
+```http
+GET /api/v1/users/{user}/reposts
+```
+
+### Repost Limits
+
+| Limit | Value |
+|-------|-------|
+| Daily repost limit | 100 per day |
+| Hourly repost limit | 20 per hour |
+| Self-repost | Not allowed |
+
+---
+
+## User Library
+
+### Add to Library
+
+Add a track to the authenticated user's library (liked tracks).
+
+```http
+POST /api/v1/users/me/add-to-library
+```
+
+### Remove from Library
+
+Remove a track from the user's library.
+
+```http
+POST /api/v1/users/me/remove-from-library
+```
+
+### Get Liked Tracks
+
+```http
+GET /api/v1/users/{user}/liked-tracks
+```
+
+### Get Liked Albums
+
+```http
+GET /api/v1/users/{user}/liked-albums
+```
+
+### Get Liked Artists
+
+```http
+GET /api/v1/users/{user}/liked-artists
+```
+
+### Library Limits
+
+| Limit | Value |
+|-------|-------|
+| Max saved items | 10,000 |
+| Max playlists | 100 |
+| Max tracks per playlist | 500 |
+
+---
+
+## Collections
+
+Collections are curated groupings of content. All collection endpoints require authentication.
+
+### List Collections
+
+```http
+GET /api/v1/collections
+```
+
+### Featured Collections
+
+```http
+GET /api/v1/collections/featured
+```
+
+### User Collections
+
+```http
+GET /api/v1/collections/user
+```
+
+### Collection Recommendations
+
+```http
+GET /api/v1/collections/recommendations
+```
+
+### Create Collection
+
+```http
+POST /api/v1/collections
+```
+
+### Get Collection
+
+```http
+GET /api/v1/collections/{id}
+```
+
+### Update Collection
+
+```http
+PUT /api/v1/collections/{id}
+```
+
+### Delete Collection
+
+```http
+DELETE /api/v1/collections/{id}
+```
+
+### Play Collection
+
+```http
+POST /api/v1/collections/{id}/play
+```
+
+---
+
+## User Profile
+
+### Get User Profile
+
+Retrieve a user's public profile. Enhanced data returned when authenticated.
+
+```http
+GET /api/v1/user-profile/{user}
+```
+
+### Update Profile
+
+Update the authenticated user's profile.
+
+```http
+PUT /api/v1/users/profile/update
+```
+
+### Get User's Playlists
+
+```http
+GET /api/v1/users/{user}/playlists
+```
+
+### Get Upload Minutes Remaining
+
+Check how many upload minutes a user has remaining on their current plan.
+
+```http
+GET /api/v1/users/{user}/minutes-left
+```
+
+<ParamField path="user" type="integer" required>
+  User ID.
+</ParamField>
+
+**Response:**
+
+```json
+{
+  "status": "success",
+  "minutesLeft": 120
+}
+```
+
+<Note>
+  Returns `null` for `minutesLeft` if the user's plan has no minute-based upload restriction.
+</Note>
+
+### Get Contact Info
+
+Retrieve a user's contact information. Rate limited to 30 requests per minute.
+
+```http
+GET /api/v1/users/{user}/contact-info
+```
+
+### Search Users
+
+```http
+GET /api/v1/users/search
+```
+
+---
+
+## Related Resources
+
+<CardGroup cols={2}>
+  <Card title="Content API" icon="record-vinyl" href="/developers/api-reference/content">
+    Track, album, and artist management.
+  </Card>
+  <Card title="Error Catalog" icon="triangle-exclamation" href="/developers/error-catalog">
+    Social and following error codes.
+  </Card>
+</CardGroup>

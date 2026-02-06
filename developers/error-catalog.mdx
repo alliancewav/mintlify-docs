@@ -3,8 +3,8 @@ title: "Error Catalog"
 sidebarTitle: "Error Catalog"
 description: "Common API error codes, messages, and suggested resolutions across BeatPass features."
 keywords: ["beatpass errors","api error codes","http status codes","error handling","troubleshooting"]
-og:title: "Error Catalog - BeatPass Developer Docs"
-og:description: "Complete catalog of BeatPass API error codes with resolutions and troubleshooting guidance."
+"og:title": "Error Catalog - BeatPass Developer Docs"
+"og:description": "Complete catalog of BeatPass API error codes with resolutions and troubleshooting guidance."
 ---
 
 ## Overview
@@ -72,7 +72,7 @@ All errors follow this structure:
     <Badge color="red">403</Badge>
      Account has been suspended.
 
-    **Resolution:** Contact [support@beatpass.ca](mailto:support@beatpass.ca) for assistance.
+    **Resolution:** Contact [contact@beatpass.ca](mailto:contact@beatpass.ca) for assistance.
   </Accordion>
   <Accordion title="Email not verified" icon="envelope">
     <Badge color="orange">403</Badge>
@@ -109,7 +109,7 @@ All errors follow this structure:
     <AccordionGroup>
       <Accordion title="File too large" icon="file-arrow-up">
         <Badge color="orange">422</Badge>
-         File exceeds maximum size (~250MB).
+         File exceeds maximum size (256 MB).
 
         **Resolution:** Compress or reduce file size before uploading.
       </Accordion>
@@ -121,11 +121,11 @@ All errors follow this structure:
       </Accordion>
       <Accordion title="Duration issues" icon="clock">
         <Badge color="orange">422</Badge>
-         Track too short (\<30s) or too long (\>15min).
+         Track duration must be at least 1 second.
 
-        **Resolution:** Ensure track is between 30 seconds and 15 minutes.
+        **Resolution:** Ensure the uploaded file has a valid duration.
       </Accordion>
-      <Accordion title="Missing required fields" icon="input-text">
+      <Accordion title="Missing required fields" icon="keyboard">
         <Badge color="orange">422</Badge>
          Title, BPM, or Genre not provided.
 
@@ -251,7 +251,7 @@ All errors follow this structure:
 | `Recipient not found` | 404  | Invalid user ID          | Verify recipient         |
 | `User blocked you`    | 403  | Recipient blocked sender | Cannot message this user |
 | `You blocked user`    | 403  | Sender blocked recipient | Unblock to message       |
-| `Message too long`    | 422  | Over 5,000 characters    | Shorten message          |
+| `Message too long`    | 422  | Over 2,000 characters    | Shorten message          |
 | `Rate limited`        | 429  | Too many messages        | Wait before sending more |
 
 ### Conversation
@@ -323,7 +323,7 @@ All errors follow this structure:
 
 ```json
 {
-  "message": "Too Many Requests",
+  "message": "Too Many Attempts.",
   "retry_after": 60
 }
 ```

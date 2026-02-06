@@ -1,4 +1,5 @@
 ---
+audience: help
 title: "Stripe Connect"
 description: "Set up Stripe Connect to receive payments from your BeatPass earnings."
 ---
@@ -59,6 +60,29 @@ Once your Stripe account is connected, you can receive earnings from:
   </Accordion>
 </AccordionGroup>
 
+## Stripe Express — Not Regular Stripe
+
+<Warning>
+  BeatPass uses **Stripe Express** accounts. This is different from a regular Stripe account at stripe.com. If you already have a regular Stripe account, your BeatPass payout account is **separate**. Do not try to log into dashboard.stripe.com to view your BeatPass earnings — use the Express login at [connect.stripe.com/express_login](https://connect.stripe.com/express_login) instead.
+</Warning>
+
+For a full explanation of the difference and how to log in, see [Accessing Your Stripe Dashboard](/help/earnings/stripe-connect/accessing-stripe-dashboard).
+
+## Supported Countries
+
+BeatPass supports Stripe Connect in **43 countries** across North America, Europe, Asia Pacific, and the Middle East. Some countries (like the UAE) have additional requirements such as a trade license or freelancer permit.
+
+If your country isn't supported, alternatives like **Wise**, **Payoneer**, and **Stripe Atlas** can help you receive payouts. The BeatPass onboarding screen shows these options automatically.
+
+<CardGroup cols={2}>
+  <Card title="Regional Requirements" href="/help/earnings/stripe-connect/regional-requirements" icon="globe">
+    Country-specific documents and requirements for onboarding.
+  </Card>
+  <Card title="Unsupported Countries" href="/help/earnings/stripe-connect/unsupported-countries" icon="map">
+    Alternative payout methods if your country isn't listed.
+  </Card>
+</CardGroup>
+
 ## Getting Started
 
 Setting up Stripe Connect is straightforward and takes about 5 minutes:
@@ -67,11 +91,14 @@ Setting up Stripe Connect is straightforward and takes about 5 minutes:
   <Step title="Start the setup">
     Go to your **Finances** dashboard and click **Connect Stripe Account Now**.
   </Step>
+  <Step title="Confirm your country">
+    Select the country where you reside and have a bank account. This cannot be changed later.
+  </Step>
   <Step title="Create or link your Stripe account">
     You'll be redirected to Stripe to either create a new account or link an existing one.
   </Step>
   <Step title="Provide required information">
-    Enter your personal details, business information, and banking details.
+    Enter your personal details, business information, and banking details. Requirements vary by country — see [Regional Requirements](/help/earnings/stripe-connect/regional-requirements) for details.
   </Step>
   <Step title="Verify your identity">
     Upload identification documents as required by Stripe.
@@ -89,5 +116,14 @@ Setting up Stripe Connect is straightforward and takes about 5 minutes:
   </Card>
   <Card title="Setup Guide" href="/help/earnings/stripe-connect/setup-guide" icon="book-open">
     Step-by-step instructions for connecting your Stripe account.
+  </Card>
+  <Card title="Accessing Dashboard" href="/help/earnings/stripe-connect/accessing-stripe-dashboard" icon="table-columns">
+    How to log into your Stripe Express dashboard to view payouts.
+  </Card>
+  <Card title="Regional Requirements" href="/help/earnings/stripe-connect/regional-requirements" icon="globe">
+    Country-specific onboarding documents and requirements.
+  </Card>
+  <Card title="Unsupported Countries" href="/help/earnings/stripe-connect/unsupported-countries" icon="map">
+    Alternative payout options (Wise, Payoneer, Stripe Atlas).
   </Card>
 </CardGroup>

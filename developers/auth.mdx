@@ -54,7 +54,7 @@ The BeatPass frontend authenticates using Sanctum's SPA authentication:
   <Step title="Submit Login">
     POST credentials with the CSRF token:
     ```http
-    POST /login
+    POST /auth/login
     Content-Type: application/json
     X-XSRF-TOKEN: {token-from-cookie}
     
@@ -69,7 +69,7 @@ The BeatPass frontend authenticates using Sanctum's SPA authentication:
     If 2FA is enabled, you'll receive a `two_factor: true` response.
     Submit the TOTP code:
     ```http
-    POST /two-factor-challenge
+    POST /auth/two-factor-challenge
     
     { "code": "123456" }
     ```
@@ -186,7 +186,7 @@ When 2FA is enabled, the login flow requires an additional step:
 ### Submit 2FA Code
 
 ```http
-POST /two-factor-challenge
+POST /auth/two-factor-challenge
 Content-Type: application/json
 
 {
@@ -238,7 +238,7 @@ Users can log out of the current session, or log out all other sessions from the
   <Accordion title="401 Unauthenticated" icon="circle-xmark">
     <Badge color="red">401</Badge> Session missing, invalid, or expired.
     
-    **Solution:** Re-authenticate by calling `/sanctum/csrf-cookie` then `/login`.
+    **Solution:** Re-authenticate by calling `/sanctum/csrf-cookie` then `/auth/login`.
     
     ```json
     { "message": "Unauthenticated." }
@@ -264,14 +264,11 @@ Users can log out of the current session, or log out all other sessions from the
 
 BeatPass supports social authentication providers:
 
-<CardGroup cols={3}>
+<CardGroup cols={2}>
   <Card title="Google" icon="google" color="#4285F4">
     <Badge color="green" icon="check">Available</Badge>
   </Card>
-  <Card title="Facebook" icon="facebook" color="#1877F2">
-    <Badge color="green" icon="check">Available</Badge>
-  </Card>
-  <Card title="Twitter" icon="x-twitter" color="#000000">
+  <Card title="Twitter / X" icon="x-twitter" color="#000000">
     <Badge color="green" icon="check">Available</Badge>
   </Card>
 </CardGroup>

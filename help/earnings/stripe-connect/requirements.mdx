@@ -1,4 +1,5 @@
 ---
+audience: help
 title: "Requirements"
 description: "What you'll need to set up Stripe Connect and receive payments."
 ---
@@ -59,34 +60,60 @@ Stripe requires identity verification to comply with financial regulations. You'
 
 Requirements vary by country. Common additional requirements include:
 
-| Country | Additional Requirements |
+| Country / Region | Additional Requirements |
 |---------|------------------------|
 | **United States** | Social Security Number (SSN) or ITIN |
 | **Canada** | Social Insurance Number (SIN) |
-| **United Kingdom** | National Insurance Number |
-| **European Union** | Tax identification number for your country |
+| **United Kingdom** | National Insurance Number (NINO) |
+| **European Union** | Tax identification number for your country (TIN, NIF, Steuer-ID, etc.) |
+| **Australia** | Tax File Number (TFN) or Australian Business Number (ABN) |
+| **Japan** | My Number; name/address in both kana and kanji scripts |
+| **Singapore** | NRIC or FIN; enhanced identity verification (may include video selfie) |
+| **UAE** | Trade License or freelancer permit, Emirates ID, Memorandum of Association (see below) |
+| **Mexico** | RFC (Registro Federal de Contribuyentes) |
 
-<Tip>
-  Don't worry if you're unsure what's required for your country—Stripe will guide you through exactly what's needed during the setup process.
-</Tip>
+### UAE Producers — Important
+
+<Warning>
+  The **UAE requires a business-type account** — individual accounts are not supported. You will need a **Trade License** (or freelancer permit from a free zone) and additional documents. Affordable freelancer permits are available from free zones like Sharjah Media City (Shams), Dubai Creative Clusters, and RAKEZ.
+</Warning>
+
+<Card title="Detailed Regional Requirements" href="/help/earnings/stripe-connect/regional-requirements" icon="globe">
+  See the full breakdown of requirements for every supported country, including UAE trade license options, Japan's dual-script requirements, and more.
+</Card>
 
 ## Business vs. Individual
 
-BeatPass creates individual (personal) Stripe accounts by default. If you want to receive payments as a business entity:
+Most countries allow producers to onboard as **individuals** (personal accounts), which is the simplest option.
+
+However, some countries **require a business account**:
+
+| Country | Account Type |
+|---------|-------------|
+| **Most countries** | Individual (default) |
+| **UAE** | Business only (sole establishment, free zone establishment, LLC, or free zone LLC) |
+
+If you're in a country that supports individual accounts but want to receive payments as a business entity:
 
 1. Complete the initial setup as an individual
 2. Contact Stripe support to convert to a business account
 3. Provide additional business documentation as requested
 
-Most producers use individual accounts, which are simpler to set up and maintain.
-
 ## Supported Countries
 
-Stripe Connect is available in 40+ countries. If you're unsure whether your country is supported, check [Stripe's supported countries list](https://stripe.com/global).
+BeatPass supports Stripe Connect in **43 countries** across North America, Europe, Asia Pacific, and the Middle East.
 
-<Warning>
-  If you're in a country not supported by Stripe, you won't be able to receive payouts from BeatPass at this time.
-</Warning>
+<Card title="Full Country List & Requirements" href="/help/earnings/stripe-connect/regional-requirements" icon="globe">
+  See all supported countries with their specific onboarding requirements.
+</Card>
+
+### Country Not Supported?
+
+If your country isn't listed, you can still receive payouts through alternative methods like **Wise**, **Payoneer**, or **Stripe Atlas**. The BeatPass onboarding screen shows these options when your country isn't directly supported.
+
+<Card title="Unsupported Countries & Alternatives" href="/help/earnings/stripe-connect/unsupported-countries" icon="map">
+  Detailed guide to alternative payout methods for producers in unsupported countries.
+</Card>
 
 ## Checklist
 
@@ -105,5 +132,5 @@ Before starting setup, make sure you have:
 ## Ready to Start?
 
 <Card title="Setup Guide" href="/help/earnings/stripe-connect/setup-guide" icon="arrow-right">
-  Follow our step-by-step instructions to connect your Stripe account.
+  Follow the step-by-step instructions to connect your Stripe account.
 </Card>

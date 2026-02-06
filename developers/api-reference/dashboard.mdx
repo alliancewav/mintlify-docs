@@ -27,6 +27,26 @@ All dashboard endpoints require:
 - **Producer profile:** User must have an associated artist profile (created via the Producer Program)
 - **Upload access:** Some endpoints (upload insights) additionally require the artist profile to have upload access enabled
 
+### Response Format
+
+All Dashboard API responses use a standard envelope:
+
+```json
+{
+  "success": true,
+  "data": { ... }
+}
+```
+
+On error, the envelope contains:
+
+```json
+{
+  "success": false,
+  "message": "Error description"
+}
+```
+
 ---
 
 ## Endpoints
@@ -66,6 +86,57 @@ Returns the active artist profile associated with the authenticated user.
 <ResponseField name="social_links" type="object">
   Social handles/URLs (twitter, instagram, soundcloud, youtube).
 </ResponseField>
+
+---
+
+### Update Artist Profile
+
+**Endpoint:** `PUT /api/v1/artist/profile`
+
+Update the authenticated artist's profile information.
+
+#### Request Body
+
+<ParamField body="bio" type="string">
+  Artist bio text. Max 1,000 characters.
+</ParamField>
+<ParamField body="website" type="string">
+  Website URL (must be a valid URL). Max 255 characters.
+</ParamField>
+<ParamField body="social_links" type="object">
+  Social media handles/URLs.
+  <Expandable title="Social links fields">
+    <ParamField body="social_links.twitter" type="string">
+      Twitter/X handle or URL. Max 255 characters.
+    </ParamField>
+    <ParamField body="social_links.instagram" type="string">
+      Instagram handle or URL. Max 255 characters.
+    </ParamField>
+    <ParamField body="social_links.soundcloud" type="string">
+      SoundCloud profile URL. Max 255 characters.
+    </ParamField>
+    <ParamField body="social_links.youtube" type="string">
+      YouTube channel URL. Max 255 characters.
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+#### Response
+
+```json
+{
+  "success": true,
+  "message": "Profile updated successfully",
+  "data": {
+    "bio": "Updated bio text",
+    "website": "https://example.com",
+    "social_links": {
+      "twitter": "@producer",
+      "instagram": "@producer"
+    }
+  }
+}
+```
 
 ---
 

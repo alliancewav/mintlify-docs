@@ -1,4 +1,5 @@
 ---
+audience: help
 title: "Uploading Your Music"
 sidebarTitle: "Overview"
 description: "Learn how to upload tracks and collections to BeatPass. A complete guide for producers to share their beats with the world."
@@ -19,7 +20,7 @@ Before you can upload music to BeatPass, you need to have a producer account. On
   <Card title="Upload Page" icon="upload" href="/help/uploading/upload-page">
     Learn how to use the upload interface to publish your beats.
   </Card>
-  <Card title="Creating Collections" icon="album" href="/help/uploading/creating-albums">
+  <Card title="Creating Collections" icon="record-vinyl" href="/help/uploading/creating-albums">
     Organize your beats into collections for better discoverability.
   </Card>
   <Card title="Audio Fingerprinting" icon="fingerprint" href="/help/uploading/audio-fingerprinting">
@@ -38,13 +39,13 @@ When you upload a track to BeatPass, several things happen automatically:
 
 <Steps>
   <Step title="File Upload">
-    Your audio file is securely uploaded to our servers.
+    Your audio file is securely uploaded to BeatPass servers.
   </Step>
   <Step title="Audio Fingerprinting">
-    We create a unique fingerprint of your audio to detect duplicates and protect your content.
+    A unique fingerprint of your audio is created to detect duplicates and protect your content.
   </Step>
   <Step title="Metadata Extraction">
-    We try to read title, artist, and other information from your file's tags.
+    BeatPass tries to read title, artist, and other information from your file's tags.
   </Step>
   <Step title="Waveform Generation">
     A visual waveform is generated for the track player.
@@ -55,16 +56,14 @@ When you upload a track to BeatPass, several things happen automatically:
 
 ## What You Can Upload
 
-BeatPass only accepts **lossless audio formats** to maintain catalog quality:
+BeatPass only accepts **WAV format** audio files to maintain catalog quality:
 
 | Format | Description |
 |--------|-------------|
-| **WAV** | Uncompressed audio — recommended |
-| **FLAC** | Lossless compression — smaller than WAV |
-| **AIFF** | Uncompressed audio — Mac standard |
+| **WAV** | Uncompressed audio — the only accepted format |
 
 <Warning>
-  **Compressed formats (MP3, AAC, OGG) are not accepted.** BeatPass requires lossless audio to ensure the highest quality for listeners and licensees. Convert your files to WAV or FLAC before uploading.
+  **Only WAV files are accepted.** Compressed formats (MP3, AAC, OGG) and other lossless formats (FLAC, AIFF) are not supported. Convert your files to WAV before uploading.
 </Warning>
 
 ---
@@ -121,10 +120,16 @@ Once your track is published:
 ## Related Guides
 
 <CardGroup cols={2}>
-  <Card title="Editing Content" icon="edit" href="/help/uploading/editing-content">
+  <Card title="Collaborations" icon="users" href="/help/uploading/collaborations">
+    How to credit co-producers and share tracks.
+  </Card>
+  <Card title="Licensing Setup" icon="file-certificate" href="/help/licensing-for-producers">
+    Configure how your beats are licensed.
+  </Card>
+  <Card title="Editing Content" icon="pen-to-square" href="/help/uploading/editing-content">
     Learn how to update your tracks after uploading.
   </Card>
-  <Card title="Upload Troubleshooting" icon="help" href="/help/troubleshooting/upload-issues">
+  <Card title="Upload Troubleshooting" icon="circle-question" href="/help/troubleshooting/upload-issues">
     Having problems uploading? Find solutions here.
   </Card>
 </CardGroup>

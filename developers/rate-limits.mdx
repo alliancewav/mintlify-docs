@@ -3,8 +3,8 @@ title: "Rate Limits"
 sidebarTitle: "Rate Limits"
 description: "Understanding API rate limits and route-specific throttling on the BeatPass API."
 keywords: ["beatpass rate limits","api throttling","request limits","rate limiting"]
-og:title: "Rate Limits - BeatPass Developer Docs"
-og:description: "Understand BeatPass API rate limits, throttling, and best practices for handling 429 errors."
+"og:title": "Rate Limits - BeatPass Developer Docs"
+"og:description": "Understand BeatPass API rate limits, throttling, and best practices for handling 429 errors."
 ---
 
 ## Overview
@@ -56,10 +56,10 @@ Authentication attempts are limited to prevent brute force attacks:
 
 <CardGroup cols={3}>
   <Card title="Login Attempts" icon="right-to-bracket" color="#ef4444">
-    <Badge color="red">5/min per IP</Badge>
+    <Badge color="red">5/min per email + IP</Badge>
   </Card>
   <Card title="Password Reset" icon="key" color="#f59e0b">
-    <Badge color="orange">3/min per email</Badge>
+    <Badge color="orange">1 per 60s per email</Badge>
   </Card>
   <Card title="2FA Verification" icon="shield-check" color="#22c55e">
     <Badge color="green">5/min per session</Badge>
@@ -231,9 +231,9 @@ async function apiRequest(url, options) {
 
 ## Rate Limits by Feature
 
-### Low-Intensity Endpoints (No explicit throttle)
+### Low-Intensity Endpoints (Global Rate Limit)
 
-These endpoints use global defaults:
+These endpoints use the platform's global rate limit rather than route-specific throttling:
 
 - Track/album/artist listing and details
 - Playlist operations

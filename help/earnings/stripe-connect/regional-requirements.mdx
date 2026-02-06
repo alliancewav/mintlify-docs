@@ -1,0 +1,375 @@
+---
+audience: help
+title: "Regional Onboarding Requirements"
+sidebarTitle: "Regional Requirements"
+description: "Country-specific requirements for Stripe Connect onboarding on BeatPass, including UAE, Asia Pacific, Europe, and North America."
+keywords: ["stripe onboarding", "UAE stripe", "country requirements", "trade license", "emirates ID", "regional requirements", "stripe verification"]
+"og:title": "Regional Onboarding Requirements - BeatPass Help"
+"og:description": "Detailed country-specific requirements for setting up Stripe Connect on BeatPass."
+---
+
+Stripe Connect onboarding requirements vary significantly by country. Some regions — such as the **UAE**, **Japan**, and **Singapore** — have additional regulatory requirements that make the process more involved than in countries like Canada or the US. This guide helps you prepare everything you need before starting.
+
+<Info>
+  BeatPass uses **Stripe-hosted onboarding**, which means Stripe will guide you through the required steps for your specific country. However, knowing what to expect in advance helps you gather documents and avoid delays.
+</Info>
+
+---
+
+## Supported Countries
+
+BeatPass supports Stripe Connect in the following countries:
+
+<AccordionGroup>
+  <Accordion title="North America (3 countries)">
+    Canada, Mexico, United States
+  </Accordion>
+
+  <Accordion title="Europe (32 countries)">
+    Austria, Belgium, Bulgaria, Croatia, Cyprus, Czech Republic, Denmark, Estonia, Finland, France, Germany, Gibraltar, Greece, Hungary, Ireland, Italy, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, Netherlands, Norway, Poland, Portugal, Romania, Slovakia, Slovenia, Spain, Sweden, Switzerland, United Kingdom
+  </Accordion>
+
+  <Accordion title="Asia Pacific (7 countries)">
+    Australia, Hong Kong, Japan, Malaysia, New Zealand, Singapore, Thailand
+  </Accordion>
+
+  <Accordion title="Middle East (1 country)">
+    United Arab Emirates
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  Your country is selected during onboarding and **cannot be changed** after your Stripe account is created. Choose carefully.
+</Note>
+
+---
+
+## Quick Reference: What Every Country Needs
+
+Regardless of your country, you will need at minimum:
+
+- **Full legal name** (as on your government-issued ID)
+- **Date of birth**
+- **Residential address**
+- **Phone number and email**
+- **Government-issued photo ID** (passport, national ID, or driver's license)
+- **Bank account or debit card** for receiving payouts
+
+Beyond these basics, each region has additional requirements outlined below.
+
+---
+
+## United States
+
+The US has one of the simplest onboarding processes.
+
+| Requirement | Details |
+|-------------|---------|
+| **Tax ID** | Social Security Number (SSN) or Individual Taxpayer Identification Number (ITIN) |
+| **ID Verification** | Driver's license, state ID, or passport |
+| **Bank Account** | US bank account number + routing number, or a Visa/Mastercard debit card |
+| **Business Type** | Individual (default for producers) |
+
+<Tip>
+  US producers may also receive a **1099 tax form** from Stripe at the end of the tax year if earnings exceed the IRS reporting threshold. You can access this through your Stripe Express dashboard.
+</Tip>
+
+---
+
+## Canada
+
+| Requirement | Details |
+|-------------|---------|
+| **Tax ID** | Social Insurance Number (SIN) |
+| **ID Verification** | Driver's license, provincial ID, or passport |
+| **Bank Account** | Canadian bank account (institution number, transit number, account number) or debit card |
+| **Address Verification** | Stripe may request proof of address (utility bill or bank statement) |
+
+---
+
+## United Kingdom
+
+| Requirement | Details |
+|-------------|---------|
+| **Tax ID** | National Insurance Number (NINO) |
+| **ID Verification** | Passport, UK driver's license, or national ID card |
+| **Bank Account** | UK bank account (sort code + account number) |
+
+---
+
+## European Union Countries
+
+EU requirements are broadly similar across member states, with minor variations.
+
+| Requirement | Details |
+|-------------|---------|
+| **Tax ID** | Tax identification number specific to your country (e.g., TIN, NIF, Steuernummer) |
+| **ID Verification** | Passport, national ID card, or driver's license |
+| **Bank Account** | IBAN (International Bank Account Number) |
+| **Address Verification** | May be required — utility bill, bank statement, or tax letter |
+| **Business Verification** | Some EU countries require additional documentation for unincorporated entities, partnerships, or non-profits |
+
+### Country-Specific Notes for EU
+
+- **France** — Outlying territories (e.g., Guadeloupe, Martinique, Reunion) may have limited Stripe availability
+- **Germany** — Tax ID (Steuernummer or Steuer-ID) is required
+- **Netherlands** — Additional identity documents may be required beyond standard ID
+- **Estonia** — E-residency companies are supported but may need extra documentation
+- **Ireland, Czech Republic, Latvia** — Additional beneficial ownership documentation may be needed for business accounts
+
+---
+
+## United Arab Emirates (UAE)
+
+<Warning>
+  The UAE has the **most complex onboarding requirements** of any BeatPass-supported country. Read this section carefully and prepare all documents before starting.
+</Warning>
+
+### Key Difference: Business Account Required
+
+Unlike most countries where producers onboard as individuals, **the UAE only supports business-type accounts**. This means you need some form of business registration or freelancer permit to complete onboarding.
+
+### Accepted Business Structures in the UAE
+
+| Structure | Description |
+|-----------|-------------|
+| **Sole Establishment** | A single-owner business licensed by a local emirate authority |
+| **Free Zone Establishment** | A single-owner business registered in a UAE free zone |
+| **LLC** | Limited Liability Company registered on the mainland |
+| **Free Zone LLC** | LLC registered within a UAE free zone |
+
+### Required Documents
+
+<Steps>
+  <Step title="Trade License">
+    A valid **Trade License** (also called a Commercial License) issued by the relevant UAE authority. This is mandatory for all business types.
+    
+    - Must be **current and not expired**
+    - Stripe monitors expiration and requires renewal within 28 days of expiry
+    - Freelancer permits from free zones (e.g., Dubai Creative Clusters, Sharjah Media City) count as trade licenses
+  </Step>
+
+  <Step title="Identity Documents">
+    You need to provide **multiple identity documents**:
+    
+    - **Passport** — Required for all individuals
+    - **Emirates ID** — Required for UAE nationals and UAE residents
+    - **Residence Visa** — Required for foreign nationals residing in the UAE
+    
+    All documents must be valid and not expired. Stripe checks expiration dates and will request renewals.
+  </Step>
+
+  <Step title="Memorandum of Association (MOA)">
+    Required for **all business types except sole establishments and free zone establishments**. This document shows the company's ownership structure, including all shareholders and their ownership percentages.
+  </Step>
+
+  <Step title="Proof of Bank Account Ownership">
+    A document proving that the bank account belongs to the business. This can be:
+    - A bank statement showing the business name
+    - A bank letter confirming account ownership
+    - A canceled cheque
+  </Step>
+
+  <Step title="Power of Attorney (if applicable)">
+    If the person completing the Stripe onboarding (the company representative) is **not listed on the Trade License or MOA**, a notarized Power of Attorney or letter of authorization is required.
+  </Step>
+</Steps>
+
+### Beneficial Ownership Disclosure
+
+Stripe is required to verify **all individuals who own 25% or more** of the business. For each beneficial owner, you'll need to provide:
+
+- Full name
+- Date of birth
+- Address
+- Passport and Emirates ID (or Residence Visa for non-residents)
+
+If a holding company owns 25%+ of the primary business, the MOA of both the holding company and the primary business must be uploaded.
+
+### VAT Considerations
+
+- Stripe charges **5% UAE VAT** on Stripe fees if you have **not** provided a valid UAE VAT ID
+- If you provide a valid UAE VAT ID, Stripe fees are VAT-exempt but you may have self-assessment obligations
+- Provide your VAT ID during onboarding to avoid unnecessary charges
+
+### How UAE Producers Can Get a Trade License
+
+If you're a music producer in the UAE without a trade license, here are common options:
+
+<AccordionGroup>
+  <Accordion title="Freelancer Permit (Most Popular for Producers)">
+    Several UAE free zones offer affordable freelancer permits suitable for music producers:
+    
+    - **Dubai Creative Clusters (formerly TECOM)** — Offers freelancer permits for media and creative professionals
+    - **Sharjah Media City (Shams)** — One of the most affordable options, starting around AED 5,750/year (~$1,565 USD)
+    - **Ajman Free Zone** — Budget-friendly freelancer licenses
+    - **RAKEZ (Ras Al Khaimah)** — Competitive pricing for freelancer permits
+    - **Dubai South** — Freelancer packages available
+    
+    These permits are recognized as trade licenses by Stripe and are sufficient to complete onboarding.
+  </Accordion>
+
+  <Accordion title="Instant/Virtual License">
+    Some free zones offer instant or virtual licenses that can be obtained online in 24-48 hours:
+    
+    - **Dubai Economy & Tourism** — Instant license for AED 1,070/year (~$291 USD) — note: limited activity types
+    - **IFZA (International Free Zone Authority)** — Quick online process
+    
+    Check that the license type covers "media production," "music," or "creative services" as an activity.
+  </Accordion>
+
+  <Accordion title="Full LLC Setup">
+    For producers earning significant income, a full LLC may provide additional benefits:
+    
+    - Higher credibility
+    - Ability to sponsor visas
+    - More banking options
+    - Cost ranges from AED 15,000-50,000/year (~$4,000-$13,600 USD) depending on the free zone
+  </Accordion>
+</AccordionGroup>
+
+<Info>
+  **Tip for UAE producers:** A free zone freelancer permit is the fastest and most affordable way to get onboarded with Stripe. Many producers use Sharjah Media City (Shams) or Dubai Creative Clusters as they cater specifically to media and creative professionals.
+</Info>
+
+---
+
+## Australia
+
+| Requirement | Details |
+|-------------|---------|
+| **Tax ID** | Tax File Number (TFN) or Australian Business Number (ABN) |
+| **ID Verification** | Passport, driver's license, or Medicare card |
+| **Bank Account** | Australian bank account (BSB + account number) |
+| **Address Verification** | Stripe may request address verification documents |
+
+---
+
+## Hong Kong
+
+| Requirement | Details |
+|-------------|---------|
+| **Tax ID** | Hong Kong Business Registration Number (for companies) |
+| **ID Verification** | HKID card or passport |
+| **Bank Account** | Hong Kong bank account |
+| **Business Documentation** | Additional requirements apply for HK-based businesses |
+
+---
+
+## Japan
+
+Japan has unique requirements due to language verification:
+
+| Requirement | Details |
+|-------------|---------|
+| **Tax ID** | My Number (Individual Number) for individuals |
+| **ID Verification** | Japanese residence card, driver's license, or passport — documents must show residency status |
+| **Bank Account** | Japanese bank account |
+| **Language** | Information must be provided in both **kana** and **kanji** variations |
+
+<Note>
+  Japanese accounts require name and address in both kana (katakana/hiragana) and kanji scripts. The Stripe onboarding form will prompt you for both.
+</Note>
+
+---
+
+## Singapore
+
+| Requirement | Details |
+|-------------|---------|
+| **Tax ID** | NRIC (for citizens/PRs) or FIN (for foreigners) |
+| **ID Verification** | NRIC, passport, or employment pass |
+| **Bank Account** | Singapore bank account |
+| **Enhanced Verification** | Singapore has enhanced identity verification requirements — you may be asked to complete a video selfie or additional document checks |
+
+---
+
+## Malaysia
+
+| Requirement | Details |
+|-------------|---------|
+| **Tax ID** | MyKad number (NRIC) or passport number |
+| **ID Verification** | MyKad (national ID) or passport |
+| **Bank Account** | Malaysian bank account |
+
+---
+
+## Thailand
+
+| Requirement | Details |
+|-------------|---------|
+| **Tax ID** | Thai national ID number or tax ID |
+| **ID Verification** | Thai national ID card or passport |
+| **Bank Account** | Thai bank account |
+
+<Note>
+  Thailand has some marketplace-specific restrictions with Stripe Connect. If you encounter issues during onboarding, contact **contact@beatpass.ca** for assistance.
+</Note>
+
+---
+
+## Mexico
+
+| Requirement | Details |
+|-------------|---------|
+| **Tax ID** | RFC (Registro Federal de Contribuyentes) |
+| **ID Verification** | INE/IFE (voter ID), passport, or driver's license |
+| **Bank Account** | Mexican bank account (CLABE number) |
+| **Tax Information** | You may need to update tax information specifically for Mexican accounts |
+
+---
+
+## General Tips for All Regions
+
+<CardGroup cols={2}>
+  <Card title="Prepare Documents First" icon="folder-open">
+    Gather all required documents before starting the Stripe onboarding. The process goes much faster when you don't have to pause and search for documents.
+  </Card>
+  <Card title="Use High-Quality Photos" icon="camera">
+    When uploading ID documents, ensure photos are clear, well-lit, and show all four corners. Avoid glare and blur.
+  </Card>
+  <Card title="Match Names Exactly" icon="check">
+    Your name on Stripe must match your government ID exactly. Even small differences (like a middle name) can cause verification failures.
+  </Card>
+  <Card title="Keep Documents Current" icon="calendar">
+    Stripe monitors document expiration dates. You'll be notified when documents need renewal. Failing to update them can pause your payouts.
+  </Card>
+</CardGroup>
+
+---
+
+## Verification Timeline
+
+| Scenario | Expected Time |
+|----------|---------------|
+| **Standard verification (US, Canada, UK, EU)** | 1-2 business days |
+| **Additional document review** | 3-5 business days |
+| **Complex cases (UAE, first-time accounts)** | 5-7 business days |
+| **Manual review required** | Up to 14 business days |
+
+<Tip>
+  The verification process is fastest when all documents are provided upfront and are clear and legible. Incomplete submissions are the #1 cause of delays.
+</Tip>
+
+---
+
+## Need Help With Your Region?
+
+If you're having trouble with region-specific onboarding requirements:
+
+1. **Check Stripe's help center** at [support.stripe.com](https://support.stripe.com) for your specific country's requirements
+2. **Contact BeatPass support** at **contact@beatpass.ca** — include your country and a description of where you're stuck
+3. **Join the Discord community** at [discord.com/invite/N257QBkSeg](https://discord.com/invite/N257QBkSeg) to connect with producers in your region
+
+---
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Requirements Checklist" href="/help/earnings/stripe-connect/requirements" icon="list-checks">
+    General requirements for all countries.
+  </Card>
+  <Card title="Unsupported Countries" href="/help/earnings/stripe-connect/unsupported-countries" icon="globe">
+    Options if your country isn't supported by Stripe.
+  </Card>
+</CardGroup>

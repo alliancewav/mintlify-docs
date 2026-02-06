@@ -3,8 +3,8 @@ title: "API Overview"
 sidebarTitle: "Overview"
 description: "Introduction to the BeatPass API for first-party application development. Learn about authentication, endpoints, rate limits, and API structure."
 keywords: ["beatpass api","music api","beat marketplace api","producer api","beat licensing api"]
-og:title: "API Overview - BeatPass Developer Documentation"
-og:description: "Introduction to the BeatPass API for first-party application development."
+"og:title": "API Overview - BeatPass Developer Documentation"
+"og:description": "Introduction to the BeatPass API for first-party application development."
 ---
 
 The BeatPass API powers the platform's frontend. This is a **first-party API** designed exclusively for BeatPass web and mobile applications.
@@ -59,7 +59,7 @@ The BeatPass API provides comprehensive functionality across the platform:
       <Card title="Tracks" icon="record-vinyl">
         List, view, upload, update, delete tracks
       </Card>
-      <Card title="Albums" icon="album-collection">
+      <Card title="Albums" icon="layer-group">
         Album management and metadata
       </Card>
       <Card title="Artists" icon="user-music">
@@ -73,6 +73,12 @@ The BeatPass API provides comprehensive functionality across the platform:
       </Card>
       <Card title="Genres" icon="tags">
         Genre listing and filtering
+      </Card>
+      <Card title="Lyrics" icon="align-left">
+        Synced and plain lyrics management
+      </Card>
+      <Card title="Radio" icon="radio">
+        Personalized music recommendations
       </Card>
     </CardGroup>
   </Tab>
@@ -89,6 +95,12 @@ The BeatPass API provides comprehensive functionality across the platform:
       </Card>
       <Card title="Subscription Payouts" icon="money-bill-transfer">
         Artist earnings from subscriptions
+      </Card>
+      <Card title="Stripe Connect" icon="link">
+        Producer payout onboarding and finances
+      </Card>
+      <Card title="Coupons" icon="ticket">
+        Discount code management
       </Card>
     </CardGroup>
   </Tab>
@@ -109,6 +121,12 @@ The BeatPass API provides comprehensive functionality across the platform:
       <Card title="Audio Fingerprinting" icon="fingerprint">
         Duplicate detection, content ID
       </Card>
+      <Card title="Cover Art" icon="image">
+        Template-based cover art generation
+      </Card>
+      <Card title="Artist Credits" icon="id-badge">
+        Professional portfolio credits
+      </Card>
     </CardGroup>
   </Tab>
   <Tab title="Social & Collaboration">
@@ -116,7 +134,7 @@ The BeatPass API provides comprehensive functionality across the platform:
       <Card title="Messaging" icon="messages">
         Direct messages with typing indicators
       </Card>
-      <Card title="Beat Requests" icon="waveform">
+      <Card title="Beat Requests" icon="wave-square">
         Custom beat request marketplace
       </Card>
       <Card title="Following" icon="user-plus">
@@ -124,6 +142,12 @@ The BeatPass API provides comprehensive functionality across the platform:
       </Card>
       <Card title="Reposts" icon="retweet">
         Content sharing within platform
+      </Card>
+      <Card title="Collections" icon="layer-group">
+        Curated content collections
+      </Card>
+      <Card title="User Library" icon="bookmark">
+        Liked tracks, albums, and artists
       </Card>
     </CardGroup>
   </Tab>
@@ -253,8 +277,8 @@ The API uses route-specific throttling. Key limits:
 
 <AccordionGroup>
   <Accordion title="Producer Intelligence (public)" defaultOpen icon="globe">
-    <Badge color="green" icon="bolt">300 requests/minute</Badge>
-    Public analytics endpoints for unauthenticated users.
+    <Badge color="green" icon="bolt">600 requests/minute</Badge>
+    Public analytics endpoints including leaderboards.
   </Accordion>
   <Accordion title="Producer Intelligence (authenticated)" icon="user-check">
     <Badge color="blue" icon="bolt">500 requests/minute</Badge>
@@ -305,7 +329,7 @@ This documentation covers **user-facing endpoints only**. The following are inte
 </Warning>
 
 <Tip>
-  Found a security issue? Report it responsibly to [**security@beatpass.ca**](mailto:security@beatpass.ca) — we appreciate responsible disclosure.
+  Found a security issue? Report it responsibly to [**contact@beatpass.ca**](mailto:contact@beatpass.ca) — we appreciate responsible disclosure.
 </Tip>
 
 ---

@@ -52,7 +52,7 @@ For web applications:
   <Step title="Authenticate">
     Submit credentials to the session login route shown in the Auth guide:
     ```http
-    POST /login
+    POST /auth/login
     Content-Type: application/json
     X-XSRF-TOKEN: {token from cookie}
 
@@ -77,7 +77,7 @@ Send credentials with the CSRF token, then rely on browser-managed cookies for l
 ```http
 GET /sanctum/csrf-cookie
 
-POST /login
+POST /auth/login
 Content-Type: application/json
 X-XSRF-TOKEN: {token-from-cookie}
 
@@ -209,7 +209,7 @@ The API only documents endpoints available to regular authenticated users. If yo
 - Hammer endpoints with excessive requests
 - Store user credentials
 - Bypass authentication
-- Share API tokens
+- Share session cookies or credentials
 
 ---
 
@@ -248,9 +248,9 @@ See [Error Catalog](/developers/error-catalog) for feature-specific errors.
 
 | Topic | Contact |
 |-------|---------|
-| API questions | support@beatpass.ca |
-| Security concerns | security@beatpass.ca |
-| Partnership inquiries | support@beatpass.ca |
+| API questions | contact@beatpass.ca |
+| Security concerns | contact@beatpass.ca |
+| Partnership inquiries | contact@beatpass.ca |
 
 ### Documentation
 

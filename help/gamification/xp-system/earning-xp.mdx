@@ -1,4 +1,5 @@
 ---
+audience: help
 title: "Earning XP"
 sidebarTitle: "Earning XP"
 description: "Complete guide to earning Experience Points (XP) on BeatPass. Learn all XP sources, amounts, and how collaborators earn XP."
@@ -15,7 +16,7 @@ BeatPass awards XP for various producer activities. Here's exactly how much you 
 | **Track play** | +1 XP | Per play on your tracks |
 | **Complete metadata** | +50 XP | Per track with full metadata |
 | **Collaboration** | +25 XP | Per collaborative track (2+ artists) |
-| **Achievement unlock** | Variable | Based on achievement points (150-6,000 XP) |
+| **Achievement unlock** | Variable | Based on achievement rarity (100–6,000 XP) |
 
 ---
 
@@ -89,7 +90,7 @@ When multiple artists are credited on a track:
     Upload or admin publishes a track with multiple artists.
   </Step>
   <Step title="Artists are identified">
-    System identifies all artists in the `artist_track` relationship.
+    The system identifies all credited artists on the track.
   </Step>
   <Step title="Profile check">
     Only artists with completed user profiles are eligible for XP.
@@ -111,14 +112,6 @@ The XP system prevents duplicate awards:
 
 - Each track upload only earns XP once
 - Re-uploading the same track doesn't award additional XP
-- Database-level unique constraints prevent exploitation
-- System logs track which source earned XP
-
----
-
-## Admin Users
-
-Admin accounts (user IDs 1 and 76) are excluded from XP attribution to prevent inflated stats.
 
 ---
 

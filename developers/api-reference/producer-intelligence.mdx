@@ -1,0 +1,433 @@
+---
+title: "Producer Intelligence API"
+sidebarTitle: "Producer Intelligence"
+description: "XP system, achievements, social analytics, contribution graphs, advanced charts, and real-time analytics for producers."
+keywords: ["beatpass producer intelligence","xp system","achievements","social analytics","contribution graph","real-time analytics"]
+"og:title": "Producer Intelligence API - BeatPass Developer Docs"
+"og:description": "Producer Intelligence API — XP, achievements, social analytics, collaboration network, charts, and real-time metrics."
+---
+
+## Overview
+
+The Producer Intelligence API is BeatPass's comprehensive analytics and gamification system for producers. It covers XP tracking, achievements, social analytics, collaboration networks, contribution graphs, advanced charting, and real-time metrics.
+
+<Info>
+  **Base URL:** `https://open.beatpass.ca/api/v1/producer-intelligence`
+
+  **Authentication:** Public endpoints (leaderboards, batch growth) use optional auth. All other endpoints require an authenticated session.
+</Info>
+
+---
+
+## Rate Limits
+
+Producer Intelligence endpoints have route-specific rate limits:
+
+<AccordionGroup>
+  <Accordion title="Public Endpoints" defaultOpen icon="globe">
+    <Badge color="green" size="lg">600/min</Badge> — Leaderboard, collaboration leaderboard (cached responses)
+
+    <Badge color="blue" size="lg">120/min</Badge> — Batch growth data (up to 100 tracks per request)
+
+    <Badge color="purple" size="lg">1200/min</Badge> — Single track growth (prefer batch endpoint)
+  </Accordion>
+  <Accordion title="Authenticated Endpoints" icon="user-check">
+    <Badge color="orange" size="lg">500/min</Badge> — Dashboard, XP, achievements, progress data, charts, exports
+
+    <Badge color="gray" size="lg">120/min</Badge> — Social analytics, collaboration network, trending
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Dashboard & XP
+
+### Get Dashboard Data
+
+Comprehensive dashboard data for the authenticated producer.
+
+```http
+GET /api/v1/producer-intelligence/dashboard
+```
+
+### Get XP Sources
+
+Breakdown of XP earned by source (uploads, plays, engagement, etc.).
+
+```http
+GET /api/v1/producer-intelligence/xp-sources
+```
+
+### Get Producer Level
+
+Current XP level and progress to next level.
+
+```http
+GET /api/v1/producer-intelligence/producer-level
+```
+
+### Get Progress Data (Combined)
+
+Optimized combined endpoint that returns dashboard + XP + achievements in a single request. **Use this instead of multiple individual calls.**
+
+```http
+GET /api/v1/producer-intelligence/progress-data
+```
+
+<Tip>
+  The `progress-data` endpoint consolidates multiple API calls into one. Use it on dashboard page load to minimize requests and stay within rate limits.
+</Tip>
+
+---
+
+## Achievements
+
+### List Achievements
+
+Get all achievements for the authenticated producer.
+
+```http
+GET /api/v1/producer-intelligence/achievements
+```
+
+### Get Achievement Details
+
+Get details for a specific achievement.
+
+```http
+GET /api/v1/producer-intelligence/achievements/{achievementId}/details
+```
+
+---
+
+## Social Analytics
+
+All social analytics endpoints are rate limited to **120 requests/minute**.
+
+### Social Analytics Overview
+
+Get social engagement metrics (followers, follows, reposts, interactions).
+
+```http
+GET /api/v1/producer-intelligence/social-analytics
+```
+
+### Social Activity Feed
+
+Get the producer's recent social activity feed.
+
+```http
+GET /api/v1/producer-intelligence/social-activity-feed
+```
+
+### Collaboration Network
+
+Map the producer's collaboration connections.
+
+```http
+GET /api/v1/producer-intelligence/collaboration-network
+```
+
+### Trending Collaborations
+
+Get trending collaboration pairs on the platform.
+
+```http
+GET /api/v1/producer-intelligence/trending-collaborations
+```
+
+### Collaboration Opportunities
+
+Get AI-suggested collaboration opportunities based on genre, style, and activity.
+
+```http
+GET /api/v1/producer-intelligence/collaboration-opportunities
+```
+
+---
+
+## Track Growth
+
+### Batch Growth Rates (Recommended)
+
+Get growth rates for up to 100 tracks in a single request. **Always prefer this over individual calls.**
+
+```http
+POST /api/v1/producer-intelligence/tracks/growth-batch
+```
+
+<Warning>
+  Rate limit: 120 batch requests/minute. Each request can contain up to 100 track IDs.
+</Warning>
+
+### Single Track Growth (Legacy)
+
+Get growth rate for an individual track.
+
+```http
+GET /api/v1/producer-intelligence/track/{trackId}/growth
+```
+
+<Note>
+  This endpoint has a 1200/min rate limit but the batch endpoint is strongly recommended for efficiency.
+</Note>
+
+---
+
+## Leaderboards (Public)
+
+These endpoints are public and cached. Rate limit: **600 requests/minute**.
+
+### Producer Leaderboard
+
+```http
+GET /api/v1/producer-intelligence/leaderboard
+```
+
+### Collaboration Leaderboard
+
+```http
+GET /api/v1/producer-intelligence/collaboration-leaderboard
+```
+
+---
+
+## Contribution Graphs
+
+### Artist Contribution Graph
+
+Visualize the contribution value distribution across an artist's tracks.
+
+```http
+GET /api/v1/producer-intelligence/artist/{artistId}/contribution-graph
+```
+
+### Platform Contribution Graph
+
+Platform-wide contribution distribution.
+
+```http
+GET /api/v1/producer-intelligence/platform/contribution-graph
+```
+
+---
+
+## Advanced Charts
+
+### Track Charts
+
+```http
+GET /api/v1/producer-intelligence/track/{trackId}/charts
+```
+
+### Artist Charts
+
+```http
+GET /api/v1/producer-intelligence/artist/{artistId}/charts
+```
+
+### Album Charts
+
+```http
+GET /api/v1/producer-intelligence/album/{albumId}/charts
+```
+
+### Dashboard Charts
+
+Combined chart data for the dashboard view.
+
+```http
+GET /api/v1/producer-intelligence/dashboard/charts
+```
+
+### Analytics Insights
+
+AI-generated insights about the producer's performance trends.
+
+```http
+GET /api/v1/producer-intelligence/insights
+```
+
+---
+
+## Real-Time Analytics
+
+### Live Analytics
+
+Get live platform-wide analytics data.
+
+```http
+GET /api/v1/producer-intelligence/live-analytics
+```
+
+### Real-Time Track Metrics
+
+Get live metrics (active listeners, recent plays) for a specific track.
+
+```http
+GET /api/v1/producer-intelligence/track/{trackId}/real-time
+```
+
+---
+
+## Export & Reporting
+
+### Export to CSV
+
+```http
+POST /api/v1/producer-intelligence/export/csv
+```
+
+### Export to JSON
+
+```http
+POST /api/v1/producer-intelligence/export/json
+```
+
+### Generate Report
+
+Generate a comprehensive analytics report.
+
+```http
+POST /api/v1/producer-intelligence/report/generate
+```
+
+### Export Report as PDF
+
+```http
+POST /api/v1/producer-intelligence/report/export-pdf
+```
+
+### Get Export Formats
+
+List available export formats.
+
+```http
+GET /api/v1/producer-intelligence/export/formats
+```
+
+---
+
+## Contribution & Payouts
+
+<Note>
+  Endpoints in the Contribution & Payouts and Subscription Payouts sections use different base paths (e.g., `/api/v1/producer/`, `/api/v1/tracks/`, `/api/v1/artist/`) rather than the `/api/v1/producer-intelligence/` prefix. Refer to each endpoint's full path as shown below.
+</Note>
+
+### Get Earnings Estimate
+
+```http
+GET /api/v1/producer/earnings
+```
+
+### Get Track Breakdown
+
+Detailed per-track contribution breakdown.
+
+```http
+GET /api/v1/producer/track-breakdown
+```
+
+### Get Track Contribution
+
+Contribution value for a specific track.
+
+```http
+GET /api/v1/tracks/{track}/contribution
+```
+
+### Update My Contributions
+
+Trigger a recalculation of the authenticated producer's contribution values.
+
+```http
+POST /api/v1/producer/update-contributions
+```
+
+### Platform Stats
+
+Public platform-wide statistics.
+
+```http
+GET /api/v1/platform/stats
+```
+
+### Top Tracks
+
+Platform-wide top tracks by contribution value.
+
+```http
+GET /api/v1/platform/top-tracks
+```
+
+---
+
+## Subscription Payouts
+
+### List Payouts
+
+Get the authenticated artist's subscription payout history.
+
+```http
+GET /api/v1/artist/subscription-payouts
+```
+
+### Payout Summary
+
+Get aggregate payout summary.
+
+```http
+GET /api/v1/artist/subscription-payouts/summary
+```
+
+### Payout Detail
+
+```http
+GET /api/v1/artist/subscription-payouts/{splitId}
+```
+
+### Unified Transactions
+
+Combined view of track purchases and subscription payouts.
+
+```http
+GET /api/v1/artist/unified-transactions
+```
+
+---
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Use combined endpoints" icon="layer-group">
+    Use `progress-data` instead of calling `dashboard`, `xp-sources`, and `achievements` separately.
+  </Accordion>
+  <Accordion title="Use batch growth endpoint" icon="bolt">
+    Use `tracks/growth-batch` for up to 100 tracks per request instead of individual `track/{id}/growth` calls.
+  </Accordion>
+  <Accordion title="Respect cache TTLs" icon="clock">
+    Leaderboard data is cached for 5 minutes. Dashboard data is cached for 15 minutes. Don't poll faster than these intervals.
+  </Accordion>
+  <Accordion title="Debounce real-time requests" icon="gauge">
+    Real-time analytics endpoints are database-intensive. Debounce requests and use appropriate intervals (30s+).
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Related Resources
+
+<CardGroup cols={2}>
+  <Card title="Rate Limits" icon="gauge" href="/developers/rate-limits">
+    Detailed rate limiting by endpoint group.
+  </Card>
+  <Card title="Dashboard API" icon="chart-mixed" href="/developers/api-reference/dashboard">
+    Artist dashboard metrics and profile.
+  </Card>
+  <Card title="Insights API" icon="chart-line" href="/developers/api-reference/insights">
+    Focused insights for tracks, albums, and artists.
+  </Card>
+  <Card title="Search & Discovery" icon="magnifying-glass" href="/developers/api-reference/search">
+    Leaderboards and discovery features.
+  </Card>
+</CardGroup>
