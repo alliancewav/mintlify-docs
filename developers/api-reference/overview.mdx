@@ -71,7 +71,7 @@ The API reference uses the BeatPass OpenAPI specification to provide interactive
     Each endpoint shows required and optional parameters, request body schemas, and example values.
   </Step>
   <Step title="Try It Out">
-    Use the **Try It** feature to test public endpoints directly. Authenticated endpoints may not work via Try It due to cookie-based session requirements — test those from your application instead.
+    Use the **Try It** feature to test endpoints directly. Enter your Bearer token in the **Authorization** field for authenticated endpoints.
   </Step>
   <Step title="Check Responses">
     Response schemas show the expected data structure. Error responses (401, 403, 404, 422) are documented for each endpoint.
@@ -80,42 +80,74 @@ The API reference uses the BeatPass OpenAPI specification to provide interactive
 
 ---
 
-## Authentication Note
+## Authentication & Access Tiers
 
-BeatPass uses **cookie-based session authentication**, not Bearer tokens. The OpenAPI explorer's "Set authentication" feature is primarily for documentation purposes.
+The data you receive depends on your authentication level:
 
-To make authenticated requests:
+<AccordionGroup>
+  <Accordion title="Public (No Token)" icon="globe" defaultOpen>
+    <Badge color="gray" size="lg">Minimal Data</Badge>
+    
+    Unauthenticated requests return **minimal data only** — just enough to identify resources:
+    - Tracks: `id`, `name`, `image`, `created_at`, `duration_text`, `model_type`
+    - Artists/Genres: `id`, `name`, `model_type`
+    
+    No pricing, plays, licensing, or internal fields are included.
+  </Accordion>
+  <Accordion title="Bearer Token (Approved Developers)" icon="key">
+    <Badge color="blue" size="lg">Rich Data</Badge>
+    
+    Authenticated requests with a valid **Bearer token** return rich API data including pricing, play counts, BPM, key/scale, licensing type, and more.
+    
+    API access is **invite-only**. Contact [**contact@beatpass.ca**](mailto:contact@beatpass.ca) to request access.
+  </Accordion>
+</AccordionGroup>
 
-1. Authenticate via the standard login flow (see [Authentication](/developers/auth))
-2. Include `credentials: 'include'` in fetch requests to send session cookies
+### Using the Playground
 
-<Warning>
-  The API does not accept Bearer tokens. All authentication is handled via Sanctum session cookies.
-</Warning>
+To get **rich responses** from the API playground, you must have an approved developer token:
+
+1. Once approved, go to **Account Settings → Developers** on [open.beatpass.ca](https://open.beatpass.ca) to generate a token
+2. Click the **Authorization** button in the playground
+3. Enter your token (without the `Bearer` prefix — Mintlify adds it automatically)
+4. Send your request
+
+<Info>
+  Without a token, the playground will still work but return minimal data only.
+</Info>
 
 ---
 
 ## Quick Examples
 
-### Public Endpoint (No Auth)
+### Public Request (Minimal Data)
 
 ```bash
-# Search for tracks (works without authentication)
-curl "https://open.beatpass.ca/api/v1/search?query=lofi&types=track&limit=5" \
+# Returns minimal track data (id, name, image, artists only)
+curl "https://open.beatpass.ca/api/v1/tracks" \
   -H "Accept: application/json"
 ```
 
-### Authenticated Endpoint
+### Authenticated Request (Rich Data)
+
+```bash
+# Returns full track data (pricing, plays, BPM, licensing, etc.)
+curl "https://open.beatpass.ca/api/v1/tracks" \
+  -H "Accept: application/json" \
+  -H "Authorization: Bearer YOUR_TOKEN_HERE"
+```
+
+### JavaScript Example
 
 ```javascript
-// JavaScript with session cookies
-const response = await fetch('https://open.beatpass.ca/api/v1/messaging/conversations', {
-  method: 'GET',
+const response = await fetch('https://open.beatpass.ca/api/v1/tracks/3629', {
   headers: {
-    'Accept': 'application/json'
-  },
-  credentials: 'include' // Required for session cookies
+    'Accept': 'application/json',
+    'Authorization': 'Bearer YOUR_TOKEN_HERE'
+  }
 });
+const data = await response.json();
+console.log(data.track.name); // "ZOOM"
 ```
 
 ---
@@ -193,7 +225,7 @@ const response = await fetch('https://open.beatpass.ca/api/v1/messaging/conversa
 
 <CardGroup cols={2}>
   <Card title="Authentication" icon="key" href="/developers/auth">
-    Understand session-based authentication.
+    Authentication methods and token generation.
   </Card>
   <Card title="Error Catalog" icon="triangle-exclamation" href="/developers/error-catalog">
     Error codes and resolutions.

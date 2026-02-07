@@ -1,70 +1,49 @@
 ---
 title: "Rate Limits"
 sidebarTitle: "Rate Limits"
-description: "Understanding API rate limits and route-specific throttling on the BeatPass API."
+description: "Understanding API rate limits on the BeatPass API."
 keywords: ["beatpass rate limits","api throttling","request limits","rate limiting"]
 "og:title": "Rate Limits - BeatPass Developer Docs"
-"og:description": "Understand BeatPass API rate limits, throttling, and best practices for handling 429 errors."
+"og:description": "Understand BeatPass API rate limits and best practices for handling 429 errors."
 ---
 
 ## Overview
 
-BeatPass uses route-specific rate limiting via Laravel's throttle middleware. Different endpoint groups have different limits based on their resource intensity and expected usage patterns.
+The BeatPass API enforces rate limits to ensure fair usage and platform stability. Different endpoint categories have different limits based on their resource intensity.
 
 ---
 
-## Route-Specific Limits
+## Global Rate Limit
 
-### Producer Intelligence
+<Card title="Global API Limit" icon="gauge-high" color="#ef4444">
+  <Badge color="red" size="lg">300 requests/minute</Badge>
+  All API endpoints are subject to a global rate limit of 300 requests per minute per client. Route-specific limits below may impose stricter thresholds on individual endpoints.
+</Card>
 
-<Tip>
-  **Updated December 2025** — Rate limits increased for cached endpoints.
-</Tip>
+---
+
+## Rate Limit Categories
+
+Different endpoint categories have different rate limits. The API applies the most restrictive applicable limit.
 
 <AccordionGroup>
-  <Accordion title="Leaderboards" defaultOpen icon="trophy">
-    <Badge color="green" size="lg">600/min</Badge>
-    `/producer-intelligence/leaderboard` — Cached responses (~25ms response time).
+  <Accordion title="General API Endpoints" defaultOpen icon="globe">
+    Standard content endpoints (tracks, artists, albums, search, genres) are subject to the global rate limit.
   </Accordion>
-  <Accordion title="Batch Growth Data" icon="layer-group">
-    <Badge color="blue" size="lg">120/min</Badge>
-    `/producer-intelligence/tracks/growth-batch` — Process up to 100 tracks per request.
+  <Accordion title="Media Endpoints" icon="headphones">
+    Audio and image endpoints have stricter per-minute limits to prevent abuse.
   </Accordion>
-  <Accordion title="Single Track Growth" icon="chart-line">
-    <Badge color="purple" size="lg">1200/min</Badge>
-    `/producer-intelligence/track/{id}/growth` — Prefer batch endpoint for multiple tracks.
+  <Accordion title="Analytics Endpoints" icon="chart-mixed">
+    Analytics and dashboard endpoints have dedicated rate limits appropriate for their resource intensity.
   </Accordion>
-  <Accordion title="Dashboard & Analytics" icon="chart-mixed">
-    <Badge color="orange" size="lg">500/min</Badge>
-    Authenticated dashboard and analytics endpoints.
-  </Accordion>
-  <Accordion title="Social Analytics" icon="users">
-    <Badge color="gray" size="lg">120/min</Badge>
-    Rate-limited for performance optimization.
+  <Accordion title="Write Operations" icon="pen">
+    Endpoints that create or modify data (uploads, purchases, messages) have stricter limits.
   </Accordion>
 </AccordionGroup>
 
-### Legacy Endpoints
-
-<Warning>
-  **Deprecated:** `/users/{user}/producer-dashboard` is limited to **60/min** and will be removed. Migrate to producer-intelligence endpoints.
-</Warning>
-
-### Authentication
-
-Authentication attempts are limited to prevent brute force attacks:
-
-<CardGroup cols={3}>
-  <Card title="Login Attempts" icon="right-to-bracket" color="#ef4444">
-    <Badge color="red">5/min per email + IP</Badge>
-  </Card>
-  <Card title="Password Reset" icon="key" color="#f59e0b">
-    <Badge color="orange">1 per 60s per email</Badge>
-  </Card>
-  <Card title="2FA Verification" icon="shield-check" color="#22c55e">
-    <Badge color="green">5/min per session</Badge>
-  </Card>
-</CardGroup>
+<Note>
+  Authentication endpoints have strict rate limits to prevent brute-force attacks. Excessive failed attempts will result in temporary lockout.
+</Note>
 
 ---
 
@@ -144,22 +123,16 @@ Retry-After: 60
 
 <AccordionGroup>
   <Accordion title="Use Batch Endpoints">
-    The Producer Intelligence API provides batch endpoints:
-
-    ```http
-    POST /producer-intelligence/tracks/growth-batch
-    ```
-
-    Handles up to 100 tracks per request instead of individual calls.
+    Where available, use batch endpoints to fetch multiple resources in a single request instead of individual calls.
   </Accordion>
   <Accordion title="Cache Responses">
-    Analytics data doesn't change frequently. Cache responses for 5-15 minutes.
-  </Accordion>
-  <Accordion title="Use Combined Endpoints">
-    Use `/producer-intelligence/progress-data` for combined dashboard data instead of multiple calls.
+    Cache API responses locally to reduce redundant calls. Most data does not change frequently.
   </Accordion>
   <Accordion title="Paginate Efficiently">
     Request appropriate page sizes. Don't fetch more data than needed.
+  </Accordion>
+  <Accordion title="Debounce User Input">
+    For search-as-you-type features, debounce input by 300ms+ before triggering API calls.
   </Accordion>
 </AccordionGroup>
 
@@ -205,59 +178,22 @@ async function apiRequest(url, options) {
 ### Common Patterns That Trigger Limits
 
 <AccordionGroup>
-  <Accordion title="Polling leaderboards too frequently" icon="rotate">
+  <Accordion title="Polling too frequently" icon="rotate">
     **Problem:** High frequency polling drains your quota.
 
-    **Solution:** Use intervals of 30+ seconds. Leaderboard data is cached for 5 minutes.
+    **Solution:** Use reasonable intervals (30+ seconds) and cache responses locally.
   </Accordion>
-  <Accordion title="Individual track growth calls" icon="chart-simple">
-    **Problem:** Calling `/track/{id}/growth` for each track individually.
+  <Accordion title="Individual resource calls in loops" icon="chart-simple">
+    **Problem:** Fetching resources one at a time in a loop.
 
-    **Solution:** Use the batch endpoint `/tracks/growth-batch` for up to 100 tracks per request.
+    **Solution:** Use batch endpoints where available, or paginated listing endpoints.
   </Accordion>
-  <Accordion title="Multiple concurrent requests on page load" icon="arrows-split-up-and-left">
-    **Problem:** Firing many analytics requests simultaneously.
+  <Accordion title="Multiple concurrent requests" icon="arrows-split-up-and-left">
+    **Problem:** Firing many requests simultaneously.
 
-    **Solution:** Use `/producer-intelligence/progress-data` for consolidated dashboard data.
-  </Accordion>
-  <Accordion title="Search-as-you-type" icon="keyboard">
-    **Problem:** Sending a request on every keystroke.
-
-    **Solution:** Debounce input by 300ms+ before triggering search.
+    **Solution:** Stagger requests and use combined endpoints where available.
   </Accordion>
 </AccordionGroup>
-
----
-
-## Rate Limits by Feature
-
-### Low-Intensity Endpoints (Global Rate Limit)
-
-These endpoints use the platform's global rate limit rather than route-specific throttling:
-
-- Track/album/artist listing and details
-- Playlist operations
-- User profile data
-- Genre and tag lookups
-
-### High-Intensity Endpoints (Throttled)
-
-These have explicit rate limits:
-
-<CardGroup cols={2}>
-  <Card title="Producer Intelligence" icon="brain" color="#8b5cf6">
-    Heavy computation for XP, achievements, and rankings.
-  </Card>
-  <Card title="Social Analytics" icon="chart-network" color="#3b82f6">
-    Complex queries across social graph.
-  </Card>
-  <Card title="Legacy Dashboard" icon="clock-rotate-left" color="#6b7280">
-    Deprecated — encouraging migration to new APIs.
-  </Card>
-  <Card title="Real-time Analytics" icon="bolt" color="#f59e0b">
-    Database-intensive live data queries.
-  </Card>
-</CardGroup>
 
 ---
 
@@ -265,61 +201,10 @@ These have explicit rate limits:
 
 When you hit a rate limit:
 
-1. **Don't retry immediately** - This wastes your remaining quota
-2. **Log the incident** - Track which endpoints are hitting limits
-3. **Review access patterns** - Identify optimization opportunities
-4. **Contact support** - If legitimate usage requires higher limits
-
----
-
-## Caching Configuration
-
-BeatPass uses centralized cache TTL (Time-To-Live) configuration for consistent caching behavior across the platform. This ensures predictable data freshness while optimizing performance.
-
-### Cache TTL Values
-
-<Tabs>
-  <Tab title="Analytics">
-    <CardGroup cols={2}>
-      <Card title="Dashboard Overview" icon="gauge">
-        <Badge color="blue">15 min TTL</Badge>
-         Producer dashboard statistics
-      </Card>
-      <Card title="Real-time Metrics" icon="bolt">
-        <Badge color="green">1 min TTL</Badge>
-         Live engagement data
-      </Card>
-    </CardGroup>
-  </Tab>
-  <Tab title="Leaderboards">
-    <Card title="Global Rankings" icon="ranking-star">
-      <Badge color="purple">5 min TTL</Badge>
-       All leaderboard types (genre, overall, timeframe)
-    </Card>
-  </Tab>
-  <Tab title="Content">
-    <Card title="Track/Album Details" icon="compact-disc">
-      <Badge color="orange">30 min TTL</Badge>
-       Metadata, images, and track information
-    </Card>
-  </Tab>
-  <Tab title="User Data">
-    <CardGroup cols={2}>
-      <Card title="Profile Data" icon="id-card">
-        <Badge color="gray">1 hour TTL</Badge>
-         User settings and preferences
-      </Card>
-      <Card title="Contribution Values" icon="coins">
-        <Badge color="green">24 hour TTL</Badge>
-         Track contribution calculations
-      </Card>
-    </CardGroup>
-  </Tab>
-</Tabs>
-
-### Development Note
-
-When developing integrations, account for these cache windows in your data synchronization logic. Real-time data should not be polled more frequently than the cache TTL.
+1. **Don't retry immediately** — This wastes your remaining quota
+2. **Check the `Retry-After` header** — Wait the specified duration
+3. **Review access patterns** — Identify optimization opportunities
+4. **Contact support** — If legitimate usage requires higher limits
 
 ---
 
@@ -330,6 +215,6 @@ When developing integrations, account for these cache windows in your data synch
     See all available endpoints.
   </Card>
   <Card title="Authentication" icon="key" href="/developers/auth">
-    Understand session authentication.
+    Understand API authentication.
   </Card>
 </CardGroup>

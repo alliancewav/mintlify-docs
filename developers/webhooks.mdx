@@ -9,28 +9,10 @@ keywords: ["beatpass webhooks","stripe webhooks","payment webhooks","payout noti
 
 ## Overview
 
-BeatPass uses **inbound webhooks** to receive payment notifications from Stripe. There is currently no outbound webhook system for external integrations.
+BeatPass processes payment events from Stripe via webhooks. There is currently no outbound webhook system for external developer integrations.
 
 <Note>
-  BeatPass does not send webhooks to external applications. This page documents how BeatPass receives payment notifications from Stripe.
-</Note>
-
----
-
-## Inbound Webhooks (Stripe)
-
-BeatPass receives webhooks from Stripe to process purchase-related payment events.
-
-### Webhook Endpoint
-
-```
-POST /api/stripe/webhook
-```
-
-This endpoint receives payment-related events from Stripe's webhook system.
-
-<Note>
-  Webhook requests must include a valid `Stripe-Signature` header. Manual requests without proper signatures are rejected.
+  BeatPass does not send webhooks to external applications. This page provides an overview of how payment processing works on the platform.
 </Note>
 
 ---
@@ -86,18 +68,15 @@ The webhook controller processes the following Stripe events:
 
 <Steps>
   <Step title="Payment Initiated">
-    User initiates a track purchase via Stripe.js.
+    User initiates a track purchase through the BeatPass checkout flow.
   </Step>
-  <Step title="Stripe Processes">
-    Stripe processes the payment and updates the PaymentIntent status.
+  <Step title="Payment Processed">
+    Stripe processes the payment securely.
   </Step>
-  <Step title="Webhook Sent">
-    Stripe sends a webhook to BeatPass at `/api/stripe/webhook`.
-  </Step>
-  <Step title="BeatPass Processes">
-    BeatPass verifies the signature and processes the event:
+  <Step title="BeatPass Updated">
+    BeatPass automatically:
 
-    - Updates purchase/payout records
+    - Updates purchase records
     - Generates license certificates for successful purchases
     - Marks tracks as sold for exclusive purchases
     - Sends notifications to producers
@@ -108,48 +87,7 @@ The webhook controller processes the following Stripe events:
 
 ## Webhook Security
 
-### Stripe Signature Verification
-
-All incoming Stripe webhooks are verified using Stripe's standard webhook signature verification. This ensures that webhook payloads are authentic and have not been tampered with.
-
-- Webhooks are validated against a signing secret configured in Stripe
-- Invalid signatures result in immediate rejection (400 response)
-- All webhook processing is logged for audit purposes
-
-<Warning>
-  Webhooks without valid Stripe signatures are rejected. Only Stripe's servers can send valid webhook events.
-</Warning>
-
----
-
-## For Developers
-
-### Testing Webhooks Locally
-
-Use the Stripe CLI to forward webhooks during development:
-
-```bash
-# Install Stripe CLI
-brew install stripe/stripe-cli/stripe
-
-# Login
-stripe login
-
-# Forward webhooks to a local development server
-stripe listen --forward-to localhost:8000/api/stripe/webhook
-
-# Forward webhooks to a remote dev server (example)
-stripe listen --forward-to https://dev.example.com/api/stripe/webhook
-```
-
-### Webhook Events in Stripe Dashboard
-
-Monitor webhook delivery in the Stripe Dashboard:
-
-1. Go to **Developers \> Webhooks**
-2. Select your endpoint
-3. View recent events and delivery status
-4. Retry failed webhooks if needed
+All payment webhooks are cryptographically verified to ensure authenticity. Invalid or tampered requests are rejected automatically. All webhook processing is logged for audit purposes.
 
 ---
 
@@ -159,15 +97,7 @@ Monitor webhook delivery in the Stripe Dashboard:
   BeatPass does not currently offer outbound webhooks for external integrations.
 </Info>
 
-For real-time updates in your application:
-
-- **Track changes:** Poll the API or use the notifications SSE stream (authenticated)
-- **Purchase status:** Use the purchase status endpoint after initiating
-- **User events:** Handled client-side via the BeatPass frontend
-
-### Future Considerations
-
-Outbound webhooks for third-party integrations may be considered for future releases. If you have a specific use case, contact support to discuss.
+If you need real-time updates for your integration, contact [**contact@beatpass.ca**](mailto:contact@beatpass.ca) to discuss your use case.
 
 ---
 

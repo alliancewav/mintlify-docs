@@ -1,91 +1,41 @@
 ---
 title: "Quickstart"
 sidebarTitle: "Quickstart"
-description: "Getting started guide for developers working with the BeatPass codebase and API. Learn authentication, testing practices, and API usage."
-keywords: ["beatpass quickstart", "api quickstart", "beatpass authentication", "sanctum auth"]
+description: "Getting started guide for approved developers working with the BeatPass API."
+keywords: ["beatpass quickstart", "api quickstart", "beatpass api", "bearer token"]
 "og:title": "Quickstart - BeatPass Developer Docs"
-"og:description": "Get started with the BeatPass API. Learn authentication flow, testing practices, and safe API usage."
+"og:description": "Get started with the BeatPass API using Bearer token authentication."
 ---
 
 ## Overview
 
-This guide helps developers understand the BeatPass technical environment, authentication model, and safe testing practices.
+This guide helps approved developers get started with the BeatPass API.
 
 <Warning>
-  **First-Party Only** — BeatPass does not offer a public API for third-party applications. This documentation describes the API used by the official BeatPass applications.
+  API access is **invite-only**. To request access, contact [**contact@beatpass.ca**](mailto:contact@beatpass.ca). See [Authentication](/developers/auth) for details.
 </Warning>
 
 ---
 
-## Authentication Model
+## Authentication
 
-### How Auth Works
-
-BeatPass uses **Laravel Sanctum** for SPA (single-page application) authentication:
-
-| Component | Implementation |
-|-----------|----------------|
-| Session auth | Cookie-based sessions |
-| API tokens | Not issued (no bearer tokens) |
-| Third-party integrations | Not supported |
-| CSRF protection | Required for POST/PUT/DELETE |
-
-### Cookie + CSRF Flow
-
-For web applications:
-
-<Steps>
-  <Step title="Get CSRF Cookie">
-    ```http
-    GET /sanctum/csrf-cookie
-    ```
-    This sets the `XSRF-TOKEN` cookie.
-  </Step>
-  
-  <Step title="Include CSRF Token">
-    For POST/PUT/DELETE requests, include the token:
-    ```http
-    X-XSRF-TOKEN: {token from cookie}
-    ```
-  </Step>
-  
-  <Step title="Authenticate">
-    Submit credentials to the session login route shown in the Auth guide:
-    ```http
-    POST /auth/login
-    Content-Type: application/json
-    X-XSRF-TOKEN: {token from cookie}
-
-    {"email": "...", "password": "..."}
-    ```
-  </Step>
-
-  <Step title="Make Authenticated Requests">
-    Session cookies are automatically included in subsequent requests by the browser.
-  </Step>
-</Steps>
-
-<Warning>
-  BeatPass does not issue Sanctum personal access tokens and does not support third-party integrations. Use the session-based fl
-ow above.
-</Warning>
-
-### Example Request Flow
-
-Send credentials with the CSRF token, then rely on browser-managed cookies for later calls:
+All API requests use **Bearer token authentication**:
 
 ```http
-GET /sanctum/csrf-cookie
-
-POST /auth/login
-Content-Type: application/json
-X-XSRF-TOKEN: {token-from-cookie}
-
-{"email": "user@example.com", "password": "secret"}
-
-GET /tracks
-# Cookies from the login response are sent automatically by the browser
+GET /api/v1/tracks
+Authorization: Bearer {your-token}
+Accept: application/json
 ```
+
+| Detail | Value |
+|--------|-------|
+| **Access** | Invite-only, granted by BeatPass team |
+| **Token expiration** | 90 days from creation |
+| **Data access** | Token required for rich API responses |
+
+<Info>
+  **Unauthenticated requests return minimal data** (id, name, model_type only). A valid Bearer token is required for rich responses with pricing, plays, BPM, and licensing info.
+</Info>
 
 ---
 
@@ -114,35 +64,6 @@ This means:
 | Test with minimal data | Don't create spam content |
 | Clean up test data | Delete test uploads promptly |
 | Never test payments with real cards | Use Stripe test mode when available |
-
----
-
-## Testing Purchases
-
-### Stripe Test Mode
-
-<Info>
-  Contact your team lead to determine if Stripe test mode is enabled for your environment.
-</Info>
-
-| Environment | Payment Behavior |
-|-------------|------------------|
-| Production | Real charges |
-| Test mode (if enabled) | Stripe test cards accepted |
-
-### Test Card Numbers (Stripe Test Mode Only)
-
-If test mode is available:
-
-| Card Number | Behavior |
-|-------------|----------|
-| `4242 4242 4242 4242` | Succeeds |
-| `4000 0000 0000 0002` | Declines |
-| `4000 0000 0000 9995` | Insufficient funds |
-
-<Warning>
-  Never use test card numbers on production. They will fail and may flag your account.
-</Warning>
 
 ---
 
@@ -186,10 +107,10 @@ GET /api/v1/tracks/12345
 ## Restricted Access
 
 <Warning>
-  **Administrative and internal endpoints are not documented here.** These routes require elevated privileges and are protected by role-based access control. Unauthorized access attempts are logged and may result in account termination.
+  **Undocumented endpoints are off-limits.** Unauthorized access attempts are logged, monitored, and may result in immediate token revocation and account termination.
 </Warning>
 
-The API only documents endpoints available to regular authenticated users. If you encounter a 403 Forbidden response, the endpoint requires permissions you don't have.
+If you encounter a 403 Forbidden response, the endpoint requires permissions your account does not have. Contact support if you believe this is an error.
 
 ---
 
@@ -209,7 +130,7 @@ The API only documents endpoints available to regular authenticated users. If yo
 - Hammer endpoints with excessive requests
 - Store user credentials
 - Bypass authentication
-- Share session cookies or credentials
+- Share authentication credentials
 
 ---
 
@@ -264,41 +185,28 @@ See [Error Catalog](/developers/error-catalog) for feature-specific errors.
 
 ---
 
-## Checklist for New Developers
+## Getting Started Checklist
 
 <Steps>
-  <Step title="Get Access">
-    - Obtain development account credentials
-    - Set up local environment
-    - Understand the session-based auth flow
+  <Step title="Request API Access">
+    Contact [**contact@beatpass.ca**](mailto:contact@beatpass.ca) with your use case and organization details.
   </Step>
   
-  <Step title="Understand the Stack">
-    - Laravel backend
-    - React frontend
-    - Laravel Sanctum auth
-    - Stripe for payments
+  <Step title="Generate Token">
+    Once approved, go to **Account Settings → Developers** to create your token.
   </Step>
   
   <Step title="Review Documentation">
-    - Read API Overview
-    - Understand auth flow
-    - Note rate limits
-    - Review off-limits routes
-  </Step>
-  
-  <Step title="Set Up Safe Testing">
-    - Create test account(s)
-    - Use placeholder IDs in code
-    - Confirm test mode status for payments
-    - Plan for cleanup
+    - Read the [API Overview](/developers/overview)
+    - Understand [Authentication](/developers/auth)
+    - Note [Rate Limits](/developers/rate-limits)
   </Step>
   
   <Step title="Start Building">
-    - Begin with read-only endpoints
-    - Test auth flow first
-    - Add mutations carefully
+    - Begin with read-only endpoints (tracks, artists, search)
+    - Use placeholder IDs in development
     - Monitor rate limit headers
+    - Handle errors gracefully
   </Step>
 </Steps>
 

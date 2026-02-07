@@ -9,12 +9,12 @@ keywords: ["beatpass messaging api","direct messages","conversations","typing in
 
 ## Overview
 
-The Messaging API enables direct and group conversations between BeatPass users. It supports real-time features including typing indicators and read receipts via Pusher broadcasting.
+The Messaging API enables direct and group conversations between BeatPass users. It supports real-time features including typing indicators and read receipts.
 
 <Info>
   **Base URL:** `https://open.beatpass.ca/api/v1/messaging`
 
-  **Authentication:** All messaging endpoints require an authenticated session.
+  **Authentication:** All messaging endpoints require a valid Bearer token.
 </Info>
 
 ---
@@ -248,7 +248,7 @@ GET /api/v1/messaging/conversations/{conversationId}/typing
 ```
 
 <Note>
-  Typing indicators are broadcast in real-time via Pusher. The REST endpoints are fallbacks for environments without WebSocket support.
+  Typing indicators are delivered in real-time. The REST endpoints provide fallback support.
 </Note>
 
 ---
@@ -283,9 +283,8 @@ async function startConversation(userId, message) {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'X-XSRF-TOKEN': getCsrfToken()
+      'Authorization': 'Bearer YOUR_TOKEN_HERE'
     },
-    credentials: 'include',
     body: JSON.stringify({
       user_id: userId,
       message_text: message
@@ -313,7 +312,7 @@ async function startConversation(userId, message) {
 
 <CardGroup cols={2}>
   <Card title="Authentication" icon="key" href="/developers/auth">
-    Session-based authentication for messaging.
+    API authentication for messaging.
   </Card>
   <Card title="Error Catalog" icon="triangle-exclamation" href="/developers/error-catalog">
     Messaging error codes and resolutions.

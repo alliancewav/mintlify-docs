@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "description": "BeatPass uses cookie-based session authentication via Laravel Sanctum. Authenticate by logging in at `/auth/login` after obtaining a CSRF token from `/sanctum/csrf-cookie`. Session cookies are automatically included in subsequent requests by the browser.",
-    "version": "1.0.0",
+    "description": "The BeatPass API provides access to platform data for approved developer integrations. API access is invite-only — contact contact@beatpass.ca to request access. Authenticate with a Bearer token. Tokens expire after 90 days. Unauthenticated requests return minimal data (e.g. id, name, image, model_type, and basic metadata). Global rate limit: 300 requests/minute.",
+    "version": "1.0.1",
     "title": "BeatPass API"
   },
   "servers": [
@@ -13,7 +13,7 @@
   ],
   "security": [
     {
-      "sessionAuth": []
+      "bearerAuth": []
     }
   ],
   "tags": [
@@ -125,6 +125,7 @@
   "paths": {
     "/search": {
       "get": {
+        "security": [{}, {"bearerAuth": []}],
         "tags": [
           "Search"
         ],
@@ -214,6 +215,7 @@
     },
     "/playlists/{id}": {
       "get": {
+        "security": [{}, {"bearerAuth": []}],
         "tags": [
           "Playlists"
         ],
@@ -505,6 +507,7 @@
     },
     "/playlists/{id}/tracks": {
       "get": {
+        "security": [{}, {"bearerAuth": []}],
         "tags": [
           "Playlists"
         ],
@@ -814,6 +817,7 @@
     },
     "/artists/{id}": {
       "get": {
+        "security": [{}, {"bearerAuth": []}],
         "tags": [
           "Artists"
         ],
@@ -938,6 +942,7 @@
     },
     "/artists/{id}/tracks": {
       "get": {
+        "security": [{}, {"bearerAuth": []}],
         "tags": [
           "Artists"
         ],
@@ -1181,6 +1186,7 @@
     },
     "/albums/{id}": {
       "get": {
+        "security": [{}, {"bearerAuth": []}],
         "tags": [
           "Albums"
         ],
@@ -1262,6 +1268,7 @@
     },
     "/tracks/{id}": {
       "get": {
+        "security": [{}, {"bearerAuth": []}],
         "tags": [
           "Tracks"
         ],
@@ -1346,6 +1353,7 @@
     },
     "/tracks/{id}/comments": {
       "get": {
+        "security": [{}, {"bearerAuth": []}],
         "tags": [
           "Tracks"
         ],
@@ -1427,6 +1435,7 @@
     },
     "/tracks/{id}/lyrics": {
       "get": {
+        "security": [{}, {"bearerAuth": []}],
         "tags": [
           "Tracks"
         ],
@@ -1643,6 +1652,7 @@
     },
     "/genres": {
       "get": {
+        "security": [{}, {"bearerAuth": []}],
         "tags": [
           "Genres"
         ],
@@ -2246,8 +2256,8 @@
         "tags": [
           "Auth"
         ],
-        "summary": "Login and create session",
-        "description": "Logs in the specified user and creates a session. Returns the user object. For SPA authentication, first call `/sanctum/csrf-cookie` to get a CSRF token, then include it in the `X-XSRF-TOKEN` header. Session cookies are automatically managed by the browser.",
+        "summary": "Login",
+        "description": "Authenticates a user and returns the user object.",
         "operationId": "login",
         "responses": {
           "200": {
@@ -2738,6 +2748,7 @@
     },
     "/tracks": {
       "get": {
+        "security": [{}, {"bearerAuth": []}],
         "tags": [
           "Tracks"
         ],
@@ -2931,6 +2942,7 @@
     },
     "/albums": {
       "get": {
+        "security": [{}, {"bearerAuth": []}],
         "tags": [
           "Albums"
         ],
@@ -3645,6 +3657,7 @@
     },
     "/radio/{type}/{id}": {
       "get": {
+        "security": [{}, {"bearerAuth": []}],
         "tags": [
           "Radio"
         ],
@@ -4293,6 +4306,7 @@
     },
     "/tracks/{id}/wave": {
       "get": {
+        "security": [{}, {"bearerAuth": []}],
         "tags": ["Tracks"],
         "summary": "Get waveform data for a track",
         "operationId": "getTrackWaveform",
@@ -5046,16 +5060,15 @@
       }
     },
     "securitySchemes": {
-      "sessionAuth": {
-        "type": "apiKey",
-        "in": "cookie",
-        "name": "laravel_session",
-        "description": "Cookie-based session authentication via Laravel Sanctum. Authenticate by calling GET /sanctum/csrf-cookie then POST /auth/login."
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "API access is invite-only. Contact contact@beatpass.ca to request access. Once approved, generate tokens from Account Settings → Developers. Include as: Authorization: Bearer {token}. Tokens expire after 90 days."
       }
     },
     "responses": {
       "Response401": {
-        "description": "Unauthenticated. Session cookie is missing, invalid, or expired. Re-authenticate via the login flow."
+        "description": "Unauthenticated. Bearer token is missing, invalid, or expired."
       },
       "Response403": {
         "description": "Unauthorized access. You don't have permissions required to perform this operation."

@@ -1,16 +1,16 @@
 ---
 title: "API Overview"
 sidebarTitle: "Overview"
-description: "Introduction to the BeatPass API for first-party application development. Learn about authentication, endpoints, rate limits, and API structure."
+description: "Introduction to the BeatPass API for approved developer integrations."
 keywords: ["beatpass api","music api","beat marketplace api","producer api","beat licensing api"]
 "og:title": "API Overview - BeatPass Developer Documentation"
-"og:description": "Introduction to the BeatPass API for first-party application development."
+"og:description": "Introduction to the BeatPass API for approved developer integrations."
 ---
 
-The BeatPass API powers the platform's frontend. This is a **first-party API** designed exclusively for BeatPass web and mobile applications.
+The BeatPass API provides access to platform data for approved developer integrations and partnerships.
 
 <Warning>
-  **First-Party Only** — BeatPass does not offer a public developer API or third-party integrations. All endpoints documented here are for the official BeatPass application.
+  API access is **invite-only**. Developer tokens are granted on a case-by-case basis. To request access, contact [**contact@beatpass.ca**](mailto:contact@beatpass.ca). See [Authentication](/developers/auth) for details.
 </Warning>
 
 ## Quick Links
@@ -182,7 +182,7 @@ Content-Type: application/json
 ```
 
 <Info>
-  Authenticated requests use Sanctum's stateful session cookies. State-changing requests must include CSRF protection (`XSRF-TOKEN` cookie + `X-XSRF-TOKEN` header). See the [Authentication guide](/developers/auth) for details.
+  Authenticated requests must include a valid Bearer token. See the [Authentication guide](/developers/auth) for details.
 </Info>
 
 ---
@@ -214,7 +214,7 @@ Responses vary by endpoint. Most return data directly:
 
 ### Pagination
 
-Paginated endpoints use Laravel's standard pagination:
+Paginated endpoints use standard cursor-based pagination:
 
 ```json
 {
@@ -229,103 +229,51 @@ Paginated endpoints use Laravel's standard pagination:
 
 ---
 
-## Authentication Model
+## Authentication & Data Access
 
-BeatPass uses **Laravel Sanctum** for authentication. This is a **stateful SPA session** model with CSRF/XSRF cookies. The API:
+The BeatPass API uses a **two-tier access model** for external consumers:
 
-- Uses session cookies for authentication (not Bearer tokens)
-- Does **not** issue personal access tokens
-- Is only available to the first-party BeatPass web application (no third-party/OAuth)
+| Tier | Auth | Data |
+|------|------|------|
+| **Public** | None | Minimal (id, name, model_type only) |
+| **Token** | `Bearer {token}` | Rich (pricing, plays, BPM, licensing) |
 
-See [Authentication](/developers/auth) for the SPA login flow and CSRF requirements.
+<Warning>
+  **Unauthenticated requests return minimal data.** You must have an approved Bearer token to access rich API responses. See [Authentication](/developers/auth) for details.
+</Warning>
 
 ---
 
-## Key Endpoint Groups
+## Endpoint Categories
 
-### Public Endpoints (Optional Auth)
+The API provides read access to public content (tracks, artists, albums, genres, search) and authenticated access to user-specific features (library, playlists, messaging, purchases, analytics).
 
-These endpoints work without authentication but return enhanced data when authenticated:
-
-```http
-GET /tracks              # List public tracks
-GET /tracks/{id}         # Track details
-GET /artists             # List artists
-GET /artists/{id}        # Artist profile
-GET /search              # Search content
-GET /genres              # Available genres
-```
-
-### Required Auth Endpoints
-
-These require an authenticated session:
-
-```http
-POST /tracks                           # Upload track
-POST /tracks/{track}/purchase/initiate # Start purchase
-GET  /purchases                        # User's purchases
-GET  /messaging/conversations          # User's messages
-GET  /producer-intelligence/dashboard  # Producer analytics
-POST /beat-requests                    # Create beat request
-```
+See the [API Reference](/developers/api-reference/overview) for the full endpoint listing.
 
 ---
 
 ## Rate Limiting
 
-The API uses route-specific throttling. Key limits:
-
-<AccordionGroup>
-  <Accordion title="Producer Intelligence (public)" defaultOpen icon="globe">
-    <Badge color="green" icon="bolt">600 requests/minute</Badge>
-    Public analytics endpoints including leaderboards.
-  </Accordion>
-  <Accordion title="Producer Intelligence (authenticated)" icon="user-check">
-    <Badge color="blue" icon="bolt">500 requests/minute</Badge>
-    Enhanced limits for authenticated producer sessions.
-  </Accordion>
-  <Accordion title="Social Analytics" icon="chart-simple">
-    <Badge color="orange" icon="bolt">120 requests/minute</Badge>
-    Social engagement and follower analytics.
-  </Accordion>
-  <Accordion title="Legacy Producer Dashboard" icon="clock-rotate-left">
-    <Badge color="gray" icon="bolt">60 requests/minute</Badge>
-    Legacy endpoints (being phased out).
-  </Accordion>
-</AccordionGroup>
+The API enforces rate limits to ensure fair usage and platform stability. Exceeding limits returns a `429 Too Many Requests` response.
 
 <Card title="Rate Limits Reference" icon="gauge-high" horizontal href="/developers/rate-limits">
-  View complete rate limiting documentation and best practices.
+  View rate limiting documentation and best practices.
 </Card>
 
 ---
 
-## Webhooks
-
-BeatPass receives **inbound webhooks** from Stripe for payment processing. There is no outbound webhook system for external integrations.
-
-See [Webhooks](/developers/webhooks) for Stripe webhook details.
-
----
-
-## What's Not Covered
-
-This documentation covers **user-facing endpoints only**. The following are intentionally excluded:
-
-<CardGroup cols={3}>
-  <Card title="Admin Operations" icon="shield-halved" color="#ef4444">
-    Requires staff roles and elevated privileges
-  </Card>
-  <Card title="Internal Processing" icon="gears" color="#6b7280">
-    Platform infrastructure and content pipelines
-  </Card>
-  <Card title="Security Systems" icon="lock" color="#8b5cf6">
-    Protected by design for platform integrity
-  </Card>
-</CardGroup>
+## Terms of Use
 
 <Warning>
-  Attempting to access undocumented admin or internal endpoints without authorization is a violation of terms of service and may result in account termination.
+  API access is subject to the BeatPass Terms of Service. The following are strictly prohibited:
+  
+  - **Scraping or crawling** platform content
+  - **Bypassing** rate limits or access controls
+  - **Accessing** undocumented or internal endpoints
+  - **Redistributing** API data without permission
+  - **Automated bulk collection** of catalog data
+  
+  Violations result in immediate token revocation and account termination.
 </Warning>
 
 <Tip>
@@ -338,7 +286,7 @@ This documentation covers **user-facing endpoints only**. The following are inte
 
 <CardGroup cols={2}>
   <Card title="Authentication" icon="key" href="/developers/auth">
-    Learn how Sanctum authentication works.
+    Learn how API authentication works.
   </Card>
   <Card title="API Reference" icon="code" href="/developers/api-reference/overview">
     Complete endpoint reference.

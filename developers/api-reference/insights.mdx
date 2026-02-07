@@ -16,7 +16,7 @@ The Insights API provides focused, domain-specific analytics endpoints for conte
 </Info>
 
 <Note>
-  All Insights endpoints require authentication. Include session cookies in your requests.
+  All Insights endpoints require authentication. Include your Bearer token in the `Authorization` header.
 </Note>
 
 ---
@@ -32,14 +32,16 @@ Retrieve comprehensive analytics for a track including plays, engagement, and pe
 ```bash cURL
 curl "https://open.beatpass.ca/api/v1/producer-intelligence/insights/tracks/123" \
   -H "Accept: application/json" \
-  --cookie "session=..."
+  -H "Authorization: Bearer YOUR_TOKEN_HERE"
 ```
 
 
 ```javascript JavaScript
 const response = await fetch('/api/v1/producer-intelligence/insights/tracks/123', {
-  credentials: 'include',
-  headers: { 'Accept': 'application/json' }
+  headers: {
+    'Accept': 'application/json',
+    'Authorization': 'Bearer YOUR_TOKEN_HERE'
+  }
 });
 ```
 
@@ -270,7 +272,7 @@ All Insights endpoints use standardized error responses:
 
 <CardGroup cols={2}>
   <Card title="Authentication" icon="key" href="/developers/auth">
-    Learn about session-based authentication.
+    Learn about API authentication.
   </Card>
   <Card title="Rate Limits" icon="gauge" href="/developers/rate-limits">
     Understand API rate limits and caching.

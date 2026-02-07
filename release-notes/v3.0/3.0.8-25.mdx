@@ -1,0 +1,118 @@
+---
+title: "API Security Hardening"
+date: "2026-02-07"
+severity: "hotfix"
+audience: "All"
+tags: ["security", "api", "improvement"]
+components: ["api", "authentication", "rate-limiting"]
+status: "published"
+related: []
+---
+
+# API Security Hardening
+
+<Card title="Security Update" icon="shield" color="#22c55e">
+  <Badge color="green" size="lg">SECURITY</Badge>
+  Comprehensive API security audit and hardening
+</Card>
+
+We've completed a comprehensive security audit of the BeatPass API, strengthening authentication, rate limiting, and data protection across the platform.
+
+<Note>
+  No action is required from users. All improvements have been automatically applied. Existing developer tokens continue to work normally.
+</Note>
+
+---
+
+## What's Improved
+
+### Authentication Hardening
+
+Sensitive API endpoints now enforce authentication at the routing level, providing defense-in-depth security:
+
+- **Track downloads and licensing** — Download, license certificate, and license generation endpoints now require authentication
+- **Audio fingerprinting** — Fingerprint generation, status checks, and duplicate detection endpoints are now protected
+- **Video uploads** — Video chunk upload and processing endpoints require authentication
+- **Producer earnings** — Contribution pool and earnings data endpoints are now secured
+- **Content management** — Genre creation/editing and coupon management require authentication
+
+### Developer Token Support
+
+The API now fully supports **personal access tokens** for developer integrations:
+
+- Generate tokens from the **Developers** panel in **Account Settings**
+- Tokens use `Bearer` authentication in the `Authorization` header
+- Tokens expire after **90 days** for security
+- The `api.access` permission is enforced for external API requests
+
+### Rate Limiting
+
+New rate limits protect against abuse while maintaining smooth normal usage:
+
+| Endpoint | Limit | Purpose |
+|----------|-------|---------|
+| **Global API** | 300/min | Platform-wide baseline |
+| **Audio proxy** | 30/min | Audio file serving |
+| **Image proxy** | 60/min | Image file serving |
+| **Track plays** | 30/min | Play count logging |
+| **Video uploads** | 60/min | Chunked video uploads |
+| **Play duration** | 60/min | Listen duration tracking |
+
+<Info>
+  These limits are generous for normal usage. A typical listening session uses fewer than 5 requests per minute.
+</Info>
+
+### Data Protection
+
+API responses now follow the principle of least privilege for data exposure:
+
+- **Audio fingerprint data** — Proprietary fingerprint data and direct audio URLs are no longer exposed in API responses
+- **Internal system fields** — Internal-only fields (waveform metadata, system timestamps) are hidden from API responses
+- **Sensitive user data** — Contact emails, buyer information, and moderation fields are protected from external API access while remaining available to the platform interface
+
+### CORS Configuration
+
+Cross-Origin Resource Sharing is now configured with explicit domain whitelisting instead of wildcard access, with a 24-hour preflight cache for improved performance.
+
+---
+
+## For Developers
+
+If you use the BeatPass API with developer tokens:
+
+- **No breaking changes** — All existing public endpoints continue to work
+- **Token expiration** — Tokens now expire after 90 days. Generate a new token from Account Settings when needed
+- **Rate limit headers** — Monitor `X-RateLimit-Remaining` headers to stay within limits
+- **Updated documentation** — See [Authentication](/developers/auth) and [Rate Limits](/developers/rate-limits) for full details
+
+---
+
+## Your Data & Security
+
+| Data Type | Status |
+|-----------|--------|
+| **Passwords** | No impact — encrypted and secure |
+| **Payment info** | No impact — handled by Stripe |
+| **Personal data** | Enhanced protection — sensitive fields restricted |
+| **Uploaded content** | Enhanced protection — fingerprint data secured |
+
+---
+
+## Updated Documentation
+
+- [Authentication Guide](/developers/auth) — Updated with developer token details
+- [Rate Limits](/developers/rate-limits) — Updated with new global and route-specific limits
+- [API Overview](/developers/overview) — Updated authentication model
+- [Quickstart](/developers/quickstart) — Updated with token auth flow
+
+---
+
+## Questions?
+
+If you have concerns about this security update:
+
+- **Email**: [contact@beatpass.ca](mailto:contact@beatpass.ca)
+
+<Info>
+  We take security seriously. Thank you for your trust in BeatPass.
+</Info>

@@ -14,7 +14,7 @@ The **Artist Dashboard API** provides programmatic access to producer analytics 
 <Info>
   **Base URL:** `https://open.beatpass.ca/api/v1`
   
-  **Authentication:** All endpoints require an authenticated session. The user must have a producer profile (be linked to an artist).
+  **Authentication:** All endpoints require a valid Bearer token. The user must have a producer profile (be linked to an artist).
 </Info>
 
 ---
@@ -23,7 +23,7 @@ The **Artist Dashboard API** provides programmatic access to producer analytics 
 
 All dashboard endpoints require:
 
-- **Authenticated session:** User must be logged in via the standard Sanctum auth flow
+- **Authentication:** User must include a valid Bearer token
 - **Producer profile:** User must have an associated artist profile (created via the Producer Program)
 - **Upload access:** Some endpoints (upload insights) additionally require the artist profile to have upload access enabled
 
@@ -302,15 +302,13 @@ Retrieves tracks where the artist has collaborated with other producers.
 
 ```javascript
 // Example: Fetch dashboard stats for authenticated producer
-// Note: Uses session cookies, not Bearer tokens
 async function getDashboardStats() {
   const response = await fetch('https://open.beatpass.ca/api/v1/artist/dashboard-stats', {
     method: 'GET',
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    credentials: 'include' // Include session cookies
+      'Authorization': 'Bearer YOUR_TOKEN_HERE'
+    }
   });
   
   if (!response.ok) {
@@ -328,7 +326,7 @@ async function getDashboardStats() {
 
 <CardGroup cols={2}>
   <Card title="Authentication" icon="key" href="/developers/auth">
-    Understand session-based authentication
+    Understand API authentication
   </Card>
   <Card title="Rate Limits" icon="gauge" href="/developers/rate-limits">
     Understand API rate limiting
