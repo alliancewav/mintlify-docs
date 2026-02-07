@@ -9,6 +9,9 @@ status: "draft"
 related: []
 ---
 
+import ReleaseFeedback from "/snippets/sections/release-feedback.mdx";
+{/* Import other applicable snippets: PlatformFee, SupportContact, etc. */}
+
 # {Feature Name}
 
 ## Summary
@@ -92,3 +95,27 @@ Explain the user benefit:
     See what led to this
   </Card>
 </CardGroup>
+
+<ReleaseFeedback />
+
+<!--
+## CHANGELOG REMINDER
+
+After creating this page, you MUST also:
+
+1. Add an Update component entry at the TOP of release-notes/changelog.mdx:
+
+<Update label="{Month Day, Year}" description="v{version}" tags={["Feature", "{Tag2}"]}>
+  ## {Feature Name}
+
+  {1-2 sentence summary.}
+
+  - **{Key change 1}** — Brief description
+  - **{Key change 2}** — Brief description
+  - **{Key change 3}** — Brief description
+
+  [Read full release notes →](/release-notes/v3.0/{version})
+</Update>
+
+2. Update docs.json navigation — add this page to the correct month group.
+-->

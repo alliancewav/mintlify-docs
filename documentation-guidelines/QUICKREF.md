@@ -13,66 +13,102 @@ Everything you need at a glance.
 
 ## File Naming
 
+Individual release note pages use **version-based naming**:
+
 ```
-YYYY-MM-DD-short-descriptive-title.mdx
+release-notes/v3.0/{version}.mdx
 
 Examples:
-✅ 2026-02-10-playlist-collaboration.mdx
-✅ 2026-02-15-dashboard-performance.mdx
-❌ 2026-02-10-update.mdx (too vague)
-❌ feb-10-playlist.mdx (wrong format)
+✅ release-notes/v3.0/3.0.8-26.mdx
+✅ release-notes/v3.0/3.0.9.mdx
+❌ release-notes/v3.0/update.mdx (too vague)
+❌ release-notes/2026-02-10-playlist.mdx (wrong format)
 ```
 
 ---
 
-## Folder Structure
+## Release Notes Structure
+
+BeatPass uses a **two-part system**: individual pages + unified changelog.
 
 ```
 release-notes/
-├── index.mdx                      # Main landing
-├── {YYYY}/                        # Year folder
-│   ├── index.mdx                  # Year summary
-│   ├── {month}/                   # Month folder
-│   │   ├── index.mdx              # Month summary
-│   │   └── YYYY-MM-DD-title.mdx   # Release notes
-│   └── YYYY-MM-DD-title.mdx       # Root-level releases
-└── _archive/{YYYY}/               # Pre-2024
+├── index.mdx                      # Landing page
+├── changelog.mdx                  # Unified changelog (Update components + RSS)
+├── v3.0/                          # Current version
+│   ├── index.mdx                  # v3.0 overview
+│   ├── 3.0.8-25.mdx              # Individual release pages
+│   ├── 3.0.8-24.mdx
+│   └── ...
+└── v2.x/                          # Legacy version
+    ├── index.mdx
+    └── ...
 ```
 
-Month names: `january`, `february`, `march`, `april`, `may`, `june`, `july`, `august`, `september`, `october`, `november`, `december`
+**For every release, you must:**
+1. Create individual page in `release-notes/v3.0/`
+2. Add `Update` entry at **top** of `release-notes/changelog.mdx`
+3. Update `docs.json` navigation (correct month group)
 
 ---
 
-## Frontmatter Template
+## Frontmatter Template (Individual Page)
 
 ```yaml
 ---
 title: "Brief Title"
 date: "YYYY-MM-DD"
-version: "X.X.X"                    # Optional
 severity: "minor"                   # major|minor|patch|hotfix
-audience: "All"                     # All|Producers|Artists|Admins|Developers
+audience: "All"                     # All|Producers|Developers
 tags: ["feature"]                   # See taxonomy
 components: ["dashboard"]           # See taxonomy
-status: "draft"                     # draft|review|published
-related: []                         # ["YYYY-MM-DD-other-release"]
 ---
+```
+
+## Changelog Entry Template
+
+```mdx
+<Update label="{Month Day, Year}" description="v{version}" tags={["{Tag1}", "{Tag2}"]}>
+  ## {Title}
+
+  {1-2 sentence summary.}
+
+  - **{Key change 1}** — Brief description
+  - **{Key change 2}** — Brief description
+
+  [Read full release notes →](/release-notes/v3.0/{version})
+</Update>
 ```
 
 ---
 
 ## Tag Quick Pick
 
+### Individual Page Tags (lowercase)
+
 | If you... | Use Tag |
-|-----------|---------|
+|-----------|--------|
 | Added something new | `feature` + component |
 | Made something better | `improvement` |
 | Fixed something broken | `bugfix` |
 | Fixed a security issue | `security` |
 | Made it faster | `performance` |
 | Removed something | `deprecation` |
-| Changed backend | `infrastructure` |
-| Changed UI | `design` |
+
+### Changelog Update Tags (Title Case)
+
+| If you... | Use Tag |
+|-----------|--------|
+| Added something new | `Feature` |
+| Fixed something broken | `Bug Fix` |
+| Fixed a security issue | `Security` |
+| Made it faster | `Performance` |
+| Changed UI/visuals | `UI/UX` |
+| Changed billing/pricing | `Billing` |
+| Producer-specific change | `Producer` |
+| Mobile improvement | `Mobile` |
+| Major platform change | `Platform` |
+| API change | `API` |
 
 ---
 
@@ -144,8 +180,36 @@ Toggle the **Enable notifications** switch
 
 ---
 
+## Snippet Quick Reference
+
+Reusable snippets live in `/snippets/`. Import after frontmatter, use as JSX components.
+
+### Common Snippet Imports
+
+| Need | Import | Use |
+|------|--------|-----|
+| Platform fee callout | `import PlatformFee from "/snippets/callouts/platform-fee.mdx";` | `<PlatformFee />` |
+| "Need Help?" footer | `import NeedHelp from "/snippets/sections/need-help.mdx";` | `<NeedHelp />` |
+| "Still Need Help?" | `import StillNeedHelp from "/snippets/sections/still-need-help.mdx";` | `<StillNeedHelp />` |
+| Support contact line | `import SupportContact from "/snippets/sections/support-contact.mdx";` | `<SupportContact />` |
+| Subscription required | `import SubscriptionRequired from "/snippets/callouts/subscription-required.mdx";` | `<SubscriptionRequired />` |
+| API invite-only | `import ApiInviteOnly from "/snippets/warnings/api-invite-only.mdx";` | `<ApiInviteOnly />` |
+| Producer-only feature | `import ProducerOnly from "/snippets/warnings/producer-only.mdx";` | `<ProducerOnly />` |
+| Plan comparison table | `import PlanComparisonTable from "/snippets/data/plan-comparison-table.mdx";` | `<PlanComparisonTable />` |
+
+### Snippet Rules
+
+- **Always use snippets** for repeated content — never duplicate inline
+- **Absolute paths** — `/snippets/...` not `../snippets/...`
+- **PascalCase names** — `PlatformFee` not `platformFee` or `platform-fee`
+- **After frontmatter** — imports go between `---` and first content line
+- **Full reference** — See [Mintlify Reference — Reusable Snippets](/documentation-guidelines/MINTLIFY-REFERENCE#reusable-snippets)
+
+---
+
 ## Section Checklist
 
+### Individual Release Note Page
 - [ ] **Title**: 3-7 words, descriptive
 - [ ] **Summary**: 2-3 sentences, benefit-focused
 - [ ] **What's New**: 3-7 bullets, outcome-first
@@ -153,6 +217,15 @@ Toggle the **Enable notifications** switch
 - [ ] **How to Use**: 3-5 steps (if applicable)
 - [ ] **Migration**: Breaking changes (if any)
 - [ ] **Related**: Links to docs (if applicable)
+
+### Changelog Update Entry
+- [ ] **Label**: `"Month Day, Year"` format
+- [ ] **Description**: `"v{version}"` format
+- [ ] **Tags**: 1-3 Title Case tags from approved set
+- [ ] **Heading**: `## Title` inside the Update
+- [ ] **Summary**: 1-2 sentences
+- [ ] **Bullets**: 3-5 with `**Bold** — description` format
+- [ ] **Link**: `[Read full release notes →](/release-notes/v3.0/{version})`
 
 ---
 
@@ -165,11 +238,15 @@ Before finishing, check:
 3. **Benefit clear?** Why they should care
 4. **Accurate?** No broken links, correct dates
 5. **Consistent?** Follows style guide
-6. **Complete?** All sections filled
-7. **Sized right?** 200-400 words
+6. **Complete?** Both individual page AND changelog entry
+7. **Sized right?** Individual: 200-600 words, Changelog entry: 50-100 words
 8. **Icons valid?** All FA6 names (not Lucide)
 9. **Links correct?** Doc paths for docs, full URLs for app pages
 10. **Colors WCAG?** Run `mint a11y` if colors changed
+11. **docs.json updated?** New page added to correct month group
+12. **RSS clean?** Add `rss` prop if entry has components/HTML
+13. **Tooltips used?** Domain jargon and technical terms have `<Tooltip>` on first occurrence
+14. **Snippets used?** Repeated content uses imports from `/snippets/`
 
 ---
 

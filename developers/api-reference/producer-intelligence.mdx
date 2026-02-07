@@ -9,7 +9,7 @@ keywords: ["beatpass producer intelligence","xp system","achievements","social a
 
 ## Overview
 
-The Producer Intelligence API is BeatPass's comprehensive analytics and gamification system for producers. It covers XP tracking, achievements, social analytics, collaboration networks, contribution graphs, advanced charting, and real-time metrics.
+The Producer Intelligence API is BeatPass's comprehensive analytics and gamification system for producers. It covers <Tooltip tip="Experience Points earned through uploads, plays, and engagement that determine a producer's level and leaderboard rank.">XP</Tooltip> tracking, achievements, social analytics, collaboration networks, contribution graphs, advanced charting, and real-time metrics.
 
 <Info>
   **Base URL:** `https://open.beatpass.ca/api/v1/producer-intelligence`
@@ -196,7 +196,7 @@ GET /api/v1/producer-intelligence/collaboration-leaderboard
 
 ### Artist Contribution Graph
 
-Visualize the contribution value distribution across an artist's tracks.
+Visualize the <Tooltip tip="A visualization showing how a producer's contribution value is distributed across their tracks.">contribution graph</Tooltip> — the contribution value distribution across an artist's tracks.
 
 ```http
 GET /api/v1/producer-intelligence/artist/{artistId}/contribution-graph

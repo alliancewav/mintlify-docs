@@ -9,6 +9,9 @@ status: "draft"
 related: []
 ---
 
+import ReleaseFeedback from "/snippets/sections/release-feedback.mdx";
+import SecurityTrust from "/snippets/sections/security-trust.mdx";
+
 # Security Update: {Brief Description}
 
 <Card title="Security Update" icon="shield" color="#dc2626">
@@ -80,15 +83,28 @@ We have addressed a security vulnerability that [brief description of impact]. T
 
 ---
 
-## Questions?
+<ReleaseFeedback />
 
-If you have concerns about this security update:
+<SecurityTrust />
 
-- **Email**: [security@beatpass.ca](mailto:security@beatpass.ca)
-- **Documentation**: [Security Practices](/help/account-security)
+<!--
+## CHANGELOG REMINDER
 
----
+After creating this page, you MUST also:
 
-<Info>
-  We take security seriously. Thank you for your trust in BeatPass.
-</Info>
+1. Add an Update component entry at the TOP of release-notes/changelog.mdx:
+
+<Update label="{Month Day, Year}" description="v{version}" tags={["Security", "{Tag2}"]}>
+  ## Security Update: {Brief Description}
+
+  {1-2 sentence summary of the vulnerability addressed.}
+
+  - **{Vulnerability addressed}** — What was fixed
+  - **{Affected area}** — Which component was impacted
+  - **No action required** — Fix applied automatically
+
+  [Read full release notes →](/release-notes/v3.0/{version})
+</Update>
+
+2. Update docs.json navigation — add this page to the correct month group.
+-->

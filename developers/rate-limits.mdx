@@ -9,7 +9,7 @@ keywords: ["beatpass rate limits","api throttling","request limits","rate limiti
 
 ## Overview
 
-The BeatPass API enforces rate limits to ensure fair usage and platform stability. Different endpoint categories have different limits based on their resource intensity.
+The BeatPass API enforces <Tooltip tip="A cap on how many API requests you can make within a time window to prevent abuse and ensure fair access.">rate limits</Tooltip> to ensure fair usage and platform stability. Different endpoint categories have different limits based on their resource intensity.
 
 ---
 
@@ -84,7 +84,7 @@ X-RateLimit-Reset: 1700000060
 
 ## When Limits Are Exceeded
 
-### 429 Response
+### <Tooltip tip="An HTTP status code meaning you've exceeded the allowed request rate. Wait for the Retry-After duration before retrying.">429</Tooltip> Response
 
 ```http
 HTTP/1.1 429 Too Many Requests
@@ -105,7 +105,7 @@ Retry-After: 60
     Immediately pause further requests to the limited endpoint.
   </Step>
   <Step title="Check Retry-After">
-    Read the `Retry-After` header for wait duration.
+    Read the <Tooltip tip="An HTTP response header telling you how many seconds to wait before making another request.">`Retry-After`</Tooltip> header for wait duration.
   </Step>
   <Step title="Implement Backoff">
     Use exponential backoff for retries.
@@ -136,7 +136,7 @@ Retry-After: 60
   </Accordion>
 </AccordionGroup>
 
-### Exponential Backoff
+### <Tooltip tip="A retry strategy that doubles the wait time after each failed attempt, preventing further rate-limit hits.">Exponential Backoff</Tooltip>
 
 ```javascript
 async function fetchWithBackoff(url, options = {}, attempt = 1) {

@@ -146,6 +146,7 @@ Review against [Style Guide](/help/release-notes/_meta/style):
 - [ ] No code/technical details
 - [ ] No internal IDs
 - [ ] Specific numbers/metrics
+- [ ] Snippets used for repeated content (fees, warnings, support sections)
 
 **Length:**
 - [ ] Total: 200-400 words
@@ -210,47 +211,90 @@ Get approval on:
 
 ## Phase 4: Publishing
 
-### Step 9: Create File
+BeatPass uses a **two-part release notes system**. Every release requires both an individual page and a changelog entry.
 
-1. **Name the file:**
+### Step 9: Create Individual Release Note Page
+
+1. **Name the file** using version-based naming:
    ```
-   YYYY-MM-DD-short-descriptive-title.mdx
+   release-notes/v3.0/{version}.mdx
+   
+   Examples:
+   release-notes/v3.0/3.0.8-26.mdx
+   release-notes/v3.0/3.0.9.mdx
    ```
 
-2. **Place in correct folder:**
+2. **Place in the version folder:**
    ```
-   release-notes/{YYYY}/{month}/
+   release-notes/v3.0/
    ```
 
-3. **Update indices:**
-   - Add to month index.mdx
-   - Add to year index.mdx (if not auto-generated)
-   - Main index will auto-update on build
+3. **Use the appropriate template** (`template-feature.mdx`, `template-security.mdx`, etc.)
 
-### Step 10: Final Checks
+### Step 10: Add Changelog Entry
+
+Add an `Update` component entry at the **top** of `release-notes/changelog.mdx` (after frontmatter, before existing entries):
+
+```mdx
+<Update label="{Month Day, Year}" description="v{version}" tags={["{Tag1}", "{Tag2}"]}>
+  ## {Title}
+
+  {1-2 sentence summary.}
+
+  - **{Key change 1}** — Brief description
+  - **{Key change 2}** — Brief description
+  - **{Key change 3}** — Brief description
+
+  [Read full release notes →](/release-notes/v3.0/{version})
+</Update>
+```
+
+**Tag values** (Title Case): `Feature`, `Bug Fix`, `Security`, `Performance`, `UI/UX`, `Billing`, `Producer`, `Mobile`, `Platform`, `API`, `Notifications`
+
+**RSS note:** If the entry contains Mintlify components or HTML, add an `rss` prop with `title` and `description` for clean RSS output.
+
+### Step 11: Update docs.json Navigation
+
+Add the new page to the correct month group under the "What's New" tab:
+
+```json
+{
+  "group": "{Month Year}",
+  "pages": [
+    "release-notes/v3.0/{version}"
+  ]
+}
+```
+
+If the month group doesn't exist yet, create it in chronological order.
+
+### Step 12: Final Checks
 
 Before publishing:
 
-- [ ] File in correct location
-- [ ] Frontmatter valid YAML
-- [ ] No syntax errors
+- [ ] Individual page in correct location with valid frontmatter
+- [ ] Changelog `Update` entry at top of `changelog.mdx`
+- [ ] `Update` label format: `"Month Day, Year"`
+- [ ] `Update` tags from approved Title Case set (1-3 tags)
+- [ ] `docs.json` navigation updated
 - [ ] Preview renders correctly
-- [ ] Links work
+- [ ] Links work (both changelog link and individual page)
 - [ ] Images load (if any)
 
-### Step 11: Publish
+### Step 13: Publish
 
 1. Commit to git
 2. Create PR if required
 3. Merge to main branch
 4. Verify deployment
 5. Check live site
+6. Verify RSS feed updated at `/release-notes/changelog/rss.xml`
 
 ---
 
 ## Phase 5: Post-Publish
 
-### Step 12: Announce
+### Step 14: Announce
 
 Notify channels:
 - [ ] In-app changelog/what's new
@@ -258,8 +302,9 @@ Notify channels:
 - [ ] Slack/Discord community
 - [ ] Twitter/social (for major releases)
 - [ ] Blog post (for major version launches)
+- [ ] RSS feed auto-publishes at `/release-notes/changelog/rss.xml` (subscribers via Slack, Discord, email get notified automatically)
 
-### Step 13: Monitor
+### Step 15: Monitor
 
 Watch for:
 - User questions about the release
@@ -267,7 +312,7 @@ Watch for:
 - Bugs reported related to release
 - Engagement with new features
 
-### Step 14: Update (if needed)
+### Step 16: Update (if needed)
 
 Update the release note if:
 - Bug discovered post-release
@@ -275,7 +320,9 @@ Update the release note if:
 - User feedback clarifies need
 - Related documentation changes
 
-Add an **Update** section at the bottom:
+Update **both** the individual page and the changelog entry:
+
+**Individual page** — Add an Update section at the bottom:
 ```markdown
 ---
 
@@ -284,6 +331,8 @@ Add an **Update** section at the bottom:
 - **Fixed** — Additional issue discovered and resolved
 - **Clarified** — Updated instructions based on feedback
 ```
+
+**Changelog entry** — Update the summary bullets if the change is significant.
 
 ---
 
@@ -397,6 +446,7 @@ A: No. Only user-facing changes that meet the criteria above.
 - [ ] Style guide followed
 - [ ] Length appropriate
 - [ ] User-focused
+- [ ] Snippets used where applicable
 
 ### Review
 - [ ] Self-review complete
@@ -405,14 +455,16 @@ A: No. Only user-facing changes that meet the criteria above.
 - [ ] Final check passed
 
 ### Publishing
-- [ ] File created and named correctly
-- [ ] In correct folder
-- [ ] Indices updated
+- [ ] Individual page created and named correctly (`release-notes/v3.0/{version}.mdx`)
+- [ ] Changelog `Update` entry added at top of `changelog.mdx`
+- [ ] `docs.json` navigation updated with new page in correct month group
 - [ ] Preview verified
 - [ ] Live and working
+- [ ] RSS feed updated
 
 ### Post-Publish
 - [ ] Announced in channels
+- [ ] RSS subscribers notified (automatic)
 - [ ] Monitoring for issues
 - [ ] Feedback incorporated
 

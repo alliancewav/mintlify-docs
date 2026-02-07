@@ -9,7 +9,7 @@ keywords: ["beatpass webhooks","stripe webhooks","payment webhooks","payout noti
 
 ## Overview
 
-BeatPass processes payment events from Stripe via webhooks. There is currently no outbound webhook system for external developer integrations.
+BeatPass processes payment events from Stripe via <Tooltip tip="An automated HTTP callback that Stripe sends to BeatPass when a payment event occurs (e.g. payment succeeded, payout deposited).">webhooks</Tooltip>. There is currently no outbound webhook system for external developer integrations.
 
 <Note>
   BeatPass does not send webhooks to external applications. This page provides an overview of how payment processing works on the platform.
@@ -25,6 +25,7 @@ The webhook controller processes the following Stripe events:
   <Tab title="Purchase Events">
     <AccordionGroup>
       <Accordion title="payment_intent.succeeded" defaultOpen icon="circle-check">
+        A <Tooltip tip="A Stripe object representing a customer's payment lifecycle — from creation through confirmation to completion.">PaymentIntent</Tooltip> succeeded.
         <Badge color="green">Success</Badge>
         Completes the purchase and activates the license.
       </Accordion>
@@ -57,7 +58,7 @@ The webhook controller processes the following Stripe events:
   <Tab title="Account Events">
     <Accordion title="account.updated" defaultOpen icon="rotate">
       <Badge color="purple">Sync</Badge>
-      Updates Stripe Connect account status. Producer is informed if action is required (verification, document upload, etc.).
+      Updates <Tooltip tip="Stripe's platform for marketplace payouts, used by BeatPass to route earnings to producers' bank accounts.">Stripe Connect</Tooltip> account status. Producer is informed if action is required (verification, document upload, etc.).
     </Accordion>
   </Tab>
 </Tabs>

@@ -8,7 +8,9 @@ keywords: ["stripe", "payout", "producer", "earnings", "connect", "bank"]
 "og:description": "Solutions for producer payout and Stripe Connect problems."
 ---
 
-This guide is for **producers** who are having trouble setting up Stripe Connect or receiving payouts for their music on BeatPass.
+import StillNeedHelp from "/snippets/sections/still-need-help.mdx";
+
+This guide is for **producers** who are having trouble setting up <Tooltip tip="Stripe's platform for marketplace payouts. BeatPass uses it to send earnings directly to producers' bank accounts.">Stripe Connect</Tooltip> or receiving payouts for their music on BeatPass.
 
 <Note>
   Stripe Connect is only for producers who want to receive earnings. If you're a listener having billing issues, see [Payment Issues](/help/troubleshooting/payment-issues).
@@ -31,7 +33,7 @@ To receive payouts, you need to connect a Stripe account:
     Click the **Connect Stripe Account** button to start the onboarding process.
   </Step>
   <Step title="Complete Stripe onboarding">
-    You'll be redirected to Stripe to set up your account. This takes about 5 minutes and requires:
+    You'll be redirected to Stripe to complete <Tooltip tip="The one-time Stripe setup process where you provide identity, bank, and business details to receive payouts.">onboarding</Tooltip>. This takes about 5 minutes and requires:
     - Basic business/personal information
     - Bank account details for payouts
     - Identity verification documents
@@ -59,7 +61,7 @@ Once connected, you can receive earnings from:
 ## Stripe Express vs. Regular Stripe — Common Confusion
 
 <Warning>
-  BeatPass uses **Stripe Express** accounts, which are different from regular Stripe accounts. This is the #1 source of confusion among producers.
+  BeatPass uses **<Tooltip tip="A simplified Stripe account type created through BeatPass during onboarding. Different from a regular Stripe account.">Stripe Express</Tooltip>** accounts, which are different from regular Stripe accounts. This is the #1 source of confusion among producers.
 </Warning>
 
 | | **Stripe Express (BeatPass)** | **Regular Stripe (stripe.com)** |
@@ -111,9 +113,9 @@ Once connected, you can receive earnings from:
   <Accordion title="I'm from a country that isn't supported">
     If your country isn't in the dropdown during onboarding, you can still receive payouts using alternatives:
     
-    - **Wise** — Open a multi-currency account at [wise.com](https://wise.com) to get US/EU/UK bank details
+    - **<Tooltip tip="A third-party multi-currency account service that provides local bank details in countries where Stripe isn't directly available.">Wise</Tooltip>** — Open a multi-currency account at [wise.com](https://wise.com) to get US/EU/UK bank details
     - **Payoneer** — Get receiving account details at [payoneer.com](https://www.payoneer.com)
-    - **Stripe Atlas** — Incorporate a US company at [stripe.com/atlas](https://stripe.com/atlas) ($500 one-time)
+    - **Stripe Atlas** — Incorporate a US company at [stripe.com/atlas](https://stripe.com/atlas) (\$500 one-time)
     
     See [Unsupported Countries & Alternatives](/help/earnings/stripe-connect/unsupported-countries) for step-by-step instructions.
   </Accordion>
@@ -122,7 +124,7 @@ Once connected, you can receive earnings from:
     The UAE requires a **business-type account** with Stripe — individual accounts are not supported. You need a Trade License (or freelancer permit) from a recognized UAE authority.
     
     **Affordable options for producers:**
-    - **Sharjah Media City (Shams)** — Freelancer permits from ~AED 5,750/year (~$1,565 USD)
+    - **Sharjah Media City (Shams)** — Freelancer permits from ~AED 5,750/year (~\$1,565 USD)
     - **Dubai Creative Clusters** — Permits for media and creative professionals
     - **RAKEZ / Ajman Free Zone** — Budget-friendly options
     
@@ -195,7 +197,7 @@ If your Stripe account is connected but you're not receiving money:
 <AccordionGroup>
   <Accordion title="Check your earnings">
     Go to Producer Dashboard → Finances to see:
-    - Your current contribution value
+    - Your current <Tooltip tip="A score based on your tracks' plays and recency that determines your share of subscription revenue each month." cta="Contribution system" href="/help/earnings/contribution-system">contribution value</Tooltip>
     - Estimated monthly earnings
     - Payout history
     
@@ -317,17 +319,7 @@ For track purchases (exclusive sales):
 
 ---
 
-## Still Need Help?
-
-If you're still having trouble with Stripe Connect:
-
-1. **Check Stripe's help center** at [support.stripe.com](https://support.stripe.com)
-2. **Review regional requirements** at [Regional Requirements](/help/earnings/stripe-connect/regional-requirements) for country-specific guidance
-3. **Contact the support team** at **contact@beatpass.ca** with:
-   - Your BeatPass account email
-   - Your country
-   - Description of the issue
-   - Any error messages you're seeing
+<StillNeedHelp />
 
 ---
 

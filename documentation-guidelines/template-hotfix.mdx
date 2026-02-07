@@ -9,6 +9,8 @@ status: "draft"
 related: []
 ---
 
+import ReleaseFeedback from "/snippets/sections/release-feedback.mdx";
+
 # Hotfix: {Brief Description}
 
 <Card title="Hotfix" icon="circle-exclamation" color="#dc2626">
@@ -82,16 +84,26 @@ Brief technical explanation (keep user-focused):
 
 ---
 
-## Questions?
+<ReleaseFeedback />
 
-If you experienced issues related to this incident:
+<!--
+## CHANGELOG REMINDER
 
-- Check [status page]
-- Contact [support email]
-- Review [related documentation]
+After creating this page, you MUST also:
 
----
+1. Add an Update component entry at the TOP of release-notes/changelog.mdx:
 
-<Info>
-  Hotfixes are automatically applied. No user action required.
-</Info>
+<Update label="{Month Day, Year}" description="v{version}" tags={["Bug Fix", "{Tag2}"]}>
+  ## Hotfix: {Brief Description}
+
+  {1-2 sentence summary of the fix and its impact.}
+
+  - **{Fix applied}** — How it was resolved
+  - **{Impact}** — What users experienced
+  - **No action required** — Fix applied automatically
+
+  [Read full release notes →](/release-notes/v3.0/{version})
+</Update>
+
+2. Update docs.json navigation — add this page to the correct month group.
+-->

@@ -7,13 +7,14 @@ keywords: ["beatpass auth", "api authentication", "bearer token", "api access"]
 "og:description": "Learn how to authenticate with the BeatPass API using developer access tokens."
 ---
 
+import ApiInviteOnly from "/snippets/warnings/api-invite-only.mdx";
+import BearerAuthExample from "/snippets/developer/bearer-auth-example.mdx";
+
 ## Overview
 
-The BeatPass API supports **Bearer token authentication** for approved developer integrations.
+The BeatPass API supports **<Tooltip tip="A personal access token included in the Authorization header. Expires after 90 days.">Bearer token</Tooltip> authentication** for approved developer integrations.
 
-<Warning>
-  API access is **not self-service**. Developer tokens are granted on a case-by-case basis. To request API access, contact [**contact@beatpass.ca**](mailto:contact@beatpass.ca).
-</Warning>
+<ApiInviteOnly />
 
 ---
 
@@ -21,11 +22,7 @@ The BeatPass API supports **Bearer token authentication** for approved developer
 
 All authenticated API requests use **Bearer tokens** in the `Authorization` header:
 
-```http
-GET /api/v1/tracks
-Authorization: Bearer {your-token}
-Accept: application/json
-```
+<BearerAuthExample />
 
 <CardGroup cols={2}>
   <Card title="Bearer Tokens" icon="key" color="#8b5cf6">
@@ -42,7 +39,7 @@ Accept: application/json
 
 <AccordionGroup>
   <Accordion title="401 Unauthenticated" icon="circle-xmark">
-    <Badge color="red">401</Badge> Token missing, invalid, or expired.
+    <Badge color="red"><Tooltip tip="The server could not verify your identity. Usually means the token is missing, invalid, or expired.">401</Tooltip></Badge> Token missing, invalid, or expired.
     
     **Solution:** Verify your token is correct and has not expired. Contact support if you need a new token.
     
@@ -52,7 +49,7 @@ Accept: application/json
   </Accordion>
   
   <Accordion title="403 Forbidden" icon="ban">
-    <Badge color="orange">403</Badge> Your account lacks permission for this resource.
+    <Badge color="orange"><Tooltip tip="You authenticated successfully, but your account lacks permission to access this specific resource.">403</Tooltip></Badge> Your account lacks permission for this resource.
     
     **Solution:** Ensure your account has been granted API access. Contact support if you believe this is an error.
   </Accordion>

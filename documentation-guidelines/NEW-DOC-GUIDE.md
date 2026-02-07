@@ -171,11 +171,47 @@ description: "One-line summary for SEO and previews."
 - Explain what user will learn
 - Active voice
 
+### Step 4.5: Check for Applicable Snippets
+
+**Before writing any content**, check if reusable snippets already exist for common patterns:
+
+```bash
+# List all available snippets
+ls Documentation/snippets/callouts/ Documentation/snippets/warnings/ Documentation/snippets/sections/
+```
+
+**Check the snippet for each pattern:**
+
+| If your page needs... | Use this snippet |
+|-----------------------|------------------|
+| Platform fee explanation | `import PlatformFee from "/snippets/callouts/platform-fee.mdx";` |
+| "Need Help?" footer section | `import NeedHelp from "/snippets/sections/need-help.mdx";` |
+| "Still Need Help?" with steps | `import StillNeedHelp from "/snippets/sections/still-need-help.mdx";` |
+| Inline support contact line | `import SupportContact from "/snippets/sections/support-contact.mdx";` |
+| Paid plan required notice | `import SubscriptionRequired from "/snippets/callouts/subscription-required.mdx";` |
+| Stripe Connect required notice | `import StripeConnectRequired from "/snippets/callouts/stripe-connect-required.mdx";` |
+| Producer-only feature notice | `import ProducerOnly from "/snippets/warnings/producer-only.mdx";` |
+| API invite-only warning | `import ApiInviteOnly from "/snippets/warnings/api-invite-only.mdx";` |
+| Plan comparison table | `import PlanComparisonTable from "/snippets/data/plan-comparison-table.mdx";` |
+
+**Rule**: Never write inline content that duplicates an existing snippet. Always import the snippet instead.
+
+See [Mintlify Reference — Reusable Snippets](/documentation-guidelines/MINTLIFY-REFERENCE#reusable-snippets) for the full list and usage details.
+
 ### Step 5: Structure Content
 
 #### Standard Page Structure
 
 ```mdx
+---
+audience: help
+title: "Page Title"
+description: "Brief description for SEO."
+---
+
+import NeedHelp from "/snippets/sections/need-help.mdx";
+import PlatformFee from "/snippets/callouts/platform-fee.mdx";
+
 # Page Title
 
 Brief introduction (1-2 sentences explaining what this covers).
@@ -196,6 +232,8 @@ Navigation instructions with exact UI labels.
 
 Step-by-step instructions.
 
+<PlatformFee />   {/* Use snippets for common callouts */}
+
 ### Section 3: Understanding Results
 
 What to expect, how to verify success.
@@ -207,6 +245,8 @@ What to expect, how to verify success.
     Solution...
   </Accordion>
 </AccordionGroup>
+
+<NeedHelp />   {/* Use snippet for standardized support footer */}
 
 ## Related
 
@@ -278,6 +318,7 @@ See also: [Managing your tracks](/help/producer-dashboard/tracks)
 - **Callouts (Info, Warning, Tip, Note)** — Important notices
 - **Tables** — Reference data, comparisons
 - **Badges** — Status indicators
+- **Tooltips** — Inline definitions of jargon or technical terms (first occurrence per page only)
 
 **Don't use:**
 - Complex code blocks (unless developer docs)
@@ -309,6 +350,8 @@ See also: [Managing your tracks](/help/producer-dashboard/tracks)
 <Warning>
   Cancelling your plan will remove access to premium features at the end of your billing period.
 </Warning>
+
+<Tooltip tip="Credits that control how many beat requests you can create each month. Your plan determines your allowance." cta="Learn more" href="/help/beat-requests/understanding-tokens">Tokens</Tooltip> are used to create requests.
 ```
 
 ---
@@ -333,6 +376,9 @@ See also: [Managing your tracks](/help/producer-dashboard/tracks)
 - [ ] No technical jargon users don't see
 - [ ] Specific numbers and names used
 - [ ] Mintlify components used appropriately
+- [ ] Tooltips added for domain jargon and technical terms (first occurrence per page)
+- [ ] **Snippets used** for all applicable patterns (platform fee, need help, warnings)
+- [ ] **No inline duplication** of content that exists as a snippet
 
 ### Post-Writing
 - [ ] All claims verifiable
@@ -342,6 +388,7 @@ See also: [Managing your tracks](/help/producer-dashboard/tracks)
 - [ ] Length appropriate (not too long)
 - [ ] Self-review completed
 - [ ] Mental walkthrough of steps done
+- [ ] Snippet imports use absolute paths (`/snippets/...`)
 
 ---
 
@@ -430,6 +477,15 @@ table.
    - Include edge cases if relevant
    - Add troubleshooting if common issues exist
 
+9. **Not using snippets**
+   - Wrong: Writing a custom "Need Help?" section or platform fee callout inline
+   - Fix: Import the existing snippet (`<NeedHelp />`, `<PlatformFee />`, etc.)
+   - Check `/snippets/` directory before writing common patterns
+
+10. **Hardcoding values that may change**
+    - Wrong: Writing `contact@beatpass.ca` or `12% + $3` directly in content
+    - Fix: Use the appropriate snippet so changes propagate from one source
+
 ---
 
 ## Template: New How-To Document
@@ -440,6 +496,9 @@ audience: help
 title: "How to [Do Something]"
 description: "Step-by-step guide to [achieve result] on BeatPass."
 ---
+
+import NeedHelp from "/snippets/sections/need-help.mdx";
+{/* Import other applicable snippets: PlatformFee, SubscriptionRequired, etc. */}
 
 # How to [Do Something]
 
@@ -475,6 +534,8 @@ description: "Step-by-step guide to [achieve result] on BeatPass."
   </Accordion>
 </AccordionGroup>
 
+<NeedHelp />
+
 ## Related
 
 - [Related topic](/help/path)
@@ -491,6 +552,9 @@ audience: help
 title: "[Feature Area] Overview"
 description: "Learn about [feature area] and how it helps you [benefit]."
 ---
+
+import NeedHelp from "/snippets/sections/need-help.mdx";
+{/* Import other applicable snippets based on content needs */}
 
 # [Feature Area] Overview
 
@@ -516,6 +580,8 @@ description: "Learn about [feature area] and how it helps you [benefit]."
 
 [Link to first how-to or tutorial]
 
+<NeedHelp />
+
 ## Learn More
 
 - [Subtopic 1](/help/path)
@@ -531,8 +597,13 @@ description: "Learn about [feature area] and how it helps you [benefit]."
 | Account settings feature | `account-settings/` | `two-factor-authentication.mdx` |
 | Billing functionality | `billing/` | `managing-subscription/upgrading-plan.mdx` |
 | Producer tools | `producer-dashboard/` | `tracks.mdx` |
-| Release information | `release-notes/` | `2026/january/2026-01-15-feature.mdx` |
+| Release information | `release-notes/v3.0/` | `3.0.8-26.mdx` (individual page) |
+| Changelog entry | `release-notes/` | Add `Update` to `changelog.mdx` |
 | Help overview | `help/` root | `index.mdx` |
+
+<Info>
+  **Release notes require two files**: an individual page in `release-notes/v3.0/{version}.mdx` AND an `Update` component entry at the top of `release-notes/changelog.mdx`. See `template.mdx` for the complete workflow.
+</Info>
 
 ---
 

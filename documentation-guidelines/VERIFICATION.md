@@ -467,6 +467,7 @@ When generating release notes, AI agents MUST:
 2. **Note assumptions** — Clearly mark anything not verified
 3. **Use verified data only** — No placeholder text for unverified elements
 4. **Flag for review** — Mark sections needing human verification
+5. **Check snippets** — Use existing `/snippets/` imports for repeated content (fees, warnings, support sections) instead of writing inline
 
 ### Example Verification Statement
 
@@ -491,6 +492,7 @@ ASSUMED (needs verification):
   - **WCAG failures** — Changing colors without contrast checking fails accessibility audits
   - **User confusion** — Documenting features that don't exist
   - **Support ticket overload** — Wrong navigation paths or button names
+  - **Inconsistent content** — Inline content drifting from snippet-managed values (fees, emails, plan names)
   
-  Always verify icons, links, colors, AND content. Always.
+  Always verify icons, links, colors, snippets, AND content. Always.
 </Warning>

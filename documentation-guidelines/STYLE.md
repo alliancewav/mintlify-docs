@@ -168,6 +168,68 @@ Always use the exact UI labels:
 
 ---
 
+## Tooltips
+
+### Purpose
+
+Use `<Tooltip>` to give readers an inline definition of a term on hover — without leaving the page. Tooltips reduce confusion around domain jargon, technical acronyms, and BeatPass-specific concepts.
+
+### Writing Tooltip Text
+
+**`tip` text rules:**
+- One to two sentences maximum
+- Define the term in the BeatPass context, not a generic dictionary definition
+- Write in plain English — no code, no internal terminology
+- Don't repeat the term itself inside the tip
+
+**Examples:**
+
+✅ **Good tip text:**
+```
+tip="Credits that control how many beat requests you can create each month. Your plan determines your allowance."
+```
+
+❌ **Bad tip text (too vague):**
+```
+tip="A type of credit."
+```
+
+❌ **Bad tip text (too long):**
+```
+tip="Tokens are a credit system used by BeatPass to regulate the number of beat requests that users can create in a given calendar month. Each plan tier comes with a different monthly allocation of tokens which reset on the last day of the month and do not carry over."
+```
+
+### When to Add a Tooltip
+
+Add a tooltip when a term meets **any** of these criteria:
+- It's BeatPass-specific jargon (contribution value, tokens, platform fee, duration tier)
+- It's a technical term the audience may not know (Bearer token, webhook, rate limit, 2FA)
+- It has a BeatPass-specific meaning different from everyday usage (exclusive license, Stripe Express)
+
+**Do NOT add a tooltip when:**
+- The term is common English (subscription, upload, download, payment)
+- A `<Note>`, `<Info>`, or `<Warning>` already explains it in the same section
+- The term has already been tooltipped earlier on the same page
+
+### Placement Rules
+
+- **First occurrence only** — One tooltip per term per page
+- **Body text preferred** — Place in running prose, not inside `##` headings (exception: glossary-style headings where the heading IS the defined term)
+- **Works with formatting** — Can nest inside bold: `**<Tooltip tip="...">term</Tooltip>**`
+- **Don't use inside code blocks** — Tooltips are for prose, not code examples
+
+### Cross-Linking with `cta` + `href`
+
+Use only when a dedicated page goes deeper on the term:
+
+```mdx
+<Tooltip tip="A score based on recency and plays that determines your revenue share." cta="See the formula" href="/help/earnings/contribution-system/formula">contribution value</Tooltip>
+```
+
+Omit `cta` and `href` when there's no deeper page to link to.
+
+---
+
 ## Prohibited Content
 
 ### Never Include
@@ -345,4 +407,6 @@ Format:
 | UI refs | Bold exact labels |
 | Emoji | Never use |
 | Jargon | Never use internal terms |
+| Tooltips | First occurrence per page for domain jargon/technical terms |
+| Snippets | Use `/snippets/` imports for repeated content (fees, support, warnings) |
 

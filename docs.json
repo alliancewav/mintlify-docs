@@ -568,10 +568,11 @@
         "icon": "sparkles",
         "groups": [
           {
-            "group": "Changelog",
-            "icon": "clock-rotate-left",
+            "group": "Overview",
+            "icon": "house",
             "pages": [
-              "release-notes/index"
+              "release-notes/index",
+              "release-notes/changelog"
             ]
           },
           {
@@ -580,11 +581,16 @@
             "pages": [
               "release-notes/v3.0/index",
               {
-                "group": "Latest Updates",
+                "group": "February 2026",
                 "pages": [
                   "release-notes/v3.0/3.0.8-25",
                   "release-notes/v3.0/3.0.8-24",
-                  "release-notes/v3.0/3.0.8-23",
+                  "release-notes/v3.0/3.0.8-23"
+                ]
+              },
+              {
+                "group": "January 2026",
+                "pages": [
                   "release-notes/v3.0/3.0.8-22",
                   "release-notes/v3.0/3.0.8-21",
                   "release-notes/v3.0/3.0.8-20",
@@ -620,13 +626,13 @@
                 ]
               },
               {
-                "group": "v3.0.8 Launch",
+                "group": "October 2025",
                 "pages": [
                   "release-notes/v3.0/3.0.8"
                 ]
               },
               {
-                "group": "v3.0.0 - v3.0.7 (2023)",
+                "group": "2023",
                 "pages": [
                   "release-notes/v3.0/3.0.7",
                   "release-notes/v3.0/3.0.6",

@@ -10,6 +10,9 @@ status: "draft"
 related: []
 ---
 
+import ReleaseFeedback from "/snippets/sections/release-feedback.mdx";
+{/* Import other applicable snippets: PlatformFee, SecurityTrust, etc. */}
+
 # Version X.X.X — {Release Name}
 
 <Card title="Major Release" icon="rocket" color="#22c55e">
@@ -133,14 +136,44 @@ This is a major platform release introducing [key highlights]. This update inclu
 
 ## Resources
 
-<CardGroup cols={3}>
+<CardGroup cols={2}>
   <Card title="Documentation" icon="book" href="/help">
     Updated guides and references
   </Card>
   <Card title="API Reference" icon="code" href="/help/developers/api">
     API changes and migrations
   </Card>
-  <Card title="Support" icon="headset" href="/help/contact">
-    Get help with the upgrade
-  </Card>
 </CardGroup>
+
+<ReleaseFeedback />
+
+<!--
+## CHANGELOG REMINDER
+
+After creating this page, you MUST also:
+
+1. Add an Update component entry at the TOP of release-notes/changelog.mdx.
+   For major releases, use the rss prop since content likely contains components:
+
+<Update
+  label="{Month Day, Year}"
+  description="v{version}"
+  tags={["Platform", "Feature"]}
+  rss={{
+    title: "Version {version} — {Release Name}",
+    description: "{1-2 sentence summary of major release.}"
+  }}
+>
+  ## Version {version} — {Release Name}
+
+  **{Tagline about the release.}**
+
+  - **{Major feature 1}** — Brief description
+  - **{Major feature 2}** — Brief description
+  - **{Major feature 3}** — Brief description
+
+  [Read full release notes →](/release-notes/v3.0/{version})
+</Update>
+
+2. Update docs.json navigation — add this page to the correct month group.
+-->

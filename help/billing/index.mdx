@@ -8,6 +8,8 @@ keywords: ["billing", "subscription", "payments", "invoices", "payment methods"]
 "og:description": "Learn how to manage your BeatPass subscription and payments."
 ---
 
+import PlatformFee from "/snippets/callouts/platform-fee.mdx";
+
 Your billing settings let you manage everything related to payments on BeatPass—from your subscription plan to payment methods and invoice history.
 
 ---
@@ -65,7 +67,7 @@ Subscriptions automatically renew at the end of each billing period. You'll be c
 
 ### Grace Period
 
-If you cancel your subscription, you enter a "grace period" where you still have access to your plan's features until the current billing cycle ends. During this time, you can resume your subscription without losing any benefits.
+If you cancel your subscription, you enter a <Tooltip tip="The time between cancellation and the end of your current billing cycle, during which you keep full access.">grace period</Tooltip> where you still have access to your plan's features until the current billing cycle ends. During this time, you can resume your subscription without losing any benefits.
 
 ---
 
@@ -73,7 +75,7 @@ If you cancel your subscription, you enter a "grace period" where you still have
 
 BeatPass uses secure payment processors to handle all transactions:
 
-- **Stripe** — For credit and debit card payments
+- **<Tooltip tip="A third-party payment processor that securely handles credit and debit card transactions for BeatPass.">Stripe</Tooltip>** — For credit and debit card payments
 - **PayPal** — As an alternative payment option (when available)
 
 Your payment information is never stored directly on BeatPass servers — it's securely handled by our payment partners (Stripe, PayPal).
@@ -82,13 +84,9 @@ Your payment information is never stored directly on BeatPass servers — it's s
 
 ## Platform Fee
 
-A 12% platform fee plus a $3 flat fee is added on top of all BeatPass payments, including subscriptions and beat purchases. This fee supports platform operations and development.
+A 12% <Tooltip tip="A 12% + $3 fee added on top of prices at checkout. Producers receive 100% of their set price." cta="Read more" href="/help/billing/platform-fee">platform fee</Tooltip> plus a \$3 flat fee is added on top of all BeatPass payments, including subscriptions and beat purchases. This fee supports platform operations and development.
 
-<Info>
-  The platform fee (12% + $3) is added on top of the base price at checkout. For beat purchases, producers receive 100% of their set price — the fee is paid by the buyer separately.
-</Info>
-
-Learn more about how this works in [Platform Fee](/help/billing/platform-fee).
+<PlatformFee />
 
 ---
 
@@ -106,4 +104,4 @@ Learn more about how this works in [Platform Fee](/help/billing/platform-fee).
   </Card>
 </CardGroup>
 
-For billing-specific questions, you can also email the support team directly at **contact@beatpass.ca**.
+For billing-specific questions, you can also email the support team directly at [**contact@beatpass.ca**](mailto:contact@beatpass.ca).

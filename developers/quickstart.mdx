@@ -7,13 +7,17 @@ keywords: ["beatpass quickstart", "api quickstart", "beatpass api", "bearer toke
 "og:description": "Get started with the BeatPass API using Bearer token authentication."
 ---
 
+import ApiInviteOnly from "/snippets/warnings/api-invite-only.mdx";
+import NoPublicSandbox from "/snippets/warnings/no-public-sandbox.mdx";
+import BearerAuthExample from "/snippets/developer/bearer-auth-example.mdx";
+import HttpStatusCodes from "/snippets/developer/http-status-codes.mdx";
+import ApiGettingHelp from "/snippets/sections/api-getting-help.mdx";
+
 ## Overview
 
 This guide helps approved developers get started with the BeatPass API.
 
-<Warning>
-  API access is **invite-only**. To request access, contact [**contact@beatpass.ca**](mailto:contact@beatpass.ca). See [Authentication](/developers/auth) for details.
-</Warning>
+<ApiInviteOnly />
 
 ---
 
@@ -21,11 +25,7 @@ This guide helps approved developers get started with the BeatPass API.
 
 All API requests use **Bearer token authentication**:
 
-```http
-GET /api/v1/tracks
-Authorization: Bearer {your-token}
-Accept: application/json
-```
+<BearerAuthExample />
 
 | Detail | Value |
 |--------|-------|
@@ -43,18 +43,7 @@ Accept: application/json
 
 ### No Public Sandbox
 
-<Warning>
-  **No Public Sandbox** — BeatPass does not provide a public sandbox or test environment. All API calls hit production systems.
-</Warning>
-
-This means:
-
-| Action | Impact |
-|--------|--------|
-| POST/PUT/DELETE requests | **Real data is modified** |
-| Purchases | **Real charges occur** |
-| Uploads | **Real content is published** |
-| Messages | **Real users receive messages** |
+<NoPublicSandbox />
 
 ### Development Best Practices
 
@@ -149,29 +138,11 @@ If you encounter a 403 Forbidden response, the endpoint requires permissions you
 
 ### HTTP Status Codes
 
-| Code | Meaning | Action |
-|------|---------|--------|
-| 200 | Success | Process response |
-| 201 | Created | Resource created |
-| 400 | Bad Request | Fix request format |
-| 401 | Unauthorized | Re-authenticate |
-| 403 | Forbidden | Check permissions |
-| 404 | Not Found | Resource doesn't exist |
-| 422 | Validation Error | Fix input data |
-| 429 | Rate Limited | Back off and retry |
-| 500 | Server Error | Report to support |
-
-See [Error Catalog](/developers/error-catalog) for feature-specific errors.
+<HttpStatusCodes />
 
 ---
 
-## Getting Help
-
-| Topic | Contact |
-|-------|---------|
-| API questions | contact@beatpass.ca |
-| Security concerns | contact@beatpass.ca |
-| Partnership inquiries | contact@beatpass.ca |
+<ApiGettingHelp />
 
 ### Documentation
 

@@ -52,7 +52,7 @@ POST /api/v1/tracks/{track}/purchase/calculate-price
 
 ### Initiate Purchase
 
-Start the purchase flow by creating a Stripe PaymentIntent.
+Start the purchase flow by creating a Stripe <Tooltip tip="A Stripe object that tracks a payment from creation to completion. The client_secret is used to confirm payment on the frontend.">PaymentIntent</Tooltip>.
 
 ```http
 POST /api/v1/tracks/{track}/purchase/initiate
@@ -149,7 +149,7 @@ GET /api/v1/artist/sales
     "earnings": {
       "total_sales": 12,
       "total_revenue": 245.50,
-      "total_revenue_formatted": "$245.50 USD",
+      "total_revenue_formatted": "\$245.50 USD",
       "pending_payout": 89.00,
       "paid_out": 156.50,
       "currency": "USD"
@@ -198,7 +198,7 @@ GET /api/v1/artist/sales
 
 ### Generate License
 
-Generate a license certificate for a purchased track.
+Generate a <Tooltip tip="A verifiable document generated after purchase that proves the buyer's right to use a beat under specific terms.">license certificate</Tooltip> for a purchased track.
 
 ```http
 POST /api/v1/tracks/{track}/generate-license
@@ -272,7 +272,7 @@ GET /api/v1/user/licenses
 
 ## Exclusive License Presets
 
-Manage reusable pricing presets for exclusive license sales.
+Manage reusable pricing presets — <Tooltip tip="A saved set of pricing and rights configurations that producers can reuse across multiple beats for exclusive sales.">exclusive license presets</Tooltip> — for exclusive license sales.
 
 ### List Presets
 

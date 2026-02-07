@@ -1,0 +1,512 @@
+---
+title: "Changelog"
+sidebarTitle: "Changelog"
+description: "All BeatPass platform updates, new features, and improvements in one place."
+rss: true
+---
+
+<Update label="February 7, 2026" description="v3.0.8-25" tags={["Security", "API", "Performance"]}>
+  ## API Security Hardening
+
+  Comprehensive API security audit and hardening across the platform.
+
+  - **Authentication enforced** on sensitive endpoints including downloads, fingerprinting, and earnings
+  - **Developer token support** with Bearer auth and 90-day expiration
+  - **New rate limits** — 300/min global, 30/min audio proxy, 60/min image proxy
+  - **Data protection** — Fingerprint data, internal fields, and sensitive user data restricted from API responses
+  - **CORS hardening** — Explicit domain whitelisting replaces wildcard access
+
+  No action required from users — all improvements applied automatically.
+
+  [Read full release notes →](/release-notes/v3.0/3.0.8-25)
+</Update>
+
+<Update label="February 4, 2026" description="v3.0.8-24" tags={["Billing", "Platform"]}>
+  ## Platform Fee Update
+
+  Updated fee structure for beat purchases: **12% + $3** (previously 15% flat).
+
+  - Lower total cost for beats priced $150+
+  - No change at the $100 price point
+  - Slightly higher for beats under $50
+  - **Producers still receive 100%** of their listed price — fee is paid by buyers
+
+  [Read full release notes →](/release-notes/v3.0/3.0.8-24)
+</Update>
+
+<Update label="February 2, 2026" description="v3.0.8-23" tags={["Feature", "Billing", "UI/UX", "Notifications"]}>
+  ## Email & Notification Improvements, Payment Recovery, and Social Engagement
+
+  A comprehensive update improving email reliability, notifications, payment recovery, and social features.
+
+  - **Fixed unsubscribe links** across all notification emails
+  - **Encouraging performance reports** — Friendly messaging for new producers instead of empty stats
+  - **20+ seasonal notification themes** with countdown timers for coupon offers
+  - **Payment recovery flow** — Blocking popup for overdue subscriptions with retry or downgrade options
+  - **Auto-follow on download** — Automatically follow artists when you download their beats
+
+  [Read full release notes →](/release-notes/v3.0/3.0.8-23)
+</Update>
+
+<Update label="January 22, 2026" description="v3.0.8-22" tags={["Performance", "Bug Fix", "Mobile"]}>
+  ## Platform Stability & Performance
+
+  Major reliability update focused on making BeatPass faster and more accurate.
+
+  - **iOS Safari keyboard fixes** — Chat messages stay visible when keyboard opens
+  - **Leaderboard accuracy** — Tagged tracks and descriptions now counted correctly
+  - **Faster dashboard loading** with smarter data caching
+  - **Database optimizations** for producers with large catalogs
+  - **TypeScript type safety** — Eliminated unsafe type casts in business-critical flows
+
+  [Read full release notes →](/release-notes/v3.0/3.0.8-22)
+</Update>
+
+<Update label="January 19, 2026" description="v3.0.8-21" tags={["Feature", "UI/UX", "Producer", "Billing"]}>
+  ## Finances Dashboard Overhaul
+
+  Complete redesign of the producer finances page with fixed payout logic and accurate transaction display.
+
+  - **Fixed automatic payout transfers** — Enhanced retry mechanism and platform balance protection
+  - **Accurate track sales data** — Eliminated duplicate entries, shows actual track names
+  - **Redesigned balance overview** — Color-coded stat cards matching platform design system
+  - **New "How Earnings Work" section** explaining track sales, subscription payouts, and bonuses
+
+  [Read full release notes →](/release-notes/v3.0/3.0.8-21)
+</Update>
+
+<Update label="January 14, 2026" description="v3.0.8-20" tags={["Feature", "Mobile", "UI/UX", "Producer"]}>
+  ## Mobile Player & Producer Payouts
+
+  iOS-inspired mobile player redesign and detailed payout notification system.
+
+  - **Glass morphism mini player** with backdrop blur, rounded corners, and spring animations
+  - **Fullscreen lyrics** with smooth crossfade toggle from cover art
+  - **Payout notifications** — Pending, initiated, completed, and failed status emails with earnings breakdown
+  - **Stripe Connect reminders** for producers without connected accounts
+  - **35+ email templates redesigned** with modern Stripe-inspired layout
+
+  [Read full release notes →](/release-notes/v3.0/3.0.8-20)
+</Update>
+
+<Update label="January 6, 2026" description="v3.0.8-19" tags={["Feature", "UI/UX", "Producer"]}>
+  ## Beat Requests & Payout Notifications
+
+  Redesigned beat request experience with flexible durations and improved producer payout emails.
+
+  - **Flexible request durations** with tiered token costs
+  - **Improved request cards** with better status indicators
+  - **Detailed payout emails** with complete earnings breakdown
+
+  [Read full release notes →](/release-notes/v3.0/3.0.8-19)
+</Update>
+
+<Update label="December 18, 2025" description="v3.0.8-18" tags={["UI/UX", "Performance"]}>
+  ## Visual Experience Improvements
+
+  A more immersive and responsive visual experience across the platform.
+
+  - **Dynamic color themes** — Platform adapts colors based on what you're viewing
+  - **Trending indicators** on popular tracks
+  - **Faster content loading** with optimized rendering
+
+  [Read full release notes →](/release-notes/v3.0/3.0.8-18)
+</Update>
+
+<Update label="December 17, 2025" description="v3.0.8-17" tags={["Bug Fix", "Producer"]}>
+  ## Track Upload & Instant Publishing Fixes
+
+  Fixed issues preventing track uploads from completing and ensured new beats appear instantly.
+
+  - **Upload completion fixes** — Resolved issues blocking some uploads
+  - **Instant Discover page visibility** — New beats appear immediately after publishing
+  - **Cache invalidation** — No more stale content on the Discover page
+
+  [Read full release notes →](/release-notes/v3.0/3.0.8-17)
+</Update>
+
+<Update label="December 16, 2025" description="v3.0.8-16" tags={["Bug Fix", "UI/UX", "Producer"]}>
+  ## Artist Profile & Upload Improvements
+
+  Fixes for verified badge preservation, unclaimed profile detection, and upload UX.
+
+  - **Verified badge fixes** — Badges preserved correctly during profile updates
+  - **Unclaimed profile detection** improved
+  - **File format modal** — Helpful guidance for upload requirements
+
+  [Read full release notes →](/release-notes/v3.0/3.0.8-16)
+</Update>
+
+<Update label="December 10, 2025" description="v3.0.8-15" tags={["Feature", "UI/UX", "Mobile"]}>
+  ## UX Enhancements
+
+  Track upload form redesign, messaging improvements, and push notification support.
+
+  - **Redesigned track upload form** — Clearer layout and better field organization
+  - **Enhanced messaging system** with improved reliability
+  - **Web push notifications** — Real-time alerts for followers, messages, and sales
+
+  [Read full release notes →](/release-notes/v3.0/3.0.8-15)
+</Update>
+
+<Update label="December 8, 2025" description="v3.0.8-14" tags={["Feature", "Producer"]}>
+  ## Professional Credits
+
+  Showcase your production work on other artists' projects with Spotify-linked credits.
+
+  - **Credit your work** on tracks outside of BeatPass
+  - **Spotify integration** — Link to verified releases
+  - **Profile showcase** — Credits displayed on your producer profile
+
+  [Read full release notes →](/release-notes/v3.0/3.0.8-14)
+</Update>
+
+<Update label="December 5, 2025" description="v3.0.8-13" tags={["Performance", "Platform"]}>
+  ## Performance & Code Quality
+
+  Comprehensive platform improvements: 95% faster leaderboards, optimized dashboards, and architecture refactoring.
+
+  - **95% faster leaderboard loading**
+  - **Optimized dashboard queries** and data aggregation
+  - **TypeScript migration** for critical components
+  - **Architecture refactoring** for long-term maintainability
+
+  [Read full release notes →](/release-notes/v3.0/3.0.8-13)
+</Update>
+
+<Update label="December 1, 2025" description="v3.0.8-12" tags={["Platform", "Feature", "Producer"]} rss={{title: "December 2025 Production Launch", description: "BeatPass v3.0.8 is now live in production with Stripe Connect payments, redesigned Producer Dashboard, lyrics management, mobile improvements, and more."}}>
+  ## Production Launch
+
+  **BeatPass v3.0.8 is now live in production!** Comprehensive platform upgrades including:
+
+  - **Stripe Connect** — 100% revenue share with automatic payouts
+  - **Producer Dashboard** — Complete overhaul with analytics and finances
+  - **Lyrics management** — Synced and plain text lyrics support
+  - **Mobile improvements** — Responsive design across all features
+  - **AI cover art presets** — Quick professional artwork for your beats
+
+  [Read full release notes →](/release-notes/v3.0/3.0.8-12)
+</Update>
+
+<Update label="December 1, 2025" description="v3.0.8-11" tags={["Bug Fix"]}>
+  ## Album & Track Management Fixes
+
+  Critical hotfixes for album and track management workflows.
+
+  - **Album editing fixes** — Resolved issues with track ordering and metadata
+  - **Upload reliability** — Fixed edge cases in the upload pipeline
+  - **Channel display fixes** — Correct track counts and sorting
+
+  [Read full release notes →](/release-notes/v3.0/3.0.8-11)
+</Update>
+
+<Update label="November 24, 2025" description="v3.0.8-10" tags={["Feature", "Security"]}>
+  ## Beat Request System — Production Ready
+
+  Database-backed architecture resolving critical security issues and ensuring data integrity.
+
+  - **Production-ready beat requests** with proper data persistence
+  - **Security hardening** for request submissions
+  - **Improved data integrity** across the request lifecycle
+
+  [Read full release notes →](/release-notes/v3.0/3.0.8-10)
+</Update>
+
+<Update label="November 21, 2025" description="v3.0.8-9" tags={["Performance", "Security"]}>
+  ## Production Hardening & Reliability
+
+  System reliability, data integrity, and operational monitoring improvements.
+
+  - **Gamification reliability** — Self-healing data consistency
+  - **Subscription splits** — Enhanced transfer execution
+  - **Financial reporting** — Accurate earnings calculations
+
+  [Read full release notes →](/release-notes/v3.0/3.0.8-9)
+</Update>
+
+<Update label="November 21, 2025" description="v3.0.8-8" tags={["Feature", "UI/UX", "Producer"]}>
+  ## Producer Experience & Dashboard Updates
+
+  Visual consistency with the player interface, new finances section, and performance optimizations.
+
+  - **Dashboard visual refresh** matching the platform design system
+  - **New finances section** with balance overview and transaction history
+  - **Significant performance optimizations** for dashboard loading
+
+  [Read full release notes →](/release-notes/v3.0/3.0.8-8)
+</Update>
+
+<Update label="November 20, 2025" description="v3.0.8-7" tags={["Feature", "Producer"]}>
+  ## XP System & Gamification Overhaul
+
+  Massive update ensuring fairness, accuracy, and reliability for the XP system.
+
+  - **Collaborative XP attribution** for joint releases
+  - **Max-level handling** and progression caps
+  - **Self-healing data consistency** for XP calculations
+
+  [Read full release notes →](/release-notes/v3.0/3.0.8-7)
+</Update>
+
+<Update label="November 20, 2025" description="v3.0.8-6" tags={["Performance", "Platform"]}>
+  ## Scheduler Reliability & Performance
+
+  Complete overhaul of background job scheduler and database maintenance routines.
+
+  - **Optimized for millions of rows** without impacting app performance
+  - **Improved job scheduling** and execution reliability
+  - **Database maintenance** routines for long-term health
+
+  [Read full release notes →](/release-notes/v3.0/3.0.8-6)
+</Update>
+
+<Update label="November 20, 2025" description="v3.0.8-5" tags={["Feature", "Performance"]}>
+  ## Engagement Analytics & Partial Listen Tracking
+
+  Critical fix increasing data capture from ~10% to over 90% of all playback activity.
+
+  - **Partial listen tracking** — Skips, background plays, and short listens now recorded
+  - **Accurate engagement metrics** for producer analytics
+  - **Data integrity improvements** across the analytics pipeline
+
+  [Read full release notes →](/release-notes/v3.0/3.0.8-5)
+</Update>
+
+<Update label="November 19, 2025" description="v3.0.8-4" tags={["Platform", "Security"]}>
+  ## Codebase Refactoring & Routing Improvements
+
+  Improved maintainability, fixed critical security vulnerabilities, and cleaned up legacy debt.
+
+  - **Routing improvements** for cleaner URL handling
+  - **Security vulnerability patches**
+  - **Legacy code cleanup** reducing technical debt
+
+  [Read full release notes →](/release-notes/v3.0/3.0.8-4)
+</Update>
+
+<Update label="November 14, 2025" description="v3.0.8-3" tags={["Performance", "Platform"]}>
+  ## SEO Modernization & Schema Upgrades
+
+  Comprehensive modernization of the platform's SEO strategy.
+
+  - **Rich schemas** for better search engine visibility
+  - **Voice search optimization**
+  - **Authentic metadata** improving click-through rates
+
+  [Read full release notes →](/release-notes/v3.0/3.0.8-3)
+</Update>
+
+<Update label="November 11, 2025" description="v3.0.8-2" tags={["Mobile", "UI/UX", "Bug Fix"]}>
+  ## Mobile UI & Player Overlay Restoration
+
+  Complete restoration of the mobile player overlay with polished glassmorphism design.
+
+  - **Glassmorphism player** restored with proper blur effects
+  - **Critical usability fixes** for mobile playback
+  - **Touch interaction improvements**
+
+  [Read full release notes →](/release-notes/v3.0/3.0.8-2)
+</Update>
+
+<Update label="November 4, 2025" description="v3.0.8-1" tags={["Security", "Billing"]}>
+  ## Billing Platform Security & Reliability
+
+  Major security and reliability update for the billing system.
+
+  - **Payment method handling** — Fixed critical vulnerabilities
+  - **Subscription upgrade security** — Hardened upgrade flow
+  - **Billing system reliability** improvements
+
+  [Read full release notes →](/release-notes/v3.0/3.0.8-1)
+</Update>
+
+<Update label="October 1, 2025" description="v3.0.8" tags={["Platform", "Feature"]} rss={{title: "Version 3.0.8 Beta Release", description: "Initial beta release of v3.0.8 with analytics, commerce features, documentation system, and Producer Dashboard foundations."}}>
+  ## Version 3.0.8 — Initial Beta Release
+
+  The foundation for the modern BeatPass platform with major new subsystems.
+
+  - **Analytics engine** — Comprehensive play and engagement tracking
+  - **Commerce system** — Beat licensing and purchase infrastructure
+  - **Documentation platform** — New help center and developer docs
+  - **Producer Dashboard** foundations
+
+  [Read full release notes →](/release-notes/v3.0/3.0.8)
+</Update>
+
+<Update label="November 11, 2023" description="v3.0.7" tags={["Performance", "Bug Fix"]}>
+  ## Version 3.0.7 — Performance & SEO
+
+  Performance optimizations and search engine improvements.
+
+  - **Faster page loads** and rendering optimizations
+  - **SEO improvements** for better discoverability
+  - **Bug fixes** across player, search, and billing
+
+  [Read full release notes →](/release-notes/v3.0/3.0.7)
+</Update>
+
+<Update label="May 26, 2023" description="v3.0.6" tags={["Feature", "Security"]}>
+  ## Version 3.0.6 — Two-Factor Authentication
+
+  Security enhancements with two-factor authentication support.
+
+  - **Two-factor authentication** for account security
+  - **Admin improvements** and player fixes
+  - **Upload and billing** reliability updates
+
+  [Read full release notes →](/release-notes/v3.0/3.0.6)
+</Update>
+
+<Update label="April 23, 2023" description="v3.0.5" tags={["Feature"]}>
+  ## Version 3.0.5 — HLS/DASH Streaming
+
+  Modern audio streaming with adaptive bitrate support.
+
+  - **HLS/DASH streaming** — Adaptive bitrate audio playback
+  - **Upload improvements** and admin enhancements
+  - **Billing system** updates
+
+  [Read full release notes →](/release-notes/v3.0/3.0.5)
+</Update>
+
+<Update label="April 3, 2023" description="v3.0.4" tags={["Feature", "UI/UX"]}>
+  ## Version 3.0.4 — Context Menus & Search
+
+  Enhanced navigation with context menus and improved search.
+
+  - **Context menus** for quick actions on tracks and albums
+  - **Search improvements** for better results
+  - **Social feature** enhancements
+
+  [Read full release notes →](/release-notes/v3.0/3.0.4)
+</Update>
+
+<Update label="March 23, 2023" description="v3.0.3" tags={["Bug Fix"]}>
+  ## Version 3.0.3 — Comments & Library Fixes
+
+  Bug fixes for social features and the music library.
+
+  - **Comments system** fixes for reliability
+  - **Library management** improvements
+  - **Search refinements**
+
+  [Read full release notes →](/release-notes/v3.0/3.0.3)
+</Update>
+
+<Update label="March 21, 2023" description="v3.0.2" tags={["UI/UX", "Bug Fix"]}>
+  ## Version 3.0.2 — UI Polish & Player Fixes
+
+  Visual refinements and player reliability improvements.
+
+  - **Player stability** fixes for consistent playback
+  - **UI polish** across search and admin interfaces
+  - **Visual consistency** improvements
+
+  [Read full release notes →](/release-notes/v3.0/3.0.2)
+</Update>
+
+<Update label="March 19, 2023" description="v3.0.1" tags={["Bug Fix"]}>
+  ## Version 3.0.1 — Search & Upload Fixes
+
+  Post-launch bug fixes for core functionality.
+
+  - **Search fixes** for accurate results
+  - **Upload reliability** improvements
+  - **Channel display** corrections
+
+  [Read full release notes →](/release-notes/v3.0/3.0.1)
+</Update>
+
+<Update label="March 18, 2023" description="v3.0.0" tags={["Platform", "Feature"]} rss={{title: "Version 3.0.0 — React Platform Launch", description: "Complete platform rewrite with React frontend, modern player, channels system, and new admin interface."}}>
+  ## Version 3.0.0 — React Platform Launch
+
+  **Complete platform rewrite** introducing the modern BeatPass experience.
+
+  - **React frontend** replacing the legacy server-rendered UI
+  - **Modern audio player** with queue management
+  - **Channels system** for content discovery
+  - **New admin interface** with improved management tools
+  - **Billing system** overhaul
+
+  [Read full release notes →](/release-notes/v3.0/3.0.0)
+</Update>
+
+<Update label="August 16, 2021" description="v2.5.2" tags={["Bug Fix", "Platform"]}>
+  ## Version 2.5.2 — Admin & Comments Improvements
+
+  - Admin panel refinements and comment system fixes
+  - Channel and playlist display improvements
+  - Player stability updates
+
+  [Read full release notes →](/release-notes/v2.x/2.5.2)
+</Update>
+
+<Update label="May 25, 2021" description="v2.5.1" tags={["Bug Fix"]}>
+  ## Version 2.5.1 — Server Compatibility & Search
+
+  - Server compatibility fixes for broader hosting support
+  - Search accuracy improvements
+  - Player and social feature fixes
+
+  [Read full release notes →](/release-notes/v2.x/2.5.1)
+</Update>
+
+<Update label="May 22, 2021" description="v2.5.0" tags={["Feature"]}>
+  ## Version 2.5.0 — Spotify Import Improvements
+
+  - **Enhanced Spotify import** for artists, albums, and tracks
+  - Channel management improvements
+  - Admin tool updates
+
+  [Read full release notes →](/release-notes/v2.x/2.5.0)
+</Update>
+
+<Update label="May 21, 2021" description="v2.4.9" tags={["Feature"]}>
+  ## Version 2.4.9 — Collaborative Playlists & API
+
+  - **Collaborative playlists** with moderation controls
+  - **Full REST API** with token management
+  - **Spotify integration** for content import
+
+  [Read full release notes →](/release-notes/v2.x/2.4.9)
+</Update>
+
+<Update label="September 16, 2020" description="v2.4.8" tags={["Feature"]}>
+  ## Version 2.4.8 — Lyrics & Permissions
+
+  - **Lyrics support** for tracks
+  - **Granular permissions** system
+  - Admin and player improvements
+
+  [Read full release notes →](/release-notes/v2.x/2.4.8)
+</Update>
+
+<Update label="July 17, 2020" description="v2.4.7" tags={["Bug Fix"]}>
+  ## Version 2.4.7 — Upgrade & Email Fixes
+
+  - Upgrade flow reliability improvements
+  - Email delivery fixes
+  - General stability updates
+
+  [Read full release notes →](/release-notes/v2.x/2.4.7)
+</Update>
+
+<Update label="July 11, 2020" description="v2.4.6" tags={["Feature", "Security"]}>
+  ## Version 2.4.6 — Single Device Login & Refresh
+
+  - **Single device login** enforcement for security
+  - **Token refresh** mechanism improvements
+  - Session management updates
+
+  [Read full release notes →](/release-notes/v2.x/2.4.6)
+</Update>
+
+<Update label="April 10, 2020" description="v2.4.5" tags={["Feature", "Platform"]}>
+  ## Version 2.4.5 — GDPR & Cloud Storage
+
+  - **GDPR compliance** — Cookie notices, consent flows, and data handling
+  - **Cloud storage** — Direct browser uploads to cloud providers
+  - Upload and admin improvements
+
+  [Read full release notes →](/release-notes/v2.x/2.4.5)
+</Update>

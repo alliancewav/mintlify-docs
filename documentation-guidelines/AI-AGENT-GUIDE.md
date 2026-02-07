@@ -40,6 +40,7 @@ description: "Comprehensive guide for AI agents creating and updating all types 
 5. **Root-Relative Links** — `/help/path` not `../path` or `https://...`
 6. **Font Awesome 6 Icons Only** — The icon library is `fontawesome`. Never use Lucide icon names.
 7. **WCAG AA Compliance** — All colors must meet minimum 4.5:1 contrast ratio against their background.
+8. **Use Snippets for Repeated Content** — Never duplicate content that exists as a reusable snippet. Import from `/snippets/` instead.
 
 ### Audience Separation Rule
 
@@ -140,6 +141,8 @@ php artisan tinker --execute="echo \DB::table('settings')->where('name', 'upload
 | **Code examples** | Technical, for /developers/ | Describe what user does |
 | **API endpoints** | Technical, for /developers/ | Link to dev docs |
 | **Implementation details** | Technical, for /developers/ | Focus on user actions |
+
+**DO use `<Tooltip>` for inline definitions** of domain jargon and technical terms (first occurrence per page only). See [Mintlify Reference](/help/release-notes/_meta/MINTLIFY-REFERENCE#tooltips) for syntax and rules.
 
 ---
 
@@ -289,6 +292,24 @@ grep -r "feature-route" routes/ --include="*.php"
 | **Reference** | Tables, specifications, lists |
 | **Tutorial** | Context → Steps → Practice → Next steps |
 
+#### Step 3.5: Check for Applicable Snippets
+
+Before writing, check if reusable snippets cover any content you need:
+
+| Content Pattern | Snippet to Import |
+|----------------|--------------------|
+| Platform fee callout | `PlatformFee` from `/snippets/callouts/platform-fee.mdx` |
+| "Need Help?" section | `NeedHelp` from `/snippets/sections/need-help.mdx` |
+| "Still Need Help?" section | `StillNeedHelp` from `/snippets/sections/still-need-help.mdx` |
+| Support contact line | `SupportContact` from `/snippets/sections/support-contact.mdx` |
+| Subscription required | `SubscriptionRequired` from `/snippets/callouts/subscription-required.mdx` |
+| Stripe Connect required | `StripeConnectRequired` from `/snippets/callouts/stripe-connect-required.mdx` |
+| Producer-only feature | `ProducerOnly` from `/snippets/warnings/producer-only.mdx` |
+| API invite-only warning | `ApiInviteOnly` from `/snippets/warnings/api-invite-only.mdx` |
+| Plan comparison table | `PlanComparisonTable` from `/snippets/data/plan-comparison-table.mdx` |
+
+**Rule**: Always use an existing snippet instead of writing duplicate content inline.
+
 #### Step 4: Create File
 
 **Naming:**
@@ -306,13 +327,16 @@ Documentation/help/
 
 #### Step 5: Write Content
 
-**Frontmatter template:**
+**Frontmatter + snippet imports template:**
 ```mdx
 ---
 audience: help
 title: "Descriptive Page Title"
 description: "One-line summary for SEO."
 ---
+
+import NeedHelp from "/snippets/sections/need-help.mdx";
+{/* Add other snippet imports as needed */}
 ```
 
 **Content rules:**
@@ -367,6 +391,9 @@ Click the Change Plan button and select a new plan.
 - [ ] Frontmatter complete
 - [ ] Root-relative links for internal docs, full URLs for app pages
 - [ ] All icon names verified against Font Awesome 6 (NOT Lucide)
+- [ ] **Snippets checked** — used for all applicable patterns (fees, warnings, support sections)
+- [ ] **No inline duplication** of content that exists in `/snippets/`
+- [ ] Snippet imports use absolute paths (`/snippets/...`)
 - [ ] Related docs cross-linked
 - [ ] Parent index updated
 
@@ -460,6 +487,8 @@ grep -r "old-navigation-path" Documentation/help/ --include="*.mdx"
 - [ ] Related docs checked for same errors
 - [ ] Tone and style preserved
 - [ ] No accidental content deletion
+- [ ] **Snippet opportunities identified** — inline content replaced with snippet imports where applicable
+- [ ] **Existing snippet imports verified** — still using correct paths and names
 
 **Full guide**: See [Update Guide](/help/release-notes/_meta/UPDATE-GUIDE)
 
@@ -467,7 +496,12 @@ grep -r "old-navigation-path" Documentation/help/ --include="*.mdx"
 
 ## Section 4: Release Notes
 
-Release notes announce changes to users. They follow a specialized format.
+Release notes announce changes to users. BeatPass uses a **two-part system**:
+
+1. **Individual release note pages** — Detailed pages in `release-notes/v3.0/` with full content
+2. **Unified changelog** — `release-notes/changelog.mdx` using Mintlify `Update` components with tag filters and RSS feed (`/release-notes/changelog/rss.xml`)
+
+Every release requires **both** an individual page AND a changelog entry.
 
 ### Quick Reference
 
@@ -480,17 +514,19 @@ Release notes announce changes to users. They follow a specialized format.
 | Hotfix | template-hotfix.mdx | hotfix | circle-exclamation |
 | Major Release | template-major-release.mdx | major | rocket |
 
-### The 7-Step Process
+### The 9-Step Process
 
-1. **Select template** from `_meta/` based on type
+1. **Select template** based on type
 2. **Determine metadata** (audience, tags, components, severity)
 3. **Verify feature existence** (search codebase)
-4. **Write content** (summary, what's new, why it matters, how to use)
+4. **Write individual page** (summary, what's new, why it matters, how to use)
 5. **Apply style** (present tense for features, past for fixes, bold UI refs)
 6. **Validate** (checklist + Mintlify components)
-7. **Place file** (correct year/month folder)
+7. **Place individual file** in `release-notes/v3.0/{version}.mdx`
+8. **Add changelog entry** — `Update` component at top of `release-notes/changelog.mdx`
+9. **Update docs.json** — Add page to correct month group in "What's New" tab
 
-### Release Note Specifics
+### Individual Page Specifics
 
 **Frontmatter:**
 ```mdx
@@ -498,7 +534,7 @@ Release notes announce changes to users. They follow a specialized format.
 title: "Feature Name"
 date: "YYYY-MM-DD"
 severity: "minor"  # major, minor, patch, hotfix
-audience: "All"    # All, Producers, Admins, Developers
+audience: "All"    # All, Producers, Developers
 tags: ["feature"]  # From taxonomy
 components: ["dashboard"]  # From taxonomy
 ---
@@ -518,6 +554,31 @@ components: ["dashboard"]  # From taxonomy
 - Severity classification
 - Audience-specific
 
+### Changelog Entry Specifics
+
+Add an `Update` component at the **top** of `release-notes/changelog.mdx`:
+
+```mdx
+<Update label="{Month Day, Year}" description="v{version}" tags={["{Tag1}", "{Tag2}"]}>
+  ## {Title}
+
+  {1-2 sentence summary.}
+
+  - **{Key change 1}** — Brief description
+  - **{Key change 2}** — Brief description
+  - **{Key change 3}** — Brief description
+
+  [Read full release notes →](/release-notes/v3.0/{version})
+</Update>
+```
+
+**Changelog tag values** (Title Case): `Feature`, `Bug Fix`, `Security`, `Performance`, `UI/UX`, `Billing`, `Producer`, `Mobile`, `Platform`, `API`, `Notifications`
+
+**RSS note:** If the entry contains Mintlify components or HTML, add an `rss` prop:
+```mdx
+<Update label="..." description="..." tags={[...]} rss={{title: "...", description: "..."}}>
+```
+
 ### Release Note Checklist
 
 - [ ] Feature existence verified
@@ -530,13 +591,16 @@ components: ["dashboard"]  # From taxonomy
 - [ ] 3-7 bullets in What's New
 - [ ] Past tense for fixes, present for features
 - [ ] UI references exact and bold
-- [ ] File named correctly: `YYYY-MM-DD-title.mdx`
-- [ ] Placed in correct folder: `YYYY/month/`
+- [ ] Individual page named correctly: `release-notes/v3.0/{version}.mdx`
+- [ ] **Changelog `Update` entry added at top of `changelog.mdx`**
+- [ ] **`Update` label format: `"Month Day, Year"`**
+- [ ] **`Update` tags: 1-3 Title Case from approved set**
+- [ ] **`docs.json` navigation updated** (correct month group)
 - [ ] **`.env` APP_VERSION updated** (see Section 4.5)
 - [ ] **`package.json` version updated**
 - [ ] **`public/version.json` version updated**
 
-**Full guide**: See release note templates in `_meta/` folder
+**Full guide**: See `template.mdx` for the complete changelog workflow
 
 ---
 
@@ -657,6 +721,11 @@ New Version: 4.0.0
 - [ ] Navigation paths tested mentally
 - [ ] No technical jargon users don't see
 - [ ] No hallucinated features
+- [ ] Tooltips added for domain jargon and technical terms (first occurrence per page)
+- [ ] Tooltip `tip` text is 1-2 sentences, BeatPass-contextual, no code
+- [ ] No duplicate tooltips for the same term on the same page
+- [ ] **Snippets used** for all applicable repeated content (platform fee, need help, warnings)
+- [ ] **No hardcoded values** that exist in snippets (contact email, fee amounts, plan prices)
 
 **Writing:**
 - [ ] Active voice (present for features, past for fixes)
@@ -696,6 +765,11 @@ New Version: 4.0.0
 | Lucide icon names | `icon="edit"` | `icon="pen-to-square"` (FA6) |
 | App URLs as doc paths | `href="/login"` | `href="https://open.beatpass.ca/login"` |
 | Deprecated FA names | `icon="bar-chart"` | `icon="chart-bar"` (FA6) |
+| Missing tooltips on jargon | "contribution value" (plain text) | `<Tooltip tip="...">contribution value</Tooltip>` |
+| Duplicate tooltip on same page | Tooltip on every mention | Tooltip on first occurrence only |
+| Inline "Need Help?" section | Custom support footer | `<NeedHelp />` snippet |
+| Inline platform fee callout | Custom fee explanation | `<PlatformFee />` snippet |
+| Hardcoded contact email | `contact@beatpass.ca` in prose | `<SupportContact />` or `<NeedHelp />` snippet |
 
 ---
 
@@ -763,10 +837,11 @@ php artisan tinker --execute="$menus = json_decode(\DB::table('settings')->where
 1. IDENTIFY task type (new / update / release note)
 2. VERIFY feature existence (search codebase)
 3. VERIFY UI elements (check components, query DB)
-4. WRITE using exact labels, no jargon
-5. CROSS-LINK to related docs
-6. SELF-REVIEW against checklist
-7. SUBMIT
+4. CHECK snippets — identify applicable reusable content from /snippets/
+5. WRITE using exact labels, no jargon, importing snippets
+6. CROSS-LINK to related docs
+7. SELF-REVIEW against checklist (including snippet usage)
+8. SUBMIT
 ```
 
 **Golden Rule**: Every claim must be verifiable. If you can't find it in the codebase, don't document it.

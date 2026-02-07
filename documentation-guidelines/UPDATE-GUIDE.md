@@ -85,6 +85,9 @@ Compare current doc vs. verified reality:
 | "$19/month Classic" | "$29/month Classic" | Update pricing |
 | "MP3 uploads" | MP3 blocked | Remove/correct |
 | Feature X exists | Feature X removed | Remove section |
+| Inline "Need Help?" section | Snippet exists | Replace with `<NeedHelp />` |
+| Inline platform fee callout | Snippet exists | Replace with `<PlatformFee />` |
+| Hardcoded `contact@beatpass.ca` | Snippet exists | Replace with `<SupportContact />` |
 
 ### Step 4: Make Minimal Targeted Changes
 
@@ -182,7 +185,47 @@ description: "This feature has been removed as of March 2026."
 grep -r "\$29\|Classic\|monthly" Documentation/help/ --include="*.mdx"
 ```
 
-### Scenario 4: Error Correction
+### Scenario 4: Snippet Migration
+
+**When updating a page that has inline content matching an existing snippet:**
+
+**Approach:**
+1. Identify inline content that duplicates a snippet ("Need Help?" sections, platform fee callouts, API warnings, support contact info)
+2. Add the snippet import after frontmatter
+3. Replace the inline content with the snippet component
+4. Verify the page still reads naturally with the snippet in place
+
+**Example:**
+```diff
+  ---
+  title: "Page Title"
+  ---
++ 
++ import NeedHelp from "/snippets/sections/need-help.mdx";
+  
+  [page content...]
+  
+- ## Need Help?
+- 
+- If you have questions, contact the support team at **contact@beatpass.ca**.
++ <NeedHelp />
+```
+
+**When to migrate:**
+- During any update to a page that has inline snippet-eligible content
+- When fixing contact email or fee amounts across multiple pages
+- When standardizing support sections across a documentation area
+
+**Available snippets to check for:**
+- `NeedHelp` / `StillNeedHelp` — support footer sections
+- `SupportContact` — inline support contact line
+- `PlatformFee` / `PlatformFeeNote` — platform fee callouts
+- `SubscriptionRequired` — paid plan notices
+- `StripeConnectRequired` — Stripe setup warnings
+- `ApiInviteOnly` — API access warnings
+- `ProducerOnly` — producer privilege notices
+
+### Scenario 5: Error Correction
 
 **When user reports error:**
 1. Verify the reported error is real
@@ -263,6 +306,9 @@ Never remove frontmatter fields unless instructed.
 - [ ] Tone matches existing documentation
 - [ ] Related docs checked for needed updates
 - [ ] No accidental content deletion
+- [ ] **Snippet opportunities identified** — inline content replaced with snippet imports where applicable
+- [ ] **Existing snippet imports still valid** — paths and component names correct
+- [ ] **No new inline duplication** — updated content doesn't duplicate existing snippets
 
 ### Diff Review
 
@@ -308,6 +354,15 @@ Ask:
    - Wrong: Deleting entire sections when only one sentence is wrong
    - Fix: Make surgical changes, preserve good content
 
+7. **Not migrating to snippets**
+   - Wrong: Updating inline "Need Help?" text without converting to snippet
+   - Fix: Replace with `<NeedHelp />` import during the update
+   - Opportunistically migrate inline content to snippets during any update
+
+8. **Breaking snippet imports**
+   - Wrong: Removing or renaming snippet imports during an update
+   - Fix: Verify all import statements still reference correct paths
+
 ---
 
 ## Update Workflow Summary
@@ -317,10 +372,11 @@ Ask:
 2. LIST all claims/instructions
 3. VERIFY each against codebase
 4. IDENTIFY what needs changing
-5. MAKE minimal targeted changes
-6. CHECK related docs
-7. SELF-REVIEW changes
-8. SUBMIT update
+5. CHECK for snippet migration opportunities (inline content → snippet imports)
+6. MAKE minimal targeted changes (including snippet imports)
+7. CHECK related docs
+8. SELF-REVIEW changes (including snippet usage)
+9. SUBMIT update
 ```
 
 ---

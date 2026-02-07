@@ -1,20 +1,25 @@
 ---
 audience: help
-title: "Changelog Template"
-description: "Template and guidelines for writing changelog entries."
+title: "Changelog & Release Notes Template"
+description: "Template and guidelines for writing release notes and changelog entries using the Update component."
 ---
 
 ## Overview
 
-This template provides structure for documenting platform updates consistently.
+BeatPass uses a **two-part release notes system**:
+
+1. **Individual release note pages** — Detailed pages in `release-notes/v3.0/` with full content
+2. **Unified changelog** — `release-notes/changelog.mdx` using Mintlify `Update` components with tag filters and RSS feed
+
+Every new release requires **both**: a detailed page AND a corresponding `Update` entry in the changelog.
 
 <Note>
-  This page is for documentation maintainers. Regular users can ignore this template.
+  This page is for documentation maintainers. The changelog at `/release-notes/changelog` is the public-facing page with RSS support.
 </Note>
 
 ---
 
-## Entry Structure
+## Part 1: Individual Release Note Page
 
 ### Frontmatter
 
@@ -22,88 +27,184 @@ This template provides structure for documenting platform updates consistently.
 ---
 title: "Update Title"
 date: "YYYY-MM-DD"
-version: "X.X.X" # Optional
-audience: "All | Creators | Producers | Artists"
-tags: ["feature", "improvement", "bugfix", "deprecation"]
+severity: "patch"                    # major | minor | patch | hotfix
+audience: "All"                      # All | Producers | Developers
+tags: ["feature", "improvement"]     # From taxonomy
+components: ["dashboard", "billing"] # Affected areas
 ---
 ```
 
-### Content Sections
+### File Naming & Placement
 
-Each changelog entry should include:
+Individual release note files use the version-based naming convention:
 
-<Steps>
-  <Step title="Summary">
-    2-3 sentence overview of what changed.
-  </Step>
-  
-  <Step title="What's New/Changed">
-    Bullet points of specific changes:
-    - Feature additions
-    - Behavior changes
-    - UI updates
-  </Step>
-  
-  <Step title="Why It Matters">
-    Brief explanation of user benefit.
-  </Step>
-  
-  <Step title="How to Use (if applicable)">
-    Quick instructions for new features.
-  </Step>
-  
-  <Step title="Known Issues (if any)">
-    Current limitations or bugs being tracked.
-  </Step>
-  
-  <Step title="Links">
-    Related documentation pages.
-  </Step>
-</Steps>
+```
+release-notes/v3.0/{version}.mdx
+
+Examples:
+release-notes/v3.0/3.0.8-26.mdx
+release-notes/v3.0/3.0.9.mdx
+```
+
+### Content Structure
+
+Use the appropriate template for the release type:
+- `template-feature.mdx` — New features
+- `template-security.mdx` — Security updates
+- `template-hotfix.mdx` — Critical fixes
+- `template-major-release.mdx` — Version launches
 
 ---
 
-## Example Entry
+## Part 2: Changelog Update Entry
+
+After creating the individual page, add an `Update` component entry to `release-notes/changelog.mdx`.
+
+### Update Component Template
+
+```mdx
+<Update label="{Month Day, Year}" description="v{version}" tags={["{Tag1}", "{Tag2}"]}>
+  ## {Title}
+
+  {1-2 sentence summary of the release.}
+
+  - **{Key change 1}** — Brief description
+  - **{Key change 2}** — Brief description
+  - **{Key change 3}** — Brief description
+
+  [Read full release notes →](/release-notes/v3.0/{version})
+</Update>
+```
+
+### Placement Rules
+
+- **Add new entries at the TOP** of `changelog.mdx` (newest first)
+- Place directly after the frontmatter, before all existing `Update` entries
+
+### Tag Values (for tag filters)
+
+Use **Title Case** tags from this approved set:
+
+| Tag | Use For |
+|-----|---------|
+| `Feature` | New functionality |
+| `Bug Fix` | Resolved issues |
+| `Security` | Security-related updates |
+| `Performance` | Speed or efficiency improvements |
+| `UI/UX` | Visual or interaction changes |
+| `Billing` | Payment, pricing, subscription changes |
+| `Producer` | Producer-specific features |
+| `Mobile` | Mobile experience improvements |
+| `Platform` | Major platform-level changes |
+| `API` | API-related changes |
+| `Notifications` | Notification system updates |
+
+Select 1-3 tags per entry. Tags appear as clickable filters in the sidebar.
+
+### RSS Feed Considerations
+
+The changelog auto-generates an RSS feed at `/release-notes/changelog/rss.xml`. RSS entries contain **pure Markdown only** — components, code blocks, and HTML are excluded.
+
+If your `Update` content includes components or HTML, add an `rss` prop:
+
+```mdx
+<Update
+  label="March 1, 2026"
+  description="v3.1.0"
+  tags={["Platform", "Feature"]}
+  rss={{
+    title: "v3.1.0 — Major Platform Update",
+    description: "Complete redesign of the dashboard with new analytics features."
+  }}
+>
+  ## Major Platform Update
+
+  <Frame>
+    <img src="/images/dashboard.png" alt="New dashboard" />
+  </Frame>
+
+  [Read full release notes →](/release-notes/v3.0/3.1.0)
+</Update>
+```
+
+---
+
+## Example: Complete Workflow
+
+### Step 1: Create the individual page
+
+Create `release-notes/v3.0/3.0.8-26.mdx` with full content using the appropriate template.
+
+### Step 2: Add the changelog entry
+
+Add this at the **top** of `release-notes/changelog.mdx` (after frontmatter):
+
+```mdx
+<Update label="March 1, 2026" description="v3.0.8-26" tags={["Feature", "Producer"]}>
+  ## New Beat Request Analytics
+
+  Producers can now view detailed analytics for their beat request submissions.
+
+  - **Submission tracking** — See which requests you've responded to
+  - **Acceptance rate** — Track your success rate over time
+  - **Response time metrics** — Monitor your average response speed
+
+  [Read full release notes →](/release-notes/v3.0/3.0.8-26)
+</Update>
+```
+
+### Step 3: Update docs.json navigation
+
+Add the new page to the correct month group in the "What's New" tab:
+
+```json
+{
+  "group": "March 2026",
+  "pages": [
+    "release-notes/v3.0/3.0.8-26"
+  ]
+}
+```
+
+---
+
+## Reusable Snippets in Release Notes
+
+Release notes should leverage reusable snippets from `/snippets/` for standardized content. Import snippets after frontmatter.
+
+### Available Snippets for Release Notes
+
+| Snippet | Import | Use For |
+|---------|--------|--------|
+| `ReleaseFeedback` | `import ReleaseFeedback from "/snippets/sections/release-feedback.mdx";` | Feedback footer (Card + email) — **use on every release note** |
+| `SecurityTrust` | `import SecurityTrust from "/snippets/sections/security-trust.mdx";` | Security trust closing Info block — security releases only |
+| `PlatformFee` | `import PlatformFee from "/snippets/callouts/platform-fee.mdx";` | When release mentions platform fee structure |
+| `SupportContact` | `import SupportContact from "/snippets/sections/support-contact.mdx";` | Inline support contact reference |
+
+### Example Usage
 
 ```mdx
 ---
-title: "Producer Analytics Dashboard"
-date: "2025-11-15"
-audience: "Producers"
-tags: ["feature", "analytics"]
+title: "Update Title"
+date: "YYYY-MM-DD"
+severity: "patch"
 ---
 
-## Summary
+import ReleaseFeedback from "/snippets/sections/release-feedback.mdx";
 
-New comprehensive analytics dashboard for producers with detailed performance metrics.
+# Update Title
 
-## What's New
+[... release content ...]
 
-- Real-time play and completion tracking
-- Contribution value visualization
-- XP and tier progression display
-- Achievement milestone tracking
-
-## Why It Matters
-
-Producers can now understand their performance at a glance and track progress toward goals.
-
-## How to Use
-
-1. Navigate to Backstage > Insights
-2. Select your artist profile
-3. Explore the new dashboard tabs
-
-## Known Issues
-
-- Geographic data may be delayed for new tracks
-- Some historical data may not be available
-
-## Related
-
-- [Analytics Guide](/help/analytics/dashboards)
-- [Contribution Formula](/help/earnings/formula)
+<ReleaseFeedback />
 ```
+
+### Rules
+
+- **Every release note** should end with `<ReleaseFeedback />` instead of a custom Questions/Feedback section
+- **Security releases** should also include `<SecurityTrust />` after the feedback section
+- **Never hardcode** `contact@beatpass.ca` in release notes — use the snippet instead
+- Import other snippets (`PlatformFee`, `SupportContact`) as needed based on content
 
 ---
 
@@ -117,29 +218,16 @@ Producers can now understand their performance at a glance and track progress to
 
 ### Length
 
-- Summary: 2-3 sentences
-- What's New: 3-7 bullet points
-- Total entry: 200-400 words
+- **Individual page**: Full detail, 200-600 words
+- **Changelog entry**: Concise summary, 50-100 words + 3-5 bullet points + link to full page
 
-### Categories
+### Changelog Entry Rules
 
-| Tag | Use For |
-|-----|---------|
-| `feature` | New functionality |
-| `improvement` | Enhancements to existing features |
-| `bugfix` | Resolved issues |
-| `deprecation` | Features being removed |
-| `security` | Security-related updates |
-
----
-
-## File Naming
-
-Use format: `YYYY-MM-DD-short-title.mdx`
-
-Examples:
-- `2025-11-15-producer-dashboard.mdx`
-- `2025-11-20-licensing-update.mdx`
+- Start with a `## Heading` inside the `Update` (creates RSS entry title)
+- 1-2 sentence summary paragraph
+- 3-5 bullet points with **bold lead** — description format
+- Always end with `[Read full release notes →](/release-notes/v3.0/{version})`
+- No technical jargon — same user-focused language as help docs
 
 ---
 
@@ -147,11 +235,19 @@ Examples:
 
 Before publishing:
 
-- [ ] Frontmatter is complete
+- [ ] Individual release note page created with correct frontmatter
+- [ ] Changelog `Update` entry added at **top** of `changelog.mdx`
+- [ ] `Update` label uses `"Month Day, Year"` date format
+- [ ] `Update` description uses `"v{version}"` format
+- [ ] `Update` tags use Title Case from approved set (1-3 tags)
 - [ ] Summary is clear and concise
-- [ ] All changed features are documented
-- [ ] User benefit is explained
-- [ ] Links to related docs are included
+- [ ] Bullet points use `**Bold** — description` format
+- [ ] Link to full release notes page included
+- [ ] `docs.json` navigation updated with new page in correct month group
+- [ ] RSS `rss` prop added if entry contains components/HTML
+- [ ] **`<ReleaseFeedback />`** snippet used as page footer (not inline contact info)
+- [ ] **`<SecurityTrust />`** snippet used for security releases
+- [ ] **No hardcoded** `contact@beatpass.ca` — use snippets instead
+- [ ] Other applicable snippets imported (PlatformFee, SupportContact, etc.)
 - [ ] No sensitive information exposed
-- [ ] Screenshots are redacted if needed
-- [ ] Navigation updated in docs.json
+- [ ] All changed features are documented

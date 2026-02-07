@@ -7,11 +7,11 @@ keywords: ["beatpass api","music api","beat marketplace api","producer api","bea
 "og:description": "Introduction to the BeatPass API for approved developer integrations."
 ---
 
-The BeatPass API provides access to platform data for approved developer integrations and partnerships.
+import ApiInviteOnly from "/snippets/warnings/api-invite-only.mdx";
 
-<Warning>
-  API access is **invite-only**. Developer tokens are granted on a case-by-case basis. To request access, contact [**contact@beatpass.ca**](mailto:contact@beatpass.ca). See [Authentication](/developers/auth) for details.
-</Warning>
+The BeatPass API provides access to platform data for approved developer integrations and partnerships. All authenticated requests use <Tooltip tip="A secret credential sent in the Authorization header to authenticate API requests. Granted by the BeatPass team on a case-by-case basis." cta="Auth guide" href="/developers/auth">Bearer token</Tooltip> authentication.
+
+<ApiInviteOnly />
 
 ## Quick Links
 
@@ -214,7 +214,7 @@ Responses vary by endpoint. Most return data directly:
 
 ### Pagination
 
-Paginated endpoints use standard cursor-based pagination:
+Paginated endpoints use standard <Tooltip tip="A pagination method using page numbers and per_page counts to navigate through large result sets.">cursor-based pagination</Tooltip>:
 
 ```json
 {
@@ -231,7 +231,7 @@ Paginated endpoints use standard cursor-based pagination:
 
 ## Authentication & Data Access
 
-The BeatPass API uses a **two-tier access model** for external consumers:
+The BeatPass API uses a **<Tooltip tip="Public requests return minimal data (id, name only); authenticated requests with a Bearer token return rich data (pricing, plays, licensing).">two-tier access model</Tooltip>** for external consumers:
 
 | Tier | Auth | Data |
 |------|------|------|

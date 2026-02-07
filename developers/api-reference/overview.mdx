@@ -7,6 +7,8 @@ keywords: ["beatpass api reference","api endpoints","openapi","rest api","api do
 "og:description": "Complete reference for all BeatPass API endpoints with interactive OpenAPI explorer."
 ---
 
+import ApiInviteOnly from "/snippets/warnings/api-invite-only.mdx";
+
 ## API Reference
 
 This section documents all public-facing BeatPass API endpoints. Browse the OpenAPI specification or explore specific API domains:
@@ -99,7 +101,7 @@ The data you receive depends on your authentication level:
     
     Authenticated requests with a valid **Bearer token** return rich API data including pricing, play counts, BPM, key/scale, licensing type, and more.
     
-    API access is **invite-only**. Contact [**contact@beatpass.ca**](mailto:contact@beatpass.ca) to request access.
+    <ApiInviteOnly />
   </Accordion>
 </AccordionGroup>
 

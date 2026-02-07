@@ -23,6 +23,7 @@ These standards ensure all BeatPass documentation is factual, accurate, and base
 6. **Stay non-technical** — Help docs are for users, not developers
 7. **Font Awesome 6 icons only** — The icon library is `fontawesome`. Never use Lucide names.
 8. **WCAG AA colors** — All theme colors must pass 4.5:1 contrast ratio minimum.
+9. **Use reusable snippets** — Import from `/snippets/` for repeated content (fees, warnings, support sections). Never duplicate snippet content inline.
 
 ### Audience & Location Rules
 
@@ -229,6 +230,8 @@ php artisan tinker --execute="echo json_encode(config('beatpass.payouts'), JSON_
 
 **Rule**: If a user cannot see or interact with the term in the UI, do not include it in documentation.
 
+**Tooltip rule**: When a term IS user-facing but may be unfamiliar (e.g., "contribution value", "tokens", "Stripe Express"), wrap the first occurrence per page in a `<Tooltip>` to provide an inline definition. See [Mintlify Reference — Tooltips](/help/release-notes/_meta/MINTLIFY-REFERENCE#tooltips) for syntax and rules.
+
 **Additional rule for `/help/` documentation:**
 If it's technical enough for developers, it belongs in `/developers/` — not in `/help/`.
 
@@ -331,6 +334,13 @@ Before submitting ANY documentation:
 - [ ] Active voice (present tense for features, past for fixes)
 - [ ] Specific numbers instead of vague terms
 
+### Reusable Snippets
+- [ ] **Snippets checked** — applicable snippets from `/snippets/` imported and used
+- [ ] **No inline duplication** — content that exists as a snippet is not written inline
+- [ ] **Import paths absolute** — all snippet imports use `/snippets/...` (not relative paths)
+- [ ] **Import names PascalCase** — e.g., `PlatformFee`, `NeedHelp`, `ApiInviteOnly`
+- [ ] **Imports after frontmatter** — import statements go between `---` and first content
+
 ### Technical Requirements
 - [ ] Frontmatter complete with all required fields
 - [ ] Internal doc links use root-relative paths (`/help/path` not `../path`)
@@ -338,6 +348,8 @@ Before submitting ANY documentation:
 - [ ] **All icon names verified against Font Awesome 6** (not Lucide)
 - [ ] All Card `href` targets verified (`.mdx` file exists + in `docs.json` nav)
 - [ ] Mintlify components used correctly
+- [ ] Tooltips added for domain jargon and technical terms (first occurrence per page)
+- [ ] No duplicate tooltips for the same term on the same page
 - [ ] No emoji (use Mintlify icons only)
 - [ ] Proper Markdown/MDX syntax
 - [ ] If colors changed in `docs.json`: WCAG AA verified via `mint a11y`
@@ -352,24 +364,56 @@ Before submitting ANY documentation:
 ## Documentation Folder Structure
 
 ```text
-Documentation/help/
-├── index.mdx                    # Main help landing
-├── account-settings/
-│   ├── index.mdx                # Overview
-│   └── [specific-pages].mdx
-├── billing/
-│   ├── index.mdx
-│   └── [specific-pages].mdx
-├── producer-dashboard/
-│   ├── index.mdx
-│   └── [specific-pages].mdx
-├── [other-sections]/
+Documentation/
+├── snippets/                        # Reusable content (auto-hidden by Mintlify)
+│   ├── callouts/                    # Info/Note/Warning callout blocks
+│   │   ├── platform-fee.mdx
+│   │   ├── platform-fee-note.mdx
+│   │   ├── subscription-required.mdx
+│   │   └── stripe-connect-required.mdx
+│   ├── warnings/                    # Warning blocks
+│   │   ├── api-invite-only.mdx
+│   │   ├── no-public-sandbox.mdx
+│   │   └── producer-only.mdx
+│   ├── sections/                    # Reusable page sections
+│   │   ├── need-help.mdx
+│   │   ├── still-need-help.mdx
+│   │   ├── support-contact.mdx
+│   │   ├── api-getting-help.mdx
+│   │   ├── release-feedback.mdx     # Release notes feedback footer
+│   │   └── security-trust.mdx       # Security trust closing block
+│   ├── developer/                   # Developer-specific blocks
+│   │   ├── bearer-auth-example.mdx
+│   │   ├── http-status-codes.mdx
+│   │   └── rate-limit-headers.mdx
+│   └── data/                        # Exported constants and data tables
+│       ├── platform-constants.mdx
+│       └── plan-comparison-table.mdx
+├── help/
+│   ├── index.mdx                    # Main help landing
+│   ├── account-settings/
+│   │   ├── index.mdx                # Overview
+│   │   └── [specific-pages].mdx
+│   ├── billing/
+│   │   ├── index.mdx
+│   │   └── [specific-pages].mdx
+│   ├── producer-dashboard/
+│   │   ├── index.mdx
+│   │   └── [specific-pages].mdx
+│   └── [other-sections]/
+├── developers/                      # API & developer docs
 └── release-notes/
-    ├── _meta/                   # Documentation system
-    ├── _archive/
-    ├── YYYY/
-    └── index.mdx
+    ├── index.mdx                    # Landing page
+    ├── changelog.mdx                # Unified changelog (Update components + RSS feed)
+    ├── v3.0/                        # Current version
+    │   ├── index.mdx                # v3.0 overview
+    │   └── {version}.mdx            # Individual release pages (e.g., 3.0.8-25.mdx)
+    └── v2.x/                        # Legacy version
+        ├── index.mdx
+        └── {version}.mdx
 ```
+
+**Release notes workflow:** Every release requires both an individual page in `release-notes/v3.0/` AND an `Update` component entry at the top of `release-notes/changelog.mdx`. See `template.mdx` for the complete workflow.
 
 ---
 
