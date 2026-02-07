@@ -1,17 +1,7 @@
 /* ==========================================================================
-   BeatPass Documentation — Dark & Light Mode Overrides
-   WCAG AAA Compliant | All text contrasts ≥ 7:1
+   BeatPass Documentation — WCAG AAA Compliant Theme
+   Colors configured in docs.json:
+     Light mode: #034D75 (9.0:1 on #FCFEFF)
+     Dark mode:  #7AB8DA (9.15:1 on #0A0A0A)
+   No CSS overrides needed — Mintlify applies colors natively.
    ========================================================================== */
-
-/* --- Dark Mode --- */
-/* Accent #69A5C8 is used natively by Mintlify for all dark-mode elements
-   (banner, sidebar, links, CTA) — no overrides needed for consistency. */
-
-/* --- Light Mode --- */
-
-/* Banner: deep teal background matching the light-mode accent.
-   White text on #034D75 → contrast 9.0:1 (AAA) */
-.light #banner,
-:not(.dark) #banner {
-  background-color: #034D75 !important;
-}
