@@ -46,6 +46,19 @@ All subscription changes are made in one place:
 
 ## How Plan Changes Work
 
+```mermaid
+stateDiagram-v2
+    [*] --> Active
+    Active --> Upgraded: Upgrade (immediate)
+    Active --> DowngradeScheduled: Downgrade (at renewal)
+    Active --> GracePeriod: Cancel
+    Upgraded --> Active: Next billing cycle
+    DowngradeScheduled --> Active: Renewal date
+    GracePeriod --> Active: Resume
+    GracePeriod --> Expired: Period ends
+    Expired --> [*]
+```
+
 ### Upgrades
 
 When you upgrade to a higher-priced plan:

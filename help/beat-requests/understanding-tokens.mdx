@@ -114,12 +114,12 @@ You can get a token refunded by **deleting your request**:
 
 Tokens reset automatically on a **monthly cycle**:
 
-```
-Month starts → Full token balance
-              ↓
-         Use tokens throughout month
-              ↓
-Month ends → Balance resets to full
+```mermaid
+flowchart LR
+    A[Month Starts] --> B[Full Token Balance]
+    B --> C[Use Tokens\nThroughout Month]
+    C --> D[Month Ends]
+    D --> A
 ```
 
 ### Important Dates

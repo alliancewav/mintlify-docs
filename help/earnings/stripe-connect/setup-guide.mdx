@@ -82,6 +82,19 @@ Make sure you have the following ready:
   </Step>
 </Steps>
 
+```mermaid
+flowchart TD
+    A[Open Finances Dashboard] --> B[Click Connect Stripe]
+    B --> C{Country\nsupported?}
+    C -->|Yes| D[Create Stripe Express Account]
+    C -->|No| E[Use Wise / Payoneer\nfor bank details]
+    E --> D
+    D --> F[Enter personal info\n& banking details]
+    F --> G[Verify identity]
+    G --> H[Stripe reviews\n1–7 business days]
+    H --> I[Connected ✓\nCharges Enabled ✓\nPayouts Enabled ✓]
+```
+
 ## After Setup
 
 Once your account is verified, you'll see:

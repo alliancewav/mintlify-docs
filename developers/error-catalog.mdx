@@ -402,6 +402,20 @@ Retry-After: 60
   </Step>
 </Steps>
 
+```mermaid
+flowchart TD
+    A[Error Response] --> B[Read message field]
+    B --> C{Validation\nerrors object?}
+    C -->|Yes| D[Fix field-specific issues]
+    C -->|No| E{Auth error?\n401 / 403}
+    E -->|Yes| F[Check Bearer token]
+    E -->|No| G{Rate limited?\n429}
+    G -->|Yes| H[Wait & retry\nwith backoff]
+    G -->|No| I{Server error?\n5xx}
+    I -->|Yes| J[Retry later]
+    I -->|No| K[Contact support]
+```
+
 ---
 
 ## Related Resources

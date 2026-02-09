@@ -56,6 +56,21 @@ Downloading a beat on BeatPass automatically generates a license certificate tha
   </Step>
 </Steps>
 
+```mermaid
+flowchart TD
+    A[Click Download] --> B{Active\nsubscription?}
+    B -->|No| X[Access denied]
+    B -->|Yes| C{Fingerprint\ncomplete?}
+    C -->|No| Y[Wait & retry]
+    C -->|Yes| D{Own track?}
+    D -->|Yes| G[Download file\nNo license needed]
+    D -->|No| E{Existing\nlicense?}
+    E -->|Yes| F[Retrieve license]
+    E -->|No| F2[Generate new license]
+    F --> G2[Download file]
+    F2 --> G2
+```
+
 ---
 
 ## File Formats

@@ -33,6 +33,14 @@ Each month, when a subscriber pays their membership fee:
 3. **Your share is determined** — Your percentage equals your tracks' contributions divided by the total
 4. **Payments are made** — Your share of the revenue is transferred to your Stripe account
 
+```mermaid
+flowchart LR
+    A[Subscriber Pays] --> B[Revenue Pool]
+    B --> C[Sum All\nContributions]
+    C --> D[Calculate\nYour %]
+    D --> E[Transfer to\nYour Stripe]
+```
+
 <PlatformFee />
 
 ## Example

@@ -36,6 +36,18 @@ The Beat Requests API powers the custom beat request marketplace. Users spend to
   </Step>
 </Steps>
 
+```mermaid
+stateDiagram-v2
+    [*] --> Created: Tokens spent
+    Created --> Active: Goes live
+    Active --> Active: Producers submit beats
+    Active --> Fulfilled: Requester accepts submission
+    Active --> Expired: Duration ends (24/48/72h)
+    Expired --> Active: Renew (spend tokens)
+    Fulfilled --> [*]
+    Expired --> [*]: No renewal
+```
+
 ---
 
 ## Token System

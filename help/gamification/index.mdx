@@ -128,10 +128,13 @@ BeatPass features a comprehensive gamification system that rewards your activity
 
 ## How It All Connects
 
-```
-Activity → XP → Levels → Achievements → Leaderboard Rankings
-   ↑                                            ↓
-   └───────────── Recognition & Visibility ─────┘
+```mermaid
+flowchart LR
+    A[Activity] --> B[XP]
+    B --> C[Levels]
+    C --> D[Achievements]
+    D --> E[Leaderboard\nRankings]
+    E -->|Recognition &\nVisibility| A
 ```
 
 1. **Activities** (uploads, plays, metadata, collaborations) earn XP

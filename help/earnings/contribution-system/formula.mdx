@@ -20,6 +20,13 @@ $$
 | **Popularity Boost** | How many times the track has been played | 1x → 3x |
 | **Collaboration Split** | How many producers are credited | Full value ÷ number of producers |
 
+```mermaid
+flowchart LR
+    A[Time Decay\n1.0 → 0] --> D[Contribution\nValue]
+    B[Popularity Boost\n1x → 3x] --> D
+    C[Collaboration Split\n÷ producers] --> D
+```
+
 ## Time Decay
 
 Newer tracks naturally contribute more to the platform because they keep the catalog fresh and engaging. A track's time factor follows a 6-month "half-life":

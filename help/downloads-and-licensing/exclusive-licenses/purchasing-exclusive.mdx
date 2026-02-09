@@ -77,6 +77,19 @@ Before purchasing exclusive:
   </Step>
 </Steps>
 
+```mermaid
+flowchart TD
+    A[Find Beat] --> B{Available for\nexclusive?}
+    B -->|No — SOLD| X[Cannot purchase]
+    B -->|Yes| C[Preview License Terms]
+    C --> D[Click Buy Exclusive]
+    D --> E[Enter Payment via Stripe]
+    E --> F{Payment\nsucceeded?}
+    F -->|No| G[Error — Retry\nor change card]
+    F -->|Yes| H[License Generated\nTrack marked SOLD]
+    H --> I[Download Files\nWAV + MP3 + Stems]
+```
+
 ---
 
 ## Payment Details

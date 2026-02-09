@@ -115,6 +115,16 @@ Retry-After: 60
   </Step>
 </Steps>
 
+```mermaid
+flowchart TD
+    A[API Request] --> B{Response\nstatus?}
+    B -->|200 OK| C[Success]
+    B -->|429| D[Read Retry-After header]
+    D --> E[Wait with\nexponential backoff]
+    E --> F[Retry request]
+    F --> B
+```
+
 ---
 
 ## Best Practices

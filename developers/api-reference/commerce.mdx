@@ -192,6 +192,26 @@ GET /api/v1/artist/sales
   </Step>
 </Steps>
 
+```mermaid
+sequenceDiagram
+    participant Client
+    participant API as BeatPass API
+    participant Stripe
+
+    Client->>API: POST /tracks/{id}/purchase/calculate-price
+    API-->>Client: Pricing breakdown
+    Client->>API: POST /tracks/{id}/purchase/initiate
+    API->>Stripe: Create PaymentIntent
+    Stripe-->>API: client_secret
+    API-->>Client: client_secret
+    Client->>Stripe: confirmCardPayment(client_secret)
+    Stripe-->>Client: Payment confirmed
+    Stripe->>API: Webhook (payment_intent.succeeded)
+    API->>API: Activate license & generate certificate
+    Client->>API: GET /tracks/{id}/license
+    API-->>Client: License certificate
+```
+
 ---
 
 ## License Certificates

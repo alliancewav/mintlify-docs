@@ -22,6 +22,21 @@ When you create a beat request, producers can submit tracks from their catalog t
 4. You receive notifications for each submission
 5. You review the submissions and connect with producers you like
 
+```mermaid
+sequenceDiagram
+    participant You as Requester
+    participant BP as BeatPass
+    participant Prod as Producer
+
+    You->>BP: Create beat request
+    BP-->>Prod: New request notification
+    Prod->>BP: Browse & find your request
+    Prod->>BP: Submit track from catalog
+    BP-->>You: Submission notification
+    You->>BP: Review & listen
+    You->>Prod: Message to connect
+```
+
 ### What You Receive
 
 Each submission includes:

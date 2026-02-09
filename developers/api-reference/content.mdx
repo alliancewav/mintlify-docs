@@ -137,6 +137,14 @@ GET /api/v1/tracks/{track}/producer-analytics
   </Step>
 </Steps>
 
+```mermaid
+flowchart LR
+    A[Upload Audio] --> B[Extract\nMetadata]
+    B --> C[Create Track\nwith metadata]
+    C --> D[Audio\nFingerprinting]
+    D --> E[Published]
+```
+
 ---
 
 ## Albums

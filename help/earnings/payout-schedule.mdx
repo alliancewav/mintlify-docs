@@ -21,6 +21,14 @@ There are two types of earnings, and each follows a slightly different path:
   </Card>
 </CardGroup>
 
+```mermaid
+flowchart TD
+    A[Subscription Revenue] -->|Monthly split based\non contribution value| C[Your Stripe Balance]
+    B[Direct Sales] -->|Immediately after\ntransaction| C
+    C --> D[Automatic Payout]
+    D --> E[Your Bank Account\n2–7 business days]
+```
+
 ## Stripe Automatic Payouts
 
 Once money reaches your Stripe balance, Stripe automatically transfers it to your bank account. The timing depends on your country:

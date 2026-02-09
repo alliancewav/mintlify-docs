@@ -127,10 +127,13 @@ For full details, see [Understanding Tokens](/help/beat-requests/understanding-t
 
 ## Request Lifecycle
 
-```
-Created → Active (24 / 48 / 72 hours) → Expired
-                 ↓
-           Submissions arrive
+```mermaid
+stateDiagram-v2
+    [*] --> Created: Token consumed
+    Created --> Active: Goes live immediately
+    Active --> Active: Submissions arrive
+    Active --> Expired: Duration ends (24/48/72h)
+    Expired --> [*]
 ```
 
 1. **Created** — Your request is posted and visible to producers

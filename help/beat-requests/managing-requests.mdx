@@ -137,14 +137,15 @@ If a request expires, you have a **30-day renewal window**:
 
 ## Request Lifecycle Summary
 
-```
-Token consumed → Request created (Active)
-                      ↓
-              Duration expires OR deleted
-                      ↓
-             Expired OR Removed
-                      ↓
-              (Token refunded if deleted while active)
+```mermaid
+flowchart TD
+    A[Token Consumed] --> B[Request Created\nActive]
+    B --> C{What happens?}
+    C -->|Duration ends| D[Expired]
+    C -->|You delete it| E[Removed]
+    E --> F{Below token cap?}
+    F -->|Yes| G[Token Refunded]
+    F -->|No| H[No Refund]
 ```
 
 ### Key Dates

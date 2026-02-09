@@ -35,6 +35,22 @@ When a buyer purchases your beat exclusively, several things happen automaticall
   </Step>
 </Steps>
 
+```mermaid
+sequenceDiagram
+    participant Buyer
+    participant BeatPass
+    participant Stripe
+    participant Producer
+
+    Buyer->>Stripe: Pay exclusive price + platform fee
+    Stripe-->>BeatPass: payment_intent.succeeded
+    BeatPass->>BeatPass: Generate exclusive license
+    BeatPass->>BeatPass: Mark track as SOLD
+    BeatPass-->>Buyer: License certificate + files
+    BeatPass-->>Producer: Sale notification
+    Stripe->>Producer: Payout via Connect (2–7 days)
+```
+
 ---
 
 ## What Changes for Your Track

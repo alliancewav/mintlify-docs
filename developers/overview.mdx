@@ -242,6 +242,13 @@ The BeatPass API uses a **<Tooltip tip="Public requests return minimal data (id,
   **Unauthenticated requests return minimal data.** You must have an approved Bearer token to access rich API responses. See [Authentication](/developers/auth) for details.
 </Warning>
 
+```mermaid
+flowchart LR
+    A[API Request] --> B{Bearer token\nincluded?}
+    B -->|Yes| C[Rich Data\nPricing, plays, BPM,\nlicensing, tags]
+    B -->|No| D[Minimal Data\nid, name, model_type]
+```
+
 ---
 
 ## Endpoint Categories

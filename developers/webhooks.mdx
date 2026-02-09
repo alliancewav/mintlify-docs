@@ -84,6 +84,23 @@ The webhook controller processes the following Stripe events:
   </Step>
 </Steps>
 
+```mermaid
+sequenceDiagram
+    participant Buyer
+    participant BeatPass
+    participant Stripe
+    participant Producer
+
+    Buyer->>BeatPass: Initiate purchase
+    BeatPass->>Stripe: Create PaymentIntent
+    Stripe-->>Buyer: Confirm card payment
+    Buyer->>Stripe: Authorize payment
+    Stripe->>BeatPass: Webhook (payment_intent.succeeded)
+    BeatPass->>BeatPass: Generate license & mark track SOLD
+    BeatPass-->>Producer: Sale notification
+    Stripe->>Producer: Payout via Connect
+```
+
 ---
 
 ## Webhook Security

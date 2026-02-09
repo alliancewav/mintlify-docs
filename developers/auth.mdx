@@ -97,6 +97,13 @@ The BeatPass API uses a **two-tier access model** for external consumers:
   </Tab>
 </Tabs>
 
+```mermaid
+flowchart LR
+    A[API Request] --> B{Bearer token\nprovided?}
+    B -->|Yes| C[Rich Data\nPricing, plays, BPM,\nlicensing, tags]
+    B -->|No| D[Minimal Data\nid, name, model_type only]
+```
+
 ---
 
 ## Requesting API Access
@@ -123,6 +130,16 @@ API access is granted on a **case-by-case basis** to approved developers and par
     ```
   </Step>
 </Steps>
+
+```mermaid
+flowchart LR
+    A[Contact BeatPass] --> B[Approved]
+    B --> C[Generate Token]
+    C --> D[Use in Requests]
+    D --> E{Token expired?\n90 days}
+    E -->|Yes| C
+    E -->|No| D
+```
 
 ### Token Details
 
