@@ -1,0 +1,114 @@
+---
+title: "Beat Request Overhaul"
+date: "2026-02-09"
+severity: "minor"
+version: "3.0.9"
+audience: "All"
+tags: ["feature", "improvement", "bugfix"]
+components: ["beat-requests", "token-system", "submissions"]
+status: "published"
+related: []
+---
+
+import ReleaseFeedback from "/snippets/sections/release-feedback.mdx";
+
+# Beat Request Overhaul
+
+## Summary
+
+A comprehensive audit and upgrade of the Beat Request system — fixing critical token accounting bugs, adding new producer submission safeguards, and redesigning the feed and submission experience for both requesters and producers.
+
+---
+
+## What's New
+
+### Feed Redesign
+
+- **"All" and "My Requests" tabs** — Switch between the public feed and your own requests in one click
+- **Genre filter** — Narrow the feed to requests matching your style
+- **Sort options** — Sort by newest, expiring soon, most submissions, or budget
+- **Expired requests hidden** — The "All" tab now shows only active requests, reducing clutter
+- **Relative timestamps** — See when a request was posted (e.g., "5m ago", "2h ago") alongside the expiry countdown
+
+### Submission Improvements (Producers)
+
+- **Multi-track selection** — Select and submit multiple tracks at once instead of one at a time
+- **5-track submission limit** — Each producer can submit up to 5 tracks per request
+- **Already-submitted marking** — Tracks you've already sent are visually flagged so you won't pick duplicates
+- **Duplicate audio detection** — Tracks matching an existing submission's audio fingerprint are automatically blocked
+- **Platform-hosted requirement** — Only tracks uploaded to BeatPass (not external links) can be submitted
+- **Fingerprint verification** — Tracks must have a completed audio fingerprint before submission
+- **Upload via Backstage** — The "Upload New Track" option now opens your Backstage in a new tab for a smoother upload workflow
+
+### Request Creation
+
+- **Budget currency selector** — Choose from USD, EUR, GBP, or CAD when setting a budget
+- **Genre stored as display name** — Genre labels now appear exactly as shown in the platform
+
+### Token System Fixes
+
+- **Multi-token refunds** — Deleting a 48h or 72h request now correctly refunds 2 or 3 tokens (previously always refunded 1)
+- **Accurate usage tracking** — Token usage now sums actual token amounts instead of counting transaction rows, preventing over-limit submissions
+- **Plan upgrade token refresh** — Upgrading your plan now correctly resets your token balance to the new plan's limit immediately
+- **Rollback safety** — If request creation fails partway through, the full token cost is returned (not just 1 token)
+
+### Renewal Fix
+
+- **Original duration preserved** — Renewing an expired request now reactivates it for its original duration (24, 48, or 72 hours) instead of always defaulting to 24 hours
+
+### Routing & Stability
+
+- **Route resolution fixed** — Statistics and duration-tier endpoints no longer incorrectly match as request IDs
+- **New submissions endpoint** — Request owners can now view submitted tracks directly (track name, producer name, timestamp)
+- **Duration-aware copy** — All UI text now reflects the correct duration tier instead of hardcoded "24 hours"
+
+---
+
+## Why It Matters
+
+- **Producers** get a faster, smarter submission flow with safeguards against duplicates and clearer feedback
+- **Requesters** can browse and manage requests more efficiently with filters, tabs, and accurate token tracking
+- **Everyone** benefits from correct multi-token accounting — no more lost tokens when deleting or failing to create higher-tier requests
+
+---
+
+## How to Use
+
+<Steps>
+  <Step title="Browse Beat Requests">
+    Navigate to **Beat Requests** from the main menu. Use the **All** and **My Requests** tabs to switch views. Filter by genre and sort by your preferred criteria.
+  </Step>
+  
+  <Step title="Create a Request">
+    Click **Create Request**, fill in your description and reference track, optionally set a budget with currency, and choose a duration tier (24h, 48h, or 72h).
+  </Step>
+  
+  <Step title="Submit Beats (Producers)">
+    Click **Send Beat** on any active request. Select one or more tracks from your catalog (up to 5). Already-submitted tracks are marked. Click **Send** to submit.
+  </Step>
+  
+  <Step title="Manage Your Requests">
+    Switch to the **My Requests** tab to see all your active and expired requests. Delete to reclaim tokens or renew expired requests within 30 days.
+  </Step>
+</Steps>
+
+---
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Beat Requests Help" icon="book" href="/help/beat-requests">
+    Full documentation for the beat request system
+  </Card>
+  <Card title="For Producers" icon="music" href="/help/beat-requests/for-producers">
+    Producer guide to browsing and submitting beats
+  </Card>
+  <Card title="Understanding Tokens" icon="coins" href="/help/beat-requests/understanding-tokens">
+    How the token system works
+  </Card>
+  <Card title="Managing Requests" icon="list-check" href="/help/beat-requests/managing-requests">
+    View, track, and delete your requests
+  </Card>
+</CardGroup>
+
+<ReleaseFeedback />

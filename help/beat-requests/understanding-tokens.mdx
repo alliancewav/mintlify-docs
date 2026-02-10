@@ -78,21 +78,27 @@ Tokens are not consumed when you:
 
 ## Getting Tokens Back (Refunds)
 
-You can get a token refunded by **deleting your request**:
+You can get tokens refunded by **deleting your request**:
 
 1. Go to your active requests
 2. Delete a request you no longer need
-3. Your token is **automatically refunded**
+3. Your tokens are **automatically refunded** based on the original duration tier
+
+The refund amount matches the original cost:
+- **24h request** — 1 token refunded
+- **48h request** — Up to 2 tokens refunded
+- **72h request** — Up to 3 tokens refunded
 
 <Warning>
-  Token refunds only work up to your plan's monthly limit. If you're already at the maximum, deleting a request won't add extra tokens.
+  Token refunds are capped at your plan's monthly limit. If refunding would push your balance above the cap, only the amount needed to reach the cap is returned.
 </Warning>
 
 ### Refund Conditions
 
-| Scenario | Token Refunded? |
-|----------|-----------------|
-| Delete active request | Yes |
+| Scenario | Tokens Refunded? |
+|----------|------------------|
+| Delete active request, below cap | Full cost (1, 2, or 3 tokens) |
+| Delete active request, partially below cap | Partial (up to the cap) |
 | Delete expired request | No |
 | Request expires naturally | No |
 | You're at max token limit | No (already at cap) |

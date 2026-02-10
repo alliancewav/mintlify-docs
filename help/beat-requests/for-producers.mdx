@@ -17,10 +17,14 @@ Beat requests are an opportunity to connect with artists looking for specific so
 To submit beats to requests, you need:
 
 - **A producer profile** — You must have an artist profile on BeatPass
-- **Uploaded tracks** — At least one track in your catalog to submit
+- **Uploaded tracks** — At least one track in your catalog that is platform-hosted and has completed audio fingerprinting
 - **Upload permission** — Your account needs the ability to upload music (the same permission required to add tracks to your catalog)
 
 Any user with a producer profile can submit beats to requests. Both verified and non-verified producers have the same submission capabilities.
+
+<Warning>
+  Only tracks hosted on BeatPass with a completed audio fingerprint are eligible for submission. External links (YouTube, SoundCloud, etc.) cannot be submitted to beat requests.
+</Warning>
 
 <Info>
   Producers can enable notifications for new beat requests in their notification settings, helping you respond quickly to opportunities.
@@ -41,12 +45,15 @@ Navigate to the Beat Requests section to see all currently active requests. Each
 - **Time remaining** — How long until the request expires
 - **Submission count** — How many producers have already submitted
 
-### Filtering Requests
+### Filtering and Sorting
 
-Look for requests that match your style:
-- Check the **genre** field for your specialty
-- Review the **reference track** to understand the sound
-- Read the **description** carefully for specific requirements
+The beat requests feed includes tools to help you find relevant opportunities:
+
+- **Genre filter** — Narrow results to your specialty
+- **Sort options** — Sort by newest, expiring soon, most submissions, or budget
+- **"All" vs. "My Requests" tabs** — Switch between the public feed and your own requests
+
+Expired requests are automatically hidden from the **All** tab so you only see active opportunities.
 
 <Tip>
   Focus on requests where your existing catalog has a good match. Quality over quantity leads to better connections.
@@ -60,16 +67,24 @@ Look for requests that match your style:
 
 1. **Find a matching request** — Browse and find one that fits your style
 2. **Listen to the reference track** — Make sure you understand what they want
-3. **Choose your track** — Select a track from your catalog that matches
+3. **Click "Send Beat"** — Opens the submission dialog showing your eligible tracks
+4. **Select one or more tracks** — Choose tracks that match the request
    - You must own the track or be listed as a collaborator on it
-4. **Click Submit/Send Beat** — Confirm your submission
+   - Already-submitted tracks are visually marked so you won't pick duplicates
+5. **Click "Send"** — Confirm your submission
+
+<Info>
+  Need to upload a new beat first? Click **"Upload New Track"** in the submission dialog — this opens your **Backstage** where you can upload and prepare the track. Once uploaded, return to the request and select it.
+</Info>
 
 ### What Gets Submitted
 
 When you submit:
 - The requester receives your **existing track** from your BeatPass catalog
-- You can submit **multiple different tracks** to the same request
+- You can submit up to **5 different tracks** per request
 - Each unique track can only be submitted **once per request**
+- Tracks must be **platform-hosted** (uploaded to BeatPass, not external links)
+- Tracks must have a **completed audio fingerprint**
 
 ### Restrictions
 
@@ -77,12 +92,14 @@ When you submit:
 |--------|----------|
 | Submit your own track | ✓ |
 | Submit a collaboration track | ✓ |
+| Submit multiple tracks (up to 5) | ✓ |
 | Submit to your own request | ✗ |
 | Submit the same track twice to one request | ✗ |
-| Submit multiple different tracks | ✓ |
+| Submit a track with a duplicate audio fingerprint | ✗ |
+| Submit an external link (YouTube, SoundCloud, etc.) | ✗ |
 
 <Warning>
-  You cannot submit beats to your own requests. The system prevents self-fulfillment.
+  You cannot submit beats to your own requests. The system prevents self-fulfillment. Additionally, tracks that match an existing submission's audio fingerprint will be blocked to prevent duplicate audio.
 </Warning>
 
 ---
@@ -105,6 +122,8 @@ After a successful submission:
 
 If something goes wrong:
 - **"You have already submitted this track to this request"** — You can't submit the same track twice; pick a different track
+- **"Submission limit reached (5 tracks max)"** — You've reached the 5-track limit for this request
+- **"This track appears to be a duplicate of an existing track"** — The audio fingerprint matches another submission; try a different track
 - **"Beat request has expired"** — The 24 / 48 / 72-hour window has closed
 - **"You can only send tracks that you own or collaborate on"** — Track ownership issue
 - **"You do not have permission to send beats"** — Your account is missing upload permissions
@@ -176,6 +195,10 @@ Producers can receive notifications for new beat requests:
     Common reasons:
     - The request has expired (its 24/48/72-hour window has closed)
     - You already submitted that specific track
+    - You've reached the 5-track submission limit for this request
+    - Your track's audio matches an existing submission (duplicate audio detection)
+    - Your track hasn't completed audio fingerprinting yet
+    - Your track is an external link, not hosted on BeatPass
     - It's your own request
     - You don't have any tracks in your catalog
   </Accordion>

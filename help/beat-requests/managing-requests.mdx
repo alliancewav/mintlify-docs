@@ -16,10 +16,12 @@ Once you've created beat requests, you can track their status, view submissions,
 
 ### Where to Find Them
 
-Access your beat requests through the Beat Requests section. You'll see:
-- **Your active requests** — Currently accepting submissions
-- **Your expired requests** — Past their expiration window
-- **All platform requests** — Browse what others are requesting
+Access your beat requests through the Beat Requests section. The page has two tabs:
+
+- **All** — Active requests from all users on the platform (expired requests are hidden)
+- **My Requests** — Your own active and expired requests in one place
+
+Use the **genre filter** to narrow results and the **sort menu** to reorder by newest, expiring soon, most submissions, or budget.
 
 ### Request Status
 
@@ -48,6 +50,7 @@ Click on any request to see:
 Active requests show how much time is left:
 - **Hours remaining** — Countdown until expiration
 - **Human-readable format** — "23 hours from now" or "2 hours left"
+- **Posted time** — Relative timestamp showing when the request was created (e.g., "5m ago", "2h ago")
 
 ### Submission Count
 
@@ -73,16 +76,22 @@ Watch your submission count grow as producers respond:
 ### What Happens When You Delete
 
 - **Request is removed** — No longer visible to producers
-- **Token refunded** — You get your token back (if eligible)
+- **Tokens refunded** — You get your tokens back (if eligible). The full token cost is refunded (1, 2, or 3 tokens depending on the original duration tier)
 - **Existing submissions** — Still accessible if the request had any
 
 ### Token Refund Rules
 
-| Situation | Token Refunded? |
-|-----------|-----------------|
-| Delete active request, below monthly limit | Yes |
-| Delete active request, at monthly limit | No |
+| Situation | Tokens Refunded? |
+|-----------|------------------|
+| Delete active 24h request, below monthly limit | 1 token |
+| Delete active 48h request, below monthly limit | Up to 2 tokens |
+| Delete active 72h request, below monthly limit | Up to 3 tokens |
+| Delete request when at monthly limit | No (already at cap) |
 | Delete expired request | No |
+
+<Note>
+  Refunds are capped at your plan's monthly limit. For example, if your plan allows 3 tokens and you currently have 2, deleting a 72h request (3 tokens) will only refund 1 token (bringing you to 3, not 5).
+</Note>
 
 <Warning>
   Deleting a request removes it from the public feed. Producers can no longer submit to it. Make sure you really want to delete before confirming.
@@ -125,7 +134,7 @@ Even after expiration, you can still:
 If a request expires, you have a **30-day renewal window**:
 
 - Look for the **Renew** option on expired requests marked as eligible
-- Renewing consumes **1 token** and reactivates the request for another active window (default: 24 hours)
+- Renewing consumes **1 token** and reactivates the request for another window **matching the original duration** (24, 48, or 72 hours)
 - You can only renew your own requests
 - Requests that expired more than 30 days ago can't be renewed—you'll need to create a new one
 
@@ -158,18 +167,20 @@ flowchart TD
 
 ## My Requests vs. All Requests
 
-### My Requests
+### My Requests Tab
 
 Shows only requests **you** created:
 - Your active requests
-- Your expired requests
-- Your submission counts
+- Your expired requests (with renewal option if eligible)
+- Submission counts for each request
+- Search within your own requests
 
-### All Requests (Browse)
+### All Tab
 
 Shows **everyone's** active requests:
-- All currently active requests on the platform
-- Useful for producers looking for opportunities
+- Only active requests (expired requests are automatically hidden)
+- Filter by **genre** to find specific styles
+- Sort by **newest**, **expiring soon**, **most submissions**, or **budget**
 - Your own requests may appear here too
 
 ---
@@ -212,7 +223,7 @@ For each request, you can see:
   </Accordion>
   
   <Accordion title="Can I reactivate an expired request?">
-    Yes, within 30 days. Look for the **Renew** option on eligible expired requests. Renewing costs 1 token and reactivates the request for another 24-hour window. Requests older than 30 days cannot be renewed — you'll need to create a new one.
+    Yes, within 30 days. Look for the **Renew** option on eligible expired requests. Renewing costs 1 token and reactivates the request for another window matching the original duration you chose. Requests older than 30 days cannot be renewed — you'll need to create a new one.
   </Accordion>
   
   <Accordion title="Can I edit a request after posting?">

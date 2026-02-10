@@ -5,6 +5,21 @@ description: "All BeatPass platform updates, new features, and improvements in o
 rss: true
 ---
 
+<Update label="February 9, 2026" description="v3.0.9" tags={["Feature", "Bug Fix", "UI/UX", "Producer"]}>
+  ## Beat Request Overhaul
+
+  Comprehensive audit and upgrade of the Beat Request system — fixing critical token bugs, adding producer submission safeguards, and redesigning the feed experience.
+
+  - **Feed redesign** — New "All" / "My Requests" tabs, genre filter, sort options, and relative timestamps
+  - **Multi-track submission** — Producers can now select and send multiple tracks at once (up to 5 per request)
+  - **Duplicate audio detection** — Audio fingerprint matching prevents duplicate submissions
+  - **Multi-token refund fix** — Deleting 48h/72h requests now correctly refunds 2 or 3 tokens
+  - **Token usage accuracy** — Usage tracking now sums actual amounts instead of counting rows
+  - **Plan upgrade token refresh** — Upgrading immediately resets token balance to the new plan's limit
+
+  [Read full release notes →](/release-notes/v3.0/3.0.9)
+</Update>
+
 <Update label="February 7, 2026" description="v3.0.8-25" tags={["Security", "API", "Performance"]}>
   ## API Security Hardening
 
