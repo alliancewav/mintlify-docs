@@ -4052,15 +4052,65 @@
     "/beat-requests/{id}/fulfill": {
       "post": {
         "tags": ["Beat Requests"],
-        "summary": "Mark a beat request as fulfilled",
-        "operationId": "fulfillBeatRequest",
+        "summary": "Submit a track to a beat request",
+        "operationId": "submitTrackToBeatRequest",
         "parameters": [
-          { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" }, "description": "Beat request ID" }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["track_id"],
+                "properties": {
+                  "track_id": { "type": "integer", "description": "ID of the track to submit" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Track submitted successfully" },
+          "401": { "$ref": "#/components/responses/Response401" },
+          "403": { "description": "Not track owner or self-submission blocked" },
+          "409": { "description": "Duplicate submission or duplicate audio detected" },
+          "410": { "description": "Beat request has expired" },
+          "422": { "description": "Track not platform-hosted, fingerprint not completed, or submission limit reached" }
+        }
+      }
+    },
+    "/beat-requests/{id}/submissions": {
+      "get": {
+        "tags": ["Beat Requests"],
+        "summary": "Get submissions for a beat request",
+        "operationId": "getBeatRequestSubmissions",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" }, "description": "Beat request ID" }
         ],
         "responses": {
-          "200": { "description": "Beat request fulfilled" },
+          "200": { "description": "List of submitted tracks" },
           "401": { "$ref": "#/components/responses/Response401" },
-          "403": { "$ref": "#/components/responses/Response403" }
+          "403": { "description": "Only request owner can view submissions" }
+        }
+      }
+    },
+    "/beat-requests/{id}/renew": {
+      "post": {
+        "tags": ["Beat Requests"],
+        "summary": "Renew an expired beat request",
+        "operationId": "renewBeatRequest",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" }, "description": "Beat request ID" }
+        ],
+        "responses": {
+          "200": { "description": "Beat request renewed" },
+          "401": { "$ref": "#/components/responses/Response401" },
+          "403": { "description": "Not request owner" },
+          "409": { "description": "Request still active" },
+          "410": { "description": "Renewal window expired (30 days)" },
+          "429": { "description": "No tokens available for renewal" }
         }
       }
     },

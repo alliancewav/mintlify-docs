@@ -212,27 +212,36 @@ All errors follow this structure:
 
 ### Creation
 
-| Error                   | Code | Cause                | Resolution               |
-| ----------------------- | ---- | -------------------- | ------------------------ |
-| `Request limit reached` | 429  | Max active requests  | Close old requests first |
-| `Title is required`     | 422  | Missing title        | Provide title            |
-| `Description too short` | 422  | Under minimum length | Add more detail          |
+| Error                        | Code | Cause                                    | Resolution                          |
+| ---------------------------- | ---- | ---------------------------------------- | ----------------------------------- |
+| `No tokens remaining`        | 429  | Monthly token allowance exhausted        | Wait for monthly reset or upgrade   |
+| `Insufficient tokens`        | 429  | Not enough tokens for chosen duration    | Choose a shorter duration or wait   |
+| `Description too short`      | 422  | Under minimum length (10 characters)     | Add more detail                     |
+| `Reference track required`   | 422  | Missing reference track URL              | Provide a valid URL                 |
+| `Invalid reference track`    | 422  | URL format invalid                       | Provide a valid YouTube, Spotify, or SoundCloud link |
 
-### Response
+### Submission
 
-| Error               | Code | Cause                                 | Resolution           |
-| ------------------- | ---- | ------------------------------------- | -------------------- |
-| `Request not found` | 404  | Invalid request ID                    | Verify ID            |
-| `Request closed`    | 410  | Request no longer accepting responses | Find open request    |
-| `Already responded` | 409  | User already submitted response       | Cannot submit twice  |
-| `Request expired`   | 410  | Past 30-day limit                     | Request auto-expired |
+| Error                        | Code | Cause                                    | Resolution                          |
+| ---------------------------- | ---- | ---------------------------------------- | ----------------------------------- |
+| `Request not found`          | 404  | Invalid request ID                       | Verify ID                           |
+| `Request expired`            | 410  | Duration window (24/48/72h) has closed   | Find an active request              |
+| `Duplicate submission`       | 409  | Same track already submitted             | Choose a different track            |
+| `Submission limit reached`   | 422  | Producer already submitted 5 tracks      | Maximum tracks per request reached  |
+| `Duplicate audio detected`   | 409  | Audio fingerprint matches existing submission | Try a different track          |
+| `Track not platform-hosted`  | 422  | Track is an external link, not uploaded  | Upload the track to the platform first |
+| `Fingerprint not completed`  | 422  | Track hasn't finished audio processing   | Wait for processing to complete     |
+| `Not track owner`            | 403  | Producer doesn't own or collaborate on track | Submit only your own tracks     |
+| `Self-submission blocked`    | 403  | Cannot submit to your own request        | Find another user's request         |
 
-### Status Changes
+### Deletion & Renewal
 
-| Error               | Code | Cause                     | Resolution           |
-| ------------------- | ---- | ------------------------- | -------------------- |
-| `Cannot close`      | 403  | Not request owner         | Only owner can close |
-| `Already fulfilled` | 409  | Request already completed | No action needed     |
+| Error                        | Code | Cause                                    | Resolution                          |
+| ---------------------------- | ---- | ---------------------------------------- | ----------------------------------- |
+| `Not request owner`          | 403  | Only the creator can delete or renew     | Verify ownership                    |
+| `Request still active`       | 409  | Cannot renew a request that hasn't expired | Wait for expiration or delete     |
+| `Renewal window expired`     | 410  | Request expired more than 30 days ago    | Create a new request instead        |
+| `No token for renewal`       | 429  | No tokens available to renew             | Wait for monthly reset or upgrade   |
 
 ---
 

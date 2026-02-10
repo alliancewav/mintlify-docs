@@ -28,24 +28,24 @@ The Beat Requests API powers the custom beat request marketplace. Users spend to
   <Step title="Producers Browse">
     Producers view active requests and submit tracks that match the specifications.
   </Step>
-  <Step title="Fulfill or Expire">
-    The requester can mark a request as fulfilled when a suitable submission is received. Unfulfilled requests expire automatically after the chosen duration.
+  <Step title="Review Submissions">
+    The requester reviews submitted tracks and connects with producers directly if interested.
   </Step>
-  <Step title="Renew (Optional)">
-    Expired requests can be renewed for an additional period by spending more tokens.
+  <Step title="Expire or Renew">
+    Requests expire automatically after the chosen duration (24/48/72h). Expired requests can be renewed within 30 days by spending tokens again.
   </Step>
 </Steps>
 
 ```mermaid
 stateDiagram-v2
-    [*] --> Created: Tokens spent
-    Created --> Active: Goes live
-    Active --> Active: Producers submit beats
-    Active --> Fulfilled: Requester accepts submission
+    [*] --> Active: Tokens spent
+    Active --> Active: Producers submit tracks
     Active --> Expired: Duration ends (24/48/72h)
     Expired --> Active: Renew (spend tokens)
-    Fulfilled --> [*]
-    Expired --> [*]: No renewal
+    Active --> Deleted: Owner deletes (tokens refunded)
+    Expired --> Deleted: Owner deletes
+    Expired --> [*]: No renewal (30-day window)
+    Deleted --> [*]
 ```
 
 ---
@@ -62,7 +62,7 @@ Beat requests use a token-based system tied to the user's subscription plan:
     Tokens refresh monthly based on subscription plan
   </Card>
   <Card title="Refunds" icon="rotate-left">
-    Tokens are refunded if request creation fails
+    Tokens are refunded when the owner deletes a request (capped at plan allowance)
   </Card>
 </CardGroup>
 
@@ -200,24 +200,45 @@ DELETE /api/v1/beat-requests/{id}
 ```
 
 <Note>
-  When a request is deleted, the spent tokens are refunded to the owner.
+  When a request is deleted, the spent tokens are refunded to the owner (capped at plan allowance). For example, deleting a 72-hour request refunds up to 3 tokens, but never exceeds the user's monthly token limit.
 </Note>
 
 ---
 
-### Fulfill Request
+### Submit Track
 
-Mark a beat request as fulfilled after accepting a submission.
+Submit a track to an active beat request. Producers use this endpoint to send their beats to a requester. Each producer can submit multiple tracks per request, up to the platform limit.
 
 ```http
 POST /api/v1/beat-requests/{id}/fulfill
+```
+
+<ParamField body="track_id" type="integer" required>
+  The ID of the track to submit. Must be a platform-hosted track owned by (or collaborated on by) the authenticated user, with completed audio processing.
+</ParamField>
+
+**Validation Requirements:**
+- Track must be uploaded to the platform (external links not accepted)
+- Track must have completed audio processing
+- Producer must own or collaborate on the track
+- Cannot submit to your own request
+- Cannot submit the same track twice to the same request
+
+---
+
+### Get Submissions
+
+Get the list of tracks submitted to a beat request. Only available to the request owner.
+
+```http
+GET /api/v1/beat-requests/{id}/submissions
 ```
 
 ---
 
 ### Renew Request
 
-Renew an expired beat request for an additional period.
+Renew an expired beat request for an additional period. The renewal uses the same duration as the original request and costs the same number of tokens. Requests can only be renewed within 30 days of expiration.
 
 ```http
 POST /api/v1/beat-requests/{id}/renew
@@ -302,13 +323,37 @@ GET /api/v1/beat-requests/duration-tiers
 
 ## Error Reference
 
+### Creation
+
 | Error | Code | Cause |
 |-------|------|-------|
 | Invalid duration | 400 | Duration must be 24, 48, or 72 |
 | Insufficient tokens | 429 | Not enough tokens for chosen duration |
+| Description too short | 422 | Content under minimum length |
+| Reference track required | 422 | Missing reference track URL |
+
+### Submission
+
+| Error | Code | Cause |
+|-------|------|-------|
 | Request not found | 404 | Invalid request ID |
-| Unauthorized to delete | 403 | Only owner can delete |
-| Request expired | 410 | Past expiry, needs renewal |
+| Request expired | 410 | Duration window has closed |
+| Duplicate submission | 409 | Same track already submitted |
+| Submission limit reached | 422 | Maximum tracks per request reached |
+| Duplicate audio detected | 409 | Audio fingerprint matches existing submission |
+| Track not platform-hosted | 422 | Track must be uploaded to the platform |
+| Fingerprint not completed | 422 | Track audio processing not finished |
+| Not track owner | 403 | Must own or collaborate on the track |
+| Self-submission blocked | 403 | Cannot submit to your own request |
+
+### Deletion & Renewal
+
+| Error | Code | Cause |
+|-------|------|-------|
+| Unauthorized | 403 | Only the request owner can delete or renew |
+| Request still active | 409 | Cannot renew a request that hasn't expired |
+| Renewal window expired | 410 | More than 30 days since expiration |
+| No token for renewal | 429 | No tokens available |
 
 ---
 

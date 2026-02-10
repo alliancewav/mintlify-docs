@@ -93,7 +93,7 @@ The BeatPass API uses a **two-tier access model** for external consumers:
     
     **Album:** `plays`, `created_at`, `tracks` relation.
     
-    Sensitive fields remain hidden: `src` (audio URL), `exclusive_license_config`, `owner_id`, `sample_safe_*`, `cover_art_*`.
+    Sensitive fields remain hidden even with authentication, including audio source URLs, internal ownership references, licensing configuration, and processing metadata.
   </Tab>
 </Tabs>
 
