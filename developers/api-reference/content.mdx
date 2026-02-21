@@ -1,15 +1,15 @@
 ---
 title: "Content Management API"
 sidebarTitle: "Content"
-description: "Manage tracks, albums, artists, lyrics, playlists, audio fingerprinting, and cover art on BeatPass."
-keywords: ["beatpass content api","tracks api","albums api","artists api","lyrics","audio fingerprinting","playlists"]
+description: "Manage tracks, albums, artists, lyrics, playlists, audio fingerprinting, audio recon, and cover art on BeatPass."
+keywords: ["beatpass content api","tracks api","albums api","artists api","lyrics","audio fingerprinting","audio recon","playlists"]
 "og:title": "Content Management API - BeatPass Developer Docs"
-"og:description": "CRUD operations for tracks, albums, artists, playlists, lyrics, fingerprinting, and cover art."
+"og:description": "CRUD operations for tracks, albums, artists, playlists, lyrics, fingerprinting, audio recon, and cover art."
 ---
 
 ## Overview
 
-The Content Management API provides full CRUD operations for all content types on BeatPass — tracks, albums, artists, playlists, lyrics, and supporting features like audio fingerprinting and cover art generation.
+The Content Management API provides full CRUD operations for all content types on BeatPass — tracks, albums, artists, playlists, lyrics, and supporting features like audio fingerprinting, Audio Recon, and cover art generation.
 
 <Info>
   **Base URL:** `https://open.beatpass.ca/api/v1`
@@ -494,6 +494,85 @@ POST /api/v1/tracks/check-duplicates
 ```http
 POST /api/v1/fingerprints/{fingerprint}/retry
 ```
+
+---
+
+## Audio Recon
+
+Audio Recon detects songs on streaming platforms (Spotify, YouTube, Deezer) that share audio characteristics with tracks on BeatPass. Results are available to the track's credited producers and admins.
+
+### Get Audio Recon Matches
+
+Retrieve detected audio similarities for a specific track. Requires authentication. Only accessible by producers credited on the track.
+
+```http
+GET /api/v1/tracks/{track}/placements
+```
+
+<ParamField path="track" type="integer" required>
+  The track ID to retrieve Audio Recon matches for.
+</ParamField>
+
+**Response:**
+
+```json
+{
+  "placements": [
+    {
+      "id": 42,
+      "title": "Song Title",
+      "artist_name": "Artist Name",
+      "album_name": "Album Name",
+      "release_date": "2025-06-15",
+      "confidence_score": 95,
+      "spotify_url": "https://open.spotify.com/track/...",
+      "youtube_url": "https://youtube.com/watch?v=...",
+      "deezer_url": "https://deezer.com/track/...",
+      "created_at": "2026-02-20T12:00:00+00:00"
+    }
+  ],
+  "total_count": 1,
+  "artist_verified": true
+}
+```
+
+<ResponseField name="placements" type="array">
+  Array of detected audio similarities, sorted by confidence score (highest first).
+</ResponseField>
+
+<ResponseField name="placements[].confidence_score" type="integer">
+  Audio similarity percentage (90–100). Higher scores indicate stronger matches.
+</ResponseField>
+
+<ResponseField name="placements[].spotify_url" type="string | null">
+  Direct link to the matched song on Spotify, if available.
+</ResponseField>
+
+<ResponseField name="placements[].youtube_url" type="string | null">
+  Direct link to the matched song on YouTube, if available.
+</ResponseField>
+
+<ResponseField name="placements[].deezer_url" type="string | null">
+  Direct link to the matched song on Deezer, if available.
+</ResponseField>
+
+<ResponseField name="total_count" type="integer">
+  Total number of matches returned.
+</ResponseField>
+
+<ResponseField name="artist_verified" type="boolean">
+  Whether the track's primary artist has a verified profile. Scanning requires a verified artist.
+</ResponseField>
+
+<Warning>
+  Audio Recon detects audio **similarity**, not confirmed placements. A match could indicate your beat was used, a shared sample, or coincidence. Always verify by listening.
+</Warning>
+
+| Error | Code | Cause |
+|-------|------|-------|
+| Unauthenticated | 401 | No valid Bearer token provided |
+| Forbidden | 403 | You are not a credited producer on this track |
+| Not Found | 404 | Track does not exist |
 
 ---
 

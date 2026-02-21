@@ -5,16 +5,25 @@ description: "All BeatPass platform updates, new features, and improvements in o
 rss: true
 ---
 
-<Update label="February 20, 2026" description="v3.1.0" tags={["Feature", "Producer", "Notifications"]}>
-  ## Beat Placement Detection
+<Update label="February 20, 2026" description="v3.1.0" tags={["Feature", "Producer", "Notifications", "Bug Fix", "UI/UX", "Mobile"]}>
+  ## Audio Recon
 
-  BeatPass now automatically detects when your beats are used in songs on Spotify, YouTube, and Deezer — and notifies you with full details.
+  BeatPass now automatically detects songs on Spotify, YouTube, and Deezer that sound similar to your beats — and notifies you so you can investigate potential placements.
 
   - **Automatic monthly scanning** — Your beats are compared against millions of songs across major streaming platforms using BeatPassID fingerprinting
-  - **Heard In section** — New producer-only section on track pages showing detected placements with confidence scores and streaming links
-  - **Placement notifications** — In-app and email alerts with song details, streaming buttons, and verification guidance
+  - **Audio Recon section** — New producer-only section on track pages showing detected audio similarities with similarity scores and streaming links
+  - **Honest match guidance** — Notifications clearly explain that matches indicate audio similarity, not confirmed placements, with steps to verify
   - **Collaborative beat support** — All credited producers are notified, even if only one has a verified profile
-  - **License verification guidance** — Each notification explains how to confirm whether the placement is a licensed use
+  - **Verification workflow** — Each notification includes guidance to help you determine if a match is a genuine use of your beat or a coincidence
+  - **Pinned track banner redesign** — Circular cover art, compact layout, and hover-to-unpin on artist profiles
+  - **Mobile lyrics improvements** — White-themed seekbar, synced auto-scroll, and debounced auto-save with retry
+  - **Mobile player upgrade** — About the Producer section, colored gradient background, drag-to-close in fullscreen mode
+  - **Stripe Connect improvements** — Loading spinner on connect button, URL validation, and clearer error messages
+  - **Audio Recon visibility fix** — Section now correctly appears for all linked producers, not just the uploader
+  - **Stripe Connect popup fix** — Onboarding popup no longer triggers for non-producer accounts
+  - **Artist credits fix** — Credits section on artist profiles now shows newest credits first with progressive loading (8 items default, Show More button)
+  - **Banner correction** — "Ready to Share Your Beats?" banner now shows "100% net revenue share" instead of the outdated 85% claim
+  - **Platform reliability** — Improved data-fetching type safety across the platform
 
   [Read full release notes →](/release-notes/v3.0/3.1.0)
 </Update>

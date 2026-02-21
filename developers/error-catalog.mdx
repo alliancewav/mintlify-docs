@@ -245,6 +245,20 @@ All errors follow this structure:
 
 ---
 
+## Audio Recon Errors
+
+| Error | Code | Cause | Resolution |
+|-------|------|-------|------------|
+| `Unauthorized` | 401 | No valid authentication token | Include a Bearer token in your request |
+| `Forbidden` | 403 | You are not a credited producer on this track | Only credited producers and admins can view Audio Recon matches |
+| `Not Found` | 404 | Track does not exist | Verify the track ID is correct |
+
+<Note>
+  Audio Recon matches are only available for tracks with a verified artist profile. If the track's primary artist is not verified, the response will return an empty matches array with `artist_verified: false`.
+</Note>
+
+---
+
 ## Messaging Errors
 
 ### Sending Messages

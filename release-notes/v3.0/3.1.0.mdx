@@ -1,41 +1,45 @@
 ---
-title: "Beat Placement Detection"
+title: "Audio Recon"
 date: "2026-02-20"
 severity: "minor"
 version: "3.1.0"
 audience: "Producers"
-tags: ["feature", "notifications", "bugfix"]
-components: ["track-page", "notifications", "email", "scanner", "stripe-connect"]
+tags: ["feature", "bugfix", "design", "improvement", "mobile"]
+components: ["track-page", "notifications", "artist-profile", "stripe-connect", "producer-program", "mobile-player", "lyrics", "pinned-track"]
 status: "published"
 related: []
 ---
 
 import ReleaseFeedback from "/snippets/sections/release-feedback.mdx";
 
-# Beat Placement Detection
+# Audio Recon
 
 ## Summary
 
-BeatPass now automatically detects when your beats are used in songs released on Spotify, YouTube, and Deezer. Powered by <Tooltip tip="BeatPass's audio fingerprinting technology that creates a unique digital signature of your beat's audio waveform.">BeatPassID</Tooltip> fingerprinting, this feature scans streaming catalogs monthly and notifies you with full song details, streaming links, and a confidence score — so you always know where your beats end up.
+BeatPass now automatically detects songs on Spotify, YouTube, and Deezer that sound similar to your beats. Powered by <Tooltip tip="BeatPass's audio fingerprinting technology that creates a unique digital signature of your beat's audio waveform.">BeatPassID</Tooltip> fingerprinting, Audio Recon scans streaming catalogs monthly and notifies you with full song details, streaming links, and a similarity score — so you can investigate potential placements of your work.
+
+<Info>
+  Audio Recon detects audio **similarity**, not confirmed placements. A match could indicate your beat was used, or it could be a shared sample or coincidence. Always verify by listening.
+</Info>
 
 ---
 
 ## What's New
 
-- **Automatic beat scanning** — Your uploaded beats are compared against millions of songs on Spotify, YouTube, and Deezer each month
-- **Heard In section** — A new producer-only section on your track page shows all detected placements with song title, artist, confidence score, and streaming links
-- **Placement notifications** — Receive in-app and email notifications when a new placement is detected, with direct links to listen and verify
-- **Verification guidance** — Each notification includes instructions to confirm whether the placement is a licensed use, and how to contact support if it isn't
+- **Automatic audio scanning** — Your uploaded beats are compared against millions of songs on Spotify, YouTube, and Deezer each month
+- **Audio Recon section** — A new producer-only section on your track page shows all detected similarities with song title, artist, similarity score, and streaming links
+- **Similarity notifications** — Receive in-app and email notifications when a new match is detected, with direct links to listen and verify
+- **Honest match guidance** — Each notification clearly explains that matches indicate audio similarity, not confirmed placements, and provides steps to verify
 - **Collaborative beat support** — For beats with multiple credited producers, only one needs a verified profile for the beat to be scanned. All credited producers with accounts are notified
-- **Notification preferences** — Control placement notifications from your [notification preferences](https://open.beatpass.ca/notifications/settings) under the **Beat Placement Detection** group
+- **Notification preferences** — Control Audio Recon notifications from your [notification preferences](https://open.beatpass.ca/notifications/settings) under the **Audio Recon** group
 
 ---
 
 ## Why It Matters
 
-- **Protect your work** — Know when your beats appear in released music, whether or not it was licensed through BeatPass
-- **Verify licensing** — Cross-reference placements with your download notifications and license certificates to confirm authorized use
-- **Take action on unauthorized use** — If a placement doesn't have a valid license, BeatPass support can help you with next steps
+- **Stay informed** — Know when songs on streaming platforms share audio characteristics with your beats
+- **Verify potential placements** — Cross-reference matches with your download notifications and license certificates to confirm whether your beat was actually used
+- **Take action when needed** — If you confirm unauthorized use of your beat, BeatPass support can help you with next steps
 - **Zero effort** — Scans run automatically each month. No setup, no manual checking
 
 ---
@@ -52,11 +56,11 @@ BeatPass now automatically detects when your beats are used in songs released on
   </Step>
 
   <Step title="Wait for the next scan">
-    Scans run monthly. When a match is found, you'll see it in the **Heard In** section on your track page and receive a notification.
+    Scans run monthly. When a match is found, you'll see it in the **Audio Recon** section on your track page and receive a notification.
   </Step>
 
-  <Step title="Verify the placement">
-    Listen to the matched song using the streaming links. Check your download notifications to confirm the user has a valid BeatPass license. Contact support if the use appears unauthorized.
+  <Step title="Verify the match">
+    Listen to the matched song using the streaming links. Determine whether it actually uses your beat or just sounds similar. If it's a genuine use, check your download notifications to confirm licensing status.
   </Step>
 </Steps>
 
@@ -70,30 +74,98 @@ BeatPass now automatically detects when your beats are used in songs released on
 | **Beat hosting** | Beats must be uploaded to BeatPass (not external links) |
 | **Platforms scanned** | Spotify, YouTube, Deezer |
 | **Scan frequency** | Monthly, automatic |
-| **Minimum confidence** | 80% match required to display |
+| **Minimum similarity** | 80% similarity required to display |
 
 ---
 
 ## Bug Fixes
 
+### Audio Recon Section Not Appearing
+
+Fixed a bug where the **Audio Recon** section on track pages was not visible to producers who manage the track through their linked artist profile. The section now correctly appears for:
+
+1. **Track uploaders** — Producers who uploaded the beat directly
+2. **Linked producers** — Producers whose artist profile is credited on the track (including collaborators)
+3. **Admins** — Platform administrators
+
+The section also now matches the visual style of the rest of the track page.
+
 ### Stripe Connect Onboarding Popup
 
-Fixed a bug where the **Connect Your Payment Account** popup was appearing for regular users who do not have a producer (artist) profile. The popup — and the underlying API call to check Stripe Connect status — now only triggers for users who:
+Fixed a bug where the **Connect Your Payment Account** popup was appearing for regular users who do not have a producer (artist) profile. The popup now only triggers for users who:
 
 1. **Have a linked artist profile** on BeatPass
 2. **Have not yet completed** Stripe Connect onboarding (account not connected, or charges/payouts not enabled)
 
-Previously, the popup would fire for every logged-in user, causing repeated `404` errors on the `/artist/stripe-connect/status` endpoint for non-producer accounts. This is now fully gated behind an artist profile check at three independent layers: the API query, the modal timer, and the render guard.
+Previously, the popup would appear for every logged-in user, even those without a producer profile. This is now fully resolved.
 
 <Info>If you are a regular listener or subscriber without a producer profile, you will never see this popup. Producers who have already connected their Stripe account will also not see it.</Info>
+
+### Artist Credits Ordering & Display
+
+Fixed the **Credits** section on artist profiles to correctly show the most recent credits first. Previously, artists with more than 24 credits had their **newest** credits hidden instead of their oldest.
+
+**What changed:**
+- Your public profile now displays credits sorted by release date, newest first
+- The **Backstage** editor still uses your manual drag-and-drop ordering
+- Credits now show **eight items by default** on desktop (two rows of four) with a **Show More** button for progressive loading
+- **Show More** first reveals already-loaded credits before fetching more — efficient for profiles with 100+ credits
+- Visible count resets to eight when switching between role filters
+- Role filter pills now use the platform's standard chip style for visual consistency
+
+### Producer Program Banner
+
+Corrected the **Ready to Share Your Beats?** banner displayed on track pages for non-producers. The banner previously claimed "Earn 85% revenue share" which was outdated. It now correctly reads "100% net revenue share" to match the [Producer Program](https://open.beatpass.ca/producer-program) page — producers receive 100% of their listed price, with the platform fee added on top for the buyer.
+
+---
+
+## Improvements
+
+### Pinned Track Banner
+
+Redesigned the **Pinned Track** banner on artist profiles for a cleaner, more compact look:
+
+- Cover art now displays as a **circular thumbnail** with a play/pause overlay on hover
+- Track name, artist, duration, and play count are displayed in a **compact two-row layout**
+- The **Unpin** button appears only on hover for a cleaner default appearance
+- The banner uses a subtle card style with rounded corners for better visual integration with the rest of the profile
+
+### Mobile Lyrics View
+
+Improved the lyrics experience on mobile:
+
+- **White-themed seekbar** and playback controls for better visibility in fullscreen mode
+- **Synced lyrics auto-scroll** with animated line highlighting that follows playback
+- **Lyrics auto-save** — Editing lyrics now uses debounced saving with automatic retry and rate limit handling, so you never lose your edits
+
+### Mobile Player
+
+Enhanced the fullscreen mobile player:
+
+- **About the Producer** — A new section in the fullscreen player shows producer details, bio, follower count, and social links
+- **Colored gradient background** based on the current track's cover art for a more immersive experience
+- **Drag-to-close** gesture for natural interaction
+- Improved visual consistency with the rest of the platform
+
+### Stripe Connect Onboarding
+
+Enhanced the payment account connection flow:
+
+- The **Connect Stripe Account** button now shows a loading spinner while the connection is in progress
+- Redirect URLs are validated before navigation to prevent errors
+- Clearer error messages when the connection attempt fails
+
+### Platform Reliability
+
+Improved data-fetching type safety across the platform, reducing potential errors in how the app loads and displays your data. This is a behind-the-scenes improvement that makes BeatPass more reliable.
 
 ---
 
 ## Related
 
 <CardGroup cols={2}>
-  <Card title="Beat Placement Detection" icon="radar" href="/help/licensing-for-producers/beat-placement-detection">
-    Full documentation for the beat placement detection feature
+  <Card title="Audio Recon" icon="radar" href="/help/licensing-for-producers/audio-recon">
+    Full documentation for the Audio Recon feature
   </Card>
   <Card title="License Certificates" icon="file-certificate" href="/help/licensing-for-producers/license-certificates">
     How license certificates work and how to verify them

@@ -98,10 +98,12 @@ When viewing synced lyrics (not editing):
 
 ### Auto-Save
 
-Your lyrics are automatically saved when:
-- You close the lyrics panel
-- You switch to a different track
-- You exit edit mode
+Your lyrics are automatically saved as you write. The editor uses a smart save system that:
+- Saves your changes a few seconds after you stop typing
+- Automatically retries if the save fails due to a temporary issue
+- Respects rate limits to avoid overwhelming the server
+
+You'll also get an auto-save when you close the lyrics panel, switch to a different track, or exit edit mode.
 
 ### Manual Save
 
@@ -155,6 +157,8 @@ On desktop (screens wider than 1024px), the lyrics panel appears as a floating s
 
 On mobile and tablet devices, the lyrics panel opens as a full-screen overlay with:
 
+- **White-themed seekbar** and playback controls for better visibility
+- **Synced lyrics auto-scroll** with animated line highlighting
 - Compact toolbar optimized for touch
 - Larger tap targets for editing
 - Same sync and section features in a mobile-friendly layout
