@@ -24,8 +24,8 @@ BeatPass uses <Tooltip tip="BeatPass's audio fingerprinting technology that crea
     When you upload a beat, BeatPassID creates a unique audio fingerprint — a digital signature of your beat's sound.
   </Step>
 
-  <Step title="Monthly scanning">
-    BeatPass automatically scans your beats against global music databases each month. No action is required from you.
+  <Step title="Scheduled scanning">
+    BeatPass runs Audio Recon scans automatically every day, rotating through eligible tracks so your catalog is rechecked on a rolling cycle. No manual action is required.
   </Step>
 
   <Step title="Similarity detected">
@@ -56,7 +56,7 @@ When similarities are detected, they appear in the **Audio Recon** section on yo
 Each match shows:
 
 - **Song title and artist** — The name of the song and who released it
-- **Similarity score** — How closely the song's audio fingerprint matches your beat (80% minimum to display)
+- **Similarity score** — How closely the song's audio fingerprint matches your beat (high-confidence matches only)
 - **Streaming links** — Direct links to listen on Spotify, YouTube, and Deezer
 - **Release date** — When the song was published
 - **Album and label** — Additional release information when available
@@ -72,9 +72,8 @@ The similarity score indicates how closely a detected song's audio fingerprint m
 | Score | Meaning |
 |-------|--------|
 | **90–100%** | Very high similarity — strong indication your beat may have been used, but verify by listening |
-| **80–89%** | High similarity — the song shares significant audio characteristics with your beat, worth investigating |
 
-Only matches with 80% or higher similarity are shown. Lower-similarity matches are filtered out automatically.
+Only high-confidence matches are shown in Audio Recon. Lower-confidence detections are filtered out to reduce false positives.
 
 <Info>
   A high similarity score does **not** guarantee your beat was used. Common royalty-free samples, similar drum patterns, or widely-used sound design techniques can produce high scores between unrelated tracks.
@@ -131,25 +130,25 @@ BeatPass beats come with a <Tooltip tip="A guarantee that the beat was originall
 
 ## Scanning Schedule
 
-- Scans run **automatically each month** — no manual action required
+- Scans run **automatically every day** — no manual action required
 - Each scan compares your beats against the latest streaming catalog data
 - New similarities are detected as songs are added to Spotify, YouTube, and Deezer
 - You're only notified once per new match (rescans don't trigger duplicate notifications)
-- Tracks are rescanned every 30 days to catch newly released music
+- Tracks are rescanned on a rolling cycle (target: about every 30 days)
 
 ## Frequently Asked Questions
 
 <AccordionGroup>
   <Accordion title="Why don't I see the Audio Recon section on my track?">
-    The **Audio Recon** section only appears for producers who uploaded the beat. If you're a verified producer and don't see it, your beat may not have been scanned yet (scans run monthly) or no similar audio has been detected.
+    The **Audio Recon** section is visible to producers credited on the track. If you're a verified producer and don't see results yet, your track may still be in the scan rotation or no high-confidence similarity has been detected.
   </Accordion>
 
   <Accordion title="Can I trigger a scan manually?">
-    Scans are automated and run monthly. You cannot trigger a manual scan at this time.
+    Scans are automated and scheduled by the platform. You cannot trigger a manual scan at this time.
   </Accordion>
 
   <Accordion title="What if I'm not verified?">
-    Audio Recon requires a verified producer profile. You can [request verification](https://open.beatpass.ca/backstage/requests/verify-artist) from your Backstage area. Once verified, your beats will be included in the next monthly scan.
+    Audio Recon requires a verified producer profile. You can [request verification](https://open.beatpass.ca/backstage/requests/verify-artist) from your Backstage area. Once verified, your beats are included in the ongoing scan queue.
   </Accordion>
 
   <Accordion title="Can a match be wrong?">

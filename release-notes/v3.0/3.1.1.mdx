@@ -1,0 +1,97 @@
+---
+title: "Producer Access Request Guard & Appeal Flow"
+date: "2026-02-26"
+severity: "minor"
+version: "3.1.1"
+audience: "Producers"
+tags: ["feature", "improvement", "api", "bugfix"]
+components: ["producer-program", "backstage-requests", "admin-tools", "notifications", "audio-recon", "developer-docs"]
+status: "published"
+related: []
+---
+
+import ReleaseFeedback from "/snippets/sections/release-feedback.mdx";
+
+# Producer Access Request Guard & Appeal Flow
+
+## Summary
+
+This release closes a critical producer onboarding gap by preventing duplicate Backstage submissions and introducing a clear appeal path when access has been revoked. It also expands technical API documentation for producer requests and refreshes Audio Recon documentation to match current platform behavior.
+
+---
+
+## What's New
+
+### Backstage Submission Guard
+
+- **Duplicate pending requests blocked** — Users can no longer create a second request while one is already under review
+- **Revoked re-submission blocked** — Users with revoked producer access cannot open a new request flow
+- **Global policy across request types** — The guard applies across `become-artist`, `verify-artist`, and `claim-artist`
+- **Conflict error codes** — Create attempts now return clear machine-readable conflict codes:
+  - `backstage_request_pending`
+  - `backstage_request_revoked`
+
+### New Submission Status Endpoint
+
+- **New endpoint:** `GET /api/v1/backstage-request/submission-status`
+- Returns a normalized eligibility payload:
+  - `can_submit`
+  - `block_reason`
+  - `message`
+  - `contact_url`
+  - `blocking_request_id`
+- Enables frontend pre-checks before a user starts a request
+
+### Revoked Appeal UX
+
+- **Revoked users get direct guidance** — The request screen now shows an explicit appeal message and a clear **Contact Support** action
+- **Appeal path standardized** — Users are directed to `/contact` for admin review and possible reinstatement
+- **Deep-link protection** — Direct navigation to request forms is blocked when submission status is not eligible
+
+### Admin Revoke/Re-Approve Workflow
+
+- **Revoke action for approved requests** — Admins can revoke producer access with notes
+- **User notification flow** — Revocation sends the dedicated handled notification/email
+- **Re-approval support** — Revoked requests can be approved again from admin tools when appropriate
+
+### Documentation & Developer Coverage
+
+- **Help docs updated** — Producer Program application guidance now includes pending/revoked submission rules and appeal behavior
+- **Developer docs expanded** — Content API and Error Catalog now document Backstage submission status, create conflict behavior, and revoke flow
+- **Audio Recon docs refreshed** — Clarified current scan cadence and high-confidence match visibility details
+
+---
+
+## Why It Matters
+
+- **Prevents request spam and duplicate records** in producer onboarding workflows
+- **Gives revoked users a clear, controlled appeal channel** instead of opening new requests
+- **Improves integration reliability** with explicit conflict error codes and submission eligibility checks
+- **Keeps docs accurate** for both end users and API consumers
+
+---
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Producer Program Application Process" icon="list-ordered" href="/help/producer-program/application-process">
+    Updated user guidance for pending and revoked request states
+  </Card>
+  <Card title="Application Requirements" icon="clipboard-list" href="/help/producer-program/requirements">
+    Clarified reapply vs appeal behavior
+  </Card>
+  <Card title="Audio Recon Help" icon="radar" href="/help/licensing-for-producers/audio-recon">
+    Updated scan cadence and confidence guidance
+  </Card>
+  <Card title="Content API Reference" icon="record-vinyl" href="/developers/api-reference/content">
+    Backstage request endpoints and Audio Recon response details
+  </Card>
+  <Card title="Error Catalog" icon="triangle-exclamation" href="/developers/error-catalog">
+    New Backstage request conflict errors
+  </Card>
+  <Card title="Version 3.0 Release Index" icon="rocket" href="/release-notes/v3.0">
+    Browse all v3.0.x and v3.1.x releases
+  </Card>
+</CardGroup>
+
+<ReleaseFeedback />

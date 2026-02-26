@@ -245,6 +245,23 @@ All errors follow this structure:
 
 ---
 
+## Producer Program Request Errors
+
+These errors apply to Backstage request creation and submission eligibility checks.
+
+| Error | Code | Cause | Resolution |
+|-------|------|-------|------------|
+| `Unauthenticated` | 401 | Missing or invalid auth token | Authenticate with a valid Bearer token |
+| `Forbidden` | 403 | Missing `backstageRequests.create` permission | Grant/create permission for the user |
+| `backstage_request_pending` | 409 | User already has a pending request | Wait for the pending request decision before submitting again |
+| `backstage_request_revoked` | 409 | User has a revoked request in history | Direct the user to the contact page (`/contact`) to appeal |
+
+<Note>
+  Backstage create submissions are blocked globally per user when a `pending` or `revoked` request exists, regardless of request type (`become-artist`, `verify-artist`, or `claim-artist`). If both statuses exist, `pending` takes precedence.
+</Note>
+
+---
+
 ## Audio Recon Errors
 
 | Error | Code | Cause | Resolution |

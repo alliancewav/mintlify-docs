@@ -1,15 +1,15 @@
 ---
 title: "Content Management API"
 sidebarTitle: "Content"
-description: "Manage tracks, albums, artists, lyrics, playlists, audio fingerprinting, audio recon, and cover art on BeatPass."
-keywords: ["beatpass content api","tracks api","albums api","artists api","lyrics","audio fingerprinting","audio recon","playlists"]
+description: "Manage tracks, albums, artists, playlists, Backstage producer requests, audio fingerprinting, audio recon, and cover art on BeatPass."
+keywords: ["beatpass content api","tracks api","albums api","artists api","lyrics","audio fingerprinting","audio recon","backstage request api","producer requests","playlists"]
 "og:title": "Content Management API - BeatPass Developer Docs"
-"og:description": "CRUD operations for tracks, albums, artists, playlists, lyrics, fingerprinting, audio recon, and cover art."
+"og:description": "CRUD operations for tracks, albums, artists, playlists, Backstage producer requests, fingerprinting, audio recon, and cover art."
 ---
 
 ## Overview
 
-The Content Management API provides full CRUD operations for all content types on BeatPass — tracks, albums, artists, playlists, lyrics, and supporting features like audio fingerprinting, Audio Recon, and cover art generation.
+The Content Management API provides full CRUD operations for all content types on BeatPass — tracks, albums, artists, playlists, lyrics, producer access requests, and supporting features like audio fingerprinting, Audio Recon, and cover art generation.
 
 <Info>
   **Base URL:** `https://open.beatpass.ca/api/v1`
@@ -238,6 +238,113 @@ Check if the authenticated user owns this artist profile.
 ```http
 GET /api/v1/artists/{artist}/check-ownership
 ```
+
+---
+
+## Producer Program Requests (Backstage)
+
+Producer/artist profile requests are managed through the Backstage request flow.
+
+### Get Submission Status
+
+Check whether the authenticated user can submit a new producer request.
+
+```http
+GET /api/v1/backstage-request/submission-status
+```
+
+**Response (can submit):**
+
+```json
+{
+  "can_submit": true,
+  "block_reason": null,
+  "message": null,
+  "contact_url": null,
+  "blocking_request_id": null
+}
+```
+
+**Response (blocked):**
+
+```json
+{
+  "can_submit": false,
+  "block_reason": "revoked",
+  "message": "Your producer access was revoked. To appeal, contact support at /contact so admins can review your request for reinstatement.",
+  "contact_url": "/contact",
+  "blocking_request_id": 412
+}
+```
+
+### Create Backstage Request
+
+Submit a new producer request.
+
+```http
+POST /api/v1/backstage-request
+```
+
+<ParamField body="type" type="string" required>
+  Request type. Supported values: `become-artist`, `verify-artist`, `claim-artist`.
+</ParamField>
+
+<ParamField body="artist_name" type="string" required>
+  Display name for the producer/artist request.
+</ParamField>
+
+<ParamField body="artist_id" type="integer | string">
+  Artist reference for claim/verification flows. Client may pass `CURRENT_USER` in create flow.
+</ParamField>
+
+<ParamField body="data" type="object" required>
+  Request payload object (for example: `first_name`, `last_name`, `beats_url`, `role`, `company`, optional supporting fields).
+</ParamField>
+
+### Submission Guard Policy
+
+The create endpoint enforces a global per-user guard across all request types:
+
+| Existing status | Can submit new request? | Behavior |
+|----------------|-------------------------|----------|
+| `pending` | No | `409 Conflict` with `error_code: backstage_request_pending` |
+| `revoked` | No | `409 Conflict` with `error_code: backstage_request_revoked` |
+| `denied` | Yes | Submission allowed |
+| `approved` | Yes | Submission allowed |
+
+If both `pending` and `revoked` exist, `pending` takes precedence for messaging and error code.
+
+### Conflict Responses (Create)
+
+```json
+{
+  "message": "Your application is already under review. Please wait for the decision email before submitting another request.",
+  "error_code": "backstage_request_pending"
+}
+```
+
+```json
+{
+  "message": "Your producer access was revoked. To appeal, contact support at /contact so admins can review your request for reinstatement.",
+  "error_code": "backstage_request_revoked"
+}
+```
+
+### Revoke Approved Request (Admin)
+
+Revoke producer access for an approved request.
+
+```http
+POST /api/v1/backstage-request/{backstageRequest}/revoke
+```
+
+<ParamField body="notes" type="string">
+  Optional admin notes included in the user notification.
+</ParamField>
+
+<Note>
+  This endpoint requires authentication plus request-handling permissions (`backstageRequests.handle`). Revoked requests can later be approved again through the existing approve endpoint.
+</Note>
 
 ---
 
@@ -501,6 +608,10 @@ POST /api/v1/fingerprints/{fingerprint}/retry
 
 Audio Recon detects songs on streaming platforms (Spotify, YouTube, Deezer) that share audio characteristics with tracks on BeatPass. Results are available to the track's credited producers and admins.
 
+<Note>
+  Audio Recon scanning runs on a scheduled background job (daily), with tracks rescanned on a rolling cycle (target around 30 days).
+</Note>
+
 ### Get Audio Recon Matches
 
 Retrieve detected audio similarities for a specific track. Requires authentication. Only accessible by producers credited on the track.
@@ -531,6 +642,8 @@ GET /api/v1/tracks/{track}/placements
       "created_at": "2026-02-20T12:00:00+00:00"
     }
   ],
+  "scan_status": "complete",
+  "scanned_at": "2026-02-26T02:15:00+00:00",
   "total_count": 1,
   "artist_verified": true
 }
@@ -541,7 +654,7 @@ GET /api/v1/tracks/{track}/placements
 </ResponseField>
 
 <ResponseField name="placements[].confidence_score" type="integer">
-  Audio similarity percentage (90–100). Higher scores indicate stronger matches.
+  Audio similarity percentage. The endpoint returns high-confidence matches only (current display threshold is 90+).
 </ResponseField>
 
 <ResponseField name="placements[].spotify_url" type="string | null">
@@ -558,6 +671,14 @@ GET /api/v1/tracks/{track}/placements
 
 <ResponseField name="total_count" type="integer">
   Total number of matches returned.
+</ResponseField>
+
+<ResponseField name="scan_status" type="string | null">
+  Current scan state for the track (`processing`, `complete`, `no_results`, `failed`, or `null` before first scan).
+</ResponseField>
+
+<ResponseField name="scanned_at" type="string | null">
+  ISO timestamp of the latest scan attempt.
 </ResponseField>
 
 <ResponseField name="artist_verified" type="boolean">
