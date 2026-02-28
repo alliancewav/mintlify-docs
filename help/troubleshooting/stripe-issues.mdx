@@ -207,6 +207,17 @@ If your Stripe account is connected but you're not receiving money:
   <Accordion title="Payouts are monthly">
     Subscription revenue payouts are processed monthly, not immediately. Check your payout schedule in the Finances section.
   </Accordion>
+
+  <Accordion title="My subscription payout says Queued">
+    **Queued** means your split was calculated and BeatPass is waiting for platform funds to be available in Stripe.
+
+    **What happens next:**
+    - BeatPass keeps the split queued instead of losing it
+    - The system automatically retries when Stripe reports the balance is available
+    - You do not need to reconnect Stripe if your account is already active
+
+    If the status changes to **Failed**, then review your Stripe account details and bank setup.
+  </Accordion>
   
   <Accordion title="Verify your bank details">
     Incorrect bank details can prevent payouts:

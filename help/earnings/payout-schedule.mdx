@@ -58,6 +58,10 @@ Subscription revenue splits are calculated monthly when each subscriber's billin
   Because subscribers have different billing dates, you may receive multiple smaller payouts throughout the month rather than one large monthly payment.
 </Note>
 
+<Info>
+  If BeatPass is temporarily waiting for platform funds to clear or be replenished, your subscription split stays queued and resumes automatically as soon as Stripe reports the required balance is available. You do not need to contact support as long as your Stripe Connect account remains active.
+</Info>
+
 ## Direct Sales Schedule
 
 When someone purchases an exclusive beat or track:
@@ -82,13 +86,14 @@ Your subscription revenue splits will show one of these statuses:
 
 | Status | Meaning |
 |--------|---------|
-| **Pending** | Split has been calculated and is queued for transfer to your Stripe balance |
+| **Queued** | Split has been calculated and is waiting to be transferred to your Stripe balance |
+| **Sending** | BeatPass is currently sending the split to your Stripe balance |
 | **Paid** | Money has been transferred to your Stripe balance (look for it under **Future Payouts** in Finances) |
 | **Failed** | Stripe attempted to transfer funds but hit an error; BeatPass automatically retries and surfaces the failure reason |
 | **Excluded** | You did not have a fully enabled Stripe Connect account (Connected + Charges Enabled + Payouts Enabled) when the split ran, so your share was redistributed |
 
 <Info>
-  If a split fails, BeatPass will retry up to 5 times and record the retry count/failure reason (visible in Finances). Fix the underlying bank or Stripe account issue, then the next retry will succeed automatically.
+  BeatPass automatically retries failed subscription transfers and also resumes queued transfers as soon as platform funds become available again. Finances records the current state so you can see whether a split is queued, sending, paid, failed, or excluded.
 </Info>
 
 ### Redistribution Bonuses

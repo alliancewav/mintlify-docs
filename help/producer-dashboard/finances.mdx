@@ -204,15 +204,17 @@ Each transaction shows:
 - **Description** — What the transaction was for
 - **Date/Time** — When it occurred
 - **Amount** — Positive (income) or negative (payout/refund)
-- **Status** — Completed, Pending, or Failed
+- **Status** — Paid, Queued, Sending, Failed, or Excluded
+
+<Info>
+  Subscription payouts can stay **Queued** briefly if BeatPass is waiting for platform funds to settle or be replenished. When that happens, the system resumes them automatically once Stripe reports the required balance is available.
+</Info>
 
 ### Filtering Transactions
 
 | Filter | Options |
 |--------|---------|
-| **Type** | All, Sales, Payouts, Refunds |
-| **Date Range** | Last 7 days, 30 days, 90 days, All time |
-| **Status** | All, Completed, Pending |
+| **Quick Filters** | All, Sales, Subscriptions, Paid, Pending, Failed |
 
 ---
 
@@ -324,6 +326,15 @@ Your financial data is protected by:
   - Check the Pending balance card
   
   **Solution:** Wait for payment processing or complete any pending verification steps in Stripe.
+</Accordion>
+
+<Accordion title="A subscription payout is stuck in Queued">
+  **What it means:**
+  - Your split was calculated successfully
+  - BeatPass is waiting for platform funds to be available in Stripe
+  - The payout will resume automatically when funds are available
+  
+  **What to do:** Usually nothing. If your Stripe Connect account is still active, BeatPass will retry automatically and update the status to **Sending** and then **Paid** once the transfer goes through.
 </Accordion>
 
 <Accordion title="Payout failed">
