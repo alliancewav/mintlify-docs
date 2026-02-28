@@ -2,13 +2,13 @@
 audience: help
 title: "Messaging"
 sidebarTitle: "Overview"
-description: "Send private messages to other BeatPass users. Start conversations, create group chats, and stay connected with producers and collaborators."
+description: "Use the BeatPass messaging panel for direct messages, group chats, and conversation management."
 keywords: ["messaging","direct messages","chat","conversations","group chat","DM"]
 og:title: "Messaging - BeatPass Help"
 og:description: "Learn how to use BeatPass messaging to connect with other users and producers."
 ---
 
-BeatPass messaging lets you communicate privately with other users on the platform. Whether you're reaching out to a producer about a potential collaboration, discussing a custom beat request, or just connecting with the community, messaging makes it easy to stay in touch.
+BeatPass messaging is a private chat system built into the web player's header. You can open direct messages, create group chats, and manage recent conversations without leaving the current page.
 
 ---
 
@@ -16,119 +16,79 @@ BeatPass messaging lets you communicate privately with other users on the platfo
 
 <CardGroup cols={2}>
   <Card title="Direct Messages" icon="message" href="/help/messaging/direct-messages">
-    Start private one-on-one conversations with any BeatPass user.
+    Start one-on-one conversations from the header, user profiles, or claimed producer pages.
   </Card>
   <Card title="Group Conversations" icon="users" href="/help/messaging/group-conversations">
-    Create group chats with multiple users for collaborations or discussions.
+    Create multi-person chats for collaborations and shared discussions.
   </Card>
   <Card title="Managing Conversations" icon="folder" href="/help/messaging/managing-conversations">
-    Organize, delete, and manage your message inbox.
+    Review recent chats, mark them read or unread, follow users, or hide conversations from your list.
   </Card>
   <Card title="Real-Time Features" icon="bolt" href="/help/messaging/real-time-features">
-    See typing indicators and read receipts in real time.
+    See typing indicators, delivery states, unread badges, and retry states.
   </Card>
 </CardGroup>
 
 ---
 
-## Getting Started
+## How Messaging Is Accessed
 
-### Accessing Messages
-
-You can open your messages from anywhere on BeatPass:
-
-1. Click the **message icon** (chat bubble) in the top navigation bar
-2. Your conversation list opens in a dropdown panel
-3. Select a conversation to view and reply to messages
-
-### Starting a New Conversation
-
-1. Click the **message icon** in the navigation bar
-2. Click the **\+** button at the top of the panel
-3. Search for a user by name, username, or producer name
-4. Select the person you want to message
-5. Type your message and press **Enter** or click the **send icon**
-
-<Tip>
-  You can also start a conversation directly from someone's profile page by clicking the **Message** button.
-</Tip>
-
----
-
-## Quick Actions
-
-<AccordionGroup>
-  <Accordion title="Send a message" icon="paper-plane" defaultOpen>
-    Type in the text field and press **Enter** (or **Shift+Enter** for new line).
-  </Accordion>
-  <Accordion title="Start new conversation" icon="plus">
-    Click the **+** button and search for a user by name or username.
-  </Accordion>
-  <Accordion title="View conversation" icon="message">
-    Click on any conversation in your list to open it.
-  </Accordion>
-  <Accordion title="Delete conversation" icon="trash">
-    Click the menu icon (⋮) and confirm deletion.
-  </Accordion>
-  <Accordion title="Mark as read/unread" icon="eye">
-    Click the menu icon (⋮) and toggle read status.
-  </Accordion>
-  <Accordion title="Check read status" icon="check-double">
-    Look for ✓✓ green double checkmarks in your conversation list.
-  </Accordion>
-</AccordionGroup>
-
----
-
-## Who Can You Message?
-
-You can send messages to any BeatPass user with an account. There are no restrictions on who you can reach out to—producers, subscribers, and free users can all communicate with each other.
+<Steps>
+  <Step title="Open the header icon">
+    Click the **message** icon in the top navigation to open the messaging panel.
+  </Step>
+  <Step title="Choose a conversation or start a new one">
+    Select a recent chat or click **New** to create a new conversation.
+  </Step>
+  <Step title="Send messages in the same panel">
+    The conversation view, input box, and management menu all live inside the same messaging UI.
+  </Step>
+</Steps>
 
 <Note>
-  BeatPass messaging is designed for legitimate communication. Users who send spam or harassing messages may have their messaging privileges suspended.
+  The `/messages` route exists mainly for sign-in gating and deep links from notifications or emails. After it loads, BeatPass points you back to the header messaging experience instead of acting like a standalone inbox.
 </Note>
+
+---
+
+## What Messaging Supports
+
+| Capability | Current behavior |
+| --- | --- |
+| **Direct messages** | Start a private conversation with an existing BeatPass user |
+| **Group chats** | Start a group with 2 or more other users from the new message flow |
+| **Message suggestions** | Blank search shows followed users first |
+| **User search** | Search starts after you enter at least 2 characters |
+| **Conversation tools** | Mark read, mark unread, follow or unfollow, delete |
+| **Live states** | Typing indicators, unread counts, seen state, failed-send retry |
 
 ---
 
 ## Message Notifications
 
-When someone sends you a message, you'll be notified based on your notification settings:
+Messaging-related notifications are configured from **Notification Preferences -> Messages**:
 
-- **Browser** — Real-time browser push notifications (requires permission)
-- **Email** — Receive emails when you get new messages
-- **In-App** — Shows in your notification center and as a badge count on the message icon
-
-### Configuring Notifications
-
-1. Navigate to `/notifications/settings` or click the notification bell icon and select **Settings**
-2. Find the **Messages** section
-3. Toggle **Direct Messages** on or off for each channel (Email, Browser, In-App)
-4. Click **Save Preferences**
+- **Direct Messages**
+- **Playlist Invites**
 
 <Info>
-  The unread message count badge on the message icon updates automatically as new messages arrive and disappears when you read them.
+  The message icon itself also shows a live unread badge while you browse BeatPass.
 </Info>
-
----
-
-## Message Character Limit
-
-Each message can contain up to **2,000 characters**. If you need to share more content, consider breaking it into multiple messages or sharing a link.
 
 ---
 
 ## Privacy & Safety
 
-Your conversations are private between you and the other participants. BeatPass does not read or monitor your messages unless a report is submitted for review.
+Messaging is private to the conversation participants. Keep the usual safety rules in mind when chatting with other users.
 
 <Warning>
-  **Never share sensitive information** like passwords, payment details, or personal addresses through messaging. BeatPass will never ask for this information via DM.
+  Never share passwords, payment credentials, or other sensitive information through direct messages.
 </Warning>
 
-If you receive inappropriate messages:
+If someone is abusing messaging:
 
-1. You can delete the conversation to remove it from your inbox
-2. Report the user through their profile if the behavior violates the [Content Guidelines](/help/legal/content-guidelines)
+1. Delete the conversation from your recent list if needed
+2. Report the user from their profile if they are violating the [Content Guidelines](/help/legal/content-guidelines)
 
 ---
 
@@ -138,7 +98,7 @@ If you receive inappropriate messages:
   <Card title="Following System" icon="user-plus" href="/help/social-features/following-system">
     Follow users to easily find them in messaging suggestions.
   </Card>
-  <Card title="Notification Settings" icon="bell" href="/help/account-settings">
+  <Card title="Notification Settings" icon="bell" href="/help/notifications/notification-settings">
     Customize how you receive message notifications.
   </Card>
 </CardGroup>

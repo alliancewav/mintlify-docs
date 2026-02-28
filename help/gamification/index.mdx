@@ -2,246 +2,38 @@
 audience: help
 title: "Gamification System | BeatPass"
 sidebarTitle: "Gamification Overview"
-description: "Master the BeatPass gamification system including XP, producer levels, achievements, and leaderboard rankings."
-keywords: ["gamification","XP","levels","achievements","leaderboards","progression"]
-og:title: "Gamification System - BeatPass"
-og:description: "Level up your producer career with XP, achievements, and leaderboard rankings."
-twitter:card: "summary_large_image"
+description: "Understand the current producer gamification experience in BeatPass: progress, XP, achievements, and leaderboards."
 ---
 
-BeatPass features a comprehensive gamification system that rewards your activity with Experience Points (XP), levels, achievements, and competitive leaderboard rankings. This system makes your producer journey measurable and rewarding.
+BeatPass gamification is currently centered on the **Producer Progress** and **Producer Leaderboards** pages. These tools let producers track XP, unlock achievements, and compare their standing across a set of ranking categories.
 
 <Info>
-  **Access:** View your progress at `/producer-dashboard/progress`. See leaderboards at `/producer-dashboard/leaderboards`.
+  The routed producer experience currently lives in **Producer Dashboard -> Progress** and **Producer Dashboard -> Leaderboards**. Some older docs and screenshots referenced additional public leaderboard surfaces that are not part of the standard routed producer flow.
 </Info>
 
----
-
-## System Overview
+## Main Areas
 
 <CardGroup cols={2}>
-  <Card title="XP & Levels" icon="chart-line" href="/help/gamification/xp-system">
-    Earn experience points through platform activity and progress through producer levels from Novice to Legendary.
+  <Card title="Progress Page" href="/help/gamification/progress-page" icon="chart-line">
+    View your current level, XP, progress ring, and achievements.
   </Card>
-  <Card title="Achievements" icon="trophy" href="/help/gamification/achievements">
-    Unlock milestone-based rewards for accomplishments across 10 categories.
+  <Card title="XP & Levels" href="/help/gamification/xp-system" icon="bolt">
+    Learn the current XP sources and how level progress is shown.
   </Card>
-  <Card title="Progress Page" icon="chart-line" href="/help/gamification/progress-page">
-    Track your XP, view your level progress ring, and manage all achievements.
+  <Card title="Achievements" href="/help/gamification/achievements" icon="star">
+    Understand unlocked and locked achievements plus rarity labels.
   </Card>
-  <Card title="Leaderboards" icon="ranking-star" href="/help/gamification/leaderboards">
-    Compete across 7 ranking categories and see how you stack up.
+  <Card title="Leaderboards" href="/help/gamification/leaderboards" icon="star">
+    Review the categories available on the current producer leaderboard page.
   </Card>
 </CardGroup>
 
----
+## What The Current Product Highlights
 
-## Quick Reference
+- A progress page with level title, XP total, and XP-to-next progress.
+- Achievement tracking with unlocked, locked, and total XP-earned summaries.
+- A leaderboard page with category switching for **Overall**, **Quality**, **Uploads**, **Plays**, **Points**, **Earnings**, and **Collab**.
 
-<Tabs>
-  <Tab title="XP Sources">
-    <CardGroup cols={2}>
-      <Card title="Upload a Track" icon="cloud-arrow-up">
-        <Badge color="green" size="lg">+100 XP</Badge>
-      </Card>
-      <Card title="Track Plays" icon="play">
-        <Badge color="blue" size="lg">+1 XP per play</Badge>
-      </Card>
-      <Card title="Complete Metadata" icon="list-check">
-        <Badge color="purple" size="lg">+50 XP per track</Badge>
-      </Card>
-      <Card title="Collaborate" icon="users">
-        <Badge color="orange" size="lg">+25 XP</Badge>
-      </Card>
-      <Card title="Unlock Achievements" icon="trophy">
-        <Badge color="green" size="lg">150-6,000+ XP</Badge>
-      </Card>
-    </CardGroup>
-  </Tab>
-  <Tab title="Level Titles">
-    <AccordionGroup>
-      <Accordion title="Beginner Levels (1-6)" defaultOpen icon="seedling">
-        - **Level 1-2:** Novice Producer
-        - **Level 3-4:** Apprentice Producer
-        - **Level 5-6:** Intermediate Producer
-      </Accordion>
-      <Accordion title="Intermediate Levels (7-19)" icon="chart-simple">
-        - **Level 7-9:** Skilled Producer
-        - **Level 10-14:** Experienced Producer
-        - **Level 15-19:** Advanced Producer
-      </Accordion>
-      <Accordion title="Advanced Levels (20-49)" icon="fire">
-        - **Level 20-29:** Professional Producer
-        - **Level 30-39:** Expert Producer
-        - **Level 40-49:** Master Producer
-      </Accordion>
-      <Accordion title="Elite Levels (50+)" icon="crown">
-        - **Level 50-100:** Legendary Producer
-      </Accordion>
-    </AccordionGroup>
-  </Tab>
-  <Tab title="Achievement Rarity">
-    <CardGroup cols={2}>
-      <Card title="Common" icon="circle" color="#6b7280">
-        <Badge color="gray">100-1,000 XP</Badge>
-         Entry-level achievements
-      </Card>
-      <Card title="Rare" icon="star" color="#3b82f6">
-        <Badge color="blue">1,500-2,000 XP</Badge>
-         Consistent effort required
-      </Card>
-      <Card title="Epic" icon="gem" color="#8b5cf6">
-        <Badge color="purple">2,500-3,500 XP</Badge>
-         Significant accomplishment
-      </Card>
-      <Card title="Legendary" icon="crown" color="#f59e0b">
-        <Badge color="orange">4,000-6,000 XP</Badge>
-         Elite milestone
-      </Card>
-    </CardGroup>
-  </Tab>
-  <Tab title="Leaderboard Weights">
-    <CardGroup cols={3}>
-      <Card title="Points (XP)" icon="bolt" color="#22c55e">
-        <Badge color="green" size="lg">25%</Badge>
-      </Card>
-      <Card title="Plays" icon="play" color="#3b82f6">
-        <Badge color="blue" size="lg">20%</Badge>
-      </Card>
-      <Card title="Uploads" icon="cloud-arrow-up" color="#8b5cf6">
-        <Badge color="purple" size="lg">15%</Badge>
-      </Card>
-      <Card title="Quality" icon="star" color="#f59e0b">
-        <Badge color="orange" size="lg">15%</Badge>
-      </Card>
-      <Card title="Collaboration" icon="users" color="#ec4899">
-        <Badge color="purple" size="lg">15%</Badge>
-      </Card>
-      <Card title="Earnings" icon="coins" color="#6b7280">
-        <Badge color="gray" size="lg">10%</Badge>
-      </Card>
-    </CardGroup>
-  </Tab>
-</Tabs>
+## Extra Context
 
----
-
-## How It All Connects
-
-```mermaid
-flowchart LR
-    A[Activity] --> B[XP]
-    B --> C[Levels]
-    C --> D[Achievements]
-    D --> E[Leaderboard\nRankings]
-    E -->|Recognition &\nVisibility| A
-```
-
-1. **Activities** (uploads, plays, metadata, collaborations) earn XP
-2. **XP** accumulates to increase your **Level**
-3. Milestones unlock **Achievements** for bonus XP
-4. Performance across all metrics determines **Leaderboard** position
-5. High rankings increase **Visibility** and discovery
-
----
-
-## Benefits of Gamification
-
-<Tabs>
-  <Tab title="Direct Benefits">
-    <CardGroup cols={2}>
-      <Card title="XP Rewards" icon="bolt" color="#22c55e">
-        Every action contributes to your level progression.
-      </Card>
-      <Card title="Profile Credibility" icon="id-badge" color="#3b82f6">
-        Level and achievements display on your public profile.
-      </Card>
-      <Card title="Leaderboard Visibility" icon="eye" color="#8b5cf6">
-        Top performers get discovery benefits and exposure.
-      </Card>
-      <Card title="Career Tracking" icon="chart-line" color="#f59e0b">
-        Visual record of your entire producer journey.
-      </Card>
-    </CardGroup>
-  </Tab>
-  <Tab title="Indirect Benefits">
-    <CardGroup cols={2}>
-      <Card title="Discovery" icon="magnifying-glass" color="#22c55e">
-        High-ranking producers appear prominently in searches.
-      </Card>
-      <Card title="Collaboration Appeal" icon="handshake" color="#3b82f6">
-        Other producers see your achievements and want to work with you.
-      </Card>
-      <Card title="Fan Engagement" icon="heart" color="#ec4899">
-        Listeners see your commitment and dedication level.
-      </Card>
-      <Card title="Motivation" icon="flag-checkered" color="#f59e0b">
-        Clear goals keep you engaged and progressing.
-      </Card>
-    </CardGroup>
-  </Tab>
-</Tabs>
-
----
-
-## Getting Started
-
-<Steps>
-  <Step title="Check Your Progress">
-    Go to `/producer-dashboard/progress` to see your current level, XP, and achievements.
-  </Step>
-  <Step title="Complete Easy Achievements">
-    Start with Profile achievements (Photogenic, Oracle, Linked, Model)—they're quick wins for immediate XP.
-  </Step>
-  <Step title="Upload Consistently">
-    Each track upload earns +100 XP. Regular uploads also help with upload percentile achievements.
-  </Step>
-  <Step title="Fill Out Metadata">
-    Complete all metadata fields on your tracks for +50 XP each and metadata achievements.
-  </Step>
-  <Step title="Check Leaderboards">
-    Visit `/producer-dashboard/leaderboards` to see your rank and identify improvement areas.
-  </Step>
-</Steps>
-
----
-
-## Data Freshness
-
-<CardGroup cols={2}>
-  <Card title="XP & Level" icon="bolt" color="#22c55e">
-    <Badge color="green">Immediate</Badge>
-     Updates instantly on action
-  </Card>
-  <Card title="Achievements" icon="trophy" color="#3b82f6">
-    <Badge color="blue">On Action</Badge>
-     Checked when relevant actions occur
-  </Card>
-  <Card title="Leaderboard Rankings" icon="ranking-star" color="#8b5cf6">
-    <Badge color="purple">30 min cache</Badge>
-     Refreshed every half hour
-  </Card>
-  <Card title="Progress Data" icon="chart-simple" color="#f59e0b">
-    <Badge color="orange">5 min cache</Badge>
-     Near real-time updates
-  </Card>
-</CardGroup>
-
----
-
-## Next Steps
-
-<CardGroup cols={2}>
-  <Card title="XP & Levels Guide" icon="chart-line" href="/help/gamification/xp-system">
-    Complete XP system documentation.
-  </Card>
-  <Card title="Achievement Catalog" icon="trophy" href="/help/gamification/achievements">
-    All achievements and unlock criteria.
-  </Card>
-  <Card title="Progress Page Guide" icon="chart-line" href="/help/gamification/progress-page">
-    Navigate the Progress page UI.
-  </Card>
-  <Card title="Leaderboard Guide" icon="ranking-star" href="/help/gamification/leaderboards">
-    Understand ranking methodology.
-  </Card>
-</CardGroup>
+Some artist-profile views also link to a standalone **Producer Achievements Guide** page at `/producer/achievements-guide`. Use that as a general orientation page, but trust your live **Progress** page for your current XP, level, and unlocked achievements.

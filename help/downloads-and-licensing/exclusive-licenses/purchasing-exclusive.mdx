@@ -2,224 +2,110 @@
 audience: help
 title: "Purchasing Exclusive Licenses | BeatPass"
 sidebarTitle: "Purchasing Exclusive"
-description: "Step-by-step guide to purchasing an exclusive beat license on BeatPass. Learn about requirements, payment, and what to expect."
-keywords: ["buy exclusive", "purchase exclusive", "exclusive payment", "stripe"]
+description: "Step-by-step guide to buying an exclusive beat license on BeatPass using the current Stripe purchase flow."
+keywords: ["buy exclusive", "purchase exclusive", "exclusive payment", "stripe", "track purchase"]
 ---
 
-## Overview
-
-Purchasing an exclusive license is a one-time transaction that gives you sole and exclusive rights to a beat. Payment is processed securely via Stripe.
+This page explains the current exclusive checkout flow in BeatPass. It covers requirements, payment behavior, and what happens immediately after a successful purchase.
 
 <Info>
-  Exclusive purchases are separate from subscription plans and available to all users.
+  Exclusive purchases currently use Stripe card checkout and supported purchase currencies are `USD`, `EUR`, `GBP`, and `CAD`.
 </Info>
 
----
+## Before you start
 
-## Requirements
+You need:
 
-Before purchasing exclusive:
+- A signed-in BeatPass account
+- A track that is still eligible for exclusive purchase
+- A producer who has payment setup completed for that track
+- A payment card accepted by Stripe
 
-| Requirement | Details |
-|-------------|---------|
-| **BeatPass account** | Must be signed in |
-| **Track availability** | Track must not already be sold exclusively |
-| **Exclusive pricing** | Producer must have set an exclusive price |
-| **Payment method** | Credit or debit card |
+### Common reasons purchase is blocked
 
----
+- The track is already sold
+- The track is not configured for exclusive purchase
+- You already purchased it
+- You are trying to buy your own track
+- The producer does not have the required payment setup
 
-## Step-by-Step Purchase
+## Current purchase flow
 
 <Steps>
-  <Step title="Find the Beat">
-    Browse or search for a beat you want to purchase exclusively. Beats with exclusive pricing show the price on their track page.
+  <Step title="Open the track page">
+    Find a track with a **Buy Exclusive** button.
   </Step>
-  
-  <Step title="Check Status">
-    Ensure the track shows **"Available"** for exclusive purchase.
-    
-    If it shows **"SOLD"**, someone else already purchased exclusive rights.
+  <Step title="Review the price and terms">
+    Open the purchase dialog and use **View License Terms** to read the exclusive terms for that track.
   </Step>
-  
-  <Step title="Preview License Terms">
-    Click **"Preview License"** to review:
-    - Publishing split (default: 20% producer / 80% you)
-    - Territory and jurisdiction
-    - Files included
-    - Rights granted
+  <Step title="Check the price breakdown">
+    BeatPass shows the producer price, the platform fee, and the total amount in the selected currency.
   </Step>
-  
-  <Step title="Initiate Purchase">
-    Click **"Buy Exclusive"** or similar purchase button.
+  <Step title="Complete Stripe checkout">
+    Enter your card details in the Stripe payment form and confirm the purchase.
   </Step>
-  
-  <Step title="Complete Payment">
-    Enter your payment details in the Stripe checkout:
-    - Credit or debit card
-    - Billing information
-    - Confirm payment
+  <Step title="Wait for success confirmation">
+    On success, BeatPass generates the exclusive license, marks the track as sold, and shows the success flow.
   </Step>
-  
-  <Step title="Payment Processing">
-    Stripe processes the payment. Upon success:
-    - Payment status updates to "succeeded"
-    - Exclusive license certificate is generated
-    - Track is marked as "SOLD"
-    - Producer is notified of sale
-  </Step>
-  
-  <Step title="Receive Confirmation">
-    You receive:
-    - Email with license certificate
-    - Access to download files (WAV, MP3, stems)
-    - License viewable in your Library
+  <Step title="Find the license later">
+    Your exclusive license is stored in <a href="https://open.beatpass.ca/library/licenses">https://open.beatpass.ca/library/licenses</a>.
   </Step>
 </Steps>
 
-```mermaid
-flowchart TD
-    A[Find Beat] --> B{Available for\nexclusive?}
-    B -->|No — SOLD| X[Cannot purchase]
-    B -->|Yes| C[Preview License Terms]
-    C --> D[Click Buy Exclusive]
-    D --> E[Enter Payment via Stripe]
-    E --> F{Payment\nsucceeded?}
-    F -->|No| G[Error — Retry\nor change card]
-    F -->|Yes| H[License Generated\nTrack marked SOLD]
-    H --> I[Download Files\nWAV + MP3 + Stems]
-```
+## What success looks like
 
----
+After a successful payment:
 
-## Payment Details
+- The exclusive license is created
+- The track is marked as sold
+- BeatPass attempts an immediate track download
+- The purchase is recorded in the selected currency
+- The certificate becomes available in **Library** -> **Licenses**
 
-### Payment Processing
+## Pricing and currencies
 
-| Provider | Stripe |
-|----------|--------|
-| **Methods** | Credit card, Debit card |
-| **Currency** | Set by producer (USD default) |
-| **Security** | PCI-compliant, encrypted |
-
-### What Happens on Success
-
-1. Payment is confirmed by Stripe
-2. Purchase is marked as completed
-3. Exclusive license certificate is generated
-4. Track is marked as **SOLD**
-5. Confirmation emails sent to you and the producer
-
-### What Happens on Failure
-
-If payment fails:
-- You see an error message explaining the issue
-- No license is generated
-- Track remains available for purchase
-- You can retry with the same or different payment method
-
----
-
-## After Purchase
-
-### Immediate Access
-
-| Item | Access |
-|------|--------|
-| **License Certificate** | Viewable immediately |
-| **WAV file** | Download ready |
-| **MP3 file** | Download ready |
-| **Stems** | Download ready (if provided) |
-| **Certificate PDF** | Download ready |
-
-### Track Status
-
-The track now shows:
-- **Status:** SOLD
-- **Exclusive Owner:** Your name (masked to others)
-- **Non-exclusive:** No longer available
-
-### Producer Payout
-
-- Producer receives sale notification
-- Their share is processed through BeatPass payouts
-- Timing depends on payout schedule
-
----
-
-## Pricing
-
-Exclusive pricing is set by the producer:
-
-| Factor | Details |
-|--------|---------|
-| **Minimum** | No platform minimum |
-| **Maximum** | No platform maximum |
-| **Currency** | Producer-selected |
-| **Platform fee** | 12% + \$3 added on top of producer's price |
+| Pricing item | Current behavior |
+| --- | --- |
+| **Track price** | Set by the producer |
+| **Platform fee** | Added on top of the producer price |
+| **Supported currencies** | `USD`, `EUR`, `GBP`, `CAD` |
+| **Payment provider** | Stripe |
 
 <Note>
-  Exclusive prices vary widely based on producer reputation, beat quality, and market demand. Prices typically range from \$100 to \$5,000+.
+  BeatPass shows the total before you confirm payment. Do not assume every exclusive track uses the same price or currency.
 </Note>
 
----
-
-## Cancellations & Refunds
-
-### Before Payment Completes
-
-- You can close the checkout at any time
-- No charge occurs
-- Track remains available
-
-### After Payment Completes
-
-- All exclusive sales are **final** once the beat is downloaded or a license is generated
-- Refund requests are only considered within **24 hours** of purchase, and only if you have **not downloaded** any files
-- After 24 hours, the purchase is considered a deliberate, non-accidental transaction
-- If a refund is approved, the exclusive license is revoked and the beat is re-listed
-
-For full details, see the [Refund Policy](/help/billing/refund-policy).
-
----
-
-## Troubleshooting
+## What to expect if payment fails
 
 <AccordionGroup>
-  <Accordion title="Payment was declined">
-    - Check card details are correct
-    - Ensure sufficient funds
-    - Contact your bank if issues persist
-    - Try a different payment method
+  <Accordion title="Card was declined" icon="credit-card" defaultOpen>
+    No license is created and the track stays in its prior state. You can try again with a different card or after fixing the payment issue.
   </Accordion>
-  
-  <Accordion title="Track shows SOLD but I didn't buy it">
-    Someone else purchased exclusive rights before you completed checkout. Exclusive availability is first-come, first-served.
+  <Accordion title="Track became unavailable during checkout" icon="triangle-exclamation">
+    Exclusive sales are first-come, first-served. If another user completed the purchase first, the track becomes unavailable.
   </Accordion>
-  
-  <Accordion title="Didn't receive license email">
-    - Check spam/junk folder
-    - Verify email address in account settings
-    - Access license from Library → Licenses
-    - Contact support if still missing
-  </Accordion>
-  
-  <Accordion title="Payment succeeded but no license">
-    - Wait 5 minutes for processing
-    - Check Library → Licenses
-    - Contact support with payment receipt
+  <Accordion title="Payment succeeded but I do not see the license yet" icon="file-certificate">
+    Check **Library** -> **Licenses** first. If it still does not appear, use the support path with the purchase details.
   </Accordion>
 </AccordionGroup>
 
----
+## Refund and billing issues
+
+If you have a charge problem after purchase, use the current BeatPass billing/support path rather than relying on old timing promises. Do not assume a fixed refund window unless the billing policy for your account says so.
 
 ## Related
 
 <CardGroup cols={2}>
-  <Card title="What is Exclusive" icon="crown" href="/help/downloads-and-licensing/exclusive-licenses/what-is-exclusive">
-    Understanding exclusive rights.
+  <Card title="Exclusive Licenses" icon="crown" href="/help/downloads-and-licensing/exclusive-licenses">
+    Overview of what exclusive licensing changes.
+  </Card>
+  <Card title="What is Exclusive" icon="scale-balanced" href="/help/downloads-and-licensing/exclusive-licenses/what-is-exclusive">
+    Understand the rights model before you buy.
   </Card>
   <Card title="License Certificates" icon="file-certificate" href="/help/downloads-and-licensing/license-certificates">
-    Your exclusive license document.
+    Learn what gets generated after payment.
+  </Card>
+  <Card title="Refund Policy" icon="receipt" href="/help/billing/refund-policy">
+    Review the current policy page if you need billing guidance.
   </Card>
 </CardGroup>

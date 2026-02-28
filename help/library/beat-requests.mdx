@@ -1,0 +1,58 @@
+---
+audience: help
+title: "Beat Requests"
+description: "Review, renew, and delete the beat requests you created from your BeatPass library."
+---
+
+Your library includes a dedicated **Beat requests** page at `/library/custom-requests`. This is the management view for requests you have already posted.
+
+<Info>
+  Current page title: **Your beat requests**. Requests are grouped into active and expired sections, and the page shows your token status at the top.
+</Info>
+
+## What You Can Do Here
+
+- Review your active requests and their remaining time.
+- Search your requests by text, genre, or mood.
+- See how many producer submissions each request has received.
+- Renew eligible expired requests.
+- Delete requests you no longer want to keep open.
+
+## What A Request Card Shows
+
+<CardGroup cols={2}>
+  <Card title="Core request details" icon="message">
+    Your description, creation date, and request status.
+  </Card>
+  <Card title="Timing" icon="clock">
+    Remaining hours for active requests or renewal timing for expired requests.
+  </Card>
+  <Card title="Specification tags" icon="sliders">
+    Genre, BPM range, key, mood, and budget when provided.
+  </Card>
+  <Card title="Extras" icon="link">
+    Reference links and the number of submissions received.
+  </Card>
+</CardGroup>
+
+## Renewing An Expired Request
+
+<AccordionGroup>
+  <Accordion title="Renewal window">
+    Expired requests stay visible during their renewal window so you can restore them instead of creating a brand-new request.
+  </Accordion>
+  <Accordion title="Current cost">
+    The current renew action is labeled **Renew (1 token)**.
+  </Accordion>
+  <Accordion title="When renewal is not available">
+    If a request is outside its renewal window, the page will stop offering the renew action and you will need to create a new request.
+  </Accordion>
+</AccordionGroup>
+
+## Deleting A Request
+
+Deleting a request removes it from your library management view. When applicable, BeatPass also refunds the token tied to that request and refreshes the token status bar.
+
+## Create A New Request
+
+This page manages existing requests. To publish a new one, use the beat request flow at `https://open.beatpass.ca/beat-requests`.

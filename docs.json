@@ -116,7 +116,7 @@
               "help/discovering-music/homepage",
               "help/discovering-music/search",
               "help/discovering-music/genres-and-tags",
-              "help/discovering-music/artist-pages",
+              "help/discovering-music/producer-pages",
               "help/discovering-music/albums-and-collections",
               "help/discovering-music/radio",
               {
@@ -137,7 +137,7 @@
                   "help/playing-music/player-controls",
                   "help/playing-music/queue-and-playback",
                   "help/playing-music/lyrics",
-                  "help/playing-music/track-comments"
+                  "help/playing-music/waveform-comments"
                 ]
               }
             ]
@@ -147,12 +147,12 @@
             "icon": "bookmark",
             "pages": [
               "help/library/index",
-              "help/library/liked-tracks",
-              "help/library/liked-albums",
-              "help/library/followed-artists",
+              "help/library/your-tracks",
+              "help/library/your-collections",
+              "help/library/your-producers",
               "help/library/listening-history",
-              "help/library/my-licenses",
-              "help/library/custom-requests",
+              "help/library/licenses",
+              "help/library/beat-requests",
               {
                 "group": "Playlists",
                 "pages": [
@@ -279,8 +279,8 @@
                 "group": "Application Types",
                 "pages": [
                   "help/producer-program/application-types/index",
-                  "help/producer-program/application-types/become-artist",
-                  "help/producer-program/application-types/claim-artist",
+                  "help/producer-program/application-types/become-producer",
+                  "help/producer-program/application-types/claim-existing-artist",
                   "help/producer-program/application-types/get-verified"
                 ]
               }
@@ -444,27 +444,27 @@
             "icon": "user",
             "pages": [
               "help/profiles/index",
-              "help/profiles/user-vs-artist-comparison",
+              "help/profiles/user-vs-producer-comparison",
               {
                 "group": "User Profiles",
                 "pages": [
                   "help/profiles/user-profiles/index",
                   "help/profiles/user-profiles/editing-profile",
                   "help/profiles/user-profiles/profile-tabs",
-                  "help/profiles/user-profiles/privacy-settings"
+                  "help/profiles/user-profiles/profile-visibility"
                 ]
               },
               {
-                "group": "Artist Profiles",
+                "group": "Producer Profiles",
                 "pages": [
-                  "help/profiles/artist-profiles/index",
-                  "help/profiles/artist-profiles/profile-elements",
-                  "help/profiles/artist-profiles/photo-gallery",
-                  "help/profiles/artist-profiles/artist-bio",
-                  "help/profiles/artist-profiles/pinned-track",
-                  "help/profiles/artist-profiles/professional-credits",
-                  "help/profiles/artist-profiles/verified-badge",
-                  "help/profiles/artist-profiles/discography-tabs"
+                  "help/profiles/producer-profiles/index",
+                  "help/profiles/producer-profiles/profile-elements",
+                  "help/profiles/producer-profiles/photo-gallery",
+                  "help/profiles/producer-profiles/bio-and-links",
+                  "help/profiles/producer-profiles/pinned-track",
+                  "help/profiles/producer-profiles/professional-credits",
+                  "help/profiles/producer-profiles/verified-badge",
+                  "help/profiles/producer-profiles/discography-tabs"
                 ]
               }
             ]
@@ -510,8 +510,14 @@
                       "help/notifications/notification-categories/index",
                       "help/notifications/notification-categories/following-notifications",
                       "help/notifications/notification-categories/social-notifications",
-                      "help/notifications/notification-categories/producer-notifications",
-                      "help/notifications/notification-categories/earnings-notifications"
+                      "help/notifications/notification-categories/messages-notifications",
+                      "help/notifications/notification-categories/beat-request-notifications",
+                      "help/notifications/notification-categories/promotions-notifications",
+                      "help/notifications/notification-categories/producer-activity-notifications",
+                      "help/notifications/notification-categories/earnings-and-licensing-notifications",
+                      "help/notifications/notification-categories/achievements-notifications",
+                      "help/notifications/notification-categories/audio-recon-notifications",
+                      "help/notifications/notification-categories/producer-dashboard-notifications"
                     ]
                   }
                 ]
@@ -771,6 +777,58 @@
     {
       "source": "/developers/api-reference/insights-api",
       "destination": "/developers/api-reference/insights"
+    },
+    {
+      "source": "/help/profiles/user-vs-artist-comparison",
+      "destination": "/help/profiles/user-vs-producer-comparison"
+    },
+    {
+      "source": "/help/profiles/user-profiles/privacy-settings",
+      "destination": "/help/profiles/user-profiles/profile-visibility"
+    },
+    {
+      "source": "/help/profiles/artist-profiles",
+      "destination": "/help/profiles/producer-profiles"
+    },
+    {
+      "source": "/help/profiles/artist-profiles/index",
+      "destination": "/help/profiles/producer-profiles/index"
+    },
+    {
+      "source": "/help/profiles/artist-profiles/profile-elements",
+      "destination": "/help/profiles/producer-profiles/profile-elements"
+    },
+    {
+      "source": "/help/profiles/artist-profiles/photo-gallery",
+      "destination": "/help/profiles/producer-profiles/photo-gallery"
+    },
+    {
+      "source": "/help/profiles/artist-profiles/artist-bio",
+      "destination": "/help/profiles/producer-profiles/bio-and-links"
+    },
+    {
+      "source": "/help/profiles/artist-profiles/pinned-track",
+      "destination": "/help/profiles/producer-profiles/pinned-track"
+    },
+    {
+      "source": "/help/profiles/artist-profiles/professional-credits",
+      "destination": "/help/profiles/producer-profiles/professional-credits"
+    },
+    {
+      "source": "/help/profiles/artist-profiles/verified-badge",
+      "destination": "/help/profiles/producer-profiles/verified-badge"
+    },
+    {
+      "source": "/help/profiles/artist-profiles/discography-tabs",
+      "destination": "/help/profiles/producer-profiles/discography-tabs"
+    },
+    {
+      "source": "/help/producer-program/application-types/become-artist",
+      "destination": "/help/producer-program/application-types/become-producer"
+    },
+    {
+      "source": "/help/producer-program/application-types/claim-artist",
+      "destination": "/help/producer-program/application-types/claim-existing-artist"
     }
   ],
   "seo": {

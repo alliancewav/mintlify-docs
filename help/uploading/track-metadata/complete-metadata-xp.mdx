@@ -2,177 +2,78 @@
 audience: help
 title: "Complete Metadata XP"
 sidebarTitle: "Metadata XP"
-description: "Earn XP and unlock achievements by maintaining complete and accurate track metadata on BeatPass."
-keywords: ["XP", "achievements", "metadata", "complete", "accuracy", "rewards"]
+description: "Earn XP by maintaining complete and accurate track metadata on BeatPass."
+keywords: ["XP", "metadata", "complete", "rewards"]
 "og:title": "Complete Metadata XP - BeatPass Help"
-"og:description": "Earn achievements for thorough track metadata on BeatPass."
+"og:description": "Understand how BeatPass rewards metadata completion."
 ---
 
-BeatPass rewards producers who maintain complete and accurate metadata across their catalog. The more thorough your track information, the higher your metadata accuracy score — and the more achievements you can unlock.
-
----
-
-## How Metadata XP Works
-
-Your metadata accuracy is calculated based on how completely you fill out track information across your entire catalog:
-
-<Steps>
-  <Step title="Upload tracks with complete info">
-    Fill in all required and optional fields when uploading.
-  </Step>
-  <Step title="Build your accuracy score">
-    Your score is calculated as a percentage across all tracks.
-  </Step>
-  <Step title="Unlock achievements">
-    Reach accuracy thresholds to unlock metadata achievements.
-  </Step>
-  <Step title="Earn XP">
-    Each achievement awards XP that contributes to your producer profile.
-  </Step>
-</Steps>
+BeatPass currently awards XP for several producer actions, and metadata completion is one of them. This page focuses on the part tied to metadata rather than inventing achievement names or thresholds that are not guaranteed in the live product.
 
 ---
 
-## Metadata Achievements
+## Current XP Values
 
-| Achievement | Requirement | XP Reward | Rarity |
-|-------------|-------------|-----------|--------|
-| **Metadata Whiz** | 70% accuracy score | 800 XP | Common |
-| **Metadata Maven** | 80% accuracy score | 1,500 XP | Uncommon |
-| **Metadata Architect** | 90% accuracy score | 2,500 XP | Rare |
+Based on the current codebase, BeatPass awards:
 
-These achievements are part of the metadata category and reflect your attention to detail as a producer.
+| Action | Current XP |
+|--------|------------|
+| Track upload | 100 XP |
+| Track play | 1 XP |
+| Metadata completion | 50 XP |
+| Collaboration | 25 XP |
 
----
+## What Metadata Completion Means Right Now
 
-## What Counts Toward Accuracy
+BeatPass currently treats a track as metadata-complete when it reaches the platform's completeness threshold. In the current implementation, that threshold is based on **80%+ completeness** rather than every optional field being filled out.
 
-Your metadata accuracy score considers:
+That means metadata completion usually depends on a mix of:
 
-### Required Fields (Base)
-- Track Name
-- Artists
-- Key
-- Scale
-- BPM
-
-### Optional Fields (Bonus)
-- Description
-- Genres (more = better)
-- Tags (more = better)
-- Cover Art
-- Album association
-
-### Quality Factors
-- Consistency across tracks
-- Complete vs. partial information
-- Use of established genres vs. custom
+- Required track fields being correct
+- Helpful metadata such as description, genres, and tags
+- A complete enough overall track setup to pass the platform's completeness check
 
 ---
 
-## Improving Your Score
+## How to Improve Metadata Completion
+
+The easiest ways to improve metadata completion are:
+
+- Add strong cover art
+- Write a useful description
+- Choose accurate genres
+- Add relevant tags
+- Place the beat in the right collection when needed
+- Keep the core musical fields accurate
+
+## Why This Matters
+
+Better metadata helps in two ways at once:
+
+1. It makes the beat easier to find and license
+2. It helps the beat qualify for metadata-complete XP
+
+---
+
+## Important Documentation Rule
+
+Because BeatPass achievement systems can evolve, help docs should only promise the current code-backed XP values above. Do not rely on old achievement names or made-up percentage ladders unless the live product explicitly shows them.
+
+---
+
+## Best Practices
 
 <AccordionGroup>
-  <Accordion title="Fill out all optional fields">
-    While not required, descriptions, genres, and tags significantly boost your accuracy score.
+  <Accordion title="Treat metadata as catalog quality, not just XP">
+    The biggest benefit of strong metadata is better discovery and clearer buyer understanding.
   </Accordion>
-  
-  <Accordion title="Add cover art to every track">
-    Tracks with custom or template cover art score higher than those with default placeholders.
-  </Accordion>
-  
-  <Accordion title="Use multiple genres">
-    Adding 2-3 relevant genres shows thorough categorization.
-  </Accordion>
-  
-  <Accordion title="Write meaningful descriptions">
-    Even short descriptions improve your metadata completeness.
-  </Accordion>
-  
+
   <Accordion title="Review older tracks">
-    Go back and update tracks that have incomplete information.
+    Updating older beats is often the fastest way to improve your catalog-wide completeness.
   </Accordion>
-</AccordionGroup>
 
----
-
-## Related Achievements
-
-Metadata achievements work alongside other producer achievements:
-
-### Profile Achievements
-
-| Achievement | Description | XP |
-|-------------|-------------|-----|
-| **Oracle** | Artist profile bio filled out | 300 XP |
-| **Photogenic** | First profile picture uploaded | 200 XP |
-| **Model** | More than 5 pictures in about section | 500 XP |
-| **Linked** | More than 3 links on profile | 400 XP |
-
-### Genre Achievements
-
-| Achievement | Description | XP |
-|-------------|-------------|-----|
-| **Genre Specialist** | Top 10% track performance in a genre | 1,500 XP |
-| **Genre Master** | Top 20% diversity with 3+ genres | 2,500 XP |
-| **Genre Virtuoso** | Top 10% diversity with 5+ genres | 4,000 XP |
-
----
-
-## XP and Your Profile
-
-XP you earn contributes to:
-
-- **Profile visibility** — Higher XP can improve your ranking
-- **Leaderboards** — Compete with other producers
-- **Trust signals** — Achievements show your commitment
-- **Unlockables** — Future features may use XP thresholds
-
----
-
-## Checking Your Progress
-
-To see your current metadata score and achievements:
-
-1. Go to your **Producer Dashboard**
-2. Look for the achievements or XP section
-3. View your current metadata accuracy percentage
-4. See which achievements you've unlocked and which are pending
-
----
-
-## Tips for New Producers
-
-<CardGroup cols={2}>
-  <Card title="Start strong" icon="rocket">
-    Fill out complete metadata from your first upload. It's easier than going back later.
-  </Card>
-  <Card title="Be consistent" icon="check">
-    Develop a habit of completing all fields for every track.
-  </Card>
-  <Card title="Quality over quantity" icon="star">
-    A smaller catalog with complete info beats a large one with missing data.
-  </Card>
-  <Card title="Update regularly" icon="arrows-rotate">
-    Review and improve your older tracks periodically.
-  </Card>
-</CardGroup>
-
----
-
-## Common Questions
-
-<AccordionGroup>
-  <Accordion title="Can my score go down?">
-    Your score is calculated across all tracks. If you upload new tracks with incomplete metadata, your average may decrease.
-  </Accordion>
-  
-  <Accordion title="Do achievements get removed if my score drops?">
-    Once unlocked, achievements are permanent. However, you should maintain good practices to continue earning future achievements.
-  </Accordion>
-  
-  <Accordion title="How often is my score updated?">
-    Your metadata accuracy is recalculated periodically and when you save track changes.
+  <Accordion title="Focus on accuracy first">
+    Wrong BPM, wrong key, or misleading tags are worse than leaving a weak field blank.
   </Accordion>
 </AccordionGroup>
 
@@ -182,9 +83,9 @@ To see your current metadata score and achievements:
 
 <CardGroup cols={2}>
   <Card title="Track Metadata Overview" icon="info" href="/help/uploading/track-metadata">
-    Learn about all metadata fields.
+    Return to the full metadata guide.
   </Card>
   <Card title="Genres & Tags" icon="tag" href="/help/uploading/track-metadata/genres-and-tags">
-    Categorize your music properly.
+    Improve the fields that most often help completeness.
   </Card>
 </CardGroup>

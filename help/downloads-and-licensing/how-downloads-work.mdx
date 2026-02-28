@@ -2,245 +2,124 @@
 audience: help
 title: "How Downloads Work | BeatPass"
 sidebarTitle: "How Downloads Work"
-description: "Step-by-step guide to downloading beats on BeatPass. Learn about file formats, download requirements, and what happens when you download."
-keywords: ["downloads", "download process", "file formats", "WAV", "MP3", "beat download"]
+description: "Step-by-step guide to the current BeatPass download flow, including access checks, ownership rules, and certificate availability."
+keywords: ["downloads", "download process", "license flow", "beat download", "certificate access"]
 "og:title": "How Downloads Work - BeatPass"
-"og:description": "Complete guide to the BeatPass download process and file formats."
+"og:description": "Current BeatPass download behavior and what to expect after you click Download."
 "twitter:card": "summary_large_image"
 ---
 
-## Overview
-
-Downloading a beat on BeatPass automatically generates a license certificate that grants you usage rights. The download process is designed to be seamless while ensuring proper licensing.
+This page covers the current BeatPass download flow for standard track downloads. It explains who can download, what happens after you click **Download**, and when a license certificate becomes available.
 
 <Info>
-  **Requirements:** You need an active BeatPass subscription **and** the ability to download tracks. Subscribers receive non-exclusive licenses; artists downloading their own tracks can download without generating a license.
+  Standard downloads require an eligible signed-in account. Exclusive checkout is covered separately in [Purchasing Exclusive](/help/downloads-and-licensing/exclusive-licenses/purchasing-exclusive).
 </Info>
 
----
+## Before you click Download
 
-## Download Process
+BeatPass checks several things before it lets a download start.
+
+### Standard access rules
+
+- You must be signed in
+- Your account must have download access
+- Your subscription cannot be overdue
+- The track must still be available for non-exclusive download
+
+### Important exceptions
+
+- Track owners can download their own tracks
+- Exclusive buyers can still download the track they purchased
+- If a track has been sold exclusively, new non-exclusive downloads are blocked
+- If a track is exclusive-only and you have not purchased it, standard download is not available
+
+## The current download flow
 
 <Steps>
-  <Step title="Select a Track">
-    Browse the catalog and find a beat you want to download. Click the **Download** button on the track page or player.
+  <Step title="Open the download modal">
+    Click **Download** on an eligible track. BeatPass opens the pre-download confirmation modal.
   </Step>
-  
-  <Step title="Permission & Subscription Check">
-    BeatPass confirms you have download rights (active subscription and permission). Artists on their own tracks can download even without a generated license.
+  <Step title="Confirm the download">
+    Use the **Download** action in the modal to start the file download to your device.
   </Step>
-  
-  <Step title="Fingerprint Verification">
-    The system verifies the track has a completed audio fingerprint. This is required for license generation.
+  <Step title="BeatPass checks access again">
+    The app confirms that your account is still allowed to download the track. If your subscription is overdue or the track is no longer eligible, the download is blocked.
   </Step>
-  
-  <Step title="License Check">
-    BeatPass checks if you already have a license for this track. If so, it retrieves your existing license.
+  <Step title="The track file downloads">
+    BeatPass downloads the local track file. Producers downloading their own tracks do not need a generated license for that step.
   </Step>
-  
-  <Step title="License Generation">
-    If you don't have a license, a new license certificate is automatically generated with:
-    - Your user information
-    - Track details and fingerprint hash
-    - License terms and permissions
-    - Cryptographic signature
-  </Step>
-  
-  <Step title="File Download">
-    The audio file is downloaded to your device in your selected format.
-  </Step>
-  
-  <Step title="Notifications">
-    - You receive a confirmation of your license
-    - The producer is notified of the download (based on their notification preferences)
+  <Step title="License follow-up may appear">
+    If you are a signed-in non-owner and the track fingerprint is completed, BeatPass can open a post-download license modal so you can view an existing certificate or use **Get License** when available.
   </Step>
 </Steps>
 
-```mermaid
-flowchart TD
-    A[Click Download] --> B{Active\nsubscription?}
-    B -->|No| X[Access denied]
-    B -->|Yes| C{Fingerprint\ncomplete?}
-    C -->|No| Y[Wait & retry]
-    C -->|Yes| D{Own track?}
-    D -->|Yes| G[Download file\nNo license needed]
-    D -->|No| E{Existing\nlicense?}
-    E -->|Yes| F[Retrieve license]
-    E -->|No| F2[Generate new license]
-    F --> G2[Download file]
-    F2 --> G2
-```
-
----
-
-## File Formats
-
-### Non-Exclusive Downloads
-
-| Format | Quality | Use Case |
-|--------|---------|----------|
-| **WAV** | Lossless, 16/24-bit | Professional production, studio use |
-| **MP3 320kbps** | High-quality lossy | Streaming, sharing, previews |
-
-### Exclusive Purchases
-
-| Format | Quality | Use Case |
-|--------|---------|----------|
-| **WAV** | Lossless | Master production |
-| **WAV Tagged** | Lossless with producer tag | Attribution version |
-| **MP3 320kbps** | High-quality lossy | Distribution, streaming |
-| **Stems** | Individual tracks | Mixing, remixing |
-
----
-
-## Download Requirements
-
-### For Non-Exclusive Downloads
-
-| Requirement | Details |
-|-------------|---------|
-| Active subscription | Must have a current BeatPass membership |
-| Track availability | Track must not be sold exclusively |
-| Fingerprint status | Track must have completed fingerprint |
-| Download access | Your subscription plan must include download access |
-| Permission | Your account must have download permission (required for listeners/subscribers and anyone who isn't a beat creator); beat creators/track owners can download their own tracks without this permission |
-
-### For Exclusive Purchases
-
-| Requirement | Details |
-|-------------|---------|
-| Payment completed | Stripe payment must be successful |
-| Track status | Must be `available` (not already sold) |
-| Exclusive pricing | Track must have exclusive price set |
-
----
-
-## What Happens Behind the Scenes
-
-### License Certificate Generation
-
-When you download, BeatPass automatically creates a license certificate that captures:
-
-**Track Information:**
-- Beat name and producer credits
-- Audio fingerprint (BeatPassID)
-- Duration and genre
-
-**Your Information:**
-- Your name and account details
-- License issue date
-
-**Security Features:**
-- Unique certificate ID
-- Cryptographic signature for authenticity
-- Verification hash for tampering protection
-
-This information is permanently stored so your license remains valid even if the track details change later.
-
-### Download Tracking
-
-BeatPass records each download to:
-- Generate accurate play and download statistics for producers
-- Maintain audit trails for license verification
-- Improve recommendations based on listening habits
-
----
-
-## Downloading Your Own Tracks
-
-If you're the **producer** downloading your own track:
-
-- No license is generated (you already own it)
-- Download proceeds normally
-- No notifications are sent
-- Download statistics are still recorded
-
-<Note>
-  BeatPass automatically recognizes when you're downloading your own tracks and skips the licensing step.
-</Note>
-
----
-
-## Accessing Your Downloads
-
-### Finding Your Licenses
-
-1. Navigate to your **Library**
-2. Go to the **Licenses** section
-3. View all tracks you've licensed
-4. Download certificates or re-download files
-
-### License Certificate Access
-
-For each licensed track, you can:
-- View the full license certificate
-- Download as PDF
-- Access the verification URL
-- See license terms
-
-<Tip>
-  Need a refresher on downloading your own tracks? Jump up to the **Downloading Your Own Tracks** section for the full breakdown.
-</Tip>
-
----
-
-## Download Restrictions
-
-### Track Sold Exclusively
-
-If a track has been purchased exclusively by another user:
-
-- Non-exclusive downloads are **blocked**
-- Error message: "This track has been sold exclusively and is no longer available"
-- Track displays **SOLD** badge
-
-### Exclusive-Only Tracks
-
-Some tracks are listed for exclusive purchase only:
-
-- No non-exclusive downloads available
-- Must purchase the exclusive license
-- Producer has marked the track for exclusive sale only
-
----
-
-## Troubleshooting Downloads
+## What happens with licenses
 
 <AccordionGroup>
-  <Accordion title="Download button is disabled">
-    - Check that you have an active subscription
-    - Verify the track isn't sold exclusively
-    - Ensure fingerprinting is complete
+  <Accordion title="If you already have an active license" icon="file-certificate" defaultOpen>
+    The post-download flow can show **License Already Available** and send you to <a href="https://open.beatpass.ca/library/licenses">https://open.beatpass.ca/library/licenses</a>.
   </Accordion>
-  
-  <Accordion title="License certificate not generating">
-    - Track may have pending fingerprint status
-    - Wait a few minutes and try again
-    - Contact support if issue persists
+  <Accordion title="If you do not already have one" icon="plus">
+    BeatPass attempts to reuse or generate the right license in the background. If the license is ready and the track fingerprint is completed, the **Get License** flow can open it.
   </Accordion>
-  
-  <Accordion title="File won't download">
-    - Check your browser's download settings
-    - Disable pop-up blockers for beatpass.ca
-    - Try a different browser
-  </Accordion>
-  
-  <Accordion title="Downloaded file is corrupted">
-    - Try downloading again
-    - Check your internet connection
-    - Clear browser cache and retry
+  <Accordion title="If fingerprinting is not complete yet" icon="fingerprint">
+    The track can still download, but certificate access may not be ready. This is why downloads are not the same thing as certificate availability.
   </Accordion>
 </AccordionGroup>
 
----
+## Where to find your licenses
+
+Use **Library** -> **Licenses** in the app:
+
+- App page: <a href="https://open.beatpass.ca/library/licenses">https://open.beatpass.ca/library/licenses</a>
+- Search supports track name, artist name, licensee name, or license ID
+- If you own tracks, the page can also show licenses granted to other users for your catalog
+
+From that page you can:
+
+- Open the printable certificate view
+- Use **Verify License**
+- Search across your license history
+
+## Track availability rules
+
+| Track state | What it means for standard downloads |
+| --- | --- |
+| **Non-exclusive only** | Standard download can be allowed if your account has access |
+| **Both** | Standard download can still be allowed unless the track has been sold exclusively |
+| **Exclusive only** | No standard download unless you are the owner or purchaser |
+| **Sold** | No new standard downloads for other users |
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Download button is disabled or blocked" icon="triangle-exclamation" defaultOpen>
+    Check that you are signed in, your account still has download access, your subscription is not overdue, and the track has not been sold exclusively.
+  </Accordion>
+  <Accordion title="The track downloaded but I do not see a certificate yet" icon="file-certificate">
+    Check **Library** -> **Licenses** first. If the track fingerprint is still incomplete, the certificate view may not be ready yet even though the download succeeded.
+  </Accordion>
+  <Accordion title="I see an overdue subscription message" icon="credit-card">
+    BeatPass blocks downloads for overdue subscriptions. Resolve the billing issue before trying again.
+  </Accordion>
+  <Accordion title="I own the track but I do not see a license" icon="user">
+    Owners can download their own tracks without generating a standard license certificate.
+  </Accordion>
+</AccordionGroup>
 
 ## Related
 
 <CardGroup cols={2}>
   <Card title="License Certificates" icon="file-certificate" href="/help/downloads-and-licensing/license-certificates">
-    Understanding your license document.
+    Learn what the certificate includes and how to open it.
   </Card>
-  <Card title="Exclusive Licenses" icon="crown" href="/help/downloads-and-licensing/exclusive-licenses">
-    Purchase exclusive rights to a beat.
+  <Card title="BeatPassID" icon="fingerprint" href="/help/downloads-and-licensing/beatpass-id">
+    Learn why fingerprint completion matters for certificate tools.
+  </Card>
+  <Card title="Verifying Licenses" icon="shield-check" href="/help/downloads-and-licensing/verifying-licenses">
+    Check a certificate on the public verification page.
+  </Card>
+  <Card title="FAQ" icon="circle-question" href="/help/downloads-and-licensing/faq">
+    More common download questions.
   </Card>
 </CardGroup>

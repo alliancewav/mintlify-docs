@@ -2,215 +2,53 @@
 audience: help
 title: "Album Insights | Backstage Insights"
 sidebarTitle: "Album Insights"
-description: "View aggregate analytics for albums including combined plays, top tracks, device breakdown, and listener distribution."
-keywords: ["album insights", "album analytics", "aggregate plays", "album performance"]
-"og:title": "Album Insights - Backstage Insights | BeatPass"
-"og:description": "View aggregate analytics for albums on BeatPass."
-"twitter:card": "summary_large_image"
+description: "Review the current album-level analytics page in BeatPass Backstage Insights."
 ---
 
-## Overview
-
-Album insights (`/backstage/albums/{id}/insights`) show aggregate analytics for all tracks in an album. Unlike track insights which focus on a single piece of content, album insights combine data from every track in the collection.
+Album Insights rolls performance up across the tracks in one album or collection. Use it when you want one page for the release as a whole instead of opening tracks one by one.
 
 <Info>
-  **Access:** Right-click any album → Insights, or navigate directly to `/backstage/albums/{albumId}/insights`
+  Direct route pattern: `/backstage/albums/{albumId}/insights`
 </Info>
 
----
+## Header Information
 
-## Available Charts
+The current album header can include:
 
-Album insights display the following analytics:
+- release date
+- track count
+- total duration
+- genres
+- plays
+- likes
 
-| Chart | Description |
-|-------|-------------|
-| **Plays Over Time** | Combined plays across all album tracks |
-| **Top Devices** | Device breakdown for album plays |
-| **Top Platforms** | Platform breakdown for album plays |
-| **Top Locations** | Where album listeners are located |
-| **Most Played Tracks** | Top performers within the album |
-| **Top Listeners** | Users who played album tracks most |
-
-<Note>
-  **Engagement metrics** (Listen Duration, Completion Breakdown) are **not available** for albums. These require per-play analysis and are only shown on individual track insights.
-</Note>
-
----
-
-## Plays Over Time
-
-An interactive bar chart showing total plays across all album tracks.
-
-### What It Shows
-
-- **Combined plays** — Sum of plays from all tracks in the album
-- **Trend indicator** — Growth/decline compared to previous period
-- **Date filtering** — Respects your selected date range
-
-### Chart Elements
-
-| Element | Description |
-|---------|-------------|
-| **Bars** | Each bar represents total album plays for that period |
-| **Trend badge** | Green (+) for growth, red (-) for decline |
-| **Footer stats** | Peak Day, Daily Avg, Data Points |
-
----
-
-## Most Played Tracks
-
-A scrollable card-style list showing your top-performing tracks within the album.
-
-### What It Shows
-
-- **Ranked list** — Tracks ordered by play count
-- **Up to 10 tracks** — In a scrollable container
-- **Per-track stats** — Play count for each track
-
-### Card Contents
-
-| Element | Description |
-|---------|-------------|
-| **Rank Badge** | Position (#1, #2, etc.) |
-| **Cover Art** | Circular thumbnail |
-| **Track Name** | Clickable link to track insights |
-| **Exclusive Icon** | Diamond badge for exclusive-only tracks |
-| **Artist Name(s)** | Displayed below track name |
-| **Play Count Pill** | Compact pill with play icon and count |
-
-### Reading Patterns
-
-| Pattern | What It Means | Action |
-|---------|---------------|--------|
-| **Top-heavy list** | Few tracks dominate | Promote rising tracks |
-| **Even distribution** | Balanced catalog | Audience explores your content |
-| **New track climbing** | Recent release gaining momentum | Feature it |
-| **Older track resurging** | Viral moment or playlist | Investigate why |
-
-<Tip>
-  Click any track to view its detailed insights page with engagement metrics.
-</Tip>
-
----
-
-## Top Devices
-
-Breakdown of device types used to access album tracks.
-
-### Layout
-
-Vertical list of high-contrast cards:
-- **Left:** Device icon and name with percentage
-- **Right:** Total play count
-- **Bottom:** Color-coded progress bar
-
-### Device Types
-
-| Type | Description |
-|------|-------------|
-| **Desktop** | Computers and laptops |
-| **Mobile** | Smartphones |
-| **Tablet** | iPads and Android tablets |
-| **TV/Other** | Smart TVs, game consoles, wearables |
-
----
-
-## Top Platforms
-
-Breakdown of operating systems used to access album tracks.
-
-### Layout
-
-2x2 grid showing top 4 platforms:
-- **Header:** Platform icon and play count
-- **Body:** Platform name and percentage
-- **Footer:** Progress bar
-
----
-
-## Top Locations
-
-Geographic distribution of album listeners.
-
-### Layout
-
-- **Hero Section:** #1 location with large country flag
-- **Country name** and play count prominently displayed
-- **Grid:** Remaining top countries with flags and progress bars
-- Shows up to 10 locations
-
-### Why It Matters
-
-Understanding where album listeners come from helps you:
-- **Target promotions** — Focus on regions with high engagement
-- **Plan releases** — Time drops for your top regions
-- **Identify growth opportunities** — Spot emerging markets
-
----
-
-## Top Listeners
-
-Users who played album tracks most within the selected date range.
-
-### Layout
-
-Scrollable card list showing:
-- **Rank badge** (#1, #2, etc.)
-- **Avatar** — Circular user avatar
-- **Username** — Links to user profile
-- **Percentage** — Share of total album plays
-- **Play count pill**
-
-### Special Entries
-
-- **Guest Listeners** — Non-logged-in users aggregated
-- **Admin plays** — Filtered out automatically
-
----
-
-## Album vs Track Insights
-
-| Feature | Album Insights | Track Insights |
-|---------|---------------|----------------|
-| **Scope** | All tracks combined | Single track |
-| **Engagement metrics** | ✗ Not available | ✓ Full detail |
-| **Most Played Tracks** | ✓ Shows top tracks | ✗ Not applicable |
-| **Device/Platform** | ✓ Aggregate | ✓ Per-track |
-| **Locations** | ✓ Aggregate | ✓ Per-track |
-| **Top Listeners** | ✓ Aggregate | ✓ Per-track |
-
----
-
-## Navigating From Here
-
-### To Track Insights
-
-Click any track in the **Most Played Tracks** list to view its individual insights with full engagement metrics.
-
-### To Album Management
-
-Use the **"Manage Albums"** link in the header to go to `/producer-dashboard/albums`.
-
-### To Producer Dashboard
-
-Click **"Dashboard"** in the Producer Tools section to return to your main command center.
-
----
-
-## Next Steps
+## Current Chart Set
 
 <CardGroup cols={2}>
-  <Card title="Track Insights" icon="music" href="/help/analytics/backstage-insights/track-insights">
-    View detailed per-track analytics with engagement.
+  <Card title="Plays Over Time" icon="chart-line">
+    Listenership trend across the selected date range.
   </Card>
-  <Card title="Artist Insights" icon="user" href="/help/analytics/backstage-insights/artist-insights">
-    View catalog-wide analytics.
+  <Card title="Top Devices" icon="mobile">
+    The device types your listeners are using most.
   </Card>
-  <Card title="Albums Page" icon="compact-disc" href="/help/producer-dashboard/albums">
-    Manage your album catalog.
+  <Card title="Top Platforms" icon="desktop">
+    Operating-system style platform breakdown for listeners.
   </Card>
-  <Card title="Charts Reference" icon="chart-pie" href="/help/analytics/reference/chart-types">
-    Visual guide to all chart types.
+  <Card title="Top Listeners" icon="users">
+    The listeners generating the most play activity in the selected range.
+  </Card>
+  <Card title="Top Locations" icon="globe">
+    Geographic concentration of plays.
+  </Card>
+  <Card title="Most Played Tracks" icon="clipboard-list">
+    The strongest-performing tracks within that album.
   </Card>
 </CardGroup>
+
+## What Album Insights Does Not Show
+
+- No track-level engagement section.
+- No completion breakdown chart.
+- No listen-duration chart.
+
+For engagement analysis, open a specific track's insights page instead.

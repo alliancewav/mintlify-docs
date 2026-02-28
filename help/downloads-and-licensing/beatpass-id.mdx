@@ -2,202 +2,92 @@
 audience: help
 title: "BeatPassID (Audio Fingerprinting) | BeatPass"
 sidebarTitle: "BeatPassID"
-description: "Learn how BeatPassID uses acoustic audio fingerprinting technology to uniquely identify tracks and secure license certificates."
-keywords: ["BeatPassID", "audio fingerprinting", "acoustic fingerprint", "track verification", "license security"]
-"og:title": "BeatPassID - Audio Fingerprinting Technology"
-"og:description": "How BeatPass uses acoustic fingerprinting to protect creators and verify licenses."
+description: "Learn how BeatPass fingerprint data is used in certificate and verification tools."
+keywords: ["BeatPassID", "audio fingerprinting", "track fingerprint", "license verification", "certificate fingerprint"]
+"og:title": "BeatPassID - Audio Fingerprinting"
+"og:description": "How BeatPass uses fingerprint data in license and verification tools."
 "twitter:card": "summary_large_image"
 ---
 
-## What is BeatPassID?
-
-BeatPassID is BeatPass's acoustic audio fingerprinting system that creates a unique digital signature for every track. This cryptographic fingerprint uniquely identifies the audio content and cannot be forged or duplicated.
+BeatPassID is the fingerprint data BeatPass attaches to tracks for certificate and verification use. It helps BeatPass connect a license to the analyzed audio attached to that track.
 
 <Info>
-  BeatPassID technology protects both creators and licensees by providing verifiable proof of licensing.
+  For most users, BeatPassID matters because it affects certificate readiness and what appears on the certificate or verification screens.
 </Info>
 
----
+## Where you will see BeatPassID
 
-## How Audio Fingerprinting Works
+You may see fingerprint details in:
 
-<Steps>
-  <Step title="Audio Analysis">
-    When a track is uploaded, the system analyzes the audio waveform using acoustic fingerprinting algorithms.
-  </Step>
-  <Step title="Hash Generation">
-    A unique SHA-256 cryptographic hash is generated from the audio's acoustic characteristics.
-  </Step>
-  <Step title="Permanent Storage">
-    The fingerprint hash is stored in a dedicated database alongside track metadata.
-  </Step>
-  <Step title="License Linking">
-    When you download a track, your license certificate includes the fingerprint hash.
-  </Step>
-</Steps>
+- License certificates
+- The license certificate modal
+- Public verification-related certificate data
+- Producer-facing upload or track-management flows
 
----
+## Current fingerprint statuses
 
-## Fingerprint Data
+| Status | What it means |
+| --- | --- |
+| **Pending** | BeatPass is still processing the track fingerprint |
+| **Completed** | Fingerprint data is ready for certificate tools |
+| **Failed** | BeatPass could not complete the fingerprint |
 
-Each BeatPassID record contains:
-
-| Field | Description |
-|-------|-------------|
-| **Track ID** | Reference to the original track |
-| **Track Name** | Permanent snapshot of track name at fingerprint time |
-| **Artist Names** | Array of credited artists |
-| **Fingerprint Hash** | Unique SHA-256 cryptographic hash |
-| **Duration** | Analyzed audio duration in seconds |
-| **Status** | `pending`, `completed`, or `failed` |
-| **Fingerprinted At** | Timestamp when fingerprint was generated |
-
----
-
-## Fingerprint Status
-
-### Completed
-
-The track has been successfully fingerprinted and is ready for licensing.
-
-- Fingerprint hash is generated
-- License certificates can be issued
-- Verification is enabled
-
-### Pending
-
-The track is queued for fingerprinting.
-
-- Upload is complete
-- Audio analysis is in progress
-- Downloads may be temporarily unavailable
-
-### Failed
-
-Fingerprinting could not be completed.
-
-- Error message is logged
-- May indicate audio quality issues
-- Admin review may be required
-
-<Warning>
-  Tracks without a completed fingerprint cannot have license certificates generated. If you see a fingerprint error, contact support.
-</Warning>
-
----
-
-## How BeatPassID Protects You
-
-### For Licensees (Beat Users)
-
-- **Proof of License** — Your license certificate includes the fingerprint hash, proving you licensed the specific audio
-- **Verification** — Anyone can verify your license is authentic using the verification URL
-- **Legal Protection** — Cryptographic proof links your license to the exact audio content
-
-### For Producers (Beat Creators)
-
-- **Duplicate Detection** — Prevents the same audio from being uploaded multiple times
-- **Audit Trail** — Complete record of all licenses issued for your tracks
-- **Ownership Proof** — Fingerprint establishes you as the original uploader
-
----
-
-## Viewing Fingerprint Information
-
-### On License Certificates
-
-Your license certificate displays:
-
-```
-Audio Fingerprint Details
-─────────────────────────
-Fingerprint Status: COMPLETED & VERIFIED
-Fingerprinted On: [Date]
-Analyzed Duration: [X] seconds
-Certificate ID: [UUID]
-
-Complete Audio Fingerprint Hash:
-[64-character SHA-256 hash]
-```
-
-### In Producer Dashboard
-
-Producers can view fingerprint status for their tracks in the upload interface and track management areas.
-
----
-
-## Duplicate Detection
-
-BeatPassID automatically detects duplicate uploads:
-
-1. When you upload a track, the fingerprint hash is calculated
-2. System checks if the same hash already exists
-3. If found, you're notified of the duplicate
-4. This prevents accidental re-uploads and copyright conflicts
-
----
-
-## Technical Details
-
-### Hash Algorithm
-
-BeatPassID uses **SHA-256** cryptographic hashing:
-
-- 256-bit output (64 hexadecimal characters)
-- Collision-resistant (virtually impossible to forge)
-- One-way function (cannot reverse-engineer original audio)
-
-### Storage
-
-Fingerprints are stored in a dedicated database:
-
-- Separate from main application data
-- Optimized for fast hash lookups
-- Includes metadata snapshots for permanence
-
-### Verification
-
-License certificates include:
-
-- **Certificate Hash** — SHA-256 of license data for integrity
-- **Cryptographic Signature** — HMAC-SHA256 signature for authenticity
-- **Fingerprint Hash** — Links certificate to specific audio
-
----
-
-## Frequently Asked Questions
+## Why fingerprint status matters
 
 <AccordionGroup>
-  <Accordion title="Why does my track say 'Pending Fingerprint'?">
-    New uploads are queued for fingerprinting. This usually completes within minutes. If it stays pending for more than an hour, contact support.
+  <Accordion title="Certificate access" icon="file-certificate" defaultOpen>
+    The current **Get License** flow depends on a completed fingerprint. If fingerprinting is still pending, the track may already be downloaded while the certificate view is not ready yet.
   </Accordion>
-  
-  <Accordion title="Can fingerprints be faked?">
-    No. Fingerprints are generated server-side using the actual audio file. They cannot be forged or manipulated by users.
+  <Accordion title="Verification details" icon="shield-check">
+    Completed fingerprint data lets BeatPass show the fingerprint section in the certificate and verification-related views.
   </Accordion>
-  
-  <Accordion title="What if my fingerprint shows 'Failed'?">
-    This may indicate an issue with the audio file (corrupted, too short, or unsupported format). Try re-uploading or contact support.
-  </Accordion>
-  
-  <Accordion title="Does fingerprinting affect audio quality?">
-    No. Fingerprinting is a read-only analysis. It does not modify your audio files in any way.
-  </Accordion>
-  
-  <Accordion title="How long is fingerprint data stored?">
-    Fingerprint data is stored permanently to support license verification even after tracks are removed from the platform.
+  <Accordion title="Producer workflows" icon="music">
+    Producers also encounter fingerprint status during upload and catalog management because BeatPass uses it as part of track-processing workflows.
   </Accordion>
 </AccordionGroup>
 
----
+## What fingerprint details can include
+
+When a completed fingerprint is available, certificate tools can show:
+
+- Fingerprint status
+- Fingerprinted date
+- Analyzed duration
+- Fingerprint hash
+
+## What not to assume
+
+<Warning>
+  BeatPassID is useful verification data, but you should not treat it as a guarantee that every certificate is instantly ready or that every rights dispute is solved automatically. The certificate, the license status, and the public verification page still matter.
+</Warning>
+
+## Common questions
+
+<AccordionGroup>
+  <Accordion title="Why did my track download but I still cannot open the certificate?" icon="download" defaultOpen>
+    The download flow can finish before fingerprinting does. When that happens, wait for fingerprint completion and check **Library** -> **Licenses** again.
+  </Accordion>
+  <Accordion title="What if fingerprint status is failed?" icon="triangle-exclamation">
+    Certificate tools may stay unavailable until the track is reprocessed or fixed by BeatPass. The page or workflow where you saw the failure is the best place to start troubleshooting.
+  </Accordion>
+  <Accordion title="Does BeatPassID change the audio file I download?" icon="wave-square">
+    No. It is metadata about the track analysis, not a change to the downloaded file itself.
+  </Accordion>
+</AccordionGroup>
 
 ## Related
 
 <CardGroup cols={2}>
+  <Card title="How Downloads Work" icon="download" href="/help/downloads-and-licensing/how-downloads-work">
+    See how fingerprint status affects post-download certificate access.
+  </Card>
   <Card title="License Certificates" icon="file-certificate" href="/help/downloads-and-licensing/license-certificates">
-    How certificates include fingerprint data.
+    Learn where fingerprint details appear.
   </Card>
   <Card title="Verifying Licenses" icon="shield-check" href="/help/downloads-and-licensing/verifying-licenses">
-    Use fingerprints to verify license authenticity.
+    Understand the public side of certificate status checking.
+  </Card>
+  <Card title="FAQ" icon="circle-question" href="/help/downloads-and-licensing/faq">
+    More common questions about licensing and downloads.
   </Card>
 </CardGroup>

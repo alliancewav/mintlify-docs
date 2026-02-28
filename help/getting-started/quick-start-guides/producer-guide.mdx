@@ -1,209 +1,100 @@
 ---
 audience: help
 title: "Producer Quick Start"
-description: "Get started as a producer on BeatPass."
+description: "Get started as an approved producer on BeatPass."
 ---
 
-Welcome to BeatPass as a producer! This guide covers everything you need to start uploading beats, tracking your success, and earning money from your music.
+This guide is for approved producers who need the fastest path to dashboard access, payouts, uploads, and profile management.
 
-## Step 1: Access Your Producer Dashboard
+## Step 1: Reach the Producer Dashboard
 
-Once you're approved as a producer, you'll see **Backstage** in your profile menu. Click it to access your Producer Dashboard.
+The producer dashboard lives at `/producer-dashboard`.
 
-The dashboard gives you a complete overview:
+You may also see a menu entry for it depending on how BeatPass is configured for your account.
 
-| Section | What It Shows |
-|---------|---------------|
-| **Dashboard** | Performance overview and recent activity |
-| **Finances** | Your earnings, payouts, and payment setup |
-| **Activity** | Detailed analytics on your tracks |
-| **Progress** | Your XP, level, and achievements |
-| **Leaderboards** | Your rankings compared to other producers |
-| **My Beats** | Manage your uploaded tracks |
-| **My Collections** | Manage your beat packs |
+### Current Core Areas
 
-## Step 2: Set Up Payments
+| Area | Purpose |
+| --- | --- |
+| **Home** | Overview |
+| **Progress** | XP and achievements |
+| **Tracks** | Track management |
+| **Activity** | Producer activity analytics |
+| **Albums** | Collection management |
+| **Leaderboards** | Rankings |
+| **Finances** | Stripe Connect and transactions |
 
-Before you can receive earnings, you need to connect a payment account.
+## Step 2: Connect Payouts
+
+Before you can receive payouts, connect Stripe Connect from **Producer Dashboard -> Finances**.
 
 <Steps>
-  <Step title="Go to Finances">
-    In your Producer Dashboard, click **Finances** in the sidebar.
+  <Step title="Open Finances">
+    Go to the **Finances** page in the producer dashboard.
   </Step>
-  
-  <Step title="Connect Stripe">
-    Click **Connect Stripe Account Now** to begin the setup process.
+  <Step title="Confirm your country">
+    BeatPass currently asks you to confirm the country before the Stripe flow starts.
   </Step>
-  
-  <Step title="Complete Stripe onboarding">
-    Follow Stripe's instructions to verify your identity and add your bank information. This takes about 5 minutes.
-  </Step>
-  
-  <Step title="Wait for verification">
-    Stripe typically verifies accounts within 1-2 business days. You'll receive an email when you're ready to receive payouts.
+  <Step title="Continue to Stripe">
+    Finish the Stripe Connect onboarding flow and provide the information Stripe requires.
   </Step>
 </Steps>
-
-<Info>
-  You can upload beats before connecting Stripe, but you won't receive payouts until your payment account is set up and verified.
-</Info>
 
 ## Step 3: Upload Your First Beat
 
-<Steps>
-  <Step title="Go to My Beats">
-    In your Producer Dashboard, click **My Beats** in the sidebar.
-  </Step>
-  
-  <Step title="Click Upload or Create">
-    Look for the upload button to start adding a new beat.
-  </Step>
-  
-  <Step title="Upload your audio file">
-    Upload your beat in a high-quality format (WAV recommended).
-  </Step>
-  
-  <Step title="Add beat information">
-    Fill in the details:
-    - **Title** — Give your beat a memorable name
-    - **Genre** — Choose the primary genre
-    - **BPM** — Enter the tempo
-    - **Key** — Specify the musical key
-    - **Tags** — Add relevant tags to help people find your beat
-  </Step>
-  
-  <Step title="Add artwork">
-    Upload cover art for your beat. This is what people see when browsing.
-  </Step>
-  
-  <Step title="Publish">
-    Review your beat information and publish when ready.
-  </Step>
-</Steps>
+The upload flow lives at `/backstage/upload`.
+
+When preparing your first track, the current product expects:
+
+- A **WAV** audio file
+- Cover art
+- BPM between **60** and **200**
+- Your metadata and licensing choices before saving
 
 <Tip>
-  Complete metadata helps your beats get discovered. Take time to fill in genre, BPM, key, and tags accurately.
+If you want to create a collection instead of single-track uploads, use the collection mode inside the upload flow.
 </Tip>
 
-## Step 4: Understand How You Earn
+## Step 4: Manage Your Producer Profile
 
-### Subscription Revenue Sharing
+Your public producer profile is separate from the dashboard.
 
-When subscribers play your beats, you earn a share of the monthly subscription revenue. Your share depends on:
+To edit it:
 
-- **Play count** — How many times your beats are played
-- **Contribution value** — A calculation based on play time and engagement
-- **Your share** — Your percentage of the total revenue pool
+1. Open your producer profile
+2. Click **More**
+3. Choose **Edit**
 
-### Exclusive Beat Sales
+From there you can manage:
 
-If you offer exclusive licenses, you earn from direct purchases. You receive 100% of the sale price — the 12% + \$3 platform fee is added on top rather than deducted from your earnings.
+- Cover image and avatar
+- Biography and links
+- Gallery images
+- Genres and location
+- Professional credits
 
-### Viewing Your Earnings
+## Step 5: Monitor Performance
 
-Go to **Finances** in your Producer Dashboard to see:
+After you start publishing, use:
 
-- Your total balance
-- Recent transactions
-- Payout history
-- Estimated future earnings
+- **Activity** for performance analytics
+- **Progress** for XP and achievements
+- **Leaderboards** for ranking views
+- **Finances** for Stripe status and transactions
 
-## Step 5: Track Your Progress
-
-BeatPass has a gamification system to reward active producers.
-
-### XP and Levels
-
-You earn XP (experience points) for activities like:
-
-- Uploading new beats
-- Getting plays on your tracks
-- Completing your profile metadata
-- Collaborating with other producers
-
-As you earn XP, you level up from Novice to Legendary Producer.
-
-### Achievements
-
-Unlock achievements for milestones like:
-
-- Uploading your first beat
-- Reaching play count milestones
-- Climbing the leaderboards
-- Maintaining high-quality metadata
-
-View your progress in the **Progress** section of your dashboard.
-
-### Leaderboards
-
-See how you rank against other producers in categories like:
-
-- Overall performance
-- Total plays
-- Upload volume
-- Quality score
-
-Check the **Leaderboards** section to see your rankings.
-
-## Tips for Success
-
-### Upload Consistently
-
-Regular uploads keep your profile active and give subscribers more content to discover. Aim for a consistent upload schedule.
-
-### Optimize Your Metadata
-
-Complete, accurate metadata helps your beats get discovered:
-
-- Use descriptive titles
-- Choose the right genres
-- Add relevant tags
-- Specify BPM and key accurately
-
-### Engage with the Community
-
-- Respond to comments on your beats
-- Fulfill beat requests that match your style
-- Collaborate with other producers
-
-### Promote Your Profile
-
-Share your BeatPass profile on social media and with your existing audience to drive traffic to your beats.
-
-## Common Questions
-
-<AccordionGroup>
-  <Accordion title="When do I get paid?">
-    Payouts happen automatically through Stripe once your balance reaches the minimum threshold. Stripe transfers funds to your bank account on their regular payout schedule (typically 2-7 business days).
-  </Accordion>
-  
-  <Accordion title="How is my share calculated?">
-    Your share is based on the contribution value of your tracks compared to all tracks on the platform. Tracks with more plays and engagement earn a larger share.
-  </Accordion>
-  
-  <Accordion title="Can I see who downloaded my beats?">
-    You can see download counts and earnings in your Finances section. Individual downloader identities are kept private.
-  </Accordion>
-  
-  <Accordion title="Can I remove a beat after uploading?">
-    Yes, you can remove your beats at any time from the My Beats section. Note that this won't revoke licenses already issued.
-  </Accordion>
-  
-  <Accordion title="How do exclusive sales work?">
-    If you enable exclusive licensing, buyers can purchase full exclusive rights to a beat. Once sold exclusively, the beat is removed from general availability.
-  </Accordion>
-</AccordionGroup>
-
-## Learn More
+## Related Guides
 
 <CardGroup cols={2}>
   <Card title="Earnings Guide" href="/help/earnings" icon="dollar-sign">
-    Detailed information about how you earn on BeatPass.
+    Understand subscription revenue, exclusives, and finances.
   </Card>
-  <Card title="Gamification & Progress" href="/help/gamification" icon="trophy">
-    Learn about XP, levels, achievements, and leaderboards.
+  <Card title="Uploading Guide" href="/help/uploading" icon="cloud-arrow-up">
+    Learn the full track and collection upload workflow.
   </Card>
-  <Card title="Stripe Connect Setup" href="/help/earnings/stripe-connect" icon="credit-card">
-    Step-by-step guide to setting up payments.
+  <Card title="Producer Profiles" href="/help/profiles/producer-profiles" icon="music">
+    Manage your public producer identity correctly.
+  </Card>
+  <Card title="Stripe Connect" href="/help/earnings/stripe-connect" icon="credit-card">
+    Review the payout setup flow in detail.
   </Card>
 </CardGroup>

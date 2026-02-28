@@ -8,170 +8,74 @@ keywords: ["download", "beats", "tracks", "license", "subscription", "file"]
 "og:description": "Solutions for track download problems on BeatPass."
 ---
 
-Having trouble downloading beats from BeatPass? This guide covers common download issues and their solutions.
-
----
+If downloads are not working, start by checking your account state and the track's licensing state.
 
 ## I Can't See the Download Button
 
-If you don't see a **Download** button on tracks:
-
 <AccordionGroup>
-  <Accordion title="You need a paid subscription">
-    Track downloads are available to members with a paid subscription (Classic, Plus, or Pro plan). Free (Explorer) accounts can stream tracks but cannot download them.
-    
-    **Solution:** Upgrade to a paid plan to unlock downloads. Visit the pricing page or click **Upgrade** from your profile menu.
+  <Accordion title="You need a paid plan">
+    Standard BeatPass downloads require a paid subscription. Free accounts can stream and save music, but they do not unlock licensed downloads.
   </Accordion>
-  
-  <Accordion title="You're not logged in">
-    You need to be signed in to your account to download tracks.
-    
-    **Solution:** Sign in to your BeatPass account.
+  <Accordion title="You are not logged in">
+    BeatPass requires an authenticated account for download actions.
   </Accordion>
-  
-  <Accordion title="Downloads are disabled for this track">
-    Some tracks may have downloads disabled by the producer or platform.
+  <Accordion title="This track is not available through the standard download flow">
+    Some tracks are exclusive-only, sold exclusively, or otherwise not available for subscription downloads.
   </Accordion>
 </AccordionGroup>
 
----
+## The Download Action Fails
 
-## I'm Getting an Upgrade Prompt
-
-When you click **Download** and see an upgrade prompt:
-
-This means your current subscription plan doesn't include download access. The Free (Explorer) plan allows streaming only.
-
-**Solution:** Upgrade to a paid plan:
-- **Classic** — \$29 CAD/month
-- **Plus** — \$45 CAD/month
-- **Pro** — \$59 CAD/month
-
-All paid plans include unlimited track downloads.
-
----
+<AccordionGroup>
+  <Accordion title="My session expired">
+    Sign out and back in again, then retry the download.
+  </Accordion>
+  <Accordion title="My subscription has a billing problem">
+    If your payment is overdue, BeatPass can disable downloads and licensing until you resolve billing or switch back to the free state.
+  </Accordion>
+  <Accordion title="The browser download never starts">
+    Check popup or download blocking, clear browser cache, and try another modern browser.
+  </Accordion>
+</AccordionGroup>
 
 ## Exclusive Tracks Won't Download
 
-Some tracks on BeatPass have exclusive licensing options:
-
 <AccordionGroup>
-  <Accordion title="Track is marked 'Exclusive Only'">
-    If a track is set to exclusive-only licensing, it cannot be downloaded through the subscription. These tracks are only available for purchase by a single buyer.
-    
-    **Solution:** Contact the producer directly about purchasing exclusive rights to the track.
+  <Accordion title="The track is exclusive-only">
+    Exclusive-only tracks are not part of the standard subscription download flow.
   </Accordion>
-  
-  <Accordion title="Track has been sold exclusively">
-    If a track was previously sold with exclusive rights, it's no longer available for download by other users.
-    
-    This protects the exclusive buyer's rights to the track.
+  <Accordion title="The track was already sold exclusively">
+    Once a track is sold exclusively, other users cannot download it through the standard non-exclusive route.
   </Accordion>
 </AccordionGroup>
 
----
+## I Downloaded a Track but Can't Find My License
 
-## Download Started But File is Missing
+For qualifying downloads, BeatPass stores your certificates in:
 
-If you clicked download but can't find the file:
+1. **Library**
+2. **Licenses**
 
-<Steps>
-  <Step title="Check your Downloads folder">
-    Look in your computer's default Downloads folder.
-  </Step>
-  <Step title="Check your browser's download manager">
-    Click the download icon in your browser to see recent downloads.
-  </Step>
-  <Step title="Check if the download completed">
-    Large files may take time to download. Make sure the download finished completely.
-  </Step>
-</Steps>
+If you do not see the certificate entry:
 
----
-
-## Download is Stuck or Failing
-
-<AccordionGroup>
-  <Accordion title="Download starts but then fails">
-    **Try these solutions:**
-    1. Check your internet connection
-    2. Disable any download managers or browser extensions
-    3. Try a different browser
-    4. Clear your browser cache and try again
-  </Accordion>
-  
-  <Accordion title="Download is very slow">
-    Download speed depends on:
-    - Your internet connection speed
-    - File size (high-quality audio files can be large)
-    - Current server load
-    
-    **Solution:** Wait for the download to complete or try again during off-peak hours.
-  </Accordion>
-  
-  <Accordion title="Getting a 'not authorized' error">
-    This can happen if:
-    - Your session has expired — try logging in again
-    - Your subscription has lapsed — check your billing status
-    - There's a temporary server issue — try again in a few minutes
-  </Accordion>
-</AccordionGroup>
-
----
-
-## License Certificates
-
-After downloading a track, you may be prompted to generate a license certificate:
-
-<AccordionGroup>
-  <Accordion title="What is a license certificate?">
-    A license certificate is a document that proves you have the legal right to use the track. It includes:
-    - The track name and producer
-    - Your license type
-    - A unique verification code
-    
-    You can generate a license certificate after downloading a track.
-  </Accordion>
-  
-  <Accordion title="Where can I find my licenses?">
-    To view your license certificates:
-    1. Go to your **Library**
-    2. Click on **Licenses**
-    3. You'll see all tracks you've licensed with their certificates
-  </Accordion>
-  
-  <Accordion title="I didn't get a license prompt">
-    License certificates are generated automatically when you download a track. If you missed the prompt:
-    1. Go to your **Library** → **Licenses**
-    2. Find the track you downloaded
-    3. Click to view or regenerate your certificate
-  </Accordion>
-</AccordionGroup>
-
----
-
-## I Downloaded the Wrong Track
-
-If you accidentally downloaded the wrong track:
-
-- **No problem!** Your subscription includes unlimited downloads, so you can simply download the correct track.
-- If you need to report an issue with a specific track, contact support at **contact@beatpass.ca**.
-
----
+- Refresh the page
+- Confirm the download actually completed
+- Make sure the track qualified for certificate generation under the standard licensed flow
 
 ## File Format Questions
 
 <AccordionGroup>
-  <Accordion title="What format are downloads in?">
-    Non-exclusive downloads include WAV and MP3 (320kbps) files. Exclusive purchases include WAV, WAV tagged, MP3 (320kbps), and stems (if available).
+  <Accordion title="What file format should I expect?">
+    The exact file bundle depends on the track and license flow. BeatPass's standard subscription download flow should not be treated as a guaranteed WAV-plus-MP3 bundle for every track.
   </Accordion>
-  
-  <Accordion title="Can I request a different format?">
-    Download formats are determined by the license type. Non-exclusive licenses include WAV and MP3. Exclusive licenses may include additional formats like stems and tagged versions.
+  <Accordion title="Can I choose between file formats during a normal subscription download?">
+    BeatPass does not currently document a manual format picker in the standard subscription download flow.
   </Accordion>
 </AccordionGroup>
 
----
+## I Downloaded the Wrong Track
+
+If you accidentally downloaded the wrong track, simply download the correct eligible track instead. If you believe a platform error caused the issue, contact **contact@beatpass.ca** with the track URL and account email.
 
 ## Related
 
@@ -179,7 +83,7 @@ If you accidentally downloaded the wrong track:
   <Card title="Payment Issues" icon="credit-card" href="/help/troubleshooting/payment-issues">
     Problems with your subscription or billing?
   </Card>
-  <Card title="Playback Issues" icon="play" href="/help/troubleshooting/playback-issues">
-    Having trouble playing audio?
+  <Card title="Downloads & Licensing" icon="file-contract" href="/help/downloads-and-licensing">
+    Review the current license and certificate rules.
   </Card>
 </CardGroup>

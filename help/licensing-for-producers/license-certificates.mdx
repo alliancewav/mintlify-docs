@@ -4,136 +4,108 @@ title: "License Certificates"
 description: "Understanding the license certificates issued when your beats are licensed."
 ---
 
-Every time someone licenses your beat — whether through subscription or exclusive purchase — BeatPass automatically generates a license certificate. This certificate serves as legal proof of the license and includes audio fingerprint verification.
+BeatPass generates a license certificate whenever someone receives a qualifying BeatPass license for your beat. Certificates are important because they capture the exact terms granted, the track identity, and the verification link used to prove the license exists.
 
-## What Is a License Certificate?
+## When BeatPass Creates a Certificate
 
-A license certificate is an official document that proves someone has the right to use your beat. It includes:
+BeatPass creates certificates for:
 
-- **License ID** — Unique identifier for the license
-- **Track information** — Beat title, your name, release date, BPM
-- **License type** — Non-exclusive or exclusive
-- **License terms** — What the licensee can do
-- **Audio fingerprint** — Cryptographic proof of the specific audio file
-- **Verification URL** — Public link to verify authenticity
-
-## Audio Fingerprinting
-
-Each certificate includes BeatPassID fingerprinting technology:
-
-### What It Does
-
-- Creates a unique digital "fingerprint" of your beat's audio
-- Stores the fingerprint securely on BeatPass servers
-- Allows anyone to verify a license is authentic
-- Helps protect against unauthorized use
-
-### Fingerprint Details
-
-| Element | Description |
-|---------|-------------|
-| **Fingerprint Hash** | Unique cryptographic hash of your audio |
-| **Algorithm** | ChromaPrint v1.5.1 |
-| **Security Level** | Enterprise Grade |
-| **Fingerprinted Date** | When the fingerprint was created |
-
-## Certificate Contents
-
-### For Non-Exclusive Licenses
-
-Non-exclusive certificates include standardized terms:
-
-- License type: Non-Exclusive
-- Territory: Worldwide
-- Duration: Perpetual
-- Projects allowed: One per download
-- Attribution: Required
-- Content ID: Not allowed
-- Governing law: Canadian jurisdiction
-
-### For Exclusive Licenses
-
-Exclusive certificates include your custom terms:
-
-- License type: Exclusive
-- Publishing split (your configured percentages)
-- Territory (your configured region)
-- Governing law (your configured country)
-- Usage rights (distribution, streaming, video, etc.)
-- Files delivered
-- Producer royalty percentage
-
-<Info>
-  The terms shown on exclusive certificates are exactly what you configured when setting up the license. They're locked in at the time of purchase.
-</Info>
-
-## How Licensees Access Certificates
-
-Licensees can access their certificates from:
-
-1. **My Licenses** — In their library sidebar
-2. **After download** — Immediately after downloading your beat
-3. **Beat page** — From the track they licensed
-
-They can:
-
-- **View online** — See the full certificate in their browser
-- **Download PDF** — Print or save for their records
-- **Share verification link** — Prove their license to third parties
-
-## Verification
-
-Anyone can verify a license certificate:
-
-1. Visit the verification URL on the certificate
-2. BeatPass confirms whether the license is valid
-3. Shows the license details and status
-
-This helps:
-
-- Record labels verify artist licenses
-- Distributors confirm rights
-- Third parties check authenticity
-- Detect fraudulent claims
-
-## As a Producer, You Can See
-
-In your **My Licenses** section (under Your Library), you can see:
-
-- All licenses granted for your beats
-- Who the licensee is (name, not email)
-- License type (non-exclusive or exclusive)
-- When the license was issued
-- License status (active, expired, revoked)
-
-This appears with a "Licensed to" indicator so you can track who has rights to your music.
-
-## Why Certificates Matter
-
-### For You (Producer)
-
-- **Proof of terms** — Documents exactly what rights you granted
-- **Legal protection** — Clear record if disputes arise
-- **Track licensing** — See who has licensed your beats
-
-### For Licensees
-
-- **Proof of rights** — Documents their permission to use your beat
-- **Professional credibility** — Can show labels and distributors
-- **Clear terms** — Know exactly what they can do
-
-## Certificate Status
-
-| Status | Meaning |
-|--------|---------|
-| **Active** | License is valid and in effect |
-| **Expired** | License has passed expiration (rare for BeatPass) |
-| **Revoked** | License was cancelled due to violation |
+- Standard BeatPass downloads that generate a non-exclusive license
+- Exclusive purchases that generate an exclusive license
 
 <Note>
-  BeatPass non-exclusive licenses are perpetual — they don't expire. Exclusive license duration depends on your configured terms (typically also perpetual).
+  If you download your own track as the owner, BeatPass does not issue a new license certificate for that owner download.
 </Note>
 
-## Questions?
+## What a Certificate Includes
 
-If you have questions about license certificates, contact the support team at **contact@beatpass.ca**.
+The current BeatPass certificate format includes:
+
+- **License ID / certificate ID**
+- **Track details** such as title and release data
+- **License type** (`non-exclusive` or `exclusive`)
+- **Licensed user details**
+- **License terms**
+- **Audio fingerprint details**
+- **Verification URL**
+
+## Fingerprint Details on the Certificate
+
+BeatPass certificates currently include fingerprint-related data such as:
+
+- Fingerprint status
+- Fingerprinted date
+- Analyzed duration
+- Fingerprint hash
+
+The docs should describe these as verification details, not as a promise of any specific algorithm or security marketing claim that is not surfaced by the current product.
+
+## Standard vs Exclusive Certificates
+
+### Standard Certificates
+
+BeatPass standard certificates currently document terms such as:
+
+- Non-exclusive
+- Worldwide
+- Perpetual
+- One original musical work per download
+- Attribution required
+- No Content ID registration
+- No film, TV, broadcast radio, commercials, or video games
+- Live performances up to 50 attendees
+
+### Exclusive Certificates
+
+Exclusive certificates currently document the terms saved on the beat at the moment of sale, including:
+
+- Publishing split
+- Territory
+- Governing law country
+- Usage rights
+- Files to deliver
+- Producer royalty
+- Content ID permission, when enabled
+
+## How Verification Works
+
+Every certificate includes a public BeatPass verification URL.
+
+<Steps>
+  <Step title="Open the verification link">
+    Use the URL printed on the certificate.
+  </Step>
+  <Step title="BeatPass checks the certificate">
+    BeatPass confirms the license exists and returns the stored certificate details.
+  </Step>
+  <Step title="Use the result as proof">
+    Buyers, distributors, labels, and producers can use the verification page to confirm the certificate is legitimate.
+  </Step>
+</Steps>
+
+## What This Means for Producers
+
+Certificates help you because they:
+
+- Record the exact rights BeatPass granted
+- Preserve the sold terms for exclusive purchases
+- Make it easier to resolve disputes about authorized use
+
+They also matter after exclusive sales because earlier BeatPass non-exclusive certificates remain valid if they were issued before the beat was sold exclusively.
+
+## Practical Rules to Remember
+
+- You do not manually draft BeatPass certificates
+- Issued certificates reflect the terms in force at the time they were created
+- Selling a beat exclusively does not erase older standard certificates that were already issued
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Non-Exclusive Licenses" href="/help/licensing-for-producers/non-exclusive-licenses" icon="users">
+    Review the current standard certificate terms.
+  </Card>
+  <Card title="Exclusive Licenses" href="/help/licensing-for-producers/exclusive-licenses" icon="crown">
+    Configure the terms BeatPass will write into exclusive certificates.
+  </Card>
+</CardGroup>

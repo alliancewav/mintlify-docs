@@ -2,24 +2,24 @@
 audience: help
 title: "Cover Art"
 sidebarTitle: "Overview"
-description: "Learn how to add artwork to your tracks and collections on BeatPass. Choose from custom uploads or AI-generated presets."
+description: "Learn how to add artwork to your tracks and collections on BeatPass. Choose from custom uploads or genre-matched AI presets."
 keywords: ["cover art", "artwork", "image", "album art", "track image"]
 "og:title": "Cover Art - BeatPass Help"
 "og:description": "Add professional artwork to your tracks on BeatPass."
 ---
 
-Cover art makes your tracks stand out and creates a professional presentation. BeatPass offers two ways to add artwork to your music.
+BeatPass requires cover art on new tracks and new collections. The current artwork system supports two main approaches: your own uploaded image, or a genre-matched **AI Preset** from BeatPass's template library.
 
 ---
 
-## Cover Art Options
+## Current Cover Art Options
 
 <CardGroup cols={2}>
   <Card title="Custom Artwork" icon="upload" href="/help/uploading/cover-art/custom-art">
-    Upload your own images for a unique, branded look.
+    Upload your own image and control the visual identity directly.
   </Card>
   <Card title="AI Presets" icon="sparkles" href="/help/uploading/cover-art/templates">
-    Choose from genre-matched AI-generated cover art.
+    Pick from BeatPass preset artwork matched to the genres on your track.
   </Card>
 </CardGroup>
 
@@ -27,56 +27,46 @@ Cover art makes your tracks stand out and creates a professional presentation. B
 
 ## Where Cover Art Appears
 
-Your track's cover art is displayed in multiple places:
+BeatPass uses track and collection artwork across the product, including:
 
-- **Track player** — As a spinning CD design on the track page
-- **Search results** — Thumbnail in search listings
-- **Your profile** — In your discography and track listings
-- **Playlists** — When your track is added to playlists
-- **Embed players** — When your music is shared externally
-- **Collection pages** — As part of album artwork
+- Track pages
+- Search and browse results
+- Producer profiles
+- Collection pages
 
----
+## Current Image Rules
 
-## Cover Art Requirements
-
-For the best display quality:
-
-| Requirement | Recommended |
-|-------------|-------------|
-| **Format** | JPG, PNG, or WebP |
-| **Size** | At least 500×500 pixels |
-| **Aspect Ratio** | Square (1:1) |
-| **Maximum File Size** | 2 MB |
+| Requirement | Current Behavior |
+|-------------|------------------|
+| File types | Image uploads only |
+| Max file size | 2 MB |
+| Recommended shape | Square |
+| Recommended quality | Large enough to still look good after cropping |
 
 <Tip>
-  Use square images for best results. Non-square images will be cropped to fit the circular CD display.
+  Square images work best because BeatPass presents artwork in a circular display treatment in parts of the UI.
 </Tip>
 
 ---
 
-## The CD Design
+## Required on New Saves
 
-BeatPass displays cover art in a unique circular CD design:
+The live upload validation currently requires:
 
-- Your image fills the disc area
-- A center "hole" overlay creates the vinyl look
-- The disc spins when a new image is selected or when playing
-- This creates a distinctive, music-focused presentation
+- Cover art on new tracks
+- Cover art on new collections
 
----
+Do not document cover art as optional on brand-new uploads.
 
-## Cover Art Priority
+## Artwork Priority
 
-If no custom artwork is added:
+For existing content, BeatPass generally prefers:
 
-1. **Track cover** — If you've uploaded cover art for the track
-2. **Album cover** — If the track belongs to an album with artwork
-3. **Default placeholder** — A music note icon is shown
+1. Track-level cover art
+2. Collection cover art if the track belongs to one
+3. Fallback artwork where applicable
 
-<Note>
-  Adding cover art to an album automatically applies to all tracks in that album (unless they have their own artwork).
-</Note>
+But for new uploads, you should treat cover art as a required part of the save flow.
 
 ---
 
@@ -84,9 +74,9 @@ If no custom artwork is added:
 
 <CardGroup cols={2}>
   <Card title="Custom Artwork" icon="upload" href="/help/uploading/cover-art/custom-art">
-    Upload your own images.
+    Learn how the manual image upload flow works.
   </Card>
   <Card title="AI Presets" icon="sparkles" href="/help/uploading/cover-art/templates">
-    Use genre-matched templates.
+    See how BeatPass matches presets from your selected genres.
   </Card>
 </CardGroup>

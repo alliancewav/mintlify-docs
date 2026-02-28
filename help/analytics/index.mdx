@@ -2,172 +2,49 @@
 audience: help
 title: "Analytics & Insights | BeatPass"
 sidebarTitle: "Analytics Overview"
-description: "Comprehensive guide to BeatPass analytics - content-level insights for tracks, albums, and artists. Understand plays, engagement, and audience data."
-keywords: ["analytics", "backstage insights", "metrics", "plays", "engagement", "track analytics"]
-"og:title": "Analytics & Insights - BeatPass"
-"og:description": "Master BeatPass analytics to understand your content performance."
-"twitter:card": "summary_large_image"
+description: "Understand the current BeatPass analytics experience for tracks, albums, and artists through Backstage Insights."
 ---
 
-BeatPass Analytics provides **Backstage Insights** — content-level deep dives that help you understand how individual tracks, albums, and artist profiles perform with your audience.
+BeatPass analytics are centered around **Backstage Insights**. These pages help you review how a specific track, album, or artist profile is performing instead of giving one broad all-in-one report.
 
 <Info>
-  Looking for career-level tools? See the [Producer Dashboard](/help/producer-dashboard) for catalog management, earnings, and finances. For XP, achievements, and leaderboards, visit [Gamification](/help/gamification).
+  These docs cover the routed producer-facing analytics experience. For catalog management, earnings, and overview reporting, see [Producer Dashboard](/help/producer-dashboard). For XP, achievements, and leaderboards, see [Gamification](/help/gamification).
 </Info>
 
----
+## Start Here
 
-## Analytics Tools Overview
-
-<CardGroup cols={3}>
-  <Card title="Backstage Insights" icon="magnifying-glass-chart" href="/help/analytics/backstage-insights">
-    **Content-level analytics** — Drill into individual tracks, albums, or artist profiles to see detailed plays, engagement metrics, and audience data.
+<CardGroup cols={2}>
+  <Card title="Getting started" href="/help/analytics/getting-started" icon="rocket">
+    Learn who can open insights and how to get to the correct page.
   </Card>
-  <Card title="Producer Dashboard" icon="chart-bar" href="/help/producer-dashboard">
-    **Career-level management** — Manage your catalog, track earnings, and view aggregate statistics across all your content.
+  <Card title="Backstage Insights" href="/help/analytics/backstage-insights" icon="chart-line">
+    Review the current track, album, and artist insight pages.
   </Card>
-  <Card title="Gamification" icon="trophy" href="/help/gamification">
-    **XP & Achievements** — Level up, unlock achievements, and compete on leaderboards.
+  <Card title="Metrics glossary" href="/help/analytics/reference/metrics-glossary" icon="code">
+    Understand the labels and metrics you see in the UI.
   </Card>
-</CardGroup>
-
----
-
-## Backstage Insights
-
-Deep analytics for individual content items. Access by clicking the **Insights** button on any track, album, or artist page.
-
-<CardGroup cols={3}>
-  <Card title="Track Insights" icon="record-vinyl" href="/help/analytics/backstage-insights/track-insights">
-    <Badge color="blue">/backstage/tracks/{id}/insights</Badge>
-    
-    Engagement metrics, completion rates, listen duration
-  </Card>
-  <Card title="Album Insights" icon="layer-group" href="/help/analytics/backstage-insights/album-insights">
-    <Badge color="purple">/backstage/albums/{id}/insights</Badge>
-    
-    Aggregate plays, top tracks, listener locations
-  </Card>
-  <Card title="Artist Insights" icon="user-music" href="/help/analytics/backstage-insights/artist-insights">
-    <Badge color="green">/backstage/artists/{id}/insights</Badge>
-    
-    Catalog-wide analytics, audience overview
+  <Card title="Analytics FAQ" href="/help/analytics/reference/faq" icon="comment">
+    Answers for access, delays, empty states, and export expectations.
   </Card>
 </CardGroup>
 
----
+## What BeatPass Currently Exposes
 
-## Reference Documentation
+- **Track Insights** for detailed per-track performance.
+- **Album Insights** for rolled-up album performance.
+- **Artist Insights** for rolled-up artist-level performance.
+- A shared date-range control inside the insights layout.
 
-Technical reference for metrics, charts, and troubleshooting.
-
-<CardGroup cols={3}>
-  <Card title="Metric Definitions" icon="book" href="/help/analytics/reference/metrics-glossary">
-    What each metric means and how it's calculated.
-  </Card>
-  <Card title="Chart Types" icon="chart-pie" href="/help/analytics/reference/chart-types">
-    Visual guide to all chart components.
-  </Card>
-  <Card title="FAQ" icon="circle-question" href="/help/analytics/reference/faq">
-    Common questions and troubleshooting.
-  </Card>
-</CardGroup>
-
----
-
-## When to Use Each System
+## What To Expect
 
 <AccordionGroup>
-  <Accordion title="Content-Level Analytics (Backstage Insights)" icon="magnifying-glass-chart" defaultOpen>
-    <CardGroup cols={2}>
-      <Card title="Specific Track Plays" icon="play">
-        Drills into individual content performance
-      </Card>
-      <Card title="Listener Engagement" icon="heart">
-        Engagement metrics are per-track
-      </Card>
-      <Card title="Geographic Distribution" icon="globe">
-        Available on any content type
-      </Card>
-    </CardGroup>
+  <Accordion title="Default filter">
+    Backstage Insights currently opens with a date-range preset that defaults to **This year**.
   </Accordion>
-  
-  <Accordion title="Career-Level Tools (Producer Dashboard)" icon="chart-bar">
-    <CardGroup cols={2}>
-      <Card title="Total Plays" icon="chart-line" href="/help/producer-dashboard">
-        Aggregates your entire catalog
-      </Card>
-      <Card title="Track Management" icon="list-music" href="/help/producer-dashboard/tracks">
-        Catalog management
-      </Card>
-      <Card title="Earnings" icon="wallet" href="/help/producer-dashboard/finances">
-        Financial data is career-level
-      </Card>
-    </CardGroup>
+  <Accordion title="Different views show different charts">
+    Track insights include extra engagement sections that do not appear on album or artist insight pages.
   </Accordion>
-  
-  <Accordion title="Gamification System" icon="trophy">
-    <CardGroup cols={2}>
-      <Card title="XP & Level" icon="bolt" href="/help/gamification">
-        Career-level progression
-      </Card>
-      <Card title="Leaderboards" icon="ranking-star" href="/help/gamification/leaderboards">
-        Platform-wide rankings
-      </Card>
-    </CardGroup>
+  <Accordion title="Exports">
+    The standard producer-facing Backstage Insights UI does not currently show a built-in export button. See [Exporting Analytics Data](/help/analytics/backstage-insights/exporting-data) for the current status.
   </Accordion>
 </AccordionGroup>
-
----
-
-## Data Freshness
-
-<CardGroup cols={2}>
-  <Card title="Play Counts" icon="play" color="#22c55e">
-    <Badge color="green">Near real-time</Badge>
-  </Card>
-  <Card title="Engagement Metrics" icon="heart" color="#22c55e">
-    <Badge color="green">Near real-time</Badge>
-  </Card>
-  <Card title="Geographic Data" icon="globe" color="#3b82f6">
-    <Badge color="blue">Hourly aggregation</Badge>
-  </Card>
-  <Card title="Device/Platform Data" icon="laptop" color="#3b82f6">
-    <Badge color="blue">Hourly aggregation</Badge>
-  </Card>
-</CardGroup>
-
----
-
-## Getting Started
-
-<Steps>
-  <Step title="Navigate to Content">
-    Go to any track, album, or artist page you own.
-  </Step>
-  <Step title="Click Insights">
-    Click the **Insights** button in the header to open Backstage Insights.
-  </Step>
-  <Step title="Explore Metrics">
-    Use the tabs and date range selector to explore plays, engagement, and audience data.
-  </Step>
-</Steps>
-
----
-
-## Next Steps
-
-<CardGroup cols={2}>
-  <Card title="Backstage Insights Overview" icon="magnifying-glass-chart" href="/help/analytics/backstage-insights">
-    Learn about content-specific analytics.
-  </Card>
-  <Card title="Quick Start Guide" icon="rocket" href="/help/analytics/getting-started">
-    New to analytics? Start here.
-  </Card>
-  <Card title="Producer Dashboard" icon="chart-bar" href="/help/producer-dashboard">
-    Career-level management tools.
-  </Card>
-  <Card title="Gamification" icon="trophy" href="/help/gamification">
-    XP, achievements, and leaderboards.
-  </Card>
-</CardGroup>

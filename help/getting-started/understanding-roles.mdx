@@ -1,132 +1,100 @@
 ---
 audience: help
 title: "Understanding User Roles"
-description: "Learn about Explorer, Subscriber, and Producer roles on BeatPass."
+description: "Learn how free accounts, paid subscribers, and approved producers use BeatPass."
 ---
 
-BeatPass offers different ways to use the platform depending on your needs. Here's what each option provides.
+BeatPass supports three main account states in practice:
 
-## Free Users (Explorer)
+- A free account
+- A paid subscriber account
+- An approved producer account
 
-When you create an account, you start with free Explorer access. This lets you:
+You can also be more than one of these at the same time, such as a producer who also subscribes.
 
-- **Stream** all beats in the catalog
-- **Create playlists** to organize your favorites
-- **Like and save** beats for later
-- **Follow producers** to stay updated on new uploads
-- **Comment** on beats
-- **Submit beat requests** to find specific sounds
-- **View your listening history**
+## Free Accounts
+
+Every new account starts here.
+
+With a free account, you can:
+
+- Stream the catalog
+- Like tracks and collections
+- Create playlists
+- Follow producers and other users
+- Comment where commenting is available
+- Browse listening history
 
 <Info>
-  Explorer users can discover and enjoy all the music on BeatPass, but downloading beats requires a paid subscription.
+Downloads and license certificates are paid features.
 </Info>
 
-## Subscribers
+## Paid Subscribers
 
-Subscribers pay a monthly fee to unlock downloads and commercial licensing. In addition to all Explorer features, subscribers can:
+Paid plans add licensed download access on top of the free-account features.
 
-- **Download beats** with commercial licenses
-- **Use beats** in your own music releases, videos, and performances
-- **Access license certificates** for each download
-- **Keep downloads forever** — even if you cancel later
+Subscribers can:
 
-### Subscription Plans
+- Download eligible beats under BeatPass's standard subscription licensing
+- Access license certificates in **Library -> Licenses**
+- Keep the licenses they obtained while subscribed
+- Use plan-based premium features such as beat request tokens
 
-| Plan | Price | Best For |
-|------|-------|----------|
-| **Classic** | \$29 CAD/month | Independent artists ready to release music |
-| **Plus** | \$45 CAD/month | Creators who want extra features and discounts |
-| **Pro** | \$59 CAD/month | Serious artists who release frequently |
+### Current Paid Plan Family
+
+BeatPass currently offers **Classic**, **Plus**, and **Pro** paid plans.
 
 <Note>
-  All plans are billed monthly in Canadian dollars. Prices may vary slightly depending on your location due to payment processing.
+Use [Plans & Pricing](/help/plans-and-pricing/index) for the current feature matrix, token counts, and plan positioning.
 </Note>
 
-### What's Included in All Paid Plans
+## Approved Producers
 
-- Unlimited beat downloads
-- Commercial license for every download
-- High-quality audio files (WAV and MP3)
-- License certificates for your records
-- Producer attribution required (credit the producer in your release)
+Approved producers get a public producer profile plus producer-only tools.
 
-<Card title="View pricing details" href="https://open.beatpass.ca/pricing" icon="credit-card">
-  Compare plans and see full feature breakdowns.
-</Card>
+Producer access includes:
 
-## Producers
-
-Producers are users who upload beats to BeatPass. Being a producer gives you:
-
-- **Upload beats** to the platform
-- **Earn money** from plays and downloads
-- **Producer Dashboard** with analytics and earnings tracking
-- **Progress system** with XP, levels, and achievements
-- **Leaderboard rankings** to showcase your success
-- **Verified badge** opportunity for established producers
-
-### How to Become a Producer
-
-To upload beats on BeatPass, you need to apply for a producer account:
-
-1. Visit the [Producer Program](https://open.beatpass.ca/producer-program) page on BeatPass
-2. Click **Apply to Join** or **Become a Producer**
-3. Submit your application with information about yourself and your music
-4. Wait for approval (typically 1-3 business days)
-5. Once approved, **Backstage** appears in your profile menu — this is your Producer Dashboard
-
-<Info>
-  Producer approval helps maintain quality on the platform. Make sure your application showcases your best work.
-</Info>
+- Uploading tracks and collections
+- Editing the producer profile
+- Producer Dashboard access
+- Analytics and progress tracking
+- Finances and Stripe Connect onboarding
 
 ### Producer Dashboard
 
-Once approved, you can access your **Backstage** (Producer Dashboard) from the profile menu. Here you'll find:
+The current producer dashboard routes include:
 
-| Section | What It Shows |
-|---------|---------------|
-| **Dashboard** | Overview of your performance and recent activity |
-| **Finances** | Earnings, payouts, and payment setup |
-| **Activity** | Detailed analytics on your tracks |
-| **Progress** | Your XP, level, and achievements |
-| **Leaderboards** | Your rankings compared to other producers |
-| **My Beats** | Manage your uploaded tracks |
-| **My Collections** | Manage your beat packs |
+| Area | Purpose |
+| --- | --- |
+| **Home** | Producer overview |
+| **Progress** | XP, levels, and achievement progress |
+| **Tracks** | Track management |
+| **Activity** | Producer activity analytics |
+| **Albums** | Collection management |
+| **Leaderboards** | Producer rankings |
+| **Finances** | Payout setup and financial activity |
 
-## Comparing Options
+BeatPass may expose this through a menu entry labeled **Producer Dashboard** or another custom label, but the dashboard itself lives at `/producer-dashboard`.
 
-| Feature | Explorer (Free) | Subscriber | Producer |
-|---------|-----------------|------------|----------|
-| Stream all beats | Yes | Yes | Yes |
+## Comparison
+
+| Capability | Free account | Paid subscriber | Approved producer |
+| --- | --- | --- | --- |
+| Stream the catalog | Yes | Yes | Yes |
+| Like tracks and collections | Yes | Yes | Yes |
 | Create playlists | Yes | Yes | Yes |
-| Like and save beats | Yes | Yes | Yes |
-| Follow producers | Yes | Yes | Yes |
-| Comment on beats | Yes | Yes | Yes |
-| Download beats | No | Yes | Yes |
-| Commercial license | No | Yes | Yes |
-| Upload beats | No | No | Yes |
-| Earn money | No | No | Yes |
-| Analytics dashboard | No | No | Yes |
+| Download licensed beats | No | Yes | Yes, if subscribed or otherwise eligible |
+| Access license certificates | No | Yes | Yes, when downloads are eligible |
+| Upload tracks | No | No | Yes |
+| Producer profile | No | No | Yes |
+| Producer finances and analytics | No | No | Yes |
 
-## Upgrading Your Account
+## Upgrading
 
-### From Explorer to Subscriber
+### From Free Account to Paid Subscriber
 
-Visit the [pricing page](https://open.beatpass.ca/pricing) to choose a plan, or click **Billing** in your profile menu to upgrade.
+Open the [pricing page](https://open.beatpass.ca/pricing) or use **Billing** from the avatar menu.
 
 ### From User to Producer
 
-Apply to become a producer through the producer application. You can be both a subscriber (for downloading other producers' beats) and a producer (for uploading your own).
-
-<CardGroup cols={2}>
-  <Card title="Quick Start: Listeners" href="/help/getting-started/quick-start-guides/listener-guide" icon="headphones">
-    Get started as a free Explorer.
-  </Card>
-  <Card title="Quick Start: Subscribers" href="/help/getting-started/quick-start-guides/subscriber-guide" icon="download">
-    Make the most of your subscription.
-  </Card>
-  <Card title="Quick Start: Producers" href="/help/getting-started/quick-start-guides/producer-guide" icon="music">
-    Start uploading and earning.
-  </Card>
-</CardGroup>
+Use the [Producer Program](/help/producer-program/index) request flow to become a producer, claim an existing artist page, or request verification.

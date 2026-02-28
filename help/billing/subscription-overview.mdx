@@ -8,84 +8,72 @@ keywords: ["subscription", "plan status", "renewal", "billing cycle", "current p
 "og:description": "Learn how to view your BeatPass subscription status and plan details."
 ---
 
-Your subscription overview shows everything about your current plan—what you're subscribed to, when it renews, and what features you have access to.
+The Billing page changes depending on whether you have no paid plan, an active paid plan, or a cancelled plan that has not ended yet.
 
 ---
 
-## Viewing Your Subscription
+## Open Billing
 
-To see your current subscription status:
-
-1. Click your **profile avatar** in the top navigation bar
-2. Select **Billing** from the menu
-3. Your current plan and status are displayed in the **Current plan** section
+1. Click your **profile avatar**
+2. Select **Billing**
 
 ---
 
-## Understanding Your Subscription Status
+## Subscription States
 
-### Active Subscription
+<Tabs>
+  <Tab title="No Paid Plan">
+    Billing shows:
 
-When your subscription is active, you'll see:
+    - A **Subscription** panel
+    - A **View Plans** button
+    - **Payment history**
 
-| Information | Description |
-|-------------|-------------|
-| **Plan name** | The name of your current subscription tier |
-| **Price** | How much you pay per billing period |
-| **Billing cycle** | Monthly |
-| **Renews on** | The date your subscription will automatically renew |
-| **Payment method** | The card or payment method on file |
+    <Note>
+      You will not see **Current plan** or **Payment method** until you have a paid subscription.
+    </Note>
+  </Tab>
+  <Tab title="Active Subscription">
+    Billing shows a **Current plan** card with:
 
-### Grace Period (Cancelled)
+    - The current plan name
+    - The monthly price
+    - **Active Subscription**
+    - **Renews on** date
+    - **Change plan**
+    - **Cancel plan**
 
-If you've cancelled but still have time remaining:
+    Active paid subscriptions also show **Payment method** and **Payment history**.
+  </Tab>
+  <Tab title="Cancelled Subscription">
+    If you cancelled but your paid period is still running, the **Current plan** card changes to:
 
-- Your plan shows as "Cancelled"
-- An "Ends on" date shows when access expires
-- You keep all features until that date
-- You can resume your subscription during this period
+    - **Subscription Cancelled**
+    - **Access ends** date
+    - **Renew plan**
 
-<Note>
-  The grace period lasts until the end of your current billing cycle. If you paid for a month and cancel mid-month, you keep access for the rest of that month.
-</Note>
-
----
-
-## Subscription Information
-
-### What Your Plan Includes
-
-Each plan may include different features:
-
-- **Beat request tokens** — How many custom beat requests you can make per month
-- **Access to features** — Premium features specific to your tier
-- **Priority support** — Available on higher tiers
-
-### Billing Interval Options
-
-Plans may be available with different billing intervals:
-
-| Interval | How It Works |
-|----------|--------------|
-| **Monthly** | Charged every month, flexibility to cancel anytime |
+    You keep the plan until the end date shown on the card.
+  </Tab>
+</Tabs>
 
 ---
 
 ## Pending Plan Changes
 
-If you've scheduled a plan change (such as a downgrade), you'll see:
+If you scheduled a future plan change, Billing shows a second card titled **Scheduled Plan Change**.
 
-- Your **current plan** that's active now
-- The **pending plan** that will activate at your next renewal
-- The **date** when the change will take effect
+That card includes:
 
-You can cancel a pending plan change before it takes effect. See [Managing Subscription](/help/billing/managing-subscription) for details.
+- The upcoming plan name
+- Its monthly price
+- **Takes effect on** date
+- **Cancel scheduled change**
 
 ---
 
 ## Payment Method on File
 
-Your subscription overview also shows your saved payment method:
+When a paid subscription has a saved card, Billing also shows:
 
 - **Card brand** — Visa, Mastercard, etc.
 - **Last 4 digits** — For identification
@@ -103,17 +91,17 @@ Your subscription overview also shows your saved payment method:
   <Accordion title="Where do I see my next billing date?">
     Click your **profile avatar** → **Billing**. Your next renewal date is shown in the Current plan section with the text "Renews on [date]".
   </Accordion>
-  
   <Accordion title="How do I know which plan I'm on?">
     Your current plan name and price are displayed in the **Current plan** section of your Billing page.
   </Accordion>
-  
   <Accordion title="What happens when my subscription expires?">
-    You'll lose access to premium features associated with that plan. Your account remains active, and you can resubscribe at any time.
+    Your paid plan ends and Billing returns to the non-paid **Subscription** state with **View Plans** and **Payment history**.
   </Accordion>
-  
   <Accordion title="Can I see past subscriptions?">
     Your invoices show your billing history. Click your **profile avatar** → **Billing** and scroll to the **Payment history** section.
+  </Accordion>
+  <Accordion title="Why don't I see a Payment method section?">
+    That usually means you do not currently have an active paid subscription with a saved card.
   </Accordion>
 </AccordionGroup>
 

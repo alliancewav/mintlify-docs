@@ -1,136 +1,70 @@
 ---
 audience: help
 title: "Requirements"
-description: "What you'll need to set up Stripe Connect and receive payments."
+description: "High-level checklist for BeatPass Stripe Connect setup, including producer profile, country confirmation, identity details, and payout information."
 ---
 
-Before you start the Stripe Connect setup process, make sure you have the following information and documents ready. Having everything prepared will help you complete the process in about 5 minutes.
+Before you start Stripe Connect onboarding, make sure you are ready for the information Stripe is likely to request.
 
-## Basic Requirements
+## Core Requirements
 
 <CardGroup cols={2}>
   <Card title="Producer Profile" icon="user">
-    You must have a producer profile on BeatPass. Create one through **Backstage** if you don't have one yet.
+    You need a producer profile to access **Finances** and connect a payout account.
   </Card>
-  <Card title="Legal Age" icon="calendar">
-    You must be at least 18 years old or the legal age of majority in your country.
+  <Card title="Supported Country" icon="globe">
+    You must choose a country BeatPass currently supports in the onboarding list.
+  </Card>
+  <Card title="Bank Account Context" icon="building-columns">
+    BeatPass asks you to choose the country where you reside and have a bank account.
+  </Card>
+  <Card title="Stripe Verification" icon="id-card">
+    Stripe may ask for identity, payout, tax, or business information depending on your setup.
   </Card>
 </CardGroup>
 
-## Required Information
+## Information Stripe Commonly Requests
 
-During the Stripe onboarding process, you'll need to provide:
-
-### Personal Information
-
-- **Full legal name** — As it appears on your government ID
-- **Date of birth** — Must match your ID exactly
-- **Home address** — Your current residential address
-- **Phone number** — A number where Stripe can reach you if needed
-- **Email address** — Used for account communications
-
-### Banking Information
-
-Choose one of the following to receive payouts:
-
-| Option | Details |
-|--------|---------|
-| **Bank Account** | Account number and routing number (US) or equivalent for your country |
-| **Debit Card** | Visa or Mastercard debit card linked to your bank account |
-
-<Info>
-  Debit card payouts can be faster (sometimes instant) in supported countries. Bank account payouts typically take 2-7 business days.
-</Info>
-
-### Identity Verification
-
-Stripe requires identity verification to comply with financial regulations. You'll need:
-
-- **Government-issued photo ID** — One of the following:
-  - Driver's license
-  - Passport
-  - National ID card
-  - State/Province ID
+| Category | Typical Examples |
+|----------|------------------|
+| **Personal details** | Legal name, date of birth, address, email, phone number |
+| **Payout details** | Bank account details or other payout information Stripe allows for your country |
+| **Identity verification** | Government-issued ID or other proof Stripe requests |
+| **Tax or business details** | Additional information required by Stripe for your country or account type |
 
 <Note>
-  Your ID must be valid (not expired) and clearly legible. Take photos in good lighting without glare.
+  BeatPass does not maintain a permanent country-by-country document checklist in help docs because Stripe can change requirements. The live Stripe onboarding flow is the source of truth for what your account needs right now.
 </Note>
 
-## Country-Specific Requirements
+## Country Rules That Matter
 
-Requirements vary by country. Common additional requirements include:
+- Choose the country where you reside and have a bank account
+- Read the country prompt carefully before confirming
+- Treat the country choice as permanent for the completed setup flow
 
-| Country / Region | Additional Requirements |
-|---------|------------------------|
-| **United States** | Social Security Number (SSN) or ITIN |
-| **Canada** | Social Insurance Number (SIN) |
-| **United Kingdom** | National Insurance Number (NINO) |
-| **European Union** | Tax identification number for your country (TIN, NIF, Steuer-ID, etc.) |
-| **Australia** | Tax File Number (TFN) or Australian Business Number (ABN) |
-| **Japan** | My Number; name/address in both kana and kanji scripts |
-| **Singapore** | NRIC or FIN; enhanced identity verification (may include video selfie) |
-| **UAE** | Trade License or freelancer permit, Emirates ID, Memorandum of Association (see below) |
-| **Mexico** | RFC (Registro Federal de Contribuyentes) |
+## If Your Country Is Not Supported
 
-### UAE Producers — Important
+BeatPass currently surfaces alternative options inside the country confirmation dialog for producers outside the supported list.
 
-<Warning>
-  The **UAE requires a business-type account** — individual accounts are not supported. You will need a **Trade License** (or freelancer permit from a free zone) and additional documents. Affordable freelancer permits are available from free zones like Sharjah Media City (Shams), Dubai Creative Clusters, and RAKEZ.
-</Warning>
+<CardGroup cols={2}>
+  <Card title="Supported Countries" href="/help/earnings/stripe-connect/regional-requirements" icon="globe">
+    See the current BeatPass-supported countries by region.
+  </Card>
+  <Card title="Unsupported Countries" href="/help/earnings/stripe-connect/unsupported-countries" icon="map">
+    Review the alternatives BeatPass currently references in the onboarding help panel.
+  </Card>
+</CardGroup>
 
-<Card title="Detailed Regional Requirements" href="/help/earnings/stripe-connect/regional-requirements" icon="globe">
-  See the full breakdown of requirements for every supported country, including UAE trade license options, Japan's dual-script requirements, and more.
-</Card>
+## Quick Checklist
 
-## Business vs. Individual
+- [ ] Producer profile created
+- [ ] Supported country confirmed
+- [ ] Legal name and identity details ready
+- [ ] Bank or payout details ready
+- [ ] Time set aside to complete Stripe verification steps
 
-Most countries allow producers to onboard as **individuals** (personal accounts), which is the simplest option.
+## Next Step
 
-However, some countries **require a business account**:
-
-| Country | Account Type |
-|---------|-------------|
-| **Most countries** | Individual (default) |
-| **UAE** | Business only (sole establishment, free zone establishment, LLC, or free zone LLC) |
-
-If you're in a country that supports individual accounts but want to receive payments as a business entity:
-
-1. Complete the initial setup as an individual
-2. Contact Stripe support to convert to a business account
-3. Provide additional business documentation as requested
-
-## Supported Countries
-
-BeatPass supports Stripe Connect in **43 countries** across North America, Europe, Asia Pacific, and the Middle East.
-
-<Card title="Full Country List & Requirements" href="/help/earnings/stripe-connect/regional-requirements" icon="globe">
-  See all supported countries with their specific onboarding requirements.
-</Card>
-
-### Country Not Supported?
-
-If your country isn't listed, you can still receive payouts through alternative methods like **Wise**, **Payoneer**, or **Stripe Atlas**. The BeatPass onboarding screen shows these options when your country isn't directly supported.
-
-<Card title="Unsupported Countries & Alternatives" href="/help/earnings/stripe-connect/unsupported-countries" icon="map">
-  Detailed guide to alternative payout methods for producers in unsupported countries.
-</Card>
-
-## Checklist
-
-Before starting setup, make sure you have:
-
-- [ ] BeatPass producer profile created
-- [ ] Full legal name (as on ID)
-- [ ] Date of birth
-- [ ] Current home address
-- [ ] Phone number
-- [ ] Email address
-- [ ] Bank account details OR debit card
-- [ ] Government-issued photo ID
-- [ ] Tax identification number (if required in your country)
-
-## Ready to Start?
-
-<Card title="Setup Guide" href="/help/earnings/stripe-connect/setup-guide" icon="arrow-right">
-  Follow the step-by-step instructions to connect your Stripe account.
+<Card title="Open the Setup Guide" href="/help/earnings/stripe-connect/setup-guide" icon="arrow-right">
+  Follow the current BeatPass onboarding flow step by step.
 </Card>

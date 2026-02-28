@@ -2,204 +2,109 @@
 audience: help
 title: "Verifying Licenses | BeatPass"
 sidebarTitle: "Verifying Licenses"
-description: "How to verify the authenticity of a BeatPass license certificate using the verification system."
-keywords: ["verify license", "license verification", "authenticity", "certificate validation"]
+description: "How to verify a BeatPass license certificate using the public verification page."
+keywords: ["verify license", "license verification", "certificate validation", "uuid"]
 "og:title": "Verifying Licenses - BeatPass"
-"og:description": "Verify the authenticity of BeatPass license certificates."
+"og:description": "Verify the authenticity and status of BeatPass license certificates."
 "twitter:card": "summary_large_image"
 ---
 
-## Overview
-
-BeatPass provides a public verification system that allows anyone to confirm the authenticity of a license certificate. This protects both producers and licensees by providing verifiable proof of licensing.
+BeatPass includes a public verification page for license certificates. Anyone with the license UUID can check whether the certificate exists and whether it is currently valid.
 
 <Info>
-  Verification is public and does not require a BeatPass account.
+  Verification is public. The person checking the certificate does not need to log in.
 </Info>
 
----
+## Verification link format
 
-## Verification URL
+Every certificate points to a URL in this format:
 
-Every license certificate has a unique verification URL:
-
-```
+```text
 https://open.beatpass.ca/verify-license/{uuid}
 ```
 
-Example:
-```
-https://open.beatpass.ca/verify-license/a1b2c3d4-e5f6-7890-abcd-ef1234567890
-```
-
----
-
-## How to Verify
+## How to verify a certificate
 
 <Steps>
-  <Step title="Get the License UUID">
-    Find the Certificate ID (license UUID) on:
-    - The license certificate PDF
-    - The verification section of any license modal
-    - The licensee's records
+  <Step title="Get the license UUID">
+    You can copy it from the certificate, the printable certificate page, or the **Licenses** area in the app.
   </Step>
-  
-  <Step title="Visit Verification Page">
-    Navigate to `/verify-license/{uuid}` in any web browser.
+  <Step title="Open the public page">
+    Visit <a href="https://open.beatpass.ca/verify-license/">https://open.beatpass.ca/verify-license/</a> followed by that UUID.
   </Step>
-  
-  <Step title="View Results">
-    The system displays the verification result with full details.
+  <Step title="Review the result">
+    BeatPass returns a public status page for that specific certificate.
   </Step>
 </Steps>
 
----
+## What the page shows
 
-## Verification Results
+The current public verification page shows the certificate status plus the core identity details tied to that license:
 
-### Valid License
+| Field | What it means |
+| --- | --- |
+| **Certificate Valid / Invalid** | High-level result shown in the page header |
+| **License UUID** | The certificate ID being checked |
+| **Track name** | Track tied to the license |
+| **Artists** | Credited artists on the track |
+| **License type** | Standard or exclusive |
+| **Licensed User** | Masked email only |
+| **Issued date** | When the license was created |
+| **Status** | Current record status, such as `active` or another non-active state |
+| **Database Verification** | Confirms the license exists in BeatPass records |
+| **Verification Count** | Number of times the page has been checked |
 
-When a license is **valid**, the verification page shows:
+<Note>
+  BeatPass stores additional verification metadata internally, but the current public page focuses on the fields above rather than exposing every stored timestamp or audit detail.
+</Note>
 
-| Field | Information |
-|-------|-------------|
-| **Status** | ✓ CERTIFICATE VALID |
-| **License UUID** | The unique certificate ID |
-| **Track Name** | Licensed track title |
-| **Artists** | Producer(s) credited |
-| **License Type** | Non-exclusive or Exclusive |
-| **Licensed User** | Masked email (j****n@email.com) |
-| **Issued Date** | When the license was granted |
-| **Verification Count** | How many times verified |
+## What the page does not expose
 
-### Invalid License
+- It does not reveal the full email address of the license holder
+- It does not require the viewer to open the user account
+- It does not replace reading the actual certificate terms when rights questions get specific
 
-When a license is **not found** or **invalid**:
+## Common use cases
 
-| Field | Information |
-|-------|-------------|
-| **Status** | ✗ LICENSE NOT FOUND |
-| **Message** | "The license certificate you're trying to verify could not be found or is invalid." |
-
-### Revoked License
-
-When a license has been **revoked**:
-
-| Field | Information |
-|-------|-------------|
-| **Status** | ✗ CERTIFICATE INVALID |
-| **License Status** | REVOKED |
-| **Revoked At** | Date of revocation |
-| **Revoked Reason** | Why it was revoked |
-
----
-
-## Security Information
-
-The verification page displays security details:
-
-### Encryption
-
-- **256-bit SSL** — All verification requests are encrypted
-
-### Fingerprinted
-
-- **Audio verified** — License is linked to acoustic fingerprint
-
-### Database Verification
-
-- **VERIFIED** — License exists in BeatPass database
-- **NOT FOUND** — License does not exist
-
----
-
-## Verification Count
-
-Each verification attempt is logged:
-
-- **Counter increments** with each verification
-- **Last verified timestamp** is recorded
-- **IP address** of verifier is logged (for security)
-
-This creates an audit trail showing how often a license has been checked.
-
----
-
-## Use Cases
-
-### For Licensees
-
-- **Prove your license** — Share the verification URL with distributors, labels, or legal teams
-- **Dispute resolution** — Provide verifiable proof of licensing rights
-- **Record keeping** — Bookmark your verification URLs
-
-### For Producers
-
-- **Verify downloads** — Check that a user actually has a valid license
-- **Copyright claims** — Verify the other party's licensing before disputing
-- **Catalog audit** — Track how often licenses are being verified
-
-### For Third Parties
-
-- **Labels & distributors** — Verify licensing before releasing music
-- **YouTube/Streaming platforms** — Confirm usage rights
-- **Legal representatives** — Authenticate licensing claims
-
----
-
-## Verification from Certificate
-
-On every license certificate, there's a verification section:
-
-```
-VERIFICATION
-This license can be verified at:
-https://open.beatpass.ca/verify-license/{uuid}
-
-The verification link above checks the license validity 
-in the BeatPass database. If the license is not found or has been 
-revoked, it will be marked as invalid.
-```
-
----
-
-<Tip>
-  For programmatic license verification, see the [API Reference](/developers/api-reference) for technical details.
-</Tip>
-
----
+<AccordionGroup>
+  <Accordion title="For licensees" icon="user" defaultOpen>
+    Use the verification page when a distributor, label, platform, or collaborator asks you to prove you have a valid license.
+  </Accordion>
+  <Accordion title="For producers" icon="music">
+    Use it to confirm whether a downloader or buyer has an active certificate for one of your tracks.
+  </Accordion>
+  <Accordion title="For third parties" icon="shield">
+    Use it to verify that a certificate is real before acting on a rights dispute or release review.
+  </Accordion>
+</AccordionGroup>
 
 ## Troubleshooting
 
 <AccordionGroup>
-  <Accordion title="License shows as not found">
-    - Double-check the UUID is correct (no typos)
-    - The license may have been deleted by admin
-    - The license may never have been created
+  <Accordion title="The page says the license was not found" icon="triangle-exclamation" defaultOpen>
+    Double-check the UUID. A bad or incomplete UUID is the most common cause.
   </Accordion>
-  
-  <Accordion title="License shows as revoked">
-    - Contact BeatPass support for details
-    - Check your email for revocation notice
-    - License may have been revoked due to terms violation
+  <Accordion title="The page says the license is revoked" icon="ban">
+    The certificate exists, but it is no longer valid. The public page still helps confirm that the UUID is real, while the status badge tells you the license is not active.
   </Accordion>
-  
-  <Accordion title="Verification page won't load">
-    - Check your internet connection
-    - Try a different browser
-    - The BeatPass service may be temporarily unavailable
+  <Accordion title="I need the full legal terms too" icon="file-certificate">
+    The verification page confirms status. The certificate itself remains the right place to read the full terms and restrictions.
   </Accordion>
 </AccordionGroup>
-
----
 
 ## Related
 
 <CardGroup cols={2}>
   <Card title="License Certificates" icon="file-certificate" href="/help/downloads-and-licensing/license-certificates">
-    Understanding your license document.
+    Learn what the certificate includes beyond verification status.
+  </Card>
+  <Card title="Content ID Claims" icon="shield" href="/help/downloads-and-licensing/content-id-claims">
+    Use the verification link when disputing claims.
   </Card>
   <Card title="BeatPassID" icon="fingerprint" href="/help/downloads-and-licensing/beatpass-id">
-    How audio fingerprinting secures licenses.
+    Understand the fingerprint details tied to certificate tools.
+  </Card>
+  <Card title="FAQ" icon="circle-question" href="/help/downloads-and-licensing/faq">
+    More common certificate questions.
   </Card>
 </CardGroup>

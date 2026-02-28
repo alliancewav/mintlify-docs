@@ -2,146 +2,95 @@
 audience: help
 title: "Platform Fee"
 sidebarTitle: "Platform Fee"
-description: "Understand how the 12% + $3 platform fee works on BeatPass subscriptions and beat purchases."
-keywords: ["platform fee", "12%", "$3", "service fee", "transaction fee", "beat purchase fee"]
+description: "Understand how the 12% + $3 platform fee works on BeatPass subscriptions and exclusive track purchases."
+keywords: ["platform fee", "12%", "$3", "service fee", "transaction fee", "track purchase fee"]
 "og:title": "Platform Fee - BeatPass Help"
-"og:description": "Learn about the BeatPass platform fee for subscriptions and beat purchases."
+"og:description": "Learn about the BeatPass platform fee for subscriptions and exclusive track purchases."
 ---
 
-When you make a payment on BeatPass — whether subscribing to a plan or purchasing a beat — a 12% platform fee plus a \$3 flat fee is added to the base price. This page explains how the fee works and where your money goes.
+BeatPass currently adds a `12% + $3.00 flat` platform fee on top of eligible paid checkouts. The fee is stored in live billing settings and shown during checkout before you confirm payment.
 
----
+## Where the fee applies
 
-## How the Fee Works
+The current fee applies to:
 
-The platform fee is **added on top** of the producer's price—not deducted from it.
+- Subscription checkout and renewal charges
+- Exclusive track purchases
+
+<Note>
+  Standard subscription downloads do not trigger a separate per-download platform fee. The fee applies when money is collected at checkout.
+</Note>
+
+## How the calculation works
+
+BeatPass calculates the fee as:
+
+```text
+(base price x 12%) + $3.00
+```
 
 ### Example
 
-| Component | Amount |
-|-----------|--------|
-| **Producer's listed price** | \$100.00 |
-| **Platform fee (12% + \$3)** | \$15.00 |
-| **Total you pay** | \$115.00 |
+| Base price | Fee | Total |
+| --- | --- | --- |
+| $20.00 | $5.40 | $25.40 |
+| $50.00 | $9.00 | $59.00 |
+| $100.00 | $15.00 | $115.00 |
 
-In this example:
-- You pay \$115.00
-- The producer receives \$100.00
-- BeatPass receives \$15.00 (12% of \$100 = \$12 + \$3 flat fee)
+For exclusive purchases, the base price is the producer's listed track price. For subscriptions, the base price is the plan price before the platform fee is added.
 
-<Tip>
-  **Fee Formula:** $(\text{Beat Price} \times 0.12) + \$3 = \text{Platform Fee}$. For example: $(\$100 \times 0.12) + \$3 = \$15$.
-</Tip>
+## What buyers see
 
-<Note>
-  Producers set their own prices and receive 100% of their listed price. The platform fee is a separate charge added at checkout.
-</Note>
+### Subscription checkout
 
----
+The shared checkout summary currently shows:
 
-## What the Fee Supports
+- Plan price
+- Coupon discount, if one is applied
+- Platform fee
+- Total due today
 
-The platform fee supports:
+If a coupon is applied to a subscription, BeatPass reduces the percentage portion against the discounted base price. The flat `$3.00` portion still remains.
 
-- **Platform development** — Building and improving BeatPass features
-- **Infrastructure** — Servers, storage, and technical operations
-- **Secure payments** — Safe payment processing for all transactions
-- **Support services** — Customer and producer support
-- **Community features** — Beat requests, messaging, and discovery tools
+### Exclusive track checkout
 
----
+The exclusive purchase dialog currently shows:
 
-## Fee Transparency
+- Track price
+- Platform fee with the current percentage and flat-fee formula
+- Total amount in the selected purchase currency
 
-### What You See
+## How invoices and payment history relate
 
-When purchasing a beat:
+- Subscription invoices can include the platform fee as its own line item
+- Payment history gives you the invoice entry and a link to the invoice view when that action is available
+- For exclusive purchases, treat the checkout breakdown and the printable invoice as the source of truth for the fee that was added to that payment
 
-1. **Product page** — Shows the producer's price
-2. **Checkout** — Shows price + platform fee = total
-3. **Invoice** — Itemized breakdown of charges
+## Why the fee is added on top
 
-### No Hidden Fees
+BeatPass uses an add-on fee model so the base subscription price or the producer's listed track price stays separate from the platform fee. In the current purchase flow, the producer amount is not reduced by the fee line shown to the buyer.
 
-The 12% + \$3 platform fee is the only additional charge. There are no hidden processing fees or surprise charges.
-
----
-
-## Who Pays the Fee
-
-| Party | What They Pay |
-|-------|---------------|
-| **Buyer (You)** | Producer's price + 12% platform fee + \$3 flat fee |
-| **Producer** | Nothing—receives full listed price |
-
-This model ensures producers can set prices confidently, knowing they receive exactly what they list.
-
----
-
-## Fee on Different Payments
-
-The platform fee applies to:
-
-- **Subscription payments** — Added on top of the base plan price each billing cycle
-- **Beat purchases** — Added on top of the producer's listed price for individual track licenses
-- **Exclusive purchases** — Added on top of the exclusive price set by the producer
-
-For subscriptions, the fee appears as a separate **Platform Fee** line item on your invoice alongside your plan charge.
-
----
-
-## Comparison to Other Platforms
-
-BeatPass's fee structure differs from some platforms where fees are deducted from the seller's earnings:
-
-| Platform Type | How Fee Works | Producer Gets |
-|---------------|---------------|---------------|
-| **BeatPass** | Fee added on top | 100% of listed price |
-| **Other platforms** | Fee deducted | Less than listed price |
-
----
-
-## Frequently Asked Questions
+## Common questions
 
 <AccordionGroup>
-  <Accordion title="Why is the fee added on top instead of deducted?">
-    This approach ensures producers receive exactly what they set as their price. There's no guesswork about take-home earnings—a \$100 price means \$100 for the producer.
+  <Accordion title="Is the current fee fixed?" icon="percent" defaultOpen>
+    The live BeatPass setting is currently `12% + $3.00 flat`. If BeatPass changes that setting later, trust the amount shown in checkout at the time you pay.
   </Accordion>
-  
-  <Accordion title="Is the fee negotiable?">
-    The platform fee is fixed at 12% + \$3 for all transactions. This consistent rate keeps pricing transparent and predictable.
+  <Accordion title="Does the fee show before I pay?" icon="receipt">
+    Yes. Both the subscription checkout and the exclusive purchase dialog calculate the platform fee before you confirm payment.
   </Accordion>
-  
-  <Accordion title="Does the fee apply to all currencies?">
-    Yes. The 12% + \$3 fee applies regardless of the currency used (USD, EUR, GBP, CAD). The \$3 flat fee is converted to the local currency equivalent at the current exchange rate at the time of purchase.
-  </Accordion>
-  
-  <Accordion title="What's the minimum fee on lower-priced beats?">
-    On lower-priced beats, the \$3 flat fee represents a larger portion of the total fee. For example, on a \$20 beat, the total fee is \$5.40 (\$2.40 + \$3), meaning the flat fee makes up about 56% of the fee. This fee structure is designed to be competitive for typical beat prices (\$50-\$200 range) while ensuring the platform can cover processing costs.
+  <Accordion title="Does the fee come out of the producer's listed track price?" icon="wallet">
+    No. The current exclusive purchase flow keeps the producer amount equal to the listed track price and adds the platform fee on top for the buyer.
   </Accordion>
 </AccordionGroup>
 
----
-
-## Example Calculations
-
-| Listed Price | Platform Fee (12% + \$3) | You Pay |
-|--------------|------------------------|---------|
-| \$20 | \$5.40 | \$25.40 |
-| \$50 | \$9.00 | \$59.00 |
-| \$100 | \$15.00 | \$115.00 |
-| \$200 | \$27.00 | \$227.00 |
-| \$500 | \$63.00 | \$563.00 |
-
----
-
-## Related Topics
+## Related
 
 <CardGroup cols={2}>
   <Card title="Invoices" icon="file-lines" href="/help/billing/invoices">
-    View your payment history.
+    See how payment history and invoice access work.
   </Card>
   <Card title="Billing FAQ" icon="circle-question" href="/help/billing/faq">
-    Common billing questions.
+    Review the related billing answers.
   </Card>
 </CardGroup>

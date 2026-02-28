@@ -1,100 +1,42 @@
 ---
 audience: help
 title: "Playlist Privacy"
-description: "Control who can see your playlists with public and private settings."
+description: "See how public and private playlist visibility works in BeatPass and how it interacts with collaboration."
 ---
 
-# Playlist Privacy
-
-Every playlist on BeatPass can be either public or private. This setting controls who can find and view your playlist.
+Every playlist has a **Public** setting. That switch controls who can view the playlist; it does not decide who can edit tracks.
 
 ## Public vs. Private
 
-| Setting | Who Can See It | Appears In Search | Can Be Shared |
-|---------|----------------|-------------------|---------------|
-| **Public** | Everyone | Yes | Yes |
-| **Private** | Only you | No | No |
+| Setting | Who can view it | Can be shared | Can be followed |
+| --- | --- | --- | --- |
+| **Public** | People who can access public playlists on the BeatPass instance | Yes | Yes |
+| **Private** | Owner and accepted collaborators only | Not as a public share surface | No public following flow |
 
-### Public Playlists
+## Where The Setting Appears
 
-When a playlist is set to **Public**:
+BeatPass currently exposes the privacy setting in both places:
 
-- Anyone can find it through search
-- Anyone can view the tracks
-- You can share the link with others
-- It may appear in recommendations
-- Others can follow it to add to their library
+- The create or edit playlist dialog, using the **Public** switch
+- The playlist context menu, using **Make public** or **Make private**
 
-### Private Playlists
+The form description is: **Everyone can see public playlists.**
 
-When a playlist is set to **Private**:
+## How Privacy And Collaboration Work Together
 
-- Only you can see it
-- It won't appear in search results
-- The link won't work for others
-- It's hidden from your public profile
+| Combination | Result |
+| --- | --- |
+| Public + non-collaborative | Anyone with access can view; only the owner edits. |
+| Public + collaborative | Anyone with access can view; only the owner and accepted collaborators modify tracks. |
+| Private + non-collaborative | Only the owner can view and edit. |
+| Private + collaborative | Only the owner and accepted collaborators can view; only those same users can modify tracks. |
 
-## Setting Privacy When Creating
+## Sharing And Context Menus
 
-When you create a new playlist:
-
-1. Fill in the playlist name and other details
-2. Look for the **Public** toggle
-3. Turn it **on** for public, or leave it **off** for private
-4. Create the playlist
-
-The description below the toggle confirms: *"Everyone can see public playlists."*
-
-## Changing Privacy Later
-
-To change an existing playlist's privacy:
-
-### From the Context Menu
-
-1. Right-click on your playlist
-2. Select **Make private** or **Make public** (depending on current setting)
-3. The change takes effect immediately
-
-### From the Edit Dialog
-
-1. Right-click your playlist and select **Edit**
-2. Toggle the **Public** switch
-3. Save your changes
-
-## Privacy and Collaborative Playlists
-
-A playlist can be both:
-
-- **Private + Collaborative** — Only you and invited editors can see it
-- **Public + Collaborative** — Everyone can see it, but only invited editors can add/remove tracks
+- Public playlists expose the normal share flow.
+- Private playlists are still manageable by the owner, but they are not presented as public shareable destinations.
+- Follow and unfollow actions only make sense when the viewer can access the playlist.
 
 <Note>
-Changing a public playlist to private will hide it from anyone who was following it. They will lose access until you make it public again.
+  Making a playlist private does not turn collaborators into ordinary followers. Accepted collaborators keep access because collaboration is a separate permission path.
 </Note>
-
-## Who Sees What
-
-| User Type | Public Playlist | Private Playlist |
-|-----------|-----------------|------------------|
-| You (owner) | Full access | Full access |
-| Collaborative editors | Full access | Full access |
-| Followers | View and listen | No access |
-| Everyone else | View and listen | No access |
-
-## When to Use Each Setting
-
-### Use Public for:
-
-- Playlists you want to share with friends or the community
-- Curated collections you're proud of
-- Themed playlists others might enjoy
-
-### Use Private for:
-
-- Work-in-progress collections
-- Personal project playlists
-- Beats you're evaluating but not ready to share
-
-<Tip>
-Start with private playlists while you're building them, then switch to public when they're ready to share.
-</Tip>

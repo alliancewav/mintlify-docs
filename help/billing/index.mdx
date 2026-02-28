@@ -9,8 +9,9 @@ keywords: ["billing", "subscription", "payments", "invoices", "payment methods"]
 ---
 
 import PlatformFee from "/snippets/callouts/platform-fee.mdx";
+import SupportContact from "/snippets/sections/support-contact.mdx";
 
-Your billing settings let you manage everything related to payments on BeatPass—from your subscription plan to payment methods and invoice history.
+Your **Billing** page is where you manage your paid subscription, saved card for renewals, and payment history on BeatPass.
 
 ---
 
@@ -24,10 +25,10 @@ Your billing settings let you manage everything related to payments on BeatPass�
     Upgrade, downgrade, cancel, or resume your subscription.
   </Card>
   <Card title="Payment Methods" icon="wallet" href="/help/billing/payment-methods">
-    Add or update your payment information.
+    See how saved cards work for subscriptions.
   </Card>
   <Card title="Invoices" icon="file-lines" href="/help/billing/invoices">
-    View and download your payment history.
+    Review your payment history and invoice records.
   </Card>
 </CardGroup>
 
@@ -35,56 +36,81 @@ Your billing settings let you manage everything related to payments on BeatPass�
 
 ## Quick Reference
 
-<AccordionGroup>
-  <Accordion title="View Current Plan" icon="credit-card" defaultOpen>
-    Navigate to **Profile menu** → **Billing** to see your active subscription.
-  </Accordion>
-  <Accordion title="Change Plan" icon="arrows-rotate">
-    Go to **Profile menu** → **Billing** → **Change plan** to upgrade or downgrade.
-  </Accordion>
-  <Accordion title="Update Payment Method" icon="wallet">
-    Visit **Profile menu** → **Billing** → **Update** in the Payment method section.
-  </Accordion>
-  <Accordion title="View Billing History" icon="receipt">
-    Check **Profile menu** → **Billing** → **Payment history** section for invoices.
-  </Accordion>
-</AccordionGroup>
+<Tabs>
+  <Tab title="No Paid Plan">
+    When you do not have an active paid subscription, **Billing** shows:
+
+    - A **Subscription** panel with **View Plans**
+    - A **Payment history** panel
+
+    <Note>
+      You will not see a **Payment method** section until you have a paid subscription with a saved card.
+    </Note>
+  </Tab>
+  <Tab title="Active Paid Plan">
+    When you have an active paid subscription, **Billing** shows:
+
+    - **Current plan**
+    - **Payment method**
+    - **Payment history**
+
+    The **Current plan** card includes **Change plan** and **Cancel plan**.
+  </Tab>
+  <Tab title="Cancelled Plan">
+    If you cancelled but your paid period has not ended yet, **Billing** shows:
+
+    - **Current plan** with **Subscription Cancelled**
+    - An **Access ends** date
+    - A **Renew plan** button
+  </Tab>
+</Tabs>
 
 ---
 
 ## How Billing Works
 
-### Subscription Plans
+### Open Billing
 
-BeatPass offers different subscription tiers, each with its own set of features:
+To manage billing:
 
-- **Monthly billing** — All paid plans are billed monthly, cancel anytime
-- **Free tier** — Basic access with the Explorer plan
+1. Click your **profile avatar**
+2. Select **Billing**
 
-### Automatic Renewal
+### Monthly Billing
 
-Subscriptions automatically renew at the end of each billing period. You'll be charged using your saved payment method. If you cancel, you keep access until your current period ends.
+Current paid plans are billed monthly. If you keep a paid plan active, BeatPass renews it automatically using the saved payment method on file.
 
-### Grace Period
+### Subscription Changes
 
-If you cancel your subscription, you enter a <Tooltip tip="The time between cancellation and the end of your current billing cycle, during which you keep full access.">grace period</Tooltip> where you still have access to your plan's features until the current billing cycle ends. During this time, you can resume your subscription without losing any benefits.
+- **Upgrade** — Higher-priced plans can be applied immediately or scheduled for renewal, depending on the checkout state
+- **Downgrade** — Lower-priced plans are scheduled for your renewal date
+- **Cancel** — Stops future renewal but keeps access until the current period ends
+- **Renew** — Removes a pending cancellation before access ends
 
 ---
 
 ## Payment Processing
 
-BeatPass uses secure payment processors to handle all transactions:
+BeatPass currently accepts subscription card payments through **Stripe**.
 
-- **<Tooltip tip="A third-party payment processor that securely handles credit and debit card transactions for BeatPass.">Stripe</Tooltip>** — For credit and debit card payments
-- **PayPal** — As an alternative payment option (when available)
+Accepted card brands currently configured on BeatPass:
 
-Your payment information is never stored directly on BeatPass servers — it's securely handled by our payment partners (Stripe, PayPal).
+- **Visa**
+- **Mastercard**
+- **American Express**
+- **Discover**
+
+<Note>
+  PayPal is not currently enabled on BeatPass.
+</Note>
+
+If you do not already have a saved card, you usually add it during checkout when starting a paid subscription.
 
 ---
 
 ## Platform Fee
 
-A 12% <Tooltip tip="A 12% + $3 fee added on top of prices at checkout. Producers receive 100% of their set price." cta="Read more" href="/help/billing/platform-fee">platform fee</Tooltip> plus a \$3 flat fee is added on top of all BeatPass payments, including subscriptions and beat purchases. This fee supports platform operations and development.
+A 12% platform fee plus a \$3.00 flat fee is currently added on top of eligible paid BeatPass checkouts, including subscriptions and exclusive track purchases.
 
 <PlatformFee />
 
@@ -104,4 +130,4 @@ A 12% <Tooltip tip="A 12% + $3 fee added on top of prices at checkout. Producers
   </Card>
 </CardGroup>
 
-For billing-specific questions, you can also email the support team directly at [**contact@beatpass.ca**](mailto:contact@beatpass.ca).
+<SupportContact />

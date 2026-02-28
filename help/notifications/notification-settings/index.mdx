@@ -2,106 +2,77 @@
 audience: help
 title: "Notification Settings"
 sidebarTitle: "Overview"
-description: "Customize your notification preferences on BeatPass. Control what notifications you receive and how you receive them."
+description: "Learn how channel toggles, bulk actions, and role-based groups work in BeatPass notification settings."
 keywords: ["notification settings", "preferences", "email settings", "browser notifications"]
-"og:title": "Notification Settings - BeatPass Help"
-"og:description": "Learn how to customize your BeatPass notification preferences."
+og:title: "Notification Settings - BeatPass Help"
+og:description: "Learn how BeatPass notification preferences work."
 ---
 
-The Notification Settings page gives you complete control over what notifications you receive and how you receive them. You can enable or disable specific notification types and choose which channels (Email, Browser, In-App) deliver each one.
+The Notification Settings page at `/notifications/settings` controls which notification types you receive and which channels deliver them.
 
 ---
 
 ## Accessing Notification Settings
 
-There are several ways to access your notification settings:
+You can open notification settings from:
 
-1. Navigate directly to `/notifications/settings`
-2. Click the **settings icon** (gear) in the notification dropdown
-3. Click the **Notification settings** button when you have no notifications
-
----
-
-## Understanding the Settings Page
-
-### Your Role Badge
-
-At the top of the page, you'll see your current role:
-- **Member** — Regular user without producer access
-- **Producer** — User with an approved producer profile
-- **Verified Producer** — Producer with verified status
-
-Your role determines which notification categories you can access.
-
-### Quick Controls
-
-At the top of the settings, you'll find bulk controls:
-
-- **Enable All** — Turn on all notification channels for all categories
-- **Disable All** — Turn off all notification channels
-- **Per-channel toggles** — Enable or disable all notifications for a specific channel (Email, Browser, or In-App)
-
-### Notification Categories
-
-Each category contains one or more notification types. Categories include:
-- Following
-- Social
-- Messages
-- Beat Requests
-- Promotions
-- Producer Activity (producers only)
-- Earnings & Licensing (producers only)
-- Achievements (producers only)
-- Producer Dashboard (verified producers only)
-
-### Channel Toggles
-
-For each notification type, you can toggle three channels:
-
-| Channel | Icon | Description |
-|---------|------|-------------|
-| **Email** | Mail icon | Sends notifications to your email inbox |
-| **Browser** | Bell icon | Shows real-time pop-ups in your browser |
-| **In-App** | Inbox icon | Appears in your notification center (bell icon) |
+- the bell menu gear icon
+- the full notifications page
+- the direct route: `/notifications/settings`
 
 ---
 
-## Locked Notifications
+## What The Settings Page Shows
 
-Some notifications are only available to certain user types:
+### Role badge
 
-- **Producer-only notifications** — Shown as locked for regular members
-- **Verified producer notifications** — Shown as a locked preview for regular producers
+At the top of the page, BeatPass labels your current account context as:
 
-A lock icon indicates notifications you can't currently access. Upgrade your account or apply for verification to unlock them.
+- **Member**
+- **Producer**
+- **Verified Producer**
+
+### Bulk controls
+
+The page includes bulk toggles for:
+
+- **Enable All**
+- **Disable All**
+- all **Email** toggles
+- all **Browser** toggles
+- all **In-App** toggles
+
+### Individual groups
+
+Each category is shown as a grouped set of notification types, with one toggle per channel.
 
 ---
 
-## Saving Your Preferences
+## Locked and Hidden Groups
 
-After making changes:
+Current role behavior in the UI:
 
-1. Review your selections
-2. Click the **Save Preferences** button at the bottom
-3. Your preferences are saved immediately
+- **Members** do not see producer-only groups
+- **Producers** can see verified-only groups as locked previews
+- **Verified producers** can configure the full set
 
-<Note>
-  Changes take effect immediately after saving. You don't need to log out or refresh.
-</Note>
+If browser notifications are blocked by your browser, the page also shows a warning banner at the top.
 
 ---
 
-## Browser Permission
+## Saving Changes
 
-When you enable Browser notifications for the first time:
-
-1. Your browser will ask for permission to show notifications
-2. Click **Allow** to enable real-time alerts
-3. If blocked, you'll see a warning on the settings page
-
-<Warning>
-  If you previously blocked browser notifications, you'll need to manually enable them in your browser settings. The settings page will show a warning if browser notifications are blocked.
-</Warning>
+<Steps>
+  <Step title="Adjust the channels you want">
+    Toggle channels at the group level or notification level.
+  </Step>
+  <Step title="Review browser permission if needed">
+    If you enable browser notifications, your browser may request permission.
+  </Step>
+  <Step title="Save Preferences">
+    Click **Save Preferences** to persist the changes.
+  </Step>
+</Steps>
 
 ---
 
@@ -109,15 +80,15 @@ When you enable Browser notifications for the first time:
 
 <CardGroup cols={2}>
   <Card title="Email Notifications" icon="envelope" href="/help/notifications/notification-settings/email-notifications">
-    Learn about email notification options.
+    Understand email delivery and unsubscribe behavior.
   </Card>
   <Card title="Browser Notifications" icon="bell" href="/help/notifications/notification-settings/browser-notifications">
-    Set up real-time browser alerts.
+    Learn how browser push permissions and toggles work.
   </Card>
   <Card title="In-App Notifications" icon="inbox" href="/help/notifications/notification-settings/in-app-notifications">
-    Manage your notification center.
+    Understand the bell menu and full notifications page.
   </Card>
   <Card title="Notification Types" icon="list" href="/help/notifications/notification-types">
-    Learn about all notification categories.
+    Review the complete category and type matrix.
   </Card>
 </CardGroup>

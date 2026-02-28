@@ -8,257 +8,113 @@ keywords: ["edit", "update", "track", "album", "collection", "manage", "metadata
 "og:description": "Learn how to edit and update your tracks and collections on BeatPass."
 ---
 
-After uploading your music to BeatPass, you may need to make changes. This guide covers how to edit tracks, collections, and manage your content.
+After a beat or collection is live, BeatPass still lets you return and update the content. This guide covers the current producer-side editing behavior.
 
 ---
 
 ## Editing a Track
 
-To edit an existing track:
+To edit a beat:
 
 <Steps>
-  <Step title="Find your track">
-    Go to your Producer Dashboard or navigate to the track page.
+  <Step title="Open the track editor">
+    Find the beat in your producer workspace and open its edit form.
   </Step>
-  <Step title="Open the edit page">
-    Click the **Edit** button or icon on the track.
+  <Step title="Change the fields you need">
+    Update metadata, cover art, licensing, or audio as needed.
   </Step>
-  <Step title="Make your changes">
-    Update any information you need to change.
-  </Step>
-  <Step title="Save">
-    Click **Save** or **Update Track** to apply your changes.
+  <Step title="Save the changes">
+    BeatPass applies the update once the form validations pass.
   </Step>
 </Steps>
 
----
+## Track Fields You Can Usually Edit
 
-## What You Can Edit
-
-### Track Information
-
-| Field | Editable | Notes |
-|-------|----------|-------|
-| **Track Name** | Yes | Update the title anytime |
-| **Description** | Yes | Add or modify track description |
-| **Artists** | Yes | Add or remove credited artists |
-| **Genres** | Yes | Update categorization |
-| **Tags** | Yes | Modify searchable keywords |
-| **Cover Art** | Yes | Replace with new artwork |
-
-### Music Properties
-
-| Field | Editable | Notes |
-|-------|----------|-------|
-| **Key** | Yes | Update the musical key |
-| **Scale** | Yes | Change between Major/Minor |
-| **BPM** | Yes | Correct the tempo |
-
-### Audio File
-
-| Field | Editable | Notes |
-|-------|----------|-------|
-| **Audio File** | Yes | Replace with new audio (re-fingerprints the track) |
-
-### Licensing & Status
-
-| Field | Editable | Notes |
-|-------|----------|-------|
-| **Licensing Type** | Partially | May be locked if track has been sold exclusively |
-| **Exclusive Price** | Yes | Update pricing for exclusive licensing |
-| **Sample-Safe Status** | Yes | Update clearance certification |
+| Area | Current Examples |
+|------|------------------|
+| **Basic details** | Track name, description, credited artists, collection |
+| **Discovery metadata** | Tags, genres |
+| **Music properties** | Key, scale, BPM |
+| **Protection** | Sample-safe status and notes |
+| **Artwork** | Custom cover art or AI preset choice |
+| **Licensing** | Model, exclusive price, exclusive config, subject to sale locks |
+| **Audio** | Replace the uploaded audio file |
 
 ---
 
 ## Replacing Audio
 
-If you need to update the audio file for an existing track:
+If you need to update the audio file:
 
-1. Open the track's edit page
-2. Find the **Audio Fingerprint** section
-3. Click **Replace Audio File**
-4. Select or upload your new audio file
-5. Wait for processing and fingerprinting to complete
-6. Save your changes
+1. Open the track's edit form
+2. Use the **Audio Fingerprint** area to replace the file
+3. Wait for BeatPass to process the new upload
+4. Save once the track is ready
 
-<Warning>
-  Replacing audio creates a new fingerprint. This is tracked in your track's history. Make sure you're uploading an improved or corrected version, not a different track.
-</Warning>
+Replacing audio triggers a new fingerprint workflow for the updated file.
 
 ---
 
-## Editing Collections
+## Editing a Collection
 
-To edit a collection (album):
+Collections can also be edited after creation.
 
-<Steps>
-  <Step title="Navigate to the collection">
-    Find the collection in your Producer Dashboard or profile.
-  </Step>
-  <Step title="Open edit mode">
-    Click **Edit** or the edit icon.
-  </Step>
-  <Step title="Update collection details">
-    Modify name, artwork, description, or other fields.
-  </Step>
-  <Step title="Manage tracks">
-    Add, remove, or reorder tracks within the collection.
-  </Step>
-  <Step title="Save changes">
-    Click **Update Collection** to save.
-  </Step>
-</Steps>
+The current collection tools support changes to:
 
-### Collection Fields You Can Edit
+- Name
+- Cover art
+- Release date
+- Artists
+- Genres
+- Tags
+- Description
+- Track order
 
-- **Name** — The collection title
-- **Cover Art** — Album artwork
-- **Release Date** — When it was/will be released
-- **Artists** — Credited producers
-- **Genres & Tags** — Categorization
-- **Description** — About the project
-- **Track Order** — Reorder tracks by dragging
+You can also upload new beats into the collection or add existing tracks from your catalog.
 
 ---
 
-## Managing Tracks in Collections
+## Collection Track Management
 
-### Adding Tracks
+Inside a collection, BeatPass currently supports:
 
-From a collection's edit page:
-
-1. Click **Upload beats** to add new tracks
-2. Or click to add existing tracks from your catalog
-3. New tracks inherit the collection's metadata
-
-### Removing Tracks
-
-1. Find the track in the collection's track list
-2. Click the remove (X) icon
-3. Confirm removal
+- **Upload beats**
+- **Add existing tracks**
+- **Edit** a specific track
+- **Remove** a track from the collection
+- **Reorder** tracks
 
 <Note>
-  Removing a track from a collection doesn't delete it. The track continues to exist as an individual track.
-</Note>
-
-### Reordering Tracks
-
-1. Open the collection's edit page
-2. Drag tracks using the handle icon
-3. Drop in the new position
-4. Save your changes
-
----
-
-## Licensing Restrictions
-
-Some fields become locked after certain actions:
-
-<AccordionGroup>
-  <Accordion title="After exclusive sale">
-    When a track is sold with exclusive rights:
-    - The **exclusive status** is locked to "Sold"
-    - Non-exclusive licensing is automatically disabled
-    - The track becomes unavailable for other exclusive purchases
-    
-    You can still edit other metadata like name, description, and tags.
-  </Accordion>
-  
-  <Accordion title="Licensing type restrictions">
-    If you set a track to "Exclusive Only" and it's purchased:
-    - The licensing configuration may be locked
-    - This protects the exclusive buyer's rights
-  </Accordion>
-</AccordionGroup>
-
----
-
-## Deleting Content
-
-### Deleting a Track
-
-To permanently delete a track:
-
-1. Go to the track's page or edit page
-2. Find the delete option
-3. Confirm deletion
-
-<Warning>
-  Deleting a track is permanent. The track and its fingerprint will be removed. If the track was in any collections, it will be removed from them.
-</Warning>
-
-### Deleting a Collection
-
-To delete a collection:
-
-1. Navigate to the collection
-2. Access edit or management options
-3. Choose delete
-4. Confirm deletion
-
-<Note>
-  Deleting a collection removes the album grouping, but individual tracks are not deleted. They become standalone tracks in your catalog.
+  Removing a beat from a collection changes the grouping. It does not automatically mean the beat stops existing as a track in your catalog.
 </Note>
 
 ---
 
-## Edit History
+## Licensing Locks You Should Expect
 
-BeatPass may track certain changes to your content:
-
-- Audio file replacements (new fingerprints)
-- Licensing status changes
-- Key metadata updates
-
-This helps maintain transparency and supports dispute resolution if needed.
-
----
-
-## Best Practices
+Some edits become limited after an exclusive sale.
 
 <AccordionGroup>
-  <Accordion title="Review before saving">
-    Double-check your changes before saving, especially for licensing options.
+  <Accordion title="Sold beats">
+    Once a beat is sold exclusively, BeatPass locks the sold state and the sold exclusive terms. That protects the buyer's certificate.
   </Accordion>
-  
-  <Accordion title="Keep metadata accurate">
-    Accurate BPM, key, and genre information helps listeners find your beats.
-  </Accordion>
-  
-  <Accordion title="Update descriptions periodically">
-    Add context about how your beats have been used or refresh descriptions to improve discoverability.
-  </Accordion>
-  
-  <Accordion title="Maintain cover art quality">
-    If you update cover art, use high-resolution images (500×500 or larger).
+
+  <Accordion title="Standard licensing after a sale">
+    BeatPass stops future standard licensing for beats that are sold exclusively, so you should not expect sold beats to behave like open catalog tracks.
   </Accordion>
 </AccordionGroup>
 
 ---
 
-## Troubleshooting
+## If Changes Do Not Appear Immediately
 
-<AccordionGroup>
-  <Accordion title="Can't edit certain fields">
-    Some fields may be locked due to:
-    - Licensing restrictions (e.g., after exclusive sale)
-    - Platform policies
-    - Processing in progress
-    
-    If you believe a field should be editable, contact support.
-  </Accordion>
-  
-  <Accordion title="Changes not appearing">
-    If your changes don't appear immediately:
-    1. Refresh the page
-    2. Clear your browser cache
-    3. Wait a few minutes for caching to update
-  </Accordion>
-  
-  <Accordion title="Audio replacement issues">
-    If audio replacement fails, see [Upload Troubleshooting](/help/troubleshooting/upload-issues).
-  </Accordion>
-</AccordionGroup>
+If your edit saves but you do not see it everywhere right away:
+
+1. Refresh the page
+2. Wait a short moment for cached views to update
+3. Re-open the track or collection to confirm the saved values
+
+If the problem persists, use the troubleshooting guides or contact support.
 
 ---
 
@@ -266,9 +122,9 @@ This helps maintain transparency and supports dispute resolution if needed.
 
 <CardGroup cols={2}>
   <Card title="Upload Page" icon="upload" href="/help/uploading/upload-page">
-    Learn how to upload new content.
+    Return to the main upload workflow.
   </Card>
-  <Card title="Creating Collections" icon="record-vinyl" href="/help/uploading/creating-albums">
-    Organize your beats into collections.
+  <Card title="Audio Fingerprinting" icon="fingerprint" href="/help/uploading/audio-fingerprinting">
+    Understand what happens when you replace audio.
   </Card>
 </CardGroup>

@@ -8,105 +8,100 @@ keywords: ["collaboration", "co-producer", "credits", "collaborative tracks", "s
 "og:description": "How to collaborate with other producers on BeatPass."
 ---
 
-BeatPass supports collaborations between producers. When multiple producers work on a track together, each can be credited — and the track appears on every credited producer's profile.
+BeatPass supports multi-producer credits on tracks. When you credit more than one producer, the beat can appear on each credited producer profile, but there are also earnings and management rules you should understand.
 
 ---
 
 ## How Collaborations Work
 
-When you upload a track with multiple credited producers:
+For collaborative beats, BeatPass currently does the following:
 
-- The track appears on **each producer's artist profile** under their discography
-- **Contribution value is split equally** among all credited producers
-- Each collaborator's analytics reflect their share of the track's performance
-- The track shows all credited producers on its page
-
-<Info>
-  Collaborations are based on who is **credited** on the track — not who physically uploaded it. Only the uploader manages the track, but all credited producers benefit.
-</Info>
-
----
-
-## Adding Collaborators to a Track
-
-<Steps>
-  <Step title="Upload or edit your track">
-    Go to **Backstage** and upload a new track or edit an existing one.
-  </Step>
-  <Step title="Add artist credits">
-    In the track metadata, look for the **Artists** or **Credits** field. Search for and add the co-producer(s) by their BeatPass artist name.
-  </Step>
-  <Step title="Save and publish">
-    Save the track. The collaboration is now live — the track appears on each credited producer's profile.
-  </Step>
-</Steps>
+- Shows the beat on each credited producer profile
+- Splits subscription contribution value equally across credited producers
+- Leaves ongoing track management with the uploader / track owner
 
 <Note>
-  The co-producer must have an existing artist profile on BeatPass to be credited. If they don't have one yet, they should [apply to the Producer Program](/help/producer-program/index) first.
+  Crediting someone on a track is not the same thing as giving them editing control. The uploader still manages the beat's files, metadata, and licensing settings.
 </Note>
 
 ---
 
-## How Collaborations Affect Earnings
+## Adding Collaborators
 
-The track's [contribution value](/help/earnings/contribution-system/index) is divided equally among all credited producers:
+<Steps>
+  <Step title="Open the track form">
+    Upload a new beat or edit an existing one.
+  </Step>
+  <Step title="Use the Artists field">
+    Add the credited producers in the **Artists** picker.
+  </Step>
+  <Step title="Save the track">
+    Once saved, the collaboration appears on the credited producer profiles.
+  </Step>
+</Steps>
 
-| Producers Credited | Each Producer Receives |
-|-------------------|----------------------|
-| 1 producer | 100% of contribution value |
-| 2 producers | 50% each |
-| 3 producers | 33.3% each |
-| 4 producers | 25% each |
+## Attribution Best Practice
 
-This split applies to **subscription revenue sharing** only. For exclusive license sales, the payout goes to the producer whose Stripe Connect account is linked to the track.
-
----
-
-## Collaboration Analytics
-
-### On the Producer Dashboard
-
-Your **Producer Dashboard** includes collaboration-specific insights:
-
-- **Collaboration network** — See which producers you've worked with and how often
-- **Collaborative tracks** — View all tracks where you're credited with others
-- **Collaboration leaderboard** — Rankings based on collaborative activity across the platform
-
-### On Artist Profiles
-
-Visitors to your artist profile can see your collaborative tracks in a dedicated section, helping them discover the producers you work with.
+The cleanest collaboration setup is when every credited producer already has a BeatPass profile. That keeps attribution, profile visibility, and producer-side data aligned.
 
 ---
 
-## Collaboration Recommendations
+## How Subscription Earnings Are Split
 
-BeatPass may suggest collaboration opportunities based on:
+BeatPass currently splits contribution value equally among credited producers.
 
-- Producers in similar genres
-- Producers with complementary styles
-- Trending collaborations on the platform
+| Producers Credited | Each Producer Gets |
+|-------------------|-------------------|
+| 1 | 100% |
+| 2 | 50% each |
+| 3 | 33.3% each |
+| 4 | 25% each |
 
-These recommendations appear in the **Collaboration** section of your Producer Dashboard.
+This applies to BeatPass subscription contribution, not to private off-platform agreements between collaborators.
+
+## Exclusive Sales on Collaborative Beats
+
+BeatPass does not automatically split exclusive-sale proceeds across collaborators just because multiple producers are credited.
+
+The current track owner / uploader remains responsible for:
+
+- Managing the beat
+- Configuring exclusive terms
+- Receiving the BeatPass-side exclusive payout flow
+
+If collaborators want a different split, they need to arrange that outside BeatPass.
+
+---
+
+## When to Use Collaboration Credits
+
+Use collaboration credits when:
+
+- Two or more producers genuinely worked on the beat
+- You want the release to appear on multiple producer profiles
+- You are comfortable sharing BeatPass subscription contribution equally
+
+Do **not** use collaboration credits casually if you do not want the track appearing on another producer's profile or sharing BeatPass-side contribution value.
 
 ---
 
 ## Common Questions
 
 <AccordionGroup>
-  <Accordion title="Can I remove a collaborator from a track?">
-    Yes. Edit the track in **Backstage** and remove the artist from the credits. The track will no longer appear on their profile, and the contribution split will adjust.
+  <Accordion title="Can I remove a collaborator later?">
+    Yes. Edit the track's credited artists and save the change. BeatPass will then update where the beat appears and how future contribution is split.
   </Accordion>
-  <Accordion title="Does my co-producer need to approve the credit?">
-    Currently, the uploader manages credits. There is no approval workflow — so coordinate with your collaborators before publishing.
+
+  <Accordion title="Do collaborators approve the credit inside BeatPass?">
+    The current workflow is uploader-managed. Coordinate with your collaborators before publishing.
   </Accordion>
-  <Accordion title="Can I collaborate with someone who isn't on BeatPass?">
-    The co-producer must have a BeatPass artist profile to be credited. Encourage them to join and apply through the [Producer Program](/help/producer-program/index).
+
+  <Accordion title="Does collaboration also affect XP?">
+    BeatPass currently awards collaboration XP, and collaborative tracks also contribute to other activity such as plays and uploads.
   </Accordion>
-  <Accordion title="Do collaborations affect my XP?">
-    Yes. You earn XP for the track upload regardless of collaborators, and plays on collaborative tracks contribute to your play-based XP. However, the contribution value (and therefore earnings) is split.
-  </Accordion>
-  <Accordion title="How do exclusive sales work for collaborative tracks?">
-    Exclusive license payments go to the Stripe Connect account of the track's uploader. Revenue splitting for exclusive sales between collaborators should be arranged privately between the producers.
+
+  <Accordion title="Does BeatPass automatically split exclusive-sale money across collaborators?">
+    No. The BeatPass-side exclusive flow follows the current track owner / uploader configuration, so any off-platform split between collaborators must be handled separately.
   </Accordion>
 </AccordionGroup>
 
@@ -114,14 +109,11 @@ These recommendations appear in the **Collaboration** section of your Producer D
 
 ## Related
 
-<CardGroup cols={3}>
+<CardGroup cols={2}>
   <Card title="Contribution System" icon="calculator" href="/help/earnings/contribution-system/index">
-    How earnings are calculated per track.
+    Understand how BeatPass contribution is calculated and shared.
   </Card>
   <Card title="Uploading Music" icon="cloud-arrow-up" href="/help/uploading/index">
-    Full upload guide.
-  </Card>
-  <Card title="Producer Dashboard" icon="chart-bar" href="/help/producer-dashboard/index">
-    Manage your career and analytics.
+    Return to the main upload guides.
   </Card>
 </CardGroup>

@@ -1,84 +1,65 @@
 ---
 audience: help
 title: "Contribution System"
-description: "How BeatPass calculates your share of subscription revenue using contribution values."
+description: "Understand how BeatPass uses contribution value to determine each producer's share of subscription revenue."
 ---
 
 import PlatformFee from "/snippets/callouts/platform-fee.mdx";
 
-The contribution system determines how subscription revenue is distributed fairly among all producers on BeatPass. Every track earns a "<Tooltip tip="A score assigned to each track based on recency, play count, and collaborators. It determines your share of subscription revenue." cta="See the formula" href="/help/earnings/contribution-system/formula">contribution value</Tooltip>" based on its popularity and activity, and your share of the monthly revenue pool is proportional to your tracks' combined contribution.
+BeatPass uses a <Tooltip tip="A score calculated from track age, plays, and credited producers. It determines how much subscription revenue a track contributes." cta="See the formula" href="/help/earnings/contribution-system/formula">contribution value</Tooltip> system to share subscription revenue among producers.
 
-## What is Contribution Value?
-
-Contribution value is a number assigned to each track that represents its relative value to the platform. This value is calculated using three factors:
+## What Builds Contribution Value
 
 <CardGroup cols={3}>
   <Card title="Time Since Upload" icon="clock">
-    Newer tracks have higher contribution values. Value gradually decreases over time with a 6-month <Tooltip tip="The time it takes for a track's recency boost to decrease by 50%. On BeatPass this is 6 months.">half-life</Tooltip>.
+    Newer tracks get a stronger recency factor, which decays over time with a 6-month half-life.
   </Card>
-  <Card title="Number of Plays" icon="play">
-    More popular tracks earn higher contribution values. Tracks with more plays get a boost up to 3x their base value.
+  <Card title="Play Activity" icon="play">
+    More plays increase the popularity boost, up to a maximum 3x multiplier.
   </Card>
-  <Card title="Collaborations" icon="users">
-    When multiple producers are credited on a track, the contribution value is split equally among all collaborators.
+  <Card title="Collaborator Count" icon="users">
+    Contribution is split equally across the producers credited on the track.
   </Card>
 </CardGroup>
 
-## How Revenue Distribution Works
+## How Subscription Payout Share Works
 
-Each month, when a subscriber pays their membership fee:
-
-1. **<Tooltip tip="The total subscription income collected each month, before it's split among eligible producers.">Revenue pool</Tooltip> is calculated** — The subscription base amount goes into the monthly producer pool
-2. **Total contributions are summed** — The platform adds up all track contribution values
-3. **Your share is determined** — Your percentage equals your tracks' contributions divided by the total
-4. **Payments are made** — Your share of the revenue is transferred to your Stripe account
+1. BeatPass takes the subscription base amount as the producer pool
+2. All eligible track contribution values are summed
+3. Your producer share is calculated from your contribution divided by the platform total
+4. Eligible producers receive their share through the payout flow
 
 ```mermaid
 flowchart LR
-    A[Subscriber Pays] --> B[Revenue Pool]
-    B --> C[Sum All\nContributions]
-    C --> D[Calculate\nYour %]
-    D --> E[Transfer to\nYour Stripe]
+    A[Subscription base amount] --> B[Producer pool]
+    B --> C[Sum eligible contributions]
+    C --> D[Calculate each producer share]
+    D --> E[Send payout through Stripe flow]
 ```
 
 <PlatformFee />
 
-## Example
+## Important Rules
 
-Imagine the monthly subscription revenue pool is \$10,000 and the total platform contribution value is 5,000.
+### Exclusive-Only Tracks
 
-- **Your tracks' combined contribution**: 50 points
-- **Your share**: $50 \div 5{,}000 = 1\%$
-- **Your payout**: $\$10{,}000 \times 1\% = \$100$
+Tracks marked **exclusive-only** do not contribute to the subscription pool. They can still earn through direct sales, but their contribution value for subscription sharing is treated as zero.
 
-## Why This System?
+### Ineligible Producers
 
-<AccordionGroup>
-  <Accordion title="Fair to all producers">
-    Every producer earns based on the actual value their music brings to the platform, not just who uploads the most tracks.
-  </Accordion>
-  <Accordion title="Rewards engagement">
-    Tracks that listeners actually play earn more than tracks that sit dormant. This encourages uploading quality over quantity.
-  </Accordion>
-  <Accordion title="Encourages fresh content">
-    The time decay factor ensures newer music gets a boost, keeping the platform fresh and rewarding consistent uploaders.
-  </Accordion>
-  <Accordion title="Transparent calculation">
-    You can see your contribution values and share percentage in your Finances dashboard at any time.
-  </Accordion>
-</AccordionGroup>
+If a producer is not payout-ready when a subscription split runs, their share can be excluded and redistributed among eligible producers.
 
-## Contribution Updates
+### Daily Refresh
 
-Track contribution values are recalculated daily to ensure they reflect the latest play counts and time factors. You can view your current contribution data in your **Finances** dashboard.
+BeatPass recalculates contribution values on a roughly 24-hour cycle so new plays and time decay continue to affect the next payout calculations.
 
-## Exclusions
+## Related
 
-Some tracks are not eligible for subscription revenue sharing:
-
-- **Exclusive-only tracks** — Tracks set to exclusive licensing only do not contribute to the subscription pool since they can only be purchased directly
-- **Tracks without a connected payment account** — If your Stripe account isn't fully set up, your share is redistributed to other eligible producers
-
-<Card title="Learn About the Formula" href="/help/earnings/contribution-system/formula" icon="calculator">
-  Want to understand the exact mathematics behind contribution values? Read about the formula in detail.
-</Card>
+<CardGroup cols={2}>
+  <Card title="Earnings Formula" href="/help/earnings/contribution-system/formula" icon="calculator">
+    See the exact formula BeatPass uses.
+  </Card>
+  <Card title="Maximizing Earnings" href="/help/earnings/contribution-system/maximizing-earnings" icon="arrow-trend-up">
+    Learn practical ways to improve contribution and earnings.
+  </Card>
+</CardGroup>

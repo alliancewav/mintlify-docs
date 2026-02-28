@@ -1,100 +1,66 @@
 ---
 audience: help
 title: "Creating Playlists"
-description: "Learn how to create new playlists and customize them with cover images and descriptions."
+description: "Create playlists from the library or add-to-playlist flow and understand the current fields BeatPass exposes."
 ---
 
-# Creating Playlists
+BeatPass supports two practical creation paths: make a new playlist from the library, or create one in the middle of adding a track.
 
-Create playlists to organize beats for projects, moods, or any purpose. Each playlist can have a custom image, description, and privacy settings.
+## Where You Can Start
 
-## Ways to Create a Playlist
+<CardGroup cols={2}>
+  <Card title="Library flow" icon="clipboard-list">
+    Open **Library -> Playlists** and use the create-playlist action to start an empty playlist.
+  </Card>
+  <Card title="Add-to-playlist flow" icon="plus">
+    Start from a track's **Add to playlist** menu when you already know what the first track should be.
+  </Card>
+</CardGroup>
 
-### From the Context Menu
+## Current Playlist Fields
 
-The quickest way to create a playlist while browsing:
+When you create or edit a playlist, BeatPass currently exposes these fields:
 
-1. Right-click on any beat (or long-press on mobile)
-2. Select **Add to playlist**
-3. Click **New playlist** at the top of the list
-4. Enter a name for your playlist
-5. Click **Create**
+| Field | Current behavior |
+| --- | --- |
+| **Image** | Optional square playlist image. |
+| **Name** | Required playlist name. |
+| **Collaborative** | Turns on invite-based editing for other users. |
+| **Public** | Controls whether everyone can see the playlist. |
+| **Description** | Optional text description. |
 
-The beat is automatically added to your new playlist.
+## Creating A Playlist Step By Step
 
-### From Your Library
+<Steps>
+  <Step title="Open the create flow">
+    Start from the library page or from a track's **Add to playlist** action.
+  </Step>
+  <Step title="Fill in the playlist details">
+    Add the name first, then set the image, description, collaboration setting, and privacy.
+  </Step>
+  <Step title="Finish creation">
+    After creation, BeatPass opens the new playlist so you can continue editing or adding tracks.
+  </Step>
+</Steps>
 
-To create an empty playlist:
+## Collaborative Setup During Creation
 
-1. Go to your **Library**
-2. Navigate to the **Playlists** section
-3. Click **New playlist**
-4. Fill in the playlist details
-5. Click **Create**
+If you enable **Collaborative** while creating the playlist:
 
-## Playlist Settings
+- BeatPass shows the collaborator picker inside the create form.
+- You can search for users before finishing creation.
+- Those users are queued as pending invites and are invited after the playlist is created.
 
-When creating or editing a playlist, you can customize:
+## Editing Later
 
-### Name
+You can update the same fields again after creation:
 
-Give your playlist a descriptive name that helps you remember what it's for. Examples:
-- "Summer Vibes 2025"
-- "Dark Trap Beats"
-- "Album Project - Working"
+- Change the image
+- Rename the playlist
+- Toggle **Public**
+- Toggle **Collaborative**
+- Update the description
 
-### Cover Image
-
-Upload a custom image for your playlist:
-
-1. Click the image placeholder
-2. Select an image from your device
-3. The image appears as your playlist cover
-
-If you don't upload an image, your playlist will show a default cover or a collage of track artwork.
-
-### Description
-
-Add a description to explain what your playlist is about. This is especially useful for public playlists that others might discover.
-
-*"Give your playlist a catchy description."*
-
-### Privacy Setting
-
-Choose who can see your playlist:
-
-- **Public** — Everyone can see and find your playlist
-- **Private** — Only you can see this playlist
-
-See [Playlist Privacy](/help/playlists/playlist-privacy) for more details.
-
-### Collaborative Setting
-
-Enable collaboration to let others add tracks:
-
-- **Off** — Only you can add or remove tracks
-- **On** — Invited users can add and remove tracks
-
-See [Collaborative Playlists](/help/playlists/collaborative-playlists) for more details.
-
-## After Creating
-
-Once your playlist is created, you can:
-
-- **Add tracks** — Right-click any beat and select your playlist
-- **Edit details** — Right-click the playlist and select **Edit**
-- **Change privacy** — Toggle between public and private
-- **Delete** — Remove the playlist if you no longer need it
-
-## Editing a Playlist
-
-To edit an existing playlist:
-
-1. Right-click on the playlist (or open the playlist and click the menu icon)
-2. Select **Edit**
-3. Update the name, image, description, or settings
-4. Save your changes
-
-<Tip>
-Create project-specific playlists when working on new music. Name them clearly so you can easily find the beats you've collected for each project.
-</Tip>
+<Note>
+  Collaboration and privacy are separate settings. A playlist can be public without collaborators, or private while still allowing invited editors.
+</Note>

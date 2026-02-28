@@ -2,164 +2,111 @@
 audience: help
 title: "Dashboard Home | Producer Dashboard"
 sidebarTitle: "Home"
-description: "Navigate the Producer Dashboard home page with personalized welcome, quick stats, and POS-style navigation to all producer tools."
-keywords: ["dashboard home", "producer overview", "quick stats", "navigation"]
+description: "Understand the Producer Dashboard Home page, including the greeting header, shortcut grid, and quick stats cards."
+keywords: ["producer dashboard home", "quick stats", "dashboard shortcuts", "producer overview"]
 "og:title": "Dashboard Home - Producer Dashboard | BeatPass"
-"og:description": "Your producer command center starting point."
+"og:description": "Your starting point inside the Producer Dashboard."
 "twitter:card": "summary_large_image"
 ---
 
-## Overview
-
-The Home page (`/producer-dashboard`) serves as your command center, providing a personalized welcome, quick stats overview, and POS-style navigation to all producer tools.
+The Home page is the landing view for the Producer Dashboard. It is built for orientation: who you are signed in as, what your current artist context looks like, and where to go next.
 
 <Info>
-  **Access:** Navigate to `/producer-dashboard` or click **Producer Dashboard** in the navigation menu.
+  Open it at <a href="https://open.beatpass.ca/producer-dashboard">https://open.beatpass.ca/producer-dashboard</a>.
 </Info>
 
----
+## What you see first
 
-## Page Layout
+<CardGroup cols={3}>
+  <Card title="Greeting header" icon="hand">
+    Time-based greeting, current date, artist or display name, and your current level summary.
+  </Card>
+  <Card title="Quick Navigation" icon="compass">
+    Shortcut cards generated from the current dashboard menu configuration.
+  </Card>
+  <Card title="Quick Stats" icon="chart-bar">
+    Eight at-a-glance cards for catalog size, activity, and profile access.
+  </Card>
+</CardGroup>
 
-The Home page is organized into three main sections:
+## Greeting header
 
-| Section | Purpose |
-|---------|---------|
-| **Welcome Header** | Personalized greeting with level and XP display |
-| **Quick Navigation Grid** | POS-style card grid for instant tool access |
-| **Quick Stats Overview** | Snapshot of key metrics at a glance |
+The top of the page personalizes the dashboard around the signed-in account.
 
----
+### The header can include
 
-## Welcome Header
+- A greeting such as morning, afternoon, or evening
+- The current day and date
+- Your linked artist name when available
+- Your BeatPass display name as a fallback
+- Your current producer level title
+- Your current XP total
 
-The header section provides a personalized greeting and your producer status.
+<Note>
+  The level summary comes from the same progress system used on the full [Progress page](/help/producer-dashboard/progress).
+</Note>
 
-<Tabs>
-  <Tab title="Header Elements">
-    | Element | Description |
-    |---------|-------------|
-    | **Date Display** | Current day and date |
-    | **Time-Based Greeting** | "Good morning/afternoon/evening" based on time of day |
-    | **Artist/User Name** | Your producer name prominently displayed |
-    | **Welcome Message** | "Welcome to your creative command center" |
-    | **Level Badge** | Your current producer level with title |
-    | **XP Display** | Total experience points earned |
-  </Tab>
-  
-  <Tab title="Visual Design">
-    **Dynamic Background:**
-    - Your avatar image with blur effect
-    - Multi-layered gradient overlays for readability
-    - Responsive layout (compact on mobile, full on desktop)
-    
-    **Color Scheme:**
-    - Primary gradients matching your profile theme
-    - High contrast text for accessibility
-    - Subtle shadows for depth
-  </Tab>
-</Tabs>
+## Quick Navigation
 
----
+The shortcut grid is the fastest way to move between dashboard pages.
 
-## Quick Navigation Grid
+### How it works
 
-A POS-style card grid for instant access to producer tools.
+- The cards are built from the same menu configuration used by the dashboard sidebar
+- Most cards open other Producer Dashboard pages
+- Some cards may point outside the dashboard and open in a new tab
+- Card descriptions are more visible on larger screens
 
-### Navigation Cards
+### If the grid is empty
 
-| Card | Icon Color | Links To | Description |
-|------|------------|----------|-------------|
-| **Progress** | Purple | `/producer-dashboard/progress` | Track XP and achievements |
-| **Tracks** | Blue | `/producer-dashboard/tracks` | Manage your catalog |
-| **Albums** | Pink | `/producer-dashboard/albums` | Organize collections |
-| **Activity** | Cyan | `/producer-dashboard/activity` | View contribution history |
-| **Leaderboards** | Amber | `/producer-dashboard/leaderboards` | See your rankings |
-| **Finances** | Emerald | `/producer-dashboard/finances` | Manage earnings |
+BeatPass shows **No menu items configured** instead of fake shortcuts. That means the current site configuration does not have shortcut cards available yet.
 
-### Card Design
+## Quick Stats
 
-Each card features:
-- **Color-coded icon** — Matching the page theme
-- **Page title** — Clear identification
-- **Brief description** — Desktop only, explains the page purpose
-- **Hover effects** — Directional arrow indicator
-- **Touch-optimized** — Mobile-friendly tap targets
+The Home page uses the **Quick Stats** section to surface the most visible numbers for your current artist context.
 
-### Responsive Grid
-
-| Screen Size | Columns |
-|-------------|---------|
-| Mobile | 2 columns |
-| Tablet | 3 columns |
-| Desktop | 4 columns |
-
----
-
-## Quick Stats Overview
-
-A snapshot of your key metrics at a glance.
-
-### Stats Displayed
-
-| Stat | Icon | Color | Description |
-|------|------|-------|-------------|
-| **Tracks** | Music | Blue | Total tracks in catalog |
-| **Total Plays** | Play | Cyan | Lifetime play count |
-| **Albums** | Disc | Pink | Album collections count |
-| **Downloads** | Download | Emerald | Total track downloads |
-| **Followers** | Users | Violet | Artist followers count |
-| **Level** | Sparkles | Amber | Current producer level + XP |
-| **Growth** | TrendingUp | Green | Growth rate percentage |
-| **View Profile** | Users | Muted | Link to your artist page |
-
-### Card Design
-
-Each stat card contains:
-- **High-contrast backgrounds** — `bg-gray-50` / `dark:bg-white/5`
-- **Color-coded icons** — Matching each metric
-- **Large value display** — Primary number prominently shown
-- **Optional sub-info** — Additional context where relevant
-
-### Responsive Layout
-
-| Screen Size | Layout |
-|-------------|--------|
-| Mobile | 2 columns |
-| Tablet | 3 columns |
-| Desktop | 4 columns |
-
----
-
-## Usage Tips
+| Card | What it tracks |
+| --- | --- |
+| **Tracks** | Total tracks for the current artist |
+| **Total Plays** | Lifetime plays across the current catalog |
+| **Albums** | Total album count |
+| **Downloads** | Track download count |
+| **Followers** | Follower total |
+| **Level** | Current level and XP |
+| **Growth** | Current growth rate or a calculating/loading state |
+| **View Profile** | Shortcut to your public artist page |
 
 <Tip>
-  The Home page is your starting point—use it to quickly check your stats and navigate to specific tools without hunting through menus.
+  Use the Home page to decide where to investigate next. If a number changes here, open the page that owns that signal instead of treating the Home page like a full report.
 </Tip>
 
-<Tip>
-  The time-based greeting updates throughout the day, giving you a fresh feel each time you visit.
-</Tip>
+## What to expect when data is missing
 
-<Tip>
-  On mobile, swipe horizontally on the stats section to see all metrics without scrolling vertically.
-</Tip>
+<AccordionGroup>
+  <Accordion title="You are new to the dashboard" icon="sparkles" defaultOpen>
+    New artists often see `0` values on several cards until tracks, plays, downloads, or followers begin to accumulate.
+  </Accordion>
+  <Accordion title="Growth is still calculating" icon="chart-line">
+    The **Growth** card can stay neutral while BeatPass finishes calculating the current rate. It does not insert a made-up percentage.
+  </Accordion>
+  <Accordion title="No linked artist profile yet" icon="user">
+    Other dashboard pages will send you to setup or Backstage if the account is missing an artist profile.
+  </Accordion>
+</AccordionGroup>
 
----
-
-## Next Steps
+## Related
 
 <CardGroup cols={2}>
-  <Card title="Activity Page" icon="chart-line" href="/help/producer-dashboard/activity">
-    Track your contribution history and downloads.
+  <Card title="Activity" icon="chart-line" href="/help/producer-dashboard/activity">
+    Follow uploads, downloads, and contribution history in more detail.
   </Card>
-  <Card title="Tracks Page" icon="compact-disc" href="/help/producer-dashboard/tracks">
-    Manage your track catalog.
+  <Card title="Tracks" icon="music" href="/help/producer-dashboard/tracks">
+    Open your catalog table and collaboration tools.
   </Card>
-  <Card title="Progress Page" icon="chart-line" href="/help/producer-dashboard/progress">
-    View XP and achievements.
+  <Card title="Progress" icon="bolt" href="/help/producer-dashboard/progress">
+    See the full XP and achievements breakdown behind your level.
   </Card>
-  <Card title="Leaderboards" icon="trophy" href="/help/producer-dashboard/leaderboards">
-    See how you rank.
+  <Card title="Finances" icon="wallet" href="/help/producer-dashboard/finances">
+    Review Stripe setup status, balances, and transaction activity.
   </Card>
 </CardGroup>

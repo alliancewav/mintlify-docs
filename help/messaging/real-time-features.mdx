@@ -2,148 +2,67 @@
 audience: help
 title: "Real-Time Features"
 sidebarTitle: "Real-Time Features"
-description: "Learn about BeatPass messaging's real-time features including typing indicators, read receipts, and instant message delivery."
+description: "Understand typing indicators, seen states, unread badges, and retry behavior in BeatPass messaging."
 keywords: ["typing indicator", "read receipts", "real-time", "instant messaging", "seen", "delivered"]
-"og:title": "Real-Time Features - BeatPass Help"
-"og:description": "Understand typing indicators and read receipts in BeatPass messaging."
+og:title: "Real-Time Features - BeatPass Help"
+og:description: "Understand live messaging states on BeatPass."
 ---
 
-BeatPass messaging includes real-time features that make conversations feel natural and responsive. You can see when someone is typing a reply and know when your messages have been read.
+BeatPass messaging updates live while the panel is open. You can see typing activity, unread state changes, delivery status, and failed-message retry behavior without manually refreshing the page.
 
 ---
 
 ## Typing Indicators
 
-### What They Look Like
+Typing indicators appear in two places:
 
-When someone is typing a message to you, you'll see an **animated typing indicator** appear at the bottom of the conversation. The indicator shows three bouncing dots (similar to iMessage or WhatsApp), letting you know a message is on its way.
+- **Conversation list:** shows `typing...` for the active conversation preview
+- **Open chat view:** shows the animated typing indicator near the bottom of the thread
 
-### How They Work
-
-- **Animated dots** — Three bouncing dots appear with a smooth animation
-- **Appears quickly** — Shows shortly after the other person starts typing
-- **Disappears automatically** — When they stop typing or send their message
-- **Updates in real time** — No need to refresh or reload
-
-### In Group Conversations
-
-In group chats, typing indicators show which participants are currently typing. If multiple people are typing at once, you'll see all of them listed.
+In group chats, BeatPass can show multiple typing participants at once.
 
 <Note>
-  Typing indicators are only visible while you have the conversation open. They don't appear as notifications.
+  Typing indicators are only visible while the conversation is active. They are not delivered as notifications.
 </Note>
 
 ---
 
-## Read Receipts
+## Delivery and Read States
 
-### Understanding Read Status
+| State | What it means |
+| --- | --- |
+| **Sending...** | Your message is still in its optimistic send state |
+| **Sent** | BeatPass accepted the message |
+| **Seen** | The message has been read |
+| **Failed** | The send did not complete and can be retried |
 
-BeatPass shows you when your messages have been seen by the recipient. This helps you know if they've received your message or if you should follow up.
+Read state appears:
 
-### Status Indicators
-
-Read receipts appear in two places:
-
-**In the Conversation List:**
-
-| Indicator | Meaning |
-|-----------|---------|
-| **No checkmark** | Message sent (recipient hasn't opened the conversation yet) |
-| **✓✓ Green double checkmark** | Message has been read by recipient |
-
-**Inside the Conversation:**
-
-| Indicator | Meaning |
-|-----------|---------|
-| **Sent** | Message has been delivered |
-| **Seen** | Message has been read by recipient |
-
-### How Read Receipts Work
-
-- Messages are marked as read when the recipient **opens the conversation**
-- All unread messages in the conversation are marked read at once
-- Green double checkmarks (✓✓) appear in your conversation list next to messages you've sent that have been read
-- Inside conversations, you'll see "Sent" or "Seen" status below your messages
-
-### In Direct Messages
-
-In one-on-one conversations, the read receipt tells you when the other person saw your message.
-
-### In Group Conversations
-
-In groups, read receipts show when **any** participant has read the message. Multiple people reading the message updates the status.
+- inside the open conversation for your own messages
+- in the conversation list as a green double-check when the latest sent direct message has been read
 
 <Info>
-  Read receipts are automatic and cannot be turned off. When you open a conversation, the sender is notified that you've seen their messages.
+  Opening a conversation marks unread messages as read. BeatPass does not expose a toggle to disable read receipts.
 </Info>
 
 ---
 
-## Instant Message Delivery
+## Other Live Behaviors
 
-### How Fast Are Messages?
-
-Messages on BeatPass are delivered **instantly**:
-- Your message appears immediately after you send it
-- The recipient sees it within seconds
-- No noticeable delay in most cases
-
-### Live Updates
-
-You don't need to refresh to see new messages:
-- New messages appear automatically in open conversations
-- The conversation list updates when new messages arrive
-- Unread counts update in real time
-
-### New Message Indicator
-
-When a new message arrives while you're scrolled up in a conversation:
-- A **floating indicator** appears showing who sent the new message
-- Click it to jump to the latest messages
-- Or continue reading and scroll down when ready
+- New messages appear automatically while a conversation is open
+- The message icon badge updates as unread counts change
+- If a message send fails, BeatPass shows a retry control on that bubble
+- If you are scrolled away from the newest messages, the chat view can surface a jump-to-latest cue
 
 ---
 
-## How Real-Time Works
+## Privacy and Visibility
 
-BeatPass uses modern technology to keep messaging responsive:
-
-### For Open Conversations
-
-When you have a conversation open:
-- Messages update very frequently
-- Typing indicators update nearly instantly
-- Read receipts sync automatically
-
-### Background Updates
-
-When you're not in the message panel:
-- Unread counts still update
-- You'll receive notifications for new messages (based on your notification settings)
-- Opening the panel shows the latest state
-
----
-
-## Privacy & Real-Time Features
-
-### What Others Can See
-
-| Feature | What They See |
-|---------|---------------|
-| **Typing indicators** | When you're actively typing |
+| Feature | What other participants can see |
+| --- | --- |
+| **Typing indicators** | When you are actively typing |
 | **Read receipts** | When you open the conversation |
-| **Online status** | Not shown on BeatPass |
-
-### What You Control
-
-- Read receipts are automatic and cannot be turned off
-- Typing indicators cannot be hidden while typing
-- You can delete conversations to remove them from your inbox
-
-<Tip>
-  If you want to read a message without triggering a read receipt, there's no way to do that in BeatPass messaging. Opening the conversation always marks messages as read.
-</Tip>
+| **Online status** | Not currently shown |
 
 ---
 
@@ -151,43 +70,21 @@ When you're not in the message panel:
 
 <AccordionGroup>
   <Accordion title="Typing indicator isn't showing">
-    Typing indicators require both users to have the conversation open. If the indicator isn't appearing, the other person may not be actively typing or the conversation may not be open on their end.
+    Typing indicators only appear while the conversation is active. If you do not see one, the other person may have stopped typing or may not have the thread open.
   </Accordion>
-  
+
   <Accordion title="Messages aren't updating automatically">
-    Try refreshing the page. If the issue persists, check your internet connection. Real-time features require a stable connection to work properly.
+    Reopen the conversation or refresh the page if the live state becomes stale.
   </Accordion>
-  
+
   <Accordion title="Read receipts seem delayed">
-    Read receipts are triggered when the recipient opens the conversation. If they haven't opened it yet, the receipt won't show. Give it some time — they may just be busy.
+    Read receipts appear when the recipient opens the thread. If they have not opened it yet, the state will remain **Sent**.
   </Accordion>
-  
-  <Accordion title="I see typing but no message came">
-    The person may have started typing and then stopped without sending. Typing indicators disappear after a few seconds of inactivity.
+
+  <Accordion title="A message failed to send">
+    Use the retry control shown on the failed bubble. If the retry also fails, refresh the page and try again.
   </Accordion>
 </AccordionGroup>
-
----
-
-## Tips for Responsive Conversations
-
-### Be Aware of Read Receipts
-
-Remember that when you open a conversation, the other person knows you've seen their message. If you open it, consider responding — or at least acknowledge that you'll respond later.
-
-### Typing Indicators Set Expectations
-
-When someone sees you're typing, they expect a message soon. If you need to stop and think:
-- It's okay to take your time
-- The indicator disappears after a few seconds of not typing
-- No pressure to send immediately
-
-### Stay Connected
-
-For the best real-time experience:
-- Keep a stable internet connection
-- Leave BeatPass open in a browser tab
-- Check the message icon for unread counts
 
 ---
 
@@ -198,6 +95,6 @@ For the best real-time experience:
     Learn the basics of sending messages.
   </Card>
   <Card title="Managing Conversations" icon="folder" href="/help/messaging/managing-conversations">
-    Organize your message inbox.
+    Organize and review your recent chats.
   </Card>
 </CardGroup>

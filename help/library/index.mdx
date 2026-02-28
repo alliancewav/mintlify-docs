@@ -1,89 +1,74 @@
 ---
 audience: help
 title: "Your Library"
-description: "Manage your personal music library, including liked beats, playlists, followed producers, and licenses."
+description: "Use your BeatPass library to revisit saved tracks, collections, producers, listening history, beat requests, licenses, playlists, and lyrics."
 ---
 
-Your Library is where all your saved content lives on BeatPass. Here you'll find your liked beats, playlists, followed producers, beat requests, and license certificates.
+Your library is the personal side of BeatPass. It collects the music and tools you have already interacted with so you can get back to them quickly without browsing the full catalog again.
 
-## Accessing Your Library
+<Info>
+  On desktop, opening `Library` takes you straight to **Your tracks**. On smaller screens, the top-level library page shows tiles for each library section.
+</Info>
 
-Find your library in the sidebar under **Your Library**, or tap the **Library** icon on mobile. You must be logged in to access your library.
-
-## What's in Your Library
+## What You Can Keep In Your Library
 
 <CardGroup cols={2}>
-  <Card title="Liked Beats" href="/help/library/liked-tracks" icon="heart">
-    All the beats you've saved by clicking the heart icon.
+  <Card title="Your tracks" href="/help/library/your-tracks" icon="heart">
+    Saved tracks at `/library/songs`.
   </Card>
-  <Card title="Liked Collections" href="/help/library/liked-albums" icon="record-vinyl">
-    Beat packs and collections you've saved.
+  <Card title="Your collections" href="/help/library/your-collections" icon="record-vinyl">
+    Saved collections at `/library/albums`.
   </Card>
-  <Card title="Following" href="/help/library/followed-artists" icon="user-plus">
-    Producers you follow to stay updated on new uploads.
+  <Card title="Your producers" href="/help/library/your-producers" icon="users">
+    Saved producer profiles at `/library/artists`.
   </Card>
-  <Card title="History" href="/help/library/listening-history" icon="clock">
-    Your recently played beats.
+  <Card title="Listening history" href="/help/library/listening-history" icon="clock">
+    Recently played tracks at `/library/history`.
   </Card>
-  <Card title="My Requests" href="/help/library/custom-requests" icon="rocket">
-    Beat requests you've submitted.
+  <Card title="Beat requests" href="/help/library/beat-requests" icon="message">
+    Requests you created at `/library/custom-requests`.
   </Card>
-  <Card title="My Licenses" href="/help/library/my-licenses" icon="file-certificate">
-    License certificates for beats you've downloaded.
+  <Card title="Licenses" href="/help/library/licenses" icon="file-certificate">
+    License records at `/library/licenses`.
+  </Card>
+  <Card title="Playlists" href="/help/playlists" icon="clipboard-list">
+    Playlist management from your library and playlist pages.
+  </Card>
+  <Card title="Lyrics" href="/help/library/lyrics" icon="microphone-lines">
+    Your saved lyric notes at `/library/lyrics`.
   </Card>
 </CardGroup>
 
-## Library Sections
+## Accessing Library Sections
 
-### Beats
+<AccordionGroup>
+  <Accordion title="Desktop behavior">
+    The left navigation includes **Library** and the individual library destinations. Opening **Library** routes to **Your tracks**, where you can switch into other sections such as **Collections**, **Producers**, **Play history**, **Beat requests**, **Licenses**, and **Lyrics**.
+  </Accordion>
+  <Accordion title="Mobile behavior">
+    The top-level library screen acts like a hub. It shows large shortcuts for **Beats**, **Playlists**, **Collections**, **Producers**, **Play history**, **Beat requests**, **Licenses**, and **Lyrics**.
+  </Accordion>
+  <Accordion title="Account requirement">
+    Library pages are tied to your account. You need to be signed in to save content and open these routes.
+  </Accordion>
+</AccordionGroup>
 
-Your **Liked Beats** section contains every beat you've saved by clicking the heart icon. These are sorted by when you added them, with the most recent first. You can:
+## How Items Get Here
 
-- Search within your liked beats
-- Sort by date added, name, or release date
-- Play all your liked beats as a queue
+- Tracks and collections appear after you save them to your library.
+- Producer profiles appear after you save that producer.
+- Listening history is created automatically as you play music.
+- Beat requests appear after you publish a request.
+- Licenses appear when BeatPass has an active license record for your download or purchase.
+- Lyrics appear after you write and save lyrics from the player lyrics editor.
 
-### Playlists
+## Related Help
 
-Create custom playlists to organize beats however you like. Click the **+** button in the Playlists section to create a new playlist.
-
-### Collections
-
-When you like a beat pack (collection), it's saved here for easy access. Collections are groups of beats curated by theme, mood, or style.
-
-### Following
-
-See all the producers you follow. When producers you follow upload new beats, you'll be notified (if enabled) and can see their new content in your feed.
-
-### History
-
-Your listening history shows what you've played recently. Great for finding that beat you listened to but forgot to save.
-
-### My Requests
-
-Track the beat requests you've submitted. Each request shows:
-
-- The specifications you provided (genre, BPM, mood, etc.)
-- Time remaining before expiration
-- Option to delete the request
-
-### My Licenses
-
-When you download a beat as a subscriber, a license certificate is automatically generated. The My Licenses section shows all your licenses with:
-
-- Track name and producer
-- License type (non-exclusive or exclusive)
-- Issue date and status
-- Download option for the PDF certificate
-- Link to verify the license
-
-## Tips
-
-<Tip>
-  Use the search bar on any library page to quickly find what you're looking for within that section.
-</Tip>
-
-- **Like beats as you browse** — Build your library by liking beats you enjoy, even if you're not ready to download yet
-- **Create playlists for projects** — Organize beats by the project you might use them for
-- **Follow your favorite producers** — Never miss new uploads from producers whose style you love
-- **Download your license certificates** — Keep copies of your licenses for your records
+<CardGroup cols={2}>
+  <Card title="Playlists" href="/help/playlists" icon="clipboard-list">
+    Create, organize, and share playlists.
+  </Card>
+  <Card title="Downloads and Licensing" href="/help/downloads-and-licensing" icon="shield-check">
+    Understand downloads, certificates, and verification.
+  </Card>
+</CardGroup>

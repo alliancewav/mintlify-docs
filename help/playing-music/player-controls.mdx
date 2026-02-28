@@ -1,129 +1,59 @@
 ---
 audience: help
 title: "Player Controls"
-description: "Learn how to use the BeatPass player controls including play, pause, skip, shuffle, repeat, and volume."
+description: "Understand the playback buttons and secondary player actions available on BeatPass across desktop and mobile."
 ---
 
-# Player Controls
+The BeatPass player exposes a core set of playback controls everywhere, then adds extra actions depending on screen size, instance settings, and the type of track that is currently cued.
 
-The BeatPass player gives you full control over your listening experience. Here's how to use each control.
+## Core Playback Controls
 
-## Main Playback Controls
+| Control | What it does |
+| --- | --- |
+| **Play/Pause** | Starts or pauses the current item. |
+| **Previous** | Moves to the previous item in the queue. |
+| **Next** | Skips forward in the queue. |
+| **Shuffle** | Randomizes queue order. |
+| **Repeat** | Cycles repeat behavior for the current queue. |
+| **Seekbar** | Jumps to a position in the current track. |
 
-The center of the player bar contains the primary playback buttons:
+## Desktop Player Layout
 
-### Play / Pause
+On desktop, the player bar is split into three practical areas:
 
-- **Play** — Click the play button (▶) to start or resume playback
-- **Pause** — Click the pause button (⏸) to pause the current track
+| Area | Current behavior |
+| --- | --- |
+| Left | Track image, track link, artist links, and a like button for the cued track. |
+| Center | Playback controls plus the main seekbar. |
+| Right | Queue toggle, and on larger screens lyrics, volume, and expand/collapse controls. |
 
-The button toggles between these two states depending on whether music is playing.
+## Mobile Player Layout
 
-### Previous / Next
+Mobile uses two layers:
 
-- **Previous** (⏮) — Go back to the previous track in your queue
-- **Next** (⏭) — Skip to the next track in your queue
+- **Mini player**: track info, previous, play/pause, next, and the progress bar.
+- **Expanded overlay**: the full track view with the larger control set, lyrics access, queue access, and the rest of the session controls.
 
-<Tip>
-If you're more than a few seconds into a track, clicking **Previous** first restarts the current track. Click it again quickly to go to the actual previous track.
-</Tip>
+## Secondary Actions
 
-### Shuffle
+These controls are conditional rather than guaranteed:
 
-The shuffle button randomizes the order of tracks in your queue:
+- **Queue** appears when there is an active player session and lets you inspect upcoming tracks.
+- **Lyrics** appears only when a track is cued and the instance has not hidden lyrics.
+- **Download** appears only when downloads are enabled and the current track supports direct download. If your account does not have download access, the button can open the upgrade flow instead of downloading immediately.
+- **Volume** is available on larger desktop layouts.
+- **Expand** is available on larger desktop layouts when the video overlay button is enabled.
 
-- **Off** — Tracks play in their original order
-- **On** (highlighted) — Tracks play in random order
+## What Changes By Context
 
-Click the shuffle icon to toggle between these modes. When active, the icon appears highlighted in your theme's accent color.
-
-### Repeat
-
-The repeat button cycles through three modes:
-
-1. **Off** — Queue plays once, then stops
-2. **Repeat All** — After the last track, playback loops back to the first
-3. **Repeat One** — The current track repeats continuously
-
-The icon changes to show which mode is active:
-- Normal icon = Off
-- Highlighted icon = Repeat All
-- Icon with "1" indicator = Repeat One
-
-## Seekbar and Time
-
-The seekbar shows your position in the current track:
-
-- **Current time** — Displayed on the left (e.g., "1:45")
-- **Progress bar** — Visual representation of how far through the track you are
-- **Total duration** — Displayed on the right (e.g., "3:30")
-
-### Seeking
-
-To jump to a specific part of a track:
-
-1. Click anywhere on the progress bar to jump to that position
-2. Or drag the progress indicator to scrub through the track
-
-## Volume Controls
-
-Volume controls appear on the right side of the player bar (desktop only):
-
-### Volume Slider
-
-- Drag the slider left to decrease volume
-- Drag right to increase volume
-- The slider shows your current volume level
-
-### Mute / Unmute
-
-Click the speaker icon to toggle mute:
-
-- **Speaker icon** — Audio is playing (click to mute)
-- **Muted speaker icon** — Audio is muted (click to unmute)
-
-The icon changes based on your current volume level:
-- Low volume = single sound wave
-- High volume = multiple sound waves
-- Muted = crossed-out speaker
-
-## Additional Controls
-
-### Like Button
-
-The heart icon next to the track info lets you like the current track:
-
-- **Empty heart** — Track is not liked
-- **Filled heart** — Track is in your liked songs
-
-### Queue Button
-
-Click the queue icon to open or close the queue panel on the right side of the screen. See [Queue & Playback](/help/playing-music/queue-and-playback) for details.
-
-### Lyrics Button
-
-Click the microphone icon to open the lyrics view (when available). See [Lyrics](/help/playing-music/lyrics) for details.
-
-### Download Button
-
-Click the download icon to download the current track:
-
-- **Active** — Available for paid subscribers
-- **Disabled** — Requires a subscription to use
-
-### Expand Button
-
-Click the expand/collapse button to toggle the player overlay between minimized and expanded views.
-
-## Mobile Controls
-
-On mobile devices, tap the mini player bar to expand to full-screen view with larger controls:
-
-- All the same controls are available
-- Touch-optimized button sizes
-- Swipe down to minimize
-- Track info displays BPM and key when available
-
-<Info>
-Volume controls are not shown on mobile devices. Use your device's physical volume buttons to adjust playback volume.
-</Info>
+<AccordionGroup>
+  <Accordion title="No track selected">
+    The player hides entirely until something is cued.
+  </Accordion>
+  <Accordion title="Mobile">
+    Desktop-only controls such as the volume slider move out of the bottom bar. Mobile keeps the compact transport visible and pushes advanced controls into the expanded overlay.
+  </Accordion>
+  <Accordion title="Instance settings">
+    BeatPass administrators can hide certain features, such as lyrics or the expand button, so your player may expose fewer actions than another BeatPass deployment.
+  </Accordion>
+</AccordionGroup>

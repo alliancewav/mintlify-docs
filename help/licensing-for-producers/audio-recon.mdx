@@ -1,187 +1,130 @@
 ---
 audience: help
 title: "Audio Recon"
-description: "How BeatPass automatically detects audio similarities between your beats and songs on Spotify, YouTube, and Deezer."
-keywords: ["audio recon", "BeatPassID", "audio similarity", "streaming", "license verification", "sample-safe"]
+description: "How BeatPass detects audio similarities between your beats and songs on major streaming platforms."
+keywords: ["audio recon", "audio similarity", "streaming", "license verification", "fingerprinting"]
 "og:title": "Audio Recon - BeatPass Help"
 "og:description": "Learn how BeatPass scans streaming platforms to find songs that sound similar to your beats."
 ---
 
 import NeedHelp from "/snippets/sections/need-help.mdx";
 
-BeatPass automatically scans global music databases to detect songs on Spotify, YouTube, and Deezer that sound similar to your beats. This feature is available exclusively for verified producer profiles.
+Audio Recon is BeatPass's verified-producer feature for spotting songs that sound similar to your beats on supported streaming platforms.
 
 <Warning>
-  **Audio Recon detects audio similarity, not confirmed placements.** A match may indicate that your beat was used in a song, but it could also be caused by shared royalty-free samples, similar sound design, or coincidental similarity. Always listen carefully and verify each match before taking action.
+  Audio Recon detects **similarity**, not confirmed placements. A match may come from shared royalty-free samples, similar sound design, or coincidence. Always verify by listening before assuming your beat was used.
 </Warning>
+
+## Who Can Use Audio Recon
+
+Audio Recon is currently limited to:
+
+- **Verified producer profiles**
+- **BeatPass-hosted tracks**
+- Tracks with a **completed audio fingerprint**
+
+<Note>
+  For collaborative beats, the scan can run when at least one credited producer on the track is verified. BeatPass can still notify the other linked producers about matches on that track.
+</Note>
 
 ## How It Works
 
-BeatPass uses <Tooltip tip="BeatPass's audio fingerprinting technology that creates a unique digital signature of your beat's audio waveform.">BeatPassID</Tooltip> fingerprinting technology to compare your uploaded beats against millions of songs across major streaming platforms. When a similarity is found, you're notified with full details about the song, the releasing artist, and where to listen.
-
 <Steps>
   <Step title="Your beat is fingerprinted">
-    When you upload a beat, BeatPassID creates a unique audio fingerprint — a digital signature of your beat's sound.
+    BeatPass fingerprints the track when it is uploaded or when the audio file is replaced.
   </Step>
-
-  <Step title="Scheduled scanning">
-    BeatPass runs Audio Recon scans automatically every day, rotating through eligible tracks so your catalog is rechecked on a rolling cycle. No manual action is required.
+  <Step title="BeatPass scans on a rolling schedule">
+    Audio Recon scans run automatically for verified producers on a rolling cycle. The current system targets monthly rescans rather than a daily guarantee.
   </Step>
-
-  <Step title="Similarity detected">
-    When a song on Spotify, YouTube, or Deezer closely matches your beat's audio fingerprint, a match is recorded.
+  <Step title="High-similarity matches are stored">
+    BeatPass records possible matches when supported streaming data is similar enough to your beat.
   </Step>
-
-  <Step title="You're notified">
-    You receive an in-app notification (and optionally an email) with the song details, streaming links, and similarity score.
+  <Step title="You review the result">
+    BeatPass can notify you and surface the match on the track so you can investigate it.
   </Step>
 </Steps>
 
-## Requirements
+## Where Matches Appear
 
-To use Audio Recon, you need:
+When BeatPass finds a match, the current product can show it inside the **Audio Recon** section on the track page.
 
-- A **verified producer profile** — [Request verification](https://open.beatpass.ca/backstage/requests/verify-artist) if you haven't already
-- At least one **uploaded beat** hosted on BeatPass (not external links)
-- A completed **audio fingerprint** for your beat (generated automatically on upload)
+That section is intended for producers credited on the beat, not for listeners.
 
-<Info>
-  For collaborative beats, only one producer on the track needs to be verified for the scan to run. All producers linked to the beat are notified when a match is found — even if they aren't individually verified.
-</Info>
+## Similarity Scores
 
-## Viewing Your Matches
+BeatPass treats higher similarity scores as stronger signals, but not as proof of use.
 
-When similarities are detected, they appear in the **Audio Recon** section on your track page.
+The current email copy for Audio Recon explains that:
 
-Each match shows:
+- Scans run monthly for verified producer profiles
+- Only matches above **80% similarity** are shown
 
-- **Song title and artist** — The name of the song and who released it
-- **Similarity score** — How closely the song's audio fingerprint matches your beat (high-confidence matches only)
-- **Streaming links** — Direct links to listen on Spotify, YouTube, and Deezer
-- **Release date** — When the song was published
-- **Album and label** — Additional release information when available
-
-<Note>
-  Only you and other producers credited on the beat can see the **Audio Recon** section. It's not visible to listeners or other users.
-</Note>
-
-## Understanding Similarity Scores
-
-The similarity score indicates how closely a detected song's audio fingerprint matches your beat:
-
-| Score | Meaning |
-|-------|--------|
-| **90–100%** | Very high similarity — strong indication your beat may have been used, but verify by listening |
-
-Only high-confidence matches are shown in Audio Recon. Lower-confidence detections are filtered out to reduce false positives.
-
-<Info>
-  A high similarity score does **not** guarantee your beat was used. Common royalty-free samples, similar drum patterns, or widely-used sound design techniques can produce high scores between unrelated tracks.
-</Info>
+That makes Audio Recon useful for investigation, not for automatic enforcement.
 
 ## Notifications
 
-When a new similarity match is detected, you receive:
+When a new match is found, BeatPass can notify you through your enabled notification channels, such as:
 
-- **In-app notification** — Visible in your notification center (bell icon)
-- **Email notification** — Detailed email with streaming links, match details, and verification guidance
+- In-app notifications
+- Email notifications
 
-You can manage these notifications from your [notification preferences](https://open.beatpass.ca/notifications/settings). Audio Recon notifications appear under the **Audio Recon** group, which is available for verified producers.
+Review your notification settings if you want to control how those alerts reach you.
 
-## Verifying a Match
-
-When you receive an Audio Recon notification, take these steps to verify it:
+## How to Review a Match
 
 <Steps>
-  <Step title="Listen to both tracks">
-    Use the streaming links in your notification or on the track page to listen to the matched song. Compare it carefully against your beat to determine whether it actually uses your work.
+  <Step title="Listen to both recordings">
+    Compare the matched song against your beat closely.
   </Step>
-
-  <Step title="Consider common causes">
-    Not every match is a placement. The similarity could be caused by shared royalty-free samples, similar drum kits, common chord progressions, or widely-used sound design. If the match sounds coincidental, no action is needed.
+  <Step title="Rule out common false positives">
+    Shared sample packs, similar drum kits, and common sound design can all create high similarity.
   </Step>
-
-  <Step title="Check your download history">
-    If the song does use your beat and the user obtained it through BeatPass, a <Tooltip tip="An automatically generated legal document proving the user has the right to use your beat, including audio fingerprint verification.">license certificate</Tooltip> was created at the time of download and you would have received a download notification email.
+  <Step title="Check BeatPass licensing context">
+    If the song really uses your beat, compare it against your BeatPass licensing history and existing certificates.
   </Step>
-
-  <Step title="Contact support for unauthorized use">
-    If you're confident your beat was used without a valid license, contact BeatPass support. We can verify licensing records and help you with next steps.
+  <Step title="Escalate only after verification">
+    If you still believe the use is unauthorized, contact BeatPass support with the match details.
   </Step>
 </Steps>
 
-## How This Connects to BeatPass Licensing
+## Covered Platforms
 
-Audio Recon works alongside BeatPass's existing licensing infrastructure:
+The current Audio Recon messaging references:
 
-### License Certificates
+- Spotify
+- YouTube
+- Deezer
 
-Every beat downloaded through BeatPass generates an automatic <Tooltip tip="An official document proving someone has the right to use your beat, including a unique License ID, terms, and BeatPassID audio fingerprint.">license certificate</Tooltip>. When Audio Recon finds a match that you've confirmed is a genuine use of your beat, you can cross-reference it with your download notifications and license records to confirm whether the user obtained your beat legitimately.
+Do not promise additional platforms unless the product explicitly adds and documents them.
 
-Learn more: [License Certificates](/help/licensing-for-producers/license-certificates)
-
-### BeatPassID Fingerprinting
-
-The same <Tooltip tip="BeatPass's audio fingerprinting technology that creates a unique digital signature of your beat's audio waveform.">BeatPassID</Tooltip> technology that powers license certificate verification also powers Audio Recon. Your beat's audio fingerprint is compared against streaming catalogs to identify similar audio.
-
-### Sample-Safe Warranty
-
-BeatPass beats come with a <Tooltip tip="A guarantee that the beat was originally produced and uploaded by the credited producer, backed by BeatPassID audio fingerprint verification.">sample-safe warranty</Tooltip> — meaning the beat was originally produced and uploaded by the credited producer, backed by BeatPassID verification. If an Audio Recon match turns out to be a genuine placement and the user has a valid BeatPass license, both parties are protected by the platform's licensing terms.
-
-## Scanning Schedule
-
-- Scans run **automatically every day** — no manual action required
-- Each scan compares your beats against the latest streaming catalog data
-- New similarities are detected as songs are added to Spotify, YouTube, and Deezer
-- You're only notified once per new match (rescans don't trigger duplicate notifications)
-- Tracks are rescanned on a rolling cycle (target: about every 30 days)
-
-## Frequently Asked Questions
+## Common Questions
 
 <AccordionGroup>
-  <Accordion title="Why don't I see the Audio Recon section on my track?">
-    The **Audio Recon** section is visible to producers credited on the track. If you're a verified producer and don't see results yet, your track may still be in the scan rotation or no high-confidence similarity has been detected.
+  <Accordion title="Can I trigger a manual scan?">
+    Not at the moment. Audio Recon is currently scheduled automatically.
   </Accordion>
 
-  <Accordion title="Can I trigger a scan manually?">
-    Scans are automated and scheduled by the platform. You cannot trigger a manual scan at this time.
+  <Accordion title="Why do I not see Audio Recon on my track?">
+    The track may not be eligible yet, the fingerprint may still be pending, the producer may not be verified, or no qualifying match has been found.
   </Accordion>
 
-  <Accordion title="What if I'm not verified?">
-    Audio Recon requires a verified producer profile. You can [request verification](https://open.beatpass.ca/backstage/requests/verify-artist) from your Backstage area. Once verified, your beats are included in the ongoing scan queue.
+  <Accordion title="Does a match prove someone used my beat?">
+    No. Audio Recon is a lead-generation tool for investigation, not automatic proof of infringement.
   </Accordion>
 
-  <Accordion title="Can a match be wrong?">
-    Yes. Audio Recon detects audio **similarity**, not confirmed placements. Matches can occur due to shared royalty-free samples, similar drum patterns, or common production techniques. Always listen to the matched song and compare it to your beat before assuming it's a placement.
-  </Accordion>
-
-  <Accordion title="What if someone used my beat without a license?">
-    First, listen to confirm the song genuinely uses your beat (not just a similar sound). Then contact BeatPass support with the match details. We can check our licensing records to verify whether a valid license exists. If the use is unauthorized, we can advise you on next steps.
-  </Accordion>
-
-  <Accordion title="Does this work for collaborative beats?">
-    Yes. For collaborative beats, only one credited producer needs to be verified for the beat to be scanned. All credited producers with BeatPass accounts are notified when a placement is found, regardless of their individual verification status.
-  </Accordion>
-
-  <Accordion title="What streaming platforms are covered?">
-    BeatPass currently scans against Spotify, YouTube, and Deezer catalogs. Additional platforms may be added in the future.
+  <Accordion title="What if I am not verified?">
+    Complete the producer verification flow first. Audio Recon is currently a verified-producer feature.
   </Accordion>
 </AccordionGroup>
 
 ## Related
 
 <CardGroup cols={2}>
+  <Card title="Get Verified" icon="circle-check" href="/help/producer-program/application-types/get-verified">
+    Audio Recon currently requires a verified producer profile.
+  </Card>
   <Card title="License Certificates" icon="file-certificate" href="/help/licensing-for-producers/license-certificates">
-    Learn about the certificates issued when your beats are licensed
-  </Card>
-  <Card title="Licensing for Producers" icon="scale-balanced" href="/help/licensing-for-producers">
-    Overview of how licensing works on BeatPass
-  </Card>
-  <Card title="Notification Preferences" icon="bell" href="/help/notifications">
-    Manage which notifications you receive
-  </Card>
-  <Card title="Request Verification" icon="circle-check" href="https://open.beatpass.ca/backstage/requests/verify-artist">
-    Apply for a verified producer profile
+    Use certificate records when you verify whether a suspected use was licensed.
   </Card>
 </CardGroup>
 

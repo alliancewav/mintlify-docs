@@ -18,14 +18,14 @@ import ApiInviteOnly from "/snippets/warnings/api-invite-only.mdx";
 
 ## What Are API Tokens?
 
-API tokens are like passwords for applications:
+API tokens are like passwords for apps:
 
 - They allow external programs to access your BeatPass account
 - Each token has a name so you can identify what it's used for
 - Tokens can be deleted without affecting your main password
 
 <Note>
-  API tokens are intended for developers and advanced integrations. Most users don't need API access. Contact the BeatPass team if you'd like to request access.
+  The **Developers** section only appears in account settings when API access has been enabled for your account.
 </Note>
 
 ---
@@ -34,22 +34,19 @@ API tokens are like passwords for applications:
 
 <Steps>
   <Step title="Go to Account Settings">
-    Click your **profile avatar** → **Edit Profile**, then scroll to the **Developers** section.
+    Open the [Account Settings](https://open.beatpass.ca/account-settings) page, then open **Developers**.
   </Step>
   <Step title="Click Create Token">
-    Click the button to create a new token.
+    Click **Create token**.
   </Step>
   <Step title="Name Your Token">
-    Enter a descriptive name (3-100 characters). Examples:
-    - "My Desktop App"
-    - "Automation Script"
-    - "Personal Project"
+    In **Create new token**, enter a **Token name**. BeatPass currently requires 3 to 100 characters.
   </Step>
   <Step title="Save the Token">
     Click **Create** to generate your token.
   </Step>
   <Step title="Copy Your Token">
-    **Important:** Copy the token immediately. For security reasons, the full token is only shown once.
+    Copy the token immediately. BeatPass only shows the full token once. When you are done, click **Done**.
   </Step>
 </Steps>
 
@@ -78,10 +75,10 @@ Tokens provide access to your account through the BeatPass API. The specific per
 
 If you no longer need a token or suspect it's compromised:
 
-1. Click your **profile avatar** → **Edit Profile**
-2. Scroll to the **Developers** section and find the token in your list
-3. Click **Delete** or the trash icon
-4. Confirm deletion
+1. Open the [Account Settings](https://open.beatpass.ca/account-settings) page
+2. Open **Developers** and find the token in your list
+3. Click **Delete**
+4. Confirm the **Delete token?** prompt
 
 ### Effects of Deletion
 
@@ -109,17 +106,6 @@ This way, if one token is compromised, you can revoke just that one without affe
 
 ---
 
-## Token Format
-
-BeatPass API tokens are secure strings. When you create a token, you receive:
-
-- **Token ID** — A public identifier shown in your settings
-- **Plain Text Token** — The full secret token (shown only once)
-
-Use the plain text token when configuring applications.
-
----
-
 ## Common Questions
 
 <AccordionGroup>
@@ -128,7 +114,7 @@ Use the plain text token when configuring applications.
   </Accordion>
   
   <Accordion title="How many tokens can I create?">
-    You can create multiple tokens. There's no strict limit, but keep only the tokens you need.
+    You can create multiple tokens. Keep only the ones you need so the list stays easy to manage.
   </Accordion>
   
   <Accordion title="Will deleting a token log me out?">
@@ -146,15 +132,16 @@ Use the plain text token when configuring applications.
 
 For developers looking to build integrations:
 
-- See the [API Reference](/developers/api-reference) for available endpoints
-- Review authentication requirements in [Getting Started](/developers/quickstart)
+- Start with [Developers Overview](/developers/overview)
+- Review [Quickstart](/developers/quickstart)
+- Browse the [API Reference](/developers/api-reference/overview)
 
 ---
 
 ## Related Topics
 
 <CardGroup cols={2}>
-  <Card title="Account Security" icon="shield-check" href="/help/account-settings/two-factor-authentication">
+  <Card title="Account Security" icon="shield-halved" href="/help/account-settings/two-factor-authentication">
     Secure your account with 2FA.
   </Card>
   <Card title="Active Sessions" icon="desktop" href="/help/account-settings/active-sessions">

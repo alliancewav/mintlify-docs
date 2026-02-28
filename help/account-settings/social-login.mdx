@@ -2,125 +2,80 @@
 audience: help
 title: "Social Login"
 sidebarTitle: "Social Login"
-description: "Connect your Google, Facebook, or Twitter account to BeatPass for easier login and profile linking."
-keywords: ["social login", "Google", "Facebook", "Twitter", "connect accounts", "OAuth"]
+description: "Enable or disable the social sign-in options currently available for your BeatPass account."
+keywords: ["social login", "Google", "connect accounts", "sign in"]
 "og:title": "Social Login - BeatPass Help"
 "og:description": "Learn how to connect social accounts to BeatPass."
 ---
 
-Social login lets you sign in to BeatPass using your existing Google, Facebook, or Twitter account. You can also connect these accounts to your existing BeatPass profile for quick access.
+Social login lets you use supported third-party accounts to sign in to BeatPass instead of typing your password every time.
 
 ---
 
-## Available Social Accounts
+## What Is Available Right Now
 
-BeatPass supports these social login providers:
+Only providers that are enabled on BeatPass appear in **Social login**. On the current BeatPass setup, the available option is:
 
-| Provider | Features |
-|----------|----------|
-| **Google** | Sign in with your Google/Gmail account |
-| **Facebook** | Sign in with your Facebook account |
-| **Twitter** | Sign in with your Twitter/X account |
+| Provider | What you can do |
+|----------|-----------------|
+| **Google** | Sign in with your Google account and connect it to your BeatPass user |
 
 <Note>
-  Availability of social login options depends on platform configuration. Some providers may not be enabled.
+  If more providers are enabled in the future, they will appear in the same section automatically.
 </Note>
 
 ---
 
-## Creating an Account with Social Login
+## Enable Google Sign-In
 
-If you don't have a BeatPass account yet:
+<Steps>
+  <Step title="Open account settings">
+    Open the [Account Settings](https://open.beatpass.ca/account-settings) page.
+  </Step>
+  <Step title="Find Social login">
+    Scroll to the **Social login** section.
+  </Step>
+  <Step title="Enable Google">
+    Click **Enable** next to **Google account**.
+  </Step>
+  <Step title="Finish the Google flow">
+    Complete the Google sign-in window and approve the connection.
+  </Step>
+</Steps>
 
-1. Go to the **Sign Up** or **Login** page
-2. Click **Continue with Google**, **Continue with Facebook**, or **Continue with Twitter**
-3. Authorize BeatPass to access your social account
-4. Your BeatPass account is created automatically
-
-### What Happens
-
-- BeatPass creates an account using your social profile's email
-- Your name and profile picture may be imported
-- You can log in using that social account going forward
-- You don't need to set a password (but you can add one later)
-
----
-
-## Connecting Social Accounts
-
-If you already have a BeatPass account, you can connect social accounts for easier login:
-
-### How to Connect
-
-1. Click your **profile avatar** → **Edit Profile**
-2. Scroll to the **Social login** section
-3. Find the social provider you want to connect
-3. Click **Connect** next to Google, Facebook, or Twitter
-4. Authorize BeatPass in the popup window
-5. Your accounts are now linked
-
-### Benefits of Connecting
-
-- **Faster login** — Click one button instead of typing password
-- **Multiple options** — Log in with email/password OR social account
-- **Account recovery** — Alternative way to access your account
-
-<Tip>
-  Connecting multiple social accounts gives you backup login options if you lose access to one.
-</Tip>
+After the connection succeeds, BeatPass shows the linked Google account in that row instead of **Disabled**.
 
 ---
 
-## Disconnecting Social Accounts
+## Disable Google Sign-In
 
-To unlink a social account from your BeatPass profile:
+To remove Google as a sign-in option for your BeatPass account:
 
-1. Click your **profile avatar** → **Edit Profile**
-2. Scroll to the **Social login** section
-3. Find the connected account and click **Disconnect**
-4. Confirm the disconnection
-
-### Important Considerations
-
-- **Before disconnecting**, make sure you have another way to log in:
-  - A password set on your account, OR
-  - Another social account connected
-- If you signed up with social login and disconnect without setting a password, you may be locked out
+1. Open the [Account Settings](https://open.beatpass.ca/account-settings) page
+2. Open the **Social login** section
+3. Click **Disable** next to the connected **Google account**
 
 <Warning>
-  Don't disconnect your only login method. Either set a password or connect another social account before disconnecting.
+  If Google is your only way to sign in, create a password first using the [Forgot password?](https://open.beatpass.ca/forgot-password) flow before you disable it.
 </Warning>
 
 ---
 
-## Account Email Matching
+## If A BeatPass Account Already Exists
 
-When you use social login:
-
-### New Users
-
-If no BeatPass account exists with your social email:
-- A new account is created automatically
-
-### Existing Email
-
-If a BeatPass account already exists with that email:
-- You'll be asked to verify by entering your BeatPass password
-- Once verified, the social account is linked to your existing account
-
-This prevents someone else from accessing your account by using a social account with your email address.
+If you try to connect or sign in with Google and BeatPass already has an account with the same email address, BeatPass may ask for your existing account password before finishing the connection.
 
 ---
 
 ## What BeatPass Accesses
 
-When you connect a social account, BeatPass typically receives:
+When you connect Google, BeatPass may receive:
 
 | Information | Purpose |
 |-------------|---------|
 | **Email address** | Account identification |
-| **Name** | Display name (if you don't have one set) |
-| **Profile picture** | Avatar (optional) |
+| **Name** | To identify the connected account |
+| **Profile picture** | To help populate your account avatar |
 
 BeatPass does **not**:
 - Post on your behalf
@@ -134,19 +89,16 @@ BeatPass does **not**:
 
 <AccordionGroup>
   <Accordion title="Social login popup was blocked">
-    Check your browser's popup blocker settings. Allow popups from BeatPass or try a different browser.
+    Allow popups for BeatPass and try again. The social sign-in flow opens in a separate window.
   </Accordion>
-  
   <Accordion title="'Account already exists' error">
-    An account with your social email already exists. Log in with your password first, then connect the social account in settings.
+    BeatPass may already have a user with that email address. Sign in with your existing BeatPass credentials first, then try enabling Google from **Social login**.
   </Accordion>
-  
-  <Accordion title="Can't disconnect social account">
-    You can't disconnect if it's your only login method. Set a password or connect another social account first.
+  <Accordion title="I signed up with Google and never made a password">
+    Use [Forgot password?](https://open.beatpass.ca/forgot-password) to create one by email before disabling Google sign-in.
   </Accordion>
-  
   <Accordion title="Social provider isn't showing">
-    Not all social providers may be enabled. Check if the provider appears on the login page—if not, it may not be available.
+    Only enabled providers appear. If you do not see a provider in the **Social login** section or on the sign-in page, it is not available on the current BeatPass setup.
   </Accordion>
 </AccordionGroup>
 
@@ -157,7 +109,7 @@ BeatPass does **not**:
 - Your social account login credentials are never shared with BeatPass
 - Authentication happens directly with the social provider
 - You can revoke BeatPass access from your social account settings at any time
-- Disconnecting from BeatPass doesn't affect your social account
+- Disabling the connection on BeatPass does not change your Google account itself
 
 ---
 
@@ -168,6 +120,6 @@ BeatPass does **not**:
     Update your profile information.
   </Card>
   <Card title="Password" icon="lock" href="/help/account-settings/password">
-    Set or change your password.
+    Change your password or create one by email.
   </Card>
 </CardGroup>

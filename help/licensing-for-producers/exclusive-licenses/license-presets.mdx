@@ -4,205 +4,110 @@ title: "License Presets"
 description: "Save and reuse your exclusive license configurations across multiple beats."
 ---
 
-License presets let you save your exclusive license configuration and apply it to multiple beats. Instead of configuring each beat from scratch, create presets for common scenarios and select them when needed.
+License presets let you save an exclusive license configuration and reuse it on future beats. They are useful when you want consistent exclusive terms without rebuilding the same setup every time.
 
-## What Is a License Preset?
+## What a Preset Stores
 
-A preset is a saved exclusive license configuration that includes:
+A BeatPass exclusive preset stores the license configuration itself, including:
 
-- Publishing split percentages
-- Territory and governing law
-- Usage rights settings
+- Publishing split
+- Territory
+- Governing law country
+- Usage rights
 - Files to deliver
-- Producer royalty percentage
-- All toggle options
+- Producer royalty
+- Content ID and other exclusive toggles
 
-Once saved, you can apply a preset to any beat with one click.
+<Note>
+  Presets are for the **exclusive configuration**. Price and other track-specific choices should still be reviewed on each beat.
+</Note>
 
 ## Why Use Presets?
 
-### Consistency
+<CardGroup cols={3}>
+  <Card title="Consistency" icon="check">
+    Keep your exclusive terms consistent across similar beats.
+  </Card>
+  <Card title="Speed" icon="bolt">
+    Apply a known-good configuration instead of rebuilding it every time.
+  </Card>
+  <Card title="Variants" icon="layer-group">
+    Maintain different setups for different catalog tiers or buyer types.
+  </Card>
+</CardGroup>
 
-Ensure all your exclusive licenses have the same professional terms without manual re-entry.
+## Current Preset Features
 
-### Time Savings
+BeatPass currently supports:
 
-Configure once, use everywhere. No need to set up each beat individually.
-
-### Multiple Configurations
-
-Create different presets for different scenarios:
-
-- Standard exclusive
-- Premium exclusive (higher producer share)
-- Budget exclusive (more buyer-friendly terms)
-- Full buyout (no ongoing royalties)
+- Naming a preset
+- Adding an optional description
+- Marking one preset as **default**
+- Seeing how many tracks use a preset
+- Blocking deletion when a preset is still in use
 
 ## Creating a Preset
 
-### From Scratch
+You can create a preset when working with exclusive configuration:
 
-1. Go to your license presets management
-2. Click **New Preset**
-3. Enter a name and optional description
-4. Configure all license settings
-5. Save the preset
+1. Build the exclusive terms you want to reuse
+2. Save them as a preset
+3. Give the preset a clear name
+4. Optionally set it as your default
 
-### From an Existing Beat
+Good preset names are descriptive, such as:
 
-When editing a beat's exclusive license:
-
-1. Configure the settings as desired
-2. Look for the option to save as preset
-3. Name your preset
-4. It's now available for future beats
-
-## Preset Details
-
-Each preset stores:
-
-| Setting | What's Saved |
-|---------|--------------|
-| **Name** | Your preset name (e.g., "Standard Exclusive") |
-| **Description** | Optional notes about when to use this preset |
-| **Publishing Split** | Producer % and Licensee % |
-| **Territory** | Geographic scope |
-| **Governing Law** | Legal jurisdiction |
-| **Usage Rights** | All distribution, streaming, video, performance settings |
-| **Files to Deliver** | Which file types are included |
-| **Producer Royalty** | Ongoing percentage |
-| **Toggle Options** | Broadcasting, for-profit performances, Content ID |
-
-## Managing Presets
-
-### Viewing All Presets
-
-Access your presets from the Backstage area to see:
-
-- Preset name and description
-- Key terms (publishing split, royalty %)
-- Usage count (how many tracks use this preset)
-- Default status
-
-### Editing a Preset
-
-1. Find the preset you want to edit
-2. Click the edit icon
-3. Modify settings as needed
-4. Save changes
-
-<Warning>
-  Editing a preset does not automatically update beats already using it. Existing beats keep their original terms.
-</Warning>
-
-### Deleting a Preset
-
-1. Find the preset you want to delete
-2. Click the delete icon
-3. Confirm deletion
-
-<Note>
-  You cannot delete a preset that's currently in use by tracks. Update those tracks to use a different preset first.
-</Note>
+- `Standard Exclusive`
+- `Premium Exclusive`
+- `High-Royalty Exclusive`
 
 ## Setting a Default Preset
 
-Mark one preset as your default:
+BeatPass lets you mark one preset as your default. When a default exists, it becomes the easiest starting point for new exclusive-capable tracks.
 
-1. Find the preset
-2. Click the star icon to set as default
-3. The default preset is automatically selected for new beats
+## Editing a Preset
 
-When uploading new beats, your default preset is pre-selected, saving you time.
+You can update a preset later, but there is an important rule:
 
-## Applying a Preset
+<Warning>
+  Editing a preset does **not** retroactively change tracks that already used it. Existing sold or published beats keep the terms that were saved with them.
+</Warning>
 
-### When Uploading a Beat
+## Deleting a Preset
 
-1. In the licensing section, look for "Use Saved Preset"
-2. Select your preset from the dropdown
-3. Settings are automatically applied
-4. Continue with upload
+BeatPass blocks preset deletion when tracks still use that preset.
 
-### When Editing a Beat
+If you need to delete one:
 
-1. Edit the beat's licensing settings
-2. Select a preset from the dropdown
-3. Settings are replaced with preset values
-4. Save changes
+1. Update the affected tracks to use a different preset or config
+2. Return to the preset manager
+3. Delete the unused preset
 
-### Using Default Settings
+## Applying a Preset to a Track
 
-Click **Use Default** to load the BeatPass default exclusive configuration instead of a custom preset.
+When a beat is exclusive-capable:
 
-## Preset Information Display
+1. Open **Licensing Options**
+2. Choose the preset from the preset selector
+3. Review the applied terms
+4. Save the track
 
-When viewing presets, you'll see:
-
-```
-Standard Exclusive (Default)
-Publishing: 20% / 80%  •  Royalty: 3%  •  Used by 12 tracks
-```
-
-This tells you:
-
-- **Preset name** — "Standard Exclusive"
-- **Default status** — "(Default)" if it's your default
-- **Publishing split** — Producer % / Licensee %
-- **Royalty percentage** — Ongoing producer royalty
-- **Usage count** — How many tracks use this preset
-
-## Example Presets
-
-### Standard Exclusive
-
-| Setting | Value |
-|---------|-------|
-| Publishing | 20% producer / 80% licensee |
-| Territory | Worldwide |
-| Royalty | 3% |
-| Content ID | Allowed |
-| Files | WAV, WAV Tagged, MP3, Stems |
-
-### Premium Exclusive
-
-| Setting | Value |
-|---------|-------|
-| Publishing | 30% producer / 70% licensee |
-| Territory | Worldwide |
-| Royalty | 5% |
-| Content ID | Allowed |
-| Files | WAV, WAV Tagged, MP3, Stems, MIDI |
-
-### Full Buyout
-
-| Setting | Value |
-|---------|-------|
-| Publishing | 0% producer / 100% licensee |
-| Territory | Worldwide |
-| Royalty | 0% |
-| Content ID | Allowed |
-| Files | All available |
-
-<Tip>
-  A "Full Buyout" preset gives the buyer complete control with no ongoing obligations to you. Price these significantly higher to compensate for giving up all future royalties.
-</Tip>
+BeatPass also provides a **Use Default** action to load the platform's default exclusive configuration instead of a custom preset.
 
 ## Best Practices
 
-1. **Name presets clearly** — "Standard Exclusive" is better than "Preset 1"
-2. **Use descriptions** — Note when to use each preset
-3. **Set a default** — Speeds up your workflow for common scenarios
-4. **Create variations** — Different presets for different beat types or price points
-5. **Review periodically** — Update presets as your business evolves
+- Use clear preset names
+- Keep one default preset for your most common deal structure
+- Create separate presets only when the terms really differ
+- Review older presets occasionally so they still reflect your current business approach
 
 ## Related
 
 <CardGroup cols={2}>
   <Card title="License Configuration" href="/help/licensing-for-producers/exclusive-licenses/license-configuration" icon="sliders">
-    Understand each configuration option.
+    Understand the fields that presets store.
   </Card>
   <Card title="Setting Prices" href="/help/licensing-for-producers/exclusive-licenses/setting-prices" icon="dollar-sign">
-    Price your exclusive licenses effectively.
+    Add pricing to your exclusive-ready tracks.
   </Card>
 </CardGroup>

@@ -1,125 +1,84 @@
 ---
 audience: help
 title: "Earnings Formula"
-description: "Understanding how BeatPass calculates each track's contribution value."
+description: "The exact BeatPass contribution formula used to calculate subscription payout share from recency, plays, and collaborator count."
 ---
 
-Each track on BeatPass receives a contribution value that determines how much of the subscription revenue pool you earn. This page explains the three factors that go into that calculation.
-
-## The Three Factors
-
-Your track's contribution value is determined by multiplying three factors together:
+BeatPass calculates contribution value with a three-part formula:
 
 $$
-\text{Contribution Value} = \text{Time Decay} \times \text{Popularity Boost} \times \text{Collaboration Split}
+\text{Contribution Value} =
+\exp\left(-\frac{\ln(2)}{6} \cdot \text{monthsSinceUpload}\right)
+\times
+\left(1 + 2 \cdot \frac{\log_{10}(1 + \text{plays})}{\log_{10}(1 + \text{plays}) + 1}\right)
+\times
+\left(\frac{1}{\text{producerCount}}\right)
 $$
 
-| Factor | What It Measures | Range |
-|--------|------------------|-------|
-| **Time Decay** | How long since the track was uploaded | 1.0 (new) → 0 (very old) |
-| **Popularity Boost** | How many times the track has been played | 1x → 3x |
-| **Collaboration Split** | How many producers are credited | Full value ÷ number of producers |
+## What Each Part Means
+
+| Part | Purpose |
+|------|---------|
+| **Time decay** | Rewards newer uploads with a 6-month half-life |
+| **Popularity boost** | Increases value as play count grows, up to 3x |
+| **Collaboration split** | Divides the track's value equally across credited producers |
 
 ```mermaid
 flowchart LR
-    A[Time Decay\n1.0 → 0] --> D[Contribution\nValue]
-    B[Popularity Boost\n1x → 3x] --> D
-    C[Collaboration Split\n÷ producers] --> D
+    A[Time decay] --> D[Contribution value]
+    B[Popularity boost] --> D
+    C[Collaboration split] --> D
 ```
 
 ## Time Decay
 
-Newer tracks naturally contribute more to the platform because they keep the catalog fresh and engaging. A track's time factor follows a 6-month "half-life":
+The time-decay term uses a 6-month half-life. In plain language:
 
-- **Newly uploaded track**: 100% of base value
-- **After 6 months**: 50% of base value
-- **After 12 months**: 25% of base value
-- **After 18 months**: 12.5% of base value
-
-<Info>
-  The decay is gradual, not sudden. Your track loses a tiny bit of value each day, not a large chunk at specific dates.
-</Info>
-
-This doesn't mean old tracks become worthless—it means the same track will earn progressively less over time unless its play count increases to compensate.
+- A brand-new track starts at full recency strength
+- After about 6 months, that recency factor is cut in half
+- After about 12 months, it is halved again
 
 ## Popularity Boost
 
-Tracks that listeners actually engage with earn more than tracks that sit unplayed. The popularity boost ranges from 1x (no plays) to 3x (highly popular):
+The popularity term uses a logarithmic play curve:
 
-| Play Count | Approximate Boost |
-|------------|-------------------|
-| 0 plays | 1.0x |
-| 10 plays | 1.67x |
-| 100 plays | 1.91x |
-| 1,000 plays | 2.25x |
-| 10,000 plays | 2.50x |
-| 100,000 plays | 2.67x |
-
-The boost uses a logarithmic scale, meaning:
-- Early plays have the biggest impact
-- Going from 0 to 100 plays helps more than going from 10,000 to 10,100
+- Early plays matter a lot
+- Later growth still helps, but the boost rises more gradually
+- The boost starts at **1x** and approaches **3x**
 
 ## Collaboration Split
 
-When multiple producers are credited on a track, the contribution value is divided equally among all of them:
+If more than one producer is credited on the same track, BeatPass divides that track's contribution equally across those credited producers.
 
-| Producers Credited | Each Producer Gets |
-|--------------------|-------------------|
-| 1 producer | 100% of contribution |
-| 2 producers | 50% each |
-| 3 producers | 33.3% each |
-| 4 producers | 25% each |
+## Important Notes
 
-<Note>
-  Collaborations are counted based on how many producer profiles are credited on the track, not how many people worked on it behind the scenes.
-</Note>
+- Tracks marked **exclusive-only** get a contribution value of **0** for subscription sharing
+- BeatPass recalculates contribution values on a roughly 24-hour cycle
+- Your share can change even if your own plays stay flat, because the platform total can change too
 
-## Putting It Together
+## Worked Example
 
-**Example: A 3-month old track with 500 plays and 2 producers**
+For a track that is:
 
-1. Time Decay: At 3 months, roughly 70% remains
-2. Popularity Boost: 500 plays gives about 2.14x
-3. Collaboration Split: 2 producers = divide by 2
+- 3 months old
+- moderately played
+- credited to 2 producers
 
-**Final contribution per producer:** $0.70 \times 2.14 \times 0.5 = \mathbf{0.75}$ **points**
+The final contribution value is:
 
-## What This Means For You
+1. Reduced by time decay
+2. Increased by popularity boost
+3. Split in half because of the two credited producers
 
-<AccordionGroup>
-  <Accordion title="Upload consistently">
-    Because newer tracks have higher contribution values, uploading regularly helps maintain your earnings over time.
-  </Accordion>
-  <Accordion title="Promote your music">
-    More plays directly increase your contribution value. Share your tracks and encourage listeners to check out your music.
-  </Accordion>
-  <Accordion title="Quality matters">
-    One track with 1,000 plays earns more than ten tracks with 10 plays each. Focus on creating music people want to hear.
-  </Accordion>
-  <Accordion title="Collaborations share value">
-    Working with other producers is great for reach, but remember the contribution is split. Make sure collaborations make sense for your goals.
-  </Accordion>
-</AccordionGroup>
-
-## Daily Updates
-
-Contribution values are recalculated every 24 hours. This means:
-
-- Yesterday's plays are reflected in today's calculation
-- Time decay is applied continuously
-- Your share percentage may change as other tracks' values change too
-
-You can see your current contribution values and share percentage in your **Finances** dashboard under **Subscription Revenue Splits**.
-
----
+That final value is then combined with the rest of your eligible catalog to determine your subscription payout share.
 
 ## Related
 
 <CardGroup cols={2}>
-  <Card title="Backstage Insights" icon="magnifying-glass-chart" href="/help/analytics/backstage-insights/index">
-    Track-level analytics to understand what drives your plays.
+  <Card title="Contribution System" href="/help/earnings/contribution-system" icon="chart-line">
+    Return to the high-level overview.
   </Card>
-  <Card title="Maximizing Earnings" icon="arrow-trend-up" href="/help/earnings/contribution-system/maximizing-earnings">
-    Strategies to increase your contribution value.
+  <Card title="Maximizing Earnings" href="/help/earnings/contribution-system/maximizing-earnings" icon="arrow-trend-up">
+    Learn practical ways to improve your results.
   </Card>
 </CardGroup>

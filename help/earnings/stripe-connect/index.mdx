@@ -1,129 +1,69 @@
 ---
 audience: help
 title: "Stripe Connect"
-description: "Set up Stripe Connect to receive payments from your BeatPass earnings."
+description: "Overview of the BeatPass payout setup powered by Stripe Connect, including what it enables and the most important rules before you start."
 ---
 
-Stripe Connect is the payment infrastructure that powers all producer payouts on BeatPass. By connecting a Stripe account, you enable automatic deposits of your earnings directly to your bank account.
+BeatPass uses Stripe Connect for producer payouts. It is the payout layer behind **Producer Finances**, subscription splits, and direct producer sales.
 
-## What is Stripe Connect?
-
-Stripe is a trusted global payment processor used by millions of businesses worldwide. Stripe Connect allows BeatPass to securely send your earnings directly to you without handling your banking information.
+## What Stripe Connect Enables
 
 <CardGroup cols={2}>
-  <Card title="Secure & Trusted" icon="shield-check">
-    Stripe processes billions of dollars annually and meets the highest security standards (PCI-DSS Level 1 certified).
+  <Card title="Track Sales" icon="shopping-bag">
+    Producer sales move through Stripe once the buyer completes checkout.
   </Card>
-  <Card title="Global Coverage" icon="globe">
-    Receive payments in 40+ countries with support for multiple currencies.
+  <Card title="Subscription Payouts" icon="repeat">
+    Subscription revenue can only move to eligible producers with a working payout setup.
+  </Card>
+  <Card title="Producer Finances" icon="chart-bar">
+    BeatPass uses Stripe-backed data to show balances, statuses, and payout history.
+  </Card>
+  <Card title="Automatic Payout Flow" icon="wallet">
+    Once money reaches Stripe and your account is ready, Stripe handles the transfer to your payout destination.
   </Card>
 </CardGroup>
 
-## Why You Need Stripe Connect
+## What Matters Most Before You Start
 
-Without a connected Stripe account:
-
-- You cannot receive subscription revenue shares
-- You cannot receive exclusive beat sale proceeds
-- Your earnings share is redistributed to other eligible producers
-
-<Warning>
-  Until your Stripe account is fully set up and verified, you will not receive any payouts from BeatPass.
-</Warning>
-
-## Revenue Streams Enabled
-
-Once your Stripe account is connected, you can receive earnings from:
-
-| Revenue Stream | Description |
-|----------------|-------------|
-| **Subscription Revenue** | Monthly payouts based on your tracks' contribution value |
-| **Exclusive Sales** | Direct payments when someone purchases exclusive rights to your beat |
-
-## Key Benefits
-
-<AccordionGroup>
-  <Accordion title="Automatic payouts">
-    Once set up, all your earnings are automatically transferred to your bank account. No manual withdrawal requests needed.
-  </Accordion>
-  <Accordion title="Fast deposits">
-    Receive money within 2-7 business days depending on your country. Some regions support instant payouts.
-  </Accordion>
-  <Accordion title="Multiple currencies">
-    Accept payments in USD, EUR, GBP, and CAD. Receive payouts in your local currency.
-  </Accordion>
-  <Accordion title="Complete transparency">
-    View all transactions, balances, and payout history in your Finances dashboard.
-  </Accordion>
-  <Accordion title="No hidden fees">
-    BeatPass doesn't charge setup fees for Stripe Connect. Standard Stripe processing fees apply.
-  </Accordion>
-</AccordionGroup>
-
-## Stripe Express — Not Regular Stripe
+- BeatPass uses **Stripe Express**, not a regular Stripe dashboard account
+- You must choose a supported country during setup
+- BeatPass asks you to confirm the country where you reside and have a bank account
+- Incomplete setup can prevent payouts and can cause subscription splits to appear as **Excluded**
 
 <Warning>
-  BeatPass uses **Stripe Express** accounts. This is different from a regular Stripe account at stripe.com. If you already have a regular Stripe account, your BeatPass payout account is **separate**. Do not try to log into dashboard.stripe.com to view your BeatPass earnings — use the Express login at [connect.stripe.com/express_login](https://connect.stripe.com/express_login) instead.
+  If your payout setup is incomplete, BeatPass can still calculate activity, but it cannot safely treat you as payout-ready.
 </Warning>
 
-For a full explanation of the difference and how to log in, see [Accessing Your Stripe Dashboard](/help/earnings/stripe-connect/accessing-stripe-dashboard).
-
-## Supported Countries
-
-BeatPass supports Stripe Connect in **43 countries** across North America, Europe, Asia Pacific, and the Middle East. Some countries (like the UAE) have additional requirements such as a trade license or freelancer permit.
-
-If your country isn't supported, alternatives like **Wise**, **Payoneer**, and **Stripe Atlas** can help you receive payouts. The BeatPass onboarding screen shows these options automatically.
-
-<CardGroup cols={2}>
-  <Card title="Regional Requirements" href="/help/earnings/stripe-connect/regional-requirements" icon="globe">
-    Country-specific documents and requirements for onboarding.
-  </Card>
-  <Card title="Unsupported Countries" href="/help/earnings/stripe-connect/unsupported-countries" icon="map">
-    Alternative payout methods if your country isn't listed.
-  </Card>
-</CardGroup>
-
-## Getting Started
-
-Setting up Stripe Connect is straightforward and takes about 5 minutes:
+## Start From Finances
 
 <Steps>
-  <Step title="Start the setup">
-    Go to your **Finances** dashboard and click **Connect Stripe Account Now**.
+  <Step title="Open Backstage">
+    Click your **profile avatar** and open **Backstage**.
   </Step>
-  <Step title="Confirm your country">
-    Select the country where you reside and have a bank account. This cannot be changed later.
+  <Step title="Go to Finances">
+    Open **Finances** and click **Connect Stripe Account Now**.
   </Step>
-  <Step title="Create or link your Stripe account">
-    You'll be redirected to Stripe to either create a new account or link an existing one.
-  </Step>
-  <Step title="Provide required information">
-    Enter your personal details, business information, and banking details. Requirements vary by country — see [Regional Requirements](/help/earnings/stripe-connect/regional-requirements) for details.
-  </Step>
-  <Step title="Verify your identity">
-    Upload identification documents as required by Stripe.
-  </Step>
-  <Step title="Start earning">
-    Once approved, your account is active and ready to receive payouts.
+  <Step title="Finish the Stripe flow">
+    Confirm your country and complete the Stripe-hosted onboarding process.
   </Step>
 </Steps>
 
 ## Learn More
 
 <CardGroup cols={2}>
-  <Card title="Requirements" href="/help/earnings/stripe-connect/requirements" icon="list-checks">
-    What you'll need to complete the Stripe Connect setup process.
-  </Card>
   <Card title="Setup Guide" href="/help/earnings/stripe-connect/setup-guide" icon="book-open">
-    Step-by-step instructions for connecting your Stripe account.
+    Follow the current BeatPass onboarding flow.
+  </Card>
+  <Card title="Requirements" href="/help/earnings/stripe-connect/requirements" icon="list-checks">
+    Review the information Stripe commonly asks for.
   </Card>
   <Card title="Accessing Dashboard" href="/help/earnings/stripe-connect/accessing-stripe-dashboard" icon="table-columns">
-    How to log into your Stripe Express dashboard to view payouts.
+    Learn how Stripe Express sign-in differs from regular Stripe.
   </Card>
   <Card title="Regional Requirements" href="/help/earnings/stripe-connect/regional-requirements" icon="globe">
-    Country-specific onboarding documents and requirements.
+    See the supported country list BeatPass currently uses.
   </Card>
   <Card title="Unsupported Countries" href="/help/earnings/stripe-connect/unsupported-countries" icon="map">
-    Alternative payout options (Wise, Payoneer, Stripe Atlas).
+    Review the alternative paths BeatPass currently references.
   </Card>
 </CardGroup>

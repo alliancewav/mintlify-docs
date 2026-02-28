@@ -8,191 +8,93 @@ keywords: ["playback", "audio", "sound", "play", "buffer", "streaming"]
 "og:description": "Solutions for audio playback problems on BeatPass."
 ---
 
-Having trouble playing tracks on BeatPass? This guide covers common audio playback issues and their solutions.
+If playback is failing, test the player first before assuming the track itself is broken.
 
----
-
-## Audio Won't Play at All
-
-If you click play and nothing happens:
+## Audio Won't Play
 
 <AccordionGroup>
-  <Accordion title="Check your volume">
-    - Make sure your device volume isn't muted
-    - Check that the BeatPass player volume slider isn't at zero
-    - Ensure your headphones or speakers are connected properly
+  <Accordion title="Check device and player volume">
+    Make sure your system audio is on, the BeatPass player is not muted, and the output device is correct.
   </Accordion>
-  
-  <Accordion title="Allow audio in your browser">
-    Some browsers block autoplay audio. If the play button isn't working:
-    1. Click directly on the play button (don't just load the page)
-    2. Check if your browser is blocking audio for this site
-    3. Look for a muted speaker icon in your browser's address bar
+  <Accordion title="Browser blocked audio">
+    Click the play button directly, then check for browser-level audio restrictions or mute indicators in the address bar.
   </Accordion>
-  
-  <Accordion title="Check browser compatibility">
-    BeatPass works best with modern browsers:
-    - **Chrome** (recommended)
-    - **Firefox**
-    - **Safari**
-    - **Edge**
-    
-    If you're using an older browser, try updating it or switching to a different one.
-  </Accordion>
-  
-  <Accordion title="Disable conflicting extensions">
-    Browser extensions can interfere with audio playback:
-    1. Try disabling ad blockers temporarily
-    2. Disable any audio-related extensions
-    3. Try incognito/private mode to test without extensions
+  <Accordion title="Extension or browser conflict">
+    Disable interfering extensions, refresh, and test another modern browser if needed.
   </Accordion>
 </AccordionGroup>
 
----
-
-## Audio is Buffering or Stuttering
-
-If audio keeps stopping or buffering:
+## Audio Buffers or Stutters
 
 <AccordionGroup>
-  <Accordion title="Check your internet connection">
-    Audio streaming requires a stable internet connection.
-    
-    **Try these solutions:**
-    1. Test your connection speed at speedtest.net
-    2. Move closer to your WiFi router
-    3. Switch from WiFi to a wired connection if possible
-    4. Close other apps or tabs using bandwidth
+  <Accordion title="Connection is unstable">
+    Test your network, close bandwidth-heavy apps or tabs, and retry on a stronger connection.
   </Accordion>
-  
-  <Accordion title="Wait for the track to buffer">
-    The waveform display shows a progress bar indicating how much of the track has loaded. Wait for more of the track to load before seeking ahead.
-  </Accordion>
-  
-  <Accordion title="Reduce device load">
-    If your device is running slow:
-    1. Close unused browser tabs
-    2. Close other applications
-    3. Restart your browser
+  <Accordion title="The browser is overloaded">
+    Close unused tabs, refresh the page, and restart the browser if playback is still lagging.
   </Accordion>
 </AccordionGroup>
 
----
-
-## No Sound from Specific Tracks
-
-If some tracks play but others don't:
+## Some Tracks Play but Others Don't
 
 <AccordionGroup>
-  <Accordion title="Track may have been removed">
-    If a track has been removed or made private by the producer, it won't play. The track page should show a message if this is the case.
+  <Accordion title="The track was removed or changed">
+    A producer or platform action may have changed the track's availability.
   </Accordion>
-  
-  <Accordion title="Audio file may be processing">
-    Newly uploaded tracks may take a few minutes to process before they can be played. Check back shortly.
+  <Accordion title="The upload is still processing">
+    Newly uploaded tracks can need more processing time before playback behaves normally.
   </Accordion>
-  
-  <Accordion title="Refresh and try again">
-    Sometimes a simple page refresh fixes temporary loading issues.
+  <Accordion title="Temporary media error">
+    Refresh and try the track again after a short wait.
   </Accordion>
 </AccordionGroup>
 
----
+## Player Controls Aren't Responding
 
-## Player Controls Not Working
+1. Refresh the page
+2. Clear browser cache
+3. Test another browser
+4. Confirm JavaScript is enabled
 
-If the play button, seek bar, or volume controls aren't responding:
+## Verified Keyboard Shortcuts
 
-<Steps>
-  <Step title="Refresh the page">
-    Press **F5** or **Ctrl+R** (Windows) or **Cmd+R** (Mac) to refresh.
-  </Step>
-  <Step title="Clear your browser cache">
-    Cached files can become corrupted. Clear your cache and try again.
-  </Step>
-  <Step title="Try a different browser">
-    If the issue persists, try Chrome, Firefox, Safari, or Edge.
-  </Step>
-  <Step title="Check for JavaScript errors">
-    BeatPass requires JavaScript to be enabled. Make sure it's not disabled in your browser settings.
-  </Step>
-</Steps>
-
----
-
-## Audio Quality Issues
-
-<AccordionGroup>
-  <Accordion title="Audio sounds distorted">
-    - Lower your device volume and the BeatPass player volume
-    - Check if the issue occurs with all tracks or just one
-    - If one track sounds bad, it may be an issue with the original upload
-  </Accordion>
-  
-  <Accordion title="Audio sounds quiet">
-    - Increase both your device volume and the player volume
-    - Check your device's sound settings for any limiters
-    - Some tracks may be mastered at lower volumes than others
-  </Accordion>
-</AccordionGroup>
-
----
-
-## Mobile Playback Issues
-
-<AccordionGroup>
-  <Accordion title="Audio stops when phone locks">
-    On mobile devices:
-    - Audio should continue playing when your screen locks
-    - Check if your phone has a "battery saver" mode that stops background audio
-    - Some phones require the BeatPass tab to remain the active tab
-  </Accordion>
-  
-  <Accordion title="Audio plays through wrong speaker">
-    Check your phone's audio routing:
-    - Disconnect and reconnect Bluetooth devices
-    - Make sure media audio is routed to the correct output
-  </Accordion>
-  
-  <Accordion title="Play button doesn't work on mobile">
-    Mobile browsers require user interaction before playing audio:
-    1. Tap directly on the play button
-    2. Don't use auto-play scripts or bookmarks
-    3. Make sure the browser is the active app
-  </Accordion>
-</AccordionGroup>
-
----
-
-## Keyboard Shortcuts
-
-BeatPass supports keyboard shortcuts for playback:
+BeatPass currently verifies these playback shortcuts:
 
 | Key | Action |
-|-----|--------|
-| **K** or **Space** | Play/Pause |
-| **J** | Skip back |
-| **L** | Skip forward |
-| **M** | Mute/Unmute |
-| **↑** | Volume up |
-| **↓** | Volume down |
+| --- | --- |
+| `Space` | Play or pause |
+| `K` | Play or pause |
+| `Ctrl` + `ArrowRight` | Next track |
+| `Shift` + `ArrowRight` | Next track |
+| `Ctrl` + `ArrowLeft` | Previous track |
+| `Shift` + `ArrowLeft` | Previous track |
 
 <Note>
-  Keyboard shortcuts work when the player is in focus. Click on the player first if shortcuts aren't responding.
+Older shortcut lists that mention `J`, `L`, `M`, or arrow-key volume controls do not match the current player bindings.
 </Note>
 
----
+## Mobile Playback Problems
+
+<AccordionGroup>
+  <Accordion title="Playback stops when the phone locks">
+    Check battery-saver restrictions, browser background-audio behavior, and whether the browser is still allowed to run media playback.
+  </Accordion>
+  <Accordion title="Audio routes to the wrong speaker">
+    Disconnect and reconnect Bluetooth devices, then confirm the phone is sending media audio to the intended output.
+  </Accordion>
+  <Accordion title="The mobile play button does nothing">
+    Tap directly on the control and make sure the browser tab is active. Mobile browsers often require a direct user interaction before playback starts.
+  </Accordion>
+</AccordionGroup>
 
 ## Still Having Issues?
 
-If none of these solutions work:
+If the problem continues, send support:
 
-1. **Note the specific track** having issues (share the URL)
-2. **Describe what happens** when you try to play
-3. **Include your browser and device** type
-4. Contact support at **contact@beatpass.ca**
-
----
+1. The track URL
+2. What happened when you pressed play
+3. Your browser and device
+4. Whether the issue affects all tracks or only one
 
 ## Related
 

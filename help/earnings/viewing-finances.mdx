@@ -1,129 +1,139 @@
 ---
 audience: help
 title: "Viewing Finances"
-description: "Navigate your Finances dashboard to track earnings, view transactions, and monitor payouts."
+description: "Use Producer Finances to review payout readiness, balance summaries, transaction statuses, and the current earnings explanation panels."
 ---
 
 import NeedHelp from "/snippets/sections/need-help.mdx";
 
-The Finances dashboard gives you a complete view of your earnings on BeatPass. Here you can track your balance, view transaction history, and monitor subscription revenue splits.
+The **Producer Finances** page is BeatPass's current payout hub for producers. It shows your Stripe readiness, payout summary, and earnings history without requiring you to leave the product.
 
-## Accessing Your Finances Dashboard
+## Opening Producer Finances
 
 <Steps>
-  <Step title="Go to Producer Dashboard">
-    Click your **profile avatar** in the top navigation bar, then select **Backstage** from the menu.
+  <Step title="Open Backstage">
+    Click your **profile avatar** in the top navigation bar, then select **Backstage**.
   </Step>
-  <Step title="Open Finances">
-    In your Producer Dashboard, click **Finances** in the navigation menu.
+  <Step title="Go to Finances">
+    In the producer area, open **Finances**.
   </Step>
 </Steps>
 
-## Dashboard Overview
+## What You See First
 
-When you open the Finances dashboard, you'll see several key sections:
+### If Payout Setup Is Not Finished
 
-### Account Status Header
+BeatPass shows an onboarding panel with:
 
-At the top, you'll see your Stripe connection status:
+- The page title **Producer Finances**
+- A setup overview for payout-enabled revenue streams
+- The main call-to-action button **Connect Stripe Account Now**
 
-- **Connected** — Your account is linked to BeatPass
-- **Charges Enabled** — You can receive payments
-- **Payouts Enabled** — Money can be transferred to your bank
-- **Setup Required** — If any status shows a warning, click to complete setup
+### If Payout Setup Is Ready
 
-### Balance Overview
+You see the normal finances dashboard. If you manage more than one producer profile, BeatPass can also show an artist selector at the top of the page.
 
-The balance section shows four key metrics:
+---
 
-| Metric | What It Shows |
-|--------|---------------|
-| **Total Balance** | Current amount in your Stripe account |
-| **Future Payouts** | Money scheduled to transfer but not yet sent |
-| **In Transit** | Funds currently being transferred to your bank |
-| **Lifetime Volume** | Total amount you've earned since joining |
+## Account Overview
 
-<Info>
-  Balances are displayed in your primary currency. If you've received payments in multiple currencies, you'll see a breakdown by currency.
-</Info>
+The top summary card is called **Account Overview** and uses four stat cards:
 
-### Transaction List
+| Card | What It Means |
+|------|----------------|
+| **Balance** | Funds currently ready for payout, or **Setup required** if payouts are not ready |
+| **Upcoming** | Money expected to move next, including queued subscription splits |
+| **In Transit** | Funds already moving to your bank or payout destination |
+| **Lifetime** | Total earned across the tracked history |
 
-Below your balance, you'll find a list of all your transactions including:
+### Other Details on This Section
 
-- **Subscription revenue splits** — Monthly payouts from the contribution pool
-- **Exclusive sales** — Direct beat purchases
-- **Payouts** — Transfers to your bank account
+- BeatPass shows an **Updated** timestamp when cached finance data was last refreshed
+- If the account has more than one balance currency, the page can show a **Multi-currency account** warning
+- If the history is truncated for performance, the page can show **Showing last 1,000 transactions**
 
-Each transaction shows:
-- Date
-- Amount
-- Status (Paid, Pending, Failed)
-- Details (click to view full breakdown)
+<Note>
+  The page focuses on summary information. It does not currently expose every raw Stripe field or every internal payout-calculation field inside the UI.
+</Note>
 
-## Understanding Subscription Revenue Splits
+---
 
-For each subscription payout, you can view detailed information:
+## Transactions
 
-### Split Details
+The main history area is called **Transactions** and includes filter tabs for:
 
-- **Billing Period** — The month this payout covers
-- **Amount** — Your total payout
-- **Original Amount** — Your calculated share before any adjustments
-- **Redistribution Bonus** — Extra amount if ineligible producers' shares were redistributed
-- **Share Percentage** — Your percentage of the total pool
-- **Contribution Value** — Your tracks' combined contribution
+- **All**
+- **Sales**
+- **Subscriptions**
+- **Paid**
+- **Pending**
+- **Failed**
 
-### Payout Statuses
+### Status Labels You Can See
+
+Rows in the transaction list can show these user-facing statuses:
 
 | Status | Meaning |
 |--------|---------|
-| **Paid** | Successfully transferred to your balance |
-| **Pending** | Being processed |
-| **Failed** | Error occurred (system will retry up to 5 times) |
-| **Excluded** | You weren't eligible (no active Stripe account) |
+| **Queued** | A subscription split exists but is still waiting to move |
+| **Sending** | BeatPass is actively sending the split toward Stripe |
+| **Paid** | The money has reached the Stripe side of the flow |
+| **Failed** | The transfer hit an error |
+| **Excluded** | You were not eligible for that subscription split when it ran |
 
-<Note>
-  If a payout fails, the system automatically retries up to 5 times. Check your Stripe account configuration if failures persist.
-</Note>
+<Warning>
+  The current UI does not include a separate **Excluded** filter tab, and it does not provide a click-to-open full transaction breakdown drawer for each row.
+</Warning>
 
-## Filtering Transactions
+### Pending Banner
 
-Use the filter tabs to view specific transaction types:
+If you have pending items, BeatPass can show a banner like:
 
-- **All** — Every transaction
-- **Paid** — Successfully completed transactions
-- **Pending** — Transactions being processed
-- **Failed** — Transactions that encountered errors
-- **Excluded** — Payouts you weren't eligible for
+`X queued • payouts move automatically`
 
-## Multiple Producer Profiles
+That banner is a quick signal that payouts are still moving through the system without any extra action from you.
 
-If you manage multiple producer profiles, you can switch between them using the artist selector dropdown at the top of the Finances page.
+---
 
-## Cache and Updates
+## How Earnings Work
 
-Financial data is cached for performance. You'll see:
+At the bottom of the page, BeatPass currently shows a **How Earnings Work** section that explains three sources:
 
-- **Last Updated** — When data was last refreshed from Stripe
-- **Cached indicator** — If you're viewing slightly older data
+- **Track Sales**
+- **Subscription Payouts**
+- **Bonus Payouts**
 
-The cache refreshes regularly, so your data stays current.
+This section is explanatory. It is meant to help you understand why money appears in your history, not to replace the transaction list itself.
+
+---
+
+## Practical Tips
+
+- Use **Balance** to see what is ready right now
+- Use **Upcoming** when you want to know what is still moving
+- Use the **Subscriptions** filter when reviewing subscription-based earnings only
+- Use the **Sales** filter when checking direct track purchases only
+- Keep an eye on **Setup required**, **Failed**, or **Excluded** signals because those are the clearest warnings that something needs attention
+
+---
 
 ## Common Questions
 
 <AccordionGroup>
-  <Accordion title="Why don't I see any transactions?">
-    Transactions appear after your first subscription revenue split or direct sale. Make sure your Stripe account is fully set up to receive payments.
+  <Accordion title="Why do I still see setup messaging after connecting Stripe?">
+    BeatPass can stay in setup mode until Stripe fully enables your account for payouts. If Stripe still needs more information, return to **Finances** and complete the remaining prompts.
   </Accordion>
-  <Accordion title="What does 'redistribution bonus' mean?">
-    When a producer isn't eligible for a payout (no Stripe account), their share is redistributed among eligible producers. A bonus means you received a portion of that redistribution.
+
+  <Accordion title="Why does Paid not always mean the money is already in my bank?">
+    On subscription payouts, **Paid** means the money has reached your Stripe-side balance flow. Bank arrival still follows Stripe's payout timing.
   </Accordion>
-  <Accordion title="Why is my balance different from my bank deposit?">
-    Your Stripe balance shows your total available funds. Bank deposits occur automatically on Stripe's payout schedule (typically every 2-7 business days).
+
+  <Accordion title="Can I filter only excluded payouts?">
+    Not from a dedicated tab today. **Excluded** appears as a status on the affected transaction rows.
   </Accordion>
-  <Accordion title="Can I view transactions by date range?">
-    Currently, transactions are shown in reverse chronological order. Use pagination to view older transactions.
+
+  <Accordion title="Why does the page show an Updated timestamp?">
+    Finances data is cached for performance. BeatPass shows the refresh time so you can tell when the current snapshot was last updated.
   </Accordion>
 </AccordionGroup>
 

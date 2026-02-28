@@ -8,7 +8,7 @@ keywords: ["manage subscription", "upgrade", "downgrade", "cancel", "resume", "c
 "og:description": "Learn how to manage your BeatPass subscription."
 ---
 
-You have full control over your BeatPass subscription. You can upgrade to get more features, downgrade to reduce costs, cancel when needed, or resume a cancelled subscription.
+BeatPass lets you change your paid plan from the **Billing** page.
 
 ---
 
@@ -40,84 +40,30 @@ All subscription changes are made in one place:
 3. In the **Current plan** section, choose the action you want to take:
    - **Change plan** — To upgrade or downgrade
    - **Cancel plan** — To cancel your subscription
-   - **Renew plan** — To resume a cancelled subscription (during grace period)
+   - **Renew plan** — To undo a cancellation before access ends
 
 ---
 
 ## How Plan Changes Work
 
-```mermaid
-stateDiagram-v2
-    [*] --> Active
-    Active --> Upgraded: Upgrade (immediate)
-    Active --> DowngradeScheduled: Downgrade (at renewal)
-    Active --> GracePeriod: Cancel
-    Upgraded --> Active: Next billing cycle
-    DowngradeScheduled --> Active: Renewal date
-    GracePeriod --> Active: Resume
-    GracePeriod --> Expired: Period ends
-    Expired --> [*]
-```
-
-### Upgrades
-
-When you upgrade to a higher-priced plan:
-
-- **Immediate access** — New features are available right away
-- **Prorated billing** — You're only charged the difference for the remaining time in your current billing cycle
-- **New billing amount** — Future renewals use the new plan's price
-
-### Downgrades
-
-When you downgrade to a lower-priced plan:
-
-- **Scheduled change** — The downgrade takes effect at your next renewal date
-- **Keep current features** — You maintain access to your current plan until renewal
-- **Lower future billing** — Starting from the next cycle, you pay the new lower rate
+| Action | What BeatPass Does |
+|--------|--------------------|
+| **Upgrade to a higher-priced plan** | Can be applied immediately or scheduled for renewal, depending on the confirmation page and payment method state |
+| **Downgrade to a lower-priced plan** | Scheduled for your renewal date |
+| **Cancel plan** | Stops future renewal but keeps access until the current paid period ends |
+| **Renew plan** | Removes the cancellation before the end date |
 
 <Note>
-  Downgrades are never applied immediately. You keep your current plan's features until your next billing date, when the new plan takes effect.
+  Current paid plans are billed monthly.
 </Note>
-
-### Cancellations
-
-When you cancel:
-
-- **Grace period** — You keep access until your current billing period ends
-- **No future charges** — You won't be charged at the next renewal
-- **Can resume** — You can reactivate during the grace period without losing anything
 
 ---
 
 ## Pending Changes
 
-If you've scheduled a plan change (like a downgrade), you can:
+If you schedule a future plan change, Billing shows **Scheduled Plan Change** with a **Cancel scheduled change** button.
 
-- **View the pending change** in your subscription settings
-- **Cancel the pending change** if you change your mind
-- **Wait for it to apply** automatically at your next renewal
-
----
-
-## Things to Consider
-
-### Before Upgrading
-
-- Review what additional features you'll get
-- Check the price difference
-- All plans are billed monthly
-
-### Before Downgrading
-
-- Review which features you'll lose
-- Make sure you don't need those features before your next renewal
-- Note any changes to your beat request token count
-
-### Before Cancelling
-
-- You won't lose your account—just the subscription benefits
-- Consider downgrading instead if you want to reduce costs
-- Remember you can resume during the grace period
+The scheduled card also shows the date when the change will take effect.
 
 ---
 

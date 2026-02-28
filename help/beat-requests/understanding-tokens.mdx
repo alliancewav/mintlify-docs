@@ -2,28 +2,34 @@
 audience: help
 title: "Understanding Tokens"
 sidebarTitle: "Understanding Tokens"
-description: "Learn how beat request tokens work on BeatPass. Understand your monthly allowance, how tokens reset, and ways to get more."
+description: "Learn how Beat Request tokens work, what each request costs, how refunds and renewals behave, and what happens when your plan changes."
 keywords: ["tokens", "beat request tokens", "monthly limit", "token balance", "token reset"]
 "og:title": "Understanding Tokens - BeatPass Help"
 "og:description": "Learn how the beat request token system works on BeatPass."
 ---
 
-Beat request tokens control how many requests you can create each month. This system ensures fair usage while giving everyone access to the feature.
+Tokens control how many Beat Requests you can create during the current monthly cycle. Your plan sets the limit, and the request duration decides how many tokens are spent.
 
 ---
 
 ## How Tokens Work
 
-Think of tokens as credits for creating beat requests:
+<CardGroup cols={2}>
+  <Card title="Create a Request" icon="plus">
+    **24 hours** costs **1 token**, **48 hours** costs **2**, and **72 hours** costs **3**.
+  </Card>
+  <Card title="Renew an Expired Request" icon="rotate-left">
+    Eligible expired requests always cost **1 token** to renew, even if the original request cost more.
+  </Card>
+  <Card title="Monthly Allowance" icon="coins">
+    Your plan decides how many tokens you can hold during the monthly cycle.
+  </Card>
+  <Card title="Plan Changes" icon="arrows-rotate">
+    Starting, resuming, or changing a paid plan resets your balance to that plan's token limit.
+  </Card>
+</CardGroup>
 
-- **1 to 3 tokens per request** depending on the duration tier you choose (24h = 1, 48h = 2, 72h = 3)
-- Tokens refresh at the **end of each month**
-- Your plan determines your **<Tooltip tip="The maximum number of tokens your plan provides each month. Unused tokens do not carry over.">monthly allowance</Tooltip>**
-- Unused tokens **do not carry over** to the next month
-
-<Info>
-  Your token balance resets on the last day of each month, regardless of when you used them.
-</Info>
+Unused tokens do not roll forward forever. BeatPass refreshes your balance on the monthly cycle and shows a **reset date** in the token status area.
 
 ---
 
@@ -39,7 +45,7 @@ The number of tokens you receive depends on your BeatPass subscription:
 | **Pro** (\$59/mo) | 5 |
 
 <Note>
-  Click your **profile avatar** → **Billing** to view your plan details and token allowance.
+  Your current token balance is shown in the Beat Requests experience, alongside your monthly limit and reset date.
 </Note>
 
 ---
@@ -57,6 +63,7 @@ Your token status includes:
 - **Monthly limit** — Your total allowance for the month
 - **Used this month** — How many you've already used
 - **Reset date** — When your tokens will refresh
+- **Days until reset** — How much time is left in the current cycle
 
 ---
 
@@ -66,12 +73,13 @@ Your token status includes:
 
 A token is used when you:
 - **Successfully submit** a beat request
+- **Renew** an eligible expired request
 
 ### When Tokens Are NOT Used
 
 Tokens are not consumed when you:
 - Browse other people's requests
-- View submissions to your requests
+- Monitor request counts or notifications
 - Start creating a request but don't submit
 
 ---
@@ -82,7 +90,7 @@ You can get tokens refunded by **deleting your request**:
 
 1. Go to your active requests
 2. Delete a request you no longer need
-3. Your tokens are **automatically refunded** based on the original duration tier
+3. BeatPass refunds as many tokens as it can without pushing you above your plan limit
 
 The refund amount matches the original cost:
 - **24h request** — 1 token refunded
@@ -111,14 +119,13 @@ The refund amount matches the original cost:
 
 - You can never hold more tokens than your plan's monthly allowance (e.g., a 3-token plan will never show 4 tokens)
 - Refunds stop once your balance reaches that limit, even if multiple requests are deleted
-- If you plan to delete multiple requests, delete and recreate one at a time so each refund has room to land
-- Upgrading your plan immediately sets your balance to the new limit; downgrading lowers the cap for future resets
+- Plan changes reset the balance to the new plan limit immediately
 
 ---
 
 ## Token Reset Cycle
 
-Tokens reset automatically on a **monthly cycle**:
+BeatPass refreshes tokens on a **monthly cycle**:
 
 ```mermaid
 flowchart LR
@@ -130,12 +137,12 @@ flowchart LR
 
 ### Important Dates
 
-- **Reset happens** — Last day of each month at midnight
-- **Days until reset** — Shown in your token status
+- **Reset date** — Shown in your token status
+- **Days until reset** — Also shown in the same status area
 - **Unused tokens** — Lost at reset (don't carry over)
 
 <Tip>
-  If you have unused tokens near the end of the month, consider using them before they reset!
+  If you have tokens left and know you need more requests this month, use them before the reset date instead of letting them expire.
 </Tip>
 
 ---
@@ -149,7 +156,7 @@ If your token balance reaches zero:
 3. **You can still receive submissions** on active requests
 4. **Options to get more:**
    - Wait for monthly reset
-   - Upgrade your plan
+   - Change to a plan with a higher token allowance
    - Delete an existing request (if below cap)
 
 ### What You See
@@ -164,27 +171,16 @@ For free users:
 
 ## Upgrading for More Tokens
 
-If you need more beat requests than your current plan allows:
+If your current token limit is too small for how often you use Beat Requests:
 
 1. Click your **profile avatar** → **Billing**
-2. Click **Change plan** to view available options
-3. Higher tier plans include more monthly tokens
-4. Upgrading **immediately resets** your tokens to the new plan's limit
+2. Use **Change plan** to review your options
+3. Pick a plan with a higher Beat Request allowance
+4. After the change takes effect, BeatPass resets your token balance to the new plan limit
 
 <Info>
-  When you upgrade, your token balance is set to your new plan's monthly limit right away—you don't have to wait for the next month.
+  BeatPass does not sell one-off token packs today. Tokens come from your current plan and the monthly reset cycle.
 </Info>
-
----
-
-## Token History
-
-BeatPass tracks your token usage history, including:
-- When tokens were used (request created)
-- When tokens were refunded (request deleted)
-- When tokens were reset (monthly or plan change)
-
-This helps you understand your usage patterns over time.
 
 ---
 
@@ -192,11 +188,11 @@ This helps you understand your usage patterns over time.
 
 <AccordionGroup>
   <Accordion title="Do unused tokens carry over?">
-    No. Unused tokens reset at the end of each month. If you have 3 tokens remaining on the last day of the month, they'll reset to your full monthly allowance—not add to it.
+    No. They are replaced by your refreshed monthly balance on the reset cycle.
   </Accordion>
   
   <Accordion title="What happens if I downgrade my plan?">
-    Your token limit adjusts to match your new plan. If you currently have more tokens than your new plan allows, they remain until you use them, but you won't get more until you're below the new limit.
+    BeatPass resets your token balance to the new plan's allowance when the subscription change is processed.
   </Accordion>
   
   <Accordion title="Can I buy extra tokens?">

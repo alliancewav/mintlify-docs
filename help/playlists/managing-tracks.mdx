@@ -1,107 +1,52 @@
 ---
 audience: help
 title: "Managing Tracks"
-description: "Learn how to add, remove, and organize tracks within your BeatPass playlists."
+description: "Add tracks to playlists, search inside a playlist page, and understand who can remove tracks."
 ---
 
-# Managing Tracks in Playlists
-
-Once you've created a playlist, you can add beats, remove ones you no longer want, and organize them to your liking.
+Track management happens in two places: while you browse the catalog and on the playlist page itself.
 
 ## Adding Tracks
 
-### Add a Single Track
+The normal add flow is:
 
-1. Find a beat you want to add
-2. Right-click on it (or long-press on mobile)
-3. Select **Add to playlist**
-4. Choose which playlist to add it to
+1. Open a track context menu.
+2. Choose **Add to playlist**.
+3. Pick the target playlist, or create a new one.
 
-The track is instantly added to your playlist.
+If you create a new playlist from that flow, the track you started from becomes the first item in the playlist.
 
-### Add While Creating a Playlist
+## What The Playlist Page Shows
 
-When you select **New playlist** from the "Add to playlist" menu, the track you right-clicked is automatically added to the new playlist after creation.
+A playlist page currently includes:
 
-### Add Multiple Tracks
+- Header details such as title, description, editor avatars, track count, and total duration
+- The playlist track table
+- A search field labeled **Search within playlist**
+- The main play button and follow/unfollow state
 
-To add several tracks at once:
-
-1. Go to an album, producer page, or another playlist
-2. Right-click to open the context menu
-3. Select **Add to playlist**
-4. Choose your playlist
-
-All tracks from that source are added to your playlist.
+If the playlist has no tracks yet, BeatPass shows the empty-state message: `This playlist does not have any tracks yet`.
 
 ## Removing Tracks
 
-### Remove from Playlist Page
+Track removal is permission-based:
 
-1. Open your playlist
-2. Find the track you want to remove
-3. Right-click on it (or click the menu icon)
-4. Select **Remove from this playlist**
+| Role | Can remove tracks |
+| --- | --- |
+| Owner | Yes |
+| Accepted editor on a collaborative playlist | Yes |
+| Follower or ordinary viewer | No |
 
-The track is removed immediately.
+## Searching Inside A Playlist
 
-### Who Can Remove Tracks
+Use **Search within playlist** on the playlist page when you want to narrow a long track list without leaving the playlist.
 
-- **Playlist owner** — Can always remove any track
-- **Collaborative editors** — Can remove tracks if the playlist is collaborative
-- **Followers** — Cannot remove tracks (they can only listen)
+## Playback From A Playlist
 
-## Viewing Your Playlist
+- Use the main play control to queue the playlist.
+- Start from a specific row if you want playback to continue from that point.
+- Use the player queue if you want temporary playback changes without editing the playlist itself.
 
-When you open a playlist, you'll see:
-
-- **Playlist header** — Cover image, name, description, and creator
-- **Track list** — All beats in the playlist with artwork, name, and producer
-- **Track count** — Total number of tracks in the playlist
-- **Play button** — Start playing all tracks in order
-
-## Playing Tracks
-
-### Play the Whole Playlist
-
-Click the main **Play** button on the playlist page to start from the first track and play through in order.
-
-### Play a Specific Track
-
-Click on any track in the list to start playing from that point. The playlist continues from there.
-
-### Shuffle Play
-
-Use the shuffle button to play tracks in random order.
-
-## Track Context Menu
-
-Right-click any track in a playlist to access options:
-
-- **Play** — Start playing this track
-- **Add to queue** — Add to your current listening queue
-- **Add to playlist** — Add to another playlist
-- **Remove from this playlist** — Remove from the current playlist (if you have permission)
-- **Go to track** — View the track's page
-- **Go to artist** — View the producer's page
-- **Copy link** — Copy a link to the track
-
-## Tips for Organizing
-
-<AccordionGroup>
-  <Accordion title="Create themed playlists">
-    Instead of one giant playlist, create several focused ones: "Chill Beats," "Hard Trap," "R&B Vibes," etc.
-  </Accordion>
-  
-  <Accordion title="Use playlists for projects">
-    Create a playlist for each song or album you're working on. Add beats you're considering, then narrow down as you make decisions.
-  </Accordion>
-  
-  <Accordion title="Save beats as you browse">
-    When you hear something you like, immediately add it to a playlist. Don't rely on remembering to find it later.
-  </Accordion>
-</AccordionGroup>
-
-<Note>
-Changes to playlists are saved automatically. There's no need to manually save after adding or removing tracks.
-</Note>
+<Tip>
+  If a playlist is part of a real project, keep the saved order clean and use the queue for one-off listening changes.
+</Tip>

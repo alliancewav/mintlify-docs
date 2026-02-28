@@ -2,13 +2,13 @@
 audience: help
 title: "Receiving Submissions"
 sidebarTitle: "Receiving Submissions"
-description: "Learn what happens when producers submit beats to your request. How to view, listen, and respond to submissions."
+description: "Understand how BeatPass notifies you about new beat submissions, what the current review flow looks like, and how to follow up with producers."
 keywords: ["submissions", "receiving beats", "review submissions", "beat request responses"]
 "og:title": "Receiving Submissions - BeatPass Help"
 "og:description": "Learn how to review and respond to beat submissions on BeatPass."
 ---
 
-When you create a beat request, producers can submit tracks from their catalog that match what you're looking for. This guide explains how to receive, review, and respond to submissions.
+When you create a Beat Request, producers can respond by sending tracks from their BeatPass catalog. This page explains the current submission-review flow so you know what BeatPass shows today and what still happens through notifications and messaging.
 
 ---
 
@@ -33,7 +33,7 @@ sequenceDiagram
     Prod->>BP: Browse & find your request
     Prod->>BP: Submit track from catalog
     BP-->>You: Submission notification
-    You->>BP: Review & listen
+    You->>BP: Open the submitted track
     You->>Prod: Message to connect
 ```
 
@@ -45,7 +45,7 @@ Each submission includes:
 - **Submission time** — When they sent it
 
 <Note>
-  Submissions are existing tracks from producers' catalogs, not custom-made beats. This allows for quick turnaround during the request window.
+  Submissions are existing BeatPass tracks, not guaranteed custom-made beats. That is why responses can arrive quickly during the live request window.
 </Note>
 
 ---
@@ -77,27 +77,23 @@ When a producer submits a beat to your request, you'll be notified based on your
 
 ## Viewing Submissions
 
-### Where to Find Them
+### What BeatPass Shows Today
 
-Submissions appear in several places:
-- **Your request details** — Shows all submissions to that specific request
-- **Notification center** — Alerts for new submissions
-- **Request submission count** — Number badge on your active requests
+BeatPass currently centers the review flow around:
 
-### Submission Information
+- **Your notification center** — Each submission can generate a notification
+- The submitted **track page** opened from that notification
+- **Submission counts** on your request cards
 
-For each submission, you can see:
-- **Track name** — Title of the submitted beat
-- **Producer name** — Who made and submitted it
-- **Submitted at** — Timestamp of submission
-- **Play button** — Listen to the track directly
+### What You Can Expect on the Current UI
 
-### Listening to Submissions
+- Your request card can show how many beats have been submitted
+- Notifications can take you directly to the submitted track
+- Messaging remains the main follow-up channel after you find a producer you want to talk to
 
-Click play on any submission to hear the beat. You can:
-- Stream the full track
-- Visit the track's page for more details
-- Check the producer's profile
+<Warning>
+  BeatPass does not currently provide a dedicated submissions inbox inside request details. If you want a direct path back to each submitted track, open or keep the notification that arrived when the beat was sent.
+</Warning>
 
 ---
 
@@ -117,7 +113,7 @@ You may receive many submissions to a single request:
 - **Review them all** — Different producers have different strengths
 - **Multiple producers** — Any number of producers can submit to your request
 - **Up to 5 tracks per producer** — Each producer can submit up to 5 different tracks per request
-- **Take notes** — Keep track of which ones you like
+- **Take notes outside the request card** — The current request-management UI shows counts, not a built-in inbox of every response
 
 <Info>
   Requests stay open for the full duration you selected (24, 48, or 72 hours) regardless of how many submissions you receive. This gives more producers a chance to respond.
@@ -131,9 +127,9 @@ You may receive many submissions to a single request:
 
 Found a beat you love? Here's what to do:
 
-1. **Visit their profile** — Learn more about the producer
-2. **Send a message** — Start a conversation through BeatPass messaging
-3. **Discuss next steps** — Talk about licensing, exclusive rights, or collaboration
+1. Open the submitted track or the producer's profile
+2. Click **Message** to start the conversation
+3. Discuss licensing, exclusivity, pricing, or next steps directly with the producer
 
 ### Starting a Conversation
 
@@ -162,8 +158,8 @@ To message a producer about their submission:
 ### What Happens at Expiration
 
 - **Request closes** — No new submissions can be sent
-- **Submissions remain accessible** — You can still view and listen to what was sent
-- **No automatic cleanup** — Your submission history stays in your account
+- **Existing notifications and conversations still matter** — You can continue following up with producers you already discovered
+- **Renewal may be available** — Eligible requests can be renewed within 30 days for **1 token**
 
 ### Continuing the Conversation
 
@@ -195,7 +191,7 @@ Your request displays a submission count showing how many tracks have been submi
 
 <AccordionGroup>
   <Accordion title="Can producers submit more than one beat?">
-    Yes. A producer can submit up to 5 different tracks to the same request. Each specific track can only be submitted once, and duplicate audio (tracks with matching fingerprints) is automatically blocked.
+    Yes. A producer can submit up to 5 different tracks to the same request. Each exact track can only be submitted once to that request.
   </Accordion>
   
   <Accordion title="Can I reject a submission?">
@@ -207,11 +203,11 @@ Your request displays a submission count showing how many tracks have been submi
     - Was your description clear enough?
     - Was your reference track accessible?
     - Was the genre popular on the platform?
-    You can create a new request (using another token) with improved details.
+    You can create a new request with better details, or renew an eligible expired request for 1 token.
   </Accordion>
   
-  <Accordion title="Can I see who submitted before listening?">
-    Yes. Submissions show the producer's name and avatar before you play the track.
+  <Accordion title="Where do I open submitted tracks?">
+    In the current experience, the most reliable path is the submission notification. BeatPass also shows the submission count on your request cards so you know activity is happening even before you open the track.
   </Accordion>
   
   <Accordion title="Do submissions cost the producer anything?">

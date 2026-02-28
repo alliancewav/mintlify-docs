@@ -1,72 +1,37 @@
 ---
 audience: help
 title: "Listening History"
-description: "View and replay beats you've recently listened to."
+description: "Review and replay the tracks you have recently played on BeatPass."
 ---
 
-Your Listening History keeps track of the beats you've played. It's perfect for finding that beat you heard but forgot to save, or for rediscovering tracks you've enjoyed.
+**Listening history** is the recent-play view in your library. It lives at `/library/history` and helps you find tracks you already listened to, even if you did not save them yet.
 
-## What Gets Tracked
+<Info>
+  Current page title: **Listening history**. Current subtitle: **Recently played tracks**.
+</Info>
 
-Your history automatically records:
+## What Gets Recorded
 
-- **Beats you've played** — Any beat that starts playing
-- **When you played it** — The date and time
-- **Play order** — Most recent plays appear first
+- Tracks you have played on BeatPass.
+- The order in which they were played.
+- A searchable record you can revisit later.
 
-## Accessing Your History
+## What You Can Do Here
 
-1. Click **History** in the sidebar under Your Library
-2. Or navigate to `/library/history` directly
+- Search with **Search within history**.
+- Replay a track from the table.
+- Open the related track page.
 
-## Using Your History
+## What To Expect On The Page
 
-### Search
-
-Use the search bar to find specific beats in your history by:
-
-- Beat title
-- Producer name
-
-### Play All
-
-Click the **Play** button to replay your history as a queue, starting with the most recently played.
-
-### Play Individual Beats
-
-Click any beat in your history to start playing it again.
-
-## History vs. Liked Beats
-
-| Feature | History | Liked Beats |
-|---------|---------|-------------|
-| **What's saved** | Automatically tracks plays | Manually saved favorites |
-| **How it's added** | Automatic when you play | Click the heart icon |
-| **Sorted by** | When played | When liked or custom sort |
-| **Permanent** | May be cleared over time | Stays until you unlike |
-
-<Tip>
-  If you find yourself replaying a beat from your history, consider liking it so you can find it easily later.
-</Tip>
-
-## Common Uses
-
-- **Rediscover beats** — Find that beat you heard yesterday but didn't save
-- **See patterns** — Notice which styles you're drawn to
-- **Continue listening** — Pick up where you left off in a browsing session
-- **Quick replay** — Easily replay what you just listened to
-
-## Privacy
-
-Your listening history is private and only visible to you when logged into your account.
-
-## Related
-
-<CardGroup cols={2}>
-  <Card title="Liked Beats" href="/help/library/liked-tracks" icon="heart">
-    Save beats permanently to your library.
-  </Card>
-  <Card title="Creating Playlists" href="/help/playlists/creating-playlists" icon="list-music">
-    Organize beats you want to keep.
-  </Card>
-</CardGroup>
+<AccordionGroup>
+  <Accordion title="Ordering">
+    The page is designed around recent playback order. It does not currently expose a dedicated sort switch the way some other library pages do.
+  </Accordion>
+  <Accordion title="Artist column">
+    The history table is streamlined compared with some other library tables, so it focuses on quick replay rather than the full desktop track-table layout.
+  </Accordion>
+  <Accordion title="Empty state">
+    If you have not played anything yet, BeatPass shows: `You have not played any songs yet.`
+  </Accordion>
+</AccordionGroup>

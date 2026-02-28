@@ -2,32 +2,37 @@
 audience: help
 title: "Beat Requests"
 sidebarTitle: "Overview"
-description: "Request custom beats from BeatPass producers. Describe what you're looking for, choose a duration (24, 48, or 72 hours), and receive submissions from talented producers."
+description: "Use Beat Requests to describe the sound you need, spend tokens on a 24, 48, or 72-hour request window, and receive matching beat submissions from BeatPass producers."
 keywords: ["beat requests", "custom beats", "producer submissions", "collaboration", "tokens"]
 "og:title": "Beat Requests - BeatPass Help"
 "og:description": "Learn how to request custom beats from BeatPass producers."
 ---
 
-Beat Requests let you describe the type of beat you're looking for and receive submissions from producers on BeatPass. It's a direct way to connect with talented creators and find music tailored to your specific needs.
+Beat Requests let you post a brief for the sound you need and receive beat submissions from producers on BeatPass. You choose how long the request stays live, and BeatPass uses <Tooltip tip="Credits that control how many beat requests you can create each month. Your plan determines your allowance." cta="Learn more" href="/help/beat-requests/understanding-tokens">tokens</Tooltip> to control how many requests you can create each month.
 
-<Tooltip tip="Credits that control how many beat requests you can create each month. Your plan determines your allowance." cta="Learn more" href="/help/beat-requests/understanding-tokens">Tokens</Tooltip> are used to create requests, and each request's cost depends on the <Tooltip tip="The active window you choose for a request: 24h (1 token), 48h (2 tokens), or 72h (3 tokens).">duration tier</Tooltip> you select.
+<Info>
+  Beat Requests are built around producers sending tracks that already exist in their BeatPass catalog. They are useful for discovering strong matches quickly, but they do not guarantee a custom-made commission.
+</Info>
 
 ---
 
 ## How It Works
 
 <Steps>
-  <Step title="Create a Request">
-    Describe the beat you're looking for, including genre, tempo, mood, and a reference track. Choose a duration tier (24, 48, or 72 hours) — each tier costs 1, 2, or 3 tokens respectively.
+  <Step title="Create your request">
+    Open **Beat Requests** and click **Submit Request**. Add a description, a required **Reference Track**, and any optional details that help producers understand your sound.
   </Step>
-  <Step title="Producers See Your Request">
-    Verified producers on BeatPass are automatically notified when new requests are posted. Other producers can browse the public feed and decide if they want to submit.
+  <Step title="Choose how long it stays live">
+    Pick a request window of **24**, **48**, or **72 hours**. Those durations cost **1**, **2**, or **3** tokens.
   </Step>
-  <Step title="Receive Submissions">
-    Producers submit beats from their catalog that match your requirements. You'll be notified each time someone sends you a beat.
+  <Step title="Producers discover it">
+    Verified producers are notified automatically when a new request is posted. Other eligible producers can still browse the public request feed and submit if they find a good match.
   </Step>
-  <Step title="Review and Connect">
-    Listen to the submissions and connect with producers whose work you like. Requests stay active for the duration you selected.
+  <Step title="Receive beat submissions">
+    Producers send BeatPass-hosted tracks from their catalog. Each submission increases the request's submission count and can trigger a notification based on your notification settings.
+  </Step>
+  <Step title="Manage the request">
+    You can track active and expired requests from **My Requests** on the **Beat Requests** page or from **Library** → **Beat requests** on the dedicated **My Beat Requests** page.
   </Step>
 </Steps>
 
@@ -60,18 +65,22 @@ Beat Requests let you describe the type of beat you're looking for and receive s
 
 ## Quick Facts
 
-<CardGroup cols={3}>
+<CardGroup cols={2}>
   <Card title="Request Duration" icon="clock">
     <Badge color="blue" size="lg">24 / 48 / 72 hrs</Badge>
-    Choose longer windows for more visibility
+    Longer windows cost more tokens but give producers more time to respond
   </Card>
   <Card title="Token Cost" icon="coins">
     <Badge color="orange" size="lg">1 / 2 / 3 tokens</Badge>
     Matches the duration tier you select
   </Card>
+  <Card title="Renewal" icon="rotate-left">
+    <Badge color="green" size="lg">1 token</Badge>
+    Eligible expired requests can be renewed within 30 days
+  </Card>
   <Card title="Submissions" icon="inbox">
     <Badge color="green" size="lg">Up to 5 per producer</Badge>
-    Multiple producers can submit
+    A single producer can send up to five different tracks to one request
   </Card>
 </CardGroup>
 
@@ -90,38 +99,34 @@ Beat Requests let you describe the type of beat you're looking for and receive s
 
 ## Who Can Use Beat Requests?
 
-### As a Requester (Anyone)
+### Creating Requests
 
-Any BeatPass user can create beat requests:
-- **Free users** — Receive tokens based on your plan
-- **Subscribers** — Higher monthly token allowance
+Any signed-in BeatPass user can create requests as long as they still have tokens available for the month.
 
-### As a Producer
+### Sending Beats as a Producer
 
 To submit beats to requests, you need:
-- A **producer profile** on BeatPass
-- At least one **uploaded track** to submit
+- A BeatPass **producer profile**
+- The ability to upload tracks to BeatPass
+- At least one BeatPass-hosted track that you own or collaborate on
 
 <Info>
-  All producers can enable notifications for new beat requests in their notification settings.
+  Verified producers are the ones BeatPass notifies automatically about new requests. Non-verified producers can still browse the public feed and submit when they have eligible tracks.
 </Info>
 
 ---
 
-## The Token System
+## What You Can Review Today
 
-Beat requests use a **token system** to ensure fair usage:
+BeatPass currently gives you three main ways to track responses:
 
-- Each request costs **1, 2, or 3 tokens** depending on the duration tier you choose
-- Tokens reset at the **end of each month**
-- Your plan determines your monthly token allowance
-- Deleting a request **refunds** your tokens (based on the original duration tier)
+- Submission notifications
+- Submission counts on each request card
+- Producer messages and submitted track pages
 
-<Tip>
-  Check your token balance before creating a request. You can see your remaining tokens in the beat request section.
-</Tip>
-
-For full details, see [Understanding Tokens](/help/beat-requests/understanding-tokens).
+<Note>
+  BeatPass does not currently include a dedicated request-details submissions inbox. If you want the fastest path back to a submitted beat, open it from the notification when it arrives.
+</Note>
 
 ---
 
@@ -131,17 +136,20 @@ For full details, see [Understanding Tokens](/help/beat-requests/understanding-t
 stateDiagram-v2
     [*] --> Created: Token consumed
     Created --> Active: Goes live immediately
-    Active --> Active: Submissions arrive
+    Active --> Active: Producers submit beats
     Active --> Expired: Duration ends (24/48/72h)
+    Expired --> Renewed: Renewed within 30 days
+    Renewed --> Active
     Expired --> [*]
 ```
 
 1. **Created** — Your request is posted and visible to producers
-2. **Active** — Producers can submit beats for the duration you selected (24, 48, or 72 hours)
-3. **Expired** — Request closes automatically, no new submissions accepted
+2. **Active** — Producers can submit beats for the duration you selected
+3. **Expired** — New submissions stop automatically
+4. **Renewable** — Eligible expired requests can be renewed for **1 token** within 30 days of expiring
 
 <Note>
-  Requests don't close when you receive submissions. They stay open for the full selected duration so multiple producers can respond.
+  Requests stay open for the full time you selected. They do not close early just because you already received submissions.
 </Note>
 
 ---
@@ -152,8 +160,8 @@ stateDiagram-v2
 
 - **Be specific** — The more detail you provide, the better matches you'll receive
 - **Include a reference track** — This helps producers understand your vision
-- **Check regularly** — Review submissions as they come in
-- **Respond to producers** — If you like a submission, reach out via messaging
+- **Keep notifications on** — Notifications are currently the main entry point into submitted beats
+- **Avoid deleting too early** — Deleting removes the request from the public feed and from the current request-management flow
 
 ### For Producers
 

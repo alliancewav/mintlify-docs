@@ -8,7 +8,7 @@ keywords: ["delete account", "remove account", "close account", "delete data"]
 "og:description": "Learn how to delete your BeatPass account permanently."
 ---
 
-Deleting your BeatPass account permanently removes your profile and associated data from the platform. This action cannot be undone, so please read this guide carefully before proceeding.
+Deleting your BeatPass account is permanent. Once the deletion is confirmed, your current user account is removed right away and you are signed out.
 
 ---
 
@@ -18,35 +18,29 @@ Deleting your BeatPass account permanently removes your profile and associated d
 
 Before deleting your account, think about:
 
-- **Downloaded content** — Have you downloaded any purchased beats or licenses?
-- **Uploaded content** — Your tracks, albums, and playlists will be removed
-- **Subscriptions** — Active subscriptions will be cancelled
-- **Account data** — Everything associated with your account will be deleted
+- **Active subscription** — Deleting the account also removes the subscription attached to it
+- **Saved access** — Your login sessions and connected sign-in methods are removed with the account
+- **Files and settings** — Account-owned data tied directly to your user is deleted
 
 <Warning>
-  Account deletion is **permanent and irreversible**. All your data, content, and history will be removed and cannot be recovered.
+  Account deletion is **permanent and irreversible**.
 </Warning>
 
 ---
 
-## What Gets Deleted
+## What BeatPass Removes
 
-When you delete your account, the following are permanently removed:
+The current account deletion flow removes your user account and related items tied directly to it, including:
 
 | Data Type | What Happens |
 |-----------|--------------|
-| **Profile** | Your user profile and public page |
-| **Uploaded Content** | All tracks, albums, and uploaded files |
-| **Playlists** | Your created playlists |
-| **Social Connections** | Followers, following, linked accounts |
-| **Messages** | Your conversation history |
-| **Notifications** | All notifications |
-| **Comments** | Comments you've made |
-| **Likes & Reposts** | Your engagement history |
-| **Subscriptions** | Cancelled and removed |
-| **Files** | Any files stored in your account |
-| **Sessions** | All active login sessions |
-| **API Tokens** | Any created access tokens |
+| **User account** | Deleted permanently |
+| **Linked social accounts** | Removed |
+| **Notifications** | Removed |
+| **API access tokens** | Removed |
+| **Active sessions** | Ended |
+| **Account-owned files and exports** | Removed |
+| **Subscription records tied to the account** | Cancelled and deleted |
 
 ---
 
@@ -54,10 +48,8 @@ When you delete your account, the following are permanently removed:
 
 If you have an active subscription:
 
-- It will be **immediately cancelled**
-- You will not be charged further
-- Remaining subscription time is forfeited
-- No prorated refunds are provided for partial periods
+- It is cancelled as part of account deletion
+- Future renewals stop with the deleted account
 
 <Note>
   If you just want to cancel your subscription without deleting your account, you can do so from the [Billing page](/help/billing).
@@ -69,19 +61,19 @@ If you have an active subscription:
 
 <Steps>
   <Step title="Go to Account Settings">
-    Click your **profile avatar** → **Edit Profile**.
+    Open the [Account Settings](https://open.beatpass.ca/account-settings) page.
   </Step>
   <Step title="Find the Danger Zone">
     Scroll to the bottom to find the **Danger zone** section.
   </Step>
-  <Step title="Review Warnings">
-    Read the information about what will be deleted.
+  <Step title="Start deletion">
+    Click **Delete account**.
   </Step>
   <Step title="Confirm Your Decision">
-    You may be asked to enter your password or confirm in another way.
+    Review the **Delete account?** confirmation dialog.
   </Step>
   <Step title="Complete Deletion">
-    Confirm the deletion. Your account will be removed.
+    Click **Delete**.
   </Step>
 </Steps>
 
@@ -93,14 +85,7 @@ If you have an active subscription:
 
 - You're logged out immediately
 - You cannot log back in with those credentials
-- Your profile page returns a "not found" error
-- Your username becomes available for others
-
-### Data Retention
-
-- Most data is deleted immediately
-- Some data may be retained briefly for technical or legal reasons
-- Backup systems may retain data temporarily before purging
+- Your existing sessions are ended
 
 ---
 
@@ -108,26 +93,17 @@ If you have an active subscription:
 
 If you're not sure about permanent deletion, consider these alternatives:
 
-### Take a Break
-
-Instead of deleting, you can:
-- Log out and stop using the platform
-- Remove your uploaded content manually
-- Disconnect social accounts
-
-### Cancel Subscription Only
+### Cancel subscription only
 
 If cost is the issue:
 - Cancel your subscription but keep the account
-- Your account remains active on the free tier
-- Your content and followers are preserved
+- Keep access to your account settings and history
 
-### Contact Support
+### Keep the account and secure it instead
 
-If you have specific concerns:
-- Reach out to support before deleting
-- The support team may be able to address your issues
-- Some problems have solutions short of deletion
+- Change your password
+- Enable two-factor authentication
+- Use **Logout other sessions** from [Active Sessions](/help/account-settings/active-sessions)
 
 ---
 
@@ -136,8 +112,7 @@ If you have specific concerns:
 If you delete your account and later want to return:
 
 - You can create a **new account**
-- You'll need to use the same or different email
-- Your old data, followers, and content **cannot be restored**
+- Your old account data **cannot be restored**
 - You start fresh as a new user
 
 <Info>
@@ -152,21 +127,11 @@ If you delete your account and later want to return:
   <Accordion title="Can I recover my account after deletion?">
     No. Account deletion is permanent and irreversible. Once deleted, your account and all associated data cannot be recovered.
   </Accordion>
-  
-  <Accordion title="Will my uploaded tracks still be accessible?">
-    No. All your uploaded content is deleted along with your account. Anyone who had access to your tracks will no longer be able to play or download them.
-  </Accordion>
-  
-  <Accordion title="What about purchases I made?">
-    Make sure you've downloaded any purchased content before deleting. After deletion, you won't be able to access purchase history or re-download content.
-  </Accordion>
-  
   <Accordion title="Can I delete my account without canceling my subscription first?">
     Yes. Deleting your account automatically cancels any active subscriptions.
   </Accordion>
-  
   <Accordion title="How long does deletion take?">
-    Account deletion is typically processed immediately. Some background cleanup may continue for a short time.
+    The current deletion flow removes the account immediately after you confirm it.
   </Accordion>
 </AccordionGroup>
 
@@ -188,7 +153,7 @@ If you're experiencing issues with your account that are prompting you to delete
   <Card title="Subscription Management" icon="credit-card" href="/help/plans-and-pricing">
     Cancel or change your subscription.
   </Card>
-  <Card title="Privacy Settings" icon="eye-slash" href="/help/profiles/user-profiles/privacy-settings">
-    Manage your privacy settings.
+  <Card title="Profile Visibility" icon="eye-slash" href="/help/profiles/user-profiles/profile-visibility">
+    Review what remains public on your user profile.
   </Card>
 </CardGroup>

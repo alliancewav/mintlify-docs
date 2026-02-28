@@ -1,86 +1,88 @@
 ---
 audience: help
 title: "Earnings"
-description: "How producers earn money on BeatPass through subscription revenue sharing and beat sales."
+description: "How BeatPass producers earn from track sales and subscription payouts, and where to track payout status inside Producer Finances."
 ---
 
 import PlatformFee from "/snippets/callouts/platform-fee.mdx";
-import StripeConnectRequired from "/snippets/callouts/stripe-connect-required.mdx";
 
-BeatPass offers producers multiple ways to earn money from their music. You keep 100% of your track or subscription earnings—the platform fee (**12% + \$3 CAD flat**) is added on top of customer pricing instead of being taken out of your share.
+BeatPass gives producers two main ways to earn: direct track sales and subscription-based payouts. Your **Producer Finances** page shows payout readiness, account balances, and transaction history in one place.
+
+<PlatformFee />
 
 ## Revenue Streams
 
 <CardGroup cols={2}>
-  <Card title="Subscription Revenue Sharing" icon="repeat">
-    Every month, subscription revenue is distributed among producers based on how much value their tracks contribute to the platform. The more your beats are played, the larger your share.
+  <Card title="Track Sales" icon="shopping-bag">
+    When someone buys a priced track or exclusive offer, the transaction appears in your earnings history and moves through Stripe.
   </Card>
-  <Card title="Exclusive Beat Sales" icon="shopping-bag">
-    Sell beats exclusively with custom pricing. When someone purchases an exclusive license, you receive the full sale amount directly to your connected Stripe account.
+  <Card title="Subscription Payouts" icon="repeat">
+    Subscription revenue is shared based on your <Tooltip tip="A score BeatPass calculates from recency, play activity, and collaborator count to determine subscription payout share." cta="See the formula" href="/help/earnings/contribution-system/formula">contribution value</Tooltip>.
+  </Card>
+  <Card title="Bonus Redistribution" icon="bolt">
+    If another producer is excluded from a subscription split because their payout setup is incomplete, eligible producers can receive redistributed value.
+  </Card>
+  <Card title="Producer Finances" icon="chart-bar">
+    Use **Producer Finances** to see **Balance**, **Upcoming**, **In Transit**, **Lifetime**, and your transaction list.
   </Card>
 </CardGroup>
 
 ## How It Works
 
-1. **Connect your payment account** — Set up Stripe Connect (all three indicators — **Connected**, **Charges Enabled**, and **Payouts Enabled** — must be green before money can move)
-2. **Upload your beats** — Your tracks begin earning contribution value immediately
-3. **Get paid automatically** — Earnings are deposited directly to your bank account on Stripe’s payout schedule (2–7 business days depending on country)
-
-<PlatformFee />
-
-## Key Benefits
-
-<AccordionGroup>
-  <Accordion title="100% Revenue Share">
-    You receive 100% of your earnings. The 12% + \$3 CAD platform fee is added on top of prices, not taken from your share.
-  </Accordion>
-  <Accordion title="Automatic Payouts">
-    Stripe handles all payment processing and automatically transfers your balance to your bank account on a regular schedule.
-  </Accordion>
-  <Accordion title="Transparent Tracking">
-    View detailed breakdowns of your earnings, contribution values, and payout history in your Finances dashboard.
-  </Accordion>
-  <Accordion title="Multiple Currencies">
-    Accept payments in USD, EUR, GBP, and CAD. Your earnings are tracked by currency.
-  </Accordion>
-</AccordionGroup>
-
-## Getting Started
-
 <Steps>
-  <Step title="Create a producer profile">
-    You need a producer profile to access earnings features. If you don't have one, go to **Backstage** to create your profile.
+  <Step title="Connect Stripe Connect">
+    Open **Backstage** and go to **Finances**. If your payout setup is incomplete, BeatPass shows **Connect Stripe Account Now**.
   </Step>
-  <Step title="Connect your Stripe account">
-    Set up Stripe Connect to enable payouts. The setup takes about 5 minutes and requires basic information about yourself and your bank account.
+  <Step title="Upload and price your music">
+    Add tracks to your catalog and configure sales or exclusivity where appropriate.
   </Step>
-  <Step title="Upload your music">
-    Start uploading beats. Each track begins earning contribution value as soon as it's live on the platform.
+  <Step title="Earn from activity and sales">
+    Track sales generate direct revenue. Subscription payouts are calculated from contribution value and platform participation.
   </Step>
-  <Step title="Monitor your earnings">
-    Visit your **Finances** dashboard in the Producer Dashboard to track your earnings, view transactions, and check payout status.
+  <Step title="Track payout status">
+    BeatPass records statuses like **Queued**, **Sending**, **Paid**, **Failed**, and **Excluded** so you can see where money is in the process.
+  </Step>
+  <Step title="Receive automatic payouts through Stripe">
+    Once funds reach your Stripe balance and your account is eligible, Stripe handles the transfer to your payout destination.
   </Step>
 </Steps>
+
+## Key Facts
+
+<CardGroup cols={2}>
+  <Card title="You Keep Your Set Price" icon="percent">
+    BeatPass adds the platform fee on top at checkout instead of deducting it from your listed price.
+  </Card>
+  <Card title="Track Pricing Currencies" icon="globe">
+    BeatPass currently supports **USD**, **EUR**, **GBP**, and **CAD** for track purchase pricing.
+  </Card>
+  <Card title="Current Subscription Plans" icon="credit-card">
+    Current paid BeatPass plans are listed in **CAD**.
+  </Card>
+  <Card title="Multi-Currency Support" icon="wallet">
+    **Producer Finances** can show mixed-currency balances and warns you when the account includes more than one currency.
+  </Card>
+</CardGroup>
 
 ## Learn More
 
 <CardGroup cols={2}>
-  <Card title="Contribution System" href="/help/earnings/contribution-system" icon="chart-line">
-    Understand how your share of subscription revenue is calculated based on your tracks' contribution value.
+  <Card title="Viewing Finances" href="/help/earnings/viewing-finances" icon="chart-bar">
+    See exactly what the Finances page shows today.
   </Card>
-  <Card title="Stripe Connect Setup" href="/help/earnings/stripe-connect" icon="wallet">
-    Step-by-step guide to connecting your payment account and receiving payouts.
+  <Card title="Payout Eligibility" href="/help/earnings/payout-eligibility" icon="circle-check">
+    Understand what must be complete before money can move.
   </Card>
   <Card title="Payout Schedule" href="/help/earnings/payout-schedule" icon="calendar">
-    Learn when and how your earnings are transferred to your bank account.
+    Learn how earnings move from BeatPass to Stripe and then to your payout destination.
   </Card>
-  <Card title="Viewing Finances" href="/help/earnings/viewing-finances" icon="chart-bar">
-    Navigate your Finances dashboard and understand your earnings data.
+  <Card title="Stripe Connect Setup" href="/help/earnings/stripe-connect/setup-guide" icon="wallet">
+    Follow the current onboarding flow in BeatPass.
   </Card>
-  <Card title="Tax Information" href="/help/earnings/tax-information" icon="file-lines">
-    Understand your tax responsibilities and how to access tax documents.
+  <Card title="Contribution System" href="/help/earnings/contribution-system" icon="chart-line">
+    Learn how BeatPass calculates subscription payout share.
   </Card>
-  <Card title="Currencies & Pricing" href="/help/earnings/currencies-and-pricing" icon="globe">
-    How multi-currency support works for pricing and payouts.
+  <Card title="Currencies & Pricing" href="/help/earnings/currencies-and-pricing" icon="money-bill-transfer">
+    Understand pricing currencies, payout currencies, and conversion expectations.
   </Card>
 </CardGroup>

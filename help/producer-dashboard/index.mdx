@@ -2,204 +2,93 @@
 audience: help
 title: "Producer Dashboard | BeatPass"
 sidebarTitle: "Dashboard Overview"
-description: "Navigate your Producer Dashboard to monitor performance, track earnings, view leaderboard rankings, and manage your catalog on BeatPass."
-keywords: ["producer dashboard", "beat analytics", "play statistics", "earnings tracking", "leaderboards", "XP", "achievements"]
-"og:title": "Producer Dashboard - BeatPass Analytics"
-"og:description": "Navigate your Producer Dashboard to monitor performance and manage your producer career on BeatPass."
+description: "Use the Producer Dashboard to review your catalog, activity, earnings status, rankings, and XP from one workspace."
+keywords: ["producer dashboard", "producer analytics", "earnings", "leaderboards", "xp", "catalog management"]
+"og:title": "Producer Dashboard - BeatPass"
+"og:description": "Your main workspace for producer tools on BeatPass."
 "twitter:card": "summary_large_image"
 ---
 
-The Producer Dashboard is your central hub for analytics, earnings, gamification, and catalog management on BeatPass. Access it at `/producer-dashboard` after logging in with an artist profile.
+The Producer Dashboard is a summary workspace for BeatPass artists. It brings together your catalog overview, activity snapshots, rankings, finances, and progress tools without replacing the deeper editing flows in Backstage.
 
 <Info>
-  **Audience:** Producers with an artist profile (upload permissions required)
+  **Who this is for:** Accounts with a linked artist profile. Some pages stay in setup or empty states until you have tracks, albums, or Stripe onboarding completed.
 </Info>
 
----
+## Open the dashboard
 
-## Dashboard vs Insights
+<Steps>
+  <Step title="Sign in">
+    Log in to your BeatPass account.
+  </Step>
+  <Step title="Go to the dashboard">
+    Open <a href="https://open.beatpass.ca/producer-dashboard">https://open.beatpass.ca/producer-dashboard</a>.
+  </Step>
+  <Step title="Choose a page">
+    Use the left-side dashboard menu or the shortcut cards on the Home page.
+  </Step>
+</Steps>
 
-BeatPass provides two complementary analytics systems:
+<Note>
+  If your account does not have a linked artist profile yet, BeatPass will guide you back to **Backstage** to finish setup.
+</Note>
 
-<CardGroup cols={2}>
-  <Card title="Producer Dashboard" icon="chart-bar" color="#3b82f6">
-    <Badge color="blue">/producer-dashboard</Badge>
-    
-    **Career-level analytics** — XP, leaderboards, achievements, earnings, and catalog management across all your content.
-  </Card>
-  <Card title="Backstage Insights" icon="magnifying-glass-chart" href="/help/analytics/backstage-insights" color="#8b5cf6">
-    <Badge color="purple">/backstage/{type}/{id}/insights</Badge>
-    
-    **Content-level analytics** — Per-track/album/artist plays, listeners, geography, and engagement.
-  </Card>
-</CardGroup>
-
----
-
-## Accessing the Dashboard
-
-### Requirements
-
-To access the Producer Dashboard, you need:
-- A BeatPass account
-- An artist profile linked to your account
-- Upload permissions enabled
-
-### Navigation
-
-1. Log in to BeatPass
-2. Navigate to `/producer-dashboard` or click **Producer Dashboard** in the navigation menu
-3. Use the sidebar to access different tools
-
----
-
-## Dashboard Pages
-
-The Producer Dashboard contains six main sections, each focused on a specific aspect of your producer journey.
+## Dashboard pages
 
 <CardGroup cols={3}>
   <Card title="Home" icon="house" href="/help/producer-dashboard/home">
-    Welcome hub with quick stats and POS-style navigation.
+    Greeting, shortcut cards, and a quick stats snapshot for your current artist context.
   </Card>
   <Card title="Activity" icon="chart-line" href="/help/producer-dashboard/activity">
-    Contribution graph, downloads, and engagement tracking.
+    Performance overview cards, yearly upload activity, and download engagement.
   </Card>
-  <Card title="Tracks" icon="compact-disc" href="/help/producer-dashboard/tracks">
-    Catalog management with growth meter and collaboration insights.
+  <Card title="Tracks" icon="music" href="/help/producer-dashboard/tracks">
+    Catalog table, growth status, collaboration insights, and recommendations.
   </Card>
   <Card title="Albums" icon="compact-disc" href="/help/producer-dashboard/albums">
-    Album creation, organization, and performance metrics.
+    Album stats, album filters, and quick links to edit or inspect releases.
   </Card>
   <Card title="Finances" icon="wallet" href="/help/producer-dashboard/finances">
-    Stripe integration, earnings, and payout management.
+    Stripe onboarding state, balances, and transaction history per artist.
   </Card>
   <Card title="Leaderboards" icon="trophy" href="/help/producer-dashboard/leaderboards">
-    Producer rankings across six categories.
+    Rankings across overall, quality, uploads, plays, points, earnings, and collaboration.
   </Card>
-  <Card title="Progress" icon="chart-line" href="/help/producer-dashboard/progress">
-    XP tracking, achievements, and level progression.
+  <Card title="Progress" icon="bolt" href="/help/producer-dashboard/progress">
+    Level, XP, achievements, and manual refresh controls.
   </Card>
 </CardGroup>
 
----
-
-## Page Overview
+## What stays consistent across the dashboard
 
 <AccordionGroup>
-  <Accordion title="Home" icon="house" defaultOpen>
-    <Badge color="blue">/producer-dashboard</Badge>
-    
-    Welcome header, stats overview, and quick navigation grid to all dashboard sections.
+  <Accordion title="Artist context" icon="user" defaultOpen>
+    Most pages load data for your current linked artist profile. The **Finances** page can also show an artist switcher when your account manages more than one artist.
   </Accordion>
-  <Accordion title="Activity" icon="chart-line">
-    <Badge color="blue">/producer-dashboard/activity</Badge>
-    
-    Contribution graph, download tracking, and performance metrics over time.
+  <Accordion title="Summary first, editing second" icon="table-columns">
+    The dashboard is designed for overview and quick actions. Uploading tracks, editing releases, and full insights screens still live in **Backstage**.
   </Accordion>
-  <Accordion title="Tracks" icon="record-vinyl">
-    <Badge color="blue">/producer-dashboard/tracks</Badge>
-    
-    Growth meter, track table, collaboration insights, and AI recommendations.
+  <Accordion title="Real empty states" icon="circle-info">
+    BeatPass does not invent numbers. If you do not have uploads, downloads, albums, achievements, or Stripe setup yet, you will see empty or setup states instead of placeholder claims.
   </Accordion>
-  <Accordion title="Albums" icon="layer-group">
-    <Badge color="blue">/producer-dashboard/albums</Badge>
-    
-    Album management, creation workflow, and performance stats.
-  </Accordion>
-  <Accordion title="Finances" icon="wallet">
-    <Badge color="blue">/producer-dashboard/finances</Badge>
-    
-    Stripe onboarding, balance overview, and transaction history.
-  </Accordion>
-  <Accordion title="Leaderboards" icon="ranking-star">
-    <Badge color="blue">/producer-dashboard/leaderboards</Badge>
-    
-    7 ranking categories, top performers, and your position.
-  </Accordion>
-  <Accordion title="Progress" icon="chart-line">
-    <Badge color="blue">/producer-dashboard/progress</Badge>
-    
-    XP progress ring, achievements list, and unlock status.
+  <Accordion title="Refresh and cache behavior" icon="arrows-rotate">
+    Each page refreshes differently. **Progress** has its own manual **Refresh** button, **Leaderboards** keep the previous category visible while new results load, and **Finances** can show cache timestamps or stale-cache warnings.
   </Accordion>
 </AccordionGroup>
 
----
-
-## Data Freshness
-
-Different metrics refresh at different intervals:
-
-<CardGroup cols={3}>
-  <Card title="Play Counts" icon="play" color="#22c55e">
-    <Badge color="green">Real-time</Badge>
-  </Card>
-  <Card title="Downloads" icon="download" color="#22c55e">
-    <Badge color="green">Real-time</Badge>
-  </Card>
-  <Card title="XP & Level" icon="bolt" color="#3b82f6">
-    <Badge color="blue">On award</Badge>
-  </Card>
-  <Card title="Leaderboards" icon="ranking-star" color="#8b5cf6">
-    <Badge color="purple">30 min cache</Badge>
-  </Card>
-  <Card title="Progress Data" icon="chart-simple" color="#f59e0b">
-    <Badge color="orange">5 min cache</Badge>
-  </Card>
-  <Card title="Finances" icon="wallet" color="#6b7280">
-    <Badge color="gray">Stripe sync</Badge>
-  </Card>
-</CardGroup>
-
----
-
-## Mobile Experience
-
-The Producer Dashboard is fully responsive:
-- Mobile navigation via top bar
-- Touch-optimized controls
-- Collapsible sections for smaller screens
-- Progressive loading for large data sets
-
----
-
-## Connecting to Backstage Insights
-
-### Producer Tools in Backstage Headers
-
-When viewing any Backstage Insights page, you'll see **Producer Tools** links in the header:
-
-<CardGroup cols={3}>
-  <Card title="Track Insights" icon="record-vinyl">
-    Links to **Manage Tracks** and **Dashboard**
-  </Card>
-  <Card title="Album Insights" icon="layer-group">
-    Links to **Manage Albums** and **Dashboard**
-  </Card>
-  <Card title="Artist Insights" icon="user-music">
-    Links to **Finances**, **Activity**, **Progress**, and **Dashboard**
-  </Card>
-</CardGroup>
-
-This integration ensures you can:
-- View detailed analytics for a specific item
-- Quickly jump to manage your full catalog
-- Access financial and progress tools without navigating back
-
----
-
-## Next Steps
+## Common next moves
 
 <CardGroup cols={2}>
-  <Card title="Home Page" icon="house" href="/help/producer-dashboard/home">
-    Start with your dashboard overview.
+  <Card title="Need to upload or edit content?" icon="cloud-arrow-up" href="/help/uploading">
+    Start in the Uploading docs, then return here to monitor performance.
   </Card>
-  <Card title="Tracks Management" icon="compact-disc" href="/help/producer-dashboard/tracks">
-    Manage your catalog and view growth.
+  <Card title="Need payout details?" icon="credit-card" href="/help/earnings">
+    Use the Earnings docs for the payout model behind finance activity.
   </Card>
-  <Card title="XP & Progress" icon="chart-line" href="/help/producer-dashboard/progress">
-    Track XP, level up, and unlock achievements.
+  <Card title="Need deep analytics?" icon="chart-bar" href="/help/analytics/backstage-insights">
+    Open Backstage Insights for track, album, and artist-level analytics.
   </Card>
-  <Card title="Backstage Insights" icon="magnifying-glass-chart" href="/help/analytics/backstage-insights">
-    View per-track analytics.
+  <Card title="Need producer tools outside the dashboard?" icon="sliders" href="/help/producer-program">
+    Use the Producer Program docs for onboarding and profile-management flows.
   </Card>
 </CardGroup>
