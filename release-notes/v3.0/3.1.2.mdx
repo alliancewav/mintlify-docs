@@ -1,0 +1,91 @@
+---
+title: "Stripe Webhook Consolidation"
+date: "2026-03-19"
+severity: "minor"
+version: "3.1.2"
+audience: "All"
+tags: ["platform", "billing", "improvement"]
+components: ["billing", "stripe-connect", "webhooks"]
+status: "published"
+related: []
+---
+
+import ReleaseFeedback from "/snippets/sections/release-feedback.mdx";
+
+# Stripe Webhook Consolidation
+
+## Summary
+
+This release consolidates all Stripe payment processing into a unified, reliable system. By streamlining our webhook architecture, we've eliminated configuration complexity and improved payment event handling across subscriptions, beat purchases, and producer payouts.
+
+---
+
+## What Changed
+
+### Unified Payment Processing
+
+- **Single webhook endpoint** — All Stripe events now flow through one consolidated handler
+- **Improved reliability** — Eliminated duplicate event processing and configuration conflicts
+- **Better error handling** — Clearer logging and faster issue resolution for payment events
+
+### Enhanced Event Coverage
+
+All payment-related events are now handled consistently:
+
+| Category | Events |
+|----------|--------|
+| **Subscriptions** | Invoice payments, subscription lifecycle, customer updates |
+| **Beat Purchases** | Payment completion, failures, refunds |
+| **Producer Payouts** | Payout initiated, deposited, and failed notifications |
+| **Stripe Connect** | Account status updates, balance changes |
+
+### Configuration Simplification
+
+- **Single source of truth** — Stripe keys configured once in admin settings
+- **Reduced complexity** — Removed redundant configuration options
+- **Easier maintenance** — Streamlined codebase for future improvements
+
+---
+
+## Why It Matters
+
+- **More reliable payments** — Consistent handling of all payment events reduces the chance of missed or duplicate processing
+- **Faster issue resolution** — Consolidated logging makes it easier to diagnose and fix payment issues
+- **Better producer experience** — Payout notifications now flow through the same reliable system as all other payment events
+- **Simplified administration** — One place to configure all Stripe settings
+
+---
+
+## Impact
+
+<Note>
+  This update was applied automatically. No action is required from users or producers.
+</Note>
+
+| Aspect | Status |
+|--------|--------|
+| **User Data** | No changes |
+| **Payments** | Processing continues normally |
+| **Subscriptions** | Unaffected |
+| **Producer Payouts** | Unaffected |
+
+---
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Webhooks Overview" icon="webhook" href="/developers/webhooks">
+    How BeatPass processes payment events
+  </Card>
+  <Card title="Stripe Connect Setup" icon="link" href="/help/earnings/stripe-connect">
+    Producer payout configuration guide
+  </Card>
+  <Card title="Billing FAQ" icon="circle-question" href="/help/billing/faq">
+    Common billing questions answered
+  </Card>
+  <Card title="Version 3.0 Release Index" icon="rocket" href="/release-notes/v3.0">
+    Browse all v3.0.x and v3.1.x releases
+  </Card>
+</CardGroup>
+
+<ReleaseFeedback />

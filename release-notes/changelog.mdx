@@ -5,6 +5,19 @@ description: "All BeatPass platform updates, new features, and improvements in o
 rss: true
 ---
 
+<Update label="March 19, 2026" description="v3.1.2" tags={["Platform", "Billing", "Improvement"]}>
+  ## Stripe Webhook Consolidation
+
+  Unified all Stripe payment processing into a single, reliable system for improved reliability and easier maintenance.
+
+  - **Single webhook endpoint** — All Stripe events now flow through one consolidated handler
+  - **Improved reliability** — Eliminated duplicate event processing and configuration conflicts
+  - **Enhanced event coverage** — Subscriptions, beat purchases, and producer payouts handled consistently
+  - **Configuration simplification** — Single source of truth for all Stripe settings
+
+  [Read full release notes →](/release-notes/v3.0/3.1.2)
+</Update>
+
 <Update label="February 26, 2026" description="v3.1.1" tags={["Feature", "Producer", "API", "UI/UX", "Documentation"]}>
   ## Producer Access Request Guard & Appeal Flow
 

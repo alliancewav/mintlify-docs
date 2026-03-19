@@ -586,6 +586,12 @@
             "pages": [
               "release-notes/v3.0/index",
               {
+                "group": "March 2026",
+                "pages": [
+                  "release-notes/v3.0/3.1.2"
+                ]
+              },
+              {
                 "group": "February 2026",
                 "pages": [
                   "release-notes/v3.0/3.1.1",
