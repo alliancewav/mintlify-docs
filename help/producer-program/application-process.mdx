@@ -10,7 +10,7 @@ keywords: ["producer application", "how to apply", "application steps", "produce
 
 import NeedHelp from "/snippets/sections/need-help.mdx";
 
-This guide walks through the current Backstage application flow for producers. BeatPass uses three stages: **Apply**, **Review**, and **Start Earning**.
+This guide walks through the Producer Program application flow. BeatPass uses three stages: **Apply**, **Review**, and **Start Earning**.
 
 ---
 
@@ -30,21 +30,31 @@ This guide walks through the current Backstage application flow for producers. B
 
 ---
 
-## Step 1: Choose Your Application Type
+## Step 1: Start Your Application
 
-Before filling out the form, select the right application for your situation:
+### Canonical Path
+
+1. Visit [https://open.beatpass.ca/producer-program](https://open.beatpass.ca/producer-program)
+2. Click **Apply to Join** (if logged in) or **Apply Now** (if not logged in)
+3. You'll arrive at the request selector: [https://open.beatpass.ca/backstage/requests](https://open.beatpass.ca/backstage/requests)
+
+<Note>
+The page heading reads **Join the Producer Program**. This is your application starting point.
+</Note>
+
+### Choose Your Application Type
+
+On the request selector, choose based on your situation:
 
 | If you... | Choose... |
 |-----------|-----------|
-| Do not have a producer profile yet | **Become a Producer** |
-| Have music already on BeatPass but no account access | **Claim Existing Artist** |
+| Don't have a producer profile yet | **Become a Producer** |
+| Have music on BeatPass but no account access | **Claim Existing Artist** |
 | Already have a producer profile and want verification | **Get Verified** |
 
-Open your **profile avatar** menu and select **Backstage**.
-
-<Note>
-  The selector screen changes based on your current account state. Accounts without a producer profile see **Become a Producer**. Accounts that already have one see **Get Verified** instead. **Claim Existing Artist** is available as its own option.
-</Note>
+<Warning>
+The **Backstage** menu item in your profile dropdown goes to `/producer-dashboard`, which requires existing producer access. It does NOT lead to the application page. Always use the Producer Program page to start applications.
+</Warning>
 
 ---
 
@@ -54,11 +64,11 @@ Open your **profile avatar** menu and select **Backstage**.
 
 Depending on your application type:
 
-- **Become a Producer** - Enter your **Producer Name**
-- **Claim Existing Artist** - Search for and select the producer profile you want to claim
-- **Get Verified** - No standard form is shown; BeatPass sends you to the Discord verification page
+- **Become a Producer** — Enter your **Producer Name**
+- **Claim Existing Artist** — Search for and select the producer profile you want to claim
+- **Get Verified** — Takes you to [https://open.beatpass.ca/backstage/requests/verify-artist](https://open.beatpass.ca/backstage/requests/verify-artist), which shows **Discord Community Required** with a **Join Discord Community** button (no submission form)
 
-For claim requests, BeatPass also checks whether the selected profile is **Available** or **Already Claimed** before you continue.
+For claim requests, BeatPass checks whether the selected profile is **Available** or **Already Claimed** before you continue.
 
 ### Personal Details
 
@@ -148,7 +158,7 @@ If your producer access is revoked after approval, you cannot submit a new reque
 
 ## Application Status
 
-You can check your request state from **Backstage**.
+You can check your request state by returning to [https://open.beatpass.ca/backstage/requests](https://open.beatpass.ca/backstage/requests).
 
 | Status | Meaning |
 |--------|---------|
@@ -161,10 +171,10 @@ You can check your request state from **Backstage**.
 
 ## If You See a Submission Block
 
-Before showing request options, Backstage checks whether you are currently allowed to submit.
+Before showing request options, the request selector checks whether you're allowed to submit.
 
-- **Pending block** - BeatPass tells you your request is already under review and asks you to wait for the decision email before submitting again
-- **Revoked block** - BeatPass tells you your producer access was revoked and provides a **Contact Support** path to [https://open.beatpass.ca/contact](https://open.beatpass.ca/contact)
+- **Pending block** — Your request is already under review. Wait for the decision email before submitting again
+- **Revoked block** — Your producer access was revoked. Use **Contact Support** to reach [https://open.beatpass.ca/contact](https://open.beatpass.ca/contact) for appeals
 
 This prevents duplicate requests and keeps appeal handling in one place.
 
