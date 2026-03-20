@@ -756,11 +756,8 @@
   },
   "contextual": {
     "options": [
-      "copy",
-      "view",
       "chatgpt",
-      "claude",
-      "cursor"
+      "claude"
     ]
   },
   "redirects": [
