@@ -5,6 +5,39 @@ description: "All BeatPass platform updates, new features, and improvements in o
 rss: true
 ---
 
+<Update label="March 30, 2026" description="v3.1.4" tags={["Improvement", "Bug Fix", "Security", "Notifications"]}>
+  ## Notification System Quality Improvements
+
+  Commercial-grade notification system across all three channels (in-app, email, push). Fixes runtime regressions, closes an XSS surface, adds push opt-in UX, and auto-enables browser delivery when permission is granted.
+
+  - **Push opt-in in bell dropdown** — Soft prompt surfaces inside the notification center (including empty lists) for Chromium and iOS users, with per-user dismissal that stays correct across auth changes
+  - **New endpoint: `POST /api/v1/notifications/enable-browser-channel`** — Granting push permission populates browser delivery on unconfigured preferences while respecting explicit opt-outs
+  - **Verified artist eligibility broadened** — Notification preferences and delivery now check all qualifying linked artist roles, not just the primary artist
+  - **Closed XSS surface in bell panel** — User-generated content sanitized via DOMPurify before rendering
+  - **Fixed Pusher toast payload mismatch** — Toasts handle both SSE and Echo payload shapes
+  - **Restored bell panel line rendering** — HTML, icons, inline actions, and warning/success emphasis
+  - **Hardened external links** — All cross-origin notification links use `noopener,noreferrer`
+  - **Fixed inline action read-state race** — SPA navigation replaces raw `<a>` href so mark-as-read completes
+  - **Fixed push opt-in stale across auth changes** — Banner dismissal re-syncs on login/logout within the same session
+  - **iOS Home Screen guidance** — Banner explains the "Add to Home Screen" requirement for iOS push
+
+  [Read full release notes →](/release-notes/v3.0/3.1.4)
+</Update>
+
+<Update label="March 30, 2026" description="v3.1.3" tags={["Feature", "UI/UX", "Improvement", "Bug Fix"]}>
+  ## Verified Badges & Visual Refresh
+
+  Verified artist badges now appear across the platform alongside carousel fixes, genre card refinements, and enhanced visual animations.
+
+  - **Verified artist badges** — Badge displays on album pages, track pages, artist links, and channel carousels
+  - **Collection labels** — Channel displays now use "Collection" for clearer, consistent terminology
+  - **Genre card refinements** — Tighter text sizing and single-line titles for a cleaner browse experience
+  - **Enhanced animations** — Larger CD spin animation and viewport-scaled blur backgrounds on desktop
+  - **Carousel scroll fix** — Resolved flickering scroll indicators at carousel boundaries
+
+  [Read full release notes →](/release-notes/v3.0/3.1.3)
+</Update>
+
 <Update label="March 19, 2026" description="v3.1.2" tags={["Platform", "Billing", "Improvement"]}>
   ## Stripe Webhook Consolidation
 

@@ -301,6 +301,62 @@ GET /api/v1/users/search
 
 ---
 
+## Notification Preferences
+
+Manage notification delivery channels for the authenticated user. Each notification type (e.g. new follower, comment reply, analytics report) has independent channel toggles for email, database (in-app), and browser (push).
+
+### Get Notification Subscriptions
+
+Retrieve the authenticated user's notification preference subscriptions.
+
+```http
+GET /api/v1/notifications/{user}/subscriptions
+```
+
+<ParamField path="user" type="integer" required>
+  User ID. Must match the authenticated user.
+</ParamField>
+
+### Update Notification Subscriptions
+
+Update one or more notification channel preferences.
+
+```http
+PUT /api/v1/notifications/{user}/subscriptions
+```
+
+<ParamField path="user" type="integer" required>
+  User ID. Must match the authenticated user.
+</ParamField>
+
+### Enable Browser Channel
+
+Populate the `browser` channel on all notification subscriptions that have never been explicitly configured. Subscriptions where the user has already set `browser` to `true` or `false` are left untouched.
+
+This endpoint is called automatically when a user grants push notification permission from the bell dropdown opt-in banner. It can also be called manually to backfill browser delivery for accounts that granted push permission before the preference existed.
+
+```http
+POST /api/v1/notifications/enable-browser-channel
+```
+
+<Warning>
+  This endpoint requires authentication. No request body is needed.
+</Warning>
+
+**Response:**
+
+```json
+{
+  "status": "success"
+}
+```
+
+<Note>
+  Explicit opt-outs (`browser: false`) are never overwritten. Only subscriptions where the `browser` key is entirely absent are updated.
+</Note>
+
+---
+
 ## Related Resources
 
 <CardGroup cols={2}>
