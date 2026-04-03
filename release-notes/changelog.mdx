@@ -5,31 +5,53 @@ description: "All BeatPass platform updates, new features, and improvements in o
 rss: true
 ---
 
-<Update label="March 30, 2026" description="v3.1.4" tags={["Improvement", "Bug Fix", "Security", "Notifications"]}>
+<Update label="April 2, 2026" description="v3.1.6" tags={["Feature", "Producer", "UI/UX"]}>
+  ## Exclusive Licensing Clarity & Granular Rights
+
+  Streaming and broadcasting rights are now independent toggles in the exclusive license settings. Financial terms use clearer labels that match music industry standards.
+
+  - **Separate streaming toggle** — Control streaming platform distribution independently from radio/TV broadcasting
+  - **Clearer broadcasting scope** — Broadcasting now means "Radio, TV, satellite radio" only
+  - **Renamed financial terms** — "Publishing Share" becomes "Revenue Split" and "Revenue Share" becomes "Publishing Royalty" with plain-language descriptions
+  - **Educational helper** — Quick Presets now include a short explainer on the difference between revenue splits and publishing royalties
+
+  [Read full release notes →](/release-notes/v3.0/3.1.6)
+</Update>
+
+<Update label="March 31, 2026" description="v3.1.5" tags={["Notifications", "Platform", "Bug Fix"]}>
+  ## Push Notifications & Realtime Cleanup
+
+  Push notifications are more reliable, chat updates feel faster, and notification settings now do a better job separating live in-app activity from background alerts.
+
+  - **More reliable push delivery** — Browser and mobile devices stay registered more cleanly for background alerts
+  - **Clearer notification settings** — **Email**, **In-App**, and **Push** now describe distinct experiences
+  - **Faster chat activity** — New messages and read receipts update more quickly while you're using BeatPass
+  - **Cleaner account handoff** — Alerts stop after logout and stay tied to the right account when you switch users
+  - **Automatic device cleanup** — Old devices that can no longer receive alerts are removed automatically
+
+  [Read full release notes →](/release-notes/v3.0/3.1.5)
+</Update>
+
+<Update label="March 31, 2026" description="v3.1.4" tags={["Notifications", "Bug Fix", "Security"]}>
   ## Notification System Quality Improvements
 
-  Commercial-grade notification system across all three channels (in-app, email, push). Fixes runtime regressions, closes an XSS surface, adds push opt-in UX, and auto-enables browser delivery when permission is granted.
+  Notifications now look cleaner, behave more consistently, and are safer across the notification bell, email, and push notifications. Push setup is easier, and broken icons, links, and live-alert details are fixed.
 
-  - **Push opt-in in bell dropdown** — Soft prompt surfaces inside the notification center (including empty lists) for Chromium and iOS users, with per-user dismissal that stays correct across auth changes
-  - **New endpoint: `POST /api/v1/notifications/enable-browser-channel`** — Granting push permission populates browser delivery on unconfigured preferences while respecting explicit opt-outs
-  - **Verified artist eligibility broadened** — Notification preferences and delivery now check all qualifying linked artist roles, not just the primary artist
-  - **Closed XSS surface in bell panel** — User-generated content sanitized via DOMPurify before rendering
-  - **Fixed Pusher toast payload mismatch** — Toasts handle both SSE and Echo payload shapes
-  - **Restored bell panel line rendering** — HTML, icons, inline actions, and warning/success emphasis
-  - **Hardened external links** — All cross-origin notification links use `noopener,noreferrer`
-  - **Fixed inline action read-state race** — SPA navigation replaces raw `<a>` href so mark-as-read completes
-  - **Fixed push opt-in stale across auth changes** — Banner dismissal re-syncs on login/logout within the same session
-  - **iOS Home Screen guidance** — Banner explains the "Add to Home Screen" requirement for iOS push
+  - **Consistent notification wording** — Titles and actions line up more closely across the notification bell, email, and push notifications
+  - **Easier push setup** — You can enable push notifications from the notification bell and confirm they work right away
+  - **Better notification bell formatting** — Rich text, icons, inline actions, and emphasis styling now display more clearly
+  - **Safer notification content** — Comments and replies shown in the notification bell are cleaned before display
+  - **Fixed icons and account prompts** — Push artwork, notification links, and account-specific prompts now behave more reliably
 
   [Read full release notes →](/release-notes/v3.0/3.1.4)
 </Update>
 
-<Update label="March 30, 2026" description="v3.1.3" tags={["Feature", "UI/UX", "Improvement", "Bug Fix"]}>
+<Update label="March 30, 2026" description="v3.1.3" tags={["Feature", "UI/UX", "Bug Fix"]}>
   ## Verified Badges & Visual Refresh
 
-  Verified artist badges now appear across the platform alongside carousel fixes, genre card refinements, and enhanced visual animations.
+  Verified producer badges now appear across more of BeatPass, alongside smoother channel browsing and cleaner visual polish.
 
-  - **Verified artist badges** — Badge displays on album pages, track pages, artist links, and channel carousels
+  - **Verified producer badges** — Badge displays on album pages, track pages, producer links, and channel carousels
   - **Collection labels** — Channel displays now use "Collection" for clearer, consistent terminology
   - **Genre card refinements** — Tighter text sizing and single-line titles for a cleaner browse experience
   - **Enhanced animations** — Larger CD spin animation and viewport-scaled blur backgrounds on desktop

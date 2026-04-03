@@ -303,45 +303,80 @@ GET /api/v1/users/search
 
 ## Notification Preferences
 
-Manage notification delivery channels for the authenticated user. Each notification type (e.g. new follower, comment reply, analytics report) has independent channel toggles for email, database (in-app), and browser (push).
+Manage notification delivery channels for the authenticated user. Each notification type (for example new follower, comment reply, or analytics report) has independent channel toggles for `email`, `in_app`, and `mobile`.
+
+<Note>
+  Use `me` for the authenticated user route, or pass the authenticated user's numeric ID. The backend resolves both forms.
+</Note>
+
+### Channel Keys
+
+- `email` — Email notifications
+- `in_app` — Notification center storage and live activity in open tabs
+- `mobile` — FCM-backed push delivery for registered devices, including supported browsers and mobile apps
 
 ### Get Notification Subscriptions
 
-Retrieve the authenticated user's notification preference subscriptions.
+Retrieve the authenticated user's notification configuration, available channels, saved selections, and role-based context.
 
 ```http
-GET /api/v1/notifications/{user}/subscriptions
+GET /api/v1/notifications/me/subscriptions
 ```
 
-<ParamField path="user" type="integer" required>
-  User ID. Must match the authenticated user.
-</ParamField>
+**Response:**
+
+```json
+{
+  "status": "success",
+  "available_channels": ["email", "in_app", "mobile"],
+  "subscriptions": [
+    {
+      "group_name": "Messages",
+      "subscriptions": [
+        {
+          "name": "Direct Messages",
+          "notif_id": "new_message",
+          "description": "When you receive a direct message"
+        }
+      ]
+    }
+  ],
+  "user_selections": [
+    {
+      "notif_id": "new_message",
+      "channels": {
+        "email": true,
+        "in_app": true,
+        "mobile": true
+      }
+    }
+  ],
+  "user_context": {
+    "is_artist": true,
+    "is_verified_artist": false
+  }
+}
+```
 
 ### Update Notification Subscriptions
 
 Update one or more notification channel preferences.
 
 ```http
-PUT /api/v1/notifications/{user}/subscriptions
+PUT /api/v1/notifications/me/subscriptions
 ```
 
-<ParamField path="user" type="integer" required>
-  User ID. Must match the authenticated user.
+<ParamField body="selections" type="array" required>
+  Array of notification preference updates.
 </ParamField>
 
-### Enable Browser Channel
+<ParamField body="selections[].notif_id" type="string" required>
+  Notification identifier to update, such as `new_message`.
+</ParamField>
 
-Populate the `browser` channel on all notification subscriptions that have never been explicitly configured. Subscriptions where the user has already set `browser` to `true` or `false` are left untouched.
-
-This endpoint is called automatically when a user grants push notification permission from the bell dropdown opt-in banner. It can also be called manually to backfill browser delivery for accounts that granted push permission before the preference existed.
-
-```http
-POST /api/v1/notifications/enable-browser-channel
-```
-
-<Warning>
-  This endpoint requires authentication. No request body is needed.
-</Warning>
+<ParamField body="selections[].channels" type="object" required>
+  Channel state object keyed by `email`, `in_app`, and/or `mobile`.
+</ParamField>
 
 **Response:**
 
@@ -352,7 +387,69 @@ POST /api/v1/notifications/enable-browser-channel
 ```
 
 <Note>
-  Explicit opt-outs (`browser: false`) are never overwritten. Only subscriptions where the `browser` key is entirely absent are updated.
+  Use the exact backend channel keys in update payloads: `email`, `in_app`, and `mobile`. The legacy `browser` key is no longer part of the notification settings contract.
+</Note>
+
+---
+
+## FCM Device Tokens
+
+Register and manage Firebase Cloud Messaging device tokens for the authenticated user. The API stores tokens only; obtaining the token is the responsibility of the client app through the Firebase SDK.
+
+### Register or Refresh FCM Token
+
+Store or refresh an FCM token for the authenticated user.
+
+```http
+POST /api/v1/fcm-tokens
+```
+
+<ParamField body="token" type="string" required>
+  FCM registration token returned by the Firebase client SDK.
+</ParamField>
+
+<ParamField body="platform" type="string">
+  Device platform. Supported values: `web`, `android`, `ios`. Defaults to `web`.
+</ParamField>
+
+<ParamField body="device_name" type="string">
+  Optional device label, typically the user agent or app/device name.
+</ParamField>
+
+**Response:**
+
+```json
+{
+  "status": "ok"
+}
+```
+
+<Note>
+  Tokens are upserted by token value. Re-registering the same token refreshes its metadata and ownership. These FCM token endpoints currently return `{ "status": "ok" }`, while the notification subscription endpoints above use the standard `{ "status": "success" }` response envelope.
+</Note>
+
+### Delete FCM Token
+
+Remove an FCM token for the authenticated user, for example during logout.
+
+```http
+DELETE /api/v1/fcm-tokens
+```
+
+<ParamField body="token" type="string" required>
+  FCM registration token to remove.
+</ParamField>
+
+**Response:**
+
+```json
+{
+  "status": "ok"
+}
+```
+
+<Note>
+  This endpoint currently expects the FCM token in a JSON request body. Some HTTP clients or intermediaries strip bodies from `DELETE` requests, so use a client path that preserves the JSON payload. Keeping the token out of the URL also avoids encoding and length issues with long FCM tokens.
 </Note>
 
 ---

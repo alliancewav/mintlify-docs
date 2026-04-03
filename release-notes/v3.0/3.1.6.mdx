@@ -1,0 +1,102 @@
+---
+title: "Exclusive Licensing Clarity & Granular Rights"
+date: "2026-04-02"
+severity: "minor"
+version: "3.1.6"
+audience: "Producers"
+tags: ["improvement", "feature"]
+components: ["licensing", "track-upload"]
+status: "published"
+related: ["3.1.5"]
+---
+
+import ReleaseFeedback from "/snippets/sections/release-feedback.mdx";
+
+# Exclusive Licensing Clarity & Granular Rights
+
+## Summary
+
+Exclusive license settings now give producers finer control over usage rights and clearer financial terminology. <Tooltip tip="Permission for a buyer to distribute your track on platforms like Spotify, Apple Music, and Tidal.">Streaming rights</Tooltip> and <Tooltip tip="Permission for a buyer to play your track on radio stations, TV, and satellite radio.">broadcasting rights</Tooltip> are now separate toggles, and the financial terms section uses plain-language labels that match how the music industry actually works.
+
+---
+
+## What's New
+
+### Separate Streaming and Broadcasting Controls
+
+- **Independent streaming toggle** — Control whether the buyer can distribute on Spotify, Apple Music, Tidal, and other streaming platforms, independent of traditional broadcasting
+- **Clearer broadcasting scope** — The broadcasting toggle now says "Radio, TV, satellite radio" instead of the previous "Radio, TV, streaming platforms" label that incorrectly bundled streaming
+- **Backward-compatible** — Existing license configurations remain unchanged; streaming defaults to granted for all previously saved configs
+
+### Clearer Financial Terms
+
+- **Revenue Split** — "Producer Publishing Share" and "Buyer Publishing Share" are now labeled "Revenue Split (Producer)" and "Revenue Split (Buyer)" with descriptions clarifying these control how commercial earnings from sales and streams are divided
+- **Publishing Royalty** — "Producer Revenue Share" is now "Publishing Royalty" making it clear this is the separate percentage collected from PROs (ASCAP, BMI, SOCAN) for songwriting and publishing rights
+- **Educational helper** — A short callout in the Quick Presets area explains the difference between the revenue split and the publishing royalty
+- **Updated presets** — Quick preset labels now read "3% publishing royalty", "5% publishing royalty", "No publishing royalty", and "Keep all revenue" for immediate clarity
+
+---
+
+## Why It Matters
+
+- **Matches real licensing law** — Streaming distribution and radio/TV broadcasting are legally distinct rights in the music industry; your license terms now reflect that
+- **Less producer confusion** — The old "Publishing Share" and "Revenue Share" labels sounded nearly identical; the new labels describe what each field actually controls
+- **More deal flexibility** — You can now offer a buyer streaming rights while withholding broadcasting (or the reverse), opening up more creative deal structures
+- **Buyer confidence** — The license preview and legal certificate now display streaming and broadcasting as separate line items, so buyers know exactly what they're getting
+
+---
+
+## How to Use
+
+<Steps>
+  <Step title="Open Track Settings">
+    Go to your **Producer Dashboard**, open a track, and scroll to the **Exclusive License Terms** section.
+  </Step>
+
+  <Step title="Set Broadcasting and Streaming Independently">
+    Under **Optional Permissions**, toggle **Broadcasting Rights** (radio, TV, satellite radio) and **Streaming Rights** (Spotify, Apple Music, Tidal) separately based on the deal you want to offer.
+  </Step>
+
+  <Step title="Review Financial Terms">
+    Under **Financial Terms**, use the **Quick Presets** or set your **Revenue Split** and **Publishing Royalty** manually. Hover over the helper text if you need a reminder of what each field means.
+  </Step>
+
+  <Step title="Verify the License Preview">
+    Click **Preview License** on the track page. The certificate now shows broadcasting and streaming as separate line items under "Usage Rights & Permissions."
+  </Step>
+</Steps>
+
+---
+
+## Impact
+
+<Note>
+  This update was applied automatically. No changes to existing license configurations are needed.
+</Note>
+
+| Aspect | Status |
+|--------|--------|
+| **Existing Licenses** | Unchanged — streaming defaults to granted for all saved configs |
+| **New Track Defaults** | Unchanged — 20/80 revenue split and 3% publishing royalty |
+| **Saved Presets** | Work as before; new presets include the streaming field |
+| **Sold Tracks** | Locked — terms on already-sold tracks cannot be modified |
+| **Certificate & PDF** | Updated to show streaming and broadcasting separately |
+| **Non-Exclusive Licenses** | Unaffected — managed by BeatPass, not customizable |
+
+---
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Exclusive Licensing" icon="scale-balanced" href="/help/licensing/exclusive">
+    Learn how exclusive licenses work on BeatPass
+  </Card>
+  <Card title="Previous Release" icon="arrow-left" href="/release-notes/v3.0/3.1.5">
+    v3.1.5 — Push Notifications & Realtime Cleanup
+  </Card>
+  <Card title="Version 3.0 Release Index" icon="rocket" href="/release-notes/v3.0">
+    Browse all v3.0.x and v3.1.x releases
+  </Card>
+</CardGroup>
+
+<ReleaseFeedback />

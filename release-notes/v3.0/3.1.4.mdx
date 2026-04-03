@@ -1,6 +1,6 @@
 ---
 title: "Notification System Quality Improvements"
-date: "2026-03-30"
+date: "2026-03-31"
 severity: "patch"
 version: "3.1.4"
 audience: "All"
@@ -16,54 +16,37 @@ import ReleaseFeedback from "/snippets/sections/release-feedback.mdx";
 
 ## Summary
 
-Notifications now display consistent wording, actions, and content across all delivery channels. This update fixes live runtime regressions in the notification UI/transport layer, closes a reflected XSS surface in the bell panel, hardens external link handling, aligns the custom playlist-invite renderer with the standard notification contract, and cleans up residual code across the notification system.
+Notifications now feel more consistent across the notification bell, email, and push notifications. This update also makes notification content safer, fixes broken icons and actions, and makes it easier to turn on push notifications from the notification menu.
 
 ---
 
 ## Improvements
 
-- **Unified notification toasts** — Push notifications and real-time toasts now show the same content and actions whether delivered over SSE or Pusher, covering all notification types including earnings, beat requests, and milestones
-- **Full notification content in bell** — The notification center now displays all lines of a notification with HTML rendering, per-line icons, inline actions, and warning/success emphasis styling
-- **Comment reply emails** — Replies to your comments now generate a proper email notification using the existing reply template, matching the behavior of other comment notifications
-- **Encouraging analytics digests** — In-app and push analytics reports now show the same encouraging summary as email during quiet periods instead of raw zero values
-- **Consistent notification titles** — Playlist collaboration invites, broadcast messages, and email subjects now match across all channels with proper localization
-- **Clearer analytics report titles** — Performance report headings now use natural phrasing across push and in-app channels
-- **Consistent URL resolution** — Deduplicated URL handling across the notification list so same-origin links route through the SPA and external links open in a new tab
-- **Playlist invite renderer aligned** — The playlist invite custom renderer now wires row clicks to mainAction, displays timestamps, and matches the standard notification layout
-- **Push notification opt-in banner** — A soft opt-in prompt now appears inside the notification bell dropdown (including when the notification list is empty), letting users enable push notifications without needing to find the settings page. On iOS, the banner explains the "Add to Home Screen" requirement. Dismissal is scoped per user account and re-evaluated on every auth change so it stays correct across login/logout within the same session
-- **New endpoint: `POST /api/v1/notifications/enable-browser-channel`** — When a user grants push permission, the server populates the browser channel on notification subscriptions that have never been explicitly configured, while leaving per-notification opt-outs (`browser: false`) intact. Already-subscribed users with stale preferences are also auto-repaired on page load
-- **Verified artist eligibility broadened** — Notification preference visibility and delivery-side eligibility now check all qualifying linked artist profiles (any artist with role `artist`), not just the user's primary artist. Users with multiple artist profiles see correct preferences for all qualifying roles
-- **Simplified SSE reconnection** — Removed overengineered QUIC error detection in favor of clean exponential backoff with circuit breaker
-- **Dead code cleanup** — Removed unused imports, empty effect blocks, duplicate docblocks, and emoji in console output
+- **Consistent notification wording** — Titles, actions, and supporting text now line up more closely across the notification bell, email, and push notifications
+- **Better notification bell formatting** — Notifications now show richer text, clearer icons, inline links, and stronger warning or success styling where it matters
+- **Easier push setup** — You can turn on push notifications from the notification bell or the settings page and get a confirmation alert when it works
+- **Clearer producer settings** — Notification preferences now reflect all qualifying producer profiles linked to your account, not just one profile
+- **Better invite and report labeling** — Playlist invites, broadcast messages, and analytics updates now use clearer, more consistent titles
 
 ---
 
 ## Bug Fixes
 
-- **Fixed Pusher toast payload mismatch** — Laravel Echo flattens broadcast notification data to the top level, but the toast mapper expected it nested under `data`. Toasts now correctly extract content and actions from both SSE (nested) and Pusher (flat) payload shapes, including `toBroadcast()` payloads that use `body`/`action_url` instead of `lines`/`mainAction`
-- **Closed XSS surface in bell panel** — Notification line content (comments, messages, replies) is now sanitized through DOMPurify with an inline-only allowlist before rendering, preventing reflected XSS from user-generated content
-- **Hardened external link handling** — All notification paths that open cross-origin URLs now pass `noopener,noreferrer`, including the generic row click, button actions, and the playlist invite renderer
-- **Fixed inline action read-state and navigation race** — Clicking a per-line action (e.g. "View user" on comment replies) now prevents default `<a>` navigation, marks the notification as read, then navigates via the SPA router, ensuring the mark-as-read request completes reliably
-- **Fixed bell panel HTML rendering** — Notification lines containing HTML (bold text, links) were being rendered as raw markup instead of formatted text
-- **Fixed bell panel missing icons** — Per-line icons from notification payloads (comment, warning, analytics, etc.) were not being rendered in the notification center
-- **Fixed bell panel missing inline actions** — Line-level actions (e.g. "View user" on comment replies) were stripped in the bell rewrite and now render as clickable links
-- **Fixed warning/success line type styling** — Notification lines with `warning` and `success` types (used by payout failures, license purchases, achievements) now display with proper emphasis colors instead of being flattened to default styling
-- **Fixed playlist invite row navigation** — Clicking anywhere on a playlist invite notification now navigates to the playlist, matching the behavior of all other notification types
-- **Fixed test email analytics divergence** — SendTestEmails preview now uses "Last Week" and the live subject line format to match production AnalyticsReportNotification output
-- **Fixed external notification links** — Notifications pointing to external URLs now open correctly instead of being misrouted within the app
-- **Fixed producer settings visibility** — Users with multiple artist profiles now see notification preferences for all qualifying roles
-- **Fixed push opt-in banner stale across auth changes** — The banner dismissal state now re-reads from localStorage whenever the authenticated user changes, so switching accounts within the same SPA session correctly shows or hides the banner for each user
-- **Removed dormant code** — Cleaned up an unused notification renderer that could have posed a security risk if reactivated
-- **Removed dead props** — Cleaned up unused `lineIconRenderer` prop and `useSettings`/`base_url` imports from the notification list component
+- **Fixed broken push icons** — Native notifications now use working BeatPass artwork instead of missing images
+- **Safer notification content** — Comments and replies shown in the notification bell are cleaned before display to reduce the risk of unsafe content
+- **Fixed missing notification bell details** — Rich text, icons, inline actions, and emphasis styling now render correctly again
+- **Fixed notification action links** — Opening a notification action now marks it as read more reliably before sending you to the right place
+- **Fixed live alert details** — Real-time alerts now show the correct text and actions more consistently
+- **Fixed per-account push prompts** — The push prompt now stays tied to the correct account when you sign out or switch users in the same browser session
 
 ---
 
 ## Why It Matters
 
-- **Predictable messaging** — You see the same notification wording and actions whether it arrives as a push notification, email, or in-app alert
-- **Richer notification content** — Icons, bold text, inline actions, and status-based coloring now render correctly in the bell panel
-- **Correct settings for all producers** — If you manage multiple artist profiles, your notification preferences now reflect all of them
-- **Seamless push opt-in** — Enable push notifications from the bell dropdown without digging into settings, and the banner behaves correctly even when switching accounts without a page reload
+- **More consistent alerts** — The same notification feels clearer whether you read it in the notification bell, by email, or as a push notification
+- **Safer browsing** — Notification content and links are better protected inside the notification center
+- **Less friction** — Turning on push notifications is easier, and the confirmation alert lets you know it worked
+- **Better producer coverage** — If you manage more than one qualifying producer profile, your settings now reflect them more accurately
 
 ---
 

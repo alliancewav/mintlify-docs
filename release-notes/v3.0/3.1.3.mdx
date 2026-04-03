@@ -4,8 +4,8 @@ date: "2026-03-30"
 severity: "minor"
 version: "3.1.3"
 audience: "All"
-tags: ["feature", "ui-ux", "improvement", "bug-fix"]
-components: ["artist-profiles", "albums", "tracks", "channels", "carousels"]
+tags: ["feature", "design", "bugfix"]
+components: ["artist-profile", "channels", "search"]
 status: "published"
 related: []
 ---
@@ -16,17 +16,17 @@ import ReleaseFeedback from "/snippets/sections/release-feedback.mdx";
 
 ## Summary
 
-Verified artist badges now appear across the platform — on **album pages**, **track pages**, **artist links**, and **channel carousels**. This release also includes carousel navigation fixes, genre card refinements, and enhanced visual animations for a smoother browsing experience.
+Verified producer badges now appear across album pages, track pages, profile links, and channel carousels. This release also smooths out channel browsing with cleaner genre cards, steadier carousel controls, and more polished visual motion.
 
 ---
 
 ## What's New
 
-### Verified Artist Badges
+### Verified Producer Badges
 
-- **Badge visibility everywhere** — Verified artists now display a badge next to their name on album pages, track pages, and throughout channel carousels
-- **Artist link integration** — Verified badges appear inline with artist names wherever they link to a profile
-- **Collection showcase support** — Channel collection cards now highlight verified artists with a badge next to the subtitle
+- **Badge visibility everywhere** — Verified producers now display a badge next to their name on album pages, track pages, and throughout channel carousels
+- **Producer link integration** — Verified badges appear inline with producer names wherever they link to a profile
+- **Collection showcase support** — Channel collection cards now highlight verified producers with a badge next to the subtitle
 
 ### Collection Labels
 
@@ -38,7 +38,7 @@ Verified artist badges now appear across the platform — on **album pages**, **
 
 - **Genre card readability** — Refined text sizing and single-line titles for a cleaner look on genre browse pages
 - **Enhanced animations** — Larger CD spin animation on desktop with viewport-scaled blur backgrounds for a more immersive player experience
-- **Tighter spacing** — Improved layout density for artist links, track lists, and discography panels
+- **Tighter spacing** — Improved layout density for producer links, track lists, and discography panels
 
 ---
 
@@ -50,7 +50,7 @@ Verified artist badges now appear across the platform — on **album pages**, **
 
 ## Why It Matters
 
-- **Instant trust signals** — Verified badges help listeners quickly identify official artist profiles across every page they visit
+- **Instant trust signals** — Verified badges help listeners quickly identify official producer profiles across every page they visit
 - **Smoother navigation** — Carousel scroll fixes eliminate visual glitches when browsing featured content
 - **Polished presentation** — Refined genre cards, tighter spacing, and enhanced animations create a more cohesive visual experience
 - **Consistent terminology** — "Collection" labeling aligns channel displays with how content is organized platform-wide
@@ -75,10 +75,10 @@ Verified artist badges now appear across the platform — on **album pages**, **
 ## Related
 
 <CardGroup cols={2}>
-  <Card title="Artist Profiles" icon="user-check" href="/help/artists/profiles">
-    Learn about verified artist profiles
+  <Card title="Producer Pages" icon="user-check" href="/help/discovering-music/producer-pages">
+    Learn about verified producer profiles
   </Card>
-  <Card title="Channel Browsing" icon="grid-2" href="/help/channels">
+  <Card title="Channels" icon="table-cells-large" href="/help/discovering-music/channels">
     How to browse featured content channels
   </Card>
   <Card title="Previous Release" icon="arrow-left" href="/release-notes/v3.0/3.1.2">

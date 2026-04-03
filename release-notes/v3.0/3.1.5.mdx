@@ -1,0 +1,81 @@
+---
+title: "Push Notifications & Realtime Cleanup"
+date: "2026-03-31"
+severity: "patch"
+version: "3.1.5"
+audience: "All"
+tags: ["improvement", "bugfix", "infrastructure"]
+components: ["notifications", "messaging"]
+status: "published"
+related: ["3.1.4"]
+---
+
+import ReleaseFeedback from "/snippets/sections/release-feedback.mdx";
+
+# Push Notifications & Realtime Cleanup
+
+## Summary
+
+Push notifications are now more reliable, notification settings are easier to understand, and chat activity updates faster while you're using BeatPass. This release also cleans up older notification paths behind the scenes, so alerts stay in sync without any manual migration.
+
+---
+
+## What's New
+
+- **More reliable push delivery** — Browser and mobile devices now stay registered more cleanly for background alerts, so push notifications are less likely to disappear after normal browsing or sign-in changes
+- **Clearer notification choices** — **Email**, **In-App**, and **Push** now describe distinct experiences, making it easier to choose what you want in the bell, in open tabs, and in background alerts
+- **Open tabs stay responsive** — When you're already on BeatPass, the bell and live browser alerts update right away
+- **Faster chat updates** — New messages now appear instantly in open conversations instead of waiting on slower background work
+- **Live read receipts** — Read state updates now appear in real time, so conversations stay accurate for both sides
+- **Cleaner account handoff** — Push alerts stop when you sign out, and notification data stays tied to the correct account when you switch users in the same browser session
+- **Automatic device cleanup** — Old devices and browser sessions that can no longer receive alerts are removed automatically, which helps keep delivery reliable over time
+
+## How to Use
+
+1. When BeatPass asks to send notifications, click **Enable**.
+2. In **Notification Preferences**, keep **In-App** on for the bell and live activity while you browse, and turn on **Push** for background browser alerts.
+3. If you use a shared device, sign out normally when you're done so alerts stay tied to the right account.
+
+## Why It Matters
+
+- **Less guesswork** — You can tell at a glance whether you want email, in-app activity, or background push alerts
+- **Faster conversations** — Messages and read receipts feel more immediate in active chats
+- **More reliable delivery** — Older, broken, or expired devices no longer keep getting in the way
+- **No migration work** — Existing notification settings stay in place, and the cleanup happens automatically
+
+---
+
+## Impact
+
+<Note>
+  This update was applied automatically. No manual migration is required.
+</Note>
+
+| Aspect | Status |
+|--------|--------|
+| **User Data** | No changes |
+| **Playback** | Unaffected |
+| **Subscriptions** | Unaffected |
+| **Producer Payouts** | Unaffected |
+| **Notification Preferences** | Existing settings stay in place and now appear as **Email**, **In-App**, and **Push** |
+
+---
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Notification Preferences" icon="bell" href="/help/notifications">
+    Choose how you want BeatPass to contact you
+  </Card>
+  <Card title="Messaging" icon="comments" href="/help/messaging">
+    Learn how direct messages and read receipts work
+  </Card>
+  <Card title="Previous Release" icon="arrow-left" href="/release-notes/v3.0/3.1.4">
+    v3.1.4 — Notification System Quality Improvements
+  </Card>
+  <Card title="Version 3.0 Release Index" icon="rocket" href="/release-notes/v3.0">
+    Browse all v3.0.x and v3.1.x releases
+  </Card>
+</CardGroup>
+
+<ReleaseFeedback />

@@ -120,6 +120,10 @@
     {
       "name": "Coupons",
       "description": "Validate discount codes during checkout"
+    },
+    {
+      "name": "Notifications",
+      "description": "Manage notification preferences and FCM device tokens"
     }
   ],
   "paths": {
@@ -4793,6 +4797,303 @@
           "200": { "description": "Preset deleted" },
           "401": { "$ref": "#/components/responses/Response401" },
           "404": { "$ref": "#/components/responses/Response404" }
+        }
+      }
+    },
+    "/notifications/{user}/subscriptions": {
+      "get": {
+        "tags": ["Notifications"],
+        "summary": "Get notification subscriptions",
+        "description": "Retrieve the authenticated user's notification configuration, available channels, current selections, and user context. The `{user}` path accepts the authenticated user's numeric ID or `me`.",
+        "operationId": "getNotificationSubscriptions",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "me"
+            },
+            "description": "Authenticated user ID or `me`."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Notification configuration and current selections",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string", "example": "success" },
+                    "available_channels": {
+                      "type": "array",
+                      "items": { "type": "string" },
+                      "example": ["email", "in_app", "mobile"]
+                    },
+                    "subscriptions": {
+                      "type": "array",
+                      "description": "Notification preference groups and available notification types.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "group_name": {
+                            "type": "string",
+                            "example": "Messages"
+                          },
+                          "group_description": {
+                            "type": "string",
+                            "nullable": true,
+                            "example": "Notifications about direct activity"
+                          },
+                          "requires": {
+                            "type": "string",
+                            "nullable": true,
+                            "enum": ["artist", "verified_artist"]
+                          },
+                          "subscriptions": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "string",
+                                  "example": "Direct Messages"
+                                },
+                                "notif_id": {
+                                  "type": "string",
+                                  "example": "new_message"
+                                },
+                                "description": {
+                                  "type": "string",
+                                  "example": "When you receive a direct message"
+                                },
+                                "requires": {
+                                  "type": "string",
+                                  "nullable": true,
+                                  "enum": ["artist", "verified_artist"]
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "user_selections": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": { "type": "integer", "nullable": true, "example": 1 },
+                          "name": { "type": "string", "example": "Direct Messages" },
+                          "notif_id": { "type": "string", "example": "new_message" },
+                          "description": {
+                            "type": "string",
+                            "nullable": true,
+                            "example": "When you receive a direct message"
+                          },
+                          "requires": {
+                            "type": "string",
+                            "nullable": true,
+                            "enum": ["artist", "verified_artist"]
+                          },
+                          "channels": {
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "boolean"
+                            },
+                            "example": {
+                              "email": true,
+                              "in_app": true,
+                              "mobile": true
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "user_context": {
+                      "type": "object",
+                      "properties": {
+                        "is_artist": { "type": "boolean" },
+                        "is_verified_artist": { "type": "boolean" }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Response401" },
+          "404": { "$ref": "#/components/responses/Response404" }
+        }
+      },
+      "put": {
+        "tags": ["Notifications"],
+        "summary": "Update notification subscriptions",
+        "description": "Update one or more notification subscription channel selections for the authenticated user. Valid channel keys are `email`, `in_app`, and `mobile`.",
+        "operationId": "updateNotificationSubscriptions",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "me"
+            },
+            "description": "Authenticated user ID or `me`."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["selections"],
+                "properties": {
+                  "selections": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": ["notif_id", "channels"],
+                      "properties": {
+                        "notif_id": {
+                          "type": "string",
+                          "example": "new_message"
+                        },
+                        "channels": {
+                          "type": "object",
+                          "description": "Channel state keyed by `email`, `in_app`, and/or `mobile`.",
+                          "additionalProperties": {
+                            "type": "boolean"
+                          },
+                          "example": {
+                            "email": true,
+                            "in_app": true,
+                            "mobile": false
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Notification subscriptions updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string", "example": "success" }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Response401" },
+          "404": { "$ref": "#/components/responses/Response404" },
+          "422": { "$ref": "#/components/responses/Response422" }
+        }
+      }
+    },
+    "/fcm-tokens": {
+      "post": {
+        "tags": ["Notifications"],
+        "summary": "Register or refresh FCM token",
+        "description": "Store or refresh an FCM device token for the authenticated user.",
+        "operationId": "storeFcmToken",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["token"],
+                "properties": {
+                  "token": {
+                    "type": "string",
+                    "maxLength": 500,
+                    "description": "FCM registration token returned by the Firebase client SDK."
+                  },
+                  "platform": {
+                    "type": "string",
+                    "enum": ["web", "android", "ios"],
+                    "default": "web"
+                  },
+                  "device_name": {
+                    "type": "string",
+                    "maxLength": 200,
+                    "nullable": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "FCM token stored",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string", "example": "ok" }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Response401" },
+          "422": { "$ref": "#/components/responses/Response422" }
+        }
+      },
+      "delete": {
+        "tags": ["Notifications"],
+        "summary": "Delete FCM token",
+        "description": "Remove an FCM device token for the authenticated user. This endpoint currently expects the token in a JSON request body. Some HTTP clients or intermediaries may drop bodies on `DELETE` requests, so clients should ensure their stack preserves the payload. Keeping the token out of the URL avoids encoding and length issues with long FCM tokens.",
+        "operationId": "deleteFcmToken",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["token"],
+                "properties": {
+                  "token": {
+                    "type": "string",
+                    "maxLength": 500,
+                    "description": "FCM registration token to remove."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "FCM token removed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string", "example": "ok" }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "$ref": "#/components/responses/Response401" },
+          "422": { "$ref": "#/components/responses/Response422" }
         }
       }
     }
