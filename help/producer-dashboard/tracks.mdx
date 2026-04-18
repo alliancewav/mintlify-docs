@@ -1,57 +1,48 @@
 ---
 audience: help
-title: "Tracks Page | Producer Dashboard"
-sidebarTitle: "Tracks"
-description: "Manage your tracks, review growth signals, filter your catalog, and explore collaboration insights on the Producer Dashboard Tracks page."
-keywords: ["producer tracks", "catalog management", "growth meter", "track insights", "collaboration recommendations"]
-"og:title": "Tracks Page - Producer Dashboard | BeatPass"
-"og:description": "Manage your catalog and review track-level producer tools."
-"twitter:card": "summary_large_image"
+title: "My Beats"
+sidebarTitle: "My Beats"
+description: "Review your catalog, track growth signals, filter beats, and explore collaboration tools on the My Beats page."
 ---
 
-The Tracks page is your dashboard-level catalog view. It combines summary cards, a searchable **My Tracks** table, growth guidance, and collaboration tools for your current artist.
+import ProducerOnly from "/snippets/warnings/producer-only.mdx";
+import NeedHelp from "/snippets/sections/need-help.mdx";
 
-<Info>
-  Open it at <a href="https://open.beatpass.ca/producer-dashboard/tracks">https://open.beatpass.ca/producer-dashboard/tracks</a>.
-</Info>
+The **My Beats** page is your dashboard-level catalog view. It combines summary cards, a searchable track table, growth guidance, and collaboration tools for your current artist.
 
-## Main sections
+<ProducerOnly />
+
+## How to Get Here
+
+Click your **profile avatar** → **Backstage**, then select **My Beats** in the sidebar.
+
+## Main Sections
 
 <CardGroup cols={3}>
   <Card title="Header and growth status" icon="chart-line">
     Artist context, current growth message, and the growth help dialog.
   </Card>
-  <Card title="My Tracks table" icon="table">
-    Search, sort, filter, and quick actions for the catalog.
+  <Card title="Track table" icon="table">
+    Search, sort, filter, and quick actions for your catalog.
   </Card>
   <Card title="Collaboration tools" icon="users">
     Collaboration Insights and Collaboration Recommendations.
   </Card>
 </CardGroup>
 
-## Header and growth status
+## Growth Status
 
-The page header summarizes how your catalog is trending.
+The page header summarises how your catalog is trending. Select the help icon to open the growth guide with improvement tips.
 
-### Growth labels you may see
+| Label | Threshold |
+| --- | --- |
+| **Exceptional growth!** | Above +15% |
+| **Strong growth** | Above +5% |
+| **Growing steadily** | Above 0% |
+| **Slight decline** | Above −5% |
+| **Needs attention** | −5% or below |
 
-- **Exceptional growth!**
-- **Strong growth**
-- **Growing steadily**
-- **Slight decline**
-- **Needs attention**
-
-### How the trend is grouped
-
-The growth guide currently explains the broad direction like this:
-
-- Positive growth: above `+5%`
-- Stable range: between `-5%` and `+5%`
-- Negative growth: below `-5%`
-
-Use the help icon in the header to open the growth guide and read the improvement tips attached to the current state.
-
-## Overview cards
+## Overview Cards
 
 | Card | What it shows |
 | --- | --- |
@@ -60,11 +51,11 @@ Use the help icon in the header to open the growth guide and read the improvemen
 | **Growth Rate** | Positive, stable, or declining trend |
 | **Collaborators** | Unique collaborators and collaborative-track totals |
 
-## My Tracks table
+## Track Table
 
-This is the main working area on the page.
+The main working area on the page.
 
-### Table columns
+### Columns
 
 | Column | What it shows |
 | --- | --- |
@@ -75,16 +66,16 @@ This is the main working area on the page.
 | **Growth** | Per-track trend indicator |
 | **Points** | Contribution points |
 | **Last uploaded** | Upload date |
-| **Actions** | Quick links for insights and editing |
+| **Actions** | Quick links for **Insights** and **Edit** |
 
-### Actions currently available
+### Available Actions
 
-- **Upload new track** opens the Backstage upload flow
-- **Insights** opens the track's Backstage insights page
-- **Edit** opens the track edit page
-- **Delete selected** appears when you select rows
+- **Upload new track** — opens the upload flow
+- **Insights** — opens the track's backstage insights page
+- **Edit** — opens the track editor
+- **Delete selected** — appears when you select rows
 
-### Filters currently available
+### Filters
 
 - Artwork
 - Album
@@ -94,39 +85,33 @@ This is the main working area on the page.
 - Points
 
 <Note>
-  This page helps you manage and review the catalog, but it does not replace the full edit forms in Backstage.
+  This page helps you review the catalog, but full editing still happens in the backstage track editor.
 </Note>
 
 ## Collaboration Insights
 
-The **Collaboration Insights** section focuses on the people already connected to your catalog.
-
-It can show:
+Focuses on people already connected to your catalog.
 
 - Total collaborator count
 - Collaborative-track count
 - A ranked list of top collaborators
-- A larger detail modal when more collaboration data is available
+- A detail modal when more collaboration data is available
 
 ## Collaboration Recommendations
 
-The **Collaboration Recommendations** section suggests artists to review next based on the recommendation data BeatPass currently has for you.
+Suggests artists to explore next based on your genre profile and catalog data.
 
-### What appears here
-
-- A short explanation panel behind the info button
 - Your top genres used as recommendation context
-- Suggested artists
-- Similarity signals and shared genres
+- Suggested artists with similarity signals and shared genres
 - A **View Profile** action for each suggestion
 
-These are suggestions, not guarantees. If BeatPass does not have enough data yet, the page tells you to build out your catalog instead of inventing recommendations.
+If BeatPass does not have enough data, the section encourages you to build your catalog before inventing recommendations.
 
-## Common empty states
+## Empty States
 
 <AccordionGroup>
   <Accordion title="No linked artist profile" icon="user" defaultOpen>
-    BeatPass sends you back to **Backstage** setup before this page can load real track data.
+    The page shows a not-found state when your account does not have a linked artist profile. Complete your [Producer Program application](/help/producer-program) first.
   </Accordion>
   <Accordion title="No tracks yet" icon="music">
     The table stays empty until you upload your first track.
@@ -145,10 +130,12 @@ These are suggestions, not guarantees. If BeatPass does not have enough data yet
   <Card title="Activity" icon="chart-line" href="/help/producer-dashboard/activity">
     See how uploads and downloads move over time.
   </Card>
-  <Card title="Albums" icon="compact-disc" href="/help/producer-dashboard/albums">
+  <Card title="My Collections" icon="compact-disc" href="/help/producer-dashboard/albums">
     Group tracks into album releases.
   </Card>
   <Card title="Backstage Insights" icon="chart-bar" href="/help/analytics/backstage-insights">
-    Open the deeper analytics screens linked from this page.
+    Open deeper analytics linked from this page.
   </Card>
 </CardGroup>
+
+<NeedHelp />

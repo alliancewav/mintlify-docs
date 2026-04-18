@@ -3,12 +3,9 @@ audience: help
 title: "Notification Settings"
 sidebarTitle: "Overview"
 description: "Learn how channel toggles, bulk actions, and role-based groups work in BeatPass notification settings."
-keywords: ["notification settings", "preferences", "email settings", "browser notifications"]
-og:title: "Notification Settings - BeatPass Help"
-og:description: "Learn how BeatPass notification preferences work."
 ---
 
-The Notification Settings page at `/notifications/settings` controls which notification types you receive and which channels deliver them.
+The **Notification Preferences** page controls which notification types you receive and which channels deliver them.
 
 ---
 
@@ -16,9 +13,9 @@ The Notification Settings page at `/notifications/settings` controls which notif
 
 You can open notification settings from:
 
-- the bell menu gear icon
+- the gear icon in the bell menu
 - the full notifications page
-- the direct route: `/notifications/settings`
+- a direct link in notification emails
 
 ---
 
@@ -39,7 +36,7 @@ The page includes bulk toggles for:
 - **Enable All**
 - **Disable All**
 - all **Email** toggles
-- all **Browser** toggles
+- all **Push** toggles
 - all **In-App** toggles
 
 ### Individual groups
@@ -56,23 +53,13 @@ Current role behavior in the UI:
 - **Producers** can see verified-only groups as locked previews
 - **Verified producers** can configure the full set
 
-If browser notifications are blocked by your browser, the page also shows a warning banner at the top.
+If push notifications are blocked by your browser, the page also shows a warning banner at the top.
 
 ---
 
 ## Saving Changes
 
-<Steps>
-  <Step title="Adjust the channels you want">
-    Toggle channels at the group level or notification level.
-  </Step>
-  <Step title="Review browser permission if needed">
-    If you enable browser notifications, your browser may request permission.
-  </Step>
-  <Step title="Save Preferences">
-    Click **Save Preferences** to persist the changes.
-  </Step>
-</Steps>
+Changes are saved automatically as you toggle channels — there is no separate save button. If you enable **Push** notifications for the first time, your browser may request permission.
 
 ---
 
@@ -83,7 +70,7 @@ If browser notifications are blocked by your browser, the page also shows a warn
     Understand email delivery and unsubscribe behavior.
   </Card>
   <Card title="Browser Notifications" icon="bell" href="/help/notifications/notification-settings/browser-notifications">
-    Learn how browser push permissions and toggles work.
+    Learn how push permissions and toggles work.
   </Card>
   <Card title="In-App Notifications" icon="inbox" href="/help/notifications/notification-settings/in-app-notifications">
     Understand the bell menu and full notifications page.
@@ -92,3 +79,5 @@ If browser notifications are blocked by your browser, the page also shows a warn
     Review the complete category and type matrix.
   </Card>
 </CardGroup>
+
+<Snippet file="sections/need-help.mdx" />

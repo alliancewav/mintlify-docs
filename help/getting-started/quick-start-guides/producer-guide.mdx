@@ -1,100 +1,133 @@
 ---
 audience: help
 title: "Producer Quick Start"
-description: "Get started as an approved producer on BeatPass."
+sidebarTitle: "Producer Guide"
+description: "Get started as an approved producer on BeatPass — dashboard access, payouts, uploads, and profile management."
 ---
 
-This guide is for approved producers who need the fastest path to dashboard access, payouts, uploads, and profile management.
+import ProducerOnly from "/snippets/warnings/producer-only.mdx";
+import StripeConnectRequired from "/snippets/callouts/stripe-connect-required.mdx";
+import NeedHelp from "/snippets/sections/need-help.mdx";
 
-## Step 1: Reach the Producer Dashboard
+This guide is for approved producers who need the fastest path to your dashboard, payouts, uploads, and profile.
 
-The producer dashboard lives at `/producer-dashboard`.
+<ProducerOnly />
 
-You may also see a menu entry for it depending on how BeatPass is configured for your account.
+## Open the Producer Dashboard
 
-### Current Core Areas
+Click your **profile avatar** in the top navigation bar, then select **Backstage**.
 
-| Area | Purpose |
-| --- | --- |
-| **Home** | Overview |
-| **Progress** | XP and achievements |
-| **Tracks** | Track management |
-| **Activity** | Producer activity analytics |
-| **Albums** | Collection management |
-| **Leaderboards** | Rankings |
-| **Finances** | Stripe Connect and transactions |
+The dashboard is your central hub for managing everything as a producer. Here's what you'll find in the sidebar:
 
-## Step 2: Connect Payouts
+| Section | What it does |
+|---------|-------------|
+| **Dashboard** | Your producer overview |
+| **Finances** | Earnings, payouts, and Stripe Connect |
+| **Activity** | Performance analytics |
+| **Progress** | XP, level, and achievements |
+| **Leaderboards** | Producer rankings |
+| **My Beats** | Manage your track catalog |
+| **My Collections** | Organize your albums and collections |
 
-Before you can receive payouts, connect Stripe Connect from **Producer Dashboard -> Finances**.
+## Connect Payouts
+
+Before you can receive earnings, set up Stripe Connect from your **Finances** page.
 
 <Steps>
   <Step title="Open Finances">
-    Go to the **Finances** page in the producer dashboard.
+    In the Producer Dashboard sidebar, click **Finances**.
   </Step>
-  <Step title="Confirm your country">
-    BeatPass currently asks you to confirm the country before the Stripe flow starts.
+  <Step title="Start the connection">
+    Click **Connect Stripe Account** and confirm your country.
+
+    <Warning>
+      Choose your country carefully — it cannot be changed after your Stripe account is created.
+    </Warning>
   </Step>
-  <Step title="Continue to Stripe">
-    Finish the Stripe Connect onboarding flow and provide the information Stripe requires.
+  <Step title="Complete Stripe onboarding">
+    You'll be redirected to Stripe to provide your identity verification, bank details, and business information. This takes about five minutes.
   </Step>
 </Steps>
 
-## Step 3: Upload Your First Beat
+<StripeConnectRequired />
 
-The upload flow lives at `/backstage/upload`.
+## Upload Your First Beat
 
-When preparing your first track, the current product expects:
+<Steps>
+  <Step title="Go to the upload page">
+    Click **Upload beats** in the top navigation bar, or navigate directly to the upload page from the backstage area.
+  </Step>
+  <Step title="Choose your audio file">
+    Drag and drop your file or click **Choose Files to Upload**. BeatPass only accepts lossless formats (WAV, FLAC) to maintain premium audio quality.
 
-- A **WAV** audio file
-- Cover art
-- BPM between **60** and **200**
-- Your metadata and licensing choices before saving
+    <Info>
+      MP3 and other compressed formats are not accepted. Upload WAV or FLAC files for the best results.
+    </Info>
+  </Step>
+  <Step title="Fill in track details">
+    Complete the required fields:
+
+    - **Track Name**
+    - **Key** and **Scale**
+    - **BPM** (between 50 and 200)
+
+    You can also add cover art, a description, tags, and assign the track to a collection.
+  </Step>
+  <Step title="Save your track">
+    Licensing defaults to **Standard Licensing** (non-exclusive) automatically — you don't need to configure it before saving. If you want to offer exclusive licensing, expand the **Licensing Options** section to set your terms and pricing.
+  </Step>
+</Steps>
 
 <Tip>
-If you want to create a collection instead of single-track uploads, use the collection mode inside the upload flow.
+  To upload multiple tracks as a collection, enable the **Create Collection** toggle before selecting your files.
 </Tip>
 
-## Step 4: Manage Your Producer Profile
+## Edit Your Producer Profile
 
-Your public producer profile is separate from the dashboard.
+Your public producer profile is managed separately from the dashboard.
 
-To edit it:
+<Steps>
+  <Step title="Open the edit page">
+    From the backstage area, go to your artist profile edit page.
+  </Step>
+  <Step title="Update your information">
+    Use the tabs to manage different sections of your profile:
 
-1. Open your producer profile
-2. Click **More**
-3. Choose **Edit**
+    - **Details** — Your producer name and genres
+    - **Links** — Social media and website links
+    - **Biography** — Country, city, and a description of your style
+    - **Images** — Profile photos and gallery images
+    - **Credits** — Professional credits and collaborations
+  </Step>
+  <Step title="Save your changes">
+    Click **Save Artist** to publish your updates.
+  </Step>
+</Steps>
 
-From there you can manage:
+## Monitor Your Performance
 
-- Cover image and avatar
-- Biography and links
-- Gallery images
-- Genres and location
-- Professional credits
+Once your tracks are live, use these sections in the Producer Dashboard to track your growth:
 
-## Step 5: Monitor Performance
-
-After you start publishing, use:
-
-- **Activity** for performance analytics
-- **Progress** for XP and achievements
-- **Leaderboards** for ranking views
-- **Finances** for Stripe status and transactions
+- **Activity** — View play counts, downloads, and engagement analytics
+- **Progress** — Track your XP, level up, and unlock achievements
+- **Leaderboards** — See how you rank among other producers
+- **Finances** — Monitor your earnings, payout status, and transaction history
 
 ## Related Guides
 
 <CardGroup cols={2}>
-  <Card title="Earnings Guide" href="/help/earnings" icon="dollar-sign">
+  <Card title="Earnings Guide" icon="dollar-sign" href="/help/earnings">
     Understand subscription revenue, exclusives, and finances.
   </Card>
-  <Card title="Uploading Guide" href="/help/uploading" icon="cloud-arrow-up">
+  <Card title="Uploading Guide" icon="cloud-arrow-up" href="/help/uploading">
     Learn the full track and collection upload workflow.
   </Card>
-  <Card title="Producer Profiles" href="/help/profiles/producer-profiles" icon="music">
-    Manage your public producer identity correctly.
+  <Card title="Producer Profiles" icon="music" href="/help/profiles/producer-profiles">
+    Manage your public producer identity.
   </Card>
-  <Card title="Stripe Connect" href="/help/earnings/stripe-connect" icon="credit-card">
+  <Card title="Stripe Connect Setup" icon="credit-card" href="/help/earnings/stripe-connect/setup-guide">
     Review the payout setup flow in detail.
   </Card>
 </CardGroup>
+
+<NeedHelp />

@@ -3,9 +3,6 @@ audience: help
 title: "Messaging"
 sidebarTitle: "Overview"
 description: "Use the BeatPass messaging panel for direct messages, group chats, and conversation management."
-keywords: ["messaging","direct messages","chat","conversations","group chat","DM"]
-og:title: "Messaging - BeatPass Help"
-og:description: "Learn how to use BeatPass messaging to connect with other users and producers."
 ---
 
 BeatPass messaging is a private chat system built into the web player's header. You can open direct messages, create group chats, and manage recent conversations without leaving the current page.
@@ -46,7 +43,7 @@ BeatPass messaging is a private chat system built into the web player's header. 
 </Steps>
 
 <Note>
-  The `/messages` route exists mainly for sign-in gating and deep links from notifications or emails. After it loads, BeatPass points you back to the header messaging experience instead of acting like a standalone inbox.
+  The `/messages` route exists for sign-in gating and deep links from notifications or emails. It briefly shows an instruction screen and then redirects you back to the main site, where messages open in the header panel. It does not act as a standalone inbox.
 </Note>
 
 ---
@@ -102,3 +99,5 @@ If someone is abusing messaging:
     Customize how you receive message notifications.
   </Card>
 </CardGroup>
+
+<Snippet file="sections/need-help.mdx" />

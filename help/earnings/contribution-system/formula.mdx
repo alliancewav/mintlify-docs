@@ -23,13 +23,6 @@ $$
 | **Popularity boost** | Increases value as play count grows, up to 3x |
 | **Collaboration split** | Divides the track's value equally across credited producers |
 
-```mermaid
-flowchart LR
-    A[Time decay] --> D[Contribution value]
-    B[Popularity boost] --> D
-    C[Collaboration split] --> D
-```
-
 ## Time Decay
 
 The time-decay term uses a 6-month half-life. In plain language:
@@ -53,7 +46,7 @@ If more than one producer is credited on the same track, BeatPass divides that t
 ## Important Notes
 
 - Tracks marked **exclusive-only** get a contribution value of **0** for subscription sharing
-- BeatPass recalculates contribution values on a roughly 24-hour cycle
+- BeatPass recalculates contribution values periodically (roughly every few hours) so new plays and time decay continue to affect payout calculations
 - Your share can change even if your own plays stay flat, because the platform total can change too
 
 ## Worked Example
@@ -82,3 +75,5 @@ That final value is then combined with the rest of your eligible catalog to dete
     Learn practical ways to improve your results.
   </Card>
 </CardGroup>
+
+<Snippet file="sections/need-help.mdx" />

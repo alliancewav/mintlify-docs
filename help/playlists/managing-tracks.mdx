@@ -8,8 +8,6 @@ Track management happens in two places: while you browse the catalog and on the 
 
 ## Adding Tracks
 
-The normal add flow is:
-
 1. Open a track context menu.
 2. Choose **Add to playlist**.
 3. Pick the target playlist, or create a new one.
@@ -18,35 +16,39 @@ If you create a new playlist from that flow, the track you started from becomes 
 
 ## What The Playlist Page Shows
 
-A playlist page currently includes:
+A playlist page includes:
 
-- Header details such as title, description, editor avatars, track count, and total duration
-- The playlist track table
-- A search field labeled **Search within playlist**
-- The main play button and follow/unfollow state
+- Header details: title, description, editor avatars, track count, and total duration.
+- The playlist track table.
+- A search field: **Search within playlist**.
+- The main play button and follow/unfollow state.
 
-If the playlist has no tracks yet, BeatPass shows the empty-state message: `This playlist does not have any tracks yet`.
+If the playlist has no tracks yet, BeatPass shows: `This playlist does not have any tracks yet`.
 
-## Removing Tracks
+## Removing and Reordering Tracks
 
-Track removal is permission-based:
+| Role | Can add tracks | Can remove tracks | Can reorder tracks |
+| --- | --- | --- | --- |
+| Owner | Yes | Yes | Yes |
+| Accepted collaborator | Yes | Owner only in UI | Owner only in UI |
+| Follower or viewer | No | No | No |
 
-| Role | Can remove tracks |
-| --- | --- |
-| Owner | Yes |
-| Accepted editor on a collaborative playlist | Yes |
-| Follower or ordinary viewer | No |
+<Note>
+  The UI may show remove and drag-reorder controls to collaborators, but the backend currently restricts those actions to the playlist owner. If a remove or reorder attempt fails, this is the reason.
+</Note>
 
 ## Searching Inside A Playlist
 
-Use **Search within playlist** on the playlist page when you want to narrow a long track list without leaving the playlist.
+Use **Search within playlist** on the playlist page to narrow a long track list without leaving the playlist.
 
 ## Playback From A Playlist
 
 - Use the main play control to queue the playlist.
-- Start from a specific row if you want playback to continue from that point.
-- Use the player queue if you want temporary playback changes without editing the playlist itself.
+- Start from a specific row to continue playback from that point.
+- Use the player queue for temporary playback changes without editing the playlist itself.
 
 <Tip>
   If a playlist is part of a real project, keep the saved order clean and use the queue for one-off listening changes.
 </Tip>
+
+<Snippet file="sections/need-help.mdx" />

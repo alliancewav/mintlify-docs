@@ -4,8 +4,6 @@ title: "Payout Eligibility"
 description: "Learn what must be true before BeatPass can send producer earnings through Stripe Connect and what happens when a payout is excluded."
 ---
 
-import NeedHelp from "/snippets/sections/need-help.mdx";
-
 To receive money from BeatPass, you need more than just earnings. Your producer profile and Stripe Connect setup both need to be in a payout-ready state.
 
 ## What You Need
@@ -14,7 +12,7 @@ To receive money from BeatPass, you need more than just earnings. Your producer 
   <Card title="Producer Profile" icon="user">
     You must have a producer profile that can use producer-facing features like **Finances**.
   </Card>
-  <Card title="Stripe Connect Setup" icon="wallet">
+  <Card title="Stripe Connect Setup" icon="chart-line">
     Your payout account must be connected through BeatPass.
   </Card>
   <Card title="Confirmed Country" icon="globe">
@@ -24,17 +22,16 @@ To receive money from BeatPass, you need more than just earnings. Your producer 
 
 ## Stripe Readiness Signals
 
-BeatPass surfaces the most important readiness indicators in the payout flow:
+BeatPass checks Stripe readiness behind the scenes to determine whether payouts can proceed:
 
 | Signal | What It Means |
 |--------|----------------|
 | **Connected** | BeatPass is linked to your Stripe Connect account |
 | **Charges Enabled** | Stripe has enabled incoming payment capability for the account |
 | **Payouts Enabled** | Stripe has enabled payouts from the account |
-| **Details Submitted** | Stripe has received the required information for the current verification stage |
 
 <Info>
-  BeatPass focuses the main UI on connection and payout readiness. Stripe can still ask for more details later if regulations or account reviews require it.
+  The main BeatPass Finances page focuses on connection and payout readiness at a high level. Stripe may still ask for more details later if regulations or account reviews require it.
 </Info>
 
 ## What Happens If You Are Not Eligible
@@ -91,4 +88,4 @@ If a subscription payout runs while your account is not ready:
   </Accordion>
 </AccordionGroup>
 
-<NeedHelp />
+<Snippet file="sections/need-help.mdx" />

@@ -1,35 +1,36 @@
 ---
 audience: help
-title: "Producer Leaderboards | BeatPass"
+title: "Leaderboards"
 sidebarTitle: "Leaderboards"
-description: "See how the Producer Dashboard leaderboards work, switch between ranking categories, and understand what each leaderboard is measuring."
-keywords: ["producer leaderboards", "producer rankings", "xp rankings", "plays rankings", "metadata quality", "collaboration rankings"]
-"og:title": "Producer Leaderboards - BeatPass"
-"og:description": "Follow your producer rankings across multiple categories."
-"twitter:card": "summary_large_image"
+description: "See how rankings work, switch between categories, and understand what each leaderboard measures."
 ---
 
-The Leaderboards page compares your artist profile against other BeatPass producers across several categories. It is a comparison tool, not a guarantee of promotion or visibility.
+import ProducerOnly from "/snippets/warnings/producer-only.mdx";
+import NeedHelp from "/snippets/sections/need-help.mdx";
 
-<Info>
-  Open it at <a href="https://open.beatpass.ca/producer-dashboard/leaderboards">https://open.beatpass.ca/producer-dashboard/leaderboards</a>.
-</Info>
+The **Leaderboards** page compares your artist profile against other BeatPass producers across seven categories. It is a comparison tool, not a guarantee of promotion or visibility.
 
-## What the page includes
+<ProducerOnly />
+
+## How to Get Here
+
+Click your **profile avatar** → **Backstage**, then select **Leaderboards** in the sidebar.
+
+## What the Page Includes
 
 <CardGroup cols={3}>
   <Card title="Your rank" icon="medal">
-    Header card showing your visible rank for the currently selected category when available.
+    Header card showing your visible rank for the selected category.
   </Card>
   <Card title="Category selector" icon="filter">
     Switch between ranking categories without leaving the page.
   </Card>
   <Card title="Ranking view" icon="trophy">
-    Top placements, full list entries, and the in-app **How it works** guide.
+    Top placements, full list entries, and the **How it works** guide.
   </Card>
 </CardGroup>
 
-## Categories currently available
+## Categories
 
 | Category | What it focuses on |
 | --- | --- |
@@ -39,66 +40,66 @@ The Leaderboards page compares your artist profile against other BeatPass produc
 | **Plays** | Listening activity |
 | **Points** | XP and achievement-related progress |
 | **Earnings** | Earnings and contribution-related signals |
-| **Collaboration** | Collaborative output and partner activity |
+| **Collab** | Collaborative output and partner activity |
 
 <Note>
-  The page uses category-specific score labels. Depending on the category, BeatPass may show plays, uploads, quality percentage, points, earnings-style values, or collaboration signals.
+  The page uses category-specific score labels. Depending on the category, BeatPass may show plays, uploads, quality percentage, points, earnings values, or collaboration signals.
 </Note>
 
-## How to read the page
+## How to Read the Page
 
-### Your rank card
+### Your Rank Card
 
-If BeatPass can place your artist in the current leaderboard response, the header shows your rank. If not, the page shows a dash instead of inventing a number.
+If BeatPass can place your artist in the current leaderboard response, the header shows your rank. Otherwise a dash appears instead.
 
-### Category switching
+### Category Switching
 
-Use the category selector to change the ranking view. The page keeps the previous results visible while the next category loads so you do not lose context during the refresh.
+Select a category to change the ranking view. The page keeps previous results visible while the next category loads so you do not lose context during the refresh.
 
-### Ranking layout
+### Ranking Layout
 
 The results area is split into:
 
-- A top placement section for the highest-ranked producers
-- A larger ranking list for the rest of the returned entries
+- A **top placement section** for the highest-ranked producers
+- A larger **ranking list** for the rest of the returned entries
 
-Each row can include producer identity, rank, category score, and supporting metadata.
+Each row can include producer identity, rank, category score, and supporting metadata. Select **How it works** to open the in-app rankings guide explaining the scoring logic.
 
-## What each category is trying to reward
+## What Each Category Rewards
 
 <AccordionGroup>
   <Accordion title="Overall" icon="star" defaultOpen>
-    Overall is a blended score. The current in-app guide ties it to points, plays, uploads, metadata quality, collaboration, and earnings rather than a single metric.
+    A blended score tied to points, plays, uploads, metadata quality, collaboration, and earnings.
   </Accordion>
   <Accordion title="Quality" icon="circle-check">
-    Rewards better track detail. The current guide emphasizes metadata such as BPM, key, scale, and tags.
+    Better track detail — BPM, key, scale, tags, and metadata completeness.
   </Accordion>
   <Accordion title="Uploads" icon="music">
-    Rewards the amount of published track output connected to your producer profile.
+    Published track volume connected to your producer profile.
   </Accordion>
   <Accordion title="Plays" icon="play">
-    Rewards listening activity across your catalog.
+    Listening activity across your catalog.
   </Accordion>
   <Accordion title="Points" icon="bolt">
-    Rewards XP and achievement progress.
+    XP and achievement progress.
   </Accordion>
-  <Accordion title="Earnings" icon="wallet">
-    Rewards revenue and contribution-oriented signals.
+  <Accordion title="Earnings" icon="dollar-sign">
+    Revenue and contribution-oriented signals.
   </Accordion>
-  <Accordion title="Collaboration" icon="users">
-    Rewards work created with collaborators and partner activity.
+  <Accordion title="Collab" icon="users">
+    Work created with collaborators and partner activity.
   </Accordion>
 </AccordionGroup>
 
-## Good expectations to keep
+## Things to Keep in Mind
 
 - Rankings change as source data updates
 - Strong placement in one category does not guarantee strong placement in another
 - Metadata quality matters even when it does not immediately increase plays
-- Not every producer is guaranteed to appear in every returned ranking list
+- Not every producer appears in every returned ranking list
 
 <Tip>
-  If you want to improve your standing, start with the category description on this page, then open the dashboard page that can actually improve that signal.
+  To improve your standing, start with the category description, then open the dashboard page that can improve that signal — for example, [My Beats](/help/producer-dashboard/tracks) for quality and uploads, or [Progress](/help/producer-dashboard/progress) for points.
 </Tip>
 
 ## Related
@@ -107,13 +108,15 @@ Each row can include producer identity, rank, category score, and supporting met
   <Card title="Progress" icon="bolt" href="/help/producer-dashboard/progress">
     Improve the points signals behind the Points leaderboard.
   </Card>
-  <Card title="Tracks" icon="music" href="/help/producer-dashboard/tracks">
+  <Card title="My Beats" icon="music" href="/help/producer-dashboard/tracks">
     Improve metadata quality, uploads, and collaboration signals.
   </Card>
   <Card title="Activity" icon="chart-line" href="/help/producer-dashboard/activity">
     Follow uploads and downloads over time.
   </Card>
-  <Card title="Home" icon="house" href="/help/producer-dashboard/home">
+  <Card title="Dashboard Home" icon="house" href="/help/producer-dashboard/home">
     Return to the dashboard overview.
   </Card>
 </CardGroup>
+
+<NeedHelp />

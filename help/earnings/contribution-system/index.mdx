@@ -4,8 +4,6 @@ title: "Contribution System"
 description: "Understand how BeatPass uses contribution value to determine each producer's share of subscription revenue."
 ---
 
-import PlatformFee from "/snippets/callouts/platform-fee.mdx";
-
 BeatPass uses a <Tooltip tip="A score calculated from track age, plays, and credited producers. It determines how much subscription revenue a track contributes." cta="See the formula" href="/help/earnings/contribution-system/formula">contribution value</Tooltip> system to share subscription revenue among producers.
 
 ## What Builds Contribution Value
@@ -24,20 +22,12 @@ BeatPass uses a <Tooltip tip="A score calculated from track age, plays, and cred
 
 ## How Subscription Payout Share Works
 
-1. BeatPass takes the subscription base amount as the producer pool
-2. All eligible track contribution values are summed
-3. Your producer share is calculated from your contribution divided by the platform total
-4. Eligible producers receive their share through the payout flow
+1. BeatPass takes the subscription base amount as the producer pool.
+2. All eligible track contribution values are summed.
+3. Your producer share is calculated from your contribution divided by the platform total.
+4. Eligible producers receive their share through the payout flow.
 
-```mermaid
-flowchart LR
-    A[Subscription base amount] --> B[Producer pool]
-    B --> C[Sum eligible contributions]
-    C --> D[Calculate each producer share]
-    D --> E[Send payout through Stripe flow]
-```
-
-<PlatformFee />
+<Snippet file="callouts/platform-fee.mdx" />
 
 ## Important Rules
 
@@ -49,9 +39,9 @@ Tracks marked **exclusive-only** do not contribute to the subscription pool. The
 
 If a producer is not payout-ready when a subscription split runs, their share can be excluded and redistributed among eligible producers.
 
-### Daily Refresh
+### Periodic Refresh
 
-BeatPass recalculates contribution values on a roughly 24-hour cycle so new plays and time decay continue to affect the next payout calculations.
+BeatPass recalculates contribution values periodically (roughly every few hours) so new plays and time decay continue to affect upcoming payout calculations.
 
 ## Related
 
@@ -63,3 +53,5 @@ BeatPass recalculates contribution values on a roughly 24-hour cycle so new play
     Learn practical ways to improve contribution and earnings.
   </Card>
 </CardGroup>
+
+<Snippet file="sections/need-help.mdx" />

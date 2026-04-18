@@ -3,10 +3,9 @@ audience: help
 title: "Account Access Issues"
 sidebarTitle: "Account Access"
 description: "Trouble logging in, resetting your password, or accessing your BeatPass account? Find solutions here."
-keywords: ["login", "password", "account", "sign in", "forgot password", "reset", "2FA"]
-"og:title": "Account Access Issues - BeatPass Help"
-"og:description": "Solutions for login problems and account access issues."
 ---
+
+import NeedHelp from "/snippets/sections/need-help.mdx";
 
 Having trouble accessing your BeatPass account? Start with the issue that matches your current screen.
 
@@ -37,14 +36,14 @@ Password reset links expire. If the link stops working, request a new one.
   <Accordion title="Wrong email or password">
     Double-check the email address, turn off Caps Lock, and try again. If you are unsure, request a password reset.
   </Accordion>
-  <Accordion title="Too many attempts or temporary lockout">
-    Wait a few minutes before trying again, then use the correct credentials or a password reset link.
+  <Accordion title="Too many login attempts">
+    BeatPass limits login attempts to 5 per minute. If you hit this limit, wait at least a minute before trying again. Use a password reset link if you are unsure of your credentials.
   </Accordion>
   <Accordion title="The login page is not loading correctly">
     Refresh the page, clear browser cache, disable extensions that interfere with auth pages, and test another modern browser.
   </Accordion>
   <Accordion title="I signed up with Google">
-    Use **Continue with Google** and sign in with the same Google account linked to BeatPass.
+    Use **Continue with google** and sign in with the same Google account linked to BeatPass.
   </Accordion>
 </AccordionGroup>
 
@@ -52,13 +51,13 @@ Password reset links expire. If the link stops working, request a new one.
 
 <AccordionGroup>
   <Accordion title="I don't have my authenticator app">
-    Use one of your saved recovery codes from the 2FA setup flow.
+    On the 2FA screen, select **Use recovery code instead** and enter one of your saved recovery codes.
   </Accordion>
   <Accordion title="My 2FA code is not working">
     Wait for a fresh code, make sure your device time is correct, and enter the code before it expires.
   </Accordion>
   <Accordion title="I lost my recovery codes">
-    Contact **contact@beatpass.ca** and be ready to verify account ownership before BeatPass can help with 2FA recovery.
+    Contact **contact@beatpass.ca** and be ready to verify account ownership. BeatPass cannot guarantee an automated 2FA reset — recovery is handled case by case.
   </Accordion>
 </AccordionGroup>
 
@@ -66,7 +65,7 @@ Password reset links expire. If the link stops working, request a new one.
 
 <AccordionGroup>
   <Accordion title="The Google popup is blocked">
-    Allow popups for BeatPass and try **Continue with Google** again.
+    Allow popups for BeatPass and try **Continue with google** again.
   </Accordion>
   <Accordion title="I connected the wrong Google account">
     Go to **Account Settings** and review the social-login connection there. Disconnect the wrong Google account before reconnecting the right one.
@@ -85,7 +84,10 @@ If you did not receive the verification email:
 1. Check spam or junk folders
 2. Make sure you are looking at the correct inbox
 3. Use **Resend email** on the verification page
-4. Remember that verification links expire after **24 hours**
+
+<Note>
+Verification links expire — request a new one if yours has stopped working.
+</Note>
 
 ## I Need to Change My Account Email
 
@@ -93,8 +95,10 @@ BeatPass's current account settings do not expose a self-service email-change fo
 
 ## My Account Is Suspended or Locked
 
-- Temporary lockouts can happen after repeated failed login attempts
+- If you hit the login rate limit (5 attempts per minute), wait briefly and try again
 - For a suspension or an access block you do not understand, contact **contact@beatpass.ca**
+
+<NeedHelp />
 
 ## Related
 
@@ -102,7 +106,7 @@ BeatPass's current account settings do not expose a self-service email-change fo
   <Card title="Payment Issues" icon="credit-card" href="/help/troubleshooting/payment-issues">
     Having trouble with billing or subscriptions?
   </Card>
-  <Card title="Contact Support" icon="mail" href="/help/contact-support">
+  <Card title="Contact Support" icon="envelope" href="/help/contact-support">
     Still stuck? Get in touch with the support team.
   </Card>
 </CardGroup>

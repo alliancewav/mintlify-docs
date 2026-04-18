@@ -1,65 +1,56 @@
 ---
 audience: help
-title: "Progress Page | BeatPass"
+title: "Progress Page"
 sidebarTitle: "Progress Page"
-description: "Use the current Producer Progress page to review your XP, level, recent progress state, and achievement list."
+description: "Use the Producer Progress page to review your XP, level, and achievement list."
 ---
 
-The **Producer Progress** page is the main gamification screen in BeatPass. It combines your current level, XP progress, and achievements on one page.
+The **Progress** page is the main gamification screen in BeatPass. It combines your current level, XP progress, and achievements on one page.
 
-<Info>
-  Current route: `/producer-dashboard/progress`
-</Info>
+## Getting There
 
-## What You See At The Top
+Open your **Producer Dashboard** from the sidebar, then choose **Progress**.
 
-<CardGroup cols={2}>
-  <Card title="Level title" icon="shield-check">
-    The large header uses your current producer title.
-  </Card>
-  <Card title="XP pill" icon="bolt">
-    Shows your current XP total.
-  </Card>
-  <Card title="Progress ring" icon="gauge">
-    Visual progress toward the next level.
-  </Card>
-  <Card title="XP to next" icon="chart-line">
-    Shows how much XP you still need before leveling up.
-  </Card>
-</CardGroup>
+## Page Header
 
-## Current Page Controls
+At the top of the page you see:
 
-<AccordionGroup>
-  <Accordion title="Updated timer">
-    The page shows a recent update timer near the top so you can see how old the current progress snapshot is.
-  </Accordion>
-  <Accordion title="How XP Works">
-    Opens the XP guide dialog with the current XP sources and important notes.
-  </Accordion>
-  <Accordion title="Refresh">
-    Lets you manually request fresher progress data.
-  </Accordion>
-</AccordionGroup>
+| Element | Description |
+| --- | --- |
+| **Level title** | Your current producer level name (e.g. Novice, Apprentice, Rising, and so on) |
+| **XP pill** | Your current XP total |
+| **Progress ring** | Visual progress toward the next level |
+| **XP to next** | How much XP you need before leveling up |
+
+## Page Controls
+
+- **How XP Works** — Opens the XP guide dialog with current XP sources and notes
+- **Refresh** — Manually requests fresher progress data
 
 ## Page Sections
 
-<CardGroup cols={2}>
-  <Card title="Earn XP" icon="sparkles">
-    A quick summary of the main actions that currently award XP.
-  </Card>
-  <Card title="Achievements" icon="star">
-    The full achievements section with unlocked, locked, and total XP-earned stats.
-  </Card>
-</CardGroup>
+### Earn XP
 
-## Achievement Area Behavior
+A summary of the main actions that award XP:
 
-- Unlocked and locked achievements are shown together in one list.
-- The section summarizes **Unlocked**, **Locked**, and **Total XP Earned**.
-- Rarity labels are shown directly on achievements.
-- Some achievements can award no XP but still count toward progress.
+| Action | XP |
+| --- | --- |
+| **Upload Tracks** | +100 XP per track |
+| **Get Plays** | +1 XP per play |
+| **Add Metadata** | +50 XP per track |
+| **Collaborate** | +25 XP |
 
-## If You See No Producer Data
+### Achievements
 
-New or inactive producer accounts can see an empty state that sends you to **Upload Track** so you can start earning XP and populating your progress page.
+The full achievements section with:
+
+- **Unlocked** and **Locked** achievement counts
+- **Total XP Earned** from achievements
+- Rarity labels shown on each achievement
+- Some achievements can award no XP but still count toward progress
+
+## Empty State
+
+New or inactive producer accounts see an empty state that directs you to upload a track so you can start earning XP.
+
+<Snippet file="sections/need-help.mdx" />

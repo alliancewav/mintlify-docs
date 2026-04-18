@@ -3,9 +3,6 @@ audience: help
 title: "Managing Requests"
 sidebarTitle: "Managing Requests"
 description: "Track active and expired Beat Requests, understand renewals and refunds, and manage requests from the Beat Requests page or your Library."
-keywords: ["manage requests", "delete request", "view requests", "track requests", "request history"]
-"og:title": "Managing Beat Requests - BeatPass Help"
-"og:description": "Learn how to manage your beat requests on BeatPass."
 ---
 
 Once you start posting Beat Requests, you need to know where to find them, when they can be renewed, and what happens if you delete one. This page covers the current management flow.
@@ -31,9 +28,10 @@ Each of your requests shows its current status:
 
 | Status | Meaning |
 |--------|---------|
-| **Active** | Still accepting submissions (within the chosen duration) |
+| **Active** | Still accepting submissions (countdown timer shown on the card) |
 | **Expired** | No longer accepting submissions |
-| **Renewable** | Expired, but still within the 30-day renewal window |
+
+Expired requests that are within the 30-day renewal window show a **Renew (1 token)** button.
 
 ### What You Can See on Each Request Card
 
@@ -144,16 +142,13 @@ If a request expires, you have a **30-day renewal window**:
 
 ## Request Lifecycle Summary
 
-```mermaid
-flowchart TD
-    A[Token Consumed] --> B[Request Created\nActive]
-    B --> C{What happens?}
-    C -->|Duration ends| D[Expired]
-    C -->|You delete it| E[Removed]
-    E --> F{Below token cap?}
-    F -->|Yes| G[Token Refunded]
-    F -->|No| H[No Refund]
-```
+| Event | What Happens |
+|-------|-------------|
+| **Token consumed** | Request is created and goes live |
+| **Duration ends** | Request expires automatically |
+| **You delete it (below cap)** | Token is refunded |
+| **You delete it (at cap)** | No refund |
+| **You renew it** | 1 token consumed, request reactivated for original duration |
 
 ### Key Dates
 
@@ -263,3 +258,5 @@ For each request, you can see:
     How to review and respond to submissions.
   </Card>
 </CardGroup>
+
+<Snippet file="sections/need-help.mdx" />

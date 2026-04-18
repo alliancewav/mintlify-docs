@@ -3,10 +3,9 @@ audience: help
 title: "Track Metadata"
 sidebarTitle: "Overview"
 description: "Learn about track metadata on BeatPass. Complete information helps listeners find your beats and improves your visibility."
-keywords: ["metadata", "track info", "BPM", "key", "genre", "tags"]
-"og:title": "Track Metadata - BeatPass Help"
-"og:description": "Complete guide to track metadata on BeatPass."
 ---
+
+import NeedHelp from "/snippets/sections/need-help.mdx";
 
 Track metadata is the information BeatPass uses to describe, organize, and surface your beats. Some fields are required before a track can be saved, while others improve discoverability, profile quality, and XP.
 
@@ -35,18 +34,18 @@ Track metadata is the information BeatPass uses to describe, organize, and surfa
 
 ### Required for New Tracks
 
-BeatPass currently requires these core track fields before a new beat can be saved:
+BeatPass requires these fields before a new beat can be saved:
 
 - **Track Name**
-- **Artists**
-- **Cover Art**
 - **Key**
 - **Scale**
 - **BPM**
 
+Artists defaults to the uploader's profile, and cover art can default from a collection or **AI Cover Presets**, so neither needs to be manually set every time.
+
 ### Helpful for Discovery
 
-These are not always required, but they improve how easy the beat is to find and understand:
+These are not required, but they improve how easy the beat is to find and understand:
 
 - **Description**
 - **Genres**
@@ -65,11 +64,9 @@ Good metadata helps BeatPass do a better job of:
 - Making your profile look complete and professional
 - Tracking metadata-complete progress for XP
 
-## Metadata-Complete Does Not Mean Every Optional Field
+## What Metadata-Complete Means
 
-BeatPass currently treats a track as metadata-complete when it reaches the platform's completeness threshold. In the current codebase, that threshold is based on **80%+ completeness**, not necessarily every optional field being filled out.
-
-That means good metadata is still a quality target, not just a box-ticking exercise.
+BeatPass treats a track as metadata-complete when it has a **description**, **BPM**, **key**, **scale**, and **tags**. Meeting this check awards 50 XP. Good metadata is a quality target, not just a box-ticking exercise.
 
 ---
 
@@ -95,10 +92,12 @@ That means good metadata is still a quality target, not just a box-ticking exerc
 
 ---
 
+<NeedHelp />
+
 ## Related
 
 <CardGroup cols={2}>
-  <Card title="Upload Page" icon="upload" href="/help/uploading/upload-page">
+  <Card title="Upload Page" icon="cloud-arrow-up" href="/help/uploading/upload-page">
     See where metadata appears in the track form.
   </Card>
   <Card title="Editing Content" icon="pen-to-square" href="/help/uploading/editing-content">

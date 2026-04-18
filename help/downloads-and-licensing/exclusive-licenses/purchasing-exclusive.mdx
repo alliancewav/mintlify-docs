@@ -1,10 +1,11 @@
 ---
 audience: help
-title: "Purchasing Exclusive Licenses | BeatPass"
+title: "Purchasing Exclusive Licenses"
 sidebarTitle: "Purchasing Exclusive"
 description: "Step-by-step guide to buying an exclusive beat license on BeatPass using the current Stripe purchase flow."
-keywords: ["buy exclusive", "purchase exclusive", "exclusive payment", "stripe", "track purchase"]
 ---
+
+import NeedHelp from "/snippets/sections/need-help.mdx";
 
 This page explains the current exclusive checkout flow in BeatPass. It covers requirements, payment behavior, and what happens immediately after a successful purchase.
 
@@ -48,7 +49,7 @@ You need:
     On success, BeatPass generates the exclusive license, marks the track as sold, and shows the success flow.
   </Step>
   <Step title="Find the license later">
-    Your exclusive license is stored in <a href="https://open.beatpass.ca/library/licenses">https://open.beatpass.ca/library/licenses</a>.
+    Your exclusive license is stored in **Your library** → **Licenses**.
   </Step>
 </Steps>
 
@@ -84,7 +85,7 @@ After a successful payment:
   <Accordion title="Track became unavailable during checkout" icon="triangle-exclamation">
     Exclusive sales are first-come, first-served. If another user completed the purchase first, the track becomes unavailable.
   </Accordion>
-  <Accordion title="Payment succeeded but I do not see the license yet" icon="file-certificate">
+  <Accordion title="Payment succeeded but I do not see the license yet" icon="file-lines">
     Check **Library** -> **Licenses** first. If it still does not appear, use the support path with the purchase details.
   </Accordion>
 </AccordionGroup>
@@ -102,10 +103,12 @@ If you have a charge problem after purchase, use the current BeatPass billing/su
   <Card title="What is Exclusive" icon="scale-balanced" href="/help/downloads-and-licensing/exclusive-licenses/what-is-exclusive">
     Understand the rights model before you buy.
   </Card>
-  <Card title="License Certificates" icon="file-certificate" href="/help/downloads-and-licensing/license-certificates">
+  <Card title="License Certificates" icon="file-lines" href="/help/downloads-and-licensing/license-certificates">
     Learn what gets generated after payment.
   </Card>
   <Card title="Refund Policy" icon="receipt" href="/help/billing/refund-policy">
     Review the current policy page if you need billing guidance.
   </Card>
 </CardGroup>
+
+<NeedHelp />

@@ -36,38 +36,29 @@ A BeatPass exclusive preset stores the license configuration itself, including:
   </Card>
 </CardGroup>
 
-## Current Preset Features
+## How Presets Work in the Producer UI
 
-BeatPass currently supports:
+The current producer UI exposes preset **selection** on the exclusive configuration form:
 
-- Naming a preset
-- Adding an optional description
-- Marking one preset as **default**
-- Seeing how many tracks use a preset
-- Blocking deletion when a preset is still in use
+- Choose a saved preset from the preset selector to load its terms.
+- Use the **Use Default** action to load the platform's default exclusive configuration instead.
+- One preset can be marked as the **default** — making it the easiest starting point for new exclusive-capable tracks.
 
-## Creating a Preset
+<Note>
+  Full preset creation and management (creating, editing, deleting presets) may be handled through a separate workflow or admin surface. The track form itself focuses on applying an existing preset to the current beat.
+</Note>
 
-You can create a preset when working with exclusive configuration:
+## Preset Data Model
 
-1. Build the exclusive terms you want to reuse
-2. Save them as a preset
-3. Give the preset a clear name
-4. Optionally set it as your default
+Each preset tracks:
 
-Good preset names are descriptive, such as:
+- **Name** — a descriptive label you give the preset.
+- **Description** — optional notes about when to use it.
+- **Default flag** — whether this preset auto-loads for new tracks.
+- **Usage count** — how many tracks currently reference this preset.
+- **In-use protection** — BeatPass blocks deletion when tracks still use the preset.
 
-- `Standard Exclusive`
-- `Premium Exclusive`
-- `High-Royalty Exclusive`
-
-## Setting a Default Preset
-
-BeatPass lets you mark one preset as your default. When a default exists, it becomes the easiest starting point for new exclusive-capable tracks.
-
-## Editing a Preset
-
-You can update a preset later, but there is an important rule:
+## Editing and Updating
 
 <Warning>
   Editing a preset does **not** retroactively change tracks that already used it. Existing sold or published beats keep the terms that were saved with them.
@@ -75,31 +66,18 @@ You can update a preset later, but there is an important rule:
 
 ## Deleting a Preset
 
-BeatPass blocks preset deletion when tracks still use that preset.
+BeatPass blocks preset deletion when tracks still reference it. To delete one:
 
-If you need to delete one:
-
-1. Update the affected tracks to use a different preset or config
-2. Return to the preset manager
-3. Delete the unused preset
-
-## Applying a Preset to a Track
-
-When a beat is exclusive-capable:
-
-1. Open **Licensing Options**
-2. Choose the preset from the preset selector
-3. Review the applied terms
-4. Save the track
-
-BeatPass also provides a **Use Default** action to load the platform's default exclusive configuration instead of a custom preset.
+1. Update the affected tracks to use a different preset or configuration.
+2. Return to the preset manager.
+3. Delete the now-unused preset.
 
 ## Best Practices
 
-- Use clear preset names
-- Keep one default preset for your most common deal structure
-- Create separate presets only when the terms really differ
-- Review older presets occasionally so they still reflect your current business approach
+- Use clear preset names like `Standard Exclusive` or `Premium Exclusive`.
+- Keep one default preset for your most common deal structure.
+- Create separate presets only when the terms genuinely differ.
+- Review older presets occasionally to ensure they match your current approach.
 
 ## Related
 
@@ -111,3 +89,5 @@ BeatPass also provides a **Use Default** action to load the platform's default e
     Add pricing to your exclusive-ready tracks.
   </Card>
 </CardGroup>
+
+<Snippet file="sections/need-help.mdx" />

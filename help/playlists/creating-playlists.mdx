@@ -4,13 +4,13 @@ title: "Creating Playlists"
 description: "Create playlists from the library or add-to-playlist flow and understand the current fields BeatPass exposes."
 ---
 
-BeatPass supports two practical creation paths: make a new playlist from the library, or create one in the middle of adding a track.
+BeatPass supports two creation paths: start a new playlist from the library, or create one while adding a track.
 
 ## Where You Can Start
 
 <CardGroup cols={2}>
   <Card title="Library flow" icon="clipboard-list">
-    Open **Library -> Playlists** and use the create-playlist action to start an empty playlist.
+    Open **Library → Playlists** and use the create action to start an empty playlist.
   </Card>
   <Card title="Add-to-playlist flow" icon="plus">
     Start from a track's **Add to playlist** menu when you already know what the first track should be.
@@ -19,9 +19,9 @@ BeatPass supports two practical creation paths: make a new playlist from the lib
 
 ## Current Playlist Fields
 
-When you create or edit a playlist, BeatPass currently exposes these fields:
+The **New playlist** dialog exposes these fields in order:
 
-| Field | Current behavior |
+| Field | Behaviour |
 | --- | --- |
 | **Image** | Optional square playlist image. |
 | **Name** | Required playlist name. |
@@ -29,31 +29,35 @@ When you create or edit a playlist, BeatPass currently exposes these fields:
 | **Public** | Controls whether everyone can see the playlist. |
 | **Description** | Optional text description. |
 
-## Creating A Playlist Step By Step
+## Creating From the Library
 
 <Steps>
   <Step title="Open the create flow">
-    Start from the library page or from a track's **Add to playlist** action.
+    Go to **Library → Playlists** and click the create action to open the **New playlist** dialog.
   </Step>
   <Step title="Fill in the playlist details">
     Add the name first, then set the image, description, collaboration setting, and privacy.
   </Step>
   <Step title="Finish creation">
-    After creation, BeatPass opens the new playlist so you can continue editing or adding tracks.
+    After creation, BeatPass opens the new playlist so you can add tracks.
   </Step>
 </Steps>
+
+## Creating From Add-to-Playlist
+
+When you start from a track's **Add to playlist** menu and choose to create a new playlist, the track you started from becomes the first item in the playlist automatically.
 
 ## Collaborative Setup During Creation
 
 If you enable **Collaborative** while creating the playlist:
 
 - BeatPass shows the collaborator picker inside the create form.
-- You can search for users before finishing creation.
-- Those users are queued as pending invites and are invited after the playlist is created.
+- You can search for users and queue pending invites before finishing creation.
+- After the playlist is created, the dialog stays open with a **Done** button so you can send invites before closing.
 
 ## Editing Later
 
-You can update the same fields again after creation:
+You can update the same fields after creation:
 
 - Change the image
 - Rename the playlist
@@ -64,3 +68,5 @@ You can update the same fields again after creation:
 <Note>
   Collaboration and privacy are separate settings. A playlist can be public without collaborators, or private while still allowing invited editors.
 </Note>
+
+<Snippet file="sections/need-help.mdx" />

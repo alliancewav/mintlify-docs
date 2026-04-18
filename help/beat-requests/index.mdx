@@ -3,15 +3,12 @@ audience: help
 title: "Beat Requests"
 sidebarTitle: "Overview"
 description: "Use Beat Requests to describe the sound you need, spend tokens on a 24, 48, or 72-hour request window, and receive matching beat submissions from BeatPass producers."
-keywords: ["beat requests", "custom beats", "producer submissions", "collaboration", "tokens"]
-"og:title": "Beat Requests - BeatPass Help"
-"og:description": "Learn how to request custom beats from BeatPass producers."
 ---
 
 Beat Requests let you post a brief for the sound you need and receive beat submissions from producers on BeatPass. You choose how long the request stays live, and BeatPass uses <Tooltip tip="Credits that control how many beat requests you can create each month. Your plan determines your allowance." cta="Learn more" href="/help/beat-requests/understanding-tokens">tokens</Tooltip> to control how many requests you can create each month.
 
 <Info>
-  Beat Requests are built around producers sending tracks that already exist in their BeatPass catalog. They are useful for discovering strong matches quickly, but they do not guarantee a custom-made commission.
+  Beat Requests let producers send tracks from their existing BeatPass catalog, or upload new beats and auto-submit them. They are useful for discovering strong matches quickly.
 </Info>
 
 ---
@@ -132,21 +129,10 @@ BeatPass currently gives you three main ways to track responses:
 
 ## Request Lifecycle
 
-```mermaid
-stateDiagram-v2
-    [*] --> Created: Token consumed
-    Created --> Active: Goes live immediately
-    Active --> Active: Producers submit beats
-    Active --> Expired: Duration ends (24/48/72h)
-    Expired --> Renewed: Renewed within 30 days
-    Renewed --> Active
-    Expired --> [*]
-```
-
-1. **Created** — Your request is posted and visible to producers
-2. **Active** — Producers can submit beats for the duration you selected
-3. **Expired** — New submissions stop automatically
-4. **Renewable** — Eligible expired requests can be renewed for **1 token** within 30 days of expiring
+1. **Created** — Your request is posted and visible to producers. The token cost is consumed immediately.
+2. **Active** — Producers can submit beats for the duration you selected (24, 48, or 72 hours).
+3. **Expired** — The time window has closed and new submissions stop automatically.
+4. **Renewed** — Eligible expired requests can be renewed for **1 token** within 30 days of expiring, which reactivates the request for another window matching the original duration.
 
 <Note>
   Requests stay open for the full time you selected. They do not close early just because you already received submissions.
@@ -181,3 +167,5 @@ stateDiagram-v2
     Connect with producers who submit to your requests.
   </Card>
 </CardGroup>
+
+<Snippet file="sections/need-help.mdx" />

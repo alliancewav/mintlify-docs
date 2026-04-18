@@ -1,28 +1,30 @@
 ---
 audience: help
-title: "Finances Page | Producer Dashboard"
+title: "Finances"
 sidebarTitle: "Finances"
-description: "Use the Producer Dashboard Finances page to complete Stripe setup, switch between artist profiles, review balances, and filter payment activity."
-keywords: ["producer finances", "stripe connect", "track sales", "subscription payouts", "payment activity", "earnings dashboard"]
-"og:title": "Finances Page - Producer Dashboard | BeatPass"
-"og:description": "Review earnings and payment activity from the Producer Dashboard."
-"twitter:card": "summary_large_image"
+description: "Complete Stripe setup, review balances, switch between artist profiles, and filter payment activity."
 ---
 
-The Finances page is the earnings view inside the Producer Dashboard. Depending on your Stripe status, it either shows onboarding or a reporting dashboard for the current artist.
+import ProducerOnly from "/snippets/warnings/producer-only.mdx";
+import StripeConnectRequired from "/snippets/callouts/stripe-connect-required.mdx";
+import NeedHelp from "/snippets/sections/need-help.mdx";
 
-<Info>
-  Open it at <a href="https://open.beatpass.ca/producer-dashboard/finances">https://open.beatpass.ca/producer-dashboard/finances</a>.
-</Info>
+The **Finances** page is the earnings view inside the Producer Dashboard. Depending on your Stripe status, it either shows onboarding or a reporting dashboard for the current artist.
 
-## Two page states
+<ProducerOnly />
+
+## How to Get Here
+
+Click your **profile avatar** → **Backstage**, then select **Finances** in the sidebar.
+
+## Two Page States
 
 <CardGroup cols={2}>
   <Card title="Setup Required" icon="triangle-exclamation">
-    You see onboarding when Stripe is not fully connected or the artist account is not yet ready to charge and pay out.
+    Onboarding when Stripe is not fully connected or the artist account is not yet ready to charge and pay out.
   </Card>
-  <Card title="Active" icon="wallet">
-    You see balances, artist switching, cache timestamps, and transaction history after Stripe setup is complete.
+  <Card title="Active" icon="circle-check">
+    Balances, artist switching, cache timestamps, and transaction history after Stripe setup is complete.
   </Card>
 </CardGroup>
 
@@ -30,50 +32,53 @@ The Finances page is the earnings view inside the Producer Dashboard. Depending 
 
 When setup is incomplete, BeatPass shows onboarding instead of incomplete finance data.
 
-### What onboarding covers
+<StripeConnectRequired />
 
-- Connecting the artist to Stripe
-- Confirming the artist country before starting setup
-- Explaining the revenue streams shown in this dashboard
+### What Onboarding Covers
 
-### Revenue streams currently highlighted
+<Steps>
+  <Step title="Connect to Stripe">
+    Select **Connect Stripe Account** and confirm your country in the dialog.
+  </Step>
+  <Step title="Complete Stripe hosted onboarding">
+    Stripe walks you through identity, banking, and account verification.
+  </Step>
+  <Step title="Return to BeatPass">
+    Once **Connected**, **Charges Enabled**, and **Payouts Enabled** are all green, the page switches to the active dashboard.
+  </Step>
+</Steps>
 
-- Subscription payouts
-- Exclusive sales
-- Track purchases
+### Revenue Streams Highlighted During Setup
 
-<Note>
-  The page only switches into the full dashboard when the connected Stripe account is ready for both charges and payouts.
-</Note>
+- **Monthly Payouts** — subscription revenue distribution
+- **Exclusive Sales** — exclusive beat licensing
+- **Track Purchases** — individual beat purchases
 
-## Active dashboard
+## Active Dashboard
 
 Once Stripe is ready, the page becomes a reporting dashboard for the selected artist.
 
-### Header and artist switcher
+### Header and Artist Switcher
 
 The top of the page can show:
 
-- The selected artist
-- An **Active** or **Setup Required** status badge
+- The selected artist with an **Active** or **Setup Required** badge
 - An artist selector when your account manages multiple artists
 - Cache timing information when the finance response includes it
 
 ## Balance Overview
 
-The balance section uses four cards.
-
 | Card | What it means |
 | --- | --- |
 | **Balance** | Funds currently available |
-| **Upcoming** | Funds that are not yet available |
+| **Upcoming** | Funds not yet available |
 | **In Transit** | Funds already moving to payout |
-| **Lifetime** | Lifetime earned volume shown in the finance response |
+| **Lifetime** | Lifetime earned volume |
 
-### Warnings and notices you may see
+### Notices You May See
 
-- A cache timestamp
-- A stale-cache warning
+- A cache timestamp showing when data was last refreshed
+- A stale-cache warning when data may be outdated
 - A multi-currency warning
 - A transaction-truncation warning when only recent activity is shown
 
@@ -81,16 +86,18 @@ The balance section uses four cards.
 
 The lower section combines finance events into one list.
 
-### Filters currently available
+### Filter Tabs
 
-- **All**
-- **Sales**
-- **Subscriptions**
-- **Paid**
-- **Pending**
-- **Failed**
+| Tab | What it shows |
+| --- | --- |
+| **All** | Every transaction type |
+| **Sales** | Beat sales and exclusive purchases |
+| **Subscriptions** | Subscription payout distributions |
+| **Paid** | Completed transactions only |
+| **Pending** | Still-processing transactions |
+| **Failed** | Transactions that did not complete |
 
-### Status labels currently used
+### Status Labels
 
 | Status | Meaning |
 | --- | --- |
@@ -102,17 +109,17 @@ The lower section combines finance events into one list.
 | **Excluded** | Not included in the payout distribution |
 
 <Tip>
-  Use this page to confirm status and direction of funds. Use the [Earnings docs](/help/earnings) when you need the payout model behind those numbers.
+  Use this page to confirm the status and direction of funds. See the [Earnings docs](/help/earnings) for the payout model behind those numbers.
 </Tip>
 
-## What this page does not promise
+## What This Page Does Not Cover
 
 <AccordionGroup>
   <Accordion title="Exact payout timing" icon="clock" defaultOpen>
-    The page shows status and balance data, but it does not promise a fixed arrival time for payouts.
+    The page shows status and balance data but does not promise a fixed arrival time for payouts.
   </Accordion>
   <Accordion title="Every Stripe control" icon="credit-card">
-    This dashboard is not a full replacement for every Stripe screen or payout-management control.
+    This dashboard is not a full replacement for the Stripe dashboard or payout-management settings.
   </Accordion>
   <Accordion title="Perfectly fresh data on every load" icon="arrows-rotate">
     BeatPass can reuse cached finance responses and explicitly labels them when it does.
@@ -122,16 +129,18 @@ The lower section combines finance events into one list.
 ## Related
 
 <CardGroup cols={2}>
-  <Card title="Earnings Overview" icon="wallet" href="/help/earnings">
+  <Card title="Earnings Overview" icon="dollar-sign" href="/help/earnings">
     Full documentation for producer payouts and reporting.
   </Card>
   <Card title="Stripe Connect" icon="credit-card" href="/help/earnings/stripe-connect">
     Setup and troubleshooting guidance for onboarding.
   </Card>
   <Card title="Contribution System" icon="chart-line" href="/help/earnings/contribution-system">
-    Learn how subscription revenue is allocated.
+    How subscription revenue is allocated.
   </Card>
-  <Card title="Home" icon="house" href="/help/producer-dashboard/home">
+  <Card title="Dashboard Home" icon="house" href="/help/producer-dashboard/home">
     Return to the main dashboard overview.
   </Card>
 </CardGroup>
+
+<NeedHelp />

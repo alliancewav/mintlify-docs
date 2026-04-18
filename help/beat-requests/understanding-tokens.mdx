@@ -3,9 +3,6 @@ audience: help
 title: "Understanding Tokens"
 sidebarTitle: "Understanding Tokens"
 description: "Learn how Beat Request tokens work, what each request costs, how refunds and renewals behave, and what happens when your plan changes."
-keywords: ["tokens", "beat request tokens", "monthly limit", "token balance", "token reset"]
-"og:title": "Understanding Tokens - BeatPass Help"
-"og:description": "Learn how the beat request token system works on BeatPass."
 ---
 
 Tokens control how many Beat Requests you can create during the current monthly cycle. Your plan sets the limit, and the request duration decides how many tokens are spent.
@@ -125,15 +122,10 @@ The refund amount matches the original cost:
 
 ## Token Reset Cycle
 
-BeatPass refreshes tokens on a **monthly cycle**:
+BeatPass refreshes tokens on a **monthly cycle**. Your token status area shows the reset date and how many days remain in the current cycle.
 
-```mermaid
-flowchart LR
-    A[Month Starts] --> B[Full Token Balance]
-    B --> C[Use Tokens\nThroughout Month]
-    C --> D[Month Ends]
-    D --> A
-```
+- On reset day, your balance is set back to your plan's full monthly allowance.
+- Unused tokens do not carry over — they are replaced by the fresh balance.
 
 ### Important Dates
 
@@ -216,3 +208,5 @@ If your current token limit is too small for how often you use Beat Requests:
     Compare plans and their token allowances.
   </Card>
 </CardGroup>
+
+<Snippet file="sections/need-help.mdx" />

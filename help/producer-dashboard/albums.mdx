@@ -1,31 +1,32 @@
 ---
 audience: help
-title: "Albums Page | Producer Dashboard"
-sidebarTitle: "Albums"
-description: "Use the Producer Dashboard Albums page to review album stats, filter your releases, and jump into album editing or insights."
-keywords: ["producer albums", "album management", "album insights", "discography", "album stats"]
-"og:title": "Albums Page - Producer Dashboard | BeatPass"
-"og:description": "Manage your album catalog inside the Producer Dashboard."
-"twitter:card": "summary_large_image"
+title: "My Collections"
+sidebarTitle: "My Collections"
+description: "Review album stats, filter your releases, and jump into album editing or insights from the My Collections page."
 ---
 
-The Albums page is the album-focused view of the Producer Dashboard. It is meant for overview, filtering, and quick actions across your existing releases.
+import ProducerOnly from "/snippets/warnings/producer-only.mdx";
+import NeedHelp from "/snippets/sections/need-help.mdx";
 
-<Info>
-  Open it at <a href="https://open.beatpass.ca/producer-dashboard/albums">https://open.beatpass.ca/producer-dashboard/albums</a>.
-</Info>
+The **My Collections** page is the album-focused view of the Producer Dashboard. Use it for overview, filtering, and quick actions across your existing releases.
 
-## Main sections
+<ProducerOnly />
+
+## How to Get Here
+
+Click your **profile avatar** → **Backstage**, then select **My Collections** in the sidebar.
+
+## Main Sections
 
 <CardGroup cols={3}>
   <Card title="Header" icon="compact-disc">
-    Current artist context and a compact total-albums summary.
+    Current artist context and album total.
   </Card>
   <Card title="Albums Overview" icon="chart-bar">
     Summary cards for albums, album tracks, plays, and current-month activity.
   </Card>
-  <Card title="My Albums table" icon="table">
-    Filterable list of album releases with edit and insight shortcuts.
+  <Card title="Albums table" icon="table">
+    Filterable list of releases with edit and insight shortcuts.
   </Card>
 </CardGroup>
 
@@ -36,13 +37,11 @@ The Albums page is the album-focused view of the Producer Dashboard. It is meant
 | **Total Albums** | Album count plus current-month additions |
 | **Album Tracks** | Track totals tied to albums |
 | **Total Plays** | Combined plays across the album catalog |
-| **This Month** | New album count in the current month |
+| **This Month** | New albums added in the current month |
 
-## My Albums table
+## Albums Table
 
-The **My Albums** table is the main working area for album management.
-
-### Table columns
+### Columns
 
 | Column | What it shows |
 | --- | --- |
@@ -52,16 +51,16 @@ The **My Albums** table is the main working area for album management.
 | **Track count** | Number of tracks in the album |
 | **Plays** | Album play total |
 | **Last updated** | Most recent update date |
-| **Actions** | Quick links for insights and editing |
+| **Actions** | Quick links for **Insights** and **Edit** |
 
-### Actions currently available
+### Available Actions
 
-- **Upload album** opens the Backstage album creation flow
-- **Insights** opens the album's Backstage insights page
-- **Edit** opens the album editor
-- **Delete selected** appears when you select table rows
+- **Upload album** — opens the album creation flow
+- **Insights** — opens the album's backstage insights page
+- **Edit** — opens the album editor
+- **Delete selected** — appears when you select table rows
 
-### Filters currently available
+### Filters
 
 - Artwork
 - Plays count
@@ -70,24 +69,24 @@ The **My Albums** table is the main working area for album management.
 - Artist
 
 <Tip>
-  Use this page when you need release-level triage. Use the linked insights screen when you need a deeper breakdown for one album.
+  Use this page for release-level triage. Open the linked insights page when you need a deeper breakdown for one album.
 </Tip>
 
-## When the page is empty
+## Empty States
 
 <AccordionGroup>
   <Accordion title="No linked artist profile" icon="user" defaultOpen>
-    BeatPass redirects you back to **Backstage** setup before it can load album data.
+    The page shows a not-found state when your account does not have a linked artist profile. Complete your [Producer Program application](/help/producer-program) first.
   </Accordion>
   <Accordion title="No albums created yet" icon="compact-disc">
-    The table stays empty until you publish your first album. In that state, the upload action becomes the main next step.
+    The table stays empty until you publish your first album. The **Upload album** action becomes the main next step.
   </Accordion>
 </AccordionGroup>
 
 ## Related
 
 <CardGroup cols={2}>
-  <Card title="Tracks" icon="music" href="/help/producer-dashboard/tracks">
+  <Card title="My Beats" icon="music" href="/help/producer-dashboard/tracks">
     Manage the tracks that can be grouped into album releases.
   </Card>
   <Card title="Uploading" icon="cloud-arrow-up" href="/help/uploading">
@@ -96,7 +95,9 @@ The **My Albums** table is the main working area for album management.
   <Card title="Backstage Insights" icon="chart-bar" href="/help/analytics/backstage-insights">
     Explore album-level analytics in more detail.
   </Card>
-  <Card title="Home" icon="house" href="/help/producer-dashboard/home">
+  <Card title="Dashboard Home" icon="house" href="/help/producer-dashboard/home">
     Return to the dashboard overview.
   </Card>
 </CardGroup>
+
+<NeedHelp />

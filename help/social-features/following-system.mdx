@@ -3,17 +3,14 @@ audience: help
 title: "Following System"
 sidebarTitle: "Following"
 description: "Follow users and producers on BeatPass and understand where those follows appear."
-keywords: ["follow", "following", "followers", "producers", "network"]
-og:title: "Following System - BeatPass Help"
-og:description: "Learn how following works for users and producers on BeatPass."
 ---
 
 BeatPass supports two public follow relationships:
 
-- **User follows** for regular profile-to-profile connections
-- **Producer follows** for artist pages and producer discovery surfaces
+- **User follows** — profile-to-profile connections between user accounts.
+- **Producer follows** — following an artist page, powered by the **Like** button on producer pages.
 
-Both can affect your notifications and the public lists shown on profiles.
+Both affect your notifications and the public lists shown on profiles.
 
 ---
 
@@ -21,9 +18,9 @@ Both can affect your notifications and the public lists shown on profiles.
 
 <Steps>
   <Step title="Open a user profile">
-    Go to the person's public profile from a comment, message shortcut, follower list, or profile link.
+    Go to the person's public profile from a comment, message, follower list, or profile link.
   </Step>
-  <Step title="Use the Follow button">
+  <Step title="Click Follow">
     Click **Follow** in the profile header. It changes to **Unfollow** after the follow is saved.
   </Step>
   <Step title="Manage from the same button">
@@ -31,43 +28,41 @@ Both can affect your notifications and the public lists shown on profiles.
   </Step>
 </Steps>
 
-User follow relationships are exposed most clearly on your public profile tabs:
+User follow relationships appear on your public profile tabs:
 
-- **Followers**
-- **Following**
+- **Followers** — accounts following you.
+- **Following** — accounts you follow.
 
 ---
 
 ## Following Producers
 
-Producer follows are currently exposed through the producer page and some producer discovery cards.
+Producer follows use the **Like** button (heart icon) on producer pages. The button shows context-specific labels:
 
-| Location | How to Follow |
-| --- | --- |
-| **Producer page header** | Use the **Follow** or **Following** button |
-| **Similar Producers panels** | Follow directly from the producer card |
-| **Other producer cards** | Use the visible follow action when the card exposes one |
+| State | Label | Icon |
+| --- | --- | --- |
+| Not following | **Follow** | Heart outline |
+| Following | **Following** | Filled heart (primary colour) |
 
 <Info>
-  On producer pages, the follow action is tied to the producer profile itself. Messaging the producer is a separate action and only appears when the page is claimed by a user account.
+  The **Follow** / **Following** button on producer pages is a Like action tied to the artist profile. It is separate from the **Message** button, which appears when the producer page is linked to a user account.
 </Info>
 
 ---
 
-## Managing Your Follows
+## Where Follows Appear
 
-| Where to review follows | What you'll see |
+| Location | What you see |
 | --- | --- |
-| **Your profile -> Followers** | Users following your public user profile |
-| **Your profile -> Following** | User accounts you follow |
-| **Library -> Your producers** | Producers you have followed or saved in your library |
-| **Producer page -> Followers tab** | Followers for that producer profile |
+| **Your profile → Followers** | Users following your public profile |
+| **Your profile → Following** | User accounts you follow |
+| **Your profile → Liked Producers** | Producers you have followed |
+| **Library → Your artists** | Liked producers shown with a count (e.g. "3 liked artists") |
+| **Producer page → Followers tab** | Followers for that producer profile |
 
 ---
 
 ## Notifications Connected to Following
-
-Following is connected to two notification types:
 
 | Notification | Who can receive it | Trigger |
 | --- | --- | --- |
@@ -81,7 +76,7 @@ Configure both from [Notification Preferences](/help/notifications/notification-
 ## What Following Does Not Do
 
 <Note>
-  BeatPass does not currently provide a dedicated follower activity feed. Following affects public lists, saved producers, messaging suggestions, and notifications instead.
+  BeatPass does not currently provide a dedicated follower activity feed. Following affects public lists, your liked producers, messaging suggestions, and notifications — but there is no timeline of follower activity.
 </Note>
 
 ---
@@ -92,21 +87,21 @@ Configure both from [Notification Preferences](/help/notifications/notification-
   <Accordion title="I can't follow someone">
     Common causes:
 
-    - You're not logged in
-    - You're viewing your own user profile
-    - The page has not finished loading the current follow state yet
+    - You are not logged in.
+    - You are viewing your own profile.
+    - The page has not finished loading the follow state.
   </Accordion>
 
   <Accordion title="My follower count seems wrong">
-    Refresh the page first. Follower and following counts can take a moment to refresh across every surface.
+    Refresh the page. Follower and following counts can take a moment to update across every surface.
   </Accordion>
 
   <Accordion title="I'm not getting new upload notifications">
     Check that:
 
-    - You are following the producer, not just listening to their beats
-    - **New Uploads** is enabled in your notification settings
-    - Your chosen delivery channel is enabled and working
+    - You are following the producer (the heart icon on their page should be filled).
+    - **New Uploads** is enabled in your notification settings.
+    - Your chosen delivery channel is enabled and working.
   </Accordion>
 </AccordionGroup>
 
@@ -122,3 +117,5 @@ Configure both from [Notification Preferences](/help/notifications/notification-
     Learn how producer pages expose follows and followers.
   </Card>
 </CardGroup>
+
+<Snippet file="sections/need-help.mdx" />

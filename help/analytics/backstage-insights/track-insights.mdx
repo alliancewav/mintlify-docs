@@ -7,15 +7,15 @@ description: "See the current BeatPass track-insights layout, including engageme
 
 Track Insights is the most detailed analytics page BeatPass currently offers. It focuses on one track at a time and adds engagement reporting that does not appear on album or artist insight pages.
 
-<Info>
-  Direct route pattern: `/backstage/tracks/{trackId}/insights`
-</Info>
+## Opening Track Insights
+
+Open the **Insights** action on any track you manage from Backstage. The page loads with the **This year** date range by default — adjust it with the floating date-range selector if needed.
 
 ## What You See On This Page
 
 <CardGroup cols={2}>
   <Card title="Header summary" icon="compass">
-    The track header identifies the item you are reviewing before you scroll into charts.
+    Identifies the track you are reviewing before you scroll into the charts.
   </Card>
   <Card title="Engagement Overview" icon="gauge">
     A track-only summary of listener engagement quality.
@@ -42,18 +42,20 @@ Only **Track Insights** includes:
 - **Listen Duration**
 - **Completion Breakdown**
 
-If you need that level of detail, open the specific track instead of the album or artist page.
+If you need that level of detail, open the specific track's Insights page instead of the album or artist page.
 
 ## Empty States You May See
 
 <AccordionGroup>
   <Accordion title="No engagement data yet">
-    BeatPass shows this when the track does not yet have enough engagement data to summarize.
+    BeatPass shows this when the track does not yet have enough engagement data to summarise.
   </Accordion>
   <Accordion title="Engagement tracking coming soon">
-    Some tracks can show a placeholder state while that deeper engagement layer is not ready for the item yet.
+    Some tracks can show a placeholder state while the engagement layer is still being prepared.
   </Accordion>
   <Accordion title="Standard no-data chart states">
     Charts can remain empty if there has not been enough activity in the selected date range.
   </Accordion>
 </AccordionGroup>
+
+<Snippet file="sections/need-help.mdx" />

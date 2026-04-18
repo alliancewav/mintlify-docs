@@ -13,23 +13,26 @@ BeatPass collaboration is invite-based. Turning on **Collaborative** does not ma
 | View public playlist | Yes | Yes | Yes |
 | View private playlist | Yes | Yes | No |
 | Add tracks | Yes | Yes | No |
-| Remove tracks | Yes | Yes | No |
+| Remove tracks | Yes | Owner only in UI | No |
+| Reorder tracks | Yes | Owner only in UI | No |
 | Edit name, image, description, privacy | Yes | No | No |
 | Invite collaborators | Yes | No | No |
 | Delete playlist | Yes | No | No |
+
+<Note>
+  The backend grants accepted editors broader update authority, but the current UI restricts some actions (like removing and reordering tracks) to the playlist owner. Your experience may reflect this UI limitation.
+</Note>
 
 ## Creating A Collaborative Playlist
 
 You can enable collaboration in either place:
 
-- While creating a new playlist
-- Later by editing the playlist or toggling **Collaborative** from the playlist context menu
+- While creating a new playlist (the dialog shows a **Done** button so you can send invites before closing).
+- Later by editing the playlist or toggling **Collaborative** from the playlist context menu.
 
 When collaboration is on, the playlist form uses the description: **Invite other users to add tracks.**
 
 ## Inviting People
-
-The current collaboration flow works like this:
 
 <Steps>
   <Step title="Turn on collaboration">
@@ -48,11 +51,11 @@ The current collaboration flow works like this:
 
 ## Leaving A Collaborative Playlist
 
-If you are an invited editor instead of the owner:
+If you are an invited editor:
 
-- The playlist can still appear as **Following** in your UI.
-- Unfollowing triggers the collaborative-leave confirmation flow.
-- Leaving removes your editor access instead of simply hiding the playlist.
+- The playlist can show the **Following** state.
+- Unfollowing triggers a confirmation flow because you are leaving the collaboration.
+- Confirming removes your editor access, not just a library entry.
 
 ## Privacy Still Applies
 
@@ -64,3 +67,5 @@ Collaboration and privacy are separate:
 <Warning>
   BeatPass does not use open edit links for playlist collaboration. If someone has not accepted an invite, they do not have editor access.
 </Warning>
+
+<Snippet file="sections/need-help.mdx" />

@@ -1,93 +1,89 @@
 ---
 audience: help
-title: "BeatPassID (Audio Fingerprinting) | BeatPass"
+title: "BeatPassID (Audio Fingerprinting)"
 sidebarTitle: "BeatPassID"
-description: "Learn how BeatPass fingerprint data is used in certificate and verification tools."
-keywords: ["BeatPassID", "audio fingerprinting", "track fingerprint", "license verification", "certificate fingerprint"]
-"og:title": "BeatPassID - Audio Fingerprinting"
-"og:description": "How BeatPass uses fingerprint data in license and verification tools."
-"twitter:card": "summary_large_image"
+description: "Learn how BeatPassID enriches license certificates with audio fingerprint data."
 ---
 
-BeatPassID is the fingerprint data BeatPass attaches to tracks for certificate and verification use. It helps BeatPass connect a license to the analyzed audio attached to that track.
+import NeedHelp from "/snippets/sections/need-help.mdx";
+
+BeatPassID is a background audio-analysis process that runs when a track is uploaded to BeatPass. It generates a unique fingerprint for each track and attaches that data to license certificates and verification tools.
 
 <Info>
-  For most users, BeatPassID matters because it affects certificate readiness and what appears on the certificate or verification screens.
+  BeatPassID runs automatically in the background. You do not need to wait for it or check its status. Your license certificate is generated the moment you download a track.
 </Info>
 
-## Where you will see BeatPassID
+## What BeatPassID does
 
-You may see fingerprint details in:
+When a producer uploads a track, BeatPass analyzes the audio and creates a fingerprint. That fingerprint data is then included on license certificates and public verification pages to help confirm which audio file a license covers.
+
+## Where fingerprint data appears
 
 - License certificates
 - The license certificate modal
-- Public verification-related certificate data
-- Producer-facing upload or track-management flows
+- Public verification pages
+- Producer upload and track-management tools
 
-## Current fingerprint statuses
+## Fingerprint statuses
 
 | Status | What it means |
 | --- | --- |
-| **Pending** | BeatPass is still processing the track fingerprint |
-| **Completed** | Fingerprint data is ready for certificate tools |
-| **Failed** | BeatPass could not complete the fingerprint |
-
-## Why fingerprint status matters
-
-<AccordionGroup>
-  <Accordion title="Certificate access" icon="file-certificate" defaultOpen>
-    The current **Get License** flow depends on a completed fingerprint. If fingerprinting is still pending, the track may already be downloaded while the certificate view is not ready yet.
-  </Accordion>
-  <Accordion title="Verification details" icon="shield-check">
-    Completed fingerprint data lets BeatPass show the fingerprint section in the certificate and verification-related views.
-  </Accordion>
-  <Accordion title="Producer workflows" icon="music">
-    Producers also encounter fingerprint status during upload and catalog management because BeatPass uses it as part of track-processing workflows.
-  </Accordion>
-</AccordionGroup>
+| **Pending** | BeatPass is still analyzing the track audio |
+| **Completed** | Fingerprint data has been added to certificate tools |
+| **Failed** | BeatPass could not complete the analysis for this track |
 
 ## What fingerprint details can include
 
-When a completed fingerprint is available, certificate tools can show:
+When fingerprint analysis is complete, certificates and verification pages can display:
 
 - Fingerprint status
 - Fingerprinted date
 - Analyzed duration
 - Fingerprint hash
 
-## What not to assume
+## Good to know
 
-<Warning>
-  BeatPassID is useful verification data, but you should not treat it as a guarantee that every certificate is instantly ready or that every rights dispute is solved automatically. The certificate, the license status, and the public verification page still matter.
-</Warning>
+<AccordionGroup>
+  <Accordion title="Certificates are created on download" icon="file-lines" defaultOpen>
+    Your license certificate is generated automatically when you download a track. BeatPassID enriches the certificate with fingerprint metadata, but it does not block certificate creation.
+  </Accordion>
+  <Accordion title="Verification details" icon="shield-halved">
+    Completed fingerprint data lets BeatPass display fingerprint information on the certificate and public verification pages.
+  </Accordion>
+  <Accordion title="Producer workflows" icon="music">
+    Producers see fingerprint status during upload and catalog management as part of track-processing workflows.
+  </Accordion>
+</AccordionGroup>
 
 ## Common questions
 
 <AccordionGroup>
-  <Accordion title="Why did my track download but I still cannot open the certificate?" icon="download" defaultOpen>
-    The download flow can finish before fingerprinting does. When that happens, wait for fingerprint completion and check **Library** -> **Licenses** again.
+  <Accordion title="My certificate seems to be missing — what should I do?" icon="download" defaultOpen>
+    Certificates are generated when you download a track. If you cannot find yours, go to **Your library** → **Licenses** and search for the track. If it still does not appear, contact support at contact@beatpass.ca.
   </Accordion>
-  <Accordion title="What if fingerprint status is failed?" icon="triangle-exclamation">
-    Certificate tools may stay unavailable until the track is reprocessed or fixed by BeatPass. The page or workflow where you saw the failure is the best place to start troubleshooting.
+  <Accordion title="What if fingerprint status shows failed?" icon="triangle-exclamation">
+    A failed fingerprint does not prevent you from accessing your license certificate. It means the enrichment data could not be added. The track may be reprocessed by BeatPass automatically.
   </Accordion>
   <Accordion title="Does BeatPassID change the audio file I download?" icon="wave-square">
-    No. It is metadata about the track analysis, not a change to the downloaded file itself.
+    No. BeatPassID is metadata about the track analysis, not a modification to the downloaded audio file.
   </Accordion>
 </AccordionGroup>
+
+<NeedHelp />
 
 ## Related
 
 <CardGroup cols={2}>
   <Card title="How Downloads Work" icon="download" href="/help/downloads-and-licensing/how-downloads-work">
-    See how fingerprint status affects post-download certificate access.
+    Step-by-step download and certificate behavior.
   </Card>
-  <Card title="License Certificates" icon="file-certificate" href="/help/downloads-and-licensing/license-certificates">
-    Learn where fingerprint details appear.
+  <Card title="License Certificates" icon="file-lines" href="/help/downloads-and-licensing/license-certificates">
+    Learn where fingerprint details appear on certificates.
   </Card>
-  <Card title="Verifying Licenses" icon="shield-check" href="/help/downloads-and-licensing/verifying-licenses">
-    Understand the public side of certificate status checking.
+  <Card title="Verifying Licenses" icon="shield-halved" href="/help/downloads-and-licensing/verifying-licenses">
+    How the public verification page works.
   </Card>
   <Card title="FAQ" icon="circle-question" href="/help/downloads-and-licensing/faq">
-    More common questions about licensing and downloads.
+    Common questions about licensing and downloads.
   </Card>
 </CardGroup>

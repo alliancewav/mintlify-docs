@@ -1,33 +1,31 @@
 ---
 audience: help
-title: "Browser Notifications"
-sidebarTitle: "Browser"
-description: "Learn how BeatPass browser push notifications, permissions, and browser warnings work."
-keywords: ["browser notifications", "push notifications", "real-time alerts", "browser permissions"]
-og:title: "Browser Notifications - BeatPass Help"
-og:description: "Set up BeatPass browser notifications on supported browsers."
+title: "Push Notifications"
+sidebarTitle: "Push"
+description: "Learn how BeatPass push notifications, permissions, and browser warnings work."
 ---
 
-BeatPass browser notifications use browser push support plus a service worker subscription. They are a separate channel from email and in-app notifications.
+BeatPass push notifications use Firebase Cloud Messaging (FCM) and your browser's push support. They are a separate channel from email and in-app notifications.
 
 ---
 
 ## Requirements
 
-Browser notifications need:
+Push notifications need:
 
 - a supported browser with push notification support
 - permission granted for BeatPass notifications
-- the **Browser** channel enabled in notification settings
+- the **Push** channel enabled in notification settings
 
 ---
 
-## Enabling Browser Notifications
+## Enabling Push Notifications
 
-1. Open `/notifications/settings`
-2. Turn on **Browser** for one or more notification types
+1. Open **Notification Preferences** from the gear icon in the bell menu
+2. Turn on **Push** for one or more notification types
 3. Approve the browser permission prompt if it appears
-4. Save your preferences
+
+Changes are saved automatically — there is no separate save button.
 
 If permission is already denied, BeatPass shows a warning banner in the settings page.
 
@@ -35,8 +33,8 @@ If permission is already denied, BeatPass shows a warning banner in the settings
 
 ## Important Behavior
 
-- Browser notifications are independent from **Email** and **In-App**
-- Supported browsers can continue showing browser notifications even when BeatPass is not the active tab
+- Push notifications are independent from **Email** and **In-App**
+- Supported browsers can continue showing push notifications even when BeatPass is not the active tab
 - Exact background delivery behavior still depends on the browser and operating system
 
 ---
@@ -47,8 +45,8 @@ If you previously denied permission:
 
 1. Open your browser's site settings for BeatPass
 2. Change notifications from **Block** to **Allow**
-3. Return to `/notifications/settings`
-4. Re-enable the **Browser** toggles you want
+3. Return to **Notification Preferences**
+4. Re-enable the **Push** toggles you want
 
 ---
 
@@ -59,6 +57,8 @@ If you previously denied permission:
     Learn how channel toggles are organized.
   </Card>
   <Card title="In-App Notifications" icon="inbox" href="/help/notifications/notification-settings/in-app-notifications">
-    Compare browser delivery with in-app delivery.
+    Compare push delivery with in-app delivery.
   </Card>
 </CardGroup>
+
+<Snippet file="sections/need-help.mdx" />

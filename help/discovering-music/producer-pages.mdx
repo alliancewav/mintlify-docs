@@ -1,59 +1,63 @@
 ---
 audience: help
 title: "Producer Pages"
-description: "Open producer pages, understand the current header actions, and know which tabs can appear."
+description: "Open a producer's page, follow them, send a message, and browse their catalog tabs."
 ---
 
-Producer pages are served from the current `/artist/...` routes. They are the main place to inspect a producer's catalog and related discovery tabs.
+Every producer on BeatPass has a public page where you can listen to their beats, explore their albums, and connect with them directly.
 
-## Current Header Behavior
+## Header Actions
 
-The producer page header can show:
+At the top of a producer page you will see:
 
-- Producer image and name
-- Verified badge when the artist is verified
-- **Unclaimed** badge when the profile has no owner
-- Action buttons for **Play**, saving the producer to your library, **Message**, and **More**
+- **Play** — start playing the producer's catalog.
+- **Follow / Following** — tap the heart icon to follow a producer. It changes to a filled heart and reads **Following** once you have followed them. Tap again to unfollow. Followed producers appear in your library under **Your artists**.
+- **Message** — open a direct conversation with the producer.
+- **More** — additional options such as radio (when available).
 
-## Message Button Rules
+### When Is the Message Button Available?
 
-The message action is not always available. It is disabled when:
+The **Message** button appears on every producer page, but it is not always usable:
 
-- The producer profile is unclaimed
-- You are looking at your own producer profile
-- You are not logged in
+- If you are **not signed in**, tapping it will prompt you to sign in first.
+- If the producer profile is **unclaimed** (no owner has linked it), messaging is unavailable.
+- If you are viewing **your own** producer page, the button does not appear.
 
-## Tabs You May See
+## Profile Badges
 
-Producer page tabs are dynamic. The current page can include:
+- **Verified** — the producer has been verified on BeatPass.
+- **Unclaimed** — the profile exists but no producer has claimed it yet.
 
-- **Discography**
-- **Similar artists**
-- **Gallery**
-- **Beats**
-- **Albums**
-- **Followers**
-- **Achievements**
+## Tabs
 
-<Note>
-  **Achievements** is restricted to the producer owner or an admin-level user. **Similar artists** is only shown when BeatPass has similar artists to display.
-</Note>
+Producer pages can show several tabs. Which ones appear depends on the producer's activity:
 
-## How To Use Producer Pages For Discovery
+| Tab | When It Appears |
+| --- | --- |
+| **Discography** | Always available — the broadest overview of the producer's releases. |
+| **Beats** | Shows all individual tracks. |
+| **Albums** | Shows full collections and albums. |
+| **Similar artists** | Only when BeatPass has related producers to suggest. |
+| **Gallery** | When the producer has uploaded images. |
+| **Followers** | Lists the producer's followers. |
+| **Achievements** | Visible only to the producer themselves or an admin. |
 
-- Start with **Discography** for the broadest overview.
-- Jump to **Beats** when you want the full track list.
-- Use **Albums** to move into collections.
-- Open **Similar artists** when one producer should lead you to more.
-- Use **More** for additional context actions such as radio when that option is available.
+## Discovering More From a Producer
+
+- Start with **Discography** for a quick overview.
+- Use **Beats** to see the full track list.
+- Open **Albums** to browse full collections.
+- Check **Similar artists** to discover related producers.
 
 ## Related Topics
 
 <CardGroup cols={2}>
   <Card title="Radio" icon="radio" href="/help/discovering-music/radio">
-    Start a radio session from a producer when radio actions are available.
+    Start a radio session from a producer when the option is available.
   </Card>
-  <Card title="Albums & Collections" icon="record-vinyl" href="/help/discovering-music/albums-and-collections">
-    Move from a producer page into full collection pages.
+  <Card title="Albums & Collections" icon="folder" href="/help/discovering-music/albums-and-collections">
+    Explore full collection pages from a producer's discography.
   </Card>
 </CardGroup>
+
+<Snippet file="sections/need-help.mdx" />

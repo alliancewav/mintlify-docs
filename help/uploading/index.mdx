@@ -2,76 +2,85 @@
 audience: help
 title: "Uploading Your Music"
 sidebarTitle: "Overview"
-description: "Learn how to upload tracks and collections to BeatPass. A complete guide for producers to share their beats with the world."
-keywords: ["upload", "producer", "beats", "tracks", "music", "publish"]
-"og:title": "Uploading Your Music - BeatPass Help"
-"og:description": "Learn how to upload and manage your beats on BeatPass."
+description: "Learn how to upload tracks and collections to BeatPass. A complete guide for producers to share their beats."
 ---
 
-This section documents the current producer upload flow in BeatPass, including single-beat uploads, collections, metadata, cover art, sample-safe status, and audio fingerprinting.
+import ProducerOnly from "/snippets/warnings/producer-only.mdx";
+import NeedHelp from "/snippets/sections/need-help.mdx";
 
----
+This section covers the producer upload flow in BeatPass, including single-beat uploads, collections, metadata, cover art, sample-safe status, and audio fingerprinting.
 
-## What the Current Upload Flow Supports
+<ProducerOnly />
 
-BeatPass producers can currently:
+## What You Can Do
+
+As a BeatPass producer, you can:
 
 - Upload individual beats
-- Use **Create Collection** to build a collection while uploading multiple beats
-- Add metadata, cover art, and licensing settings before saving
-- Replace audio later if needed
+- Use the **Create Collection** toggle to build a collection while uploading multiple beats
+- Add metadata, cover art, and tags before saving
+- Replace audio files later if needed
 
-<Warning>
-  The current producer upload flow only accepts **WAV** beat files. Even if older copy mentions other lossless formats, the live upload validation currently blocks non-WAV files.
-</Warning>
-
----
+<Info>
+  BeatPass only accepts **WAV** audio files. MP3, FLAC, and other formats are not allowed.
+</Info>
 
 ## Upload Overview
 
-When you upload a beat to BeatPass, the current flow looks like this:
-
 <Steps>
-  <Step title="Upload the WAV file">
-    Drag and drop or choose your beat file from the upload page.
+  <Step title="Go to the upload page">
+    Click **Upload beats** in the top navigation bar. The upload page heading reads **Upload Your Beats**.
   </Step>
-  <Step title="Run duplicate check and fingerprinting">
-    BeatPass checks the audio for duplicate content and prepares the fingerprint status.
+  <Step title="Choose your audio file">
+    Drag and drop your file or click **Choose Files to Upload**. BeatPass runs a duplicate check using audio fingerprinting after each file is selected.
   </Step>
   <Step title="Complete the track form">
-    Add cover art, metadata, sample-safe status, and licensing settings.
+    Fill in the required track information across these sections:
+
+    - **Cover Art & Style** — upload cover art for your beat
+    - **Track Details** — track name, producers, description, collection, and tags
+    - **Music Properties** — key, scale, and BPM (50–200)
+    - **Protection & Verification** — sample-safe status (**Cleared** or **Needs Clearance**) and fingerprinting
+    - **Licensing Options** — defaults to **Standard Licensing** (non-exclusive); expand to configure exclusive terms if needed
   </Step>
-  <Step title="Save the beat or collection">
-    Once the required fields are complete, save the track or collection to publish it.
+  <Step title="Save your beat">
+    Once the required fields are complete, save the track to publish it. Licensing does not need to be manually configured — it defaults to Standard (non-exclusive).
   </Step>
 </Steps>
 
----
+## Required Fields
 
-## Required Track Information
+Before a new track can be saved, these fields must be filled in:
 
-Before a new track can be saved, BeatPass currently requires:
+| Field | Section |
+|-------|---------|
+| **Track Name** | Track Details |
+| **Key** | Music Properties |
+| **Scale** | Music Properties |
+| **BPM** (50–200) | Music Properties |
 
-- **Track Name**
-- **Artists**
-- **Cover Art**
-- **Key**
-- **Scale**
-- **BPM**
-- **Uploaded audio source**
-- **Licensing model**
+The producer is automatically assigned as the artist. Cover art, tags, description, and licensing configuration are optional but recommended.
 
-If you enable exclusive licensing, BeatPass also requires the exclusive contact email and exclusive status fields.
+<Tip>
+  If you enable exclusive licensing, you'll also need to set an exclusive price, currency, and contact email.
+</Tip>
 
----
+## After Uploading
 
-## Related Upload Guides
+Once a beat is saved:
+
+- It appears on your producer profile and in BeatPass search results
+- It participates in licensing based on the model you selected (Standard by default)
+- You can return later to edit metadata, cover art, licensing, or replace the audio file
+- Fingerprint data and financial activity update over time
+
+## Related Guides
 
 <CardGroup cols={2}>
-  <Card title="Upload Page" icon="upload" href="/help/uploading/upload-page">
+  <Card title="Upload Page" icon="cloud-arrow-up" href="/help/uploading/upload-page">
     Learn the full upload-page workflow.
   </Card>
-  <Card title="Creating Collections" icon="record-vinyl" href="/help/uploading/creating-albums">
+  <Card title="Creating Collections" icon="compact-disc" href="/help/uploading/creating-albums">
     Build collections and manage tracks inside them.
   </Card>
   <Card title="Audio Fingerprinting" icon="fingerprint" href="/help/uploading/audio-fingerprinting">
@@ -80,34 +89,18 @@ If you enable exclusive licensing, BeatPass also requires the exclusive contact 
   <Card title="Sample-Safe Warranty" icon="shield" href="/help/uploading/sample-safe">
     Set the sample clearance state shown to buyers.
   </Card>
-</CardGroup>
-
----
-
-## After Uploading
-
-Once a beat is saved:
-
-- It appears on your producer profile
-- It can participate in BeatPass licensing based on the model you selected
-- You can return later to edit metadata, cover art, licensing, or audio
-- Fingerprint and finances data continue to update over time
-
----
-
-## Related Guides
-
-<CardGroup cols={2}>
   <Card title="Collaborations" icon="users" href="/help/uploading/collaborations">
-    Credit co-producers correctly and understand how attribution works.
+    Credit co-producers and understand attribution.
   </Card>
-  <Card title="Licensing Setup" icon="file-certificate" href="/help/licensing-for-producers">
+  <Card title="Licensing Setup" icon="file-lines" href="/help/licensing-for-producers">
     Match your uploads to the correct licensing model.
   </Card>
   <Card title="Editing Content" icon="pen-to-square" href="/help/uploading/editing-content">
     Update beats and collections after they go live.
   </Card>
   <Card title="Upload Troubleshooting" icon="circle-question" href="/help/troubleshooting/upload-issues">
-    Use the troubleshooting guides if uploads fail or validations block your save.
+    Fix upload failures and validation issues.
   </Card>
 </CardGroup>
+
+<NeedHelp />

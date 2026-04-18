@@ -1,94 +1,83 @@
 ---
 audience: help
-title: "Producer Dashboard | BeatPass"
+title: "Producer Dashboard"
 sidebarTitle: "Dashboard Overview"
-description: "Use the Producer Dashboard to review your catalog, activity, earnings status, rankings, and XP from one workspace."
-keywords: ["producer dashboard", "producer analytics", "earnings", "leaderboards", "xp", "catalog management"]
-"og:title": "Producer Dashboard - BeatPass"
-"og:description": "Your main workspace for producer tools on BeatPass."
-"twitter:card": "summary_large_image"
+description: "Use the Producer Dashboard to manage your catalog, activity, earnings, rankings, and XP."
 ---
 
-The Producer Dashboard is a summary workspace for BeatPass artists. It brings together your catalog overview, activity snapshots, rankings, finances, and progress tools without replacing the deeper editing flows in Backstage.
+import ProducerOnly from "/snippets/warnings/producer-only.mdx";
+import NeedHelp from "/snippets/sections/need-help.mdx";
 
-<Info>
-  **Who this is for:** Accounts with a linked artist profile. Some pages stay in setup or empty states until you have tracks, albums, or Stripe onboarding completed.
-</Info>
+The Producer Dashboard is your central workspace for managing your catalog, monitoring performance, tracking earnings, and viewing your progress on BeatPass.
 
-## Open the dashboard
+<ProducerOnly />
 
-<Steps>
-  <Step title="Sign in">
-    Log in to your BeatPass account.
-  </Step>
-  <Step title="Go to the dashboard">
-    Open <a href="https://open.beatpass.ca/producer-dashboard">https://open.beatpass.ca/producer-dashboard</a>.
-  </Step>
-  <Step title="Choose a page">
-    Use the left-side dashboard menu or the shortcut cards on the Home page.
-  </Step>
-</Steps>
+## Open the Dashboard
+
+Click your **profile avatar** in the top navigation bar, then select **Backstage**. Use the sidebar to navigate between dashboard pages.
 
 <Note>
-  If your account does not have a linked artist profile yet, BeatPass will guide you back to **Backstage** to finish setup.
+  If your account does not have a linked artist profile, the dashboard shows a "No Artist Profile" state instead of redirecting. Complete your [Producer Program application](/help/producer-program) first.
 </Note>
 
-## Dashboard pages
+## Dashboard Pages
 
 <CardGroup cols={3}>
-  <Card title="Home" icon="house" href="/help/producer-dashboard/home">
-    Greeting, shortcut cards, and a quick stats snapshot for your current artist context.
+  <Card title="Dashboard" icon="house" href="/help/producer-dashboard/home">
+    Greeting, shortcut cards, and a quick stats snapshot.
   </Card>
   <Card title="Activity" icon="chart-line" href="/help/producer-dashboard/activity">
-    Performance overview cards, yearly upload activity, and download engagement.
+    Performance overview, yearly contribution graph, and download engagement.
   </Card>
-  <Card title="Tracks" icon="music" href="/help/producer-dashboard/tracks">
-    Catalog table, growth status, collaboration insights, and recommendations.
+  <Card title="My Beats" icon="music" href="/help/producer-dashboard/tracks">
+    Track catalog, growth status, collaboration insights, and recommendations.
   </Card>
-  <Card title="Albums" icon="compact-disc" href="/help/producer-dashboard/albums">
-    Album stats, album filters, and quick links to edit or inspect releases.
+  <Card title="My Collections" icon="compact-disc" href="/help/producer-dashboard/albums">
+    Album stats, filters, and quick links to edit or view insights.
   </Card>
-  <Card title="Finances" icon="wallet" href="/help/producer-dashboard/finances">
-    Stripe onboarding state, balances, and transaction history per artist.
+  <Card title="Finances" icon="credit-card" href="/help/producer-dashboard/finances">
+    Stripe Connect status, balances, and transaction history.
   </Card>
   <Card title="Leaderboards" icon="trophy" href="/help/producer-dashboard/leaderboards">
-    Rankings across overall, quality, uploads, plays, points, earnings, and collaboration.
+    Rankings across Overall, Quality, Uploads, Plays, Points, Earnings, and Collab.
   </Card>
   <Card title="Progress" icon="bolt" href="/help/producer-dashboard/progress">
     Level, XP, achievements, and manual refresh controls.
   </Card>
 </CardGroup>
 
-## What stays consistent across the dashboard
+## How the Dashboard Works
 
 <AccordionGroup>
   <Accordion title="Artist context" icon="user" defaultOpen>
-    Most pages load data for your current linked artist profile. The **Finances** page can also show an artist switcher when your account manages more than one artist.
+    Most pages load data for your linked artist profile. The **Finances** page can also show an artist switcher when your account manages more than one artist.
   </Accordion>
-  <Accordion title="Summary first, editing second" icon="table-columns">
-    The dashboard is designed for overview and quick actions. Uploading tracks, editing releases, and full insights screens still live in **Backstage**.
+  <Accordion title="Overview first, editing second" icon="table-columns">
+    The dashboard is designed for quick stats and navigation. Uploading, editing tracks, and full insights live in the backstage editing tools.
   </Accordion>
-  <Accordion title="Real empty states" icon="circle-info">
-    BeatPass does not invent numbers. If you do not have uploads, downloads, albums, achievements, or Stripe setup yet, you will see empty or setup states instead of placeholder claims.
+  <Accordion title="Empty states" icon="circle-info">
+    If you don't have uploads, downloads, albums, achievements, or Stripe setup yet, you'll see empty or setup states instead of placeholder data.
   </Accordion>
   <Accordion title="Refresh and cache behavior" icon="arrows-rotate">
-    Each page refreshes differently. **Progress** has its own manual **Refresh** button, **Leaderboards** keep the previous category visible while new results load, and **Finances** can show cache timestamps or stale-cache warnings.
+    Each page refreshes differently. **Progress** has a manual **Refresh** button. **Leaderboards** keep previous results visible while loading new categories. **Finances** can show cache timestamps or stale-cache warnings.
   </Accordion>
 </AccordionGroup>
 
-## Common next moves
+## Related Guides
 
 <CardGroup cols={2}>
-  <Card title="Need to upload or edit content?" icon="cloud-arrow-up" href="/help/uploading">
-    Start in the Uploading docs, then return here to monitor performance.
+  <Card title="Uploading" icon="cloud-arrow-up" href="/help/uploading">
+    Upload beats, then return here to monitor performance.
   </Card>
-  <Card title="Need payout details?" icon="credit-card" href="/help/earnings">
-    Use the Earnings docs for the payout model behind finance activity.
+  <Card title="Earnings" icon="dollar-sign" href="/help/earnings">
+    Understand the payout model behind your financial activity.
   </Card>
-  <Card title="Need deep analytics?" icon="chart-bar" href="/help/analytics/backstage-insights">
-    Open Backstage Insights for track, album, and artist-level analytics.
+  <Card title="Analytics" icon="chart-bar" href="/help/analytics/backstage-insights">
+    Open backstage insights for track, album, and artist-level analytics.
   </Card>
-  <Card title="Need producer tools outside the dashboard?" icon="sliders" href="/help/producer-program">
-    Use the Producer Program docs for onboarding and profile-management flows.
+  <Card title="Producer Program" icon="gear" href="/help/producer-program">
+    Onboarding, application, and profile management.
   </Card>
 </CardGroup>
+
+<NeedHelp />

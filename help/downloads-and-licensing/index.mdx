@@ -1,23 +1,21 @@
 ---
 audience: help
-title: "Downloads & Licensing | BeatPass"
+title: "Downloads & Licensing"
 sidebarTitle: "Overview"
-description: "Understand how BeatPass downloads, license certificates, audio fingerprinting, and exclusive purchases work today."
-keywords: ["downloads", "licensing", "beats", "non-exclusive", "exclusive", "license certificate", "BeatPassID"]
-"og:title": "Downloads & Licensing - BeatPass"
-"og:description": "Everything about downloading beats and obtaining licenses on BeatPass."
-"twitter:card": "summary_large_image"
+description: "Understand how BeatPass downloads, license certificates, audio fingerprinting, and exclusive purchases work."
 ---
+
+import NeedHelp from "/snippets/sections/need-help.mdx";
 
 BeatPass lets you use tracks in two main ways:
 
 - Download a track under a standard non-exclusive license when your account has download access
 - Buy an exclusive license for eligible tracks with one-time Stripe checkout
 
-This section explains what actually happens in the current product, including when licenses appear, where to find them, and what the platform verifies publicly.
+This section explains what happens in the current product, including when licenses appear, where to find them, and what the platform verifies publicly.
 
 <Info>
-  **Important:** Track downloads and license certificate availability are related, but they are not the same step. A download can succeed even when the certificate is not ready to open yet.
+  Your license certificate is generated automatically when you download a track. You can find it on the track page or in **Your library** → **Licenses**.
 </Info>
 
 ## License types
@@ -57,13 +55,13 @@ This section explains what actually happens in the current product, including wh
     Downloads require login, valid download access, and a current subscription state. Sold-exclusive tracks are blocked for everyone except the exclusive buyer and the track owner.
   </Step>
   <Step title="Your audio or purchase completes">
-    Standard downloads deliver the track file. Exclusive purchases go through Stripe card checkout and generate an exclusive license on success.
+    Standard downloads deliver the track file and generate a license certificate automatically. Exclusive purchases go through Stripe card checkout and generate an exclusive license on success.
   </Step>
   <Step title="Find your license">
-    When BeatPass has an active license ready, you can open it from the post-download flow, the track page, or **Library** -> **Licenses**.
+    Open your certificate from the post-download flow, the track page, or **Your library** → **Licenses**.
   </Step>
   <Step title="Verify when needed">
-    Every license can be checked on the public verification page using its UUID.
+    Every license can be checked on the public verification page using its unique link.
   </Step>
 </Steps>
 
@@ -71,13 +69,13 @@ This section explains what actually happens in the current product, including wh
 
 <AccordionGroup>
   <Accordion title="Standard track downloads" icon="download" defaultOpen>
-    The current standard download flow downloads the track file itself. License access is handled separately through certificate views and **Library** -> **Licenses**.
+    The current standard download flow downloads the track file and generates your license certificate automatically. You can access it from the track page or **Your library** → **Licenses**.
   </Accordion>
   <Accordion title="Exclusive purchases" icon="crown">
-    On successful purchase, BeatPass generates the exclusive license, marks the beat as sold, attempts an immediate track download, and stores the license in **Library** -> **Licenses**. The final deliverables are defined by the license preview and certificate for that track.
+    On successful purchase, BeatPass generates the exclusive license, marks the beat as sold, attempts an immediate track download, and stores the license in **Your library** → **Licenses**. The final deliverables are defined by the license preview and certificate for that track.
   </Accordion>
   <Accordion title="Audio fingerprinting" icon="fingerprint">
-    Certificate tools depend on completed BeatPass fingerprint data. That matters for certificate access and verification, but fingerprint completion is not a universal gate for every download.
+    BeatPassID is a background process that enriches certificates with audio fingerprint data. It does not affect your ability to download tracks or access license certificates.
   </Accordion>
 </AccordionGroup>
 
@@ -87,27 +85,29 @@ This section explains what actually happens in the current product, including wh
   <Card title="How Downloads Work" icon="download" href="/help/downloads-and-licensing/how-downloads-work">
     Step-by-step behavior for download access, download completion, and certificate availability.
   </Card>
-  <Card title="License Certificates" icon="file-certificate" href="/help/downloads-and-licensing/license-certificates">
+  <Card title="License Certificates" icon="file-lines" href="/help/downloads-and-licensing/license-certificates">
     What the certificate shows and how to access it.
   </Card>
   <Card title="Exclusive Licenses" icon="crown" href="/help/downloads-and-licensing/exclusive-licenses">
     How exclusive terms and checkout work.
   </Card>
-  <Card title="Verifying Licenses" icon="shield-check" href="/help/downloads-and-licensing/verifying-licenses">
+  <Card title="Verifying Licenses" icon="shield-halved" href="/help/downloads-and-licensing/verifying-licenses">
     How the public verification page works.
   </Card>
 </CardGroup>
+
+<NeedHelp />
 
 ## Related
 
 <CardGroup cols={2}>
   <Card title="BeatPassID" icon="fingerprint" href="/help/downloads-and-licensing/beatpass-id">
-    Learn how fingerprint status affects certificate tools.
+    Learn how fingerprint data enriches license certificates.
   </Card>
   <Card title="Releasing Music" icon="rocket" href="/help/downloads-and-licensing/releasing-music">
     Turn your licensed beat into a finished release.
   </Card>
-  <Card title="Content ID Claims" icon="shield" href="/help/downloads-and-licensing/content-id-claims">
+  <Card title="Content ID Claims" icon="shield-halved" href="/help/downloads-and-licensing/content-id-claims">
     Handle claims and disputes with the certificate and verification link.
   </Card>
   <Card title="FAQ" icon="circle-question" href="/help/downloads-and-licensing/faq">

@@ -2,79 +2,72 @@
 audience: help
 title: "Upload Issues"
 sidebarTitle: "Upload Issues"
-description: "Having trouble uploading tracks or albums to BeatPass? Find solutions for file errors, duplicate detection, and processing issues."
-keywords: ["upload", "track", "album", "file", "audio", "producer"]
-"og:title": "Upload Issues - BeatPass Help"
-"og:description": "Solutions for track and album upload problems on BeatPass."
+description: "Solutions for file errors, duplicate detection, required fields, and processing issues when uploading to BeatPass."
 ---
 
-This guide is for approved producers using BeatPass's upload flow.
+import ProducerOnly from "/snippets/warnings/producer-only.mdx";
+import NeedHelp from "/snippets/sections/need-help.mdx";
 
-<Note>
-  Standard users cannot upload tracks. If you need producer access first, use the Producer Program.
-</Note>
+This guide is for approved producers using the BeatPass upload flow.
 
-## I Can't Find the Upload Flow
+<ProducerOnly />
+
+## I Cannot Find the Upload Flow
 
 <AccordionGroup>
-  <Accordion title="I am not an approved producer">
-    Upload access is only available to approved producers.
+  <Accordion title="I am not an approved producer" icon="lock" defaultOpen>
+    Upload access is only available to approved producers. Apply through the [Producer Program](/help/producer-program) first.
   </Accordion>
-  <Accordion title="I am signed in but still can't upload">
-    Open the upload route directly at `/backstage/upload` and confirm the account you are using has producer access.
+  <Accordion title="I am signed in but still cannot upload" icon="circle-question">
+    Select **Upload beats** in the top navigation bar. If the button is not visible, confirm the account you are using has producer access.
   </Accordion>
 </AccordionGroup>
 
 ## The Upload Fails Immediately
 
 <AccordionGroup>
-  <Accordion title="Wrong audio format">
-    BeatPass currently requires **WAV** audio for new track uploads. Compressed formats like MP3 are not valid for the standard producer upload flow.
+  <Accordion title="Wrong audio format" icon="file-audio" defaultOpen>
+    BeatPass requires **WAV** audio for new track uploads. If you upload a non-WAV file, an **Unsupported File Format** dialog appears showing the blocked file and the accepted format. Convert to WAV before retrying.
   </Accordion>
-  <Accordion title="Connection or browser issue">
+  <Accordion title="Connection or browser issue" icon="wifi">
     Retry on a stable connection, keep the tab open during upload, and test another modern browser if needed.
   </Accordion>
-  <Accordion title="The file is unusually large">
-    BeatPass can struggle with very large uploads on unstable connections. Retry on a stronger network before assuming the file itself is invalid.
+  <Accordion title="The file is unusually large" icon="file">
+    Large uploads can struggle on unstable connections. Retry on a stronger network before assuming the file itself is invalid.
   </Accordion>
 </AccordionGroup>
 
 ## Save Is Blocked by Required Fields
 
-Before a new track can be saved, BeatPass currently expects:
+Before a new track can be saved, the following fields are required:
 
-- Uploaded audio
-- Cover art
-- BPM between **60** and **200**
-- The rest of the required track metadata
+| Field | Type | Notes |
+| --- | --- | --- |
+| **Track Name** | Text | Required |
+| **Key** | Select | C through B |
+| **Scale** | Select | Major or Minor |
+| **BPM** | Number | 50–200 |
 
-For collections, BeatPass also requires:
+You also need an uploaded audio file. Cover art, artists, and licensing options are optional or have auto-defaults.
 
-- Album cover art
-- Audio and image data for each new track in the collection
+For collections, BeatPass also requires album cover art and audio for each track in the collection.
 
-## Duplicate Detection Problems
+## Duplicate Detection
 
-BeatPass checks uploaded audio for duplicates.
+BeatPass checks uploaded audio for duplicates using fingerprint matching.
 
 <AccordionGroup>
-  <Accordion title="I got a duplicate-audio warning">
-    BeatPass believes the new upload matches an existing track. Check whether you already uploaded the track or are trying to replace an older version.
+  <Accordion title="I got a Duplicate Audio Detected warning" icon="copy" defaultOpen>
+    The **Duplicate Audio Detected** dialog shows the original track name, artists, fingerprint date, and a similarity score. Check whether you already uploaded the track or are trying to replace an older version.
   </Accordion>
-  <Accordion title="I think it is a false match">
-    Contact support with the current file name, the matched track name if shown, and why you believe the detection is wrong.
+  <Accordion title="I think it is a false match" icon="circle-question">
+    Contact support with the current file name, the matched track name shown in the dialog, and why you believe the detection is incorrect.
   </Accordion>
 </AccordionGroup>
 
 ## Processing Seems Stuck
 
-After upload, BeatPass may still need to:
-
-- Generate waveform data
-- Extract metadata
-- Run fingerprint-related checks
-
-If a track looks stuck:
+After upload, BeatPass may still need to generate waveform data, extract metadata, and run fingerprint checks. If a track looks stuck:
 
 1. Refresh the page
 2. Check whether the upload actually completed
@@ -83,26 +76,25 @@ If a track looks stuck:
 ## Collection Upload Issues
 
 <AccordionGroup>
-  <Accordion title="I meant to upload a collection, not singles">
-    Use the upload flow's collection mode so BeatPass groups the files as one collection.
+  <Accordion title="I meant to upload a collection, not singles" icon="layer-group">
+    Toggle **Create Collection** in the upload flow so BeatPass groups the files as one collection.
   </Accordion>
-  <Accordion title="Some files worked and others failed">
+  <Accordion title="Some files worked and others failed" icon="circle-xmark">
     Retry only the failed items after fixing the specific issue for those files.
   </Accordion>
 </AccordionGroup>
 
 ## Account Limits
 
-BeatPass can show an upload-minutes notice on the upload page. If you run into an account limit, review the message shown in the upload flow before retrying.
+BeatPass can show an upload-minutes notice on the upload page. If you hit an account limit, review the message shown in the upload flow before retrying.
 
 ## Still Having Issues?
 
-Contact support with:
+Contact support at **contact@beatpass.ca** with:
 
-1. The exact error message
+1. The exact error message or screenshot
 2. The file name and format
 3. Whether this was a single-track or collection upload
-4. A screenshot if possible
 
 ## Related
 
@@ -110,7 +102,9 @@ Contact support with:
   <Card title="Uploading Guide" icon="cloud-arrow-up" href="/help/uploading">
     Review the full upload workflow.
   </Card>
-  <Card title="Stripe Connect" icon="wallet" href="/help/troubleshooting/stripe-issues">
+  <Card title="Stripe Issues" icon="credit-card" href="/help/troubleshooting/stripe-issues">
     Problems receiving payouts?
   </Card>
 </CardGroup>
+
+<NeedHelp />

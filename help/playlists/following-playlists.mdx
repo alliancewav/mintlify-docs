@@ -1,52 +1,57 @@
 ---
 audience: help
 title: "Following Playlists"
-description: "Follow public playlists to save them to your library and understand how unfollowing behaves for viewers and collaborators."
+description: "Follow public playlists to save them and understand how unfollowing behaves for viewers and collaborators."
 ---
 
-Following a playlist saves someone else's playlist to your library without turning it into your own editable copy.
+Following a playlist saves someone else's playlist without turning it into your own editable copy.
 
 ## Where The Follow Action Appears
 
-For users who are not the playlist owner, BeatPass currently supports:
+For users who are not the playlist owner, BeatPass shows:
 
-- **Follow** and **Following** on the playlist page
-- **Follow** and **Unfollow** in the playlist context menu
+- **Follow** and **Following** on the playlist page.
+- **Follow** and **Unfollow** in the playlist context menu.
 
 Owners do not get the follow button for their own playlists.
 
 ## What Following Does
 
-- Adds the playlist to your playlist library.
-- Lets you reopen it quickly from your account's playlist list.
-- Keeps you on the original playlist rather than a duplicate.
+- Saves the playlist to your account so you can find it again quickly.
+- Keeps you on the original playlist rather than creating a duplicate.
+
+<Note>
+  Whether a followed playlist appears in your **Library → Playlists** list depends on how BeatPass attaches the relationship to your account. Not all followed playlists are guaranteed to show up in that view.
+</Note>
 
 ## What Following Does Not Do
 
 - It does not let ordinary followers add or remove tracks.
-- It does not let ordinary followers rename the playlist or change its image, description, privacy, or collaboration settings.
-- It does not guarantee a dedicated playlist-update notification feed.
+- It does not let ordinary followers rename the playlist or change its settings.
+- It does not provide a dedicated playlist-update notification feed.
 
 ## Unfollowing
 
-Normal unfollowing is simple:
+Normal unfollowing:
 
 1. Open the playlist or its context menu.
 2. Use **Following** or **Unfollow**.
-3. BeatPass removes the playlist from your library list.
+3. BeatPass removes the saved relationship.
 
 ## Special Case: Collaborative Editors
 
-If you are an accepted collaborator instead of a plain follower:
+If you are an accepted collaborator:
 
-- The playlist can still show the **Following** state.
+- The playlist can show the **Following** state.
 - Unfollowing uses a confirmation flow because you are leaving the collaboration.
-- Confirming that action removes your editor access.
+- Confirming removes your editor access — not just a follow relationship.
 
 ## Relationship Differences
 
 | Role | Can view | Can modify tracks | Can change playlist settings |
 | --- | --- | --- | --- |
 | Owner | Yes | Yes | Yes |
-| Accepted collaborator | Yes | Yes | No |
+| Accepted collaborator | Yes | Yes (add) | No |
 | Follower | Yes, if the playlist is accessible | No | No |
+
+<Snippet file="sections/need-help.mdx" />

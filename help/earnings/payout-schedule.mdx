@@ -4,8 +4,6 @@ title: "Payout Schedule"
 description: "Understand how BeatPass earnings move through statuses like Queued, Sending, and Paid before Stripe handles the final payout step."
 ---
 
-import SupportContact from "/snippets/sections/support-contact.mdx";
-
 BeatPass and Stripe handle different parts of the payout timeline. BeatPass calculates or records the earnings event, then Stripe handles the balance and final transfer to your payout destination.
 
 ## The Two Main Earning Paths
@@ -18,13 +16,6 @@ BeatPass and Stripe handle different parts of the payout timeline. BeatPass calc
     Subscription revenue moves through BeatPass split statuses before reaching Stripe.
   </Card>
 </CardGroup>
-
-```mermaid
-flowchart TD
-    A[BeatPass earnings event] --> B[Stripe balance flow]
-    B --> C[Automatic payout by Stripe]
-    C --> D[Your payout destination]
-```
 
 ## Subscription Payout Statuses
 
@@ -74,6 +65,6 @@ The exact arrival time is not fixed by BeatPass alone. Delays or differences can
 3. Make sure Stripe Connect is fully active
 4. Give Stripe or your bank time to finish the transfer if the money is already **In Transit**
 
-If the status stays wrong for too long:
+If the status stays wrong for too long, contact us at **contact@beatpass.ca**.
 
-<SupportContact />
+<Snippet file="sections/need-help.mdx" />

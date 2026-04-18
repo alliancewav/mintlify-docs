@@ -3,18 +3,15 @@ audience: help
 title: "Complete Metadata XP"
 sidebarTitle: "Metadata XP"
 description: "Earn XP by maintaining complete and accurate track metadata on BeatPass."
-keywords: ["XP", "metadata", "complete", "rewards"]
-"og:title": "Complete Metadata XP - BeatPass Help"
-"og:description": "Understand how BeatPass rewards metadata completion."
 ---
 
-BeatPass currently awards XP for several producer actions, and metadata completion is one of them. This page focuses on the part tied to metadata rather than inventing achievement names or thresholds that are not guaranteed in the live product.
+import NeedHelp from "/snippets/sections/need-help.mdx";
+
+BeatPass awards XP for several producer actions, and metadata completion is one of them. This page covers the XP tied to metadata quality.
 
 ---
 
 ## Current XP Values
-
-Based on the current codebase, BeatPass awards:
 
 | Action | Current XP |
 |--------|------------|
@@ -23,41 +20,35 @@ Based on the current codebase, BeatPass awards:
 | Metadata completion | 50 XP |
 | Collaboration | 25 XP |
 
-## What Metadata Completion Means Right Now
+## What Metadata-Complete Means
 
-BeatPass currently treats a track as metadata-complete when it reaches the platform's completeness threshold. In the current implementation, that threshold is based on **80%+ completeness** rather than every optional field being filled out.
+BeatPass treats a track as metadata-complete when it has all five of these fields filled in:
 
-That means metadata completion usually depends on a mix of:
+- **Description**
+- **BPM**
+- **Key**
+- **Scale**
+- **Tags**
 
-- Required track fields being correct
-- Helpful metadata such as description, genres, and tags
-- A complete enough overall track setup to pass the platform's completeness check
+When a track meets this check, BeatPass awards 50 XP for metadata completion.
 
 ---
 
 ## How to Improve Metadata Completion
 
-The easiest ways to improve metadata completion are:
+The easiest ways to hit metadata-complete status are:
 
-- Add strong cover art
 - Write a useful description
-- Choose accurate genres
+- Make sure BPM, key, and scale are accurate
 - Add relevant tags
-- Place the beat in the right collection when needed
-- Keep the core musical fields accurate
+- Choose accurate genres to reinforce discoverability
 
 ## Why This Matters
 
 Better metadata helps in two ways at once:
 
 1. It makes the beat easier to find and license
-2. It helps the beat qualify for metadata-complete XP
-
----
-
-## Important Documentation Rule
-
-Because BeatPass achievement systems can evolve, help docs should only promise the current code-backed XP values above. Do not rely on old achievement names or made-up percentage ladders unless the live product explicitly shows them.
+2. It qualifies the beat for metadata-complete XP
 
 ---
 
@@ -78,6 +69,8 @@ Because BeatPass achievement systems can evolve, help docs should only promise t
 </AccordionGroup>
 
 ---
+
+<NeedHelp />
 
 ## Related
 

@@ -2,216 +2,169 @@
 audience: help
 title: "Using the Upload Page"
 sidebarTitle: "Upload Page"
-description: "A step-by-step guide to uploading tracks on BeatPass. Learn how to use the upload interface effectively."
-keywords: ["upload", "interface", "tracks", "beats", "form", "producer"]
-"og:title": "Using the Upload Page - BeatPass Help"
-"og:description": "Learn how to upload your beats using the BeatPass upload interface."
+description: "A step-by-step guide to uploading tracks on BeatPass using the upload interface."
 ---
 
-The upload page is where producers add new beats and build collections. This guide reflects the current upload flow, field requirements, and validation behavior in BeatPass.
+import ProducerOnly from "/snippets/warnings/producer-only.mdx";
+import NeedHelp from "/snippets/sections/need-help.mdx";
 
----
+The upload page is where producers add new beats and build collections. This guide covers the upload flow, form fields, validation behavior, and tips for a smooth upload experience.
+
+<ProducerOnly />
 
 ## Accessing the Upload Page
 
-To upload as a producer:
-
-1. Sign in to your BeatPass account
-2. Open your producer workspace
-3. Go to the upload tools
-
-<Note>
-  Upload tools are only available to accounts with producer access.
-</Note>
-
----
+Click **Upload beats** in the top navigation bar. The page heading reads **Upload Your Beats** with the sub-text: "Drag and drop your beats, videos & collections here, or click below to browse."
 
 ## Upload Modes
 
-The upload page currently supports two working modes:
+The upload page supports two modes:
 
-| Mode | Best For |
+| Mode | Best for |
 |------|----------|
 | **Single-beat upload** | Standalone track releases |
 | **Create Collection** | Uploading multiple beats as a collection |
 
-BeatPass uses a toggle labeled **Create Collection**. Turn it on before adding files if you want the upload to build a collection.
+Enable the **Create Collection** toggle before adding files to build a collection. The toggle description reads: "Automatically create a collection when multiple files are selected."
 
-<Warning>
-  Once files are already in progress, changing modes is not the intended workflow. Reset or finish the current batch before starting a different upload type.
-</Warning>
+## Supported Audio Formats
 
----
+BeatPass only accepts **WAV** audio files.
 
-## Supported Audio Format
+| Accepted | Not accepted |
+|----------|-------------|
+| **WAV** | MP3, FLAC, AAC, OGG, and other formats |
 
-The current producer upload validation only accepts **WAV** files.
+If you upload an unsupported format, a dialog titled **Unsupported File Format** appears with an **Upload a Different File** button.
 
-<Warning>
-  Even though some older UI text mentions other lossless formats, the live upload validation currently blocks non-WAV extensions. Use WAV files if you want the upload to proceed.
-</Warning>
+## Adding Files
 
-## Ways to Add Files
+You have two options:
 
-### Drag and Drop
+- **Drag and drop** your files directly into the upload area
+- Click **Choose Files to Upload** and select files from your computer
 
-Drag WAV files from your computer into the upload area.
+After a file is accepted, BeatPass opens the track form and begins audio fingerprinting in the background.
 
-### Choose Files to Upload
+## Track Form Sections
 
-Click **Choose Files to Upload** and select your WAV files from the file picker.
+The form is organized into five sections:
 
----
+### Cover Art & Style
 
-## What Happens After Upload
+Upload cover art for your beat. You can use a custom image or select from **AI Cover Presets** matched to your genres. See [Cover Art](/help/uploading/cover-art) for full artwork guidelines.
 
-After the file is accepted, BeatPass opens the upload form and begins duplicate checking.
+### Track Details
 
-The current upload form is organized into these sections:
+| Field | Required | Notes |
+|-------|----------|-------|
+| **Track Name** | Yes | Your beat's title |
+| **Producers** | Auto-filled | Automatically set to your producer profile |
+| **Description** | No | Describe the beat's style, mood, or intended use |
+| **Collection/Album** | No | Assign the beat to an existing or new collection |
+| **Tags** | No | Add searchable tags (custom values allowed) |
 
-- **Cover Art & Style**
-- **Track Details**
-- **Music Properties**
-- **Protection & Verification**
-- **Licensing Options**
+### Music Properties
 
----
-
-## Required Fields for New Tracks
-
-| Field | Required? | Notes |
-|-------|-----------|-------|
-| **Cover Art** | Yes | Custom upload or AI preset |
-| **Track Name** | Yes | Must be a clean track title |
-| **Artists** | Yes | At least one credited producer |
-| **Key** | Yes | Choose from the current key selector |
+| Field | Required | Notes |
+|-------|----------|-------|
+| **Key** | Yes | Select from C through B, including sharps and flats |
 | **Scale** | Yes | Major or Minor |
-| **BPM** | Yes | Must be between 60 and 200 |
-| **Audio Source** | Yes | Created by the upload itself |
-| **Licensing Model** | Yes | Standard, Standard + Exclusive, or Exclusive Only |
+| **BPM** | Yes | Between 50 and 200 |
 
-If the licensing model supports exclusives, BeatPass also requires:
+### Protection & Verification
 
-- **Exclusive status**
-- **Exclusive contact email**
-
----
-
-## Cover Art on the Upload Page
-
-BeatPass requires cover art for new tracks before saving.
-
-You can currently use:
-
-- A custom uploaded image
-- An **AI Preset** matched from your selected genres
-
-See [Cover Art](/help/uploading/cover-art) for the full artwork rules.
-
----
-
-## Audio Fingerprint Status During Upload
-
-While uploading, BeatPass shows these current fingerprint states:
-
-| Status | Meaning |
-|--------|---------|
-| **Pending** | Upload is present but duplicate checking has not started yet |
-| **Checking** | BeatPass is starting duplicate detection |
-| **Analyzing** | BeatPass is analyzing the audio fingerprint |
-| **Verified Unique** | No duplicate was found |
-| **Check Failed** | The duplicate check failed, but BeatPass still lets you continue |
-
-<Note>
-  A duplicate-check failure does not automatically block the upload. BeatPass currently fails open in that situation, which means you can still continue and save the track.
-</Note>
-
----
-
-## Duplicate Detection
-
-BeatPass checks uploaded audio against existing tracks. If a matching or near-matching beat is detected, BeatPass can block the save flow and show the existing track details.
-
-If the file is unique, the track continues normally.
-
-See [Audio Fingerprinting](/help/uploading/audio-fingerprinting) for the detailed behavior.
-
----
-
-## Sample-Safe Status
-
-In **Protection & Verification**, BeatPass asks you to choose one of two sample-clearance states:
+Choose your beat's sample clearance status:
 
 <CardGroup cols={2}>
   <Card title="Cleared" icon="shield">
-    Use this when the beat is 100% original or all samples are fully cleared.
+    The beat is 100% original or all samples are fully cleared.
   </Card>
-  <Card title="Needs Clearance" icon="warning">
-    Use this when the beat contains samples that still require outside clearance.
+  <Card title="Needs Clearance" icon="triangle-exclamation">
+    The beat contains samples that still require outside clearance.
   </Card>
 </CardGroup>
 
-If you choose **Needs Clearance**, BeatPass shows an additional notes field and warns buyers accordingly.
+If you choose **Needs Clearance**, an additional notes field appears and buyers are warned accordingly.
 
----
+This section also shows the audio fingerprinting status as the duplicate check runs.
 
-## Licensing Options
+### Licensing Options
 
-The current licensing model labels on the form are:
+This section is **collapsed by default** and automatically set to **Standard Licensing** (non-exclusive). You don't need to open it to save your beat.
 
-| Option | Meaning |
-|--------|---------|
-| **Standard Licensing** | Standard BeatPass subscription licensing only |
+If you want to offer exclusive licensing, expand the section and choose a model:
+
+| Option | Description |
+|--------|------------|
+| **Standard Licensing** | Available to all BeatPass users (default) |
 | **Standard + Exclusive** | Offer both standard licensing and exclusive purchase |
 | **Exclusive Only** | Offer the beat only as an exclusive opportunity |
 
-BeatPass automatically shows the extra exclusive fields when you choose an exclusive-capable model.
+When exclusive licensing is enabled, additional fields appear:
 
----
+- **Exclusive price** and **currency** (USD, EUR, GBP, or CAD)
+- **Exclusive status** — Available, Sold, or Private
+- **Exclusive contact email** (auto-filled with your email)
 
-## Saving the Upload
+## Audio Fingerprint Status
 
-When the required fields are complete:
+During upload, BeatPass shows these fingerprint states:
 
-- Click **Save Track** for single beats
-- Use the collection save flow when **Create Collection** is enabled
+| Status | Meaning |
+|--------|---------|
+| **Pending** | Upload present but duplicate check hasn't started |
+| **Checking** | Duplicate detection is starting |
+| **Analyzing** | Audio fingerprint is being analyzed |
+| **Verified Unique** | No duplicate found |
+| **Check Failed** | Duplicate check failed, but you can still continue |
 
-For collection uploads, remember that:
+<Note>
+  A failed duplicate check does not block your upload. BeatPass fails open in this situation — you can still save the track.
+</Note>
 
-- The collection itself needs cover art
-- Each new track still needs its own audio and cover art
+If a matching beat is detected, a modal shows the original track details and similarity score.
 
----
+## Saving Your Upload
 
-## Tips for a Cleaner Upload Workflow
+When the required fields are complete, click to save your beat. For collection uploads:
+
+- The collection itself needs its own cover art
+- Each track still needs its own audio file
+
+## Upload Minutes
+
+Your plan determines how many minutes of audio you can upload. A notice at the top of the page shows your remaining minutes. If you run out, consider upgrading your plan for more upload capacity.
+
+## Tips
 
 <AccordionGroup>
-  <Accordion title="Prepare WAV exports first">
-    BeatPass currently blocks non-WAV files, so convert your final masters before you start uploading.
+  <Accordion title="Export as WAV before uploading" icon="file-audio">
+    Convert your final masters to WAV before uploading. All other formats are blocked.
   </Accordion>
-
-  <Accordion title="Pick genres early">
-    Genres affect discovery and also drive the AI preset artwork suggestions.
+  <Accordion title="Pick genres early" icon="music">
+    Genres affect discovery and drive the AI Cover Preset artwork suggestions.
   </Accordion>
-
-  <Accordion title="Do not skip cover art">
-    Cover art is required on new tracks and collections, so choose it before you try to save.
-  </Accordion>
-
-  <Accordion title="Watch the fingerprint state">
-    A beat cannot be confirmed unique until the duplicate check finishes. If BeatPass finds a duplicate, resolve that before expecting the save to succeed.
+  <Accordion title="Watch the fingerprint status" icon="fingerprint">
+    A beat cannot be confirmed unique until the duplicate check finishes. If a duplicate is found, resolve it before saving.
   </Accordion>
 </AccordionGroup>
-
----
 
 ## Related
 
 <CardGroup cols={2}>
-  <Card title="Creating Collections" icon="record-vinyl" href="/help/uploading/creating-albums">
+  <Card title="Creating Collections" icon="compact-disc" href="/help/uploading/creating-albums">
     Group multiple beats into a collection.
   </Card>
   <Card title="Audio Fingerprinting" icon="fingerprint" href="/help/uploading/audio-fingerprinting">
-    Understand duplicate checks and edit-time fingerprint statuses.
+    Understand duplicate detection and fingerprint statuses.
+  </Card>
+  <Card title="Sample-Safe Warranty" icon="shield" href="/help/uploading/sample-safe">
+    Set the sample clearance state shown to buyers.
+  </Card>
+  <Card title="Licensing Setup" icon="file-lines" href="/help/licensing-for-producers">
+    Configure licensing models for your beats.
   </Card>
 </CardGroup>
+
+<NeedHelp />

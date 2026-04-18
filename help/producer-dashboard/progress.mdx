@@ -1,63 +1,61 @@
 ---
 audience: help
-title: "Producer Progress | BeatPass"
+title: "Progress"
 sidebarTitle: "Progress"
-description: "Track your level, XP, refresh status, and earned or locked achievements on the Producer Dashboard Progress page."
-keywords: ["producer progress", "xp", "achievements", "producer level", "leveling"]
-"og:title": "Producer Progress - BeatPass"
-"og:description": "Track your XP, level, and achievements on BeatPass."
-"twitter:card": "summary_large_image"
+description: "Track your level, XP, refresh status, and achievements on the Progress page."
 ---
 
-The Progress page is the XP and achievements view of the Producer Dashboard. It shows your level, current XP, remaining XP to the next level, and the achievements you have already unlocked or still have left to earn.
+import ProducerOnly from "/snippets/warnings/producer-only.mdx";
+import NeedHelp from "/snippets/sections/need-help.mdx";
 
-<Info>
-  Open it at <a href="https://open.beatpass.ca/producer-dashboard/progress">https://open.beatpass.ca/producer-dashboard/progress</a>.
-</Info>
+The **Progress** page is the XP and achievements view of the Producer Dashboard. It shows your level, current XP, remaining XP to the next level, and the achievements you have unlocked or still have left to earn.
 
-## Main areas
+<ProducerOnly />
+
+## How to Get Here
+
+Click your **profile avatar** → **Backstage**, then select **Progress** in the sidebar.
+
+## Main Areas
 
 <CardGroup cols={3}>
   <Card title="Level summary" icon="bolt">
-    Current level title, current XP, progress ring, and XP to next level.
+    Current level title, XP, progress ring, and XP to next level.
   </Card>
   <Card title="XP actions" icon="sparkles">
-    The main ways BeatPass currently awards XP.
+    The main ways BeatPass awards XP.
   </Card>
   <Card title="Achievements" icon="award">
     Unlocked achievements, locked achievements, and total XP earned from them.
   </Card>
 </CardGroup>
 
-## Level summary
+## Level Summary
 
-The header is built around your current progress state.
+The header is built around your current progress state:
 
-### It includes
-
-- Your current level title
-- Your current level number
+- Your current level title and level number
 - Total XP earned so far
-- A progress ring toward the next level
+- A progress ring showing progress toward the next level
 - Remaining XP needed to level up
 
-## How XP is currently awarded
+## How XP Is Awarded
 
-The in-app **How XP Works** guide currently lists these base sources:
+Select the **How XP Works** button in the status bar to open the in-app guide. Current base sources:
 
-| Action | Current guide value |
+| Action | XP |
 | --- | --- |
-| **Upload Tracks** | `+100 XP` per track |
-| **Get Plays** | `+1 XP` per play |
-| **Complete Metadata** | `+50 XP` per complete track |
-| **Collaborate** | `+25 XP` per collaboration |
-| **Achievements** | `100-10,000 XP` depending on the achievement |
+| **Upload Tracks** | +100 XP per track |
+| **Get Plays** | +1 XP per play |
+| **Complete Metadata** | +50 XP per complete track |
+| **Collaborate** | +25 XP per collaboration |
+| **Achievements** | 100–10,000 XP depending on the achievement |
 
 <Note>
-  The guide also explains two important edge cases: collaborative play XP depends on collaborator profile completion, and some special achievements can count toward progress while awarding `0 XP`.
+  Collaborative play XP depends on collaborator profile completion. Some special achievements count toward progress while awarding 0 XP.
 </Note>
 
-## Refresh behavior
+## Refresh Behaviour
 
 The status bar above the XP actions includes:
 
@@ -65,13 +63,11 @@ The status bar above the XP actions includes:
 - The **How XP Works** button
 - A manual **Refresh** button
 
-Use **Refresh** when you want BeatPass to request newer progress data. Do not expect every new event to appear instantly without a refresh.
+Use **Refresh** when you want BeatPass to request newer progress data. New events may not appear instantly without a refresh.
 
 ## Achievements
 
-The lower section tracks both completed and remaining achievements.
-
-### Summary cards
+### Summary Cards
 
 | Card | What it tracks |
 | --- | --- |
@@ -79,34 +75,32 @@ The lower section tracks both completed and remaining achievements.
 | **Locked** | Achievements still available |
 | **Total XP Earned** | XP received from achievements |
 
-### Achievement list details
+### Achievement Details
 
-Entries can show:
+Each entry can show:
 
-- Achievement name
-- Locked or unlocked state
-- Rarity styling
+- Achievement name and description
+- Locked or unlocked state with rarity styling
 - XP reward
 - Unlocked time for earned achievements
-- Description or requirement text
 
 Locked achievements stay visible so you can see what still counts toward your next milestones.
 
 <Tip>
-  Use the [Tracks page](/help/producer-dashboard/tracks) and [Activity page](/help/producer-dashboard/activity) alongside this one. Those pages help you create the uploads, plays, metadata quality, and collaboration signals that turn into XP here.
+  Use the [My Beats](/help/producer-dashboard/tracks) and [Activity](/help/producer-dashboard/activity) pages alongside this one. Uploads, plays, metadata quality, and collaboration signals all turn into XP here.
 </Tip>
 
-## Common states
+## Common States
 
 <AccordionGroup>
   <Accordion title="No progress yet" icon="circle-info" defaultOpen>
-    New producers can see a nearly empty progress state until they upload tracks and start generating activity.
+    New producers see a nearly empty progress state until they upload tracks and start generating activity.
   </Accordion>
   <Accordion title="Achievements still locked" icon="lock">
     Locked achievements remain visible so you know what still counts toward future progress.
   </Accordion>
-  <Accordion title="Recent progress not visible yet" icon="arrows-rotate">
-    Use the page's **Refresh** button if new uploads or milestones have not appeared yet.
+  <Accordion title="Recent progress not visible" icon="arrows-rotate">
+    Use the **Refresh** button if new uploads or milestones have not appeared yet.
   </Accordion>
 </AccordionGroup>
 
@@ -116,13 +110,15 @@ Locked achievements stay visible so you can see what still counts toward your ne
   <Card title="Leaderboards" icon="trophy" href="/help/producer-dashboard/leaderboards">
     See how your points compare with other producers.
   </Card>
-  <Card title="Tracks" icon="music" href="/help/producer-dashboard/tracks">
-    Improve uploads, metadata completion, and collaborations.
+  <Card title="My Beats" icon="music" href="/help/producer-dashboard/tracks">
+    Improve uploads, metadata, and collaborations.
   </Card>
   <Card title="Activity" icon="chart-line" href="/help/producer-dashboard/activity">
-    Follow the activity that eventually feeds your progress.
+    Follow the activity that feeds your progress.
   </Card>
-  <Card title="Home" icon="house" href="/help/producer-dashboard/home">
+  <Card title="Dashboard Home" icon="house" href="/help/producer-dashboard/home">
     Return to the dashboard overview.
   </Card>
 </CardGroup>
+
+<NeedHelp />

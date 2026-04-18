@@ -8,13 +8,13 @@ Setting the right exclusive price matters because it controls both how your beat
 
 ## Current Price Fields
 
-For exclusive-capable beats, BeatPass currently lets you set:
+For exclusive-capable beats, BeatPass lets you set:
 
 - **Exclusive price**
 - **Currency**
 - **Exclusive contact email**
 
-The price appears anywhere BeatPass shows the beat as instantly purchasable.
+The price appears wherever BeatPass shows the beat as available for exclusive purchase.
 
 ## Current Supported Currencies
 
@@ -25,17 +25,13 @@ BeatPass currently supports these exclusive sale currencies:
 - **GBP**
 - **CAD**
 
-If you need a different currency, do not document it or promise it until the product actually supports it.
+## Platform Fee Behaviour
 
-## Platform Fee Behavior
+BeatPass adds the platform fee on top of your listed exclusive amount — the buyer pays the fee, not you. This means:
 
-BeatPass adds the platform fee to the buyer's total instead of subtracting it from your listed exclusive amount.
-
-| Your Listed Price | Buyer Pays |
-|-------------------|------------|
-| \$50 | \$59.00 |
-| \$100 | \$115.00 |
-| \$200 | \$227.00 |
+- You keep the full listed price.
+- The buyer's total at checkout includes your price plus the BeatPass platform fee.
+- The exact fee percentage and flat-rate component are set by the platform and may be shown at checkout.
 
 ## Pricing Factors to Consider
 
@@ -77,9 +73,9 @@ BeatPass requires a contact email on exclusive-capable tracks. Buyers may use it
 
 When someone completes an exclusive purchase:
 
-1. The buyer pays your listed price plus the BeatPass platform fee
-2. BeatPass records the sale in your producer finances
-3. Stripe handles settlement and payout to your connected account
+1. The buyer pays your listed price plus the BeatPass platform fee.
+2. BeatPass records the sale in your producer finances.
+3. Stripe handles settlement and payout to your connected account.
 
 <Info>
   You need Stripe Connect set up before BeatPass can pay you out for exclusive sales.
@@ -89,9 +85,9 @@ When someone completes an exclusive purchase:
 
 Once a beat is sold exclusively:
 
-- The beat is marked **Sold**
-- The exclusive terms are locked
-- BeatPass stops new standard licenses for that beat
+- The beat is marked **Sold**.
+- The exclusive terms are locked.
+- BeatPass stops new standard licenses for that beat.
 
 That means price changes only matter **before** the sale happens.
 
@@ -109,10 +105,6 @@ That means price changes only matter **before** the sale happens.
   <Accordion title="What if I want to talk to the buyer first?">
     Use the exclusive contact email so buyers can reach out before or instead of immediate purchase.
   </Accordion>
-
-  <Accordion title="Do I need to document Stripe's exact fees here?">
-    No. BeatPass docs should explain the platform fee and payout dependency without overpromising processor-specific fees that can vary.
-  </Accordion>
 </AccordionGroup>
 
 ## Related
@@ -125,3 +117,5 @@ That means price changes only matter **before** the sale happens.
     See what BeatPass does after a buyer completes the purchase.
   </Card>
 </CardGroup>
+
+<Snippet file="sections/need-help.mdx" />

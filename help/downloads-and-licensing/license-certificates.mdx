@@ -1,122 +1,113 @@
 ---
 audience: help
-title: "License Certificates | BeatPass"
+title: "License Certificates"
 sidebarTitle: "License Certificates"
-description: "Understand what a BeatPass license certificate shows, when you can access it, and how to use it."
-keywords: ["license certificate", "license terms", "certificate view", "usage rights", "verification link"]
-"og:title": "License Certificates - BeatPass"
-"og:description": "Understanding your BeatPass license certificate and what it proves."
-"twitter:card": "summary_large_image"
+description: "What a BeatPass license certificate shows, how to access it, and how to use it."
 ---
 
-A BeatPass license certificate is the document that records your right to use a track under a specific license. It combines track details, your license identity, the usage terms, and a public verification link.
+import NeedHelp from "/snippets/sections/need-help.mdx";
 
-<Info>
-  Certificates are easiest to access from <a href="https://open.beatpass.ca/library/licenses">https://open.beatpass.ca/library/licenses</a> after BeatPass has an active license ready for that track.
-</Info>
+A BeatPass license certificate records your right to use a track under a specific license. It combines track details, your license identity, the usage terms, and a public verification link.
 
-## How to access a certificate
+## How to Access a Certificate
 
 <Steps>
-  <Step title="Open Library -> Licenses">
-    Go to <a href="https://open.beatpass.ca/library/licenses">https://open.beatpass.ca/library/licenses</a>.
+  <Step title="Open Your library → Licenses">
+    Navigate to **Your library** → **Licenses**.
   </Step>
   <Step title="Find the license">
     Search by track, artist, licensee, or license ID.
   </Step>
   <Step title="Open the certificate">
-    Use the certificate action to open the printable license page for that specific license UUID.
+    Select **Download** on the license card to open the printable certificate page for that license UUID.
   </Step>
 </Steps>
 
-### Other places you may reach the certificate
+### Other Ways to Reach the Certificate
 
-- The post-download flow when the track fingerprint is completed
-- The track page through **Get License** when an active license is available
+- The **Download Complete** modal after a successful track download
 - A direct printable URL tied to the track and license UUID
 
 <Note>
-  If the fingerprint is not completed yet, the audio download can still succeed while the certificate remains unavailable for the moment.
+  Licenses are auto-generated when you download a track as a non-owner. You do not need to take a separate action to create the certificate.
 </Note>
 
-## What the certificate shows
+## What the Certificate Shows
 
-| Section | What you can expect |
+| Section | What it includes |
 | --- | --- |
-| **License identity** | Certificate UUID and current license type |
-| **Track information** | Track name, credited artists, and track-specific details |
-| **Audio Fingerprint Details** | Fingerprint status, fingerprint date, analyzed duration, and fingerprint hash when available |
-| **Licensed User Verification** | The licensed user and masked email |
-| **Usage terms** | Rights and restrictions for the specific license |
-| **Verification link** | Public URL for `verify-license/{uuid}` |
+| **License identity** | Certificate UUID and license type (Non-Exclusive or Exclusive) |
+| **Track information** | Track name, credited artists, duration, release date, genre, and track ID |
+| **Audio Fingerprint Details** | Fingerprint status, fingerprint date, analysed duration, and fingerprint hash when available |
+| **Licensed User Verification** | Licensed user name and masked email |
+| **Usage terms** | Rights and restrictions for the specific license type |
+| **Verification link** | Public URL at `/verify-license/{uuid}` |
 
-## Standard non-exclusive terms
-
-The current standard certificate language for non-exclusive licenses includes these key rules:
+## Standard Non-Exclusive Terms
 
 <AccordionGroup>
   <Accordion title="What you can do" icon="circle-check" defaultOpen>
-    Create one original musical work with the beat, distribute and monetize that song, perform it live up to 50 attendees per event, and promote it online while crediting the producer.
+    Create one original musical work with the beat, distribute and monetise that song, perform it live (up to 50 attendees per event), and promote it online while crediting the producer.
   </Accordion>
   <Accordion title="What you cannot do" icon="circle-xmark">
-    You cannot release the beat by itself, use it in film, TV, broadcast radio, commercials, or video games, perform it at larger paid events, claim ownership of the beat, resell or share the beat or stems, or register the beat in Content ID.
+    Release the beat by itself, use it in film/TV/broadcast radio/commercials/video games, perform at larger paid events, claim ownership of the beat, resell or share the beat or stems, or register the beat in Content ID.
   </Accordion>
   <Accordion title="Attribution" icon="signature">
-    The current standard wording requires credit in this format: **Produced by [Producer Name]**.
+    Standard non-exclusive terms require credit in this format: **Produced by [Producer Name]**.
   </Accordion>
 </AccordionGroup>
 
-## Exclusive certificate terms
+## Exclusive Certificate Terms
 
-Exclusive certificates are driven by the purchase terms for that track. Under the current default model, the certificate can include:
+Exclusive certificates reflect the purchase terms for that specific track. Under the current default model, the certificate can include:
 
 - Exclusive worldwide rights
 - Perpetual term
 - Content ID registration allowed
-- Producer publishing share `20%`
-- Licensee publishing share `80%`
-- Producer revenue royalty `3%`
+- Producer publishing share 20% / Licensee publishing share 80%
+- Producer revenue royalty 3%
 - Transfer disabled by default
 
 <Warning>
-  Always treat the generated exclusive certificate as the final source of truth for that purchase. It reflects the terms attached to the transaction, not a generic promise from older documentation.
+  Always treat the generated exclusive certificate as the final source of truth for that purchase. It reflects the terms attached to the transaction, not a generic promise.
 </Warning>
 
-## Printing and sharing
+## Printing and Sharing
 
-The certificate opens as a printable BeatPass page. In practice, users typically:
+The certificate opens as a printable BeatPass page. In practice, you can:
 
-- Open the printable certificate page
-- Print it or save it as a PDF from the browser
-- Share the verification URL when a platform, distributor, or rights team needs confirmation
+- Print it or save it as a PDF from your browser
+- Share the public verification URL when a platform, distributor, or rights team needs confirmation
 
-## Status and priority rules
+## Status and Priority Rules
 
 <AccordionGroup>
-  <Accordion title="Active vs revoked" icon="shield-check" defaultOpen>
+  <Accordion title="Active vs revoked" icon="shield-halved" defaultOpen>
     The certificate and the public verification page reflect whether the license is still valid. If a license is revoked, that status is visible during verification.
   </Accordion>
-  <Accordion title="Multiple licenses for one track" icon="copy">
-    If more than one license exists for the same track, BeatPass prioritizes the active exclusive license over a standard one when choosing what to show.
+  <Accordion title="Exclusive vs non-exclusive priority" icon="crown">
+    If both an exclusive and a non-exclusive license exist for the same track, BeatPass prioritises the exclusive license. Exclusive licenses are colour-coded blue; non-exclusive licenses are green.
   </Accordion>
   <Accordion title="Producer view" icon="user">
-    If you own tracks, **Library** -> **Licenses** can also show licenses granted to other users for your catalog.
+    If you own tracks, **Your library** → **Licenses** also shows licenses granted to other users for your catalog.
   </Accordion>
 </AccordionGroup>
 
 ## Related
 
 <CardGroup cols={2}>
-  <Card title="Verifying Licenses" icon="shield-check" href="/help/downloads-and-licensing/verifying-licenses">
-    Learn what the public verification page shows.
+  <Card title="Verifying Licenses" icon="shield-halved" href="/help/downloads-and-licensing/verifying-licenses">
+    What the public verification page shows.
   </Card>
   <Card title="BeatPassID" icon="fingerprint" href="/help/downloads-and-licensing/beatpass-id">
-    Understand the fingerprint details shown on the certificate.
+    The fingerprint details shown on the certificate.
   </Card>
   <Card title="How Downloads Work" icon="download" href="/help/downloads-and-licensing/how-downloads-work">
-    See how certificate availability fits into the download flow.
+    How license generation fits into the download flow.
   </Card>
   <Card title="Exclusive Licenses" icon="crown" href="/help/downloads-and-licensing/exclusive-licenses">
-    Learn how exclusive terms are created and used.
+    How exclusive terms are created and used.
   </Card>
 </CardGroup>
+
+<NeedHelp />

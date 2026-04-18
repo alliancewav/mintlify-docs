@@ -1,21 +1,22 @@
 ---
 audience: help
-title: "Activity Page | Producer Dashboard"
+title: "Activity"
 sidebarTitle: "Activity"
-description: "Use the Activity page to review performance overview cards, yearly upload activity, and download engagement for your artist."
-keywords: ["producer activity", "upload activity", "downloads analytics", "contribution graph", "engagement"]
-"og:title": "Activity Page - Producer Dashboard | BeatPass"
-"og:description": "Track your upload activity, downloads, and producer performance."
-"twitter:card": "summary_large_image"
+description: "Review performance overview cards, yearly upload activity, and download engagement for your artist."
 ---
 
-The Activity page shows how your artist profile is moving over time. It combines long-range performance cards, a current-year upload activity graph, and a download activity panel with time filters.
+import ProducerOnly from "/snippets/warnings/producer-only.mdx";
+import NeedHelp from "/snippets/sections/need-help.mdx";
 
-<Info>
-  Open it at <a href="https://open.beatpass.ca/producer-dashboard/activity">https://open.beatpass.ca/producer-dashboard/activity</a>.
-</Info>
+The **Activity** page shows how your artist profile is performing over time. It combines long-range performance cards, a current-year upload graph, and a download panel with time filters.
 
-## Main sections
+<ProducerOnly />
+
+## How to Get Here
+
+Click your **profile avatar** → **Backstage**, then select **Activity** in the sidebar.
+
+## Main Sections
 
 <CardGroup cols={3}>
   <Card title="Performance Overview" icon="gauge-high">
@@ -25,13 +26,13 @@ The Activity page shows how your artist profile is moving over time. It combines
     A current-year day-by-day upload graph with optional X-Ray mode.
   </Card>
   <Card title="Downloads & Engagement" icon="download">
-    Period-based download totals, recent activity, and license shortcuts when available.
+    Period-based download totals, recent activity, and license shortcuts.
   </Card>
 </CardGroup>
 
 ## Performance Overview
 
-The first section is labeled **All Time** in the app, so it is built for long-term trend reading rather than short campaign reporting.
+The first section is labelled **All Time** in the app, so it covers long-term trends rather than short campaign windows.
 
 | Card | What it shows |
 | --- | --- |
@@ -42,39 +43,28 @@ The first section is labeled **All Time** in the app, so it is built for long-te
 
 ## Activity Overview
 
-The middle graph is a year view of your upload activity.
+The middle section is a year view of your upload activity.
 
-### What the graph does
+### How the Graph Works
 
 - Each square represents one day in the current year
-- Darker activity means more uploads on that day
-- Hovering a square on desktop shows a tooltip
-- Selecting a day opens a details panel for that date
+- Darker squares mean more uploads on that day
+- Hover a square on desktop to see a tooltip
+- Select a day to open a details panel with exact upload count and up to five tracks from that date
 
-### X-Ray mode
+### X-Ray Mode
 
-The page includes an **X-Ray** toggle for comparison context.
+Toggle **X-Ray** to add comparison context:
 
-When X-Ray is on:
-
-- Your upload activity still stays highlighted
-- Broader platform activity can appear behind days where you had no uploads
-- The info button explains the color logic used in the graph
-
-### Day details panel
-
-When you select a day with uploads, BeatPass can show:
-
-- The exact date
-- Upload count for that day
-- Up to five tracks from that date
-- Approximate upload times when available
+- Your upload activity stays highlighted
+- Broader platform activity appears behind days where you had no uploads
+- The info button explains the colour logic used in the graph
 
 ## Downloads & Engagement
 
 The bottom section focuses on download activity around your catalog.
 
-### Summary cards
+### Summary Cards
 
 | Card | What it tracks |
 | --- | --- |
@@ -83,34 +73,24 @@ The bottom section focuses on download activity around your catalog.
 | **This Week** | Current weekly download count |
 | **Top Track** | Best-performing track for the selected period |
 
-### Period filters
+### Period Filters
 
-You can switch between:
+Switch between **7D**, **30D**, **90D**, and **All** to adjust the time window.
 
-- `7D`
-- `30D`
-- `90D`
-- `All`
+### Recent Download List
 
-### Recent download list
-
-Rows in the recent activity list can include:
+Each row can include:
 
 - The downloader profile
-- The downloaded track
-- A relative time such as how long ago the event happened
-- A direct track link
-- A license action when BeatPass can open a certificate for that download
+- The downloaded track with a direct link
+- A relative time showing how long ago the download happened
+- A license action when a certificate can be opened for that download
 
-<Tip>
-  Pair this page with the **Licenses** area in the app at <a href="https://open.beatpass.ca/library/licenses">https://open.beatpass.ca/library/licenses</a> when you want to cross-check download activity against issued certificates.
-</Tip>
-
-## Empty and error states
+## Empty and Error States
 
 <AccordionGroup>
-  <Accordion title="No catalog or low activity yet" icon="circle-info" defaultOpen>
-    Cards can stay near zero until your artist has uploaded music and started collecting plays or downloads.
+  <Accordion title="No catalog or low activity" icon="circle-info" defaultOpen>
+    Cards stay near zero until your artist has uploaded music and started collecting plays or downloads.
   </Accordion>
   <Accordion title="No downloads in the selected period" icon="download">
     The download list stays empty until activity exists for the selected filter.
@@ -123,7 +103,7 @@ Rows in the recent activity list can include:
 ## Related
 
 <CardGroup cols={2}>
-  <Card title="Tracks" icon="music" href="/help/producer-dashboard/tracks">
+  <Card title="My Beats" icon="music" href="/help/producer-dashboard/tracks">
     Manage the catalog behind the activity shown here.
   </Card>
   <Card title="Leaderboards" icon="trophy" href="/help/producer-dashboard/leaderboards">
@@ -136,3 +116,5 @@ Rows in the recent activity list can include:
     Open deeper analytics for a specific artist, track, or album.
   </Card>
 </CardGroup>
+
+<NeedHelp />

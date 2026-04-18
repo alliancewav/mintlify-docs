@@ -1,13 +1,11 @@
 ---
 audience: help
-title: "Downloads & Licensing FAQ | BeatPass"
+title: "Downloads & Licensing FAQ"
 sidebarTitle: "FAQ"
 description: "Frequently asked questions about BeatPass downloads, certificates, and license use."
-keywords: ["FAQ", "downloads", "licensing", "certificate", "exclusive", "non-exclusive"]
-"og:title": "Downloads & Licensing FAQ - BeatPass"
-"og:description": "Common questions about BeatPass downloads and licensing."
-"twitter:card": "summary_large_image"
 ---
+
+import NeedHelp from "/snippets/sections/need-help.mdx";
 
 ## Access and downloads
 
@@ -22,21 +20,21 @@ keywords: ["FAQ", "downloads", "licensing", "certificate", "exclusive", "non-exc
     The most common reasons are: the track was sold exclusively, the track is exclusive-only, or your subscription is overdue.
   </Accordion>
   <Accordion title="What file do I get from a standard download?" icon="file-audio">
-    The current standard flow downloads the track file itself. Certificate access happens separately through the track page or **Library** -> **Licenses**.
+    The current standard flow downloads the track file itself. Your license certificate is generated automatically at the same time and can be found on the track page or in **Your library** → **Licenses**.
   </Accordion>
 </AccordionGroup>
 
 ## Certificates and verification
 
 <AccordionGroup>
-  <Accordion title="Where do I find my certificates?" icon="file-certificate" defaultOpen>
-    Go to <a href="https://open.beatpass.ca/library/licenses">https://open.beatpass.ca/library/licenses</a>. You can search by track, artist, licensee, or license ID.
+  <Accordion title="Where do I find my certificates?" icon="file-lines" defaultOpen>
+    Go to **Your library** → **Licenses**. You can search by track, artist, licensee, or license ID.
   </Accordion>
-  <Accordion title="Why did the track download but the certificate is missing?" icon="fingerprint">
-    Certificate access depends on BeatPass having an active license ready and, for the current **Get License** flow, a completed fingerprint. That is why the download can finish before the certificate appears.
+  <Accordion title="Why can't I find my certificate after downloading?" icon="fingerprint">
+    Certificates are generated automatically when you download a track. If yours does not appear right away, refresh the page and check **Your library** → **Licenses**. If it is still missing, contact support at contact@beatpass.ca.
   </Accordion>
-  <Accordion title="Can I verify whether a certificate is real?" icon="shield-check">
-    Yes. Every certificate includes a public verification URL in the format `https://open.beatpass.ca/verify-license/{uuid}`.
+  <Accordion title="Can I verify whether a certificate is real?" icon="shield-halved">
+    Yes. Every certificate includes a public verification link that anyone can use to confirm it is valid.
   </Accordion>
   <Accordion title="What does the public verification page show?" icon="circle-info">
     It shows whether the certificate is valid, along with the certificate ID, track details, license type, masked licensed user, issue date, current status, and verification count.
@@ -64,12 +62,12 @@ keywords: ["FAQ", "downloads", "licensing", "certificate", "exclusive", "non-exc
 
 <AccordionGroup>
   <Accordion title="What happens when I buy exclusive?" icon="crown" defaultOpen>
-    BeatPass processes the Stripe payment, generates the exclusive license, marks the track as sold, attempts an immediate track download, and stores the license in **Library** -> **Licenses**.
+    BeatPass processes the Stripe payment, generates the exclusive license, marks the track as sold, attempts an immediate track download, and stores the license in **Your library** → **Licenses**.
   </Accordion>
   <Accordion title="Can I still buy exclusive if other users previously downloaded the beat?" icon="users">
     Yes. Existing older licenses remain valid, but no new standard licenses are issued after the exclusive sale.
   </Accordion>
-  <Accordion title="What is included with exclusive?" icon="file-certificate">
+  <Accordion title="What is included with exclusive?" icon="file-lines">
     The exact deliverables come from the license preview and the final certificate for that track. Do not rely on older generic promises about automatic file bundles.
   </Accordion>
   <Accordion title="Can I transfer an exclusive license to someone else?" icon="arrows-left-right">
@@ -81,12 +79,14 @@ keywords: ["FAQ", "downloads", "licensing", "certificate", "exclusive", "non-exc
 
 <AccordionGroup>
   <Accordion title="Can producers see who licensed or downloaded their tracks?" icon="music" defaultOpen>
-    Producers can review license and download-related activity through their tools, including granted licenses shown in **Library** -> **Licenses** for owned tracks.
+    Producers can review license and download-related activity through their tools, including granted licenses shown in **Your library** → **Licenses** for owned tracks.
   </Accordion>
   <Accordion title="Does the public verification page expose my full email?" icon="user-secret">
     No. The public page shows a masked email only.
   </Accordion>
 </AccordionGroup>
+
+<NeedHelp />
 
 ## Related
 
@@ -94,7 +94,7 @@ keywords: ["FAQ", "downloads", "licensing", "certificate", "exclusive", "non-exc
   <Card title="How Downloads Work" icon="download" href="/help/downloads-and-licensing/how-downloads-work">
     Current download and access behavior.
   </Card>
-  <Card title="License Certificates" icon="file-certificate" href="/help/downloads-and-licensing/license-certificates">
+  <Card title="License Certificates" icon="file-lines" href="/help/downloads-and-licensing/license-certificates">
     Understand the certificate and how to open it.
   </Card>
   <Card title="Exclusive Licenses" icon="crown" href="/help/downloads-and-licensing/exclusive-licenses">
