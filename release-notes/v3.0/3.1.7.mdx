@@ -1,0 +1,145 @@
+---
+title: "Upload Flow Refresh, Collection Cards & Carousel Fixes"
+date: "2026-04-21"
+severity: "minor"
+version: "3.1.7"
+audience: "All"
+tags: ["improvement", "ui/ux", "bugfix", "producer"]
+components: ["upload", "producer-dashboard", "collections", "track-page", "channels", "radio", "documentation"]
+status: "published"
+related: ["3.1.6"]
+---
+
+import ReleaseFeedback from "/snippets/sections/release-feedback.mdx";
+
+# Upload Flow Refresh, Collection Cards & Carousel Fixes
+
+## Summary
+
+This release focuses on a polished end-to-end beat upload experience and a platform-wide visual refresh for collections (beatpacks). The drag-and-drop step, post-upload confirmation page, collection cards, and the "part of a collection" banner on track pages have all been rebuilt to share a single visual language. Desktop carousels no longer flicker at their boundaries, and **171** help articles have been refreshed.
+
+---
+
+## What's New
+
+### Refreshed Beat Upload Flow
+
+- **Redesigned drop zone** — The upload entry point is now a single accessible drop zone using the same card shell as the rest of backstage. Drag over the zone and you get a scoped ring + "Drop files to upload" state instead of a full-page overlay.
+- **Clearer WAV-only guard** — The file picker now restricts selection to `.wav` directly, and the WAV-only rule is explained inline with the drop zone instead of in a separate banner. A minutes-remaining indicator sits beside the notice when applicable.
+- **Keyboard and screen-reader friendly** — The drop zone is a real button. You can focus it with **Tab** and start an upload with **Enter** or **Space**.
+- **Create collection toggle** — The "Create collection" switch sits directly under the drop zone with a short description so you know what will happen when you drop multiple files.
+
+### At-a-Glance Post-Upload Confirmation
+
+The confirmation page shown after a track or collection is published is now a proper landing page instead of a small card:
+
+- **Published hero** — A large banner with your cover art, a **Track published** / **Collection published** badge, and metadata pills for genre, BPM, key, duration, or track count.
+- **Your catalog stats** — A "Your catalog" card showing your current **Tracks**, **Total plays**, and **Followers**, each linking straight to the matching Producer Dashboard page. Numbers are invalidated on upload so they reflect the beat you just published.
+- **Producer Dashboard shortcut** — A new **Open dashboard** action sits beside **View track**, **Refine details**, and **Upload another**, so you can jump straight into managing your catalog.
+- **Better sharing** — Copy-link now has a clipboard fallback for older browsers, the native **Share…** sheet is used on supported devices, and Facebook / Twitter share buttons use consistent outline styling.
+
+### Refreshed Collection (Beatpack) Cards
+
+- **Shared Collection card** — Album / beatpack cards now use the same "Collection Showcase" visual language everywhere they appear — channels, track page carousels, library, search, and album recommendations.
+- **Dynamic color tinting** — Cards pick up a subtle tint from the cover art in both light and dark themes, with a neutral fallback if extraction fails or CORS blocks it.
+- **Release year label** — Cards show ":year Collection" when a valid release date is available and fall back to **Collection** otherwise (no more "NaN Collection" on malformed dates).
+- **Verified badge next to the primary producer** — Verified badges now appear directly on the card subtitle.
+- **Fluid layout** — Cards are fluid by default and only pin to fixed widths inside the Discover-page horizontal scroller, so they look right in grids, carousels, and responsive pages alike.
+
+### Track Page "Part of a Collection" Banner Fix
+
+- **Consistent banner style** — The banner shown at the bottom of a track page when that beat belongs to a collection now uses the same scale + blur cover backdrop and gradient bleed as the track, album, and post-upload heroes. It no longer stands out as an oversaturated primary-colored block.
+- **Correct grammar on single-track collections** — "Discover all 1 premium beats in this collection" is now "It's the only beat in this collection" on collections with a single track.
+
+### Carousel Scroll Fix (Desktop)
+
+- **Fixed stuck scroll arrows** — The "Discover more beats from this producer" and album-recommendations carousels on desktop previously left their previous-arrow disabled and miscounted boundaries after the loading skeleton unmounted. The scroll listener now re-attaches once the real carousel mounts, so both arrows update correctly as you scroll.
+- **Nested carousels cleaned up** — Nested content carousels (inside Discover / channel pages) drop their panel shell so cards sit directly on the page background and no longer look like "panel on panel". Personalized channels still keep their shimmering border.
+- **Genre headers** — Removed the redundant genre pill above genre headings since the genre name already appears in the heading itself.
+
+### Radio Page Layout Unified
+
+- **One responsive layout** — The radio page no longer renders two separate desktop and mobile layouts. The new single responsive layout uses the same cover, badge, and metadata-pill tokens as the track, album, and post-upload heroes.
+- **Consistent info card** — The "What is Radio?" explainer now matches the shared card shell used elsewhere on the platform.
+
+### Documentation Refresh (171 Articles)
+
+- **Full help audit** — All `241` help articles have been verified against the live UI, source code, routes, and database state. `171` articles were flagged for rewrites or updates; this release ships the first wave of refreshed content across Getting Started, Producer Dashboard, Uploading, Library, Downloads & Licensing, Notifications, and Billing.
+- **Plain-language UI labels** — Raw routes like `/library/songs` and `/notifications/settings` have been replaced with the actual UI labels and click paths users see on screen.
+
+---
+
+## Bug Fixes
+
+- **Track title profanity filter** — Flagging now uses word boundaries, so track names containing innocuous substrings (for example, a clean word that happens to include a banned fragment) are no longer falsely rejected.
+- **Producer program re-approval** — Re-approving a backstage request no longer fails when the linked artist relation is lazy-loaded or stale; the service now falls back to a direct artist lookup.
+- **Artist verification on creation** — When a `User` is linked to a new `Artist` record, the verified flag is now persisted up front instead of being dropped.
+- **Post-upload callback routing** — The post-upload callback now routes by model type instead of checking for a `duration` field, so tracks with missing duration metadata still register correctly.
+
+---
+
+## Why It Matters
+
+- **Faster, calmer uploads** — The new drop zone and post-upload page keep you in one visual language from start to finish, with stats and shortcuts that get you back to running your catalog.
+- **Consistent collection presentation** — Beatpacks look the same on Discover, track pages, library, and search, which makes them easier to recognize as a unit rather than a group of unrelated cards.
+- **Less visual flicker** — Desktop carousel arrows behave correctly, nested carousels don't stack panel-on-panel, and the collection banner on track pages no longer overpowers the rest of the page.
+- **Docs that match the product** — Help articles now describe what you actually see on screen instead of raw URLs or stale terminology.
+
+---
+
+## How to Use
+
+<Steps>
+  <Step title="Upload a beat">
+    Open the **Upload** entry point from your Producer Dashboard, drag one or more WAV files onto the drop zone (or click **Choose files to upload**), and toggle **Create collection** if you want a beatpack generated automatically.
+  </Step>
+
+  <Step title="Review the confirmation page">
+    After publishing, the confirmation page shows your cover art, a **Track published** / **Collection published** badge, and quick actions: **View track**, **Refine details**, **Upload another**, and **Open dashboard**.
+  </Step>
+
+  <Step title="Share your upload">
+    Use the **Share your upload** card to copy the public link, open the native share sheet (mobile and supported browsers), or share directly to Facebook or Twitter.
+  </Step>
+
+  <Step title="Jump back to your catalog">
+    Click any **Tracks**, **Total plays**, or **Followers** tile in the **Your catalog** card to land on the matching Producer Dashboard page.
+  </Step>
+</Steps>
+
+---
+
+## Impact
+
+<Note>
+  This update was applied automatically. No migration is required.
+</Note>
+
+| Aspect | Status |
+|--------|--------|
+| **User Data** | No changes |
+| **Existing Uploads** | Unchanged |
+| **Existing Collections** | Unchanged — cards re-render in the new style automatically |
+| **Subscriptions & Payouts** | Unaffected |
+| **Help Articles** | 171 articles refreshed; verified against live UI, code, and database |
+
+---
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Uploading a Beat" icon="cloud-arrow-up" href="/help/uploading">
+    Learn how WAV uploads, collections, and audio recon work
+  </Card>
+  <Card title="Producer Dashboard" icon="chart-line" href="/help/producer-dashboard">
+    Track catalog stats, plays, and follower growth
+  </Card>
+  <Card title="Previous Release" icon="arrow-left" href="/release-notes/v3.0/3.1.6">
+    v3.1.6 — Exclusive Licensing Clarity & Granular Rights
+  </Card>
+  <Card title="Version 3.0 Release Index" icon="rocket" href="/release-notes/v3.0">
+    Browse all v3.0.x and v3.1.x releases
+  </Card>
+</CardGroup>
+
+<ReleaseFeedback />
