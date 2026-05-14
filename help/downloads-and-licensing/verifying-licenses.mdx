@@ -15,6 +15,10 @@ BeatPass includes a public verification page for license certificates. Anyone wi
   Verification is public. The person checking the certificate does not need to log in.
 </Info>
 
+<Note>
+  Verification confirms BeatPass's certificate record and current status. It does not guarantee that no third-party claim, AI-origin dispute, or rights-verification issue can ever arise.
+</Note>
+
 ## Verification link format
 
 Every certificate points to a URL in this format:
@@ -63,6 +67,8 @@ The current public verification page shows the certificate status plus the core 
 - It does not reveal the full email address of the license holder
 - It does not require the viewer to open the user account
 - It does not replace reading the actual certificate terms when rights questions get specific
+- It does not grant AI training, dataset, model-development, sample-pack, or competing-library rights
+- It does not certify that a beat is AI-free or immune from future rights review
 
 ## Common use cases
 
@@ -86,6 +92,9 @@ The current public verification page shows the certificate status plus the core 
   </Accordion>
   <Accordion title="The page says the license is revoked" icon="ban">
     The certificate exists, but it is no longer valid. The public page still helps confirm that the UUID is real, while the status badge tells you the license is not active.
+  </Accordion>
+  <Accordion title="The page shows review or rights issue status" icon="triangle-exclamation">
+    A review, dispute, or rights-issue status means BeatPass has identified a license, rights, compliance, AI-origin, or verification issue that may require support. It does not automatically mean the buyer acted wrongly.
   </Accordion>
   <Accordion title="I need the full legal terms too" icon="file-lines">
     The verification page confirms status. The certificate itself remains the right place to read the full terms and restrictions.

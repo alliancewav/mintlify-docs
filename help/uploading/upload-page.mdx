@@ -8,7 +8,7 @@ description: "A step-by-step guide to uploading tracks on BeatPass using the upl
 import ProducerOnly from "/snippets/warnings/producer-only.mdx";
 import NeedHelp from "/snippets/sections/need-help.mdx";
 
-The upload page is where producers add new beats and build collections. This guide covers the upload flow, form fields, validation behavior, and tips for a smooth upload experience.
+The upload page is where producers add new beats and build collections. This guide covers the upload flow, form fields, validation behavior, AI policy requirements, and tips for a smooth upload experience.
 
 <ProducerOnly />
 
@@ -89,6 +89,22 @@ If you choose **Needs Clearance**, an additional notes field appears and buyers 
 
 This section also shows the audio fingerprinting status as the duplicate check runs.
 
+### AI Use & Rights Verification
+
+BeatPass policy requires every beat to be human-made and not fully AI-generated. AI can assist production, but it cannot replace the producer's role in making the beat.
+
+Dedicated AI self-evaluation and attestation fields are planned as a separate product update. Until those fields are available in the upload form, producers should:
+
+- avoid uploading fully AI-generated beats
+- keep records for any AI tool, model, service, plug-in, or generated element used
+- verify that the tool and account plan allow commercial use, sale, distribution, licensing, and BeatPass consumer use
+- keep source notes, receipts, screenshots, tool terms, plan records, generation records, project files, stems, and written permissions when relevant
+- be ready to provide Proof of Rights if BeatPass requests it
+
+<Warning>
+  Sample-Safe status does not replace AI disclosure or AI rights verification. A beat marked **Needs Clearance** can still violate the AI policy if the AI source or commercial-use rights cannot be verified.
+</Warning>
+
 ### Licensing Options
 
 This section is **collapsed by default** and automatically set to **Standard Licensing** (non-exclusive). You don't need to open it to save your beat.
@@ -161,6 +177,12 @@ Your plan determines how many minutes of audio you can upload. A notice at the t
   </Card>
   <Card title="Sample-Safe Warranty" icon="shield" href="/help/uploading/sample-safe">
     Set the sample clearance state shown to buyers.
+  </Card>
+  <Card title="AI Audio Policy" icon="sparkles" href="/help/legal/ai-audio-human-made-content">
+    Understand AI-assisted audio and human-made beat requirements.
+  </Card>
+  <Card title="Producer Upload Agreement" icon="file-contract" href="/help/legal/producer-upload-seller-agreement">
+    Review the legal obligations for uploads, rights, and catalog listings.
   </Card>
   <Card title="Licensing Setup" icon="file-lines" href="/help/licensing-for-producers">
     Configure licensing models for your beats.

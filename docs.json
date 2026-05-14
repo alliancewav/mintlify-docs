@@ -532,7 +532,26 @@
               "help/legal/terms-of-service",
               "help/legal/privacy-policy",
               "help/legal/content-guidelines",
+              "help/legal/ai-audio-human-made-content",
               "help/legal/copyright-and-dmca",
+              {
+                "group": "Marketplace Terms",
+                "pages": [
+                  "help/legal/producer-upload-seller-agreement",
+                  "help/legal/exclusive-license-agreement",
+                  "help/legal/custom-beat-request-terms",
+                  "help/legal/subscription-plan-terms"
+                ]
+              },
+              {
+                "group": "Privacy & Trust",
+                "pages": [
+                  "help/legal/cookie-tracking-policy",
+                  "help/legal/marketing-communications-consent",
+                  "help/legal/privacy-governance",
+                  "help/legal/non-dmca-rights-trust-report-policy"
+                ]
+              },
               {
                 "group": "License Terms",
                 "pages": [
@@ -585,6 +604,12 @@
             "icon": "rocket",
             "pages": [
               "release-notes/v3.0/index",
+              {
+                "group": "May 2026",
+                "pages": [
+                  "release-notes/v3.0/3.1.8"
+                ]
+              },
               {
                 "group": "March 2026",
                 "pages": [

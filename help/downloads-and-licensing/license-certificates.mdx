@@ -9,6 +9,8 @@ import NeedHelp from "/snippets/sections/need-help.mdx";
 
 A BeatPass license certificate records your right to use a track under a specific license. It combines track details, your license identity, the usage terms, and a public verification link.
 
+BeatPass issues certificates based on producer warranties, disclosures, and Proof of Rights. A certificate documents the license record, but it does not guarantee that no third-party claim, AI-origin dispute, or rights-verification issue can ever arise.
+
 ## How to Access a Certificate
 
 <Steps>
@@ -42,6 +44,14 @@ A BeatPass license certificate records your right to use a track under a specifi
 | **Licensed User Verification** | Licensed user name and masked email |
 | **Usage terms** | Rights and restrictions for the specific license type |
 | **Verification link** | Public URL at `/verify-license/{uuid}` |
+
+## AI and Rights-Issue Context
+
+BeatPass certificates do not allow AI training, dataset creation, model development, sample-pack creation, or competing library use unless separate written permission is granted by all required parties.
+
+If BeatPass later removes, disables, or materially restricts a beat because of a verified rights issue, AI misrepresentation, failure of Proof of Rights, breach of the AI Audio Policy, or another producer-side licensing problem, BeatPass may provide support, replacement credit, account credit, refund review, documentation support, certificate-status context, or another commercially reasonable remedy under the applicable policies.
+
+BeatPass cannot grant rights the producer did not own or control.
 
 ## Standard Non-Exclusive Terms
 
@@ -84,6 +94,9 @@ The certificate opens as a printable BeatPass page. In practice, you can:
 <AccordionGroup>
   <Accordion title="Active vs revoked" icon="shield-halved" defaultOpen>
     The certificate and the public verification page reflect whether the license is still valid. If a license is revoked, that status is visible during verification.
+  </Accordion>
+  <Accordion title="Rights issue or review status" icon="triangle-exclamation">
+    Future certificate states may include under review, disputed, rights issue notice, or revoked for licensee breach. A review or rights-issue status does not automatically mean the buyer acted wrongly; it means BeatPass has identified a license, rights, compliance, or verification issue that may require support.
   </Accordion>
   <Accordion title="Exclusive vs non-exclusive priority" icon="crown">
     If both an exclusive and a non-exclusive license exist for the same track, BeatPass prioritises the exclusive license. Exclusive licenses are colour-coded blue; non-exclusive licenses are green.
